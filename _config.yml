@@ -33,9 +33,9 @@ comments :
 
 # Internal nav
 nav:
-  - GALLERY: "https://kjawo.github.io/photorama/gallery/"  
-  - JOURNAL: "https://kjawo.github.io/photorama/journal/"
-  - ABOUT: "https://kjawo.github.io/photorama/about/"
+  - GALLERY: "https://kjawo.github.io/gallery/"  
+  # - JOURNAL: "https://kjawo.github.io/journal/"
+  - ABOUT: "https://kjawo.github.io/about/"
 
 # All translation keys
 translations:
