@@ -1,13 +1,13 @@
 # Site settings
 title: Konrad Jaworski - photography
-email: ""
+email: "konjaworski@gmail.com"
 description: "Photo Journal"
 url: "https://kjawo.github.io"
 baseurl: ""
 facebook_username: ""
 twitter_username: ""
-instagram_username: ""
-github_username:  ""
+instagram_username: "kjawo"
+github_username:  "Kjawo"
 deviantart_username: ""
 flickr_username: ""
 discus_shortname: ""
@@ -33,7 +33,7 @@ comments :
 
 # Internal nav
 nav:
-  - GALLERY: "https://kjawo.github.io/gallery/"  
+  - GALLERY: "https://kjawo.github.io/gallery/gallery01/"  
   # - JOURNAL: "https://kjawo.github.io/journal/"
   - ABOUT: "https://kjawo.github.io/about/"
 
