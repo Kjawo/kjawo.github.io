@@ -34,8 +34,9 @@ comments :
 # Internal nav
 nav:
   - GALLERY: "https://kjawo.github.io/gallery/gallery01/"  
+  # - GALLERY: "http://127.0.0.1:4000/gallery/gallery01/"  
   - Architecture: "https://kjawo.github.io/gallery/gallery02/"  
-  # - Architecture: "http://127.0.0.1:4000//gallery/gallery02/"  
+  # - Architecture: "http://127.0.0.1:4000/gallery/gallery02/"  
   # - JOURNAL: "https://kjawo.github.io/journal/"
   - ABOUT: "https://kjawo.github.io/about/"
 
