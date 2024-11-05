@@ -33,6 +33,7 @@ comments :
 
 # Internal nav
 nav:
+  - PORTFOLIO: "https://photos.app.goo.gl/wz1RvDjhbJG3K62r8"
   - GALLERY: "https://kjawo.github.io/gallery/gallery01/"  
   # - GALLERY: "http://127.0.0.1:4000/gallery/gallery01/"  
   - Architecture: "https://kjawo.github.io/gallery/gallery02/"  
