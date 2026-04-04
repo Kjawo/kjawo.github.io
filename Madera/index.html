@@ -9,6 +9,9 @@ permalink: /Madera/
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strategiczny Raport Ekspedycyjny: Madera 2026 (v3.0)</title>
+    <meta name="description" content="Dashboard ekspedycyjny Echium 2026 — 7-dniowy plan trekkingowy na Maderę z analizą obciążeń, mapą i logistyką.">
+    <meta property="og:title" content="Echium & Altituda 2026 — Madera">
+    <meta property="og:description" content="Siedmiodniowy plan ekspedycyjny na Maderę dla zaawansowanej pary.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link
@@ -57,17 +60,35 @@ permalink: /Madera/
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: linear-gradient(to right, #4c1d95, #db2777); transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .sticky-nav { transition: background-color 0.3s ease, box-shadow 0.3s ease; }
+        .sticky-nav.scrolled { background-color: rgba(15,23,42,0.97); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        #backToTop { transition: opacity 0.3s ease; }
+        @media (max-width: 768px) { .hide-mobile { display: none; } }
     </style>
 </head>
 
 <body class="antialiased scroll-smooth">
 
-    <!-- Chosen Palette: Energetic & Playful (Deep Purple #4c1d95, Magenta #db2777, Emerald #059669, Amber #d97706, Slate #0f172a) -->
-    <!-- Application Structure Plan: Zastosowano układ liniowy z sekcjami modułowymi, naśladujący naturalny przepływ raportu analitycznego, ale wzbogacony o interaktywny "dashboard" w środku. Taka struktura ułatwia szybkie przyswojenie założeń strategicznych, następnie analizę obciążeń przez wizualizacje, aż po szczegółowe zagłębienie się w harmonogram dzień po dniu. Karty poszczególnych dni pełnią rolę "drill-down" dla ogólnej tabeli logistycznej. -->
-    <!-- Visualization & Content Choices: 1. Złożony wykres słupkowo-liniowy (Chart.js) -> Cel: Porównanie i Zmiana -> Pokazuje korelację dystansu i przewyższeń z upływem dni, co idealnie wizualizuje metodologię 1-2-1. 2. Wykres pierścieniowy (Chart.js) -> Cel: Proporcje -> Obrazuje procentowy rozkład intensywności cardio. Zastosowano Canvas bez SVG, wspierając techniczne wymogi projektu. -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <!-- Sticky Nav -->
+    <nav id="mainNav" class="sticky-nav fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
+            <span class="text-white font-bold text-sm tracking-wider">🏔️ Echium 2026</span>
+            <div class="flex items-center gap-4 sm:gap-6 text-xs sm:text-sm text-slate-300">
+                <a href="#analityka" class="nav-link hover:text-white transition-colors hide-mobile">Analityka</a>
+                <a href="#harmonogram" class="nav-link hover:text-white transition-colors hide-mobile">Harmonogram</a>
+                <a href="#dni" class="nav-link hover:text-white transition-colors">Dni</a>
+                <a href="#mapa" class="nav-link hover:text-white transition-colors">Mapa</a>
+                <a href="/Madera/plan" class="bg-purple-600 hover:bg-purple-700 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition-colors">Pełny raport →</a>
+            </div>
+        </div>
+    </nav>
 
-    <header class="bg-slate-900 text-white relative overflow-hidden">
+    <header class="bg-slate-900 text-white relative overflow-hidden pt-14">
         <div class="absolute inset-0 opacity-10"
             style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;">
         </div>
@@ -75,18 +96,47 @@ permalink: /Madera/
             <div
                 class="inline-block px-4 py-1 rounded-full bg-emerald-900/50 text-emerald-300 font-semibold text-sm tracking-widest uppercase mb-6 border border-emerald-700">
                 Wersja 3.0 | Zaktualizowano</div>
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Echium & Altituda <span
-                    class="gradient-text">2026</span></h1>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Konrad & Pati <span
+                    class="gradient-text">Madera 2026</span></h1>
             <p class="text-xl md:text-2xl font-light text-slate-300 max-w-3xl leading-relaxed">Siedmiodniowy plan
                 ekspedycyjny dla zaawansowanej pary. Optymalizacja logistyki pod kątem maksymalizacji doznań
                 krajobrazowych, wschodów słońca oraz kwitnienia żmijowców maderyjskich, przy strategicznym zarządzaniu
                 wydolnością organizmu.</p>
+            <!-- Countdown -->
+            <div id="countdown" class="mt-8 flex flex-wrap gap-3 text-sm">
+                <div class="bg-white/10 px-4 py-3 rounded-xl border border-white/10 text-center min-w-[80px]">
+                    <div id="cd-days" class="text-2xl font-bold text-white">--</div>
+                    <div class="text-xs text-slate-400 mt-1">dni</div>
+                </div>
+                <div class="bg-white/10 px-4 py-3 rounded-xl border border-white/10 text-center min-w-[80px]">
+                    <div id="cd-hours" class="text-2xl font-bold text-white">--</div>
+                    <div class="text-xs text-slate-400 mt-1">godzin</div>
+                </div>
+                <div class="bg-white/10 px-4 py-3 rounded-xl border border-white/10 text-center min-w-[80px]">
+                    <div id="cd-mins" class="text-2xl font-bold text-white">--</div>
+                    <div class="text-xs text-slate-400 mt-1">minut</div>
+                </div>
+                <div class="bg-white/10 px-4 py-3 rounded-xl border border-white/10 text-center min-w-[80px]">
+                    <div id="cd-secs" class="text-2xl font-bold text-pink-400">--</div>
+                    <div class="text-xs text-slate-400 mt-1">sekund</div>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 -mt-12 relative z-20">
+    <!-- Map Section (light bg) -->
+    <section id="mapa" class="bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">🗺️ Mapa Ekspedycji</h2>
+            <div class="rounded-2xl overflow-hidden shadow-lg border border-slate-200">
+                <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1sG5F6Ysl3Hw13i8tM_tMFyocSP2g09o&ehbc=2E312F" class="w-full" style="height: 450px; border:0;" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
 
-        <section class="mb-20">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 relative z-20">
+
+        <section class="mb-20 fade-in">
             <p class="sr-only">Sekcja przedstawiająca cztery główne filary zaktualizowanej strategii ekspedycyjnej.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="glass-panel p-6 rounded-2xl border-t-4 border-emerald-500">
@@ -117,7 +167,7 @@ permalink: /Madera/
             </div>
         </section>
 
-        <section class="mb-20 glass-panel p-8 rounded-3xl">
+        <section id="analityka" class="mb-20 glass-panel p-8 rounded-3xl fade-in">
             <div class="mb-8 max-w-3xl">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4">Analityka Obciążeń Ekspedycyjnych</h2>
                 <p class="text-slate-600 leading-relaxed">Poniższe wykresy prezentują zaktualizowany model wydatku
@@ -146,7 +196,7 @@ permalink: /Madera/
             </div>
         </section>
 
-        <section class="mb-20">
+        <section id="harmonogram" class="mb-20 fade-in">
             <div class="mb-8">
                 <h2 class="text-3xl font-bold text-slate-900 mb-4">Zintegrowany Harmonogram Logistyczny</h2>
                 <p class="text-slate-600 max-w-4xl">Tabela stanowi nadrzędny rozkład jazdy. Uwzględnia opłaty
@@ -228,22 +278,22 @@ permalink: /Madera/
                         </tr>
                         <tr class="hover:bg-slate-50 transition-colors">
                             <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-slate-900">Dzień 6</td>
-                            <td class="px-6 py-4 text-sm text-slate-700 font-medium">PR9 Caldeirão Verde + Odcinek
-                                Techniczny "Inferno"</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">17.5 km</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">~300 m</td>
-                            <td class="px-6 py-4 whitespace-nowrap"><span
-                                    class="px-3 py-1 inline-flex text-xs font-bold rounded-full bg-amber-100 text-amber-800 border border-amber-200">Med</span>
-                            </td>
-                        </tr>
-                        <tr class="hover:bg-slate-50 transition-colors">
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-slate-900">Dzień 7</td>
                             <td class="px-6 py-4 text-sm text-slate-700 font-medium">Botanika: PR1.3 Encumeada - Pico
                                 Jorge (Echium)</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">14.0 km</td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">~750 m</td>
                             <td class="px-6 py-4 whitespace-nowrap"><span
-                                    class="px-3 py-1 inline-flex text-xs font-bold rounded-full bg-amber-100 text-amber-800 border border-amber-200">Med</span>
+                                    class="px-3 py-1 inline-flex text-xs font-bold rounded-full bg-pink-100 text-pink-800 border border-pink-200">High</span>
+                            </td>
+                        </tr>
+                        <tr class="hover:bg-slate-50 transition-colors">
+                            <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-slate-900">Dzień 7</td>
+                            <td class="px-6 py-4 text-sm text-slate-700 font-medium">PR9 Caldeirão Verde + Odcinek
+                                Techniczny "Inferno"</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">18.0 km</td>
+                            <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">~250 m</td>
+                            <td class="px-6 py-4 whitespace-nowrap"><span
+                                    class="px-3 py-1 inline-flex text-xs font-bold rounded-full bg-amber-100 text-amber-800 border border-amber-200">Med-High</span>
                             </td>
                         </tr>
                     </tbody>
@@ -251,7 +301,7 @@ permalink: /Madera/
             </div>
         </section>
 
-        <section class="mb-20">
+        <section id="dni" class="mb-20">
             <div class="mb-12 border-b-2 border-slate-200 pb-4">
                 <h2 class="text-3xl font-bold text-slate-900">Taktyka Dzień po Dniu: Detale Operacyjne</h2>
                 <p class="text-slate-600 mt-2">Szczegółowy opis zrewidowanych celów, wskazówki dla fotografów oraz
@@ -362,37 +412,20 @@ permalink: /Madera/
                     </div>
                 </div>
 
-                <div class="glass-panel p-8 rounded-2xl relative overflow-hidden group">
-                    <div
-                        class="absolute top-0 right-0 bg-amber-500 text-white text-xs font-bold px-4 py-2 rounded-bl-xl shadow-md">
-                        MED CARDIO</div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-1">Dzień 6: Zielony Kocioł & Piekło</h3>
-                    <p class="text-amber-600 text-sm font-bold uppercase tracking-wider mb-4">PR9 Caldeirão Verde +
-                        Inferno</p>
-                    <p class="text-slate-600 mb-4 leading-relaxed">Klasyk północy, który ewoluuje w ekstremum. Pierwsza
-                        część to relatywnie płaski, mroczny marsz przez las laurowy i tunele do gigantycznego wodospadu
-                        Caldeirão Verde. Prawdziwa przygoda zaczyna się jednak dalej.</p>
-                    <div class="bg-slate-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
-                        <p class="text-sm text-slate-700"><strong>Strefa Inferno:</strong> "Must-see" dla
-                            zaawansowanych. Szlak do Piekła (Caldeirão do Inferno) staje się stromy, poprzecinany
-                            wąskimi przesmykami, mostkami i seriami schodów. Widoki wąwozu są absolutnie epickie.</p>
-                    </div>
-                </div>
-
                 <div
                     class="glass-panel p-8 rounded-2xl relative overflow-hidden group md:col-span-2 border-2 border-purple-100 shadow-xl shadow-purple-900/5">
                     <div
                         class="absolute top-0 right-0 bg-purple-600 text-white text-xs font-bold px-4 py-2 rounded-bl-xl shadow-md">
-                        BOTANICZNY FINAŁ</div>
-                    <h3 class="text-3xl font-bold text-slate-900 mb-1">Dzień 7: Projekt Echium</h3>
+                        BOTANICZNY CEL</div>
+                    <h3 class="text-3xl font-bold text-slate-900 mb-1">Dzień 6: Projekt Echium</h3>
                     <p class="text-purple-600 text-sm font-bold uppercase tracking-wider mb-4">PR1.3 Encumeada - Pico
                         Jorge</p>
-                    <p class="text-slate-600 mb-4 leading-relaxed">Finałowy cel wyprawy. Liniowe wejście z przełęczy
+                    <p class="text-slate-600 mb-4 leading-relaxed">Botaniczne apogeum ekspedycji. Liniowe wejście z przełęczy
                         Encumeada w stronę Pico Jorge. W połowie maja to właśnie ta zachodnia grań Masywu Centralnego
                         zamienia się w fioletowy dywan potężnych kwiatostanów <em>Echium candicans</em>.</p>
                     <p class="text-slate-600 mb-4 leading-relaxed">Zrezygnowaliśmy z okrężnej 21-kilometrowej wędrówki
                         na rzecz zoptymalizowanego wejścia w strefę największego zagęszczenia kwiatów, pozwalając na
-                        powrót do bazy z odpowiednim zapasem sił na pakowanie.</p>
+                        dłuższą sesję foto wśród „niebieskich dywanów” żmijowców.</p>
                     <div
                         class="bg-purple-50 p-4 rounded-xl border border-purple-100 text-purple-900 flex flex-col md:flex-row gap-4 items-center">
                         <div class="text-4xl">🌺</div>
@@ -402,6 +435,23 @@ permalink: /Madera/
                                 uwagę na specyficzne gatunki owadów (zapylaczy) krążące wokół tych endemicznych
                                 roślin.</span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="glass-panel p-8 rounded-2xl relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 right-0 bg-amber-500 text-white text-xs font-bold px-4 py-2 rounded-bl-xl shadow-md">
+                        MED-HIGH CARDIO</div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-1">Dzień 7: Zielony Kocioł & Piekło</h3>
+                    <p class="text-amber-600 text-sm font-bold uppercase tracking-wider mb-4">PR9 Caldeirão Verde +
+                        Inferno</p>
+                    <p class="text-slate-600 mb-4 leading-relaxed">Klasyk północy, który ewoluuje w ekstremum. Pierwsza
+                        część to relatywnie płaski, mroczny marsz przez las laurowy i tunele do gigantycznego wodospadu
+                        Caldeirão Verde. Prawdziwa przygoda zaczyna się jednak dalej.</p>
+                    <div class="bg-slate-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+                        <p class="text-sm text-slate-700"><strong>Strefa Inferno:</strong> "Must-see" dla
+                            zaawansowanych. Szlak do Piekła (Caldeirão do Inferno) staje się stromy, poprzecinany
+                            wąskimi przesmykami, mostkami i seriami schodów. Widoki wąwozu są absolutnie epickie.</p>
                     </div>
                 </div>
 
@@ -475,12 +525,25 @@ permalink: /Madera/
             </div>
         </section>
 
+
+        <!-- CTA to Full Report -->
+        <section class="mb-20 fade-in">
+            <div class="bg-slate-900 text-white p-8 md:p-12 rounded-3xl text-center shadow-2xl">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">Pełny Raport Operacyjny</h2>
+                <p class="text-slate-300 mb-8 max-w-xl mx-auto">Szczegółowe briefy dzienne, regulacje SIMplifica, specyfikacja ekwipunku, botanika, cytowane źródła i więcej.</p>
+                <a href="/Madera/plan" class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold px-8 py-4 rounded-xl text-lg transition-all transform hover:scale-105 shadow-lg">Otwórz pełny plan →</a>
+            </div>
+        </section>
+
     </main>
 
     <footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-10 text-center text-sm font-light">
         <p>Logistyka opracowana w oparciu o najnowsze parametry (Aktualizacja wschodów słońca i regulacji IFCN).</p>
-        <p class="mt-2 text-slate-500">Maksymalizacja doświadczenia botanicznego &middot; Madera 2026</p>
+        <p class="mt-2 text-slate-500">Maksymalizacja doświadczenia botanicznego &middot; <a href="/Madera/plan" class="hover:text-white underline transition-colors">Pełny raport</a> &middot; Madera 2026</p>
     </footer>
+
+    <!-- Back to Top -->
+    <button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none hover:bg-purple-700 transition-colors" aria-label="Powrót na górę">↑</button>
 
     <script>
         // Funkcja wrapująca zbyt długie labele dla Chart.js
@@ -507,8 +570,8 @@ permalink: /Madera/
             'Dzień 3 (PR1 O Świt)',
             'Dzień 4 (Grań Caniçal)',
             'Dzień 5 (Premium Lifestyle)',
-            'Dzień 6 (PR9+Inferno)',
-            'Dzień 7 (Echium Projekt)'
+            'Dzień 6 (Echium Projekt)',
+            'Dzień 7 (PR9+Inferno)'
         ];
 
         const chartLabels = dailyLabelsRaw.map(wrapChartLabels);
@@ -537,7 +600,7 @@ permalink: /Madera/
                 datasets: [
                     {
                         label: 'Dystans (km)',
-                        data: [0, 11.5, 12.0, 15.0, 0, 17.5, 14.0],
+                        data: [0, 11.5, 12.0, 15.0, 0, 14.0, 18.0],
                         backgroundColor: 'rgba(219, 39, 119, 0.75)', // Pink-600
                         borderColor: 'rgba(219, 39, 119, 1)',
                         borderWidth: 0,
@@ -546,7 +609,7 @@ permalink: /Madera/
                     },
                     {
                         label: 'Przewyższenia (m)',
-                        data: [0, 400, 1100, 500, 0, 300, 750],
+                        data: [0, 400, 1100, 500, 0, 750, 250],
                         type: 'line',
                         fill: false,
                         borderColor: 'rgba(76, 29, 149, 1)', // Purple-900
@@ -627,6 +690,40 @@ permalink: /Madera/
                 layout: { padding: 10 }
             }
         });
+        // Countdown to May 7, 2026
+        function updateCountdown() {
+            const target = new Date('2026-05-07T06:00:00+01:00').getTime();
+            const now = Date.now();
+            const diff = target - now;
+            if (diff <= 0) { document.getElementById('countdown').innerHTML = '<div class="bg-emerald-500/20 px-6 py-3 rounded-xl border border-emerald-500 text-emerald-300 font-bold">🏔️ Ekspedycja rozpoczęta!</div>'; return; }
+            const d = Math.floor(diff / 86400000);
+            const h = Math.floor((diff % 86400000) / 3600000);
+            const m = Math.floor((diff % 3600000) / 60000);
+            const s = Math.floor((diff % 60000) / 1000);
+            document.getElementById('cd-days').textContent = d;
+            document.getElementById('cd-hours').textContent = h;
+            document.getElementById('cd-mins').textContent = m;
+            document.getElementById('cd-secs').textContent = s;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Scroll animations
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+        // Back to top
+        const btt = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) { btt.style.opacity = '1'; btt.style.pointerEvents = 'auto'; }
+            else { btt.style.opacity = '0'; btt.style.pointerEvents = 'none'; }
+        });
+
+        // Sticky nav
+        const nav = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 100); });
     </script>
 </body>
 

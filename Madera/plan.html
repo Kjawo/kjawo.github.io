@@ -1,0 +1,467 @@
+---
+layout: null
+permalink: /Madera/plan
+---
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pełny Raport Operacyjny — Echium 2026 | Madera</title>
+    <meta name="description" content="Kompletny 7-dniowy plan ekspedycyjny na Maderę. Szlaki, logistyka IFCN, ekwipunek i botanika.">
+    <meta property="og:title" content="Raport Operacyjny: Echium 2026">
+    <meta property="og:description" content="Siedmiodniowy plan ekspedycyjny na Maderę dla zaawansowanej pary.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #0f172a; }
+        h1,h2,h3,h4,h5 { font-family: 'Playfair Display', serif; }
+        .glass-panel { background: rgba(255,255,255,0.95); backdrop-filter: blur(12px); border: 1px solid rgba(226,232,240,0.8); box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); }
+        .gradient-text { background: linear-gradient(to right, #4c1d95, #db2777); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 0; height: 2px; background: linear-gradient(to right, #4c1d95, #db2777); transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .day-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .day-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.1); }
+        #backToTop { transition: opacity 0.3s ease, transform 0.3s ease; }
+        .sticky-nav { transition: background-color 0.3s ease, box-shadow 0.3s ease; }
+        .sticky-nav.scrolled { background-color: rgba(15,23,42,0.97); box-shadow: 0 4px 20px rgba(0,0,0,0.3); }
+        @media (max-width: 768px) { .hide-mobile { display: none; } }
+    </style>
+</head>
+<body class="antialiased scroll-smooth">
+
+<!-- Sticky Nav -->
+<nav id="mainNav" class="sticky-nav fixed top-0 left-0 right-0 z-50 bg-slate-900/90 backdrop-blur-md border-b border-slate-700/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
+        <a href="/Madera/" class="text-white font-bold text-sm tracking-wider hover:text-pink-400 transition-colors">← Dashboard</a>
+        <div class="flex items-center gap-6 text-xs sm:text-sm text-slate-300">
+            <a href="#regulacje" class="nav-link hover:text-white transition-colors hide-mobile">Regulacje</a>
+            <a href="#harmonogram" class="nav-link hover:text-white transition-colors">Harmonogram</a>
+            <a href="#dni" class="nav-link hover:text-white transition-colors">Dni</a>
+            <a href="#botanika" class="nav-link hover:text-white transition-colors hide-mobile">Botanika</a>
+            <a href="#mapa" class="nav-link hover:text-white transition-colors">Mapa</a>
+            <a href="#ekwipunek" class="nav-link hover:text-white transition-colors hide-mobile">Ekwipunek</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero -->
+<header class="bg-slate-900 text-white relative overflow-hidden pt-14">
+    <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(circle at 2px 2px, white 1px, transparent 0); background-size: 32px 32px;"></div>
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+        <div class="inline-block px-4 py-1 rounded-full bg-purple-900/50 text-purple-300 font-semibold text-sm tracking-widest uppercase mb-6 border border-purple-700">Raport Operacyjny | Wersja Finalna</div>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Pełny Plan <span class="gradient-text">Echium 2026</span></h1>
+        <p class="text-lg md:text-xl font-light text-slate-300 max-w-3xl leading-relaxed">Kompletny dokument strategiczny: logistyka, taktyka dzień po dniu, regulacje IFCN 2026, ekwipunek oraz mapa tras. Siedmiodniowa operacja na archipelagu Madery (7–14 maja 2026).</p>
+        <div class="mt-8 flex flex-wrap gap-4 text-sm">
+            <div class="bg-white/10 px-4 py-2 rounded-lg border border-white/10">📅 7–14 maja 2026</div>
+            <div class="bg-white/10 px-4 py-2 rounded-lg border border-white/10">🏔️ ~70 km szlaków</div>
+            <div class="bg-white/10 px-4 py-2 rounded-lg border border-white/10">🌺 Echium Peak Season</div>
+            <div class="bg-white/10 px-4 py-2 rounded-lg border border-white/10">🏠 Baza: Ponta do Sol</div>
+        </div>
+    </div>
+</header>
+
+<main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <!-- SIMplifica Section -->
+    <section id="regulacje" class="mb-16 fade-in">
+        <div class="glass-panel p-8 rounded-3xl border-l-4 border-purple-600">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Nowy Paradygmat Regulacyjny: SIMplifica 2026</h2>
+            <p class="text-slate-600 leading-relaxed mb-6">W 2026 roku system <strong>SIMplifica</strong> jest obowiązkowym portalem dostępowym dla wszystkich Classified Walking Trails (szlaki PR). Strategia zakłada nabywanie biletów jednorazowych, ponieważ passy kilkudniowe nadal nie obejmują trasy PR1.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="bg-purple-50 p-5 rounded-xl border border-purple-100">
+                    <div class="text-3xl font-bold text-purple-700">4,50 €</div>
+                    <div class="text-sm text-purple-600 mt-1 font-medium">Standardowy szlak PR</div>
+                </div>
+                <div class="bg-pink-50 p-5 rounded-xl border border-pink-100">
+                    <div class="text-3xl font-bold text-pink-700">10,50 €</div>
+                    <div class="text-sm text-pink-600 mt-1 font-medium">PR1 (Vereda do Areeiro)</div>
+                    <div class="text-xs text-pink-500 mt-1">Podwyżka po pożarach 2024</div>
+                </div>
+                <div class="bg-amber-50 p-5 rounded-xl border border-amber-100">
+                    <div class="text-3xl font-bold text-amber-700">30 min</div>
+                    <div class="text-sm text-amber-600 mt-1 font-medium">Slot startowy</div>
+                    <div class="text-xs text-amber-500 mt-1">Spóźnienie = unieważnienie</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logistics Table -->
+    <section id="harmonogram" class="mb-16 fade-in">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Strategiczna Tabela Logistyczna</h2>
+        <p class="text-slate-500 mb-6">Pełny rozkład jazdy z kosztami IFCN — bazowy punkt odniesienia przed każdym wyjściem z bazy.</p>
+        <div class="overflow-x-auto bg-white rounded-2xl shadow-lg border border-slate-200">
+            <table class="min-w-full divide-y divide-slate-200">
+                <thead class="bg-slate-50">
+                    <tr>
+                        <th class="px-4 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Dzień</th>
+                        <th class="px-4 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Szlak / Aktywność</th>
+                        <th class="px-4 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Dystans</th>
+                        <th class="px-4 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Podejścia</th>
+                        <th class="px-4 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Cardio</th>
+                        <th class="px-4 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Koszt IFCN</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="px-4 py-3 text-sm font-bold text-slate-900">1</td>
+                        <td class="px-4 py-3 text-sm text-slate-700">Przylot, Ponta do Sol & Cascata dos Anjos</td>
+                        <td class="px-4 py-3 text-sm text-slate-400">—</td>
+                        <td class="px-4 py-3 text-sm text-slate-400">—</td>
+                        <td class="px-4 py-3"><span class="px-2 py-0.5 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800">Low</span></td>
+                        <td class="px-4 py-3 text-sm text-slate-400">—</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="px-4 py-3 text-sm font-bold text-slate-900">2</td>
+                        <td class="px-4 py-3 text-sm text-slate-700">Pętla: PR13 Fanal + PR14 Cedros</td>
+                        <td class="px-4 py-3 text-sm text-slate-500">12 km</td>
+                        <td class="px-4 py-3 text-sm text-slate-500">~420 m</td>
+                        <td class="px-4 py-3"><span class="px-2 py-0.5 text-xs font-bold rounded-full bg-amber-100 text-amber-800">Med-High</span></td>
+                        <td class="px-4 py-3 text-sm font-semibold text-slate-700">9,00 €</td>
+                    </tr>
+                    <tr class="bg-pink-50/50 hover:bg-pink-50 transition-colors border-l-4 border-l-pink-500">
+                        <td class="px-4 py-3 text-sm font-bold text-slate-900">3</td>
+                        <td class="px-4 py-3 text-sm text-pink-700 font-bold">Sunrise: PR1 Areeiro – Ruivo (05:30)</td>
+                        <td class="px-4 py-3 text-sm text-slate-500">11 km</td>
+                        <td class="px-4 py-3 text-sm text-slate-500">~800 m</td>
+                        <td class="px-4 py-3"><span class="px-2 py-0.5 text-xs font-bold rounded-full bg-pink-100 text-pink-800">High</span></td>
+                        <td class="px-4 py-3 text-sm font-bold text-pink-700">10,50 €</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="px-4 py-3 text-sm font-bold text-slate-900">4</td>
+                        <td class="px-4 py-3 text-sm text-slate-700">Grań: Machico – Caniçal</td>
+                        <td class="px-4 py-3 text-sm text-slate-500">15,5 km</td>
+                        <td class="px-4 py-3 text-sm text-slate-500">~780 m</td>
+                        <td class="px-4 py-3"><span class="px-2 py-0.5 text-xs font-bold rounded-full bg-pink-100 text-pink-800">High</span></td>
+                        <td class="px-4 py-3 text-sm font-semibold text-slate-700">4,50 €</td>
+                    </tr>
+                    <tr class="bg-purple-50/50 hover:bg-purple-50 transition-colors border-l-4 border-l-purple-500">
+                        <td class="px-4 py-3 text-sm font-bold text-slate-900">5</td>
+                        <td class="px-4 py-3 text-sm text-purple-700 font-bold">Premium: Paragliding & Jeep Tour</td>
+                        <td class="px-4 py-3 text-sm text-slate-400">—</td>
+                        <td class="px-4 py-3 text-sm text-slate-400">—</td>
+                        <td class="px-4 py-3"><span class="px-2 py-0.5 text-xs font-bold rounded-full bg-emerald-100 text-emerald-800">Low</span></td>
+                        <td class="px-4 py-3 text-sm text-slate-400">—</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="px-4 py-3 text-sm font-bold text-slate-900">6</td>
+                        <td class="px-4 py-3 text-sm text-slate-700">Botanika: PR1.3 Encumeada – Pico Jorge</td>
+                        <td class="px-4 py-3 text-sm text-slate-500">14 km</td>
+                        <td class="px-4 py-3 text-sm text-slate-500">~750 m</td>
+                        <td class="px-4 py-3"><span class="px-2 py-0.5 text-xs font-bold rounded-full bg-pink-100 text-pink-800">High</span></td>
+                        <td class="px-4 py-3 text-sm font-semibold text-slate-700">4,50 €</td>
+                    </tr>
+                    <tr class="hover:bg-slate-50 transition-colors">
+                        <td class="px-4 py-3 text-sm font-bold text-slate-900">7</td>
+                        <td class="px-4 py-3 text-sm text-slate-700">PR9 Caldeirão Verde + Inferno</td>
+                        <td class="px-4 py-3 text-sm text-slate-500">18 km</td>
+                        <td class="px-4 py-3 text-sm text-slate-500">~250 m</td>
+                        <td class="px-4 py-3"><span class="px-2 py-0.5 text-xs font-bold rounded-full bg-amber-100 text-amber-800">Med-High</span></td>
+                        <td class="px-4 py-3 text-sm font-semibold text-slate-700">4,50 €</td>
+                    </tr>
+                </tbody>
+                <tfoot class="bg-slate-50">
+                    <tr>
+                        <td colspan="5" class="px-4 py-3 text-sm font-bold text-slate-700 text-right">Suma opłat IFCN:</td>
+                        <td class="px-4 py-3 text-sm font-bold text-purple-700">33,50 € / os.</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </section>
+
+    <!-- Day by Day -->
+    <section id="dni" class="mb-16">
+        <div class="mb-10">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Analiza Operacyjna: Dzień po Dniu</h2>
+            <p class="text-slate-500">Szczegółowe briefy dla każdego dnia ekspedycji.</p>
+        </div>
+
+        <!-- Day 1 -->
+        <div class="day-card glass-panel p-6 md:p-8 rounded-2xl mb-6 fade-in relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-bl-xl">LOW</div>
+            <div class="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Dzień 1 — 7 maja</div>
+            <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-1">Inicjacja i Sesja „Active Lifestyle"</h3>
+            <p class="text-emerald-600 text-sm font-bold uppercase tracking-wider mb-4">Przylot / Baza Ponta do Sol / Cascata dos Anjos</p>
+            <p class="text-slate-600 leading-relaxed mb-4">Po odbiorze pojazdu z wysokim momentem obrotowym (rekomendowany automat ze względu na nachylenia w Ponta do Sol przekraczające 25%), logistyka zakłada przejazd pod <strong>Cascata dos Anjos</strong>. Wodospad spadający na dawną drogę ER101 to unikalne miejsce na sesję zdjęciową.</p>
+            <div class="bg-emerald-50 border-l-4 border-emerald-500 p-4 rounded-r-lg">
+                <p class="text-sm text-slate-700"><strong>💡 Tip od lokalnego:</strong> Podjedźcie pod wodospad późnym popołudniem. Słońce od strony Madalena do Mar stworzy idealne warunki oświetleniowe do zdjęć samochodu przejeżdżającego pod kaskadą.</p>
+            </div>
+        </div>
+
+        <!-- Day 2 -->
+        <div class="day-card glass-panel p-6 md:p-8 rounded-2xl mb-6 fade-in relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-amber-500 text-white text-xs font-bold px-4 py-2 rounded-bl-xl">MED-HIGH</div>
+            <div class="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Dzień 2 — 8 maja</div>
+            <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-1">Aklimatyzacja Techniczna — Pętla Fanal & Cedros</h3>
+            <p class="text-amber-600 text-sm font-bold uppercase tracking-wider mb-4">PR13 Vereda do Fanal + PR14 Levada dos Cedros · 12 km · ~420 m D+</p>
+            <p class="text-slate-600 leading-relaxed mb-4">Rozbudowana pętla łącząca <strong>PR13</strong> z <strong>PR14</strong>. Przejście z mglistych, otwartych łąk z sękatymi drzewami <em>Ocotea foetens</em> do technicznych, wąskich ścieżek wzdłuż 17-wiecznej lewady.</p>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+                    <p class="text-sm text-slate-700"><strong>🥾 Charakterystyka:</strong> Wymagane buty z membraną (Gore-Tex) — Cedros bywa skrajnie błotnista.</p>
+                </div>
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+                    <p class="text-sm text-slate-700"><strong>💡 Tip:</strong> W lesie Fanal szukajcie żmijowców, które w majowej mgle mają unikalny, głęboko fioletowy kolor kontrastujący z martwym drewnem lauru.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 3 - Featured -->
+        <div class="day-card glass-panel p-6 md:p-8 rounded-2xl mb-6 fade-in relative overflow-hidden border-2 border-pink-200 shadow-xl shadow-pink-900/5">
+            <div class="absolute top-0 right-0 bg-pink-600 text-white text-xs font-bold px-4 py-2 rounded-bl-xl">HIGH / EXTREME</div>
+            <div class="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Dzień 3 — 9 maja</div>
+            <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-1">Sunrise Mission — Królowa Kordyliery</h3>
+            <p class="text-pink-600 text-sm font-bold uppercase tracking-wider mb-4">PR1 Pico do Arieiro – Pico Ruivo · Start 05:30 · 11 km · ~800 m D+</p>
+            <p class="text-slate-600 leading-relaxed mb-4">Energia świtu nad morzem chmur jest nie do zastąpienia. Logistyka parkingowa wymaga przyjazdu na P1 (górny) 1h30 przed wschodem. Jeśli P1 będzie pełny, parking P2 (dolny) oferuje 300 miejsc i wymaga 15-minutowego podejścia asfaltem.</p>
+            <div class="grid md:grid-cols-2 gap-4 mb-4">
+                <div class="bg-pink-50 border-l-4 border-pink-500 p-4 rounded-r-lg">
+                    <p class="text-sm text-slate-700"><strong>❤️ Wyzwanie Cardio:</strong> Niskie temperatury (5–10°C) i wiatr zwiększają obciążenie organizmu.</p>
+                </div>
+                <div class="bg-pink-50 border-l-4 border-pink-500 p-4 rounded-r-lg">
+                    <p class="text-sm text-slate-700"><strong>📸 Punkt widokowy:</strong> Miradouro da Pedra Rija — żmijowce rosną bezpośrednio przy balustradach, stanowiąc pierwszy plan dla budzącego się słońca.</p>
+                </div>
+            </div>
+            <div class="bg-slate-900 text-white p-5 rounded-xl">
+                <h4 class="font-bold text-pink-300 mb-2">⚠️ Wymogi SIMplifica 2026:</h4>
+                <ul class="text-sm text-slate-300 space-y-1 list-disc pl-4">
+                    <li>Rezerwacja parkingu P1 — z miesięcznym wyprzedzeniem</li>
+                    <li>Bilety IFCN (QR code) — <strong>10,50 €/os.</strong></li>
+                    <li>Czołówki (min. 600 lm) — ruch w ciemnościach przed świtem</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Day 4 -->
+        <div class="day-card glass-panel p-6 md:p-8 rounded-2xl mb-6 fade-in relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-pink-600 text-white text-xs font-bold px-4 py-2 rounded-bl-xl">HIGH</div>
+            <div class="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Dzień 4 — 10 maja</div>
+            <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-1">Surowa Grań Północy</h3>
+            <p class="text-pink-600 text-sm font-bold uppercase tracking-wider mb-4">Machico – Boca do Risco – Caniçal · 15,5 km · ~780 m D+</p>
+            <p class="text-slate-600 leading-relaxed mb-4">Modyfikacja trasy Larano: kontynuujemy marsz granią w stronę <strong>Caniçal</strong> przez Boca do Risco. Odcinek wybitnie widowiskowy, surowy i mniej uczęszczany niż Porto da Cruz.</p>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-slate-50 border-l-4 border-pink-500 p-4 rounded-r-lg">
+                    <p class="text-sm text-slate-700"><strong>🧗 Technika:</strong> Wąskie ścieżki wykute w klifie na 300 m nad surfem — wymaga braku vertigo.</p>
+                </div>
+                <div class="bg-slate-50 border-l-4 border-pink-500 p-4 rounded-r-lg">
+                    <p class="text-sm text-slate-700"><strong>🚕 Logistyka:</strong> Taksówka Caniçal → Machico to ~13–17 €. <strong>Tip:</strong> Widok na Ponta de São Lourenço z Boca do Risco to najlepszy moment trasy.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 5 - Dark -->
+        <div class="day-card p-6 md:p-8 rounded-2xl mb-6 fade-in relative overflow-hidden bg-slate-900 text-white shadow-2xl">
+            <div class="absolute top-0 right-0 bg-emerald-500 text-white text-xs font-bold px-4 py-2 rounded-bl-xl">REGENERACJA PREMIUM</div>
+            <div class="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Dzień 5 — 11 maja</div>
+            <h3 class="text-xl md:text-2xl font-bold text-white mb-1">Lifestyle Premium — Odbudowa</h3>
+            <p class="text-emerald-400 text-sm font-bold uppercase tracking-wider mb-4">Paragliding & Jeep Tour & Quinta do Furão</p>
+            <p class="text-slate-300 leading-relaxed mb-4">Dzień regeneracji mięśniowej z zachowaniem luksusowych doświadczeń. Faza odpoczynku zgodnie z zasadą 1-2-1.</p>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                    <div class="text-lg font-bold mb-1">🪂 Paragliding</div>
+                    <p class="text-sm text-slate-400">Loty tandemowe z Arco da Calheta, lądowanie na plaży Madalena do Mar.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                    <div class="text-lg font-bold mb-1">🚙 Jeep Tour</div>
+                    <p class="text-sm text-slate-400">Prywatny off-road 4x4 do Santany, omijający trudne drogi północy.</p>
+                </div>
+                <div class="bg-white/10 p-4 rounded-xl border border-white/10">
+                    <div class="text-lg font-bold mb-1">🍷 Kolacja</div>
+                    <p class="text-sm text-slate-400">Quinta do Furão — widok na Rocha do Navio, kwitnące ogrody botaniczne.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 6 -->
+        <div class="day-card glass-panel p-6 md:p-8 rounded-2xl mb-6 fade-in relative overflow-hidden border-2 border-purple-200 shadow-xl shadow-purple-900/5">
+            <div class="absolute top-0 right-0 bg-purple-600 text-white text-xs font-bold px-4 py-2 rounded-bl-xl">BOTANICZNY CEL</div>
+            <div class="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Dzień 6 — 12 maja</div>
+            <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-1">Botaniczne Apogeum — Projekt Echium</h3>
+            <p class="text-purple-600 text-sm font-bold uppercase tracking-wider mb-4">PR1.3 Encumeada – Pico Jorge · 14 km · ~750 m D+</p>
+            <p class="text-slate-600 leading-relaxed mb-4">Najwyższa gęstość występowania <em>Echium candicans</em>. Trasa liniowa z przełęczy Encumeada do szczytu Pico Jorge i z powrotem. Redukcja pętli oszczędza cardio, pozwalając na dłuższą sesję foto wśród „niebieskich dywanów" żmijowców.</p>
+            <div class="bg-purple-50 p-4 rounded-xl border border-purple-100 flex flex-col md:flex-row gap-4 items-center">
+                <div class="text-4xl">🌺</div>
+                <div>
+                    <strong class="block text-purple-800 mb-1">Tip od lokalnego:</strong>
+                    <span class="text-sm text-purple-700">Populacja żmijowca jest tu najbardziej stabilna i najmniej dotknięta pożarami. Szukajcie endemicznych zniczków maderyjskich (<em>Regulus madeirensis</em>) w kwiatostanach.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Day 7 -->
+        <div class="day-card glass-panel p-6 md:p-8 rounded-2xl mb-6 fade-in relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-amber-500 text-white text-xs font-bold px-4 py-2 rounded-bl-xl">MED-HIGH</div>
+            <div class="text-xs text-slate-400 font-bold uppercase tracking-widest mb-1">Dzień 7 — 13 maja</div>
+            <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-1">Wielki Finał — Zielony Kocioł & Piekło</h3>
+            <p class="text-amber-600 text-sm font-bold uppercase tracking-wider mb-4">PR9 Caldeirão Verde + Inferno · 18 km · ~250 m D+</p>
+            <p class="text-slate-600 leading-relaxed mb-4">Trasa przez spektakularne tunele do „Zielonego Kotła". Rozszerzenie do <strong>Caldeirão do Inferno</strong> to techniczny odcinek ze stromymi schodami i żelaznymi mostkami.</p>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+                    <p class="text-sm text-slate-700"><strong>🎒 Wyposażenie:</strong> Kurtka shell i czołówka nieodzowne — woda na PR9 sączy się ze ścian tuneli.</p>
+                </div>
+                <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded-r-lg">
+                    <p class="text-sm text-slate-700"><strong>💡 Tip:</strong> Inferno to najbardziej „pierwotna" część interioru — widok na głębokie kaniony z mostków to kwintesencja maderyjskiej inżynierii.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Botanics -->
+    <section id="botanika" class="mb-16 fade-in">
+        <div class="glass-panel p-8 rounded-3xl border-l-4 border-purple-600">
+            <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-4">🌺 Ekosystem <em>Echium candicans</em></h2>
+            <p class="text-slate-600 leading-relaxed mb-6"><em>Echium candicans</em> („Pride of Madeira") to gatunek pionierski, zasiedlający strome zbocza Masywu Centralnego na wysokościach 800–1400 m n.p.m. W maju kwiatostany osiągają pełną wysokość (do 50 cm) i intensywną barwę indygo.</p>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-purple-50 p-5 rounded-xl border border-purple-100">
+                    <h4 class="font-bold text-purple-800 mb-2">📍 Hotspot #1: Grań Encumeada (Dzień 6)</h4>
+                    <p class="text-sm text-purple-700">Najstarsze, zdrewniałe okazy. Najwyższa gęstość populacji na wyspie.</p>
+                </div>
+                <div class="bg-purple-50 p-5 rounded-xl border border-purple-100">
+                    <h4 class="font-bold text-purple-800 mb-2">📍 Hotspot #2: Pedra Rija (Dzień 3)</h4>
+                    <p class="text-sm text-purple-700">Krzewy o zwartym pokroju, idealne do szerokich planów fotograficznych.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alternatives -->
+    <section class="mb-16 fade-in">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Opcje Awaryjne — „Low Cardio"</h2>
+        <p class="text-slate-500 mb-6">W przypadku kumulatywnego zmęczenia lub złej pogody w górach.</p>
+        <div class="grid md:grid-cols-3 gap-4">
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 day-card">
+                <h4 class="font-bold text-slate-800 mb-2">PR8 Ponta de São Lourenço</h4>
+                <p class="text-sm text-slate-500">Półpustynny półwysep. Niemal płaski teren, niesamowite widoki na ocean.</p>
+            </div>
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 day-card">
+                <h4 class="font-bold text-slate-800 mb-2">Levada do Alecrim (PR6.2)</h4>
+                <p class="text-sm text-slate-500">39 m podejść / 7 km. Prowadzi do Lagoa Dona Beja.</p>
+            </div>
+            <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 day-card">
+                <h4 class="font-bold text-slate-800 mb-2">Levada Nova & Moinho</h4>
+                <p class="text-sm text-slate-500">Pętla blisko bazy w Ponta do Sol. Wodospad wydrążony w skale nad ścieżką.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section id="mapa" class="mb-16 fade-in">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">🗺️ Mapa Ekspedycji</h2>
+        <p class="text-slate-500 mb-6">Interaktywna mapa z trasami, punktami orientacyjnymi i bazą noclegową.</p>
+        <div class="glass-panel p-4 rounded-3xl overflow-hidden">
+            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1sG5F6Ysl3Hw13i8tM_tMFyocSP2g09o&ehbc=2E312F" class="w-full rounded-2xl" style="height: 500px; border:0;" allowfullscreen loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <!-- Equipment -->
+    <section id="ekwipunek" class="mb-16 fade-in">
+        <h2 class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">Specyfikacja Ekwipunku 2026</h2>
+        <p class="text-slate-500 mb-6">Zoptymalizowana lista pod warunki maderyjskie.</p>
+        <div class="overflow-x-auto bg-white rounded-2xl shadow-lg border border-slate-200">
+            <table class="min-w-full divide-y divide-slate-200">
+                <thead class="bg-slate-50">
+                    <tr>
+                        <th class="px-5 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Kategoria</th>
+                        <th class="px-5 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Sprzęt</th>
+                        <th class="px-5 py-4 text-left text-xs font-bold text-slate-500 uppercase tracking-widest">Uzasadnienie</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-bold text-slate-800">🔦 Oświetlenie</td><td class="px-5 py-3 text-sm text-slate-700">Czołówka min. 600 lm</td><td class="px-5 py-3 text-sm text-slate-500">Krytyczna na PR9 (Inferno) i tunele PR1 przed świtem.</td></tr>
+                    <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-bold text-slate-800">🥾 Obuwie</td><td class="px-5 py-3 text-sm text-slate-700">Trail Running (Vibram Megagrip)</td><td class="px-5 py-3 text-sm text-slate-500">Przyczepność na śliskim bazalcie PR14 i schodach Inferno.</td></tr>
+                    <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-bold text-slate-800">🥢 Stabilizacja</td><td class="px-5 py-3 text-sm text-slate-700">Kije trekkingowe (Carbon)</td><td class="px-5 py-3 text-sm text-slate-500">Odciążają kolana o 25% na zejściach z Pico Jorge i Larano.</td></tr>
+                    <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-bold text-slate-800">🧥 Ochrona</td><td class="px-5 py-3 text-sm text-slate-700">System trójwarstwowy (Shell)</td><td class="px-5 py-3 text-sm text-slate-500">Różnica temperatur baza ↔ PR1 o 05:30 może wynieść 15°C.</td></tr>
+                    <tr class="hover:bg-slate-50"><td class="px-5 py-3 text-sm font-bold text-slate-800">🧭 Nawigacja</td><td class="px-5 py-3 text-sm text-slate-700">Maps.me / WalkMe Madeira</td><td class="px-5 py-3 text-sm text-slate-500">GPS bywa zakłócany w dolinie Inferno; mapy offline to podstawa.</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Recommendations -->
+    <section class="mb-16 fade-in">
+        <div class="glass-panel p-8 rounded-3xl border-l-4 border-slate-800">
+            <h2 class="text-2xl font-bold text-slate-900 mb-4">Rekomendacje Końcowe</h2>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="bg-slate-50 p-5 rounded-xl">
+                    <div class="text-2xl mb-2">📋</div>
+                    <h4 class="font-bold text-slate-800 mb-1">Dyscyplina Slotowa</h4>
+                    <p class="text-sm text-slate-600">Rezerwacje SIMplifica należy wykonać z 30-dniowym wyprzedzeniem.</p>
+                </div>
+                <div class="bg-slate-50 p-5 rounded-xl">
+                    <div class="text-2xl mb-2">🌤️</div>
+                    <h4 class="font-bold text-slate-800 mb-1">Monitoring Pogodowy</h4>
+                    <p class="text-sm text-slate-600">Kamery NetMadeira dla Areeiro i Encumeady — klucz do sukcesu Sunrise Missions.</p>
+                </div>
+                <div class="bg-slate-50 p-5 rounded-xl">
+                    <div class="text-2xl mb-2">⚡</div>
+                    <h4 class="font-bold text-slate-800 mb-1">Zasada 1-2-1</h4>
+                    <p class="text-sm text-slate-600">Nienegocjowalna. Bez dnia regeneracji grozi przeciążenie cardio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Citations -->
+    <section class="mb-16 fade-in">
+        <details class="glass-panel rounded-2xl overflow-hidden">
+            <summary class="p-6 cursor-pointer font-bold text-slate-700 hover:text-slate-900 transition-colors">📚 Cytowane prace (20 źródeł)</summary>
+            <div class="px-6 pb-6 border-t border-slate-100 pt-4">
+                <ol class="text-xs text-slate-500 space-y-2 list-decimal pl-5 columns-1 md:columns-2">
+                    <li><a href="https://beyondmadeira.com/madeira-trail-reservations-2026/" class="hover:text-purple-600 transition-colors underline" target="_blank">Madeira Trail Reservations 2026 — Beyond Madeira</a></li>
+                    <li><a href="https://madeirahiking.org/trail-access/2026-rules" class="hover:text-purple-600 transition-colors underline" target="_blank">Madeira hiking rules for 2026 — Madeira Hiking</a></li>
+                    <li><a href="https://www.theroadreel.com/madeira-trail-reservation-system/" class="hover:text-purple-600 transition-colors underline" target="_blank">Madeira's Trail Reservations 2026 — The Road Reel</a></li>
+                    <li><a href="https://beyondmadeira.com/pico-arieiro-complete-guide/" class="hover:text-purple-600 transition-colors underline" target="_blank">Pico Do Arieiro: Complete Guide — Beyond Madeira</a></li>
+                    <li><a href="https://travelconscious.co/madeira-itinerary/" class="hover:text-purple-600 transition-colors underline" target="_blank">Madeira itinerary — Travel Conscious</a></li>
+                    <li><a href="https://madeira.com.pl/en/how-to-book-and-buy-tickets-for-paid-trails-in-madeira-complete-step-by-step-guide-for-2026-2" class="hover:text-purple-600 transition-colors underline" target="_blank">How to book trails in Madeira 2026 — SIMplifica</a></li>
+                    <li><a href="https://www.eatandwalkabout.com/en/portugal/wine-tours/madeira-gastronomic-jeep-tour-north-nature-wine-tasting.html" class="hover:text-purple-600 transition-colors underline" target="_blank">Gastronomic Jeep Tour — Eat & Walkabout</a></li>
+                    <li><a href="https://beyondmadeira.com/pico-areeiro-pico-ruivo-reopens-april-2026/" class="hover:text-purple-600 transition-colors underline" target="_blank">Pico Areeiro reopening — Beyond Madeira</a></li>
+                    <li><a href="https://www.earthtrekkers.com/vereda-do-larano/" class="hover:text-purple-600 transition-colors underline" target="_blank">Vereda do Larano — Earth Trekkers</a></li>
+                    <li><a href="https://www.wibkestravels.net/madeira-hike-boca-do-risco" class="hover:text-purple-600 transition-colors underline" target="_blank">Boca do Risco hike — Wibkestravels</a></li>
+                    <li><a href="https://www.picturetheworld.co/post/pico-do-arieiro/" class="hover:text-purple-600 transition-colors underline" target="_blank">Pico do Arieiro 2026 — Picture the World</a></li>
+                    <li><a href="https://travelconscious.co/pico-do-areeiro-to-pico-ruivo/" class="hover:text-purple-600 transition-colors underline" target="_blank">Pico Areeiro to Pico Ruivo tips — Travel Conscious</a></li>
+                    <li><a href="https://portugalgetaways.com/en-us/destination/madeira/why-visit/hiking-trails" class="hover:text-purple-600 transition-colors underline" target="_blank">Top 10 Trails in Madeira — Portugal Getaways</a></li>
+                    <li><a href="https://madeirajourney.com/trail/pr1-3-vereda-da-encumeada-verada-dos-currais-pr12-caminho-real-da-encumeada/" class="hover:text-purple-600 transition-colors underline" target="_blank">PR1.3 Vereda da Encumeada — Madeira Journey</a></li>
+                    <li><a href="https://madeira.best/product/pr1-3-vereda-da-encumeada-hiking-trail" class="hover:text-purple-600 transition-colors underline" target="_blank">PR1.3 Hiking Trail — Madeira.Best</a></li>
+                    <li><a href="https://www.journeyera.com/encumeada-to-pico-ruivo-hike/" class="hover:text-purple-600 transition-colors underline" target="_blank">Encumeada to Pico Ruivo — Journey Era</a></li>
+                    <li><a href="https://madeirajourney.com/madeira-update-pico-areeiro-closures-travel-warnings/" class="hover:text-purple-600 transition-colors underline" target="_blank">Madeira Update Areeiro — Madeira Journey</a></li>
+                    <li><a href="https://www.gardenia.net/plant/echium-candicans-pride-of-madeira" class="hover:text-purple-600 transition-colors underline" target="_blank">Echium candicans — Gardenia.net</a></li>
+                    <li><a href="https://en.wikipedia.org/wiki/Echium_candicans" class="hover:text-purple-600 transition-colors underline" target="_blank">Echium candicans — Wikipedia</a></li>
+                    <li><a href="https://www.earthtrekkers.com/madeira-itinerary/" class="hover:text-purple-600 transition-colors underline" target="_blank">Madeira Itinerary — Earth Trekkers</a></li>
+                </ol>
+            </div>
+        </details>
+    </section>
+
+</main>
+
+<footer class="bg-slate-900 border-t border-slate-800 text-slate-400 py-10 text-center text-sm font-light">
+    <p>Opracowano na podstawie 241 snippetów badawczych i aktualnych regulacji IFCN 2026.</p>
+    <p class="mt-2 text-slate-500">Maksymalizacja doświadczenia botanicznego &middot; <a href="/Madera/" class="hover:text-white underline transition-colors">Powrót do dashboardu</a></p>
+</footer>
+
+<!-- Back to Top -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white w-12 h-12 rounded-full shadow-lg flex items-center justify-center opacity-0 pointer-events-none hover:bg-purple-700 transition-colors" aria-label="Powrót na górę">↑</button>
+
+<script>
+// Scroll animations
+const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+
+// Back to top
+const btn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 600) { btn.style.opacity = '1'; btn.style.pointerEvents = 'auto'; }
+    else { btn.style.opacity = '0'; btn.style.pointerEvents = 'none'; }
+});
+
+// Sticky nav scroll effect
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 100); });
+</script>
+</body>
+</html>
