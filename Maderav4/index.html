@@ -271,7 +271,9 @@
     <main>
 
         <!-- ===== 2. HERO SECTION ===== -->
-        <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-purple-900 via-slate-900 to-emerald-950 dot-pattern">
+        <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-purple-900 via-slate-900 to-emerald-950">
+            <!-- Dot pattern with top fade -->
+            <div class="absolute inset-0 dot-pattern" style="mask-image: linear-gradient(to bottom, transparent 0%, black 15%); -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%);"></div>
             <!-- Ambient glow -->
             <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
             <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-amber-500/8 rounded-full blur-3xl"></div>
@@ -348,7 +350,7 @@
                     <p class="text-slate-500 mt-3 max-w-xl mx-auto">Interaktywna mapa z oznaczonymi punktami, szlakami i noclegami. Otwórz w Google Maps aby nawigować w terenie.</p>
                 </div>
                 <div class="fade-in glass-panel overflow-hidden">
-                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1sG5F6Ysl3Hw13i8tM_tMFyocSP2g09o&ehbc=2E312F"
+                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1NtSuO52IGWeVbz_27JV7BOM1jsuU5mA&ehbc=2E312F"
                             class="w-full" style="height:450px; border:0;"
                             allowfullscreen loading="lazy"
                             title="Mapa ekspedycji Madeira 2026"></iframe>
@@ -474,7 +476,7 @@
 
                 <!-- Accommodation Boxes -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-                    <div class="fade-in acc-box glass-panel p-6 sm:p-8 border-2 border-slate-200 card-hover" id="acc-single" onclick="selectAccommodation('single')" role="button" aria-label="Wybierz opcję Baza Stała">
+                    <div class="fade-in acc-box glass-panel p-6 sm:p-8 border-2 border-amber-500 card-hover selected" id="acc-single" onclick="selectAccommodation('single')" role="button" aria-label="Wybierz opcję Baza Stała">
                         <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2">
                             <span>🏠</span> Baza Stała
                         </h3>
@@ -485,7 +487,7 @@
                         </div>
                     </div>
 
-                    <div class="fade-in acc-box glass-panel p-6 sm:p-8 border-2 border-emerald-500 relative card-hover selected" id="acc-split" onclick="selectAccommodation('split')" role="button" aria-label="Wybierz opcję Split-Stay">
+                    <div class="fade-in acc-box glass-panel p-6 sm:p-8 border-2 border-slate-200 relative card-hover" id="acc-split" onclick="selectAccommodation('split')" role="button" aria-label="Wybierz opcję Split-Stay">
                         <div class="absolute -top-3 right-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Rekomendacja</div>
                         <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2">
                             <span>📦</span> Split-Stay
@@ -506,7 +508,7 @@
                         <canvas id="drivingChart"></canvas>
                     </div>
                     <p class="text-sm text-center text-slate-600 mt-4" id="acc-insight">
-                        <strong>Wniosek:</strong> System Split-Stay oszczędza ok. 4 godzin jazdy w krytycznych dniach, chroniąc rezerwy cardio na widoki.
+                        <strong>Ostrzeżenie:</strong> Wybór jednej bazy oznacza drastyczny wzrost czasu spędzonego w aucie, szczególnie podczas atakowania wschodnich i północnych krańców wyspy.
                     </p>
                 </div>
 
@@ -1354,14 +1356,14 @@
                         {
                             label: 'Ponta do Sol (Godz.)',
                             data: [2.5, 2.0, 1.8, 1.5],
-                            backgroundColor: '#d6d3d1',
+                            backgroundColor: '#f59e0b',
                             borderRadius: 6,
                             borderSkipped: false
                         },
                         {
                             label: 'Split-Stay (Godz.)',
                             data: [1.2, 0.8, 0.5, 1.5],
-                            backgroundColor: '#10b981',
+                            backgroundColor: '#e2e8f0',
                             borderRadius: 6,
                             borderSkipped: false
                         }
@@ -1415,8 +1417,9 @@
             // Animations
             initScrollAnimations();
 
-            // Day selector
+            // Day selector — load Day 1 as default
             renderDaySelector();
+            loadDayDetail(1);
 
             // Insta Spots
             renderInstaSpots();
@@ -1426,6 +1429,8 @@
                 if (typeof Chart !== 'undefined') {
                     initFeesChart();
                     initDrivingChart();
+                    // Default accommodation: Baza Stała
+                    selectAccommodation('single');
                 } else {
                     setTimeout(chartInit, 100);
                 }
