@@ -1,0 +1,1448 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iconic Madeira 2026 | Konrad & Pati — Smart Effort Travel Plan</title>
+    <meta name="description" content="Iconic Madeira 2026 — interaktywny plan podróży Smart Effort dla Konrada i Pati. 7 dni, widoki, logistyka SIMplifica, opcje A/B.">
+    <meta property="og:title" content="Konrad & Pati — Iconic Madeira 2026">
+    <meta property="og:description" content="Siedmiodniowy modułowy plan ekspedycyjny na Maderę. Maksymalne widoki przy minimalnym cardio.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'serif': ['Playfair Display', 'Georgia', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Dot pattern for hero */
+        .dot-pattern {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        /* Gradient text */
+        .gradient-text {
+            background: linear-gradient(135deg, #34d399, #fbbf24);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Fade-in animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glass panel */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            border-radius: 1rem;
+        }
+
+        /* Card hover */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+        }
+
+        /* Cardio meter */
+        .cardio-meter-bg {
+            background-color: #e2e8f0;
+            border-radius: 9999px;
+            height: 10px;
+            overflow: hidden;
+        }
+        .cardio-meter-fill {
+            height: 100%;
+            border-radius: 9999px;
+            transition: width 0.6s ease-in-out;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        /* Nav link underline */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #34d399, #fbbf24);
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Segmented control */
+        .seg-btn {
+            transition: all 0.3s ease;
+        }
+        .seg-btn.active {
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            color: #047857;
+            font-weight: 700;
+        }
+
+        /* Day selector card active */
+        .day-card.active {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(245, 158, 11, 0.05));
+            border-color: #10b981;
+            box-shadow: 0 4px 6px -1px rgba(16, 185, 129, 0.15);
+        }
+
+        /* Chart container */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Counter digit */
+        .counter-digit {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            min-width: 80px;
+            text-align: center;
+        }
+
+        /* Back to top button */
+        #back-to-top {
+            transition: all 0.3s ease;
+        }
+        #back-to-top.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #back-to-top.hide {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
+
+        /* Alternating section backgrounds */
+        .section-white { background-color: #ffffff; }
+        .section-stone { background-color: #fafaf9; }
+
+        /* Accommodation box highlight */
+        .acc-box {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .acc-box.selected {
+            border-color: #10b981;
+            background: rgba(16, 185, 129, 0.04);
+        }
+
+        /* Mobile hamburger */
+        .mobile-menu {
+            transition: max-height 0.3s ease, opacity 0.3s ease;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+        }
+        .mobile-menu.open {
+            max-height: 500px;
+            opacity: 1;
+        }
+
+        /* Highlight rows */
+        .highlight-row {
+            list-style: none;
+            padding-left: 0;
+        }
+        .highlight-row li::before {
+            content: '✦ ';
+            color: #10b981;
+        }
+
+        @media (max-width: 768px) {
+            .counter-digit {
+                min-width: 60px;
+                padding: 0.5rem 0.6rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="antialiased text-slate-800">
+
+    <!-- ===== 1. STICKY NAVIGATION ===== -->
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" role="navigation" aria-label="Główna nawigacja">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 md:h-18">
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center gap-2 text-white font-bold text-lg" aria-label="Powrót na górę">
+                    <span class="text-2xl">🏔️</span>
+                    <span class="font-serif tracking-wide">Iconic <span class="gradient-text">Madeira</span> 2026</span>
+                </a>
+
+                <!-- Desktop Links -->
+                <div class="hidden md:flex items-center gap-6 text-sm text-white/80">
+                    <a href="#mapa" class="nav-link hover:text-white transition-colors">Mapa</a>
+                    <a href="#regulacje" class="nav-link hover:text-white transition-colors">Regulacje</a>
+                    <a href="#noclegi" class="nav-link hover:text-white transition-colors">Noclegi</a>
+                    <a href="#harmonogram" class="nav-link hover:text-white transition-colors">Harmonogram</a>
+                    <a href="#dni" class="nav-link hover:text-white transition-colors">Dni</a>
+                    <a href="#foto" class="nav-link hover:text-white transition-colors">Foto</a>
+                    <a href="#logistyka" class="nav-link hover:text-white transition-colors">Logistyka</a>
+                </div>
+
+                <!-- Mobile Hamburger -->
+                <button id="hamburger-btn" class="md:hidden text-white p-2" aria-label="Otwórz menu" onclick="toggleMobileMenu()">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="mobile-menu md:hidden pb-4">
+                <div class="flex flex-col gap-2 text-white/90 text-sm">
+                    <a href="#mapa" class="px-3 py-2 rounded-lg hover:bg-white/10" onclick="closeMobileMenu()">📍 Mapa</a>
+                    <a href="#regulacje" class="px-3 py-2 rounded-lg hover:bg-white/10" onclick="closeMobileMenu()">📋 Regulacje</a>
+                    <a href="#noclegi" class="px-3 py-2 rounded-lg hover:bg-white/10" onclick="closeMobileMenu()">🏨 Noclegi</a>
+                    <a href="#harmonogram" class="px-3 py-2 rounded-lg hover:bg-white/10" onclick="closeMobileMenu()">📅 Harmonogram</a>
+                    <a href="#dni" class="px-3 py-2 rounded-lg hover:bg-white/10" onclick="closeMobileMenu()">🗺️ Moduły Dni</a>
+                    <a href="#foto" class="px-3 py-2 rounded-lg hover:bg-white/10" onclick="closeMobileMenu()">📸 Foto-Spoty</a>
+                    <a href="#logistyka" class="px-3 py-2 rounded-lg hover:bg-white/10" onclick="closeMobileMenu()">🧳 Logistyka</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+    <main>
+
+        <!-- ===== 2. HERO SECTION ===== -->
+        <section id="hero" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-purple-900 via-slate-900 to-emerald-950 dot-pattern">
+            <!-- Ambient glow -->
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-amber-500/8 rounded-full blur-3xl"></div>
+
+            <div class="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
+                <!-- Badge -->
+                <div class="fade-in inline-flex items-center gap-2 bg-white/8 backdrop-blur-sm border border-white/15 rounded-full px-5 py-2 mb-8">
+                    <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+                    <span class="text-white/80 text-sm font-medium tracking-wide">Wersja 4.0 | Iconic Madeira</span>
+                </div>
+
+                <!-- Title -->
+                <h1 class="fade-in text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-2 leading-tight">
+                    Konrad & Pati
+                </h1>
+                <p class="fade-in text-3xl sm:text-4xl md:text-5xl font-bold gradient-text mb-6">
+                    Madera 2026
+                </p>
+
+                <!-- Subtitle -->
+                <p class="fade-in text-white/70 text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-6 leading-relaxed">
+                    Siedmiodniowy plan Smart Effort dla pary.<br class="hidden sm:block"> Maksymalne widoki przy minimalnym cardio.
+                </p>
+
+                <!-- Profile Tags -->
+                <div class="fade-in flex flex-wrap justify-center gap-3 mb-10">
+                    <span class="bg-emerald-500/15 border border-emerald-400/30 text-emerald-300 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full">Low/Med Cardio</span>
+                    <span class="bg-amber-500/15 border border-amber-400/30 text-amber-300 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full">Smart Effort</span>
+                    <span class="bg-purple-500/15 border border-purple-400/30 text-purple-300 text-xs sm:text-sm font-semibold px-4 py-2 rounded-full">Split-Stay Ready</span>
+                </div>
+
+                <!-- Countdown -->
+                <div class="fade-in" id="countdown-wrapper">
+                    <p class="text-white/50 text-xs uppercase tracking-[0.2em] mb-4 font-semibold">Odliczanie do ekspedycji</p>
+                    <div id="countdown" class="flex justify-center gap-3 sm:gap-4">
+                        <div class="counter-digit">
+                            <span id="c-days" class="text-2xl sm:text-3xl md:text-4xl font-bold text-white block">--</span>
+                            <span class="text-white/50 text-[10px] sm:text-xs uppercase tracking-wider">dni</span>
+                        </div>
+                        <div class="counter-digit">
+                            <span id="c-hours" class="text-2xl sm:text-3xl md:text-4xl font-bold text-white block">--</span>
+                            <span class="text-white/50 text-[10px] sm:text-xs uppercase tracking-wider">godzin</span>
+                        </div>
+                        <div class="counter-digit">
+                            <span id="c-mins" class="text-2xl sm:text-3xl md:text-4xl font-bold text-white block">--</span>
+                            <span class="text-white/50 text-[10px] sm:text-xs uppercase tracking-wider">minut</span>
+                        </div>
+                        <div class="counter-digit">
+                            <span id="c-secs" class="text-2xl sm:text-3xl md:text-4xl font-bold text-white block">--</span>
+                            <span class="text-white/50 text-[10px] sm:text-xs uppercase tracking-wider">sekund</span>
+                        </div>
+                    </div>
+                    <div id="countdown-expired" class="hidden text-3xl sm:text-4xl font-bold text-white mt-2">
+                        🏔️ Ekspedycja rozpoczęta!
+                    </div>
+                </div>
+
+                <!-- Scroll indicator -->
+                <div class="fade-in mt-12 animate-bounce">
+                    <a href="#mapa" class="text-white/30 hover:text-white/60 transition-colors" aria-label="Przewiń w dół">
+                        <svg class="w-8 h-8 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== 3. MAPA EKSPEDYCJI ===== -->
+        <section id="mapa" class="section-stone py-16 sm:py-20 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10 fade-in">
+                    <span class="text-sm font-semibold text-emerald-600 uppercase tracking-[0.15em]">Eksploracja</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-2">Mapa Ekspedycji</h2>
+                    <p class="text-slate-500 mt-3 max-w-xl mx-auto">Interaktywna mapa z oznaczonymi punktami, szlakami i noclegami. Otwórz w Google Maps aby nawigować w terenie.</p>
+                </div>
+                <div class="fade-in glass-panel overflow-hidden">
+                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1sG5F6Ysl3Hw13i8tM_tMFyocSP2g09o&ehbc=2E312F"
+                            class="w-full" style="height:450px; border:0;"
+                            allowfullscreen loading="lazy"
+                            title="Mapa ekspedycji Madeira 2026"></iframe>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== 4. REGULACJE 2026 — SIMplifica ===== -->
+        <section id="regulacje" class="section-white py-16 sm:py-20 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 fade-in">
+                    <span class="text-sm font-semibold text-emerald-600 uppercase tracking-[0.15em]">Regulacje 2026</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-2">System SIMplifica</h2>
+                    <p class="text-slate-500 mt-3 max-w-2xl mx-auto">Nowy obowiązkowy system rezerwacji szlaków. Bez QR kodu = mandat od 500€.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Pricing Table -->
+                    <div class="fade-in">
+                        <div class="glass-panel p-6 sm:p-8 h-full">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                                <span class="text-2xl">💰</span> Cennik SIMplifica 2026
+                            </h3>
+                            <div class="overflow-x-auto">
+                                <table class="w-full text-left">
+                                    <thead>
+                                        <tr class="border-b-2 border-slate-200">
+                                            <th class="pb-3 text-sm font-semibold text-slate-500 uppercase tracking-wider">Typ Biletu</th>
+                                            <th class="pb-3 text-sm font-semibold text-slate-500 uppercase tracking-wider">Cena</th>
+                                            <th class="pb-3 text-sm font-semibold text-slate-500 uppercase tracking-wider hidden sm:table-cell">Zakres</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-sm">
+                                        <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                                            <td class="py-3 pr-4 font-medium text-slate-800">Pojedynczy Szlak PR</td>
+                                            <td class="py-3 pr-4 font-bold text-emerald-600">4,50 €</td>
+                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Większość tras (PR8, PR9, PR6)</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-100 hover:bg-rose-50/50 transition-colors">
+                                            <td class="py-3 pr-4 font-medium text-rose-700 flex items-center gap-1">🔴 PR1 Vereda do Areeiro</td>
+                                            <td class="py-3 pr-4 font-bold text-rose-600">10,50 €</td>
+                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Szczyty centralne (po kwietniu 2026)</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                                            <td class="py-3 pr-4 font-medium text-slate-800">Bilet 1-dniowy</td>
+                                            <td class="py-3 pr-4 font-bold text-amber-600">9,00 €</td>
+                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Dostęp do wielu szlaków w 24h</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                                            <td class="py-3 pr-4 font-medium text-slate-800">Bilet 3-dniowy</td>
+                                            <td class="py-3 pr-4 font-bold text-slate-700">22,50 €</td>
+                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Korzystny przy 5+ szlaków</td>
+                                        </tr>
+                                        <tr class="hover:bg-slate-50 transition-colors">
+                                            <td class="py-3 pr-4 font-medium text-slate-800">Bilet 7-dniowy</td>
+                                            <td class="py-3 pr-4 font-bold text-slate-700">52,50 €</td>
+                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Intensywne zwiedzanie</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="mt-6 p-4 bg-rose-50 border border-rose-200 rounded-xl">
+                                <p class="text-rose-800 text-sm font-medium">⚠️ <strong>Ważne:</strong> Bilety wielodniowe NIE obejmują PR1. Brak QR = mandat od 500€.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Doughnut Chart + Booking Steps -->
+                    <div class="fade-in flex flex-col gap-6">
+                        <!-- Chart -->
+                        <div class="glass-panel p-6 sm:p-8">
+                            <h3 class="text-2xl font-bold text-slate-900 mb-4 text-center">Prognozowany Budżet Szlaków</h3>
+                            <p class="text-slate-500 text-sm text-center mb-4">Na osobę · Planowane wejścia</p>
+                            <div class="chart-container" style="height: 260px;">
+                                <canvas id="feesChart"></canvas>
+                            </div>
+                            <p class="text-center text-slate-500 text-xs mt-3 font-semibold">SUMA: ~38,50 € / osoba</p>
+                        </div>
+
+                        <!-- Booking Steps -->
+                        <div class="glass-panel p-6 sm:p-8 bg-gradient-to-br from-amber-50 to-white border-amber-200/60">
+                            <h3 class="text-xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+                                <span>📱</span> Rezerwacja w 5 krokach
+                            </h3>
+                            <ol class="space-y-3 text-sm text-amber-900">
+                                <li class="flex gap-3">
+                                    <span class="flex-shrink-0 w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold">1</span>
+                                    <span>Rejestracja na <strong>simplifica.madeira.gov.pt</strong> — konto „Pessoa Singular"</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="flex-shrink-0 w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold">2</span>
+                                    <span>Sekcja „Bilhética" → „Pagamento de Taxas para Accesso a Percursos Pedestres"</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="flex-shrink-0 w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold">3</span>
+                                    <span>Wybór szlaku i slotu (<span class="text-blue-600 font-semibold">niebieski</span> = wolne, <span class="text-rose-600 font-semibold">czerwony</span> = brak) — sloty poranne przed 9:00</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="flex-shrink-0 w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold">4</span>
+                                    <span>Płatność Visa / Mastercard / MB WAY</span>
+                                </li>
+                                <li class="flex gap-3">
+                                    <span class="flex-shrink-0 w-6 h-6 bg-amber-500 text-white rounded-full flex items-center justify-center text-xs font-bold">5</span>
+                                    <span>Bilet PDF z QR na email — <strong>zrób screenshot</strong> (brak zasięgu w górach)</span>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== 5. STRATEGIA NOCLEGOWA ===== -->
+        <section id="noclegi" class="section-stone py-16 sm:py-20 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 fade-in">
+                    <span class="text-sm font-semibold text-emerald-600 uppercase tracking-[0.15em]">Logistyka Noclegowa</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-2">Strategia Noclegowa</h2>
+                    <p class="text-slate-500 mt-3 max-w-2xl mx-auto">Porównanie strategii bazowania: jedna baza vs zmiana w połowie pobytu.</p>
+                </div>
+
+                <!-- Accommodation Boxes -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+                    <div class="fade-in acc-box glass-panel p-6 sm:p-8 border-2 border-slate-200 card-hover" id="acc-single" onclick="selectAccommodation('single')" role="button" aria-label="Wybierz opcję Baza Stała">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                            <span>🏠</span> Baza Stała
+                        </h3>
+                        <p class="text-sm font-semibold text-amber-600 mb-3">Ponta do Sol — jeden hotel, zero pakowania</p>
+                        <div class="space-y-2 text-sm text-slate-600">
+                            <p><strong class="text-emerald-700">✓</strong> Brak pakowania, stała baza, najsłoneczniejsze miejsce</p>
+                            <p><strong class="text-rose-600">✗</strong> Długie dojazdy na wschód i północ wyspy (2-2.5h dziennie)</p>
+                        </div>
+                    </div>
+
+                    <div class="fade-in acc-box glass-panel p-6 sm:p-8 border-2 border-emerald-500 relative card-hover selected" id="acc-split" onclick="selectAccommodation('split')" role="button" aria-label="Wybierz opcję Split-Stay">
+                        <div class="absolute -top-3 right-4 bg-gradient-to-r from-emerald-500 to-emerald-600 text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-wider shadow-lg">Rekomendacja</div>
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2">
+                            <span>📦</span> Split-Stay
+                        </h3>
+                        <p class="text-sm font-semibold text-emerald-600 mb-3">4 dni Południe + 3 dni Północ — optymalizacja dojazdów</p>
+                        <div class="space-y-2 text-sm text-slate-600">
+                            <p><strong class="text-emerald-700">✓</strong> Minimalne dojazdy, bliskość porannych atrakcji, mniej tuneli</p>
+                            <p><strong class="text-rose-600">✗</strong> Jednorazowa zmiana bazy w środku wyjazdu</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Driving Time Chart -->
+                <div class="fade-in glass-panel p-6 sm:p-8 mb-10">
+                    <h3 class="text-xl font-bold text-slate-900 mb-2 text-center">Porównanie Czasu Dojazdów</h3>
+                    <p class="text-slate-500 text-sm text-center mb-6">Godziny spędzone w aucie w krytycznych dniach</p>
+                    <div class="chart-container" style="height: 300px;">
+                        <canvas id="drivingChart"></canvas>
+                    </div>
+                    <p class="text-sm text-center text-slate-600 mt-4" id="acc-insight">
+                        <strong>Wniosek:</strong> System Split-Stay oszczędza ok. 4 godzin jazdy w krytycznych dniach, chroniąc rezerwy cardio na widoki.
+                    </p>
+                </div>
+
+                <!-- Hotel Table -->
+                <div class="fade-in glass-panel overflow-hidden">
+                    <div class="px-6 sm:px-8 pt-6 pb-3">
+                        <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2"><span>🏨</span> Rekomendowane Hotele</h3>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead>
+                                <tr class="bg-slate-50 border-y border-slate-200">
+                                    <th class="px-6 sm:px-8 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Region</th>
+                                    <th class="px-4 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider">Hotel</th>
+                                    <th class="px-4 py-3 text-xs font-semibold text-slate-500 uppercase tracking-wider hidden sm:table-cell">Atuty</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 sm:px-8 py-4 font-medium text-amber-700">☀️ Południe (Słońce)</td>
+                                    <td class="px-4 py-4 font-semibold text-slate-800">Saccharum Resort & Spa</td>
+                                    <td class="px-4 py-4 text-slate-600 hidden sm:table-cell">Luksus, plaża, zachód wyspy</td>
+                                </tr>
+                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 sm:px-8 py-4 font-medium text-amber-700">🎨 Południe (Design)</td>
+                                    <td class="px-4 py-4 font-semibold text-slate-800">Estalagem Da Ponta Do Sol</td>
+                                    <td class="px-4 py-4 text-slate-600 hidden sm:table-cell">Widok na klif, najbardziej słoneczne miejsce</td>
+                                </tr>
+                                <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 sm:px-8 py-4 font-medium text-blue-700">🌊 Płn-Zachód (Woda)</td>
+                                    <td class="px-4 py-4 font-semibold text-slate-800">Aqua Natura Bay</td>
+                                    <td class="px-4 py-4 text-slate-600 hidden sm:table-cell">Przy basenach Porto Moniz, widok na ocean</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition-colors">
+                                    <td class="px-6 sm:px-8 py-4 font-medium text-emerald-700">🌿 Północ (Natura)</td>
+                                    <td class="px-4 py-4 font-semibold text-slate-800">Hotel Quinta Do Furão</td>
+                                    <td class="px-4 py-4 text-slate-600 hidden sm:table-cell">Widok na klify, blisko PR9/PR11</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== 6. HARMONOGRAM 7 DNI (Quick Reference) ===== -->
+        <section id="harmonogram" class="section-white py-16 sm:py-20 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 fade-in">
+                    <span class="text-sm font-semibold text-emerald-600 uppercase tracking-[0.15em]">Przegląd</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-2">Harmonogram 7 Dni</h2>
+                    <p class="text-slate-500 mt-3 max-w-xl mx-auto">Szybka referencja wszystkich modułów z oceną wysiłku i kluczowym trickiem Smart Effort.</p>
+                </div>
+
+                <div class="fade-in glass-panel overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left min-w-[700px]">
+                            <thead>
+                                <tr class="bg-slate-900 text-white text-sm">
+                                    <th class="px-4 sm:px-6 py-4 font-semibold">Dzień</th>
+                                    <th class="px-4 py-4 font-semibold">Moduł</th>
+                                    <th class="px-4 py-4 font-semibold">Główne Punkty</th>
+                                    <th class="px-4 py-4 font-semibold text-center">Cardio</th>
+                                    <th class="px-4 py-4 font-semibold">Smart Effort</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm">
+                                <tr class="border-b border-slate-100 hover:bg-amber-50/30 transition-colors">
+                                    <td class="px-4 sm:px-6 py-4 font-bold text-slate-800">1</td>
+                                    <td class="px-4 py-4 text-slate-700 font-medium">🏜️ Wschód (Klifowy)</td>
+                                    <td class="px-4 py-4 text-slate-600">Ponta do Rosto (Sunrise) → PR8 → Łódź powrotna → Machico</td>
+                                    <td class="px-4 py-4 text-center"><span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-full">Med</span></td>
+                                    <td class="px-4 py-4 text-emerald-700 font-medium">Łódź oszczędza 4km marszu</td>
+                                </tr>
+                                <tr class="border-b border-slate-100 hover:bg-amber-50/30 transition-colors">
+                                    <td class="px-4 sm:px-6 py-4 font-bold text-slate-800">2</td>
+                                    <td class="px-4 py-4 text-slate-700 font-medium">🌿 Interior (Las)</td>
+                                    <td class="px-4 py-4 text-slate-600">PR9 Caldeirão Verde → Santana → Rocha do Navio</td>
+                                    <td class="px-4 py-4 text-center"><span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-full">Med</span></td>
+                                    <td class="px-4 py-4 text-emerald-700 font-medium">Trasa płaska, kolejka w Rocha</td>
+                                </tr>
+                                <tr class="border-b border-slate-100 hover:bg-emerald-50/30 transition-colors">
+                                    <td class="px-4 sm:px-6 py-4 font-bold text-slate-800">3</td>
+                                    <td class="px-4 py-4 text-slate-700 font-medium">☀️ Południe (Relax)</td>
+                                    <td class="px-4 py-4 text-slate-600">Cabo Girão → Câmara de Lobos → Rota do Banana → Zachód w Ponta do Sol</td>
+                                    <td class="px-4 py-4 text-center"><span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full">Low</span></td>
+                                    <td class="px-4 py-4 text-emerald-700 font-medium">Dojazdy pod punkty widokowe</td>
+                                </tr>
+                                <tr class="border-b border-slate-100 hover:bg-amber-50/30 transition-colors">
+                                    <td class="px-4 sm:px-6 py-4 font-bold text-slate-800">4</td>
+                                    <td class="px-4 py-4 text-slate-700 font-medium">⛰️ Góry (Central)</td>
+                                    <td class="px-4 py-4 text-slate-600">Pico do Areeiro (Sunrise) → Ninho da Manta → Pedra Rija → Dolina Zakonnic</td>
+                                    <td class="px-4 py-4 text-center"><span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-full">Med</span></td>
+                                    <td class="px-4 py-4 text-emerald-700 font-medium">Tylko 1.2km szlaku PR1</td>
+                                </tr>
+                                <tr class="border-b border-slate-100 hover:bg-emerald-50/30 transition-colors">
+                                    <td class="px-4 sm:px-6 py-4 font-bold text-slate-800">5</td>
+                                    <td class="px-4 py-4 text-slate-700 font-medium">🌊 Północ-Zachód</td>
+                                    <td class="px-4 py-4 text-slate-600">Seixal → Véu da Noiva → Porto Moniz → São Cristóvão</td>
+                                    <td class="px-4 py-4 text-center"><span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full">Low</span></td>
+                                    <td class="px-4 py-4 text-emerald-700 font-medium">Pętla samochodowa ER101</td>
+                                </tr>
+                                <tr class="border-b border-slate-100 hover:bg-emerald-50/30 transition-colors">
+                                    <td class="px-4 sm:px-6 py-4 font-bold text-slate-800">6</td>
+                                    <td class="px-4 py-4 text-slate-700 font-medium">🪂 Zachód (Dziki)</td>
+                                    <td class="px-4 py-4 text-slate-600">Achadas da Cruz (Teleferico) → Garganta Funda → Ponta do Pargo</td>
+                                    <td class="px-4 py-4 text-center"><span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full">Low</span></td>
+                                    <td class="px-4 py-4 text-emerald-700 font-medium">Najstromsza kolejka świata</td>
+                                </tr>
+                                <tr class="hover:bg-emerald-50/30 transition-colors">
+                                    <td class="px-4 sm:px-6 py-4 font-bold text-slate-800">7</td>
+                                    <td class="px-4 py-4 text-slate-700 font-medium">🏛️ Funchal/Monte</td>
+                                    <td class="px-4 py-4 text-slate-600">Monte Palace → Sanie → Funchal Old Town → Cristo Rei (Sunset)</td>
+                                    <td class="px-4 py-4 text-center"><span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full">Low</span></td>
+                                    <td class="px-4 py-4 text-emerald-700 font-medium">Transport publiczny/taksówki</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== 7. MODUŁY DNI (Interactive) ===== -->
+        <section id="dni" class="section-stone py-16 sm:py-20 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 fade-in">
+                    <span class="text-sm font-semibold text-emerald-600 uppercase tracking-[0.15em]">Plan Szczegółowy</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-2">Moduły Dni</h2>
+                    <p class="text-slate-500 mt-3 max-w-2xl mx-auto">Wybierz dzień i przełączaj między wariantem A (pełnym) a B (lekkim). Każdy wariant z dokładną trasą, opisem i pomiarem cardio.</p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Day Selector -->
+                    <div class="w-full lg:w-1/3 flex flex-col gap-3" id="day-selector">
+                        <!-- Rendered via JS -->
+                    </div>
+
+                    <!-- Day Details Panel -->
+                    <div class="w-full lg:w-2/3">
+                        <div class="glass-panel p-6 sm:p-8 min-h-[500px] flex flex-col">
+                            <!-- Header -->
+                            <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-6 pb-5 border-b border-slate-200">
+                                <div>
+                                    <h3 class="text-2xl sm:text-3xl font-bold text-slate-900" id="detail-title">Wybierz dzień z listy</h3>
+                                    <p class="text-emerald-600 font-medium mt-1" id="detail-module">Moduł Geograficzny</p>
+                                </div>
+                                <!-- A/B Toggle -->
+                                <div class="flex bg-slate-200 rounded-xl p-1 opacity-0 transition-all duration-300 flex-shrink-0" id="ab-toggle-container">
+                                    <button onclick="selectOption('A')" id="btn-opt-a" class="seg-btn active px-4 py-2.5 rounded-lg text-sm font-semibold min-w-[110px]" aria-label="Opcja A - pełna trasa">Opcja A (Full)</button>
+                                    <button onclick="selectOption('B')" id="btn-opt-b" class="seg-btn px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-500 hover:text-slate-700 min-w-[110px]" aria-label="Opcja B - lekka trasa">Opcja B (Light)</button>
+                                </div>
+                            </div>
+
+                            <!-- Content -->
+                            <div id="detail-content" class="text-slate-400 italic text-center py-16 flex-1 flex items-center justify-center">
+                                <p>👈 Wybierz moduł z listy, aby załadować szczegóły trasy.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== 8. INSTA-SPOTS ===== -->
+        <section id="foto" class="section-white py-16 sm:py-20 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 fade-in">
+                    <span class="text-sm font-semibold text-emerald-600 uppercase tracking-[0.15em]">Fotografia</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-2">Insta-Spots & Optymalizacja Światła</h2>
+                    <p class="text-slate-500 mt-3 max-w-2xl mx-auto">Najlepsze lokalizacje z precyzyjną porą na złote i magiczne kadry. Zaplanuj poranki i wieczory w oparciu o światło.</p>
+                </div>
+
+                <div class="fade-in glass-panel overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left min-w-[800px]">
+                            <thead>
+                                <tr class="bg-slate-900 text-white text-sm">
+                                    <th class="px-4 sm:px-6 py-4 font-semibold">Lokalizacja</th>
+                                    <th class="px-4 py-4 font-semibold">Efekt</th>
+                                    <th class="px-4 py-4 font-semibold">Najlepsze Światło</th>
+                                    <th class="px-4 py-4 font-semibold">Dlaczego ta pora</th>
+                                    <th class="px-4 py-4 font-semibold">Smart Effort</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm" id="insta-spots-body">
+                                <!-- Rendered via JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== 9. LOGISTYKA & BACKUP ===== -->
+        <section id="logistyka" class="section-stone py-16 sm:py-20 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12 fade-in">
+                    <span class="text-sm font-semibold text-emerald-600 uppercase tracking-[0.15em]">Operacje</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-2">Logistyka & Plan B</h2>
+                    <p class="text-slate-500 mt-3 max-w-2xl mx-auto">Strategie rezerwacji SIMplifica i opcje pogodowe — zawsze miej backup.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Booking Strategies -->
+                    <div class="fade-in glass-panel p-6 sm:p-8">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                            <span>🎯</span> Strategie Rezerwacji
+                        </h3>
+                        <div class="space-y-5">
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-emerald-100 rounded-xl flex items-center justify-center">
+                                    <span class="text-emerald-700 font-bold text-sm">1</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-slate-800 mb-1 font-sans">Buffer Time</h4>
+                                    <p class="text-sm text-slate-600">Rezerwuj slot 30 min później niż planujesz — parkowanie może zająć 15-20 min.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-xl flex items-center justify-center">
+                                    <span class="text-amber-700 font-bold text-sm">2</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-slate-800 mb-1 font-sans">Pogoda</h4>
+                                    <p class="text-sm text-slate-600">SIMplifica pozwala zmienić termin przy zamknięciu szlaku. Sprawdzaj <strong>madeirahiking.org/trail-status</strong> codziennie o 7:00.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-purple-100 rounded-xl flex items-center justify-center">
+                                    <span class="text-purple-700 font-bold text-sm">3</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-slate-800 mb-1 font-sans">Łączenie Szlaków</h4>
+                                    <p class="text-sm text-slate-600">PR6 + PR6.1 w jednym koszyku = opłata dzienna 9€ (zamiast 2×4,50€).</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4">
+                                <div class="flex-shrink-0 w-10 h-10 bg-rose-100 rounded-xl flex items-center justify-center">
+                                    <span class="text-rose-700 font-bold text-sm">4</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-slate-800 mb-1 font-sans">Offline QR</h4>
+                                    <p class="text-sm text-slate-600">Zapisz kody w Apple Wallet / Google Pay lub zrób zrzut ekranu. Brak zasięgu na szlakach!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Weather Backup -->
+                    <div class="fade-in glass-panel p-6 sm:p-8 bg-gradient-to-br from-slate-50 to-blue-50/30 border-blue-200/50">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                            <span>🌦️</span> Weather Backup
+                        </h3>
+                        <div class="space-y-5">
+                            <div class="p-4 bg-white/80 rounded-xl border border-slate-200">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="text-xl">⛰️</span>
+                                    <h4 class="font-semibold text-slate-800 font-sans">Góry w chmurach</h4>
+                                </div>
+                                <p class="text-sm text-slate-600">→ Południe (Ponta do Sol) zazwyczaj słoneczne. Przekieruj dzień na Cabo Girão + Câmara de Lobos.</p>
+                            </div>
+                            <div class="p-4 bg-white/80 rounded-xl border border-slate-200">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="text-xl">🚫</span>
+                                    <h4 class="font-semibold text-slate-800 font-sans">Zamiast PR1</h4>
+                                </div>
+                                <p class="text-sm text-slate-600">→ Spacer wybrzeżem w Machico lub Caniçal. Widoki na ocean bez ryzyka chmur na szczycie.</p>
+                            </div>
+                            <div class="p-4 bg-white/80 rounded-xl border border-slate-200">
+                                <div class="flex items-center gap-2 mb-2">
+                                    <span class="text-xl">🌧️</span>
+                                    <h4 class="font-semibold text-slate-800 font-sans">Zamiast PR9</h4>
+                                </div>
+                                <p class="text-sm text-slate-600">→ Baseny Porto Moniz — kąpiel w deszczu = unikalne doświadczenie! Ciepła oceaniczna woda niezależnie od pogody.</p>
+                            </div>
+                            <div class="p-4 bg-amber-50 rounded-xl border border-amber-200">
+                                <p class="text-sm text-amber-800 font-medium">💡 <strong>Pro tip:</strong> Pobierz aplikację „Windy" i ustaw alerty dla lokalizacji Pico do Areeiro (zachmurzenie) oraz Seixal (wiatr). Sprawdzaj wieczorem na dzień następny.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ===== 10. FOOTER ===== -->
+        <footer class="bg-slate-900 text-slate-400 py-12 sm:py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <!-- Brand -->
+                    <div>
+                        <p class="text-xl font-bold text-white font-serif mb-3">🏔️ Iconic Madeira 2026</p>
+                        <p class="text-sm leading-relaxed">Siedmiodniowy plan Smart Effort stworzony z pasją dla Konrada i Pati. Maksymalne widoki, minimalne cardio.</p>
+                    </div>
+                    <!-- Sources -->
+                    <div>
+                        <h4 class="text-white font-semibold mb-3 font-sans text-sm uppercase tracking-wider">Źródła</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li><a href="https://simplifica.madeira.gov.pt" target="_blank" rel="noopener" class="hover:text-emerald-400 transition-colors">SIMplifica — Portal Rezerwacji</a></li>
+                            <li><a href="https://madeirahiking.org" target="_blank" rel="noopener" class="hover:text-emerald-400 transition-colors">Madeira Hiking — Status Szlaków</a></li>
+                            <li><a href="https://www.visitmadeira.com" target="_blank" rel="noopener" class="hover:text-emerald-400 transition-colors">Visit Madeira — Oficjalny Portal</a></li>
+                        </ul>
+                    </div>
+                    <!-- Info -->
+                    <div>
+                        <h4 class="text-white font-semibold mb-3 font-sans text-sm uppercase tracking-wider">Informacje</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li>Wersja: 4.0 (kwiecień 2026)</li>
+                            <li>Dane cenowe: SIMplifica 2026</li>
+                            <li>Pogoda: IPMA / Windy App</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
+                    <p>© 2026 Konrad & Pati · Crafted with ❤️ for Madeira · Plan podróży Smart Effort</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="hide fixed bottom-6 right-6 z-40 w-12 h-12 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 hover:scale-110" aria-label="Powrót na górę" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+    </button>
+
+
+    <script>
+        // ========== DATA ==========
+
+        const itineraryData = [
+            {
+                id: 1,
+                name: "Dzień 1: Wschód (Klifowy)",
+                module: "MODUŁ WSCHÓD",
+                emoji: "🏜️",
+                optA: {
+                    title: "PR8 Smart (Łódź) + Wschód Słońca",
+                    route: "Miradouro Ponta do Rosto (Sunrise) → PR8 Ponta de São Lourenço (do Casa do Sardinha) → Powrót łodzią do Quinta do Lorde → Machico",
+                    desc: "Unikamy nudnego i stromego powrotu 4km pod górę, zamieniając go na rejs wzdłuż bazaltowych klifów. Koszt łodzi: 16,50-22,50 €/os. Klasyczny Smart Effort.",
+                    highlights: ["Elephant Rock od strony oceanu", "Wschód na płonących klifach o 06:30", "Slot SIMplifica: PR8 (4,50 €)"],
+                    cardioLevel: "med",
+                    cardioText: "Umiarkowane (Podejścia: ~250m)",
+                    cardioPercent: 55,
+                    time: "4.5h"
+                },
+                optB: {
+                    title: "Viewpoint Hopping Wschód",
+                    route: "Miradouro Ponta do Rosto → Caniçal (kawa) → Machico Marina → Miradouro Pico do Facho",
+                    desc: "Wersja zerowego wysiłku. Klify z poziomu szyb i utwardzonych tarasów widokowych. Idealna na zmęczenie po podróży.",
+                    highlights: ["Panorama półwyspu bez kroku", "Machico na leniwy lunch"],
+                    cardioLevel: "low",
+                    cardioText: "Niskie (Podejścia: ~50m)",
+                    cardioPercent: 20,
+                    time: "3h"
+                }
+            },
+            {
+                id: 2,
+                name: "Dzień 2: Interior (Las)",
+                module: "MODUŁ INTERIOR",
+                emoji: "🌿",
+                optA: {
+                    title: "Tunele Caldeirão Verde (PR9)",
+                    route: "PR9 Levada do Caldeirão Verde (13 km) → Santana (casas típicas) → Miradouro da Rocha do Navio (kolejka linowa)",
+                    desc: "Najbardziej spektakularna lewada wyspy. Cztery tunele wykute w skale prowadzą do 100m wodospadu spadającego do szmaragdowego jeziora. Trasa płaska, zero wspinaczki. Obowiązkowa czołówka do tuneli.",
+                    highlights: ["4 tunele w skale (czołówka!)", "Szmaragdowe jezioro pod wodospadem", "Slot SIMplifica: PR9 (4,50 €)", "Zjazd kolejką w Rocha do Navio"],
+                    cardioLevel: "med",
+                    cardioText: "Umiarkowane (Płasko, ale 13km dystansu)",
+                    cardioPercent: 50,
+                    time: "5h"
+                },
+                optB: {
+                    title: "Krótka Lewada + Santana",
+                    route: "Tylko pierwszy 1km PR9 (atmosfera lasu deszczowego) → Santana (casas típicas, kawa) → Rocha do Navio",
+                    desc: "Jeśli 13 km to za dużo — sam wstęp do lasu laurowego daje przedsmak magii. Reszta dnia na spokojne zwiedzanie Santany i zjazd kolejką na klif.",
+                    highlights: ["Mchy i paprocie lasu laurowego", "Tradycyjne domki Santany"],
+                    cardioLevel: "low",
+                    cardioText: "Niskie (Spacer + kolejka)",
+                    cardioPercent: 20,
+                    time: "3h"
+                }
+            },
+            {
+                id: 3,
+                name: "Dzień 3: Południe (Relax)",
+                module: "MODUŁ POŁUDNIE",
+                emoji: "☀️",
+                optA: {
+                    title: "Ogrody, Szkło i Banany",
+                    route: "Cabo Girão Skywalk (5€) → Câmara de Lobos → Rota do Banana RB1 (1.5km, płasko) → Cascata dos Anjos → Zachód słońca w Ponta do Sol",
+                    desc: "Mix kulturowo-krajobrazowy. Cabo Girão: 580m klif ze szklaną platformą — obowiązkowy na zachód słońca. Rota do Banana: relaksujący spacer przez plantacje. Cascata dos Anjos: wodospad na drodze (pieszo z Ponta do Sol).",
+                    highlights: ["580m klif ze szklaną platformą", "Rota do Banana — płaska trasa regeneracyjna", "Cascata dos Anjos — wodospad na drodze", "Zachód słońca z widokiem na Funchal"],
+                    cardioLevel: "low",
+                    cardioText: "Niskie (Same dojazdy autem)",
+                    cardioPercent: 25,
+                    time: "5h"
+                },
+                optB: {
+                    title: "Funchal Old Town & Wino",
+                    route: "Funchal Zona Velha → Blandy's Wine Lodge (degustacja) → Cabo Girão na zachód słońca",
+                    desc: "Miejskie popołudnie bez pośpiechu. Zmiana tempa — street art, poncha, madera w historycznej winiarni.",
+                    highlights: ["Street art w Zona Velha", "Degustacja wina Madeira", "Cabo Girão: złota godzina 18:30+"],
+                    cardioLevel: "low",
+                    cardioText: "Niskie (Spacery miejskie)",
+                    cardioPercent: 15,
+                    time: "4h"
+                }
+            },
+            {
+                id: 4,
+                name: "Dzień 4: Góry (Central)",
+                module: "MODUŁ CENTRALNY",
+                emoji: "⛰️",
+                optA: {
+                    title: "Areeiro Sunrise & Dolina Zakonnic",
+                    route: "Pico do Areeiro (Sunrise, slot 06:00-07:00) → Ninho da Manta (15-20 min) → Pedra Rija / Schody do Nieba (10-15 min) → Powrót → Eira do Serrado (Dolina Zakonnic)",
+                    desc: "Kwintesencja Smart Effort. Rezygnujemy z brutalnego PR1 na Ruivo (15.6km, 1000m przewyższenia). Zdobywamy 80% najlepszych widoków przy ułamku wysiłku: morze chmur, Stairway to Heaven, i panoramę krateru. Parking P1: 4€/h (70 miejsc), P2: 2€/h (15 min podejście). Slot SIMplifica: 10,50€.",
+                    highlights: ["Morze chmur o wschodzie 🌅", "Schody do Nieba (Stairway to Heaven)", "Limit: 300-400m przewyższenia", "Slot SIMplifica: PR1 (10,50 €)", "Dolina Zakonnic — 5 min od parkingu"],
+                    cardioLevel: "med",
+                    cardioText: "Umiarkowane (Schody Pedra Rija: ~300m)",
+                    cardioPercent: 60,
+                    time: "4h"
+                },
+                optB: {
+                    title: "Góry z poziomu tarasu",
+                    route: "Pico do Areeiro (tylko punkt widokowy, bez PR1) → Kawa w schronisku → Eira do Serrado",
+                    desc: "Brak rezerwacji na szlak lub gorsza forma? Widoki z tarasu obok parkingu + Dolina Zakonnic to wciąż elitarny dzień na Maderze.",
+                    highlights: ["Panorama bez wchodzenia na szlak", "Krater Curral das Freiras"],
+                    cardioLevel: "low",
+                    cardioText: "Bardzo Niskie (Tylko tarasy widokowe)",
+                    cardioPercent: 15,
+                    time: "2.5h"
+                }
+            },
+            {
+                id: 5,
+                name: "Dzień 5: Północ-Zachód (Woda)",
+                module: "MODUŁ PŁN-ZACHÓD",
+                emoji: "🌊",
+                optA: {
+                    title: "Czarne Plaże i Naturalne Baseny",
+                    route: "Seixal: Praia da Laje (czarna plaża, światło 08:00-09:00) → Miradouro Véu da Noiva (przy drodze VE2) → Porto Moniz: Baseny wulkaniczne (kąpiel) → Miradouro de São Cristóvão (Boaventura, na trasie powrotnej)",
+                    desc: "Dzień regeneracyjny skoncentrowany na żywiole wody. Praia da Laje: czarny piasek + wodospad na plażę. Porto Moniz: naturalne baseny z czarnego bazaltu. São Cristóvão: niedoceniany widok na doliny tarasowe i ostre formacje skalne.",
+                    highlights: ["Czarna plaża + wodospad", "Baseny z lawy wulkanicznej", "Véu da Noiva — przy samej drodze", "São Cristóvão — ukryty gem"],
+                    cardioLevel: "low",
+                    cardioText: "Niskie (Pływanie + spacery)",
+                    cardioPercent: 25,
+                    time: "5h"
+                },
+                optB: {
+                    title: "Dzień Geologiczny",
+                    route: "Grutas de São Vicente (jaskinie wulkaniczne) → Seixal z góry (miradouro) → Porto Moniz baseny (jeśli pogoda pozwoli)",
+                    desc: "Weather backup. Deszcz na północy? Zejdź pod ziemię w jaskiniach São Vicente, a potem sprawdź czy Porto Moniz się wyklarowało — kąpiel w deszczu w ciepłej oceanicznej wodzie jest unikalna.",
+                    highlights: ["Jaskinie wulkaniczne pod ziemią", "Baseny w deszczu = unikalne doświadczenie"],
+                    cardioLevel: "low",
+                    cardioText: "Niskie (Spacery jaskiniowe)",
+                    cardioPercent: 15,
+                    time: "3h"
+                }
+            },
+            {
+                id: 6,
+                name: "Dzień 6: Zachód (Dziki)",
+                module: "MODUŁ ZACHÓD",
+                emoji: "🪂",
+                optA: {
+                    title: "Kolejka, Wodospad, Latarnia",
+                    route: "Teleférico das Achadas da Cruz (5€ powrotny) → Spacer wzdłuż Fajã (~2km, płasko) → Miradouro da Garganta Funda (5-10 min, płasko, najlepsze światło 16:00-18:00) → Ponta do Pargo (latarnia, 312m klif, zachód słońca)",
+                    desc: "Spektakularne klify bez wspinaczki. Achadas da Cruz: najstromsza kolejka w Europie (spadek 98°, 450m w dół!) do odizolowanej wioski nad oceanem. Garganta Funda: 140m ukryty wodospad w kanionie (5 min spacer!). Ponta do Pargo: zachód na krańcu świata.",
+                    highlights: ["Kolejka 98° nachylenia!", "Fajã — izolowana wioska nad oceanem", "140m wodospad po 5 min spaceru", "Zachód na klifie 312m — Ponta do Pargo"],
+                    cardioLevel: "low",
+                    cardioText: "Niskie (Kolejka + krótkie spacery)",
+                    cardioPercent: 20,
+                    time: "5h"
+                },
+                optB: {
+                    title: "Roadtrip po Klifach Zachodu",
+                    route: "Panoramiczna ER101 → Miradoury po drodze → Ponta do Pargo (latarnia na zachód słońca)",
+                    desc: "Gdy zbyt mocny wiatr unieruchamia kolejkę. Spokojna jazda panoramiczna z krótkimi postojami na viewpointach zachodniego brzegu. Cel: złota godzina na latarni.",
+                    highlights: ["Panoramiczna jazda ER101", "Latarnia na zachodzie słońca"],
+                    cardioLevel: "low",
+                    cardioText: "Bardzo Niskie (Dojazdy autem)",
+                    cardioPercent: 10,
+                    time: "3h"
+                }
+            },
+            {
+                id: 7,
+                name: "Dzień 7: Funchal/Monte",
+                module: "MODUŁ FUNCHAL",
+                emoji: "🏛️",
+                optA: {
+                    title: "Ogrody Monte, Sanie i Cristo Rei",
+                    route: "Monte Palace Tropical Garden (70 000 m², kolejka linowa z Funchal lub autobus 20/21) → Zjazd saniami wiklinowymi (Carreiros do Monte) → Funchal Old Town → Cristo Rei na zachód słońca",
+                    desc: "Kulturalne pożegnanie z wyspą. Monte Palace: 70 000 m² egzotyki, stawy, architektura orientalna. Sanie wiklinowe: doświadczenie kulturowe oszczędzające kolana. Cristo Rei: ostatni zachód słońca ekspedycji.",
+                    highlights: ["70 000 m² ogrodu tropikalnego", "Tradycyjne sanie wiklinowe!", "Street art Funchal", "Cristo Rei — ostatni zachód ☀️"],
+                    cardioLevel: "low",
+                    cardioText: "Niskie (Transport publiczny / taksówki)",
+                    cardioPercent: 20,
+                    time: "5h"
+                },
+                optB: {
+                    title: "Chillout na Pożegnanie",
+                    route: "Plażowanie w Calheta (sztuczna piaszczysta plaża) lub Ponta do Sol → Poncha na starówce",
+                    desc: "Pełen relaks przed lotem. Zero planów, zero logistyki. Zasłużony odpoczynek po 6-dniowej ekspedycji.",
+                    highlights: ["Złoty piasek Calhety", "Poncha — lokalny koktajl"],
+                    cardioLevel: "low",
+                    cardioText: "Brak",
+                    cardioPercent: 5,
+                    time: "—"
+                }
+            }
+        ];
+
+        const instaSpots = [
+            { name: "Miradouro Ponta do Rosto", emoji: "🏜️", effect: "Płonące Klify", time: "06:30 - 07:30", timeType: "sunrise", why: "Pierwsze promienie oświetlają wulkaniczne formacje od wschodu", effort: "Dojazd autem pod sam klif. Zero cardio." },
+            { name: "Pico do Areeiro (Ninho da Manta)", emoji: "⛰️", effect: "Morze Chmur", time: "06:45 / 19:30", timeType: "sunrise", why: "Inwersja najlepiej widoczna przy niskim słońcu; wieczorem mniej ludzi", effort: "30 min od parkingu. Kończy się tu strefa Smart Effort." },
+            { name: "Miradouro da Garganta Funda", emoji: "🌊", effect: "Złoty Kanion", time: "16:00 - 18:00", timeType: "afternoon", why: "Słońce wpada bezpośrednio do szczeliny z 140m wodospadem", effort: "5-10 min spaceru od parkingu, prawie płasko." },
+            { name: "Seixal Beach (Praia da Laje)", emoji: "🖤", effect: "Black & Green", time: "08:00 - 09:00", timeType: "morning", why: "Miękkie światło nie tworzy ostrych cieni na zielonych klifach", effort: "Dojazd na plażę. Wodospad spada na piasek." },
+            { name: "Cabo Girão Skywalk", emoji: "🔭", effect: "Szklany Horyzont", time: "18:30 - Zachód", timeType: "sunset", why: "Panorama Funchal skąpana w ciepłym świetle zachodzącym nad oceanem", effort: "Parking przy samej platformie. 580m przepaści pod szkłem." },
+            { name: "Fanal Forest", emoji: "🌲", effect: "Mystical Fog", time: "08:00 - 10:00", timeType: "morning", why: "Największa szansa na mgłę między starymi drzewami", effort: "Sprawdź kamery (Webcams Madeira). Brak mgły = omiń." },
+            { name: "Ponta do Pargo", emoji: "🗼", effect: "Zachód na Krańcu Świata", time: "30 min przed zachodem", timeType: "sunset", why: "Złota godzina na czerwonych ścianach klifów 312m", effort: "W pełni dostępne samochodem. Latarnia morska." }
+        ];
+
+
+        // ========== STATE ==========
+        let currentDayId = null;
+        let currentOption = 'A';
+        let chartsInstance = {};
+
+
+        // ========== COUNTDOWN ==========
+        function updateCountdown() {
+            const target = new Date('2026-05-07T06:00:00+01:00').getTime();
+            const now = new Date().getTime();
+            const diff = target - now;
+
+            if (diff <= 0) {
+                document.getElementById('countdown').classList.add('hidden');
+                document.getElementById('countdown-expired').classList.remove('hidden');
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('c-days').textContent = String(days).padStart(2, '0');
+            document.getElementById('c-hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('c-mins').textContent = String(mins).padStart(2, '0');
+            document.getElementById('c-secs').textContent = String(secs).padStart(2, '0');
+        }
+
+
+        // ========== NAVIGATION ==========
+        function handleScroll() {
+            const nav = document.getElementById('main-nav');
+            const scrollY = window.scrollY;
+
+            if (scrollY > 100) {
+                nav.style.background = 'rgba(15, 23, 42, 0.97)';
+                nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.3)';
+            } else {
+                nav.style.background = 'transparent';
+                nav.style.boxShadow = 'none';
+            }
+
+            // Back to top
+            const btn = document.getElementById('back-to-top');
+            if (scrollY > 600) {
+                btn.classList.remove('hide');
+                btn.classList.add('show');
+            } else {
+                btn.classList.remove('show');
+                btn.classList.add('hide');
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('open');
+        }
+
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.remove('open');
+        }
+
+
+        // ========== INTERSECTION OBSERVER (Fade-in) ==========
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }
+
+
+        // ========== DAY MODULES ==========
+        function renderDaySelector() {
+            const container = document.getElementById('day-selector');
+            container.innerHTML = '';
+
+            itineraryData.forEach(day => {
+                const isActive = day.id === currentDayId;
+                const cardioColor = day.optA.cardioLevel === 'med' ? 'border-t-amber-500' : 'border-t-emerald-500';
+                const cardioTag = day.optA.cardioLevel === 'med'
+                    ? '<span class="text-[10px] font-bold bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full uppercase">Med</span>'
+                    : '<span class="text-[10px] font-bold bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded-full uppercase">Low</span>';
+
+                const btn = document.createElement('button');
+                btn.className = `day-card w-full text-left p-4 rounded-xl border-2 border-t-4 ${cardioColor} transition-all duration-300 card-hover ${isActive ? 'active' : 'bg-white border-slate-200 hover:border-emerald-300'}`;
+                btn.innerHTML = `
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-3">
+                            <span class="text-2xl">${day.emoji}</span>
+                            <div>
+                                <span class="block font-bold text-slate-800 text-sm sm:text-base">${day.name}</span>
+                                <span class="text-xs text-slate-500 uppercase tracking-wide">${day.module}</span>
+                            </div>
+                        </div>
+                        ${cardioTag}
+                    </div>
+                `;
+                btn.onclick = () => loadDayDetail(day.id);
+                btn.setAttribute('aria-label', `Pokaż szczegóły: ${day.name}`);
+                container.appendChild(btn);
+            });
+        }
+
+        function loadDayDetail(dayId) {
+            currentDayId = dayId;
+            currentOption = 'A';
+            renderDaySelector();
+
+            const dayData = itineraryData.find(d => d.id === dayId);
+            document.getElementById('detail-title').textContent = `${dayData.emoji} ${dayData.name}`;
+            document.getElementById('detail-module').textContent = dayData.module;
+            document.getElementById('ab-toggle-container').style.opacity = '1';
+
+            // Reset toggle
+            document.getElementById('btn-opt-a').className = 'seg-btn active px-4 py-2.5 rounded-lg text-sm font-semibold min-w-[110px]';
+            document.getElementById('btn-opt-b').className = 'seg-btn px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-500 hover:text-slate-700 min-w-[110px]';
+
+            renderOptionDetails();
+        }
+
+        function selectOption(opt) {
+            currentOption = opt;
+            const btnA = document.getElementById('btn-opt-a');
+            const btnB = document.getElementById('btn-opt-b');
+
+            if (opt === 'A') {
+                btnA.className = 'seg-btn active px-4 py-2.5 rounded-lg text-sm font-semibold min-w-[110px]';
+                btnB.className = 'seg-btn px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-500 hover:text-slate-700 min-w-[110px]';
+            } else {
+                btnB.className = 'seg-btn active px-4 py-2.5 rounded-lg text-sm font-semibold min-w-[110px]';
+                btnA.className = 'seg-btn px-4 py-2.5 rounded-lg text-sm font-semibold text-slate-500 hover:text-slate-700 min-w-[110px]';
+            }
+            renderOptionDetails();
+        }
+
+        function renderOptionDetails() {
+            const dayData = itineraryData.find(d => d.id === currentDayId);
+            if (!dayData) return;
+
+            const data = currentOption === 'A' ? dayData.optA : dayData.optB;
+
+            const cardioColors = {
+                'low': 'bg-emerald-500',
+                'med': 'bg-amber-500',
+                'high': 'bg-rose-500'
+            };
+            const cardioBgColors = {
+                'low': 'bg-emerald-50 text-emerald-800',
+                'med': 'bg-amber-50 text-amber-800',
+                'high': 'bg-rose-50 text-rose-800'
+            };
+
+            const highlightsHTML = data.highlights.map(h =>
+                `<li class="flex items-start gap-2"><span class="text-emerald-500 mt-0.5 flex-shrink-0">✦</span><span>${h}</span></li>`
+            ).join('');
+
+            const html = `
+                <div class="animate-fade-details flex-1 flex flex-col" style="animation: fadeInDetails 0.4s ease-out">
+                    <h4 class="text-xl sm:text-2xl font-bold text-slate-900 mb-3 font-serif">${data.title}</h4>
+
+                    <!-- Route -->
+                    <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 mb-5">
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-2">Trasa</p>
+                        <p class="text-slate-800 text-sm leading-relaxed font-medium">${data.route}</p>
+                    </div>
+
+                    <!-- Description -->
+                    <p class="text-slate-600 mb-6 leading-relaxed text-sm">${data.desc}</p>
+
+                    <!-- Highlights -->
+                    <div class="mb-6">
+                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-3">Highlights</p>
+                        <ul class="space-y-2 text-sm text-slate-700">
+                            ${highlightsHTML}
+                        </ul>
+                    </div>
+
+                    <!-- Cardio Meter -->
+                    <div class="mt-auto bg-slate-50 p-5 rounded-xl border border-slate-200">
+                        <div class="flex justify-between items-end mb-3">
+                            <div>
+                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-1">Budżet Cardio</p>
+                                <span class="inline-block text-xs font-bold px-3 py-1 rounded-full ${cardioBgColors[data.cardioLevel]}">${data.cardioText}</span>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-[0.15em] mb-1">Czas</p>
+                                <p class="text-slate-800 font-bold text-lg">⏱ ${data.time}</p>
+                            </div>
+                        </div>
+                        <div class="cardio-meter-bg w-full">
+                            <div class="cardio-meter-fill ${cardioColors[data.cardioLevel]}" style="width: ${data.cardioPercent}%"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('detail-content').innerHTML = html;
+        }
+
+
+        // ========== INSTA SPOTS TABLE ==========
+        function renderInstaSpots() {
+            const tbody = document.getElementById('insta-spots-body');
+            const timeColors = {
+                'sunrise': 'text-amber-600 bg-amber-50',
+                'morning': 'text-sky-600 bg-sky-50',
+                'afternoon': 'text-orange-600 bg-orange-50',
+                'sunset': 'text-rose-600 bg-rose-50'
+            };
+
+            tbody.innerHTML = instaSpots.map((spot, i) => `
+                <tr class="border-b border-slate-100 hover:bg-slate-50/50 transition-colors ${i % 2 === 0 ? '' : 'bg-slate-50/30'}">
+                    <td class="px-4 sm:px-6 py-4 font-medium text-slate-800">
+                        <span class="text-lg mr-1">${spot.emoji}</span> ${spot.name}
+                    </td>
+                    <td class="px-4 py-4 font-semibold text-slate-700">${spot.effect}</td>
+                    <td class="px-4 py-4">
+                        <span class="inline-block text-xs font-bold px-2.5 py-1 rounded-full ${timeColors[spot.timeType]}">${spot.time}</span>
+                    </td>
+                    <td class="px-4 py-4 text-slate-600 text-sm">${spot.why}</td>
+                    <td class="px-4 py-4 text-slate-600 text-sm">${spot.effort}</td>
+                </tr>
+            `).join('');
+        }
+
+
+        // ========== ACCOMMODATION ==========
+        function selectAccommodation(mode) {
+            const boxSingle = document.getElementById('acc-single');
+            const boxSplit = document.getElementById('acc-split');
+            const insightText = document.getElementById('acc-insight');
+
+            // Reset
+            boxSingle.classList.remove('selected');
+            boxSplit.classList.remove('selected');
+            boxSingle.style.borderColor = '';
+            boxSplit.style.borderColor = '';
+
+            if (mode === 'single') {
+                boxSingle.classList.add('selected');
+                boxSingle.style.borderColor = '#f59e0b';
+                boxSplit.style.borderColor = '#e2e8f0';
+
+                chartsInstance.driving.data.datasets[0].backgroundColor = '#f59e0b';
+                chartsInstance.driving.data.datasets[1].backgroundColor = '#e2e8f0';
+                insightText.innerHTML = "<strong>Ostrzeżenie:</strong> Wybór jednej bazy oznacza drastyczny wzrost czasu spędzonego w aucie, szczególnie podczas atakowania wschodnich i północnych krańców wyspy.";
+            } else {
+                boxSplit.classList.add('selected');
+                boxSplit.style.borderColor = '#10b981';
+                boxSingle.style.borderColor = '#e2e8f0';
+
+                chartsInstance.driving.data.datasets[0].backgroundColor = '#d6d3d1';
+                chartsInstance.driving.data.datasets[1].backgroundColor = '#10b981';
+                insightText.innerHTML = "<strong>Wniosek:</strong> System Split-Stay oszczędza ok. 4 godzin jazdy w krytycznych dniach, chroniąc rezerwy cardio na widoki.";
+            }
+            chartsInstance.driving.update();
+        }
+
+
+        // ========== CHARTS ==========
+        function initFeesChart() {
+            const ctx = document.getElementById('feesChart').getContext('2d');
+            chartsInstance.fees = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['PR1 (Areeiro)', 'PR8 (S. Lourenço)', 'PR9 (C. Verde)', 'Cabo Girão', 'Achadas da Cruz', 'Bilet 1-dniowy (zapas)'],
+                    datasets: [{
+                        data: [10.50, 4.50, 4.50, 5.00, 5.00, 9.00],
+                        backgroundColor: ['#f43f5e', '#10b981', '#059669', '#3b82f6', '#8b5cf6', '#f59e0b'],
+                        borderWidth: 3,
+                        borderColor: '#ffffff',
+                        hoverOffset: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                boxWidth: 12,
+                                padding: 12,
+                                font: { family: 'Inter', size: 11 },
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => ` ${context.label}: ${context.raw.toFixed(2)} €`
+                            }
+                        }
+                    },
+                    cutout: '65%'
+                }
+            });
+        }
+
+        function initDrivingChart() {
+            const ctx = document.getElementById('drivingChart').getContext('2d');
+            chartsInstance.driving = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Dzień 1 (Wschód)', 'Dzień 2 (Interior)', 'Dzień 5 (Płn-Zachód)', 'Dzień 6 (Zachód)'],
+                    datasets: [
+                        {
+                            label: 'Ponta do Sol (Godz.)',
+                            data: [2.5, 2.0, 1.8, 1.5],
+                            backgroundColor: '#d6d3d1',
+                            borderRadius: 6,
+                            borderSkipped: false
+                        },
+                        {
+                            label: 'Split-Stay (Godz.)',
+                            data: [1.2, 0.8, 0.5, 1.5],
+                            backgroundColor: '#10b981',
+                            borderRadius: 6,
+                            borderSkipped: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: { display: true, text: 'Godziny w aucie', font: { family: 'Inter', size: 12 } },
+                            grid: { color: 'rgba(0,0,0,0.05)' }
+                        },
+                        x: {
+                            grid: { display: false },
+                            ticks: { font: { family: 'Inter', size: 11 } }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                boxWidth: 12,
+                                font: { family: 'Inter', size: 12 },
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: (context) => ` ${context.dataset.label}: ${context.raw}h`
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+
+        // ========== INIT ==========
+        document.addEventListener('DOMContentLoaded', () => {
+            // Countdown
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // Scroll
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            handleScroll();
+
+            // Animations
+            initScrollAnimations();
+
+            // Day selector
+            renderDaySelector();
+
+            // Insta Spots
+            renderInstaSpots();
+
+            // Charts - delayed to ensure Chart.js is loaded
+            const chartInit = () => {
+                if (typeof Chart !== 'undefined') {
+                    initFeesChart();
+                    initDrivingChart();
+                } else {
+                    setTimeout(chartInit, 100);
+                }
+            };
+            chartInit();
+        });
+
+        // Inject keyframe for detail fade
+        const styleSheet = document.createElement('style');
+        styleSheet.textContent = `
+            @keyframes fadeInDetails {
+                from { opacity: 0; transform: translateY(15px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    </script>
+</body>
+
+</html>

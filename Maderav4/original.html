@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iconic Madeira 2026 | Premium Logistics Strategy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Minimal custom styling, primarily relying on Tailwind */
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #fcfbf9;
+            color: #1c1917;
+        }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f5f5f4;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d6d3d1;
+            border-radius: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: #a8a29e;
+        }
+
+        .tab-active {
+            border-bottom-color: #10b981;
+            color: #10b981;
+            font-weight: 600;
+        }
+
+        .tab-inactive {
+            border-bottom-color: transparent;
+            color: #78716c;
+        }
+
+        .tab-inactive:hover {
+            color: #292524;
+            border-bottom-color: #d6d3d1;
+        }
+
+        .cardio-meter-bg {
+            background-color: #e7e5e4;
+            border-radius: 9999px;
+            height: 8px;
+            overflow: hidden;
+        }
+
+        .cardio-meter-fill {
+            height: 100%;
+            transition: width 0.5s ease-in-out;
+        }
+
+        .cardio-low {
+            background-color: #10b981;
+        }
+
+        /* Emerald */
+        .cardio-med {
+            background-color: #f59e0b;
+        }
+
+        /* Amber */
+        .cardio-high {
+            background-color: #ef4444;
+        }
+
+        /* Red */
+    </style>
+    <!-- Chosen Palette: Warm Neutrals (Stone/Zinc) with Emerald (Nature) and Amber (Sun/Premium) accents -->
+    <!-- Application Structure Plan: Dashboard approach prioritizing actionable intelligence. 
+         1. Executive Summary & Rules (Sets the operational context). 
+         2. Accommodation Strategy (Solves the primary logistical puzzle upfront). 
+         3. Interactive Itinerary (Core feature: modular daily plans with A/B options focusing on Smart Effort). 
+         4. Photography & Booking Matrix (Tactical execution details). 
+         This non-linear structure allows the user to jump straight to their area of concern (e.g., "Where to sleep" or "What to do on day 3") without scrolling through a massive text document. -->
+    <!-- Visualization & Content Choices: 
+         - Report Info: 2026 SIMplifica Fees -> Goal: Inform/Budget -> Viz: Doughnut Chart (Chart.js) -> Justification: Clearly shows proportion of trail costs.
+         - Report Info: Accommodation Analysis -> Goal: Compare -> Viz: Interactive Split UI with Bar Chart (Chart.js) comparing driving times -> Justification: Tangible comparison of "time wasted in tunnels".
+         - Report Info: Daily Itinerary & Cardio Limits -> Goal: Change/Interact -> Viz: Interactive Tabs & Dynamic Cardio Meters (HTML/CSS/JS) -> Justification: Allows quick switching between Full/Backup options while keeping visual track of energy expenditure. 
+         - NO SVG/Mermaid used. Heavily relied on HTML structure, Tailwind grids, and Unicode emojis for iconography. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+
+<body class="antialiased h-screen flex flex-col overflow-hidden">
+
+    <!-- Header -->
+    <header class="bg-stone-900 text-stone-50 py-4 px-6 shadow-md z-10 shrink-0">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div>
+                <h1 class="text-2xl font-light tracking-wide">ICONIC <span
+                        class="font-bold text-emerald-400">MADEIRA</span> 2026</h1>
+                <p class="text-xs text-stone-400 mt-1 uppercase tracking-widest">Premium Logistics & Strategy Report</p>
+            </div>
+            <div class="hidden md:block text-right">
+                <p class="text-sm">Profil: <span class="text-emerald-400 font-semibold">Low/Med Cardio</span></p>
+                <p class="text-sm">Cel: <span class="text-amber-400 font-semibold">Maksymalne Widoki (Smart
+                        Effort)</span></p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Application Layout -->
+    <main class="flex-1 overflow-hidden flex flex-col md:flex-row max-w-7xl mx-auto w-full">
+
+        <!-- Sidebar Navigation -->
+        <nav
+            class="w-full md:w-64 bg-stone-100 border-r border-stone-200 overflow-y-auto shrink-0 flex md:flex-col custom-scrollbar">
+            <button onclick="switchView('overview')" id="nav-overview"
+                class="flex-1 md:flex-none text-left px-6 py-4 border-b border-stone-200 font-medium text-emerald-700 bg-white hover:bg-stone-50 transition-colors">
+                &#128203; Paradygmat & 2026
+            </button>
+            <button onclick="switchView('accommodation')" id="nav-accommodation"
+                class="flex-1 md:flex-none text-left px-6 py-4 border-b border-stone-200 font-medium text-stone-600 hover:bg-stone-50 transition-colors">
+                &#127960; Baza Noclegowa
+            </button>
+            <button onclick="switchView('itinerary')" id="nav-itinerary"
+                class="flex-1 md:flex-none text-left px-6 py-4 border-b border-stone-200 font-medium text-stone-600 hover:bg-stone-50 transition-colors">
+                &#128506; Moduły Dni (7 Dni)
+            </button>
+            <button onclick="switchView('instaspots')" id="nav-instaspots"
+                class="flex-1 md:flex-none text-left px-6 py-4 border-b border-stone-200 font-medium text-stone-600 hover:bg-stone-50 transition-colors">
+                &#128248; Światło & Logistyka
+            </button>
+        </nav>
+
+        <!-- Content Area -->
+        <section class="flex-1 overflow-y-auto p-6 md:p-8 custom-scrollbar bg-white" id="content-area">
+
+            <!-- VIEW 1: Overview & 2026 Rules -->
+            <div id="view-overview" class="block animate-fade-in">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-stone-800 mb-2">Nowy Paradygmat: Estetyka nad Wysiłkiem</h2>
+                    <p class="text-stone-600 text-lg leading-relaxed">
+                        Rezygnujemy z tradycyjnego "zaliczania" szczytów. Strategia <strong>Smart Effort</strong>
+                        zakłada maksymalizację ekspozycji na najbardziej spektakularne klify, wodospady i "morze chmur"
+                        przy dziennym limicie przewyższeń <strong>400-500m</strong>. Cel osiągamy wykorzystując sieć
+                        kolejek linowych (teleféricos), dojazdy samochodowe pod same miradouros oraz skracanie
+                        klasycznych szlaków.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                    <div class="bg-stone-50 p-6 rounded-xl border border-stone-200">
+                        <h3 class="text-xl font-bold text-stone-800 mb-4">&#9888; Regulacje 2026: SIMplifica</h3>
+                        <ul class="space-y-3 text-stone-700">
+                            <li class="flex items-start"><span class="mr-2 text-emerald-600">&#10004;</span>
+                                <strong>Obowiązkowe Rezerwacje:</strong> Wszystkie szlaki PR wymagają wcześniejszej
+                                rejestracji czasowej (sloty) na portalu SIMplifica.</li>
+                            <li class="flex items-start"><span class="mr-2 text-emerald-600">&#10004;</span>
+                                <strong>Nowy Cennik:</strong> Standardowy szlak (np. PR8, PR9) to koszt <strong>4,50
+                                    €</strong> za osobę.</li>
+                            <li class="flex items-start"><span class="mr-2 text-red-500">&#10071;</span> <strong>PR1
+                                    Premium:</strong> Wejście na teren wokół Pico do Areeiro i szlak PR1 (nawet na
+                                krótki odcinek) kosztuje <strong>10,50 €</strong>.</li>
+                            <li class="flex items-start"><span class="mr-2 text-emerald-600">&#10004;</span>
+                                <strong>Kary:</strong> Brak QR kodu na wejściu = mandat od strażników IFCN.</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-stone-50 p-6 rounded-xl border border-stone-200 flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-stone-800 mb-2 text-center">Prognozowany Budżet Szlaków
+                            (Osoba)</h3>
+                        <div class="chart-container h-[250px]">
+                            <canvas id="feesChart"></canvas>
+                        </div>
+                        <p class="text-xs text-center text-stone-500 mt-2">Przewidywane koszty biletów wstępu w
+                            proponowanym planie (28,50 € / os).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW 2: Accommodation Analysis -->
+            <div id="view-accommodation" class="hidden animate-fade-in">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-stone-800 mb-2">Analiza Bazy Noclegowej</h2>
+                    <p class="text-stone-600 text-lg">
+                        Aby zminimalizować zmęczenie i czas spędzony w tunelach (crucial for "Smart Effort"),
+                        analizujemy dwie główne strategie logistyczne wynajmu.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <!-- Option 1 -->
+                    <div class="border-2 border-stone-200 rounded-xl p-6 hover:border-amber-400 transition-colors cursor-pointer bg-white"
+                        onclick="updateAccChart('single')">
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">&#127968; Opcja 1: Baza Stała (Ponta do Sol)
+                        </h3>
+                        <p class="text-emerald-600 font-semibold mb-4">Wysoki komfort, stabilna pogoda.</p>
+                        <p class="text-stone-600 mb-4 text-sm">Zalety: Brak konieczności pakowania, najbardziej
+                            słoneczne miejsce na wyspie, świetne zachody słońca.<br>Wady: Długie, męczące dojazdy na
+                            Wschód (Ponta de São Lourenço) i Północ (Porto Moniz), co wymusza bardzo wczesne pobudki.
+                        </p>
+                    </div>
+
+                    <!-- Option 2 -->
+                    <div class="border-2 border-emerald-500 rounded-xl p-6 relative bg-emerald-50 cursor-pointer"
+                        onclick="updateAccChart('split')">
+                        <div
+                            class="absolute -top-3 right-4 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
+                            Rekomendacja</div>
+                        <h3 class="text-2xl font-bold text-stone-800 mb-2">&#128230; Opcja 2: Split-Stay (4 dni Południe
+                            / 3 dni Północ)</h3>
+                        <p class="text-emerald-700 font-semibold mb-4">Optymalizacja czasu jazdy i energii.</p>
+                        <p class="text-stone-700 mb-4 text-sm">Zalety: Błyskawiczny dostęp do porannych atrakcji
+                            (Areeiro z południa, Seixal/PR9 z północy), minimalizacja nudnej jazdy w tunelach.<br>Wady:
+                            Jednorazowa zmiana bazy w środku wyjazdu.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl border border-stone-200">
+                    <h3 class="text-xl font-bold text-stone-800 mb-4 text-center">Porównanie Czasu Dojazdów (Godziny
+                        spędzone w aucie)</h3>
+                    <div class="chart-container">
+                        <canvas id="drivingChart"></canvas>
+                    </div>
+                    <p class="text-sm text-center text-stone-600 mt-4" id="acc-insight">
+                        <strong>Wniosek:</strong> System Split-Stay (np. Ponta do Sol + São Vicente) oszczędza ok. 4
+                        godzin jazdy w krytycznych dniach, chroniąc rezerwy cardio na widoki.
+                    </p>
+                </div>
+            </div>
+
+            <!-- VIEW 3: Itinerary (Core Interactive Modul) -->
+            <div id="view-itinerary" class="hidden animate-fade-in">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-stone-800 mb-2">Harmonogram Modułowy (7 Dni)</h2>
+                    <p class="text-stone-600 text-lg">
+                        Interaktywny plan "Smart Effort". Kliknij dzień, aby zobaczyć szczegóły trasy i przełączaj
+                        między opcją A (Full) i B (Backup/Lekka).
+                    </p>
+                </div>
+
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Day Selector -->
+                    <div class="w-full lg:w-1/3 flex flex-col gap-2" id="day-selector">
+                        <!-- Generated via JS -->
+                    </div>
+
+                    <!-- Day Details Panel -->
+                    <div class="w-full lg:w-2/3 bg-stone-50 rounded-xl border border-stone-200 p-6 flex flex-col">
+                        <div class="flex justify-between items-start mb-4 border-b border-stone-200 pb-4">
+                            <div>
+                                <h3 class="text-2xl font-bold text-stone-800" id="detail-title">Wybierz dzień z listy
+                                </h3>
+                                <p class="text-emerald-600 font-medium" id="detail-module">Moduł Geograficzny</p>
+                            </div>
+                            <!-- A/B Toggle -->
+                            <div class="flex bg-stone-200 rounded-lg p-1 opacity-0 transition-opacity"
+                                id="ab-toggle-container">
+                                <button onclick="selectOption('A')" id="btn-opt-a"
+                                    class="px-4 py-2 rounded-md text-sm font-bold bg-white shadow text-emerald-700 transition-all">Opcja
+                                    A (Full)</button>
+                                <button onclick="selectOption('B')" id="btn-opt-b"
+                                    class="px-4 py-2 rounded-md text-sm font-bold text-stone-500 hover:text-stone-800 transition-all">Opcja
+                                    B (Light)</button>
+                            </div>
+                        </div>
+
+                        <div id="detail-content" class="text-stone-500 italic text-center py-10">
+                            Wybierz moduł po lewej stronie, aby załadować logistykę trasy.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VIEW 4: Insta-Spots & Logistics -->
+            <div id="view-instaspots" class="hidden animate-fade-in">
+                <div class="mb-8">
+                    <h2 class="text-3xl font-bold text-stone-800 mb-2">Insta-Spots & Operacje 2026</h2>
+                    <p class="text-stone-600 text-lg">
+                        Tabela zarządzania światłem oraz krytyczne instrukcje dotyczące rezerwacji SIMplifica.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-xl border border-stone-200 overflow-hidden mb-8 shadow-sm">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-stone-100 text-stone-800 border-b border-stone-200">
+                                    <th class="p-4 font-semibold">Lokalizacja</th>
+                                    <th class="p-4 font-semibold">Najlepsze Światło</th>
+                                    <th class="p-4 font-semibold">Wskazówka "Smart Effort"</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-stone-600 text-sm">
+                                <tr class="border-b border-stone-100 hover:bg-stone-50 transition-colors">
+                                    <td class="p-4 font-medium text-stone-800">&#127749; Miradouro Ponta do Rosto</td>
+                                    <td class="p-4 text-amber-600 font-semibold">Wschód słońca</td>
+                                    <td class="p-4">Dojazd autem pod sam klif. Brak cardio.</td>
+                                </tr>
+                                <tr class="border-b border-stone-100 hover:bg-stone-50 transition-colors">
+                                    <td class="p-4 font-medium text-stone-800">&#128205; PR1: Ninho da Manta</td>
+                                    <td class="p-4 text-amber-600 font-semibold">Wschód słońca (07:00)</td>
+                                    <td class="p-4">Zakończ trekking tutaj (ok. 30 min od parkingu). Unikniesz 1000m
+                                        podejść na Ruivo.</td>
+                                </tr>
+                                <tr class="border-b border-stone-100 hover:bg-stone-50 transition-colors">
+                                    <td class="p-4 font-medium text-stone-800">&#127754; Miradouro da Garganta Funda
+                                    </td>
+                                    <td class="p-4">Późne popołudnie (16:00+)</td>
+                                    <td class="p-4">Krótki, płaski spacer (10 min). Słońce idealnie oświetla klif i
+                                        wodospad.</td>
+                                </tr>
+                                <tr class="border-b border-stone-100 hover:bg-stone-50 transition-colors">
+                                    <td class="p-4 font-medium text-stone-800">&#127748; Ponta da Ladeira</td>
+                                    <td class="p-4 text-orange-500 font-semibold">Zachód słońca</td>
+                                    <td class="p-4">Parking wysoko, widok na ocean. Można zabrać wino z auta w 2 minuty.
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-stone-50 transition-colors">
+                                    <td class="p-4 font-medium text-stone-800">&#127796; Fanal (Las Wawrzynolistny)</td>
+                                    <td class="p-4 text-stone-400 font-semibold">Mgła (cały dzień)</td>
+                                    <td class="p-4">Kluczowe to sprawdzić kamery (Webcams Madeira) czy jest mgła. Brak
+                                        mgły = omiń.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 p-6 rounded-xl border border-amber-200">
+                    <h3 class="text-xl font-bold text-amber-900 mb-3">&#128222; Instrukcja SIMplifica (Otwórz na 14 dni
+                        przed)</h3>
+                    <p class="text-amber-800 text-sm mb-4">W 2026 roku wejścia na kluczowe szlaki rozchodzą się w ciągu
+                        kilku godzin. Postępuj zgodnie z tą instrukcją:</p>
+                    <ol class="list-decimal list-inside text-sm text-amber-900 space-y-2">
+                        <li>Zarejestruj konto na <strong>simplifica.madeira.gov.pt</strong> natychmiast po zabukowaniu
+                            lotów.</li>
+                        <li>Sloty otwierają się z <strong>14-dniowym wyprzedzeniem</strong> o północy czasu lokalnego
+                            (01:00 czasu polskiego).</li>
+                        <li><strong>Priorytet 1:</strong> Zarezerwuj PR1 (Areeiro) na wschód słońca. Wybierz slot "06:00
+                            - 08:00". Płatność 10,50€.</li>
+                        <li><strong>Priorytet 2:</strong> PR8 (Ponta de São Lourenço). Wybierz slot poranny, aby uniknąć
+                            upału.</li>
+                        <li>Zapisz kody QR w trybie offline (Google Wallet / Apple Wallet). Zasięg na szlakach jest
+                            znikomy.</li>
+                    </ol>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        // --- DATA ARCHITECTURE ---
+        const itineraryData = [
+            {
+                id: 1, name: "Dzień 1: Wschód (Klifowy)", module: "MODUŁ WSCHÓD",
+                optA: {
+                    title: "PR8 Smart (Łódź) + Wschód Słońca",
+                    route: "Miradouro Ponta do Rosto (Sunrise) &rarr; PR8 Ponta de S. Lourenço (w jedną stronę do Casa do Sardinha) &rarr; Powrót łodzią motorową do Quinta do Lorde &rarr; Machico.",
+                    desc: "Klasyk wyspy przerobiony na Smart Effort. Unikamy nudnego i stromego powrotu, zamieniając go na ekscytujący rejs wzdłuż klifów.",
+                    cardioLevel: "med", cardioText: "Umiarkowane (Podejścia: ~250m)", time: "4.5h"
+                },
+                optB: {
+                    title: "Viewpoint Hopping Wschód",
+                    route: "Ponta do Rosto &rarr; Caniçal (kawa) &rarr; Machico Marina &rarr; Miradouro Pico do Facho.",
+                    desc: "Wersja zerowego wysiłku. Podziwianie klifów z poziomu szyb samochodu i krótkich, utwardzonych spacerów.",
+                    cardioLevel: "low", cardioText: "Niskie (Podejścia: ~50m)", time: "3h"
+                }
+            },
+            {
+                id: 2, name: "Dzień 2: Zachód (Dziki)", module: "MODUŁ ZACHÓD",
+                optA: {
+                    title: "Wodospady i Ekstremalne Kolejki",
+                    route: "Teleférico das Achadas da Cruz (zjazd do Fajã) &rarr; Miradouro da Garganta Funda (wodospad) &rarr; Ponta da Pargo &rarr; Zachód słońca: Ponta da Ladeira.",
+                    desc: "Spektakularne klify bez wspinaczki. Kolejka o nachyleniu 98% gwarantuje dreszczyk emocji, a widoki na Garganta Funda po krótkim płaskim spacerze deklasują lewady.",
+                    cardioLevel: "low", cardioText: "Niskie (Podejścia: ~100m)", time: "5h"
+                },
+                optB: {
+                    title: "Roadtrip po Klifach",
+                    route: "Jazda krajobrazowa drogą ER101 &rarr; Krótkie postoje na miradourach &rarr; Latarnia morska Ponta do Pargo.",
+                    desc: "Gdy wieje zbyt mocno na kolejkę. Spokojna jazda panoramiczna wzdłuż zachodniego brzegu.",
+                    cardioLevel: "low", cardioText: "Bardzo Niskie (Podejścia: 0m)", time: "3h"
+                }
+            },
+            {
+                id: 3, name: "Dzień 3: Północny-Zachód (Woda)", module: "MODUŁ PŁN-ZACHÓD",
+                optA: {
+                    title: "Czarne Plaże i Naturalne Baseny",
+                    route: "Praia da Laje (czarna plaża Seixal) &rarr; Baseny wulkaniczne Porto Moniz (kąpiel) &rarr; Miradouro de São Cristovão.",
+                    desc: "Dzień regeneracyjny. Koncentracja na żywiole wody. Pływanie w Porto Moniz to jedyny większy wysiłek.",
+                    cardioLevel: "low", cardioText: "Niskie (Pływanie + spacery)", time: "4h"
+                },
+                optB: {
+                    title: "Dzień Geologiczny",
+                    route: "Grutas de São Vicente (Jaskinie) &rarr; Seixal widokowo z góry.",
+                    desc: "Idealne na deszczową pogodę na północy. Zejście pod ziemię zamiast basenów.",
+                    cardioLevel: "low", cardioText: "Niskie (Spacery jaskiniowe)", time: "3h"
+                }
+            },
+            {
+                id: 4, name: "Dzień 4: Centralny (Góry)", module: "MODUŁ CENTRALNY",
+                optA: {
+                    title: "Areeiro Sunrise & Nuns Valley",
+                    route: "Pico do Areeiro (Wschód) &rarr; Dojście tylko do Ninho da Manta / Pedra Rija (PR1) &rarr; Powrót do auta &rarr; Eira do Serrado (Dolina Zakonnic).",
+                    desc: "Kwintesencja Smart Effort. Rezygnujemy z brutalnego przejścia na Ruivo, zdobywając 80% najlepszych widoków z PR1 przy ułamku wylanego potu.",
+                    cardioLevel: "med", cardioText: "Umiarkowane (Schody na Pedra Rija: ~300m)", time: "4h"
+                },
+                optB: {
+                    title: "Góry z poziomu chmur",
+                    route: "Tylko punkt widokowy Pico do Areeiro (bez wejścia na szlak) &rarr; Kawa w schronisku &rarr; Eira do Serrado.",
+                    desc: "Wersja w przypadku gorszej formy lub braku rezerwacji na szlak PR1. Widoki z tarasu obok parkingu.",
+                    cardioLevel: "low", cardioText: "Bardzo Niskie (Tylko tarasy)", time: "2h"
+                }
+            },
+            {
+                id: 5, name: "Dzień 5: Funchal & Południe", module: "MODUŁ SOUTH",
+                optA: {
+                    title: "Ogrody, Szkło i Banany",
+                    route: "Monte Palace Tropical Garden (zjazd kolejką) &rarr; Cabo Girão Skywalk &rarr; RB1 Rota do Banana (Madalena do Mar) &rarr; Cascata dos Anjos.",
+                    desc: "Mix kulturowo-krajobrazowy. Ogród Monte robimy tylko z góry na dół (cardio hack), a Rota do Banana to relaksujący płaski spacer w cieniu liści.",
+                    cardioLevel: "low", cardioText: "Niskie (Spacer w dół: ~150m)", time: "5.5h"
+                },
+                optB: {
+                    title: "Old Town & Wino",
+                    route: "Funchal Zona Velha &rarr; Degustacja w Blandy's Wine Lodge &rarr; Cabo Girão.",
+                    desc: "Miejskie popołudnie bez pośpiechu. Zmiana tempa po górach.",
+                    cardioLevel: "low", cardioText: "Niskie (Spacery miejskie)", time: "4h"
+                }
+            },
+            {
+                id: 6, name: "Dzień 6: Interior (Las)", module: "MODUŁ INTERIOR",
+                optA: {
+                    title: "Tunele Caldeirão Verde (PR9)",
+                    route: "PR9 Levada do Caldeirão Verde.",
+                    desc: "Najbardziej płaski spektakularny szlak na wyspie. Zero wspinaczki, czysta immersja w dżungli i tunelach. Wymagane czołówki i kaski ochronne (niskie stropy).",
+                    cardioLevel: "low", cardioText: "Niskie (Płasko, długi dystans 13km)", time: "4.5h"
+                },
+                optB: {
+                    title: "Krótka Lewada i Balkony",
+                    route: "PR11 Vereda dos Balcões (spacer 45m) &rarr; Ribeiro Frio.",
+                    desc: "Ekstremalnie krótki wariant lewadowy na wypadek zmęczenia nóg. Widok na całą dolinę za darmo i bez wysiłku.",
+                    cardioLevel: "low", cardioText: "Bardzo Niskie", time: "1h"
+                }
+            },
+            {
+                id: 7, name: "Dzień 7: Flex", module: "MODUŁ FLEX",
+                optA: {
+                    title: "R6 Disco lub Powtórki",
+                    route: "R6 Disco (Boaventura) lub powrót do ulubionego miejsca.",
+                    desc: "Dzień zapasowy na to, co zepsuła pogoda w poprzednich dniach, lub krótki, malowniczy spacer lokalny na pożegnanie.",
+                    cardioLevel: "low", cardioText: "Zależne od wyboru", time: "2-3h"
+                },
+                optB: {
+                    title: "Chillout",
+                    route: "Plażowanie w Calheta lub Ponta do Sol.",
+                    desc: "Pełny relaks przed lotem.",
+                    cardioLevel: "low", cardioText: "Brak", time: "---"
+                }
+            }
+        ];
+
+        // --- STATE MANAGEMENT ---
+        let currentDayId = 1;
+        let currentOption = 'A';
+        let chartsInstance = {};
+
+        // --- CORE LOGIC & RENDERING ---
+
+        function initApp() {
+            renderDaySelector();
+            loadDayDetail(1);
+            initFeesChart();
+            initDrivingChart(); // Initialize with default 'split' view silently
+        }
+
+        function switchView(viewName) {
+            // Update Nav Tabs
+            document.querySelectorAll('nav button').forEach(btn => {
+                btn.classList.remove('text-emerald-700', 'bg-white', 'border-l-4', 'border-emerald-500');
+                btn.classList.add('text-stone-600');
+            });
+            const activeBtn = document.getElementById(`nav-${viewName}`);
+            activeBtn.classList.remove('text-stone-600');
+            activeBtn.classList.add('text-emerald-700', 'bg-white', 'border-l-4', 'border-emerald-500');
+
+            // Update Views
+            document.querySelectorAll('main section > div').forEach(div => {
+                div.classList.add('hidden');
+                div.classList.remove('block');
+            });
+            document.getElementById(`view-${viewName}`).classList.remove('hidden');
+            document.getElementById(`view-${viewName}`).classList.add('block');
+        }
+
+        // Itinerary Module logic
+        function renderDaySelector() {
+            const container = document.getElementById('day-selector');
+            container.innerHTML = '';
+            itineraryData.forEach(day => {
+                const btn = document.createElement('button');
+                btn.className = `w-full text-left p-4 rounded-xl border transition-all ${day.id === currentDayId ? 'bg-emerald-50 border-emerald-500 shadow-sm' : 'bg-white border-stone-200 hover:border-emerald-300'}`;
+                btn.innerHTML = `<span class="block font-bold text-stone-800">${day.name}</span><span class="text-xs text-stone-500 uppercase tracking-wide">${day.module}</span>`;
+                btn.onclick = () => loadDayDetail(day.id);
+                container.appendChild(btn);
+            });
+        }
+
+        function loadDayDetail(dayId) {
+            currentDayId = dayId;
+            renderDaySelector(); // refresh selection styling
+
+            const dayData = itineraryData.find(d => d.id === dayId);
+            document.getElementById('detail-title').innerText = dayData.name;
+            document.getElementById('detail-module').innerText = dayData.module;
+            document.getElementById('ab-toggle-container').classList.remove('opacity-0');
+
+            renderOptionDetails();
+        }
+
+        function selectOption(opt) {
+            currentOption = opt;
+            // Update Toggle Styling
+            const btnA = document.getElementById('btn-opt-a');
+            const btnB = document.getElementById('btn-opt-b');
+
+            if (opt === 'A') {
+                btnA.className = 'px-4 py-2 rounded-md text-sm font-bold bg-white shadow text-emerald-700 transition-all';
+                btnB.className = 'px-4 py-2 rounded-md text-sm font-bold text-stone-500 hover:text-stone-800 transition-all';
+            } else {
+                btnB.className = 'px-4 py-2 rounded-md text-sm font-bold bg-white shadow text-emerald-700 transition-all';
+                btnA.className = 'px-4 py-2 rounded-md text-sm font-bold text-stone-500 hover:text-stone-800 transition-all';
+            }
+            renderOptionDetails();
+        }
+
+        function renderOptionDetails() {
+            const dayData = itineraryData.find(d => d.id === currentDayId);
+            const data = currentOption === 'A' ? dayData.optA : dayData.optB;
+
+            const cardioColors = {
+                'low': 'cardio-low',
+                'med': 'cardio-med',
+                'high': 'cardio-high'
+            };
+            const cardioWidths = {
+                'low': '30%',
+                'med': '65%',
+                'high': '95%'
+            };
+
+            const html = `
+                <div class="mt-4 animate-fade-in flex-1 flex flex-col">
+                    <h4 class="text-xl font-bold text-stone-800 mb-3">${data.title}</h4>
+                    
+                    <div class="bg-white p-4 rounded-lg border border-stone-200 mb-6">
+                        <p class="text-stone-700 font-medium mb-1 uppercase text-xs tracking-wider text-stone-500">Trasa (Zalecana Kolejność)</p>
+                        <p class="text-stone-800">${data.route}</p>
+                    </div>
+
+                    <p class="text-stone-600 mb-8 leading-relaxed flex-1">${data.desc}</p>
+                    
+                    <div class="bg-stone-100 p-5 rounded-xl mt-auto">
+                        <div class="flex justify-between items-end mb-2">
+                            <div>
+                                <p class="text-xs font-bold text-stone-500 uppercase tracking-widest mb-1">Budżet Cardio (Smart Effort)</p>
+                                <p class="text-stone-800 font-semibold">${data.cardioText}</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="text-xs font-bold text-stone-500 uppercase tracking-widest mb-1">Szacowany Czas</p>
+                                <p class="text-stone-800 font-semibold">&#8986; ${data.time}</p>
+                            </div>
+                        </div>
+                        <div class="cardio-meter-bg w-full">
+                            <div class="cardio-meter-fill ${cardioColors[data.cardioLevel]}" style="width: ${cardioWidths[data.cardioLevel]}"></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            document.getElementById('detail-content').innerHTML = html;
+        }
+
+        // --- CHARTS (Chart.js) ---
+
+        function initFeesChart() {
+            const ctx = document.getElementById('feesChart').getContext('2d');
+            chartsInstance.fees = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['PR1 (Areeiro)', 'PR8 (S. Lourenço)', 'PR9 (C. Verde)', 'Kolejka (Achadas)'],
+                    datasets: [{
+                        data: [10.50, 4.50, 4.50, 9.00], // Extracted logic limits
+                        backgroundColor: ['#ef4444', '#10b981', '#059669', '#f59e0b'],
+                        borderWidth: 2,
+                        borderColor: '#ffffff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { boxWidth: 12, font: { family: 'Segoe UI' } } },
+                        tooltip: {
+                            callbacks: { label: (context) => ` ${context.label}: ${context.raw} €` }
+                        }
+                    },
+                    cutout: '65%'
+                }
+            });
+        }
+
+        function initDrivingChart() {
+            const ctx = document.getElementById('drivingChart').getContext('2d');
+            chartsInstance.driving = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Dzień 1 (Wschód)', 'Dzień 3 (Płn-Zachód)', 'Dzień 4 (Centrum)', 'Dzień 6 (Interior)'],
+                    datasets: [
+                        {
+                            label: 'Opcja 1: Ponta do Sol (Godz)',
+                            data: [2.5, 1.8, 1.5, 2.0],
+                            backgroundColor: '#d6d3d1',
+                            borderRadius: 4
+                        },
+                        {
+                            label: 'Opcja 2: Split-Stay (Godz)',
+                            data: [1.2, 0.5, 1.5, 0.8], // Assumes they moved to North for D3/D6
+                            backgroundColor: '#10b981',
+                            borderRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, title: { display: true, text: 'Godziny w aucie' } }
+                    },
+                    plugins: {
+                        legend: { position: 'top' }
+                    }
+                }
+            });
+        }
+
+        function updateAccChart(mode) {
+            // Visual feedback on boxes
+            const boxSingle = document.querySelector('div[onclick="updateAccChart(\'single\')"]');
+            const boxSplit = document.querySelector('div[onclick="updateAccChart(\'split\')"]');
+            const insightText = document.getElementById('acc-insight');
+
+            if (mode === 'single') {
+                boxSingle.classList.replace('border-stone-200', 'border-amber-400');
+                boxSingle.classList.replace('bg-white', 'bg-amber-50');
+                boxSplit.classList.replace('border-emerald-500', 'border-stone-200');
+                boxSplit.classList.replace('bg-emerald-50', 'bg-white');
+
+                // Emphasize dataset 0
+                chartsInstance.driving.data.datasets[0].backgroundColor = '#f59e0b';
+                chartsInstance.driving.data.datasets[1].backgroundColor = '#e7e5e4';
+                insightText.innerHTML = "<strong>Ostrzeżenie:</strong> Wybór jednej bazy oznacza drastyczny wzrost czasu spędzonego w aucie, szczególnie podczas atakowania wschodnich i północnych krańców wyspy.";
+            } else {
+                boxSplit.classList.replace('border-stone-200', 'border-emerald-500');
+                boxSplit.classList.replace('bg-white', 'bg-emerald-50');
+                boxSingle.classList.replace('border-amber-400', 'border-stone-200');
+                boxSingle.classList.replace('bg-amber-50', 'bg-white');
+
+                // Emphasize dataset 1
+                chartsInstance.driving.data.datasets[0].backgroundColor = '#d6d3d1';
+                chartsInstance.driving.data.datasets[1].backgroundColor = '#10b981';
+                insightText.innerHTML = "<strong>Wniosek:</strong> System Split-Stay oszczędza ok. 4 godzin jazdy w krytycznych dniach, chroniąc rezerwy cardio na widoki.";
+            }
+            chartsInstance.driving.update();
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Set initial active nav
+            document.getElementById('nav-overview').classList.add('text-emerald-700', 'bg-white', 'border-l-4', 'border-emerald-500');
+            document.getElementById('nav-overview').classList.remove('text-stone-600');
+            initApp();
+        });
+
+    </script>
+</body>
+
+</html>
