@@ -365,7 +365,7 @@
                 <div class="text-center mb-12 fade-in">
                     <span class="text-sm font-semibold text-emerald-600 uppercase tracking-[0.15em]">Regulacje 2026</span>
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-2">System SIMplifica</h2>
-                    <p class="text-slate-500 mt-3 max-w-2xl mx-auto">Nowy obowiązkowy system rezerwacji szlaków. Bez QR kodu = mandat od 500€.</p>
+                    <p class="text-slate-500 mt-3 max-w-2xl mx-auto">Nowy obowiązkowy system rezerwacji szlaków. Wybierasz trasy — system sam nalicza najkorzystniejszą taryfę.</p>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -379,42 +379,47 @@
                                 <table class="w-full text-left">
                                     <thead>
                                         <tr class="border-b-2 border-slate-200">
-                                            <th class="pb-3 text-sm font-semibold text-slate-500 uppercase tracking-wider">Typ Biletu</th>
+                                            <th class="pb-3 text-sm font-semibold text-slate-500 uppercase tracking-wider">Element taryfowy</th>
                                             <th class="pb-3 text-sm font-semibold text-slate-500 uppercase tracking-wider">Cena</th>
-                                            <th class="pb-3 text-sm font-semibold text-slate-500 uppercase tracking-wider hidden sm:table-cell">Zakres</th>
+                                            <th class="pb-3 text-sm font-semibold text-slate-500 uppercase tracking-wider hidden sm:table-cell">Uwagi</th>
                                         </tr>
                                     </thead>
                                     <tbody class="text-sm">
                                         <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                                             <td class="py-3 pr-4 font-medium text-slate-800">Pojedynczy Szlak PR</td>
                                             <td class="py-3 pr-4 font-bold text-emerald-600">4,50 €</td>
-                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Większość tras (PR8, PR9, PR6)</td>
+                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Większość tras (PR8, PR6 itd.)</td>
                                         </tr>
                                         <tr class="border-b border-slate-100 hover:bg-rose-50/50 transition-colors">
-                                            <td class="py-3 pr-4 font-medium text-rose-700 flex items-center gap-1">🔴 PR1 Vereda do Areeiro</td>
+                                            <td class="py-3 pr-4 font-medium text-rose-700 flex items-center gap-1">🔴 PR1 pełna trasa</td>
                                             <td class="py-3 pr-4 font-bold text-rose-600">10,50 €</td>
-                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Szczyty centralne (po kwietniu 2026)</td>
+                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Po pełnym otwarciu — data niepewna</td>
+                                        </tr>
+                                        <tr class="border-b border-slate-100 hover:bg-amber-50/50 transition-colors">
+                                            <td class="py-3 pr-4 font-medium text-amber-700 flex items-center gap-1">🟡 PR1 segment Areeiro→Pedra Rija</td>
+                                            <td class="py-3 pr-4 font-bold text-amber-600">4,50 €</td>
+                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Aktualnie dostępny (stan: 13.04.2026)</td>
                                         </tr>
                                         <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                                            <td class="py-3 pr-4 font-medium text-slate-800">Bilet 1-dniowy</td>
+                                            <td class="py-3 pr-4 font-medium text-slate-800">Taryfa 1-dniowa <span class="text-xs text-slate-400">(auto)</span></td>
                                             <td class="py-3 pr-4 font-bold text-amber-600">9,00 €</td>
-                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Dostęp do wielu szlaków w 24h</td>
+                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Naliczana auto przy wielu trasach w 24h</td>
                                         </tr>
                                         <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
-                                            <td class="py-3 pr-4 font-medium text-slate-800">Bilet 3-dniowy</td>
+                                            <td class="py-3 pr-4 font-medium text-slate-800">Taryfa 3-dniowa <span class="text-xs text-slate-400">(auto)</span></td>
                                             <td class="py-3 pr-4 font-bold text-slate-700">22,50 €</td>
-                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Korzystny przy 5+ szlaków</td>
+                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Naliczana auto przy 5+ szlakach</td>
                                         </tr>
                                         <tr class="hover:bg-slate-50 transition-colors">
-                                            <td class="py-3 pr-4 font-medium text-slate-800">Bilet 7-dniowy</td>
+                                            <td class="py-3 pr-4 font-medium text-slate-800">Taryfa 7-dniowa <span class="text-xs text-slate-400">(auto)</span></td>
                                             <td class="py-3 pr-4 font-bold text-slate-700">52,50 €</td>
-                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Intensywne zwiedzanie</td>
+                                            <td class="py-3 text-slate-600 hidden sm:table-cell">Naliczana auto przy intensywnym planie</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                             <div class="mt-6 p-4 bg-rose-50 border border-rose-200 rounded-xl">
-                                <p class="text-rose-800 text-sm font-medium">⚠️ <strong>Ważne:</strong> Bilety wielodniowe NIE obejmują PR1. Brak QR = mandat od 500€.</p>
+                                <p class="text-rose-800 text-sm font-medium">⚠️ <strong>Ważne:</strong> Taryfy kombinowane NIE obejmują PR1. Naruszenie zasad (brak QR, wejście na zamknięty szlak) może skutkować grzywną — dla osób fizycznych od 250 €.</p>
                             </div>
                         </div>
                     </div>
@@ -428,7 +433,7 @@
                             <div class="chart-container" style="height: 260px;">
                                 <canvas id="feesChart"></canvas>
                             </div>
-                            <p class="text-center text-slate-500 text-xs mt-3 font-semibold">SUMA: ~38,50 € / osoba</p>
+                            <p class="text-center text-slate-500 text-xs mt-3 font-semibold">SUMA: ~23,50 € / osoba <span class="text-slate-400 font-normal">(szacunek autorski, taryfa auto może obniżyć)</span></p>
                         </div>
 
                         <!-- Booking Steps -->
@@ -459,7 +464,7 @@
                                 </li>
                             </ol>
                             <div class="mt-5 p-4 bg-amber-100/60 border border-amber-300 rounded-lg text-sm text-amber-900">
-                                <strong>UWAGA (Wytyczne IFCN):</strong> Dla osób planujących wschód słońca na Pico do Areeiro przed godziną 8:00, system może wymagać specjalnej autoryzacji.
+                                <strong>⚠️ Status: niepotwierdzone</strong> — W niektórych źródłach pojawia się informacja, że wejścia na Pico do Areeiro przed godziną 8:00 mogą wymagać specjalnej autoryzacji. Nie potwierdzono tego w oficjalnych materiałach IFCN. Sprawdź dostępne sloty bezpośrednio w SIMplifica.
                             </div>
                         </div>
                     </div>
@@ -485,7 +490,7 @@
                         </h3>
                         <p class="text-sm font-semibold text-amber-600 mb-3">Ponta do Sol — jeden hotel, zero pakowania</p>
                         <div class="space-y-2 text-sm text-slate-600">
-                            <p><strong class="text-emerald-700">✓</strong> Brak pakowania, stała baza, najsłoneczniejsze miejsce</p>
+                            <p><strong class="text-emerald-700">✓</strong> Brak pakowania, stała baza, jedno z najsłoneczniejszych miejsc</p>
                             <p><strong class="text-rose-600">✗</strong> Długie dojazdy na wschód i północ wyspy (2-2.5h dziennie)</p>
                         </div>
                     </div>
@@ -538,7 +543,7 @@
                                 <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                                     <td class="px-6 sm:px-8 py-4 font-medium text-amber-700">🎨 Południe (Design)</td>
                                     <td class="px-4 py-4 font-semibold text-slate-800">Estalagem Da Ponta Do Sol</td>
-                                    <td class="px-4 py-4 text-slate-600 hidden sm:table-cell">Widok na klif, najbardziej słoneczne miejsce</td>
+                                    <td class="px-4 py-4 text-slate-600 hidden sm:table-cell">Widok na klif, jedno z najsłoneczniejszych miejsc</td>
                                 </tr>
                                 <tr class="border-b border-slate-100 hover:bg-slate-50 transition-colors">
                                     <td class="px-6 sm:px-8 py-4 font-medium text-blue-700">🌊 Płn-Zachód (Woda)</td>
@@ -590,9 +595,9 @@
                                 <tr class="border-b border-slate-100 hover:bg-amber-50/30 transition-colors">
                                     <td class="px-4 sm:px-6 py-4 font-bold text-slate-800">2</td>
                                     <td class="px-4 py-4 text-slate-700 font-medium">🌿 Interior (Las)</td>
-                                    <td class="px-4 py-4 text-slate-600">PR9 Caldeirão Verde → Santana → Rocha do Navio</td>
-                                    <td class="px-4 py-4 text-center"><span class="inline-block bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-1 rounded-full">Med</span></td>
-                                    <td class="px-4 py-4 text-emerald-700 font-medium">Trasa płaska, kolejka w Rocha</td>
+                                    <td class="px-4 py-4 text-slate-600">PR11 Levada dos Balcões → Santana → Rocha do Navio <span class="text-amber-600 text-xs font-semibold">(warunkowe)</span></td>
+                                    <td class="px-4 py-4 text-center"><span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full">Low</span></td>
+                                    <td class="px-4 py-4 text-emerald-700 font-medium">Krótka lewada + Santana + opcjonalna kolejka</td>
                                 </tr>
                                 <tr class="border-b border-slate-100 hover:bg-emerald-50/30 transition-colors">
                                     <td class="px-4 sm:px-6 py-4 font-bold text-slate-800">3</td>
@@ -611,7 +616,7 @@
                                 <tr class="border-b border-slate-100 hover:bg-emerald-50/30 transition-colors">
                                     <td class="px-4 sm:px-6 py-4 font-bold text-slate-800">5</td>
                                     <td class="px-4 py-4 text-slate-700 font-medium">🌊 Północ-Zachód</td>
-                                    <td class="px-4 py-4 text-slate-600">Praia da Laje (kąpiel pod wodospadem) → Véu da Noiva → Porto Moniz</td>
+                                    <td class="px-4 py-4 text-slate-600">Praia da Laje <span class="text-amber-600 text-xs font-semibold">(tylko spokojne morze)</span> → Véu da Noiva → Porto Moniz</td>
                                     <td class="px-4 py-4 text-center"><span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full">Low</span></td>
                                     <td class="px-4 py-4 text-emerald-700 font-medium">Pętla widokowa bez wspinaczek</td>
                                 </tr>
@@ -620,12 +625,12 @@
                                     <td class="px-4 py-4 text-slate-700 font-medium">🪂 Zachód (Dziki)</td>
                                     <td class="px-4 py-4 text-slate-600">Achadas da Cruz (Teleferico) → Garganta Funda → Ponta do Pargo</td>
                                     <td class="px-4 py-4 text-center"><span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full">Low</span></td>
-                                    <td class="px-4 py-4 text-emerald-700 font-medium">Najstromsza kolejka świata</td>
+                                    <td class="px-4 py-4 text-emerald-700 font-medium">Stroma kolejka linowa do fajã</td>
                                 </tr>
                                 <tr class="hover:bg-emerald-50/30 transition-colors">
                                     <td class="px-4 sm:px-6 py-4 font-bold text-slate-800">7</td>
                                     <td class="px-4 py-4 text-slate-700 font-medium">🏛️ Funchal/Monte</td>
-                                    <td class="px-4 py-4 text-slate-600">Monte Palace → Sanie → Funchal Old Town → Cristo Rei (Sunset)</td>
+                                    <td class="px-4 py-4 text-slate-600">Monte Palace → Sanie → Funchal Old Town → Cristo Rei <span class="text-amber-600 text-xs font-semibold">(warunkowe)</span></td>
                                     <td class="px-4 py-4 text-center"><span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-2.5 py-1 rounded-full">Low</span></td>
                                     <td class="px-4 py-4 text-emerald-700 font-medium">Transport publiczny/taksówki</td>
                                 </tr>
@@ -685,7 +690,7 @@
                 <div class="text-center mb-12 fade-in">
                     <span class="text-sm font-semibold text-emerald-600 uppercase tracking-[0.15em]">Fotografia</span>
                     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-900 mt-2">Insta-Spots & Optymalizacja Światła</h2>
-                    <p class="text-slate-500 mt-3 max-w-2xl mx-auto">Najlepsze lokalizacje z precyzyjną porą na złote i magiczne kadry. Zaplanuj poranki i wieczory w oparciu o światło.</p>
+                    <p class="text-slate-500 mt-3 max-w-2xl mx-auto">Najlepsze lokalizacje z przybliżoną porą na złote kadry. Godziny szacunkowe, liczone dla 7–13 maja 2026 — sprawdź dokładne czasy dla aktualnej daty.</p>
                 </div>
 
                 <div class="fade-in glass-panel overflow-hidden">
@@ -741,7 +746,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-slate-800 mb-1 font-sans">Pogoda</h4>
-                                    <p class="text-sm text-slate-600">SIMplifica pozwala zmienić termin przy zamknięciu szlaku. Sprawdzaj <strong>madeirahiking.org/trail-status</strong> codziennie o 7:00.</p>
+                                    <p class="text-sm text-slate-600">Zmiana terminu rezerwacji w SIMplifica jest dopuszczona <strong>wyłącznie</strong> gdy ograniczenie wynika z oficjalnej decyzji IFCN. Nie zakładaj elastyczności rebookingu. Sprawdzaj status szlaków na stronie <strong>IFCN</strong> (source of record) każdego ranka.</p>
                                 </div>
                             </div>
                             <div class="flex gap-4">
@@ -750,7 +755,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-semibold text-slate-800 mb-1 font-sans">Łączenie Szlaków</h4>
-                                    <p class="text-sm text-slate-600">PR6 + PR6.1 w jednym koszyku = opłata dzienna 9€ (zamiast 2×4,50€).</p>
+                                    <p class="text-sm text-slate-600">PR6 + PR6.1 tego samego dnia — system auto-nalicza taryfę dzienną 9€ (zamiast 2×4,50€). To mechanizm auto-naliczania, nie osobny „trick koszyka".</p>
                                 </div>
                             </div>
                             <div class="flex gap-4">
@@ -813,21 +818,24 @@
                     </div>
                     <!-- Sources -->
                     <div>
-                        <h4 class="text-white font-semibold mb-3 font-sans text-sm uppercase tracking-wider">Źródła</h4>
+                        <h4 class="text-white font-semibold mb-3 font-sans text-sm uppercase tracking-wider">Źródła operacyjne</h4>
                         <ul class="space-y-2 text-sm">
-                            <li><a href="https://simplifica.madeira.gov.pt" target="_blank" rel="noopener" class="hover:text-emerald-400 transition-colors">SIMplifica — Portal Rezerwacji</a></li>
-                            <li><a href="https://madeirahiking.org" target="_blank" rel="noopener" class="hover:text-emerald-400 transition-colors">Madeira Hiking — Status Szlaków</a></li>
+                            <li><a href="https://simplifica.madeira.gov.pt" target="_blank" rel="noopener" class="hover:text-emerald-400 transition-colors">SIMplifica — Portal Rezerwacji (source of record)</a></li>
+                            <li><a href="https://ifcn.madeira.gov.pt" target="_blank" rel="noopener" class="hover:text-emerald-400 transition-colors">IFCN — Status Szlaków (source of record)</a></li>
                             <li><a href="https://www.visitmadeira.com" target="_blank" rel="noopener" class="hover:text-emerald-400 transition-colors">Visit Madeira — Oficjalny Portal</a></li>
                         </ul>
+                        <p class="text-xs text-slate-500 mt-3">madeirahiking.org — źródło pomocnicze, nie source of record dla statusów PR.</p>
                     </div>
                     <!-- Info -->
                     <div>
                         <h4 class="text-white font-semibold mb-3 font-sans text-sm uppercase tracking-wider">Informacje</h4>
                         <ul class="space-y-2 text-sm">
-                            <li>Wersja: 4.0 (kwiecień 2026)</li>
-                            <li>Dane cenowe: SIMplifica 2026</li>
+                            <li>Wersja: 4.1 (kwiecień 2026)</li>
+                            <li>Ostatni fact-check: 13.04.2026</li>
+                            <li>Dane cenowe: SIMplifica / portaria 591/2025</li>
                             <li>Pogoda: IPMA / Windy App</li>
                         </ul>
+                        <p class="text-xs text-slate-500 mt-3">Ceny, statusy szlaków i godziny mogą ulec zmianie. Weryfikuj przed wyjazdem.</p>
                     </div>
                 </div>
                 <div class="border-t border-slate-800 pt-6 text-center text-xs text-slate-500">
@@ -881,23 +889,23 @@
                 module: "MODUŁ INTERIOR",
                 emoji: "🌿",
                 optA: {
-                    title: "Tunele Caldeirão Verde (PR9)",
-                    route: "PR9 Levada do Caldeirão Verde (13 km) → Santana (casas típicas) → Miradouro da Rocha do Navio (kolejka linowa)",
-                    desc: "Najbardziej spektakularna lewada wyspy. Cztery tunele wykute w skale prowadzą do 100m wodospadu spadającego do szmaragdowego jeziora. Trasa płaska, zero wspinaczki. Obowiązkowa czołówka do tuneli.",
-                    highlights: ["4 tunele w skale (czołówka!)", "Szmaragdowe jezioro pod wodospadem", "Slot SIMplifica: PR9 (4,50 €)", "Zjazd kolejką w Rocha do Navio"],
-                    cardioLevel: "med",
-                    cardioText: "Umiarkowane (Płasko, ale 13km dystansu)",
-                    cardioPercent: 50,
-                    time: "5h"
+                    title: "Levada dos Balcões (PR11) + Santana",
+                    route: "PR11 Levada dos Balcões (1,5 km, widok na Ribeira da Metade) → Santana (casas típicas) → Rocha do Navio (warunkowe — sprawdź status kolejki w dniu wyjazdu)",
+                    desc: "PR9 Caldeirão Verde jest oficjalnie zamknięty (stan: 13.04.2026 wg IFCN). Zastępczo: PR11 — krótka lewada z efektownym widokiem na dolinę i szczyty centralne. Uzupełnij dniem w Santanie i opcjonalnie zjazdem kolejką w Rocha do Navio.",
+                    highlights: ["PR11 — widok na Ribeira da Metade i szczyty", "Tradycyjne domki Santany (casas típicas)", "Slot SIMplifica: PR11 (4,50 €)", "Rocha do Navio — opcja warunkowa (sprawdź kolejkę)"],
+                    cardioLevel: "low",
+                    cardioText: "Niskie (Krótka lewada + spacery)",
+                    cardioPercent: 25,
+                    time: "4h"
                 },
                 optB: {
-                    title: "Krótka Lewada + Santana",
-                    route: "Tylko pierwszy 1km PR9 (atmosfera lasu deszczowego) → Santana (casas típicas, kawa) → Rocha do Navio",
-                    desc: "Jeśli 13 km to za dużo — sam wstęp do lasu laurowego daje przedsmak magii. Reszta dnia na spokojne zwiedzanie Santany i zjazd kolejką na klif.",
-                    highlights: ["Mchy i paprocie lasu laurowego", "Tradycyjne domki Santany"],
+                    title: "Santana + Północ (Bez Szlaku)",
+                    route: "Santana (casas típicas, kawa) → Miradouro de São Cristóvão (Boaventura) → Opcjonalnie Rocha do Navio",
+                    desc: "Jeśli wolisz dzień bez szlaku — Santana oferuje tradycyjne domki i spokojną atmosferę. Uzupełnij widokiem na północne klify z São Cristóvão i ewentualnie zjazdem kolejką w Rocha do Navio.",
+                    highlights: ["Tradycyjne domki Santany", "São Cristóvão — ukryty punkt widokowy", "Pełna regeneracja"],
                     cardioLevel: "low",
-                    cardioText: "Niskie (Spacer + kolejka)",
-                    cardioPercent: 20,
+                    cardioText: "Bardzo Niskie (Spacery + dojazdy)",
+                    cardioPercent: 15,
                     time: "3h"
                 }
             },
@@ -908,9 +916,9 @@
                 emoji: "☀️",
                 optA: {
                     title: "Ogrody, Szkło i Banany",
-                    route: "Cabo Girão Skywalk (5€) → Câmara de Lobos → Rota do Banana RB1 (1.5km, płasko) → Cascata dos Anjos → Zachód słońca w Ponta do Sol",
-                    desc: "Mix kulturowo-krajobrazowy. Cabo Girão: 580m klif ze szklaną platformą — obowiązkowy na zachód słońca. Rota do Banana: relaksujący spacer przez plantacje. Cascata dos Anjos: wodospad na drodze (pieszo z Ponta do Sol).",
-                    highlights: ["580m klif ze szklaną platformą", "Rota do Banana — płaska trasa regeneracyjna", "Cascata dos Anjos — wodospad na drodze", "Zachód słońca z widokiem na Funchal"],
+                    route: "Cabo Girão Skywalk (ostrożnościowo 5€) → Câmara de Lobos → Rota do Banana RB1 (1.5km, płasko) → Zachód słońca w Ponta do Sol",
+                    desc: "Mix kulturowo-krajobrazowy. Cabo Girão: 580m klif ze szklaną platformą — jeden z najlepszych punktów na zachód słońca (uwaga: oficjalne źródła niespójne co do ceny, ostrożnościowo 5 €). Rota do Banana: relaksujący spacer przez plantacje.",
+                    highlights: ["580m klif ze szklaną platformą", "Rota do Banana — płaska trasa regeneracyjna", "Zachód słońca z widokiem na Funchal"],
                     cardioLevel: "low",
                     cardioText: "Niskie (Same dojazdy autem)",
                     cardioPercent: 25,
@@ -935,8 +943,8 @@
                 optA: {
                     title: "Areeiro Sunrise & Dolina Zakonnic",
                     route: "Pico do Areeiro (Sunrise, slot 06:00-07:00) → Ninho da Manta (15-20 min) → Pedra Rija / Schody do Nieba (10-15 min) → Powrót → Eira do Serrado (Dolina Zakonnic)",
-                    desc: "Kwintesencja Smart Effort. Rezygnujemy z brutalnego PR1 na Ruivo (15.6km, 1000m przewyższenia). Zdobywamy 80% najlepszych widoków przy ułamku wysiłku: morze chmur, Stairway to Heaven, i panoramę krateru. Parking P1: 4€/h (70 miejsc), P2: 2€/h (15 min podejście). Slot SIMplifica: 10,50€.",
-                    highlights: ["Morze chmur o wschodzie 🌅", "Schody do Nieba (Stairway to Heaven)", "Limit: 300-400m przewyższenia", "Slot SIMplifica: PR1 (10,50 €)", "Dolina Zakonnic — 5 min od parkingu"],
+                    desc: "Kwintesencja Smart Effort. Na dzień 13.04.2026 dostępny jest segment Areeiro→Pedra Rija. Dalsze otwieranie po 25.04.2026 ma być etapowe — sprawdź status IFCN przed wyjazdem. Parking P1: 4€/h (70 miejsc). Slot SIMplifica: segment 4,50€ (pełny PR1: 10,50€ po otwarciu).",
+                    highlights: ["Morze chmur o wschodzie 🌅", "Schody do Nieba (Stairway to Heaven)", "Limit: 300-400m przewyższenia", "Slot SIMplifica: segment PR1 (4,50 €)", "Dolina Zakonnic — 5 min od parkingu"],
                     cardioLevel: "med",
                     cardioText: "Umiarkowane (Schody Pedra Rija: ~300m)",
                     cardioPercent: 60,
@@ -960,9 +968,9 @@
                 emoji: "🌊",
                 optA: {
                     title: "Czarne Plaże i Naturalne Baseny",
-                    route: "Seixal: Praia da Laje (czarna plaża, światło 08:00-09:00, kąpiel do wodospadu) → Porto Moniz: Baseny wulkaniczne (kąpiel) → Miradouro de São Cristóvão (Boaventura, na trasie powrotnej)",
-                    desc: "Dzień regeneracyjny skoncentrowany na żywiole wody. Praia da Laje: czarny piasek i kąpiel u stóp wodospadu. Porto Moniz: naturalne baseny z czarnego bazaltu. São Cristóvão: niedoceniany widok na doliny tarasowe.",
-                    highlights: ["Kąpiel do wodospadu (Praia da Laje)", "Baseny z lawy wulkanicznej", "São Cristóvão — ukryty gem"],
+                    route: "Seixal: Praia da Laje (czarna plaża, światło 08:00-09:00 — kąpiel TYLKO przy spokojnym morzu) → Porto Moniz: Baseny wulkaniczne (kąpiel) → Miradouro de São Cristóvão (Boaventura, na trasie powrotnej)",
+                    desc: "Dzień regeneracyjny skoncentrowany na żywiole wody. Praia da Laje: plaża niestrzeżona — wejście do morza bywa utrudnione przez falę i prądy, rozważaj kąpiel wyłącznie przy spokojnym morzu. Porto Moniz: naturalne baseny z czarnego bazaltu. São Cristóvão: niedoceniany widok na doliny tarasowe.",
+                    highlights: ["Praia da Laje (⚠️ tylko spokojne morze)", "Baseny z lawy wulkanicznej", "São Cristóvão — ukryty gem"],
                     cardioLevel: "low",
                     cardioText: "Niskie (Pływanie + spacery)",
                     cardioPercent: 25,
@@ -986,9 +994,9 @@
                 emoji: "🪂",
                 optA: {
                     title: "Kolejka, Wodospad, Latarnia",
-                    route: "Teleférico das Achadas da Cruz (5€ powrotny) → Spacer wzdłuż Fajã (~2km, płasko) → Miradouro da Garganta Funda (5-10 min, płasko, najlepsze światło 16:00-18:00) → Ponta do Pargo (latarnia, 312m klif, zachód słońca)",
-                    desc: "Spektakularne klify bez wspinaczki. Achadas da Cruz: najstromsza kolejka w Europie (spadek 98°, 450m w dół!) do odizolowanej wioski nad oceanem. Garganta Funda: 140m ukryty wodospad w kanionie (5 min spacer!). Ponta do Pargo: zachód na krańcu świata.",
-                    highlights: ["Kolejka 98° nachylenia!", "Fajã — izolowana wioska nad oceanem", "140m wodospad po 5 min spaceru", "Zachód na klifie 312m — Ponta do Pargo"],
+                    route: "Teleférico das Achadas da Cruz (5€ powrotny) → Spacer wzdłuż Fajã (~2km, płasko) → Miradouro da Garganta Funda (5-10 min, płasko, najlepsze światło 16:00-18:00) → Ponta do Pargo (latarnia na 312m n.p.m., zachód słońca)",
+                    desc: "Spektakularne klify bez wspinaczki. Achadas da Cruz: bardzo stroma kolejka linowa (450m w dół!) do odizolowanej wioski nad oceanem. Garganta Funda: 140m ukryty wodospad w kanionie (5 min spacer!). Ponta do Pargo: zachód na krańcu świata.",
+                    highlights: ["Stroma kolejka do fajã nad oceanem", "Fajã — izolowana wioska nad oceanem", "140m wodospad po 5 min spaceru", "Zachód na latarni Ponta do Pargo"],
                     cardioLevel: "low",
                     cardioText: "Niskie (Kolejka + krótkie spacery)",
                     cardioPercent: 20,
@@ -1012,9 +1020,9 @@
                 emoji: "🏛️",
                 optA: {
                     title: "Ogrody Monte, Sanie i Cristo Rei",
-                    route: "Monte Palace Tropical Garden (70 000 m², kolejka linowa z Funchal lub autobus 20/21) → Zjazd saniami wiklinowymi (Carreiros do Monte) → Funchal Old Town → Cristo Rei na zachód słońca",
-                    desc: "Kulturalne pożegnanie z wyspą. Monte Palace: 70 000 m² egzotyki, stawy, architektura orientalna. Sanie wiklinowe: doświadczenie kulturowe oszczędzające kolana. Cristo Rei: ostatni zachód słońca ekspedycji.",
-                    highlights: ["70 000 m² ogrodu tropikalnego", "Tradycyjne sanie wiklinowe!", "Street art Funchal", "Cristo Rei — ostatni zachód ☀️"],
+                    route: "Monte Palace Tropical Garden (70 000 m², kolejka linowa z Funchal 08:45-17:45 lub autobus 20/21) → Zjazd saniami wiklinowymi (Carreiros do Monte — bilety tylko na miejscu) → Funchal Old Town → Cristo Rei (warunkowe — sprawdź status w dniu wyjazdu)",
+                    desc: "Kulturalne pożegnanie z wyspą. Monte Palace: 70 000 m² egzotyki (uwaga: znaczne nachylenie terenu — może być problematyczne dla osób z ograniczoną mobilnością). Sanie wiklinowe: bilety tylko na miejscu, brak rezerwacji online. Cristo Rei: opcja warunkowa — oficjalne źródła nie są jednoznaczne co do statusu dostępu.",
+                    highlights: ["70 000 m² ogrodu (⚠️ nachylenie terenu)", "Tradycyjne sanie wiklinowe (bilety na miejscu)", "Street art Funchal", "Cristo Rei — opcja warunkowa ☀️"],
                     cardioLevel: "low",
                     cardioText: "Niskie (Transport publiczny / taksówki)",
                     cardioPercent: 20,
@@ -1034,13 +1042,12 @@
         ];
 
         const instaSpots = [
-            { name: "Miradouro Ponta do Rosto", emoji: "🏜️", effect: "Płonące Klify", time: "06:30 - 07:30", timeType: "sunrise", why: "Pierwsze promienie oświetlają wulkaniczne formacje od wschodu", effort: "Dojazd autem pod sam klif. Zero cardio." },
-            { name: "Pico do Areeiro (Ninho da Manta)", emoji: "⛰️", effect: "Morze Chmur", time: "06:45 / 19:30", timeType: "sunrise", why: "Inwersja najlepiej widoczna przy niskim słońcu; wieczorem mniej ludzi", effort: "30 min od parkingu. Kończy się tu strefa Smart Effort." },
-            { name: "Dolina Inferno", emoji: "🌋", effect: "Światło w Tunelu", time: "11:00 - 13:00", timeType: "morning", why: "Słońce w zenicie dociera do dna głębokich wąwozów lewady PR9.", effort: "Trasa w ramach szlaku PR9." },
-            { name: "Miradouro da Garganta Funda", emoji: "🌊", effect: "Złoty Kanion", time: "16:00 - 18:00", timeType: "afternoon", why: "Słońce wpada bezpośrednio do szczeliny z 140m wodospadem", effort: "5-10 min spaceru od parkingu, prawie płasko." },
-            { name: "Seixal Beach (Praia da Laje)", emoji: "🖤", effect: "Black & Green", time: "08:00 - 09:00", timeType: "morning", why: "Miękkie światło nie tworzy ostrych cieni na zielonych klifach", effort: "Dojazd na plażę. Wodospad spada na piasek." },
-            { name: "Cabo Girão Skywalk", emoji: "🔭", effect: "Szklany Horyzont", time: "18:30 - Zachód", timeType: "sunset", why: "Panorama Funchal skąpana w ciepłym świetle zachodzącym nad oceanem", effort: "Parking przy samej platformie. 580m przepaści pod szkłem." },
-            { name: "Fanal Forest", emoji: "🌲", effect: "Mystical Fog", time: "08:00 - 10:00", timeType: "morning", why: "Największa szansa na mgłę między starymi drzewami", effort: "Sprawdź kamery (Webcams Madeira). Brak mgły = omiń." }
+            { name: "Miradouro Ponta do Rosto", emoji: "🏜️", effect: "Płonące Klify", time: "~06:30 - 07:30", timeType: "sunrise", why: "Pierwsze promienie oświetlają wulkaniczne formacje od wschodu", effort: "Dojazd autem pod sam klif. Krótkie podejście." },
+            { name: "Pico do Areeiro (Ninho da Manta)", emoji: "⛰️", effect: "Morze Chmur", time: "~06:45 / ~19:30", timeType: "sunrise", why: "Inwersja najlepiej widoczna przy niskim słońcu; wieczorem mniej ludzi", effort: "30 min od parkingu. Tu kończy się strefa Smart Effort." },
+            { name: "Miradouro da Garganta Funda", emoji: "🌊", effect: "Złoty Kanion", time: "~16:00 - 18:00", timeType: "afternoon", why: "Słońce wpada bezpośrednio do szczeliny z 140m wodospadem", effort: "5-10 min spaceru od parkingu, prawie płasko." },
+            { name: "Seixal Beach (Praia da Laje)", emoji: "🖤", effect: "Black & Green", time: "~08:00 - 09:00", timeType: "morning", why: "Miękkie światło nie tworzy ostrych cieni na zielonych klifach", effort: "Plaża niestrzeżona — kąpiel tylko spokojne morze." },
+            { name: "Cabo Girão Skywalk", emoji: "🔭", effect: "Szklany Horyzont", time: "~18:30 - Zachód", timeType: "sunset", why: "Panorama Funchal skąpana w ciepłym świetle zachodzącym nad oceanem", effort: "Parking przy platformie. Cena: ostrożnościowo 5€." },
+            { name: "Fanal Forest", emoji: "🌲", effect: "Mystical Fog", time: "~08:00 - 10:00", timeType: "morning", why: "Największa szansa na mgłę między starymi drzewami", effort: "Sprawdź kamery (Webcams Madeira). Brak mgły = omiń." }
         ];
 
 
@@ -1315,10 +1322,10 @@
             chartsInstance.fees = new Chart(ctx, {
                 type: 'doughnut',
                 data: {
-                    labels: ['PR1 (Areeiro)', 'PR8 (S. Lourenço)', 'PR9 (C. Verde)', 'Cabo Girão', 'Achadas da Cruz', 'Bilet 1-dniowy (zapas)'],
+                    labels: ['PR1 segment (Areeiro)', 'PR8 (S. Lourenço)', 'PR11 (Balcões)', 'Cabo Girão (ostr. 5€)', 'Achadas da Cruz'],
                     datasets: [{
-                        data: [10.50, 4.50, 4.50, 5.00, 5.00, 9.00],
-                        backgroundColor: ['#f43f5e', '#10b981', '#059669', '#3b82f6', '#8b5cf6', '#f59e0b'],
+                        data: [4.50, 4.50, 4.50, 5.00, 5.00],
+                        backgroundColor: ['#f43f5e', '#10b981', '#059669', '#3b82f6', '#8b5cf6'],
                         borderWidth: 3,
                         borderColor: '#ffffff',
                         hoverOffset: 8

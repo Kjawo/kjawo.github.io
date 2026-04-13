@@ -12,17 +12,20 @@ Najważniejszą zmianą regulacyjną, która weszła w życie 1 stycznia 2026 ro
 
 ### **Struktura Opłat i Rezerwacji**
 
-W roku 2026 opłaty za wstęp na szlaki zostały zróżnicowane. Standardowa opłata za większość tras PR wynosi 4,50 €, natomiast ikoniczny szlak PR1 Vereda do Areeiro, po pełnym otwarciu planowanym na kwiecień 2026 roku, kosztuje 10,50 €.1 Rezerwacje są przypisane do 30-minutowych okien startowych, co wymusza punktualność w logistyce porannej.4
+W roku 2026 opłaty za wstęp na szlaki zostały zróżnicowane. Standardowa opłata za większość tras PR wynosi 4,50 €.1 Rezerwacje są przypisane do 30-minutowych okien startowych, co wymusza punktualność w logistyce porannej.4
 
-| Typ Biletu | Cena (2026) | Zakres Stosowania |
+**Ważne: model auto-naliczania taryfy.** W SIMplifica użytkownik wybiera konkretne trasy, a system sam nalicza najkorzystniejszą taryfę — jednostkową albo kombinowaną (1-/3-/7-dniową), jeśli wychodzi taniej. Nie kupuje się osobnego „biletu 1-dniowego" jako produktu z półki.
+
+| Element taryfowy | Cena (2026) | Uwagi |
 | :---- | :---- | :---- |
-| Pojedynczy Szlak PR | 4,50 € | Większość tras (np. PR8, PR9, PR6) 1 |
-| PR1 Vereda do Areeiro | 10,50 € | Szczyty centralne (po kwietniu 2026\) 1 |
-| Bilet 1-dniowy | 9,00 € | Dostęp do wielu szlaków w ciągu 24h 3 |
-| Bilet 3-dniowy | 22,50 € | Korzystny przy planowaniu 5+ szlaków 1 |
-| Bilet 7-dniowy | 52,50 € | Dla intensywnego zwiedzania wyspy 1 |
+| Pojedynczy Szlak PR | 4,50 € | Większość tras (np. PR8, PR6) 1 |
+| PR1 Vereda do Areeiro (pełna trasa) | 10,50 € | Po pełnym otwarciu — data niepewna |
+| PR1 segment Areeiro→Pedra Rija | 4,50 € | Aktualnie dostępny publicznie (stan: 13.04.2026) |
+| Taryfa 1-dniowa (auto) | 9,00 € | Naliczana automatycznie przy wyborze wielu tras w ciągu 24h |
+| Taryfa 3-dniowa (auto) | 22,50 € | Naliczana automatycznie przy 5+ szlakach |
+| Taryfa 7-dniowa (auto) | 52,50 € | Naliczana automatycznie przy intensywnym zwiedzaniu |
 
-Należy podkreślić, że bilety wielodniowe nie obejmują szlaku PR1, który zawsze wymaga osobnej opłaty ze względu na swój unikalny status i koszty utrzymania.1 Ponadto, każda rezerwacja musi zostać dokonana online; na miejscu nie ma możliwości płatności gotówką, a brak ważnego kodu QR może skutkować mandatem w wysokości od 500 €.1
+Należy podkreślić, że taryfy kombinowane nie obejmują szlaku PR1, który zawsze wymaga osobnej opłaty ze względu na swój unikalny status i koszty utrzymania.1 Ponadto, każda rezerwacja musi zostać dokonana online; na miejscu nie ma możliwości płatności gotówką. Naruszenie zasad rejestracji i użytkowania szlaków, w tym wejście na trasę zamkniętą lub bez ważnego kodu QR, może skutkować grzywną — widełki zależą od rodzaju naruszenia i podmiotu, a dla osób fizycznych zaczynają się od 250 €.
 
 ### **Instrukcja Rezerwacji w Systemie SIMplifica**
 
@@ -34,7 +37,7 @@ Proces rezerwacji jest w pełni cyfrowy i wymaga założenia konta na platformie
 4. **Płatność:** Obsługiwane są karty Visa i Mastercard oraz system MB WAY.1  
 5. **Potwierdzenie:** Po opłaceniu bilet PDF z kodem QR jest wysyłany na e-mail. Zaleca się zrobienie zrzutu ekranu, gdyż zasięg GSM w górach i tunelach jest często ograniczony.1
 
-Dla osób planujących wschód słońca na Pico do Areeiro przed godziną 8:00, system może wymagać specjalnej autoryzacji, co należy sprawdzić bezpośrednio w wytycznych IFCN przed wyjazdem.8
+**Uwaga (status: niepotwierdzone):** W niektórych źródłach pojawia się informacja, że wejścia na Pico do Areeiro przed godziną 8:00 mogą wymagać specjalnej autoryzacji. Nie potwierdziłem tego w oficjalnych materiałach IFCN. Przed wyjazdem sprawdź dostępne sloty i bieżące zasady bezpośrednio w oficjalnym systemie SIMplifica.
 
 ## **Analiza Bazy Noclegowej: Strategia Split-Stay**
 
@@ -42,7 +45,7 @@ Wybór miejsca zakwaterowania ma fundamentalne znaczenie dla optymalizacji energ
 
 ### **Porównanie Lokalizacji: Ponta do Sol vs. Porto Moniz**
 
-Ponta do Sol jest uznawana za najbardziej słoneczną miejscowość na wyspie, co gwarantuje stabilną pogodę i wysoki komfort pobytu w hotelach typu design, takich jak Estalagem Da Ponta Do Sol.18 Jest to idealna baza do eksploracji południowego zachodu i centrum wyspy. Jednak codzienne dojazdy na północny zachód (Porto Moniz, Seixal) mogą być męczące, zajmując około 40-50 minut w jedną stronę przez liczne tunele.17
+Ponta do Sol jest uznawana za jedno z najsłoneczniejszych miejsc na wyspie, co statystycznie sprzyja stabilnej pogodzie i wysokiemu komfortowi pobytu w hotelach typu design, takich jak Estalagem Da Ponta Do Sol.18 Jest to idealna baza do eksploracji południowego zachodu i centrum wyspy. Jednak codzienne dojazdy na północny zachód (Porto Moniz, Seixal) mogą być męczące, zajmując około 40-50 minut w jedną stronę przez liczne tunele.17
 
 Alternatywą jest model split-stay: 4 dni na południu (np. Ponta do Sol lub Ribeira Brava) i 3 dni na północy lub północnym zachodzie (Porto Moniz lub São Vicente).18 Taki podział pozwala na:
 
@@ -86,7 +89,7 @@ Zachód Madery to królestwo nieograniczonych horyzontów i najbardziej dramatyc
 
 ### **Teleferico das Achadas da Cruz**
 
-Kolejka linowa w Achadas da Cruz jest uznawana za jedną z najstromszych w Europie, ze spadkiem sięgającym 98 stopni.33 Zjeżdża ona 450 metrów w dół klifu do Fajã da Quebrada Nova – odizolowanej wioski rolniczej nad samym oceanem.7
+Teleférico das Achadas da Cruz to bardzo stroma kolejka linowa schodząca do Fajã da Quebrada Nova.33 Zjeżdża ona 450 metrów w dół klifu do odizolowanej wioski rolniczej nad samym oceanem.7
 
 * **Opcja A:** Zjazd kolejką i spacer płaską ścieżką wzdłuż oceanu (około 2 km). To doświadczenie surowej potęgi Atlantyku bez konieczności wspinaczki.34  
 * **Opcja B:** Pozostanie na górnym punkcie widokowym Miradouro da Ponta da Ladeira, który oferuje ten sam widok na fajã z góry, bez ryzyka związanego z wiatrem, który czasem unieruchamia kolejkę.9
@@ -99,7 +102,7 @@ Ukryty wodospad o wysokości 140 metrów, spadający do głębokiego kanionu.39 
 
 ### **Ponta do Pargo: Zachód na Krańcu Świata**
 
-Latarnia morska w Ponta do Pargo znajduje się na klifie o wysokości 312 metrów.37 Jest to miejsce w pełni dostępne samochodem.37 Strategia widokowa zakłada przyjazd na 30 minut przed zachodem słońca, aby uchwycić złotą godzinę na czerwonych ścianach klifów ciągnących się na północ.37
+Latarnia morska w Ponta do Pargo znajduje się na wysokości 312 metrów n.p.m. (wysokość latarni, nie klifu — sam punkt widokowy jest niżej).37 Jest to miejsce w pełni dostępne samochodem.37 Strategia widokowa zakłada przyjazd na 30 minut przed zachodem słońca, aby uchwycić złotą godzinę na czerwonych ścianach klifów ciągnących się na północ.37
 
 ## **Moduł PÓŁNOCNY-ZACHÓD: Hydrologia i Geometria Bazaltu**
 
@@ -109,9 +112,9 @@ Północne wybrzeże to obszar o największej wilgotności, co przekłada się n
 
 Baseny w Porto Moniz to unikalna formacja wulkaniczna, gdzie oceaniczna woda wlewa się do naturalnych niecek z czarnego bazaltu.19 Z punktu widzenia Low Cardio, jest to relaksacyjna alternatywa dla marszu.19
 
-W Seixal znajduje się Praia da Laje – czarna piaszczysta plaża, uznawana za jedną z najbardziej estetycznych na świecie.3
+W Seixal znajduje się Praia da Laje – czarna piaszczysta plaża, uznawana za jedną z najbardziej estetycznych na świecie.3 **Uwaga bezpieczeństwa:** Praia da Laje to plaża niestrzeżona. Wejście do morza bywa utrudnione przez falę i prądy. Rozważaj kąpiel tylko przy spokojnym morzu.
 
-* **Opcja A:** Kąpiel na plaży i spacer do pobliskiego wodospadu, który wpada bezpośrednio na piasek.44  
+* **Opcja A:** Kąpiel na plaży przy spokojnym morzu i spacer do pobliskiego wodospadu, który wpada bezpośrednio na piasek.44
 * **Opcja B:** Miradouro do Véu da Noiva (Wodospad Welon Panny Młodej). Punkt widokowy znajduje się przy samej drodze VE2, oferując widok na wodospad spadający z klifu do oceanu bez żadnego wysiłku fizycznego.3
 
 ### **Miradouro de São Cristóvão (Boaventura)**
@@ -147,31 +150,34 @@ Południowe wybrzeże to połączenie luksusu z tradycją. Funchal jest bazą dl
 
 ### **Monte Palace i Kolejka Linowa**
 
-Ogród Monte Palace to 70 000 m² egzotycznej roślinności, stawów i architektury orientalnej.15 **Ważna uwaga logistyczna 2026:** Główna kolejka linowa z Funchal do Monte może być okresowo zamykana na przeglądy techniczne w pierwszym kwartale roku.2 Alternatywą jest wjazd autobusem linii 20 lub 21 (koszt około 2 €).2 Zamiast schodzenia pieszo, warto skorzystać z tradycyjnych sań wiklinowych (Carreiros do Monte), co jest doświadczeniem kulturowym oszczędzającym stawy kolanowe.15
+Ogród Monte Palace to 70 000 m² egzotycznej roślinności, stawów i architektury orientalnej.15 **Uwaga dostępności:** Ogród ma znaczne nachylenie terenu — osoby z ograniczoną mobilnością mogą mieć tam problem (oficjalne ostrzeżenie ogrodu). **Kolejka linowa Funchal–Monte:** Godziny pracy wg operatora to 08:45–17:45 (oficjalne źródła są niespójne — przyjmujemy ostrożnościowo godziny operatora). Alternatywą jest autobus linii 20, 21 lub innych (koszt ok. 2 €).2 Zamiast schodzenia pieszo, warto skorzystać z tradycyjnych sań wiklinowych (Carreiros do Monte) — bilety sprzedawane wyłącznie na miejscu, brak rezerwacji online, operatorzy mogą skończyć pracę wcześniej.15
 
 ### **Cabo Girão Skywalk**
 
 Jeden z najwyższych klifów w Europie (580 m) z przeszkloną platformą.3
 
-* **Opłata 2026:** 5 € za osobę powyżej 12 roku życia, płatne przez SIMplifica lub kartą na miejscu.1  
-* **Smart Effort:** Samochód parkuje się niemal na samej platformie. Jest to punkt obowiązkowy na zachód słońca, gdy światło oświetla Funchal i Câmara de Lobos na wschodzie.3
+* **Opłata 2026:** Ostrożnościowo przyjmujemy 5 € za osobę powyżej 12 roku życia (wg portaria 591/2025). **Uwaga: oficjalne źródła nie są spójne co do ceny** — w starszych wpisach pojawia się kwota 2 €. Przed wizytą sprawdź aktualny wpis w oficjalnym systemie. Płatność kartą na miejscu niepotwierdzona.1
+* **Smart Effort:** Samochód parkuje się niemal na samej platformie. Jeden z najlepszych punktów na zachód słońca, gdy światło oświetla Funchal i Câmara de Lobos na wschodzie.3
 
-### **Rota do Banana i Cascata dos Anjos**
+W Madalena do Mar znajduje się Rota do Banana (RB1) – płaska, 1,5-kilometrowa trasa przez plantacje bananów.22 Jest to idealny spacer regeneracyjny.55
 
-W Madalena do Mar znajduje się Rota do Banana (RB1) – płaska, 1,5-kilometrowa trasa przez plantacje bananów.22 Jest to idealny spacer regeneracyjny.55 W pobliżu znajduje się Cascata dos Anjos – wodospad spadający na starą drogę ER101.56 **Status 2026:** Droga jest oficjalnie zamknięta dla ruchu kołowego ze względu na spadające kamienie.56 Można tam jednak dotrzeć pieszo z Ponta do Sol (krótki spacer przez tunel).57 Należy zachować ostrożność i nie parkować w miejscach niedozwolonych, co jest rygorystycznie karane przez policję w celu udrożnienia przejazdu dla służb.57
+**⚠️ Cascata dos Anjos — NIE PLANUJ WEJŚCIA.** Oficjalne źródła wskazują zamknięcie dostępu, brak rekomendacji i zakaz ze względu na ryzyko obrywów skalnych.56 Punkt usunięty z planu i harmonogramu.
+
+### **PR9 Caldeirão Verde: ⚠️ ZAMKNIĘTY (stan: 13.04.2026)**
+
+**Na dzień 13 kwietnia 2026 PR9 jest oficjalnie zamknięty wg IFCN.** Nie planuj wejścia na tę trasę, dopóki IFCN nie zmieni statusu.
+
+Gdy PR9 był otwarty, prowadził przez cztery tunele wykute w skale do 100-metrowego wodospadu spadającego do szmaragdowego jeziora.16
+
+* **Dystans (przy otwarciu):** 13 km w obie strony.22
+* **Trudność:** Niska (płasko), ale wymagająca psychicznie ze względu na ekspozycję i wąskie ścieżki.16
+
+**Zastępczy plan dnia:** Levada dos Balcões (PR11) — krótka (1,5 km), oficjalnie otwarta trasa z efektownym widokiem na Ribeira da Metade i szczyty centralne. Uzupełnij dniem w Santanie i opcjonalnie Rocha do Navio (warunkowe — sprawdź status kolejki w dniu wyjazdu).
 
 ## **Moduł INTERIOR: Inżynieria Lewad i Las Laurissilva**
 
 Wnętrze wyspy to królestwo lasu wawrzynolistnego (Laurissilva), wpisanego na listę UNESCO.58 Logistyka lewad jest idealna dla profilu Low Cardio, ponieważ kanały te z natury muszą mieć minimalny spadek.16
 
-### **PR9 Caldeirão Verde: "Wodne Tunele"**
-
-To najbardziej spektakularna lewada na wyspie. Prowadzi przez cztery tunele wykute w skale do 100-metrowego wodospadu spadającego do szmaragdowego jeziora.16
-
-* **Dystans:** 13 km w obie strony.22  
-* **Trudność:** Niska (płasko), ale wymagająca psychicznie ze względu na ekspozycję i wąskie ścieżki.16  
-* **Smart Effort:** Należy dojechać do Parque Florestal das Queimadas. Parking jest płatny i szybko się zapełnia.16 Obowiązkowa jest czołówka (headlamp) do tuneli.55  
-* **Opcja B:** Jeśli 13 km to za dużo, warto przejść tylko pierwszy kilometr dla samej atmosfery lasu deszczowego i mchów, a następnie udać się autem do pobliskiej Santany na kawę w tradycyjnym domku "casas típicas".15
 
 ### **Opcjonalnie: R6 Boaventura (Caminho da Entrosa)**
 
@@ -184,12 +190,12 @@ Plan został ułożony tak, aby przeplatać dni bardziej aktywne z dniami regene
 | Dzień | Nazwa Modułu | Główne Punkty (Kolejność) | Cardio | Logistyka Smart |
 | :---- | :---- | :---- | :---- | :---- |
 | **1** | **Wschód (Klifowy)** | Ponta do Rosto (Sunrise) \-\> PR8 do Casa do Sardinha \-\> Łódź powrotna \-\> Machico | Med | Łódź oszczędza 4km marszu pod górę 28 |
-| **2** | **Interior (Las)** | PR9 Caldeirão Verde (tylko do wodospadu) \-\> Santana \-\> Miradouro da Rocha do Navio | Med | Trasa płaska, zjazd kolejką w Rocha do Navio 16 |
+| **2** | **Interior (Las)** | PR11 Levada dos Balcões \-\> Santana \-\> Rocha do Navio (warunkowe) | Low | Krótka lewada + Santana + opcjonalna kolejka 
 | **3** | **Południe (Relax)** | Cabo Girão \-\> Câmara de Lobos \-\> Rota do Banana \-\> Zachód w Ponta do Sol | Low | Dojazdy pod same punkty widokowe 3 |
-| **4** | **Góry (Central)** | Pico do Areeiro (Sunrise/Morning) \-\> Ninho da Manta \-\> Pedra Rija \-\> Dolina Zakonnic | Med | Tylko pierwsze 1.2km szlaku PR1 10 |
-| **5** | **Północ-Zachód** | Seixal (Praia da Laje) \-\> Véu da Noiva \-\> Porto Moniz (Baseny) \-\> Miradouro São Cristóvão | Low | Pętla samochodowa ER101 3 |
-| **6** | **Zachód (Dziki)** | Achadas da Cruz (Teleferico) \-\> Garganta Funda \-\> Ponta do Pargo (Lighthouse) | Low | Wykorzystanie najstromszej kolejki świata 34 |
-| **7** | **Funchal/Monte** | Ogród Monte Palace \-\> Zjazd saniami \-\> Funchal Old Town \-\> Cristo Rei (Sunset) | Low | Wykorzystanie transportu publicznego/taksówek 2 |
+| **4** | **Góry (Central)** | Pico do Areeiro (Sunrise/Morning) \-\> Ninho da Manta \-\> Pedra Rija \-\> Dolina Zakonnic | Med | Tylko segment PR1 Areeiro→Pedra Rija (jeśli otwarty) 10 |
+| **5** | **Północ-Zachód** | Seixal (Praia da Laje — tylko przy spokojnym morzu) \-\> Véu da Noiva \-\> Porto Moniz (Baseny) \-\> Miradouro São Cristóvão | Low | Pętla samochodowa ER101 3 |
+| **6** | **Zachód (Dziki)** | Achadas da Cruz (Teleferico) \-\> Garganta Funda \-\> Ponta do Pargo (Lighthouse) | Low | Stroma kolejka linowa 34 |
+| **7** | **Funchal/Monte** | Ogród Monte Palace \-\> Zjazd saniami \-\> Funchal Old Town \-\> Cristo Rei (warunkowe — sprawdź status) | Low | Wykorzystanie transportu publicznego/taksówek 2 |
 
 ## **Tabela: Insta-Spots & Light Optimization**
 
@@ -212,8 +218,8 @@ Planowanie podróży na Maderę w 2026 roku wymaga dyscypliny cyfrowej. Rezerwac
 ### **Strategie Rezerwacji:**
 
 1. **Sloty „Buffer Time”:** Zawsze rezerwuj slot o 30 minut późniejszy niż planowany przyjazd na parking. Parkowanie pod Areeiro czy w Queimadas może zająć 15-20 minut szukania miejsca.10  
-2. **Pogoda jako Zmienna:** System SIMplifica pozwala na zmianę terminu rezerwacji w przypadku zamknięcia szlaku przez IFCN z powodu złej pogody.11 Należy sprawdzać stronę madeirahiking.org/trail-status każdego ranka o 7:00.38  
-3. **Łączenie Szlaków:** Jeśli planujesz PR6 (25 Fontes) i PR6.1 (Risco) tego samego dnia, musisz zarezerwować oba, ale system automatycznie naliczy opłatę dzienną (9 €), jeśli zostaną dodane do jednego koszyka.4  
+2. **Pogoda jako Zmienna:** Zmiana terminu rezerwacji jest dopuszczona wyłącznie wtedy, gdy ograniczenie wynika z oficjalnej decyzji IFCN (np. zamknięcie szlaku z powodu pogody). Nie zakładaj elastyczności rebookingu, której zwykle nie masz.11 Sprawdzaj status szlaków bezpośrednio na stronie IFCN (source of record) każdego ranka.  
+3. **Łączenie Szlaków:** Jeśli planujesz PR6 (25 Fontes) i PR6.1 (Risco) tego samego dnia, zarezerwuj oba — system automatycznie naliczy taryfę dzienną (9 €), jeśli wychodzi taniej. To mechanizm auto-naliczania, nie osobny „trick koszyka".4  
 4. **Brak Zasięgu:** Kody QR z SIMplifica należy zapisać w portfelu Apple Wallet/Google Pay lub zrobić zrzut ekranu. Strażnicy przy wejściu na PR1 i PR8 w 2026 roku rygorystycznie sprawdzają bilety przed wpuszczeniem na szlak.1
 
 ### **Opcje Alternatywne (Weather Backup):**
