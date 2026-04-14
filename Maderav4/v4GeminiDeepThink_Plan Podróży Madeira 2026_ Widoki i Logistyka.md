@@ -1,303 +1,476 @@
-# **Iconic Madeira 2026: Strategia Planowania Podróży Premium i Optymalizacja Logistyki Widokowej**
-
-Rok 2026 staje się punktem zwrotnym w turystyce na Maderze, wprowadzając nowy paradygmat zarządzania ruchem turystycznym i ochrony zasobów naturalnych. Tradycyjne podejście do zwiedzania wyspy, skupione wokół botaniki i masowego dostępu do szlaków, ustępuje miejsca wyrafinowanemu modelowi „Iconic Madeira”. Model ten kładzie nacisk na estetykę krajobrazu, dramatyzm formacji skalnych i optymalizację wysiłku fizycznego, co jest kluczowe dla podróżnych o profilu wydolnościowym Low/Med Cardio.1 W dobie cyfryzacji dostępu poprzez system SIMplifica, logistyka podróży wymaga nie tylko precyzyjnego planowania czasowego, ale także strategicznego wyboru baz noclegowych i tras, które maksymalizują ekspozycję na wizualne efekty „WOW” przy minimalnym obciążeniu energetycznym.3
-
-## **Nowy Paradygmat: Estetyka i Dramatyzm Krajobrazu**
-
-Współczesna turystyka na Maderze w 2026 roku redefiniuje priorytety. Odchodzi się od dominującej roli botaniki, na rzecz surowego piękna klifów, formacji bazaltowych i zjawisk atmosferycznych, takich jak „morze chmur”.5 Kluczowym elementem strategii jest „Smart Effort” – inteligentne zarządzanie energią, które pozwala na osiągnięcie najbardziej spektakularnych punktów widokowych przy wykorzystaniu nowoczesnej infrastruktury.7 Zamiast wielogodzinnych podejść przez gęsty las, priorytetem są trasy techniczne, ale krótkie, oraz wykorzystanie kolejek linowych (telefericos) i dojazdów autem bezpośrednio pod punkty obserwacyjne.9
-
-## **System SIMplifica 2026: Cyfrowa Transformacja Dostępu**
-
-Najważniejszą zmianą regulacyjną, która weszła w życie 1 stycznia 2026 roku, jest obowiązek rezerwacji slotów czasowych na wszystkich sklasyfikowanych szlakach pieszych (PR – Percursos Pedestres).11 System SIMplifica został zaprojektowany w celu ograniczenia zagęszczenia ruchu i ochrony ekosystemu wyspy.13 Dla podróżnika premium oznacza to konieczność rezerwacji wejść z wyprzedzeniem, szczególnie na tak popularne trasy jak PR1 czy PR8.12
-
-### **Struktura Opłat i Rezerwacji**
-
-W roku 2026 opłaty za wstęp na szlaki zostały zróżnicowane. Standardowa opłata za większość tras PR wynosi 4,50 €.1 Rezerwacje są przypisane do 30-minutowych okien startowych, co wymusza punktualność w logistyce porannej.4
-
-**Ważne: model auto-naliczania taryfy.** W SIMplifica użytkownik wybiera konkretne trasy, a system sam nalicza najkorzystniejszą taryfę — jednostkową albo kombinowaną (1-/3-/7-dniową), jeśli wychodzi taniej. Nie kupuje się osobnego „biletu 1-dniowego" jako produktu z półki.
-
-| Element taryfowy | Cena (2026) | Uwagi |
-| :---- | :---- | :---- |
-| Pojedynczy Szlak PR | 4,50 € | Większość tras (np. PR8, PR6) 1 |
-| PR1 Vereda do Areeiro (pełna trasa) | 10,50 € | Po pełnym otwarciu — data niepewna |
-| PR1 segment Areeiro→Pedra Rija | 4,50 € | Aktualnie dostępny publicznie (stan: 13.04.2026) |
-| Taryfa 1-dniowa (auto) | 9,00 € | Naliczana automatycznie przy wyborze wielu tras w ciągu 24h |
-| Taryfa 3-dniowa (auto) | 22,50 € | Naliczana automatycznie przy 5+ szlakach |
-| Taryfa 7-dniowa (auto) | 52,50 € | Naliczana automatycznie przy intensywnym zwiedzaniu |
-
-Należy podkreślić, że taryfy kombinowane nie obejmują szlaku PR1, który zawsze wymaga osobnej opłaty ze względu na swój unikalny status i koszty utrzymania.1 Ponadto, każda rezerwacja musi zostać dokonana online; na miejscu nie ma możliwości płatności gotówką. Naruszenie zasad rejestracji i użytkowania szlaków, w tym wejście na trasę zamkniętą lub bez ważnego kodu QR, może skutkować grzywną — widełki zależą od rodzaju naruszenia i podmiotu, a dla osób fizycznych zaczynają się od 250 €.
-
-### **Instrukcja Rezerwacji w Systemie SIMplifica**
-
-Proces rezerwacji jest w pełni cyfrowy i wymaga założenia konta na platformie simplifica.madeira.gov.pt.1
-
-1. **Rejestracja:** Użytkownik musi wybrać typ konta "Pessoa Singular" (osoba fizyczna) i podać dane kontaktowe.1  
-2. **Wybór Usługi:** Należy przejść do sekcji „Bilhética” lub „Pagamento de Taxas para Accesso a Percursos Pedestres”.1  
-3. **Wybór Szlaku i Slotu:** System wyświetla dostępność w czasie rzeczywistym. Kolor niebieski oznacza dostępność, czerwony brak miejsc.1 Warto wybierać sloty poranne (przed 9:00), aby uniknąć kumulacji ruchu w wąskich przejściach lewad.4  
-4. **Płatność:** Obsługiwane są karty Visa i Mastercard oraz system MB WAY.1  
-5. **Potwierdzenie:** Po opłaceniu bilet PDF z kodem QR jest wysyłany na e-mail. Zaleca się zrobienie zrzutu ekranu, gdyż zasięg GSM w górach i tunelach jest często ograniczony.1
-
-**Uwaga (status: niepotwierdzone):** W niektórych źródłach pojawia się informacja, że wejścia na Pico do Areeiro przed godziną 8:00 mogą wymagać specjalnej autoryzacji. Nie potwierdziłem tego w oficjalnych materiałach IFCN. Przed wyjazdem sprawdź dostępne sloty i bieżące zasady bezpośrednio w oficjalnym systemie SIMplifica.
-
-## **Analiza Bazy Noclegowej: Strategia Split-Stay**
-
-Wybór miejsca zakwaterowania ma fundamentalne znaczenie dla optymalizacji energii podróżnika. Madera, mimo rozbudowanej sieci tuneli, charakteryzuje się dużymi różnicami w mikroklimate i czasie dojazdu między północą a południem.17
-
-### **Porównanie Lokalizacji: Ponta do Sol vs. Porto Moniz**
-
-Ponta do Sol jest uznawana za jedno z najsłoneczniejszych miejsc na wyspie, co statystycznie sprzyja stabilnej pogodzie i wysokiemu komfortowi pobytu w hotelach typu design, takich jak Estalagem Da Ponta Do Sol.18 Jest to idealna baza do eksploracji południowego zachodu i centrum wyspy. Jednak codzienne dojazdy na północny zachód (Porto Moniz, Seixal) mogą być męczące, zajmując około 40-50 minut w jedną stronę przez liczne tunele.17
-
-Alternatywą jest model split-stay: 4 dni na południu (np. Ponta do Sol lub Ribeira Brava) i 3 dni na północy lub północnym zachodzie (Porto Moniz lub São Vicente).18 Taki podział pozwala na:
-
-* **Oszczędność czasu:** Uniknięcie dwugodzinnych dojazdów w obie strony podczas dni poświęconych północnemu wybrzeżu.17  
-* **Dostęp do atrakcji przed tłumami:** Nocleg w Porto Moniz umożliwia wejście do basenów naturalnych o świcie, zanim przyjadą autokary z Funchal.17  
-* **Doświadczenie natury:** Północ wyspy jest dziksza, bardziej zielona i oferuje inne doznania wizualne niż zurbanizowane południe.18
-
-### **Rekomendacje Noclegowe pod Wynajęty Samochód**
-
-Dla podróżnych z samochodem kluczowa jest dostępność parkingu i łatwy wjazd na drogi szybkiego ruchu (VR1) oraz drogi ekspresowe (VE).17
-
-| Region | Polecany Hotel | Atuty Logistyczne |
-| :---- | :---- | :---- |
-| **Południe (Baza Słońce)** | Saccharum Resort & Spa (Calheta) | Luksus, bliskość plaży, świetna baza pod zachód wyspy 19 |
-| **Południe (Baza Design)** | Estalagem Da Ponta Do Sol | Widok na klif, najbardziej słoneczne miejsce, centralne na południu 18 |
-| **Północny-Zachód (Baza Woda)** | Aqua Natura Bay (Porto Moniz) | Bezpośrednio przy basenach, widok na ocean, oszczędność dojazdów na Seixal 18 |
-| **Północ (Baza Natura)** | Hotel Quinta Do Furão (Santana) | Widok na klify, bliskość PR9 i PR11, wysoki standard 23 |
-
-Najbardziej logicznym rozwiązaniem dla planu "Iconic Madeira 2026" jest split-stay między Ponta do Sol a Porto Moniz lub nocleg w Ribeira Brava, która stanowi geograficzny środek między wschodem, zachodem i północą dzięki tunelowi łączącemu ją z São Vicente.18
-
-## **Moduł WSCHÓD: Klifowy Dramatyzm i Logistyka Morska**
-
-Wschodni kraniec Madery, półwysep Ponta de São Lourenço, to krajobraz o charakterze półpustynnym, zdominowany przez formacje wulkaniczne w kolorach ochry i czerni.3 Jest to jeden z najbardziej fotogenicznych obszarów wyspy, ale jego pełne przejście może być wyzwaniem cardio ze względu na brak cienia i liczne podejścia.25
-
-### **PR8 Ponta de São Lourenço: Strategia „Smart Effort”**
-
-Aby zminimalizować wysiłek fizyczny, zaleca się modyfikację trasy PR8. Zamiast pełnego przejścia 10,5 km tam i z powrotem, optymalnym rozwiązaniem jest spacer do Casa do Sardinha i powrót łodzią.28
-
-* **Opcja A (Full Experience):** Przejście szlaku do punktu widokowego Ponta do Furado. Wymaga to pokonania stromych schodów na samym końcu, co daje spektakularny widok na wysepkę z latarnią morską Farol da Ponta de São Lourenço.27  
-* **Opcja B (Weather/Fatigue Backup):** Dojazd autem do Miradouro Ponta do Rosto. To miejsce oferuje panoramę całego półwyspu bez ani jednego kroku pieszo.3
-
-Logistyka powrotu łodzią (Water Taxi) z Cais do Sardinha do Mariny Quinta do Lorde pozwala zaoszczędzić około 1,5 godziny marszu pod górę w pełnym słońcu.28 Koszt takiej usługi w 2026 roku to około 16,50-22,50 € za osobę.29 Jest to klasyczny przykład logistyki premium, która zamienia męczący powrót w relaksujący rejs wzdłuż bazaltowych klifów, umożliwiając podziwianie formacji takich jak "Elephant Rock" od strony oceanu.28
-
-### **Miradouro Ponta do Rosto: Wschód Słońca**
-
-To najważniejszy punkt obserwacyjny na wschodzie. Światło wschodzącego słońca oświetla pionowe ściany klifów, wydobywając ich czerwoną barwę.3 Parking znajduje się bezpośrednio przy punkcie widokowym, co czyni go idealnym dla osób z niskim cardio.23
-
-## **Moduł ZACHÓD: Dzikość i Pionowe Fajãs**
-
-Zachód Madery to królestwo nieograniczonych horyzontów i najbardziej dramatycznych zachodów słońca. Logistyka tego modułu opiera się na wykorzystaniu kolejek linowych do pokonania gigantycznych różnic wysokości.7
-
-### **Teleferico das Achadas da Cruz**
-
-Teleférico das Achadas da Cruz to bardzo stroma kolejka linowa schodząca do Fajã da Quebrada Nova.33 Zjeżdża ona 450 metrów w dół klifu do odizolowanej wioski rolniczej nad samym oceanem.7
-
-* **Opcja A:** Zjazd kolejką i spacer płaską ścieżką wzdłuż oceanu (około 2 km). To doświadczenie surowej potęgi Atlantyku bez konieczności wspinaczki.34  
-* **Opcja B:** Pozostanie na górnym punkcie widokowym Miradouro da Ponta da Ladeira, który oferuje ten sam widok na fajã z góry, bez ryzyka związanego z wiatrem, który czasem unieruchamia kolejkę.9
-
-Bilet na kolejkę w 2026 roku kosztuje 5 € (powrotny), a czas przejazdu to zaledwie kilka minut.9 To doskonała alternatywa dla wymagających szlaków schodzących w dół klifów, jak Verada do Jardim do Mar (często zamknięta).38
-
-### **Miradouro da Garganta Funda**
-
-Ukryty wodospad o wysokości 140 metrów, spadający do głębokiego kanionu.39 Dojście z parkingu w Pedregal zajmuje zaledwie 5-10 minut po niemal płaskim terenie.40 Najlepsze światło na wodospad pada po południu; rano kanion pozostaje w głębokim cieniu.40 W miesiącach letnich wodospad może być mniej spektakularny, ale sama skala klifu zapiera dech w piersiach.40
-
-### **Ponta do Pargo: Zachód na Krańcu Świata**
-
-Latarnia morska w Ponta do Pargo znajduje się na wysokości 312 metrów n.p.m. (wysokość latarni, nie klifu — sam punkt widokowy jest niżej).37 Jest to miejsce w pełni dostępne samochodem.37 Strategia widokowa zakłada przyjazd na 30 minut przed zachodem słońca, aby uchwycić złotą godzinę na czerwonych ścianach klifów ciągnących się na północ.37
-
-## **Moduł PÓŁNOCNY-ZACHÓD: Hydrologia i Geometria Bazaltu**
-
-Północne wybrzeże to obszar o największej wilgotności, co przekłada się na intensywną zieleń i liczne wodospady spadające prosto do oceanu.3
-
-### **Baseny Porto Moniz i Seixal**
-
-Baseny w Porto Moniz to unikalna formacja wulkaniczna, gdzie oceaniczna woda wlewa się do naturalnych niecek z czarnego bazaltu.19 Z punktu widzenia Low Cardio, jest to relaksacyjna alternatywa dla marszu.19
-
-W Seixal znajduje się Praia da Laje – czarna piaszczysta plaża, uznawana za jedną z najbardziej estetycznych na świecie.3 **Uwaga bezpieczeństwa:** Praia da Laje to plaża niestrzeżona. Wejście do morza bywa utrudnione przez falę i prądy. Rozważaj kąpiel tylko przy spokojnym morzu.
-
-* **Opcja A:** Kąpiel na plaży przy spokojnym morzu i spacer do pobliskiego wodospadu, który wpada bezpośrednio na piasek.44
-* **Opcja B:** Miradouro do Véu da Noiva (Wodospad Welon Panny Młodej). Punkt widokowy znajduje się przy samej drodze VE2, oferując widok na wodospad spadający z klifu do oceanu bez żadnego wysiłku fizycznego.3
-
-### **Miradouro de São Cristóvão (Boaventura)**
-
-To jeden z najbardziej niedocenianych punktów widokowych na wyspie. Znajduje się przy restauracji w Boaventura i oferuje dramatyczny widok na doliny tarasowe oraz ostre formacje skalne wyrastające z morza.3 Najlepsze oświetlenie występuje tu po południu, gdy słońce podkreśla teksturę sąsiednich klifów.3 Jest to idealny przystanek samochodowy na trasie między São Vicente a Santaną.23
-
-## **Moduł CENTRALNY: Szczyty i Doliny**
-
-Góry centralne to serce Madery. W 2026 roku, ze względu na system rezerwacji, dostęp do nich jest ściśle regulowany.8
-
-### **Pico do Areeiro: Strategia „Sea of Clouds”**
-
-Pico do Areeiro (1818 m) to jedyny wysoki szczyt dostępny samochodem.5 Dla osób o profilu Low/Med Cardio pełny trekking PR1 do Pico Ruivo (15,6 km w obie strony, 1000 m przewyższenia) jest niewskazany.10
-
-**Zalecany plan Smart Effort:**
-
-1. **Dojazd na wschód słońca:** Należy zarezerwować slot na godzinę 6:00-7:00.4 Parking P1 (górny) jest płatny (4 €/h) i ma tylko 70 miejsc.10 Jeśli jest pełny, parking P2 (dolny) jest tańszy (2 €/h), ale wymaga 15-minutowego podejścia pod górę.10  
-2. **Spacer do Miradouro Ninho da Manta:** To zaledwie 15-20 minut od szczytu.48 Widok na dolinę Ribeira da Fajã da Nogueira jest spektakularny i często obejmuje zjawisko inwersji chmur.49  
-3. **Dojście do Pedra Rija:** Kolejne 10-15 minut marszu prowadzi do słynnych "Schodów do Nieba" (Stairway to Heaven).10 To tutaj kończy się bezpieczna strefa dla osób o niższej kondycji – dalsza droga to strome zejścia i podejścia.10
-
-Powrót tą samą drogą do samochodu zamyka sesję górską w limicie 300-400 m przewyższenia, dając jednocześnie dostęp do najbardziej "instagramowych" miejsc na wyspie.10
-
-### **Dolina Zakonnic (Eira do Serrado)**
-
-Miradouro da Eira do Serrado oferuje widok na Curral das Freiras – wioskę położoną w dnie wygasłego krateru (geologicznie głębokiej doliny erozyjnej) otoczonej niemal pionowymi ścianami.51
-
-* **Logistyka:** Dojazd autem pod sam hotel Eira do Serrado, skąd krótki, 5-minutowy spacer prowadzi na platformę widokową.19  
-* **Timing:** Najlepiej odwiedzić rano (do godziny 10:00), zanim w dolinie zaczną gromadzić się chmury konwekcyjne.51
-
-## **Moduł FUNCHAL & POŁUDNIE: Kultura i Ogrody**
-
-Południowe wybrzeże to połączenie luksusu z tradycją. Funchal jest bazą dla ogrodów, które w 2026 roku przeszły modernizację infrastruktury transportowej.2
-
-### **Monte Palace i Kolejka Linowa**
-
-Ogród Monte Palace to 70 000 m² egzotycznej roślinności, stawów i architektury orientalnej.15 **Uwaga dostępności:** Ogród ma znaczne nachylenie terenu — osoby z ograniczoną mobilnością mogą mieć tam problem (oficjalne ostrzeżenie ogrodu). **Kolejka linowa Funchal–Monte:** Godziny pracy wg operatora to 08:45–17:45 (oficjalne źródła są niespójne — przyjmujemy ostrożnościowo godziny operatora). Alternatywą jest autobus linii 20, 21 lub innych (koszt ok. 2 €).2 Zamiast schodzenia pieszo, warto skorzystać z tradycyjnych sań wiklinowych (Carreiros do Monte) — bilety sprzedawane wyłącznie na miejscu, brak rezerwacji online, operatorzy mogą skończyć pracę wcześniej.15
-
-### **Cabo Girão Skywalk**
-
-Jeden z najwyższych klifów w Europie (580 m) z przeszkloną platformą.3
-
-* **Opłata 2026:** Ostrożnościowo przyjmujemy 5 € za osobę powyżej 12 roku życia (wg portaria 591/2025). **Uwaga: oficjalne źródła nie są spójne co do ceny** — w starszych wpisach pojawia się kwota 2 €. Przed wizytą sprawdź aktualny wpis w oficjalnym systemie. Płatność kartą na miejscu niepotwierdzona.1
-* **Smart Effort:** Samochód parkuje się niemal na samej platformie. Jeden z najlepszych punktów na zachód słońca, gdy światło oświetla Funchal i Câmara de Lobos na wschodzie.3
-
-W Madalena do Mar znajduje się Rota do Banana (RB1) – płaska, 1,5-kilometrowa trasa przez plantacje bananów.22 Jest to idealny spacer regeneracyjny.55
-
-**⚠️ Cascata dos Anjos — NIE PLANUJ WEJŚCIA.** Oficjalne źródła wskazują zamknięcie dostępu, brak rekomendacji i zakaz ze względu na ryzyko obrywów skalnych.56 Punkt usunięty z planu i harmonogramu.
-
-### **PR9 Caldeirão Verde: ⚠️ ZAMKNIĘTY (stan: 13.04.2026)**
-
-**Na dzień 13 kwietnia 2026 PR9 jest oficjalnie zamknięty wg IFCN.** Nie planuj wejścia na tę trasę, dopóki IFCN nie zmieni statusu.
-
-Gdy PR9 był otwarty, prowadził przez cztery tunele wykute w skale do 100-metrowego wodospadu spadającego do szmaragdowego jeziora.16
-
-* **Dystans (przy otwarciu):** 13 km w obie strony.22
-* **Trudność:** Niska (płasko), ale wymagająca psychicznie ze względu na ekspozycję i wąskie ścieżki.16
-
-**Zastępczy plan dnia:** Levada dos Balcões (PR11) — krótka (1,5 km), oficjalnie otwarta trasa z efektownym widokiem na Ribeira da Metade i szczyty centralne. Uzupełnij dniem w Santanie i opcjonalnie Rocha do Navio (warunkowe — sprawdź status kolejki w dniu wyjazdu).
-
-## **Moduł INTERIOR: Inżynieria Lewad i Las Laurissilva**
-
-Wnętrze wyspy to królestwo lasu wawrzynolistnego (Laurissilva), wpisanego na listę UNESCO.58 Logistyka lewad jest idealna dla profilu Low Cardio, ponieważ kanały te z natury muszą mieć minimalny spadek.16
-
-
-### **Opcjonalnie: R6 Boaventura (Caminho da Entrosa)**
-
-Jeśli plan obejmuje Boaventurę, szlak R6 (często nazywany lokalnie ścieżką "Disco") oferuje przejście starym brukowanym traktem królewskim z widokiem na północne wybrzeże.62 Jest to trasa o umiarkowanym przewyższeniu (\~350-400 m), ale bardzo satysfakcjonująca wizualnie.62
-
-## **Harmonogram Modułowy: 7 Dni „Iconic Madeira 2026”**
-
-Plan został ułożony tak, aby przeplatać dni bardziej aktywne z dniami regeneracyjnymi, zachowując logikę geograficzną.
-
-| Dzień | Nazwa Modułu | Główne Punkty (Kolejność) | Cardio | Logistyka Smart |
-| :---- | :---- | :---- | :---- | :---- |
-| **1** | **Wschód (Klifowy)** | Ponta do Rosto (Sunrise) \-\> PR8 do Casa do Sardinha \-\> Łódź powrotna \-\> Machico | Med | Łódź oszczędza 4km marszu pod górę 28 |
-| **2** | **Interior (Las)** | PR11 Levada dos Balcões \-\> Santana \-\> Rocha do Navio (warunkowe) | Low | Krótka lewada + Santana + opcjonalna kolejka 
-| **3** | **Południe (Relax)** | Cabo Girão \-\> Câmara de Lobos \-\> Rota do Banana \-\> Zachód w Ponta do Sol | Low | Dojazdy pod same punkty widokowe 3 |
-| **4** | **Góry (Central)** | Pico do Areeiro (Sunrise/Morning) \-\> Ninho da Manta \-\> Pedra Rija \-\> Dolina Zakonnic | Med | Tylko segment PR1 Areeiro→Pedra Rija (jeśli otwarty) 10 |
-| **5** | **Północ-Zachód** | Seixal (Praia da Laje — tylko przy spokojnym morzu) \-\> Véu da Noiva \-\> Porto Moniz (Baseny) \-\> Miradouro São Cristóvão | Low | Pętla samochodowa ER101 3 |
-| **6** | **Zachód (Dziki)** | Achadas da Cruz (Teleferico) \-\> Garganta Funda \-\> Ponta do Pargo (Lighthouse) | Low | Stroma kolejka linowa 34 |
-| **7** | **Funchal/Monte** | Ogród Monte Palace \-\> Zjazd saniami \-\> Funchal Old Town \-\> Cristo Rei (warunkowe — sprawdź status) | Low | Wykorzystanie transportu publicznego/taksówek 2 |
-
-## **Tabela: Insta-Spots & Light Optimization**
-
-Kluczem do spektakularnych zdjęć jest zrozumienie, jak słońce operuje w głębokich kanionach i na wysokich klifach Madery.
-
-| Miejsce | Efekt Wizualny | Najlepsza Godzina | Dlaczego? |
-| :---- | :---- | :---- | :---- |
-| **Ponta do Rosto** | Płonące Klify | 06:30 \- 07:30 | Pierwsze promienie oświetlają wulkaniczne formacje od wschodu.3 |
-| **Pico do Areeiro** | Morze Chmur | 06:45 / 19:30 | Inwersja najlepiej widoczna przy niskim słońcu; wieczorem mniej ludzi.10 |
-| **Garganta Funda** | Złoty Kanion | 16:00 \- 18:00 | Słońce wpada bezpośrednio do szczeliny z wodospadem.39 |
-| **Seixal Beach** | Black & Green | 08:00 \- 09:00 | Miękkie światło nie tworzy ostrych cieni na zielonych klifach.3 |
-| **Cabo Girão** | Szklany Horyzont | 18:30 \- Zachód | Panorama Funchal skąpana w ciepłym świetle zachodzącym na oceanie.3 |
-| **Fanal Forest** | Mystical Fog | 08:00 \- 10:00 | Największa szansa na mgłę snującą się między starymi drzewami.33 |
-| **Dolina Inferno** | Światło w Tunelu | 11:00 \- 13:00 | Słońce w zenicie dociera do dna głębokich wąwozów lewady PR9.61 |
-
-## **Logistyka 2026: Zarządzanie Slotami i Ryzykiem**
-
-Planowanie podróży na Maderę w 2026 roku wymaga dyscypliny cyfrowej. Rezerwacja slotów w SIMplifica powinna odbywać się z co najmniej 3-5 dniowym wyprzedzeniem dla popularnych tras.4
-
-### **Strategie Rezerwacji:**
-
-1. **Sloty „Buffer Time”:** Zawsze rezerwuj slot o 30 minut późniejszy niż planowany przyjazd na parking. Parkowanie pod Areeiro czy w Queimadas może zająć 15-20 minut szukania miejsca.10  
-2. **Pogoda jako Zmienna:** Zmiana terminu rezerwacji jest dopuszczona wyłącznie wtedy, gdy ograniczenie wynika z oficjalnej decyzji IFCN (np. zamknięcie szlaku z powodu pogody). Nie zakładaj elastyczności rebookingu, której zwykle nie masz.11 Sprawdzaj status szlaków bezpośrednio na stronie IFCN (source of record) każdego ranka.  
-3. **Łączenie Szlaków:** Jeśli planujesz PR6 (25 Fontes) i PR6.1 (Risco) tego samego dnia, zarezerwuj oba — system automatycznie naliczy taryfę dzienną (9 €), jeśli wychodzi taniej. To mechanizm auto-naliczania, nie osobny „trick koszyka".4  
-4. **Brak Zasięgu:** Kody QR z SIMplifica należy zapisać w portfelu Apple Wallet/Google Pay lub zrobić zrzut ekranu. Strażnicy przy wejściu na PR1 i PR8 w 2026 roku rygorystycznie sprawdzają bilety przed wpuszczeniem na szlak.1
-
-### **Opcje Alternatywne (Weather Backup):**
-
-Madera posiada mikroklimaty. Jeśli góry (Pico do Areeiro) są w chmurach, południowe wybrzeże (Ponta do Sol) zazwyczaj jest słoneczne.18
-
-* **Zamiast PR1 (Góry):** Wybierz spacer wzdłuż wybrzeża w Machico lub Caniçal.18  
-* **Zamiast PR9 (Las):** Udaj się do basenów w Porto Moniz – deszcz na północy często ustępuje po 15-20 minutach, a kąpiel w deszczu w ciepłej oceanicznej wodzie jest unikalnym doświadczeniem.19
-
-## **Konkluzje i Rekomendacje Strategiczne**
-
-Model „Iconic Madeira 2026” dla podróżnika Premium to przede wszystkim eliminacja „pustych przebiegów”. Zamiast forsownych podejść w gęstym lesie, które nie oferują widoków, plan skupia się na punktach o największej gęstości estetycznej. Wykorzystanie kolejek linowych w Achadas da Cruz, łodzi w São Lourenço oraz krótkich odcinków górskich na Areeiro pozwala na zachowanie energii na wieczorne kolacje w Ponta do Sol czy Funchal.
-
-Kluczem do sukcesu jest split-stay, który redukuje zmęczenie logistyczne, oraz rygorystyczne przestrzeganie slotów SIMplifica, które paradoksalnie, dzięki ograniczeniu liczby osób na szlakach, przywraca Maderze atmosferę ekskluzywności i spokoju, jaką wyspa cieszyła się dekady temu. W 2026 roku Madera staje się destynacją dla osób ceniących czas i komfort, gdzie technologia służy naturze, a logistyka staje się sztuką wyboru tego, co najpiękniejsze, przy minimalnym koszcie fizycznym.
-
-#### **Cytowane prace**
-
-1. How to book trails in Madeira in 2026? Step-by-step guide | SIMplifica, otwierano: kwietnia 13, 2026, [https://madeira.com.pl/en/how-to-book-and-buy-tickets-for-paid-trails-in-madeira-complete-step-by-step-guide-for-2026-2](https://madeira.com.pl/en/how-to-book-and-buy-tickets-for-paid-trails-in-madeira-complete-step-by-step-guide-for-2026-2)  
-2. Traveling around Madeira in 2026: what's new? \- ZigZagonEarth, otwierano: kwietnia 13, 2026, [https://www.zigzagonearth.com/travel-madeira-2026-new/](https://www.zigzagonearth.com/travel-madeira-2026-new/)  
-3. Madeira Hiking Fees 2026: How to Book Trails & Rules, otwierano: kwietnia 13, 2026, [https://www.saltinourhair.com/madeira/madeira-hiking-fees/](https://www.saltinourhair.com/madeira/madeira-hiking-fees/)  
-4. How to Book the Best Hikes in Madeira Island (2026 Guide), otwierano: kwietnia 13, 2026, [https://7mrentacar.com/en/blog/post/how-to-book-the-best-hikes-in-madeira-island-2026-guide](https://7mrentacar.com/en/blog/post/how-to-book-the-best-hikes-in-madeira-island-2026-guide)  
-5. The best spots for sunrise and sunset on Madeira \- Get to Hikes, otwierano: kwietnia 13, 2026, [https://gettohikes.com/en/the-best-spots-for-sunrise-and-sunset-on-madeira](https://gettohikes.com/en/the-best-spots-for-sunrise-and-sunset-on-madeira)  
-6. Photographing the Sunset over the Sea of Clouds at Pico do Arieiro, Madeira | PhotoPills Expedition, otwierano: kwietnia 13, 2026, [https://www.photopills.com/videos/photographing-the-sunset-over-the-sea-of-clouds-at-pico-do-arieiro-madeira-photopills](https://www.photopills.com/videos/photographing-the-sunset-over-the-sea-of-clouds-at-pico-do-arieiro-madeira-photopills)  
-7. Achadas da Cruz Cable Car Tickets & Tours (Verified Reviews) | GetYourGuide, otwierano: kwietnia 13, 2026, [https://www.getyourguide.com/achadas-da-cruz-cable-car-l143667/](https://www.getyourguide.com/achadas-da-cruz-cable-car-l143667/)  
-8. Madeira Trail Reservations 2026: How to Pay & Book Your Hiking Slot, otwierano: kwietnia 13, 2026, [https://beyondmadeira.com/madeira-trail-reservations-2026/](https://beyondmadeira.com/madeira-trail-reservations-2026/)  
-9. Achadas da Cruz cable car (Madeira): tips \+ photos, otwierano: kwietnia 13, 2026, [https://madeiralovers.com/en/cable-car-achadas-da-cruz-teleferico-madeira/](https://madeiralovers.com/en/cable-car-achadas-da-cruz-teleferico-madeira/)  
-10. Pico Do Arieiro: Everything You Need To Know 2026 \- Beyond Madeira, otwierano: kwietnia 13, 2026, [https://beyondmadeira.com/pico-arieiro-complete-guide/](https://beyondmadeira.com/pico-arieiro-complete-guide/)  
-11. Madeira Trail Fees 2026 \- Prices, Passes & SIMplifica Booking, otwierano: kwietnia 13, 2026, [https://madeirahiking.org/fees-booking](https://madeirahiking.org/fees-booking)  
-12. Madeira's Trail Reservations 2026: How To Book Your Hike \- The Road Reel, otwierano: kwietnia 13, 2026, [https://www.theroadreel.com/madeira-trail-reservation-system/](https://www.theroadreel.com/madeira-trail-reservation-system/)  
-13. New Hiking Payment Model in Madeira – Starting January 2026 \- OurMadeira, otwierano: kwietnia 13, 2026, [https://www.ourmadeira.com/things-to-do/madeira-hiking-payment-system-2026/](https://www.ourmadeira.com/things-to-do/madeira-hiking-payment-system-2026/)  
-14. How to pay hiking fees in Madeira? \- Raposeira de São João, otwierano: kwietnia 13, 2026, [https://www.thuisopmadeira.nl/hiking-fees-in-madeira/](https://www.thuisopmadeira.nl/hiking-fees-in-madeira/)  
-15. Paying for hikes in Madeira: Everything you need to know \- Trails & Terroirs, otwierano: kwietnia 13, 2026, [https://www.trailsandterroirs.com/blog\_article/payment-and-booking-hikes-madeira](https://www.trailsandterroirs.com/blog_article/payment-and-booking-hikes-madeira)  
-16. How To Hike Levada Do Caldeirão Verde (PR9) Trail On Madeira \- The Road Reel, otwierano: kwietnia 13, 2026, [https://www.theroadreel.com/pr9-levada-do-caldeirao-verde-hike/](https://www.theroadreel.com/pr9-levada-do-caldeirao-verde-hike/)  
-17. Explore Madeira: How far is Porto Moniz from Funchal? \- The Jolie, otwierano: kwietnia 13, 2026, [https://www.thejolie.pt/how-far-is-porto-moniz-from-funchal/](https://www.thejolie.pt/how-far-is-porto-moniz-from-funchal/)  
-18. Where To Stay In Madeira (2025): Best Areas, Tips & Hotels \- The Road Reel, otwierano: kwietnia 13, 2026, [https://www.theroadreel.com/where-to-stay-in-madeira-best-areas/](https://www.theroadreel.com/where-to-stay-in-madeira-best-areas/)  
-19. Where to stay in Madeira (2026): 14 best areas \+ hotels \- ZigZagonEarth, otwierano: kwietnia 13, 2026, [https://www.zigzagonearth.com/where-to-stay-madeira-best-areas/](https://www.zigzagonearth.com/where-to-stay-madeira-best-areas/)  
-20. Where to Stay in Madeira 2026: The Ultimate Hotel Guide \- Earth Trekkers, otwierano: kwietnia 13, 2026, [https://www.earthtrekkers.com/where-to-stay-in-madeira/](https://www.earthtrekkers.com/where-to-stay-in-madeira/)  
-21. Ponta do Sol to Porto Moniz \- 3 ways to travel via bus, car, and taxi \- Rome2Rio, otwierano: kwietnia 13, 2026, [https://www.rome2rio.com/s/Ponta-do-Sol-Portugal/Porto-Moniz](https://www.rome2rio.com/s/Ponta-do-Sol-Portugal/Porto-Moniz)  
-22. Hiking in Madeira: Best Trails \+ Mistakes to Avoid\! | Two Wandering Soles, otwierano: kwietnia 13, 2026, [https://www.twowanderingsoles.com/blog/madeira-portugal-hikes](https://www.twowanderingsoles.com/blog/madeira-portugal-hikes)  
-23. 22 Best Viewpoints In Madeira \+ Map & Photos \- The Road Reel, otwierano: kwietnia 13, 2026, [https://www.theroadreel.com/best-viewpoints-in-madeira/](https://www.theroadreel.com/best-viewpoints-in-madeira/)  
-24. Staying in Ponta De Sol (Madiera) : r/solotravel \- Reddit, otwierano: kwietnia 13, 2026, [https://www.reddit.com/r/solotravel/comments/1ob0ilc/staying\_in\_ponta\_de\_sol\_madiera/](https://www.reddit.com/r/solotravel/comments/1ob0ilc/staying_in_ponta_de_sol_madiera/)  
-25. MADEIRA: THE HAWAII OF EUROPE \- inbetweenflights, otwierano: kwietnia 13, 2026, [https://inbetweenflights.com/madeira-the-hawaii-of-europe](https://inbetweenflights.com/madeira-the-hawaii-of-europe)  
-26. 5 Best Hikes in Madeira, Portugal (New 2026 Rules) \- Earth Trekkers, otwierano: kwietnia 13, 2026, [https://www.earthtrekkers.com/best-hikes-in-madeira/](https://www.earthtrekkers.com/best-hikes-in-madeira/)  
-27. 22 Best Hikes in Madeira: Easy Levadas to Hard Peaks, otwierano: kwietnia 13, 2026, [https://picoandponcha.com/best-hikes-in-madeira/](https://picoandponcha.com/best-hikes-in-madeira/)  
-28. The best Ponta de São Lourenço Cruises & boat tours 2026 \- GetYourGuide, otwierano: kwietnia 13, 2026, [https://www.getyourguide.com/ponta-de-sao-lourenco-l142596/cruises-boat-tours-tc48/](https://www.getyourguide.com/ponta-de-sao-lourenco-l142596/cruises-boat-tours-tc48/)  
-29. Lighthouse View III – Cais do Sardinha, Lighthouse and return to Cais do Sardinha \- Walking in Levadas Madeira Guide \- Booking levadas, otwierano: kwietnia 13, 2026, [https://www.levadasmadeira.com/boat-tours/boat-tour-lighthouse-view-iii-cais-do-sardinha-lighthouse-and-return-to-cais-do-sardinha](https://www.levadasmadeira.com/boat-tours/boat-tour-lighthouse-view-iii-cais-do-sardinha-lighthouse-and-return-to-cais-do-sardinha)  
-30. Ponta de Sao Lourenço Basic Boat Tour I one way \- Madeira.Best, otwierano: kwietnia 13, 2026, [https://madeira.best/product/ponta-de-sao-lourenco-basic-boat-tour-i-one-way](https://madeira.best/product/ponta-de-sao-lourenco-basic-boat-tour-i-one-way)  
-31. PONTA SÃO LOURENÇO WALK AND BOAT RETURN \- Madeira Atlantic Tours, otwierano: kwietnia 13, 2026, [https://madeiraatlantictours.com/ponta-sao-lourenco-walk-and-boat-return](https://madeiraatlantictours.com/ponta-sao-lourenco-walk-and-boat-return)  
-32. Miradouro de São Cristovão \- Rexby, otwierano: kwietnia 13, 2026, [https://www.rexby.com/KarolTraveler/ttd/a-scenic-viewpoint-in-boa-ventura](https://www.rexby.com/KarolTraveler/ttd/a-scenic-viewpoint-in-boa-ventura)  
-33. Tours & tickets Achadas da Cruz Cable Car \- GetYourGuide, otwierano: kwietnia 13, 2026, [https://www.getyourguide.com/en-au/achadas-da-cruz-cable-car-l143667/](https://www.getyourguide.com/en-au/achadas-da-cruz-cable-car-l143667/)  
-34. Teleférico das Achadas da Cruz, Calheta, Portugal \- Reviews, Ratings, Tips and Why You Should Go \- Wanderlog, otwierano: kwietnia 13, 2026, [https://wanderlog.com/place/details/767437/telef%C3%A9rico-das-achadas-da-cruz](https://wanderlog.com/place/details/767437/telef%C3%A9rico-das-achadas-da-cruz)  
-35. Achada da Cruz \- Steve Roper, otwierano: kwietnia 13, 2026, [https://www.steveroper.ca/achada-da-cruz/](https://www.steveroper.ca/achada-da-cruz/)  
-36. Photo spots on Madeira | 8 locations for great images \- bilderschmied.com, otwierano: kwietnia 13, 2026, [https://bilderschmied.com/en/blog/tips-madeira-photo-locations-8-spots](https://bilderschmied.com/en/blog/tips-madeira-photo-locations-8-spots)  
-37. SUNSET VIEWPOINTS MADEIRA: Figo's Ultimate Madeira Sunset Guide by Madeira Hiking \+ Homeoffice Madeira \- Madeira, Portugal \- Rexby, otwierano: kwietnia 13, 2026, [https://www.rexby.com/Madeira\_Hiking/t/figos-ultimate-madeira-sunset-guide](https://www.rexby.com/Madeira_Hiking/t/figos-ultimate-madeira-sunset-guide)  
-38. Madeira Trail Status Today \- Open, Closed & Restricted \[2026\], otwierano: kwietnia 13, 2026, [https://madeirahiking.org/trail-status](https://madeirahiking.org/trail-status)  
-39. Garganta Funda Waterfall (2026) – Best of TikTok, Instagram & Reddit Travel Guide, otwierano: kwietnia 13, 2026, [https://airial.travel/attractions/portugal/ribeira-da-vaca/garganta-funda-waterfall-xq8INkGz](https://airial.travel/attractions/portugal/ribeira-da-vaca/garganta-funda-waterfall-xq8INkGz)  
-40. Miradouro da Garganta Funda in Madeira: Complete Visitor Guide \- Blog \- Atlantic Holiday, otwierano: kwietnia 13, 2026, [https://www.atlanticholidayrentals.com/blog/miradouro-garganta-funda/](https://www.atlanticholidayrentals.com/blog/miradouro-garganta-funda/)  
-41. Miradouro da Garganta Funda: Complete Travel Guide \- The Manduls, otwierano: kwietnia 13, 2026, [https://themanduls.com/miradouro-da-garganta-funda/](https://themanduls.com/miradouro-da-garganta-funda/)  
-42. Garganta Funda \- Exploring Madeira's hidden waterfall \- Get to Hikes, otwierano: kwietnia 13, 2026, [https://gettohikes.com/en/garganta-funda-exploring-madeiras-hidden-waterfall](https://gettohikes.com/en/garganta-funda-exploring-madeiras-hidden-waterfall)  
-43. The best Funchal Hiking 2026 \- Free cancellation \- GetYourGuide, otwierano: kwietnia 13, 2026, [https://www.getyourguide.com/funchal-l1026/hiking-tc71/](https://www.getyourguide.com/funchal-l1026/hiking-tc71/)  
-44. The Best Spots for Sunrise and Sunset on Madeira Island, otwierano: kwietnia 13, 2026, [https://visitmadeira.com/en/blog/jackson-groves/the-best-spots-for-sunrise-and-sunset-on-madeira-island/](https://visitmadeira.com/en/blog/jackson-groves/the-best-spots-for-sunrise-and-sunset-on-madeira-island/)  
-45. 7 Days in Madeira: The Complete Local Itinerary, otwierano: kwietnia 13, 2026, [https://beyondmadeira.com/7-days-itinerary/](https://beyondmadeira.com/7-days-itinerary/)  
-46. Breathtaking Views at Miradouro de São Cristóvão Café \- YouTube, otwierano: kwietnia 13, 2026, [https://m.youtube.com/shorts/yC2xZTKg8ZU](https://m.youtube.com/shorts/yC2xZTKg8ZU)  
-47. Pico do Areeiro to Pico Ruivo (PR1) Hike Guide \- Madeira, Portugal \- The Smart Route, otwierano: kwietnia 13, 2026, [https://www.thesmartroute.com/pr-1-pico-do-areeiro-to-pico-ruivo-madeira-portugal/](https://www.thesmartroute.com/pr-1-pico-do-areeiro-to-pico-ruivo-madeira-portugal/)  
-48. Ninho da Manta Viewpoint \- Visit Madeira | Madeira Islands Tourism Board official website, otwierano: kwietnia 13, 2026, [https://visitmadeira.com/en/where-to-go/madeira/north-coast/santana/ninho-da-manta-viewpoint/](https://visitmadeira.com/en/where-to-go/madeira/north-coast/santana/ninho-da-manta-viewpoint/)  
-49. Ninho da Manta Viewpoint – Hikes & How to Get There | Komoot, otwierano: kwietnia 13, 2026, [https://www.komoot.com/highlight/5542394](https://www.komoot.com/highlight/5542394)  
-50. Miradouro do Ninho da Manta | hiking trails around Câmara de Lobos \- Relief Maps, otwierano: kwietnia 13, 2026, [https://reliefmaps.io/en/topo/ReliefMapsAI/ReliefMapsAI8031157104767797688](https://reliefmaps.io/en/topo/ReliefMapsAI/ReliefMapsAI8031157104767797688)  
-51. Eira do Serrado Viewpoint photo spot, Curral Das Freiras \- PhotoHound, otwierano: kwietnia 13, 2026, [https://www.photohound.co/spot/eira-do-serrado-viewpoint-1005995](https://www.photohound.co/spot/eira-do-serrado-viewpoint-1005995)  
-52. Curral das Freiras (2026) – Best of TikTok, Instagram & Reddit Travel Guide, otwierano: kwietnia 13, 2026, [https://airial.travel/attractions/portugal/curral-das-freiras/curral-das-freiras-k4ZJc1Hy](https://airial.travel/attractions/portugal/curral-das-freiras/curral-das-freiras-k4ZJc1Hy)  
-53. Eira do Serrado viewpoint \- Curral das Freiras viewpoint \- Madeira Holidays, otwierano: kwietnia 13, 2026, [https://www.madeira-holidays.eu/madeira-locals/eira-serrado/](https://www.madeira-holidays.eu/madeira-locals/eira-serrado/)  
-54. Miradouro da Eira do Serrado \- Blog \- Atlantic Holiday, otwierano: kwietnia 13, 2026, [https://www.atlanticholidayrentals.com/blog/miradouro-da-eira-do-serrado/](https://www.atlanticholidayrentals.com/blog/miradouro-da-eira-do-serrado/)  
-55. 13 Best Hikes in Madeira: My Favorite Trails From Easy to Hard \- The Road Reel, otwierano: kwietnia 13, 2026, [https://www.theroadreel.com/best-hikes-in-madeira-portugal/](https://www.theroadreel.com/best-hikes-in-madeira-portugal/)  
-56. Anjos Waterfall \- Visit Madeira | Madeira Islands Tourism Board official website, otwierano: kwietnia 13, 2026, [https://visitmadeira.com/en/where-to-go/madeira/anjos-waterfall/](https://visitmadeira.com/en/where-to-go/madeira/anjos-waterfall/)  
-57. Angels Waterfall in Madeira in 2026 (Cascata dos Anjos) \- Picture the World, otwierano: kwietnia 13, 2026, [https://www.picturetheworld.co/post/angels-waterfall-madeira/](https://www.picturetheworld.co/post/angels-waterfall-madeira/)  
-58. Hiking the Levada dos Tornos Trail n Boaventura on Madeira Island \- Journey Era, otwierano: kwietnia 13, 2026, [https://www.journeyera.com/levada-dos-tornos-boaventura/](https://www.journeyera.com/levada-dos-tornos-boaventura/)  
-59. The best Curral das Freiras Viewing points 2026 \- Free cancellation | GetYourGuide, otwierano: kwietnia 13, 2026, [https://www.getyourguide.com/curral-das-freiras-l185713/viewing-points-tc238/](https://www.getyourguide.com/curral-das-freiras-l185713/viewing-points-tc238/)  
-60. Levada do Caldeirao Verde (PR9) and Caldeirao do Inferno Hiking Trail, Madeira \- Maps and Useful Information \- Anissa Online, otwierano: kwietnia 13, 2026, [https://anissa.online/levada-do-caldeirao-verde-pr9-and-caldeirao-do-inferno-hiking-trail-madeira-maps-and-useful-information/](https://anissa.online/levada-do-caldeirao-verde-pr9-and-caldeirao-do-inferno-hiking-trail-madeira-maps-and-useful-information/)  
-61. Caldeirão do Inferno (2026) – Best of TikTok, Instagram & Reddit Travel Guide, otwierano: kwietnia 13, 2026, [https://www.airial.travel/attractions/portugal/santana/caldeir%C3%A3o-do-inferno-eut59KKt](https://www.airial.travel/attractions/portugal/santana/caldeir%C3%A3o-do-inferno-eut59KKt)  
-62. Caminho da Entrosa – Cliffside Trail on Madeira loop from Boa Ventura | hike \- Komoot, otwierano: kwietnia 13, 2026, [https://www.komoot.com/smarttour/24910612](https://www.komoot.com/smarttour/24910612)  
-63. Caminho da Entrosa – Hikes & How to Get There \- Komoot, otwierano: kwietnia 13, 2026, [https://www.komoot.com/highlight/997771](https://www.komoot.com/highlight/997771)  
-64. Road trip in Madeira: the ultimate 7-day itinerary \- Roadtrips and Wine by Jana, otwierano: kwietnia 13, 2026, [https://www.roadtripsandwine.com/blog/7-day-madeira-itinerary](https://www.roadtripsandwine.com/blog/7-day-madeira-itinerary)
+# Madera 07-14.05.2026: raport korekty planu i finalny plan operacyjny
+
+Ten dokument zastępuje wcześniejszą, bardziej prezentacyjną narrację wersją operacyjną: opartą na realnym kalendarzu lotów, jednej rekomendowanej bazie, statusach oficjalnych i twardym rozdzieleniu faktów od założeń.
+
+## 1. Executive summary
+
+- **Daty i loty:** 07.05.2026 przylot `W6 1535` `WAW 11:40 -> FNC 16:05`; 14.05.2026 wylot `W6 1536` `FNC 16:45 -> WAW 22:50`.
+- **Prawdziwa długość wyjazdu:** 8 dni kalendarzowych, ale tylko **6 pełnych dni terenowych + 2 dni operacyjne**.
+- **Rekomendacja bazowa:** jedna baza w pasie **Ribeira Brava - Ponta do Sol**. Split-stay zostaje tylko jako wariant opcjonalny dla bardziej "ikonicznych" kadrów.
+- **Najważniejsza korekta planu:** Areeiro wchodzi na pierwszy pełny dzień, bo PR1 nadal ma status warunkowy i nie warto odkładać go na środek pobytu.
+- **Monte / Funchal:** nie znikają, ale schodzą z pozycji core day do roli backupu lub dnia bardziej miejskiego.
+- **PR8:** boat-return nie jest już domyślną "smart effort" strategią; to wariant warunkowy, jeśli warunki są idealne i świadomie chcecie za niego dopłacić.
+- **PR9 / PR9.1:** to nie jest obszar na twarde deklaracje. Status i używalny zakres trzeba sprawdzać dzień wcześniej w oficjalnych źródłach.
+- **Krytyczne punkty do weryfikacji:** PR1, PR9/PR9.1, Cristo Rei, Achadas da Cruz, Rocha do Navio, warunki morza dla Seixal i Porto Moniz.
+
+### Statusy używane w tej wersji
+
+- **Potwierdzone** - oparte na źródłach oficjalnych lub operatorach.
+- **Sprawdzić** - informacje istotne, ale wymagające kontroli dzień wcześniej lub przy zakupie.
+- **Warunkowe** - zależne od pogody, ograniczeń operacyjnych albo niespójnych komunikatów.
+
+## 2. Audyt starego planu
+
+### Co było sensowne
+
+- Geografia starego planu była logiczna: wschód, góry, południe, północ i zachód układały się w czytelne moduły.
+- Brief "widoki przy małym cardio" nadal jest trafny i warto go zachować.
+- Najmocniejsze punkty wyjazdu dalej pozostają te same: Areeiro, wschodnie klify, północno-zachodnie wybrzeże i zachodni kraniec wyspy.
+
+### Co było błędne albo zbyt pewne
+
+- Plan zachowywał się tak, jakby między tymi lotami mieściło się 7 pełnych dni. To nieprawda.
+- Zbyt mocno mieszał rzeczy potwierdzone z przypuszczeniami i blogową pewnością siebie.
+- Split-stay był ustawiony jak naturalny default, choć przy tym briefie i tych lotach jedna baza daje mniej tarcia.
+- Monte/Funchal miało zbyt wysoką rangę względem briefu "widoki + logistyka + mało bezsensownego cardio".
+- Boat-return na PR8 był traktowany jak rozsądna baza, choć to raczej wariant premium i pogodowo-operacyjny.
+- PR9, ceny cable cars i część kosztów dodatkowych były opisane z większą pewnością, niż uzasadniały to źródła oficjalne.
+
+### Nowa zasada główna
+
+Nowa wersja planu ma najpierw pomóc podejmować decyzje w podróży, a dopiero potem wyglądać dobrze na papierze. Dlatego priorytetem są: realny kalendarz, jasne alerty, sensowne backupy i czytelne rozróżnienie między tym, co już wiadomo, a tym, co trzeba jeszcze sprawdzić.
+
+## 3. Poprawiony plan dzień po dniu
+
+### Szybki overview
+
+| Data | Dzień | Układ | Status |
+| --- | ---: | --- | --- |
+| 07.05 | 1 | przylot, auto, sklep, check-in, krótki sunset tylko jeśli bez opóźnień | operacyjny |
+| 08.05 | 2 | Areeiro + Ninho da Manta + Pedra Rija, jeśli dostępna + Eira do Serrado | priorytet |
+| 09.05 | 3 | Ponta do Rosto sunrise + PR8 w wersji skróconej lub smart + Machico | priorytet |
+| 10.05 | 4 | Cabo Girao + Camara de Lobos + lekki południowy reset | recovery |
+| 11.05 | 5 | Ribeiro Frio + PR11 Balcoes + Santana + Rocha do Navio warunkowo | stabilny |
+| 12.05 | 6 | Seixal + Veu da Noiva + Porto Moniz | stabilny |
+| 13.05 | 7 | Achadas da Cruz + Garganta Funda + Ponta do Pargo sunset | stabilny |
+| 14.05 | 8 | checkout + krótki ostatni stop po stronie lotniskowej + lotnisko | operacyjny |
+
+### Założenia operacyjne do kart dni
+
+- Wszystkie czasy jazdy zakładają bazę w pasie **Ribeira Brava - Ponta do Sol**.
+- Jeśli śpisz dalej na zachodzie, dolicz zwykle `10-20 min` do porannych dojazdów.
+- Widełki chodzenia odnoszą się do **wariantu bazowego**, nie do wersji ambitnej ani pełnego dociskania każdego miejsca.
+- Statusy `PR1`, `PR8`, `PR9/PR9.1`, `PR11` i cable cars sprawdzaj **wieczorem dzień wcześniej**, nie rano w aucie.
+
+### Dzień 1 - 07.05, czwartek - Przylot i miękkie wejście
+
+- **Cel:** odebrać auto, dojechać do bazy, zrobić drobne zakupy i nie przepalić energii pierwszego dnia.
+- **Dlaczego ten układ ma sens:** lądujesz o `16:05`, więc po bagażu, aucie i dojeździe nie ma sensownego buforu na ambitny program.
+- **Wyjazd z lotniska:** zwykle około `17:15-17:45` po odbiorze auta.
+- **Kolejność:** lotnisko -> auto -> szybki sklep -> check-in -> kolacja -> ewentualny krótki spacer lub zachód bardzo blisko bazy.
+- **Szacowany czas całego dnia:** `4-6 h` od lądowania do kolacji.
+- **Łączny czas jazdy autem:** `0:35-1:10`.
+- **Łączny czas chodzenia:** `0:15-0:45`.
+- **Realny poziom wysiłku:** `very low`.
+- **Rezerwować wcześniej:** auto, nocleg, parking noclegu.
+- **Sprawdzić wcześniej:** zasady odbioru auta, godziny check-in, parking noclegu, paliwo, prognozę i status na `08.05`.
+- **Parking:** parking noclegu; ewentualnie najbliższy seafront przy krótkim spacerze.
+- **Dojście od parkingu:** zwykle `2-10 min`.
+- **Jedzenie / kawa:** kolacja przy bazie; nie buduj dnia pod konkretną restaurację.
+- **Toalety / infrastruktura:** lotnisko ma pełną infrastrukturę; później licz głównie na miasteczka.
+- **Worth it:** tylko bardzo lekki zachód w promieniu kilku minut od noclegu, jeśli wszystko poszło sprawnie.
+- **Skip if tired:** jakikolwiek ambitny objazd wyspy, Monte, pełen Funchal albo punkt ze sztywną godziną.
+- **Najlepsze okno światła:** sunset około `20:53`.
+- **Ryzyka:** kolejka po auto, opóźniony bagaż, zmęczenie po podróży, ruch przy wyjeździe z lotniska.
+- **Plan B:** zakupy + kolacja + wczesny sen.
+- **Plan C:** lotnisko -> hotel bez żadnych przystanków.
+- **Dobre przy niskiej energii:** tak - to ma być dzień oszczędzający baterię.
+- **Sensowne przy przylocie / wylocie:** tak - to jedyny sensowny tryb na dzień przylotu.
+- **Werdykt:** **zostawić** jako pełnoprawny dzień operacyjny.
+
+**Alternatywy**
+- **Dobra pogoda:** krótki zachód blisko bazy. Koszt: niski. Wysiłek: `very low`. Plusy: ładne wejście w klimat bez logistyki. Minusy: łatwo przeciągnąć wieczór.
+- **Słaba pogoda:** zakupy, kolacja i ustawienie planu na kolejne `48 h`. Koszt: tylko operacyjny. Wysiłek: `very low`. Status: najbezpieczniejsza logika.
+- **Low energy:** hotel + `15-20 min` spaceru po okolicy. Plusy: maksymalna regeneracja. Minusy: brak "atrakcji".
+- **Worth it only if conditions are perfect:** Cristo Rei / Garajau na krótki zachód tylko jeśli śpisz bliżej Funchal/Caniço i oficjalny status nie budzi wątpliwości. Status: niepewne.
+
+### Dzień 2 - 08.05, piątek - Areeiro + Eira do Serrado
+
+- **Cel:** zagrać najmocniejszy i najbardziej wrażliwy operacyjnie moduł na początku pobytu.
+- **Dlaczego ten układ ma sens:** po reotwarciu fazowanym PR1 piątek-niedziela to najbardziej racjonalne okno na próbę Areeiro; nie warto odkładać go na środek wyjazdu.
+- **Wyjazd z noclegu:** `05:50-06:10`.
+- **Kolejność:** Areeiro parking -> sunrise -> Ninho da Manta -> odcinek do Pedra Rija, jeśli oficjalnie dostępny -> śniadanie/kawa niżej -> Eira do Serrado -> powrót i regeneracja.
+- **Szacowany czas całego dnia:** `7-9 h`.
+- **Łączny czas jazdy autem:** `2:15-3:00`.
+- **Łączny czas chodzenia:** `1:45-2:45`.
+- **Realny poziom wysiłku:** `medium`.
+- **Rezerwować wcześniej:** PR1 przez SIMplifica.
+- **Sprawdzić wcześniej:** IFCN, slot w SIMplifica, wiatr, zachmurzenie, widoczność i realny zakres dostępnego odcinka.
+- **Parking:** parking przy Pico do Areeiro / overflow niżej; Eira do Serrado przy hotelu i punkcie widokowym.
+- **Dojście od parkingu:** Areeiro zwykle `5-20 min` zależnie od miejsca; Eira do Serrado `5-10 min`.
+- **Jedzenie / kawa:** kawa i śniadanie po zejściu, nie przed sunrise.
+- **Toalety / infrastruktura:** przed świtem na górze nie zakładaj działającej infrastruktury; potraktuj start jako self-sufficient.
+- **Worth it:** sunrise, Ninho da Manta, pierwszy fragment grani, Eira do Serrado jako kontrast krajobrazowy.
+- **Skip if tired:** forsowanie dłuższego odcinka PR1 przy mgle, silnym wietrze albo słabej widoczności.
+- **Najlepsze okno światła:** sunrise około `07:14`; najlepsze `06:50-07:40`, jeśli nie ma chmur.
+- **Ryzyka:** zamknięcie lub ograniczenie odcinka, tłum, wiatr, brak miejsc, mgła i bardzo słaba widoczność.
+- **Plan B:** zamiana z dniem wschodnim albo południe low-drive.
+- **Plan C:** Cabo Girao + Camara de Lobos + rest.
+- **Dobre przy niskiej energii:** tak, ale tylko w skróconej wersji: punkt widokowy + Ninho da Manta bez ciśnienia na Pedra Rija.
+- **Sensowne przy przylocie / wylocie:** nie.
+- **Werdykt:** **zostawić** i traktować jako pierwszy pełny dzień.
+
+**Alternatywy**
+- **Dobra pogoda:** bazowy wariant dnia. Koszt: `PR1 4,50 EUR / os.` Wysiłek: `medium`. Plusy: największy payoff widokowy. Minusy: bardzo wczesny start i tłum.
+- **Słaba pogoda:** przełóż góry i jedź na południe. Wysiłek: `low`. Plusy: nie przepalasz poranka w chmurze.
+- **Low energy:** sam punkt widokowy + Ninho da Manta + Eira do Serrado. Wysiłek: `low`. Plusy: masz obraz Areeiro bez dociskania.
+- **Worth it only if conditions are perfect:** dalsze przejście po pełnym reotwarciu w stronę Pico Ruivo tylko przy jasnym statusie IFCN i rozwiązanym transporcie. Status: bardzo warunkowe.
+
+### Dzień 3 - 09.05, sobota - Wschód / Ponta do Rosto / PR8
+
+- **Cel:** zebrać klifowy, surowy krajobraz wschodu bez zmuszania się do pełnego przejścia za wszelką cenę.
+- **Dlaczego ten układ ma sens:** wschód daje ogromny efekt wizualny, ale klasyczny błąd to robienie "całości za wszelką cenę" pod słońcem i wietrze.
+- **Wyjazd z noclegu:** `05:40-06:00`.
+- **Kolejność:** Ponta do Rosto sunrise -> Baia d'Abra trailhead -> PR8 do Casa do Sardinha / ewentualnie dalej tylko przy dobrej energii -> Machico późny lunch -> powrót.
+- **Szacowany czas całego dnia:** `7-8,5 h`.
+- **Łączny czas jazdy autem:** `2:30-3:15`.
+- **Łączny czas chodzenia:** `2:30-4:00`.
+- **Realny poziom wysiłku:** `medium`.
+- **Rezerwować wcześniej:** PR8 przez SIMplifica.
+- **Sprawdzić wcześniej:** wiatr, ekspozycję słoneczną, status szlaku; jeśli rozważasz boat-return, także operatora i transfer do auta.
+- **Parking:** Ponta do Rosto viewpoint; Baia d'Abra trailhead.
+- **Dojście od parkingu:** viewpoint `2-5 min`; start PR8 praktycznie przy parkingu.
+- **Jedzenie / kawa:** Machico po zejściu.
+- **Toalety / infrastruktura:** na trailheadzie nie zakładaj wygód; bazuj na mieście przed i po trasie.
+- **Worth it:** Ponta do Rosto o świcie, pierwsza połowa PR8, Casa do Sardinha.
+- **Skip if tired:** pełna wersja PR8 albo boat-return tylko dlatego, że "już tu jesteśmy".
+- **Najlepsze okno światła:** sunrise około `07:13`; najlepsze `06:50-08:15`.
+- **Ryzyka:** silny wiatr, pełne słońce, odwodnienie, tłum po `09:00`, błędne założenie, że łódź rozwiąże logistykę.
+- **Plan B:** same wschodnie viewpointy + Machico / Canical.
+- **Plan C:** zamiana z dniem południowym.
+- **Dobre przy niskiej energii:** tak, ale tylko w wersji viewpoint-hopping bez pełnego PR8.
+- **Sensowne przy przylocie / wylocie:** nie.
+- **Werdykt:** **zostawić**, ale domyślnie **skrócić**.
+
+**Alternatywy**
+- **Dobra pogoda:** Ponta do Rosto + skrócony PR8 do Casa do Sardinha. Koszt: `PR8 4,50 EUR / os.` Wysiłek: `medium`. Plusy: zostaje najlepsza część dnia.
+- **Słaba pogoda:** Machico + Canical + punkty widokowe wschodu. Wysiłek: `low`. Plusy: nadal widoki przy mniejszym ryzyku.
+- **Low energy:** Ponta do Rosto + Miradouro do Guindaste + promenada w Machico. Wysiłek: `very low / low`.
+- **Worth it only if conditions are perfect:** boat-return z Sao Lourenco tylko z potwierdzonym operatorem, odbiorem i transferem do auta. Status: niepewne.
+
+### Dzień 4 - 10.05, niedziela - Południe / recovery day
+
+- **Cel:** wstawić lekki, niski-kosztowo dzień po dwóch mocniejszych porankach.
+- **Dlaczego ten układ ma sens:** to ma być dzień lekki, a nie kolejny moduł do odhaczania. Cabo Girao jest mocnym stopem, ale nie niesie pół dnia.
+- **Wyjazd z noclegu:** `09:00-09:30`.
+- **Kolejność:** Cabo Girao -> Camara de Lobos kawa / lunch -> Madalena do Mar / Rota do Banana -> zachód przy bazie lub w Ponta do Sol.
+- **Szacowany czas całego dnia:** `5-7 h`.
+- **Łączny czas jazdy autem:** `1:00-1:45`.
+- **Łączny czas chodzenia:** `0:45-1:30`.
+- **Realny poziom wysiłku:** `low`.
+- **Rezerwować wcześniej:** płatność za dostęp do Cabo Girao - sprawdź najwygodniejszy tryb przed podjazdem.
+- **Sprawdzić wcześniej:** pogodę na zachód i czy nie chcesz zamienić dnia na moduł miejski.
+- **Parking:** Cabo Girao przy punkcie; Camara de Lobos port; seafront w Madalena do Mar.
+- **Dojście od parkingu:** zwykle `2-10 min` na każdym stopie.
+- **Jedzenie / kawa:** Camara de Lobos lub Madalena do Mar.
+- **Toalety / infrastruktura:** południe ma najłatwiejszą infrastrukturę - to dobry dzień na oddech logistyczny.
+- **Worth it:** Cabo Girao jako `15-25 min` stop, port w Camara de Lobos, płaski spacer wśród bananowców, zachód przy bazie.
+- **Skip if tired:** robienie z Cabo Girao dnia premium albo dokładanie losowych małych stopów.
+- **Najlepsze okno światła:** sunset około `20:55`.
+- **Ryzyka:** tłok na Cabo Girao, płaska jakość światła przy pełnym overcaście, zbyt dużo małych stopów bez sensu.
+- **Plan B:** bardziej miejski dzień Funchal/Monte.
+- **Plan C:** pełna regeneracja w hotelu.
+- **Dobre przy niskiej energii:** tak.
+- **Sensowne przy przylocie / wylocie:** tak jako typ dnia, ale nie z lotem w środku.
+- **Werdykt:** **zostawić**, ale trzymać krótko.
+
+**Alternatywy**
+- **Dobra pogoda:** bazowy wariant południowy. Koszt: `Cabo Girao 5 EUR / os. > 12 lat`. Wysiłek: `low`. Plusy: łatwy dzień bez cardio.
+- **Słaba pogoda:** Old Town Funchal jako spokojny backup miejski. Wysiłek: `low`. Minusy: słabszy fit do briefu widokowego.
+- **Low energy:** sama Camara de Lobos + zachód przy bazie. Wysiłek: `very low`.
+- **Worth it only if conditions are perfect:** Monte Palace + Carreiros tylko gdy naprawdę chcesz moduł kulturowy i nie przeszkadzają Ci kolejki. Status: warunkowe.
+
+### Dzień 5 - 11.05, poniedziałek - Ribeiro Frio / Balcoes / Santana
+
+- **Cel:** zielony i spokojniejszy kontrast dla dni klifowych i górskich.
+- **Dlaczego ten układ ma sens:** Balcoes ma świetny stosunek efekt/wysiłek, a Santana i Rocha do Navio są logicznymi dopięciami, ale nie muszą dominować dnia.
+- **Wyjazd z noclegu:** `08:00-08:30`.
+- **Kolejność:** Ribeiro Frio -> PR11 Balcoes -> Santana krótko -> Rocha do Navio viewpoint / cable car jeśli działa -> powrót.
+- **Szacowany czas całego dnia:** `6-8 h`.
+- **Łączny czas jazdy autem:** `2:15-3:00`.
+- **Łączny czas chodzenia:** `1:15-2:00`.
+- **Realny poziom wysiłku:** `low`.
+- **Rezerwować wcześniej:** PR11 przez SIMplifica; jeśli finalnie robisz PR9.1, rezerwujesz PR9.1 zamiast PR11.
+- **Sprawdzić wcześniej:** widoczność w Balcoes, działanie kolejki Rocha do Navio i ewentualny status PR9 / PR9.1 przy podmianie.
+- **Parking:** Ribeiro Frio przy starcie; Santana w centrum; Rocha do Navio przy kolejce / viewpoint.
+- **Dojście od parkingu:** `0-5 min` do startu PR11; `2-10 min` na pozostałych stopach.
+- **Jedzenie / kawa:** Ribeiro Frio lub Santana.
+- **Toalety / infrastruktura:** licz na miasteczka i kawiarnie, nie na same viewpointy.
+- **Worth it:** Balcoes przy dobrej widzialności, klify Rocha do Navio, krótki kontrast architektoniczny Santany.
+- **Skip if tired:** długie siedzenie w Santanie albo dopychanie Rocha do Navio, gdy kolejka nie działa sensownie.
+- **Najlepsze okno światła:** poranek i późne przedpołudnie są tu lepsze niż środek dnia.
+- **Ryzyka:** niska chmura, słaba widzialność, nieczynna kolejka, zbyt optymistyczny plan z PR9 bez jasnego statusu.
+- **Plan B:** PR9.1 / Queimadas jako bardziej leśny wariant.
+- **Plan C:** same viewpointy północne albo moduł miejski Funchal / Monte.
+- **Dobre przy niskiej energii:** tak.
+- **Sensowne przy przylocie / wylocie:** nie.
+- **Werdykt:** **zostawić**, z Rocha do Navio jako **warunkowym dodatkiem**.
+
+**Alternatywy**
+- **Dobra pogoda:** Balcoes + Rocha do Navio cable car. Koszt: `PR11 4,50 EUR / os.` + kolejka jeśli działa. Wysiłek: `low`.
+- **Słaba pogoda:** Queimadas + PR9.1 jako bardziej osłonięty wariant. Wysiłek: `low`. Status: potwierdzone dla PR9.1.
+- **Low energy:** Santana + Rocha do Navio viewpoint bez Balcoes. Wysiłek: `very low`.
+- **Worth it only if conditions are perfect:** PR9 do Caldeirao Verde tylko jeśli status praktycznie jest jasny i SIMplifica pokazuje dostępność. Status: niepewne / do ponownej kontroli.
+
+### Dzień 6 - 12.05, wtorek - Seixal / Veu da Noiva / Porto Moniz
+
+- **Cel:** zagrać jeden z najlepszych dni "widoki bez cardio".
+- **Dlaczego ten układ ma sens:** północny zachód najlepiej działa samochodem i krótkimi stopami; wejście do oceanu ma sens tylko przy spokojnym morzu.
+- **Wyjazd z noclegu:** `08:00-08:30`.
+- **Kolejność:** Seixal rano -> Veu da Noiva -> Porto Moniz na dłuższy stop i lunch -> powrót.
+- **Szacowany czas całego dnia:** `6-8 h`.
+- **Łączny czas jazdy autem:** `2:15-3:15`.
+- **Łączny czas chodzenia:** `0:30-1:30`.
+- **Realny poziom wysiłku:** `low`.
+- **Rezerwować wcześniej:** brak krytycznej rezerwacji potwierdzonej w oficjalnych źródłach.
+- **Sprawdzić wcześniej:** fale, wiatr, deszcz na północy, możliwość kąpieli i własną gotowość do wejścia do wody.
+- **Parking:** Seixal beach / pools; Veu da Noiva roadside stop; Porto Moniz parking miejski.
+- **Dojście od parkingu:** zwykle `2-10 min`.
+- **Jedzenie / kawa:** Porto Moniz.
+- **Toalety / infrastruktura:** Porto Moniz ma najlepszą infrastrukturę na tym dniu: przebieralnie, bar, first aid, parking.
+- **Worth it:** Seixal nawet bez kąpieli, Veu da Noiva, Porto Moniz jako relaks i spacer.
+- **Skip if tired:** wymuszoną kąpiel przy złych warunkach albo dokładanie kolejnych wodnych punktów na siłę.
+- **Najlepsze okno światła:** Seixal najlepiej wcześnie rano.
+- **Ryzyka:** swell, śliskie skały, tłum w Porto Moniz, gorsza pogoda na północy niż na południu.
+- **Plan B:** viewpoints + Porto Moniz bez wejścia do wody.
+- **Plan C:** południowy reset, jeśli północ jest pogodowo fatalna.
+- **Dobre przy niskiej energii:** tak.
+- **Sensowne przy przylocie / wylocie:** nie.
+- **Werdykt:** **zostawić**.
+
+**Alternatywy**
+- **Dobra pogoda:** Seixal + Porto Moniz z opcją wody. Wysiłek: `low`. Status: potwierdzone co do miejsc, warunkowe co do kąpieli.
+- **Słaba pogoda:** Veu da Noiva + Porto Moniz jako spacer i lunch. Wysiłek: `very low`.
+- **Low energy:** tylko Porto Moniz + `1-2` stop pointy po drodze. Wysiłek: `very low`.
+- **Worth it only if conditions are perfect:** wejście do oceanu w Seixal tylko przy spokojnym morzu i bez silnego surge. Status: warunkowe.
+
+### Dzień 7 - 13.05, środa - Zachód / Achadas / Garganta / Ponta do Pargo
+
+- **Cel:** maksymalny zachodni payoff widokowy przy minimalnym wysiłku.
+- **Dlaczego ten układ ma sens:** tu payoff robią pionowe klify, nie dystans. Najlepiej ustawić dzień pod popołudniowe światło w Garganta Funda i zachód w Ponta do Pargo.
+- **Wyjazd z noclegu:** `10:00-10:30`.
+- **Kolejność:** Achadas da Cruz -> zjazd tylko jeśli działa i nie wieje za mocno -> krótki spacer na fajã -> lunch / coffee -> Garganta Funda po południu -> Ponta do Pargo sunset.
+- **Szacowany czas całego dnia:** `7-9 h`.
+- **Łączny czas jazdy autem:** `2:30-3:30`.
+- **Łączny czas chodzenia:** `0:45-2:00`.
+- **Realny poziom wysiłku:** `low`.
+- **Rezerwować wcześniej:** brak krytycznej rezerwacji z potwierdzonych źródeł.
+- **Sprawdzić wcześniej:** działanie kolejki, wiatr, ewentualny edital serwisowy, stan wodospadu i zachmurzenie na zachodzie.
+- **Parking:** Achadas cable car; parking przy ścieżce do Garganta Funda; lighthouse / viewpoint Ponta do Pargo.
+- **Dojście od parkingu:** zwykle `0-5 min`, `5-10 min`, `2-5 min`.
+- **Jedzenie / kawa:** Porto Moniz po drodze albo Ponta do Pargo village.
+- **Toalety / infrastruktura:** na viewpointach nie licz na toalety; użyj infrastruktury w miasteczkach.
+- **Worth it:** sam zachodni kraniec, Garganta Funda w dobrym świetle i Achadas tylko wtedy, gdy kolejka działa sensownie.
+- **Skip if tired:** dodatkowe objazdy w środku dnia i dokładanie losowych przystanków kosztem zachodu.
+- **Najlepsze okno światła:** Garganta Funda najlepiej około `16:00-18:00`; sunset około `20:57`.
+- **Ryzyka:** wiatr wyłączający kolejkę, niski przepływ wodospadu, mgła zabierająca zachód.
+- **Plan B:** górne miradouros bez zjazdu albo Ponta da Ladeira + Garganta + Ponta do Pargo.
+- **Plan C:** spokojniejszy dzień na południu albo miękki backup miejski.
+- **Dobre przy niskiej energii:** tak - zwłaszcza bez schodzenia na dół.
+- **Sensowne przy przylocie / wylocie:** nie.
+- **Werdykt:** **zostawić**.
+
+**Alternatywy**
+- **Dobra pogoda:** bazowy wariant zachodni z Achadas. Wysiłek: `low`. Plusy: bardzo wysoki wow per step. Minusy: zależność od kolejki.
+- **Słaba pogoda:** zostań na górnych viewpointach albo przerzuć dzień na południe. Wysiłek: `very low`.
+- **Low energy:** Ponta da Ladeira + Garganta Funda + Ponta do Pargo. Wysiłek: `very low`.
+- **Worth it only if conditions are perfect:** Fanal jako detour tylko przy aktywnej mgle / niskiej chmurze. Bez mgły - słaby ROI.
+
+### Dzień 8 - 14.05, czwartek - Wylot
+
+- **Cel:** zamknąć wyjazd bez ryzyka spóźnienia i bez udawania, że to normalny dzień zwiedzania.
+- **Dlaczego ten układ ma sens:** wylot `16:45` oznacza, że każdy "jeszcze tylko szybki Monte/Funchal" bardzo łatwo robi się złą decyzją.
+- **Wyjazd z noclegu:** `10:30-11:00` z bazy; wcześniej, jeśli śpisz dalej na zachodzie.
+- **Kolejność:** śniadanie -> checkout -> ewentualnie jeden łatwy stop po drodze na wschód -> lekki lunch -> zwrot auta -> lotnisko `13:45-14:15`.
+- **Szacowany czas całego dnia:** `4-5 h`.
+- **Łączny czas jazdy autem:** `0:45-1:30`.
+- **Łączny czas chodzenia:** `0:15-0:45`.
+- **Realny poziom wysiłku:** `very low`.
+- **Rezerwować wcześniej:** nic nowego poza logistyką auta i lotu.
+- **Sprawdzić wcześniej:** politykę paliwową, dokumenty, czas dojazdu do lotniska, warunki zdania auta i bezpieczeństwo krótkiego ostatniego stopu.
+- **Parking:** krótki stop tylko tam, gdzie nie musisz ciągnąć walizek daleko.
+- **Dojście od parkingu:** zwykle `2-10 min`.
+- **Jedzenie / kawa:** Machico albo Santa Cruz są najwygodniejsze logistycznie.
+- **Toalety / infrastruktura:** pełna przy lotnisku i w miastach po wschodniej stronie.
+- **Worth it:** tylko mały, niski-tarciowy punkt po drodze, jeśli wszystko jest pod kontrolą.
+- **Skip if tired:** Monte, Areeiro, pełen Funchal, ambitne objazdy "na koniec".
+- **Najlepsze okno światła:** nieistotne - tego dnia pracujesz pod logistykę, nie pod światło.
+- **Ryzyka:** spóźniony zwrot auta, zbyt późny wyjazd, ekspozycja bagaży, zakorkowany dojazd.
+- **Plan B:** prosto na lotnisko.
+- **Plan C:** kawa w Santa Cruz / Machico i koniec.
+- **Dobre przy niskiej energii:** tak.
+- **Sensowne przy przylocie / wylocie:** tak - to dokładnie taki dzień.
+- **Werdykt:** **zostawić** jako dzień operacyjny.
+
+**Alternatywy**
+- **Dobra pogoda:** krótki spacer w Machico albo Santa Cruz po stronie lotniskowej. Wysiłek: `very low`. Plusy: eleganckie domknięcie bez stresu.
+- **Słaba pogoda:** bez zwiedzania: śniadanie, checkout, lotnisko. Status: najbezpieczniejsza opcja.
+- **Low energy:** tylko kawa po drodze i prosto na `FNC`.
+- **Worth it only if conditions are perfect:** krótki Garajau / Cristo Rei tylko jeśli śpisz bardziej po wschodniej stronie, nie masz bagażowego chaosu i status dojścia jest jasny. Status: niepewne.
+
+## 4. Trzy warianty planu
+
+### 4.1 Wersja rekomendowana
+
+- Jedna baza południowo-centralna.
+- Areeiro i wschód jako dwa osobne, mocne dni na początku.
+- Południe jako recovery day.
+- Północny interior, północny-zachód i zachód jako stabilne moduły końcówki pobytu.
+- Monte/Funchal tylko jako backup lub wariant miejski.
+
+**Dla kogo:** dla pary, która chce najlepszego stosunku widok/logistyka/zmęczenie.
+
+### 4.2 Wersja bardziej relaks
+
+- D1 przylot.
+- D2 Areeiro tylko viewpoints + Eira do Serrado.
+- D3 Ponta do Rosto + krótki fragment PR8 + Machico.
+- D4 południe i pełny reset.
+- D5 Balcoes + Santana.
+- D6 Seixal / Porto Moniz.
+- D7 wolniejszy zachód albo Funchal jako backup.
+- D8 wylot.
+
+**Dla kogo:** dla wersji z mniejszym ryzykiem pogodowo-zmęczeniowym i bez spinania się na dwa bardzo mocne poranki.
+
+### 4.3 Wersja bardziej "ikoniczne widoki"
+
+- D1 przylot.
+- D2 Areeiro w pełnym priorytecie pogodowym.
+- D3 PR8 ambitniej lub z boat-return, jeśli warunki są idealne.
+- D4 południe krócej.
+- D5 Balcoes / Santana skrócone.
+- D6 Seixal / Porto Moniz.
+- D7 Achadas + Garganta + Ponta do Pargo, z Fanal tylko wtedy, gdy kamery pokazują mgłę.
+- D8 wylot.
+
+**Dla kogo:** dla wersji bardziej foto-first, świadomie bardziej zależnej od pogody.
+
+## 5. Appendix operacyjny
+
+### 5.1 Koszty potwierdzone
+
+- **PR poza PR1:** `4,50 EUR`.
+- **PR1 conditioned do Pedra Rija:** `4,50 EUR`.
+- **Multi-day / daily dla kombinacji non-PR1:** `9,00 EUR / 22,50 EUR / 52,50 EUR`, naliczane automatycznie w SIMplifica, nie kupowane jako osobny produkt.
+- **Cabo Girao:** `5 EUR` powyżej 12 lat.
+- **Funchal Cable Car:** `22 EUR` round-trip / `16 EUR` one-way.
+- **Carreiros do Monte:** `35 EUR` za 2 osoby.
+
+### 5.2 Koszty do sprawdzenia
+
+- Achadas da Cruz cable car.
+- Rocha do Navio cable car.
+- Porto Moniz entry.
+- Boat-return z PR8.
+- Monte Palace garden entry.
+
+### 5.3 Rezerwacje i zakupy
+
+- **Teraz / przed wyjazdem:** auto, nocleg, parking noclegu, konto w SIMplifica, zapisanie danych offline.
+- **48-72 h wcześniej:** kupić PR1, PR8 i PR11 lub PR9.1 zgodnie z finalną pogodą.
+- **Dzień wcześniej:** sprawdzić IFCN + Visit Madeira + SIMplifica dla PR1/PR8/PR9/PR9.1/PR11; zrobić screenshoty potwierdzeń.
+- **W dniu atrakcji:** Carreiros do Monte kupowane na miejscu; północne i zachodnie cable cars traktować jako operacyjnie warunkowe.
+- **Zasada:** nie zakładać elastycznego rebookingu, jeśli oficjalne zamknięcie nie daje do tego podstawy.
+
+### 5.4 Pogoda i backupi
+
+- **Góry w chmurach:** nie marnować Areeiro; zamienić z dniem południowym albo wschodnim.
+- **Wschód bardzo wietrzny:** skrócić PR8 do viewpointów lub przerzucić dzień na Machico / południe.
+- **Morze wzburzone:** Seixal i wejścia do wody skreślić bez dyskusji; zostawić viewpointy i Porto Moniz jako spacer/lunch.
+- **Cable car off:** grać górne miradouros i zachód, nie próbować na siłę ratować identycznego programu.
+- **Fanal:** tylko za mgłą. Bez mgły nie jest najlepszym ROI dla tego briefu.
+
+### 5.5 Final checks
+
+- kody QR z SIMplifica offline,
+- status PR1 / PR8 / PR11 / PR9.1,
+- warunki morza dla Seixal,
+- praca cable cars,
+- godziny Monte / cable car / Carreiros, jeśli ten backup ma wejść do gry,
+- polityka paliwowa i zwrot auta,
+- warstwa na wiatr i zimny poranek w górach,
+- woda i ochrona przeciwsłoneczna na PR8.
+
+## 6. Appendix źródeł
+
+### 6.1 Oficjalne
+
+- IFCN - percursos pedestres + FAQ  
+  https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados.html
+- IFCN - notice PR1 / phased reopening  
+  https://ifcn.madeira.gov.pt/pt/?catid=146&format=pdf&id=973%3Apr-1-unidirecional&tmpl=component&view=article
+- SIMplifica - hiking fees  
+  https://simplifica.madeira.gov.pt/services/78-82-259
+- Visit Madeira - PR1  
+  https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/
+- Visit Madeira - PR8  
+  https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-8-vereda-da-ponta-de-sao-lourenco/
+- Visit Madeira - PR11  
+  https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-11-vereda-dos-balcoes/
+- Visit Madeira - PR9  
+  https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/
+- Visit Madeira - PR9.1  
+  https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-91-levada-do-caldeirao-verde-um-caminho-para-todos/
+- Visit Madeira - Cabo Girao  
+  https://visitmadeira.com/pt/onde-ir/madeira/costa-sul/camara-de-lobos/cabo-girao/
+- Visit Madeira - Ninho da Manta  
+  https://visitmadeira.com/pt/onde-ir/madeira/costa-norte/santana/miradouro-do-ninho-da-manta/
+- Visit Madeira - Porto Moniz Natural Pools  
+  https://visitmadeira.com/en/where-to-go/madeira/north-coast/porto-moniz/natural-pools-of-porto-moniz/
+- Visit Madeira - Rocha do Navio cable car  
+  https://visitmadeira.com/en/means-of-transportation/rocha-do-navio-cable-car/
+- Visit Madeira - Achadas da Cruz cable car  
+  https://visitmadeira.com/en/means-of-transportation/achadas-da-cruz-cable-car/
+- Visit Madeira - Cristo Rei viewpoint / statue  
+  https://visitmadeira.com/pt/onde-ir/madeira/costa-este/santa-cruz/miradouro-do-cristo-rei/
+- Visit Madeira - Monte Palace  
+  https://visitmadeira.com/en/what-to-do/culture-passionates/gardens/monte-palace-madeira-garden/
+- Visit Madeira - Funchal cable car  
+  https://visitmadeira.com/en/means-of-transportation/funchal-cable-car/
+- Visit Madeira - Garajau cable car  
+  https://visitmadeira.com/en/means-of-transportation/garajau-cable-car/
+- Monte Palace operator  
+  https://montepalacemadeira.com/visita/
+- Madeira Cable Car operator  
+  https://madeiracablecar.com/en/price-and-schedule/
+- Carreiros do Monte operator  
+  https://www.carreirosdomonte.com/v3/en/index.php
+- Madeira Airport - car rental  
+  https://www.madeiraairport.pt/en/fnc/access-parking/for-your-full-comfort/car-rental
+
+### 6.2 Pomocnicze
+
+- timeanddate - sunrise/sunset for Funchal (May 2026)  
+  https://www.timeanddate.com/sun/portugal/funchal?month=5
+
+Helpery w tej wersji służą tylko do światła i kontekstu. Nie podnoszą statusu atrakcji do "potwierdzone".
+
+### 6.3 Do ponownej kontroli
+
+- PR9 exact usable extent vs page-level closure badge  
+  https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/
+- PR1 weekday pattern after phased reopening  
+  https://ifcn.madeira.gov.pt/pt/?catid=146&format=pdf&id=973%3Apr-1-unidirecional&tmpl=component&view=article
+- Cristo Rei conditioned status / exact restriction  
+  https://visitmadeira.com/pt/o-que-fazer/apaixonados-por-cultura/patrimonio/monumentos-e-arquitetura/estatua-do-cristo-rei-do-garajau/
+- Achadas da Cruz current hours/price  
+  https://visitmadeira.com/en/means-of-transportation/achadas-da-cruz-cable-car/
+- Rocha do Navio current service / price  
+  https://visitmadeira.com/en/means-of-transportation/rocha-do-navio-cable-car/
+- Areeiro parking charges and capacities  
+  https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/
+- Accepted payment methods in SIMplifica checkout  
+  https://simplifica.madeira.gov.pt/services/78-82-259
+
+To są punkty, których nie warto traktować jako definitywnie zamkniętych przed samym wyjazdem. W praktyce powinny mieć status **sprawdzić** albo **warunkowe** aż do dnia użycia.
