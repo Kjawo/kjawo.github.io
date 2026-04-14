@@ -3,1515 +3,1268 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Madera 07–14.05.2026 — Travel Control Panel</title>
-  <meta name="description" content="Krytycznie poprawiony plan podróży na Maderę: 07–14.05.2026. Widoki, logistyka, mało bezsensownego cardio. Fakty oddzielone od założeń." />
-  <meta property="og:title" content="Madera 07–14.05.2026 — Travel Control Panel" />
-  <meta property="og:description" content="Krytycznie poprawiony plan podróży na Maderę: realny kalendarz, operacyjne karty dni, koszty, backupy pogodowe i źródła." />
+  <meta name="color-scheme" content="light" />
+  <title>Madera 07–14.05.2026 — mobilny plan operacyjny</title>
+  <meta
+    name="description"
+    content="Mobilny plan operacyjny Madery: 6 pełnych dni + 2 operacyjne, decyzje w terenie, statusy faktów, backupy i źródła do codziennego fact-checku."
+  />
+  <meta property="og:title" content="Madera 07–14.05.2026 — mobilny plan operacyjny" />
+  <meta
+    property="og:description"
+    content="Jedna baza, plan dzień po dniu, decyzje bez improwizacji, plan B/C i źródła do codziennego sprawdzania."
+  />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pl_PL" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif']
-          },
-          boxShadow: {
-            soft: '0 10px 30px rgba(15,23,42,0.08)'
-          }
-        }
-      }
-    }
-  </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Inter', system-ui, sans-serif; }
-    summary::-webkit-details-marker { display: none; }
-    .anchor-offset { scroll-margin-top: 88px; }
-    .hero-grid {
-      background-image:
-        radial-gradient(circle at top right, rgba(45, 212, 191, 0.16), transparent 32%),
-        radial-gradient(circle at bottom left, rgba(250, 204, 21, 0.12), transparent 30%);
-    }
-    .top-blur {
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-    }
-  </style>
+  <link rel="stylesheet" href="operational-plan.css" />
 </head>
-<body class="bg-slate-50 text-slate-900 antialiased">
-  <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/85 text-white top-blur">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-      <a href="#top" class="text-sm font-semibold tracking-[0.18em] text-white/90">MADERA CONTROL PANEL</a>
-      <nav class="hidden items-center gap-6 text-sm md:flex">
-        <a href="#overview" class="text-white/80 transition hover:text-white">Overview</a>
-        <a href="#itinerary" class="text-white/80 transition hover:text-white">Plan</a>
-        <a href="#days" class="text-white/80 transition hover:text-white">Dni</a>
-        <a href="#costs" class="text-white/80 transition hover:text-white">Koszty</a>
-        <a href="#checks" class="text-white/80 transition hover:text-white">Check-lista</a>
-        <a href="#sources" class="text-white/80 transition hover:text-white">Źródła</a>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="#top" class="brand">Madera Control Panel</a>
+      <nav class="nav-links" aria-label="Główna nawigacja">
+        <a href="#overview">Przegląd</a>
+        <a href="#desk">Decyzje</a>
+        <a href="#itinerary">Plan</a>
+        <a href="#days">Dni</a>
+        <a href="#costs">Koszty</a>
+        <a href="#checks">Check-lista</a>
+        <a href="#sources">Źródła</a>
       </nav>
-      <button class="inline-flex items-center justify-center rounded-xl border border-white/15 px-3 py-2 text-sm md:hidden" onclick="toggleMenu()">Menu</button>
+      <button
+        id="menuToggle"
+        class="menu-button"
+        type="button"
+        aria-controls="mobileNav"
+        aria-expanded="false"
+      >
+        Menu
+      </button>
     </div>
-    <div id="mobileMenu" class="hidden border-t border-white/10 px-4 pb-4 md:hidden">
-      <div class="flex flex-col gap-2 pt-4 text-sm">
-        <a href="#overview" class="rounded-xl px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white">Overview</a>
-        <a href="#itinerary" class="rounded-xl px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white">Plan</a>
-        <a href="#days" class="rounded-xl px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white">Dni</a>
-        <a href="#costs" class="rounded-xl px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white">Koszty</a>
-        <a href="#checks" class="rounded-xl px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white">Check-lista</a>
-        <a href="#sources" class="rounded-xl px-3 py-2 text-white/80 hover:bg-white/5 hover:text-white">Źródła</a>
+    <nav id="mobileNav" class="mobile-panel" aria-label="Mobilna nawigacja" hidden>
+      <div class="container mobile-panel__inner">
+        <a href="#overview" data-nav-link="mobile">Przegląd</a>
+        <a href="#desk" data-nav-link="mobile">Decyzje</a>
+        <a href="#itinerary" data-nav-link="mobile">Plan</a>
+        <a href="#days" data-nav-link="mobile">Dni</a>
+        <a href="#costs" data-nav-link="mobile">Koszty</a>
+        <a href="#checks" data-nav-link="mobile">Check-lista</a>
+        <a href="#sources" data-nav-link="mobile">Źródła</a>
       </div>
-    </div>
+    </nav>
   </header>
 
   <main id="top">
-    <section class="hero-grid bg-slate-950 text-white">
-      <div class="mx-auto max-w-7xl px-4 py-14 sm:px-6 sm:py-20 lg:px-8">
-        <div class="grid gap-10 lg:grid-cols-[1.35fr_0.95fr]">
-          <div>
-            <div class="mb-6 flex flex-wrap items-center gap-2">
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">Potwierdzone</span>
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">Sprawdzić</span>
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">Warunkowe</span>
-            </div>
-            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-300">07.05.2026 — 14.05.2026</p>
-            <h1 class="mt-4 max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">Madera po korekcie: widoki, logistyka i zero udawania, że 7 pełnych dni zmieści się między tymi lotami.</h1>
-            <p class="mt-6 max-w-3xl text-lg leading-8 text-white/75">
-              Ten układ zakłada <strong>6 pełnych dni + 2 dni operacyjne</strong>, jedną bazę w południowo-centralnym pasie wyspy, front-loading dla Areeiro
-              i twarde oddzielenie <strong>faktów potwierdzonych</strong> od rzeczy, które trzeba sprawdzić dzień wcześniej.
-            </p>
-            <div class="mt-8 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-              
-              <div class="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-soft">
-                <p class="text-sm font-semibold text-white/90">8 dni kalendarzowych</p>
-                <p class="mt-2 text-sm text-white/70">07.05 przylot po południu • 14.05 wylot po południu</p>
-                <p class="mt-3 text-xs uppercase tracking-[0.14em] text-white/45">Licz 6 pełnych dni + 2 dni operacyjne</p>
-              </div>
-              <div class="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-soft">
-                <p class="text-sm font-semibold text-white/90">1 baza rekomendowana</p>
-                <p class="mt-2 text-sm text-white/70">pas Ribeira Brava – Ponta do Sol</p>
-                <p class="mt-3 text-xs uppercase tracking-[0.14em] text-white/45">Najmniej tarcia przy tym briefie</p>
-              </div>
-              <div class="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-soft">
-                <p class="text-sm font-semibold text-white/90">3 rezerwacje krytyczne</p>
-                <p class="mt-2 text-sm text-white/70">PR1 • PR8 • PR11 / PR9.1</p>
-                <p class="mt-3 text-xs uppercase tracking-[0.14em] text-white/45">Przez SIMplifica</p>
-              </div>
-              <div class="rounded-2xl border border-white/10 bg-white/5 p-4 shadow-soft">
-                <p class="text-sm font-semibold text-white/90">Światło</p>
-                <p class="mt-2 text-sm text-white/70">sunrise 07:15 → 07:09 • sunset 20:53 → 20:58</p>
-                <p class="mt-3 text-xs uppercase tracking-[0.14em] text-white/45">Na 7–14 maja 2026</p>
-              </div>
-            </div>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-main">
+          <div class="badge-row">
+            <span class="badge badge--fact-confirmed">Fakt: Potwierdzone</span>
+            <span class="badge badge--fact-check">Fakt: Wymaga fact-checku</span>
+            <span class="badge badge--conditional">Fakt: Warunkowe</span>
           </div>
+          <p class="eyebrow" style="color: rgba(247, 251, 255, 0.86); margin-top: 1rem;">
+            07.05.2026 — 14.05.2026
+          </p>
+          <h1>Madera jako plan terenowy: 6 pełnych dni, 2 dni operacyjne i decyzje bez improwizacji.</h1>
+          <p>
+            Ta wersja zakłada jedną bazę w pasie <strong>Ribeira Brava – Ponta do Sol</strong>, priorytet
+            dla Areeiro, skrócony wariant PR8 i twarde rozdzielenie między tym, co można uznać za potwierdzone,
+            a tym, co nadal wymaga codziennego sprawdzenia.
+          </p>
 
-          <div class="space-y-4">
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-soft">
-              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-white/50">Quick verdict</p>
-              <ul class="mt-4 space-y-3 text-sm leading-6 text-white/80">
-                <li><strong class="text-white">Największy błąd starego planu:</strong> liczy 7 pełnych modułów, choć kalendarz i loty dają 6 pełnych dni.</li>
-                <li><strong class="text-white">Najbardziej wrażliwy dzień:</strong> Areeiro — ustawiony na początek pobytu, nie na środek.</li>
-                <li><strong class="text-white">Najbardziej przeszacowana rzecz:</strong> boat-return na PR8 jako domyślny „smart effort”.</li>
-                <li><strong class="text-white">Moduł obniżony do opcji:</strong> Monte / Funchal — dobre jako backup, nie jako rdzeń tego briefu.</li>
-              </ul>
-            </div>
-
-            <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-soft">
-              <p class="text-xs font-semibold uppercase tracking-[0.18em] text-white/50">Loty</p>
-              <div class="mt-4 grid gap-4">
-                <div class="rounded-2xl border border-white/10 bg-slate-900/60 p-4">
-                  <div class="flex items-center justify-between gap-4">
-                    <div>
-                      <p class="text-sm font-semibold text-white">WAW → FNC</p>
-                      <p class="mt-1 text-sm text-white/65">W6 1535 • 07/05/2026</p>
-                    </div>
-                    <p class="text-sm font-semibold text-teal-300">11:40 → 16:05</p>
-                  </div>
-                </div>
-                <div class="rounded-2xl border border-white/10 bg-slate-900/60 p-4">
-                  <div class="flex items-center justify-between gap-4">
-                    <div>
-                      <p class="text-sm font-semibold text-white">FNC → WAW</p>
-                      <p class="mt-1 text-sm text-white/65">W6 1536 • 14/05/2026</p>
-                    </div>
-                    <p class="text-sm font-semibold text-amber-300">16:45 → 22:50</p>
-                  </div>
-                </div>
-              </div>
-              <p class="mt-4 text-xs leading-5 text-white/55">Dzień wylotu nie jest dniem na Monte, Areeiro ani „jeszcze szybki Funchal”. To jest dzień na brak głupich ambicji.</p>
-            </div>
+          <div class="kpi-grid">
+            <article class="metric-card">
+              <p class="eyebrow" style="color: rgba(247, 251, 255, 0.7);">Kalendarz</p>
+              <strong>8 dni kalendarzowych</strong>
+              <p>07.05 przylot po południu, 14.05 wylot po południu. Licz 6 pełnych dni + 2 operacyjne.</p>
+            </article>
+            <article class="metric-card">
+              <p class="eyebrow" style="color: rgba(247, 251, 255, 0.7);">Baza</p>
+              <strong>1 baza rekomendowana</strong>
+              <p>Południowo-centralny pas daje najmniej tarcia przy tych założeniach i tym układzie dni.</p>
+            </article>
+            <article class="metric-card">
+              <p class="eyebrow" style="color: rgba(247, 251, 255, 0.7);">Rezerwacje</p>
+              <strong>3 krytyczne okna</strong>
+              <p>PR1, PR8, PR11 albo PR9.1. Rezerwuj po pogodzie, nie z automatu.</p>
+            </article>
+            <article class="metric-card">
+              <p class="eyebrow" style="color: rgba(247, 251, 255, 0.7);">Światło</p>
+              <strong>Wschód 07:15 → 07:09</strong>
+              <p>Zachód 20:53 → 20:58. Największe znaczenie ma to dla d2, d3 i d7.</p>
+            </article>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section id="overview" class="anchor-offset mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft md:p-8">
-        <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Executive summary</p>
-            <h2 class="mt-3 text-3xl font-bold tracking-tight text-slate-900">Co zostaje, co wypada i co trzeba sprawdzać bez znieczulenia</h2>
-            <ul class="mt-6 space-y-4 text-sm leading-7 text-slate-700">
-              <li><strong>Dobre:</strong> geografia starego planu była sensowna — wschód, góry, południe, północ i zachód są logicznie pogrupowane, a brief „widoki przy małym cardio” był czytelny.</li>
-              <li><strong>Słabe:</strong> plan mieszał potwierdzone fakty z blogową pewnością siebie. Najbardziej widać to przy PR9, PR1, kosztach cable cars i Areeiro parking.</li>
-              <li><strong>Najważniejsza korekta:</strong> przypięcie planu do realnych dat i lotów. Przylot po południu i wylot po południu nie zostawiają miejsca na udawanie 7 pełnych dni.</li>
-              <li><strong>Nowa zasada główna:</strong> jedna baza południowo-centralna jako wariant bazowy; split-stay dopiero jako wersja „bardziej ikoniczne widoki”, nie jako automatyczna rekomendacja.</li>
+        <aside class="hero-aside">
+          <div class="panel panel--dark">
+            <p class="eyebrow" style="color: rgba(247, 251, 255, 0.62);">Szybka ocena</p>
+            <ul>
+              <li>Najważniejsza korekta: plan realnie mieści <strong>6 pełnych modułów</strong>, nie 7.</li>
+              <li>Najbardziej wrażliwy dzień: <strong>Areeiro</strong> powinno być na początku pobytu, nie w środku.</li>
+              <li>Najbardziej przeszacowany moduł: <strong>boat-return na PR8</strong> nie jest domyślnym rozwiązaniem.</li>
+              <li>Monte i Funchal zostają <strong>opcją</strong>, a nie rdzeniem całego wyjazdu.</li>
             </ul>
           </div>
-          <div class="space-y-4">
-            
-            <article class="rounded-2xl border border-slate-200 p-4">
-              <div class="flex items-center justify-between gap-3">
-                <h3 class="text-base font-semibold text-slate-900">PR1 / Areeiro</h3>
-                <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">Sprawdzić</span>
-              </div>
-              <p class="mt-3 text-sm leading-6 text-slate-700">Oficjalnie: odcinek do Pedra Rija jest dostępny, ale po 25.04 przewidziano reotwarcie fazowane i możliwe zamknięcia pn–czw. Nie zakładaj, że każdy dzień zadziała identycznie.</p>
-              <a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/" target="_blank" rel="noopener" class="mt-3 inline-block text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900">Visit Madeira</a>
-            </article>
-            
-            <article class="rounded-2xl border border-slate-200 p-4">
-              <div class="flex items-center justify-between gap-3">
-                <h3 class="text-base font-semibold text-slate-900">PR9 / Caldeirão Verde</h3>
-                <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">Warunkowe</span>
-              </div>
-              <p class="mt-3 text-sm leading-6 text-slate-700">Oficjalne źródła nie są idealnie spójne: strona PR9 pokazuje zamknięcie odcinka między Caldeirão Verde a Caldeirão do Inferno, a SIMplifica nadal listuje wariant Queimadas → Caldeirão Verde. Sprawdzaj dzień wcześniej w obu miejscach.</p>
-              <a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/" target="_blank" rel="noopener" class="mt-3 inline-block text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900">Visit Madeira + SIMplifica</a>
-            </article>
-            
-            <article class="rounded-2xl border border-slate-200 p-4">
-              <div class="flex items-center justify-between gap-3">
-                <h3 class="text-base font-semibold text-slate-900">Cristo Rei / Achadas</h3>
-                <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">Sprawdzić</span>
-              </div>
-              <p class="mt-3 text-sm leading-6 text-slate-700">Cristo Rei ma status „condicionado”, ale strona punktu widokowego nie wyjaśnia ograniczenia. Achadas da Cruz ma w oficjalnych stronach brak twardej ceny i zmienne edykty serwisowe — to nie jest punkt do planowania na ślepo.</p>
-              <a href="https://visitmadeira.com/pt/o-que-fazer/apaixonados-por-cultura/patrimonio/monumentos-e-arquitetura/estatua-do-cristo-rei-do-garajau/" target="_blank" rel="noopener" class="mt-3 inline-block text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900">Visit Madeira</a>
-            </article>
-            
+
+          <div class="panel panel--dark hero-note">
+            <p class="eyebrow" style="color: rgba(247, 251, 255, 0.62);">Loty</p>
+            <div class="flight-grid">
+              <article class="flight-card">
+                <div class="flight-card__row">
+                  <div>
+                    <strong>WAW → FNC</strong>
+                    <p>W6 1535 • 07/05/2026</p>
+                  </div>
+                  <strong>11:40 → 16:05</strong>
+                </div>
+              </article>
+              <article class="flight-card">
+                <div class="flight-card__row">
+                  <div>
+                    <strong>FNC → WAW</strong>
+                    <p>W6 1536 • 14/05/2026</p>
+                  </div>
+                  <strong>16:45 → 22:50</strong>
+                </div>
+              </article>
+            </div>
+            <p style="margin-top: 0.9rem;">
+              Dzień wylotu nie jest dniem na Monte, Areeiro ani „jeszcze szybki Funchal”. To dzień na niskie ryzyko i spokojny zwrot auta.
+            </p>
           </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <section id="itinerary" class="anchor-offset mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-      <div class="mb-8 flex flex-wrap items-end justify-between gap-4">
-        <div>
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Rekomendowana wersja</p>
-          <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">Poprawiony plan w realnym kalendarzu</h2>
-          <p class="mt-3 max-w-3xl text-sm leading-6 text-slate-600">
-            To jest wariant bazowy dla pary „widoki + logistyka + mało bezsensownego cardio”.
-            Monte/Funchal nie zniknęło — po prostu nie udaje już rdzenia planu.
+    <section id="overview" class="section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Przegląd</p>
+          <h2>Krótki skrót terenowy</h2>
+          <p class="muted">
+            Główna zasada tej wersji: dokument ma pomagać wykonać plan w realnym kalendarzu i szybko przestawić się na plan B,
+            gdy warunki nie dowożą.
           </p>
         </div>
-        <div class="flex gap-3">
-          <button onclick="expandAllDays()" class="rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">Rozwiń dni</button>
-          <button onclick="collapseAllDays()" class="rounded-2xl border border-slate-300 bg-white px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">Zwiń dni</button>
+
+        <div class="key-grid">
+          <article class="key-card">
+            <h3>Kalendarz jest ważniejszy niż ambicja</h3>
+            <p>Traktuj 07.05 i 14.05 jako dni operacyjne. Nie próbuj wpychać do nich modułów, które wymagają okna pogodowego i parkingowego.</p>
+          </article>
+          <article class="key-card">
+            <h3>Areeiro ma priorytet wcześnie</h3>
+            <p>Dzień górski jest najbardziej wrażliwy na status szlaku, chmurę, wiatr i tłum. Dlatego trafia na początek pobytu.</p>
+          </article>
+          <article class="key-card">
+            <h3>PR8 działa najlepiej po skróceniu</h3>
+            <p>Trzonem dnia jest Ponta do Rosto i przejście do Casa do Sardinha. Całość „za wszelką cenę” zwykle psuje stosunek efektu do wysiłku.</p>
+          </article>
         </div>
-      </div>
-      <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        
-        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div class="mb-3 flex items-center justify-between gap-3">
-            <p class="text-sm font-semibold text-slate-500">07.05 czw</p>
-            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">very low</span>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-900">Przylot + miękkie wejście</h3>
-          <p class="mt-2 text-sm text-slate-600">Lot, auto, check-in, zachód tylko jeśli energia i zero opóźnień.</p>
-          <p class="mt-4 text-sm font-semibold text-emerald-700">Zostawić</p>
-        </article>
-        
 
-        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div class="mb-3 flex items-center justify-between gap-3">
-            <p class="text-sm font-semibold text-slate-500">08.05 pt</p>
-            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">medium</span>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-900">Areeiro + Eira do Serrado</h3>
-          <p class="mt-2 text-sm text-slate-600">Najbardziej wrażliwy operacyjnie dzień wrzucony na początek pobytu.</p>
-          <p class="mt-4 text-sm font-semibold text-emerald-700">Zostawić</p>
-        </article>
-        
+        <div class="status-grid" style="margin-top: 1rem;">
+          <article class="status-card">
+            <div class="badge-row">
+              <span class="badge badge--fact-check">Fakt: Wymaga fact-checku</span>
+            </div>
+            <h3>PR1 / Areeiro</h3>
+            <p>
+              Odcinek do Pedra Rija był komunikowany jako dostępny, ale po 25.04 zapowiadano reotwarcie fazowane i możliwe zamknięcia pn–czw.
+              Nie zakładaj, że każdy dzień działa identycznie.
+            </p>
+            <div class="status-card__links">
+              <a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/" target="_blank" rel="noopener noreferrer">Visit Madeira — PR1</a>
+              <a href="https://ifcn.madeira.gov.pt/pt/?catid=146&format=pdf&id=973%3Apr-1-unidirecional&tmpl=component&view=article" target="_blank" rel="noopener noreferrer">IFCN — komunikat PR1</a>
+              <a href="https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados/faq-s-taxas-percursos-pedestres-classificados.html" target="_blank" rel="noopener noreferrer">IFCN / SIMplifica — FAQ</a>
+            </div>
+          </article>
 
-        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div class="mb-3 flex items-center justify-between gap-3">
-            <p class="text-sm font-semibold text-slate-500">09.05 sob</p>
-            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">medium</span>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-900">Wschód: Ponta do Rosto + PR8</h3>
-          <p class="mt-2 text-sm text-slate-600">Boat-return tylko warunkowo; bazowy wariant to sensowny out-and-back.</p>
-          <p class="mt-4 text-sm font-semibold text-amber-700">Skrócić</p>
-        </article>
-        
+          <article class="status-card">
+            <div class="badge-row">
+              <span class="badge badge--conditional">Fakt: Warunkowe</span>
+            </div>
+            <h3>PR9 / Caldeirão Verde</h3>
+            <p>
+              Oficjalne źródła nie są idealnie spójne. PR9 traktuj jako wariant wymienny dla d5, nie jako obowiązkowy rdzeń planu.
+            </p>
+            <div class="status-card__links">
+              <a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/" target="_blank" rel="noopener noreferrer">Visit Madeira — PR9</a>
+              <a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-91-levada-do-caldeirao-verde-um-caminho-para-todos/" target="_blank" rel="noopener noreferrer">Visit Madeira — PR9.1</a>
+              <a href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener noreferrer">SIMplifica</a>
+            </div>
+          </article>
 
-        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div class="mb-3 flex items-center justify-between gap-3">
-            <p class="text-sm font-semibold text-slate-500">10.05 ndz</p>
-            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">low</span>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-900">Południe low-drive</h3>
-          <p class="mt-2 text-sm text-slate-600">Cabo Girão tylko jako krótki stop, nie kotwica całego dnia.</p>
-          <p class="mt-4 text-sm font-semibold text-emerald-700">Zostawić</p>
-        </article>
-        
-
-        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div class="mb-3 flex items-center justify-between gap-3">
-            <p class="text-sm font-semibold text-slate-500">11.05 pon</p>
-            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">low</span>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-900">Ribeiro Frio + Santana</h3>
-          <p class="mt-2 text-sm text-slate-600">Balcões ma świetny stosunek efekt/wysiłek.</p>
-          <p class="mt-4 text-sm font-semibold text-emerald-700">Zostawić</p>
-        </article>
-        
-
-        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div class="mb-3 flex items-center justify-between gap-3">
-            <p class="text-sm font-semibold text-slate-500">12.05 wt</p>
-            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">low</span>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-900">Seixal + Porto Moniz</h3>
-          <p class="mt-2 text-sm text-slate-600">Zero zbędnego cardio, tylko zależność od morza i pogody.</p>
-          <p class="mt-4 text-sm font-semibold text-emerald-700">Zostawić</p>
-        </article>
-        
-
-        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div class="mb-3 flex items-center justify-between gap-3">
-            <p class="text-sm font-semibold text-slate-500">13.05 śr</p>
-            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">low</span>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-900">Achadas + Garganta + Ponta do Pargo</h3>
-          <p class="mt-2 text-sm text-slate-600">Bardzo wysoki payoff widokowy przy małym wysiłku.</p>
-          <p class="mt-4 text-sm font-semibold text-emerald-700">Zostawić</p>
-        </article>
-        
-
-        <article class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div class="mb-3 flex items-center justify-between gap-3">
-            <p class="text-sm font-semibold text-slate-500">14.05 czw</p>
-            <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">very low</span>
-          </div>
-          <h3 class="text-lg font-semibold text-slate-900">Wylot: krótki poranek</h3>
-          <p class="mt-2 text-sm text-slate-600">Nie pakuj tu Monte ani Funchal na ambicji.</p>
-          <p class="mt-4 text-sm font-semibold text-emerald-700">Zostawić</p>
-        </article>
-        
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div class="grid gap-6 lg:grid-cols-3">
-        <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Wersja rekomendowana</p>
-          <h3 class="mt-2 text-xl font-semibold text-slate-900">Jedna baza, najwięcej sensu</h3>
-          <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-700">
-            <li>Pas bazy: <strong>Ribeira Brava – Ponta do Sol</strong> albo podobny południowo-centralny kompromis.</li>
-            <li>Areeiro na początku pobytu.</li>
-            <li>PR8 bez domyślnego boat-return.</li>
-            <li>Monte/Funchal tylko jako backup albo moduł na ochotę, nie obowiązek.</li>
-          </ul>
-        </article>
-
-        <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Wersja bardziej relax</p>
-          <h3 class="mt-2 text-xl font-semibold text-slate-900">Jeszcze mniej tarcia</h3>
-          <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-700">
-            <li>Areeiro tylko viewpoint + Ninho da Manta.</li>
-            <li>Wschód jako Ponta do Rosto + viewpoint-hopping, bez pełnego PR8.</li>
-            <li>Balcões bez Rocha do Navio albo nawet bez Santany.</li>
-            <li>Jednego dnia całkowicie nie dokręcasz niczego — kawa, basen, zachód.</li>
-          </ul>
-        </article>
-
-        <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Wersja „ikoniczne widoki”</p>
-          <h3 class="mt-2 text-xl font-semibold text-slate-900">Więcej świtu i pogody</h3>
-          <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-700">
-            <li>Trzymasz Areeiro i wschód jako dwa osobne świty.</li>
-            <li>Dokładasz warunkowo Fanal tylko za mgłą.</li>
-            <li>West day ustawiasz bardzo świadomie pod Garganta Funda + Ponta do Pargo sunset.</li>
-            <li>Split-stay zaczyna mieć sens dopiero tutaj — i nadal nie jest obowiązkowy.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="days" class="anchor-offset mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-      <div class="mb-8">
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Dzień po dniu</p>
-        <h2 class="mt-2 text-3xl font-bold tracking-tight text-slate-900">Operacyjne karty dni</h2>
-        <p class="mt-3 max-w-3xl text-sm leading-6 text-slate-600">
-          To nie są opisy „warto zobaczyć”. Każda karta ma kolejność, poziom wysiłku, parking, rzeczy do rezerwacji, ryzyka, plan B i plan C.
-        </p>
-      </div>
-      <div class="space-y-5">
-        
-        <details id="d1" class="day-card group rounded-3xl border border-slate-200 bg-white shadow-sm ">
-          <summary class="flex cursor-pointer list-none flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between md:p-6">
-            <div class="space-y-2">
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">1</span>
-                <p class="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">07.05.2026 • czwartek</p>
-              </div>
-              <h3 class="text-xl font-semibold text-slate-900">Przylot i miękkie wejście</h3>
-              <p class="max-w-3xl text-sm text-slate-600">Dojechać do bazy bez spiny, zrobić zakupy operacyjne i nie wpakować się w pierwszy wieczór w sztuczną gonitwę za atrakcjami.</p>
-            </div>
-            <div class="flex flex-wrap items-center gap-2 md:justify-end">
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">very low</span>
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">zostawić</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">jazda 0:35–1:10</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">chodzenie 0:15–0:45</span>
-            </div>
-          </summary>
-          <div class="border-t border-slate-200 px-5 pb-6 pt-5 md:px-6">
-            <div class="grid gap-6 lg:grid-cols-2">
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Układ dnia</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dlaczego ten układ działa:</strong> Lądujesz o 16:05. Po bagażu, aucie i dojeździe nie masz sensownego buforu na sloty, duże punkty ani ambitne zwiedzanie.</li>
-                    <li><strong>Wyjazd z noclegu:</strong> z lotniska ok. 17:15–17:45 po odbiorze auta</li>
-                    <li><strong>Najlepsza kolejność:</strong> Lotnisko → auto → woda / prowiant / eSIM / drobiazgi → check-in → krótki spacer lub zachód blisko bazy.</li>
-                    <li><strong>Szacowany czas całego dnia:</strong> 4–6 h od lądowania do kolacji</li>
-                    <li><strong>Łączny czas jazdy autem:</strong> 0:35–1:10</li>
-                    <li><strong>Łączny czas chodzenia:</strong> 0:15–0:45</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Operacyjnie</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Rezerwować wcześniej:</strong> auto, nocleg, parking noclegu</li>
-                    <li><strong>Sprawdzić dzień wcześniej:</strong> zasady odbioru auta, parking noclegu, paliwo, prognoza i status na 08.05</li>
-                    <li><strong>Parking:</strong> parking noclegu; ewentualnie najbliższy seafront przy krótkim spacerze</li>
-                    <li><strong>Dojście od parkingu:</strong> 2–10 min</li>
-                    <li><strong>Toalety / infrastruktura:</strong> lotnisko ma pełną infrastrukturę; później licz głównie na miasteczka</li>
-                    <li><strong>Jedzenie / kawa:</strong> kolacja przy bazie; nie buduj dnia pod konkretną restaurację</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Ocena miejsca</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Naprawdę warto:</strong> tylko bardzo łatwy zachód blisko bazy, jeśli wszystko poszło sprawnie</li>
-                    <li><strong>Można pominąć bez żalu:</strong> jakąkolwiek atrakcję ze sztywną godziną, Monte, pełen Funchal, płatne punkty po drodze</li>
-                    <li><strong>Najlepsze okno światła:</strong> sunset 20:53</li>
-                    <li><strong>Ryzyka:</strong> kolejka po auto, opóźniony bagaż, zmęczenie po podróży, ruch przy wyjeździe z lotniska</li>
-                    <li><strong>Plan B:</strong> zakupy + kolacja + wczesny sen</li>
-                    <li><strong>Plan C:</strong> lotnisko → hotel bez żadnych przystanków</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Dla Twojego briefu</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dobre przy niskiej energii:</strong> tak — to ma być dzień oszczędzający baterię</li>
-                    <li><strong>Sensowne przy przylocie / wylocie:</strong> tak — to jedyny sensowny tryb na dzień przylotu</li>
-                    <li><strong>Werdykt:</strong> <span class="font-semibold">zostawić</span></li>
-                    <li><strong>Uwaga metodologiczna:</strong> czasy jazdy są zakresem mapowym dla bazy w pasie Ribeira Brava – Ponta do Sol; dalej na zachód dolicz 10–20 min.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 p-4">
-              <div class="flex flex-wrap items-center justify-between gap-3">
-                <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Alternatywy na ten dzień</h4>
-                <p class="text-xs text-slate-500">Każda opcja ma sens tylko w swoim kontekście — to nie są „must-do” w próżni.</p>
-              </div>
-              <div class="mt-4 grid gap-4 md:grid-cols-2">
-                
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Dobra pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Dla pary nocującej na południu i bez opóźnień. Wybierz tylko wtedy, gdy check-in nie ciśnie. Koszt: niski / zależny od kolacji. Wysiłek: very low. Plusy: ładne wejście w klimat, zero logistyki. Minusy: łatwo przeciągnąć wieczór. Ryzyka: korki, późne auto. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Słaba pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Dla każdego. Zamiast „odbijać sobie” dzień, zrób zakupy, rozpakuj się i ustaw plan na kolejne 48 h. Koszt: tylko operacyjny. Wysiłek: very low. Plusy: lepszy sen i poranek. Minusy: zero wow. Ryzyka: praktycznie brak. Status: potwierdzone jako najbezpieczniejsza logika.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Low energy</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Hotel + 15–20 min spaceru po okolicy. Dla dnia z opóźnieniem lotu lub słabą energią. Koszt: minimalny. Wysiłek: very low. Plusy: maksymalna regeneracja. Minusy: brak „atrakcji”. Ryzyka: żadne. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Worth it only if conditions are perfect</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Cristo Rei / Garajau na krótki zachód tylko wtedy, gdy śpisz bliżej Funchal/Caniço i oficjalny status nie budzi wątpliwości. Koszt: niski. Wysiłek: very low. Plusy: mocna klifowa scena. Minusy: słaby fit przy bazie daleko na zachodzie. Ryzyka: niejasny status miejsca. Status: niepewne.</p>
-            </div>
-            
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-4">
-              <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Źródła dnia</h4>
-              <ul class="mt-3 grid gap-2 md:grid-cols-2">
-                <li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://www.madeiraairport.pt/en/fnc/access-parking/for-your-full-comfort/car-rental" target="_blank" rel="noopener">Madeira Airport car rental</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener">Sunrise/sunset Funchal</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-        
-
-        <details id="d2" class="day-card group rounded-3xl border border-slate-200 bg-white shadow-sm open">
-          <summary class="flex cursor-pointer list-none flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between md:p-6">
-            <div class="space-y-2">
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">2</span>
-                <p class="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">08.05.2026 • piątek</p>
-              </div>
-              <h3 class="text-xl font-semibold text-slate-900">Areeiro + Eira do Serrado</h3>
-              <p class="max-w-3xl text-sm text-slate-600">Wyciągnąć największy górski payoff na początku pobytu, kiedy okno operacyjne dla PR1 jest statystycznie najlepsze.</p>
-            </div>
-            <div class="flex flex-wrap items-center gap-2 md:justify-end">
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">medium</span>
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">zostawić</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">jazda 2:15–3:00</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">chodzenie 1:45–2:45</span>
-            </div>
-          </summary>
-          <div class="border-t border-slate-200 px-5 pb-6 pt-5 md:px-6">
-            <div class="grid gap-6 lg:grid-cols-2">
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Układ dnia</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dlaczego ten układ działa:</strong> IFCN zapowiadał po MIUT reotwarcie fazowane po 25.04 oraz możliwe zamknięcia pn–czw. Dla Twoich dat piątek–niedziela to najbardziej racjonalne okno na próbę Areeiro.</li>
-                    <li><strong>Wyjazd z noclegu:</strong> 05:50–06:10 z bazy południowo-centralnej</li>
-                    <li><strong>Najlepsza kolejność:</strong> Areeiro parking → sunrise → Ninho da Manta → zawrotka w stronę Pedra Rija → śniadanie po zejściu → Eira do Serrado → powrót i regeneracja.</li>
-                    <li><strong>Szacowany czas całego dnia:</strong> 7–9 h z przerwami</li>
-                    <li><strong>Łączny czas jazdy autem:</strong> 2:15–3:00</li>
-                    <li><strong>Łączny czas chodzenia:</strong> 1:45–2:45</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Operacyjnie</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Rezerwować wcześniej:</strong> PR1 przez SIMplifica</li>
-                    <li><strong>Sprawdzić dzień wcześniej:</strong> IFCN status, slot w SIMplifica, wiatr, zachmurzenie, widoczność, realną dostępność odcinka</li>
-                    <li><strong>Parking:</strong> parking przy Pico do Areeiro / overflow niżej; Eira do Serrado przy hotelu i punkcie widokowym</li>
-                    <li><strong>Dojście od parkingu:</strong> Areeiro 5–20 min zależnie od miejsca; Eira do Serrado 5–10 min</li>
-                    <li><strong>Toalety / infrastruktura:</strong> przed świtem nie zakładaj, że infrastruktura na górze będzie działać; potraktuj to jako self-sufficient start</li>
-                    <li><strong>Jedzenie / kawa:</strong> kawa i śniadanie po zejściu, nie próbuj budować poranka pod gastronomię przed sunrise</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Ocena miejsca</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Naprawdę warto:</strong> sunrise, Ninho da Manta, pierwszy odcinek grani, Eira do Serrado</li>
-                    <li><strong>Można pominąć bez żalu:</strong> upieranie się przy dalszym wejściu, gdy widoczność siada lub odcinek jest ograniczony</li>
-                    <li><strong>Najlepsze okno światła:</strong> sunrise 07:14; jeśli nie ma chmur, najlepsze 06:50–07:40</li>
-                    <li><strong>Ryzyka:</strong> zamknięcie/ograniczenie, tłum, wiatr, brak miejsc, ekspozycja, mgła, bardzo słaba widoczność</li>
-                    <li><strong>Plan B:</strong> zamiana z dniem wschodnim</li>
-                    <li><strong>Plan C:</strong> południe low-drive: Cabo Girão + Câmara de Lobos + rest</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Dla Twojego briefu</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dobre przy niskiej energii:</strong> tak, ale tylko w skróconej wersji: punkt widokowy + Ninho da Manta bez ciśnienia na Pedra Rija</li>
-                    <li><strong>Sensowne przy przylocie / wylocie:</strong> nie</li>
-                    <li><strong>Werdykt:</strong> <span class="font-semibold">zostawić</span></li>
-                    <li><strong>Uwaga metodologiczna:</strong> czasy jazdy są zakresem mapowym dla bazy w pasie Ribeira Brava – Ponta do Sol; dalej na zachód dolicz 10–20 min.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 p-4">
-              <div class="flex flex-wrap items-center justify-between gap-3">
-                <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Alternatywy na ten dzień</h4>
-                <p class="text-xs text-slate-500">Każda opcja ma sens tylko w swoim kontekście — to nie są „must-do” w próżni.</p>
-              </div>
-              <div class="mt-4 grid gap-4 md:grid-cols-2">
-                
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Dobra pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Bazowy wariant dnia. Dla osób, które chcą ikonicznej górskiej sceny bez pełnego trekkingu na Pico Ruivo. Koszt: PR1 4,50 € / os. Wysiłek: medium. Plusy: największy payoff widokowy. Minusy: wczesny start i duży tłum. Ryzyka: mgła, wiatr, ograniczenia. Status: potwierdzone dla odcinka do Pedra Rija, ale dzień wcześniej sprawdzić zakres otwarcia.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Słaba pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Przerzuć dzień na południe. Dla sytuacji „góry w mleku”. Koszt: niski do średniego. Wysiłek: low. Plusy: nie palisz poranka w chmurze. Minusy: tracisz najwyższy peak. Ryzyka: praktycznie tylko tłum w popularnych stopach. Status: potwierdzona logika backupowa.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Low energy</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Sam punkt widokowy + Ninho da Manta + Eira do Serrado. Dla kogoś, kto chce gór, ale nie schodów. Koszt: jak wyżej. Wysiłek: low. Plusy: masz obraz Areeiro bez dociskania. Minusy: mniej „grani”. Ryzyka: nadal tłum i pogoda. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Worth it only if conditions are perfect</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Dalsze przejście po pełnym reotwarciu w stronę Pico Ruivo tylko jeśli IFCN potwierdzi pełny status, kierunek ruchu i masz rozwiązany transport powrotny. Koszt: wyższy i zależny od organizacji. Wysiłek: wysoki. Plusy: pełna ikona. Minusy: słaby fit do briefu smart effort. Ryzyka: logistyka i zamknięcia. Status: niepewne / bardzo warunkowe.</p>
-            </div>
-            
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-4">
-              <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Źródła dnia</h4>
-              <ul class="mt-3 grid gap-2 md:grid-cols-2">
-                <li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/" target="_blank" rel="noopener">Visit Madeira PR1</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://ifcn.madeira.gov.pt/pt/?catid=146&format=pdf&id=973%3Apr-1-unidirecional&tmpl=component&view=article" target="_blank" rel="noopener">IFCN notice</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados/faq-s-taxas-percursos-pedestres-classificados.html" target="_blank" rel="noopener">SIMplifica / FAQ</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener">Sunrise/sunset Funchal</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-        
-
-        <details id="d3" class="day-card group rounded-3xl border border-slate-200 bg-white shadow-sm ">
-          <summary class="flex cursor-pointer list-none flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between md:p-6">
-            <div class="space-y-2">
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">3</span>
-                <p class="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">09.05.2026 • sobota</p>
-              </div>
-              <h3 class="text-xl font-semibold text-slate-900">Wschód: Ponta do Rosto + PR8</h3>
-              <p class="max-w-3xl text-sm text-slate-600">Złapać najlepsze światło na najbardziej filmowym fragmencie wyspy i zrobić tylko tyle marszu, ile naprawdę ma sens.</p>
-            </div>
-            <div class="flex flex-wrap items-center gap-2 md:justify-end">
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">medium</span>
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-200">skrócić</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">jazda 2:30–3:15</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">chodzenie 2:30–4:00</span>
-            </div>
-          </summary>
-          <div class="border-t border-slate-200 px-5 pb-6 pt-5 md:px-6">
-            <div class="grid gap-6 lg:grid-cols-2">
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Układ dnia</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dlaczego ten układ działa:</strong> Wschód daje ogromny efekt wizualny, ale popełnienie klasycznego błędu „całość za wszelką cenę” szybko zamienia dzień w niepotrzebne cardio pod słońcem.</li>
-                    <li><strong>Wyjazd z noclegu:</strong> 05:40–06:00</li>
-                    <li><strong>Najlepsza kolejność:</strong> Ponta do Rosto sunrise → Baía d&#x27;Abra trailhead → PR8 do Casa do Sardinha / ewentualnie dalej tylko przy dobrej energii → Machico późny lunch → powrót.</li>
-                    <li><strong>Szacowany czas całego dnia:</strong> 7–8,5 h</li>
-                    <li><strong>Łączny czas jazdy autem:</strong> 2:30–3:15</li>
-                    <li><strong>Łączny czas chodzenia:</strong> 2:30–4:00</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Operacyjnie</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Rezerwować wcześniej:</strong> PR8 przez SIMplifica</li>
-                    <li><strong>Sprawdzić dzień wcześniej:</strong> wiatr, ekspozycja słoneczna, trail status; jeśli rozważasz boat-return, to także operatora i transfer do auta</li>
-                    <li><strong>Parking:</strong> Ponta do Rosto viewpoint; Baía d&#x27;Abra trailhead</li>
-                    <li><strong>Dojście od parkingu:</strong> viewpoint 2–5 min; PR8 startuje praktycznie przy parkingu</li>
-                    <li><strong>Toalety / infrastruktura:</strong> na trailheadzie nie zakładaj wygód; bazuj na mieście przed i po trasie</li>
-                    <li><strong>Jedzenie / kawa:</strong> Machico po zejściu</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Ocena miejsca</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Naprawdę warto:</strong> Ponta do Rosto o świcie, pierwsza połowa PR8, Casa do Sardinha</li>
-                    <li><strong>Można pominąć bez żalu:</strong> boat-return jako „domyślny smart trick”; to działa tylko przy potwierdzonej logistyce i spokojnym morzu</li>
-                    <li><strong>Najlepsze okno światła:</strong> sunrise 07:13; najlepsze światło 06:50–08:15</li>
-                    <li><strong>Ryzyka:</strong> silny wiatr, pełne słońce, odwodnienie, tłum po 09:00, mylne założenie że łódź rozwiąże wszystko</li>
-                    <li><strong>Plan B:</strong> same wschodnie viewpointy + Machico / Caniçal</li>
-                    <li><strong>Plan C:</strong> zamiana z dniem południowym</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Dla Twojego briefu</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dobre przy niskiej energii:</strong> tak tylko w wersji viewpoint-hopping bez pełnego PR8</li>
-                    <li><strong>Sensowne przy przylocie / wylocie:</strong> nie</li>
-                    <li><strong>Werdykt:</strong> <span class="font-semibold">skrócić</span></li>
-                    <li><strong>Uwaga metodologiczna:</strong> czasy jazdy są zakresem mapowym dla bazy w pasie Ribeira Brava – Ponta do Sol; dalej na zachód dolicz 10–20 min.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 p-4">
-              <div class="flex flex-wrap items-center justify-between gap-3">
-                <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Alternatywy na ten dzień</h4>
-                <p class="text-xs text-slate-500">Każda opcja ma sens tylko w swoim kontekście — to nie są „must-do” w próżni.</p>
-              </div>
-              <div class="mt-4 grid gap-4 md:grid-cols-2">
-                
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Dobra pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Ponta do Rosto + skrócony PR8 do Casa do Sardinha. Dla pary, która chce prawdziwego payoffu, ale bez karania się powrotem „bo już jesteśmy”. Koszt: PR8 4,50 € / os. Wysiłek: medium. Plusy: najlepsza część dnia zostaje. Minusy: bardzo wczesny start. Ryzyka: słońce i wiatr. Status: potwierdzone.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Słaba pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Machico + Caniçal + punkty widokowe wschodu. Dla dnia z silnym wiatrem na półwyspie. Koszt: niski. Wysiłek: low. Plusy: nadal widoki, mniejsze ryzyko. Minusy: słabsza ikoniczność. Ryzyka: mniej spektakularne światło. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Low energy</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Ponta do Rosto + Miradouro do Guindaste + promenada w Machico. Koszt: niski. Wysiłek: very low / low. Plusy: prawie zero cardio. Minusy: bez klasycznej sceny PR8. Ryzyka: zależność od pogody. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Worth it only if conditions are perfect</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Boat-return z São Lourenço tylko z potwierdzonym operatorem, punktem odbioru i transferem do auta. Koszt: zmienny i niepotwierdzony oficjalnie. Wysiłek: medium. Plusy: mniej marszu w teorii. Minusy: dużo ukrytej logistyki. Ryzyka: morze, odwołanie, złe miejsce wysiadki względem auta. Status: niepewne.</p>
-            </div>
-            
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-4">
-              <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Źródła dnia</h4>
-              <ul class="mt-3 grid gap-2 md:grid-cols-2">
-                <li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-8-vereda-da-ponta-de-sao-lourenco/" target="_blank" rel="noopener">Visit Madeira PR8</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener">SIMplifica</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener">Sunrise/sunset Funchal</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-        
-
-        <details id="d4" class="day-card group rounded-3xl border border-slate-200 bg-white shadow-sm ">
-          <summary class="flex cursor-pointer list-none flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between md:p-6">
-            <div class="space-y-2">
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">4</span>
-                <p class="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">10.05.2026 • niedziela</p>
-              </div>
-              <h3 class="text-xl font-semibold text-slate-900">Południe low-drive: Cabo Girão + Câmara de Lobos + Madalena do Mar</h3>
-              <p class="max-w-3xl text-sm text-slate-600">Zresetować nogi po dwóch wczesnych porankach bez zmarnowania całego dnia.</p>
-            </div>
-            <div class="flex flex-wrap items-center gap-2 md:justify-end">
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">low</span>
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">zostawić</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">jazda 1:00–1:45</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">chodzenie 0:45–1:30</span>
-            </div>
-          </summary>
-          <div class="border-t border-slate-200 px-5 pb-6 pt-5 md:px-6">
-            <div class="grid gap-6 lg:grid-cols-2">
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Układ dnia</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dlaczego ten układ działa:</strong> To ma być dzień lekki, a nie kolejny moduł do „odhaczenia”. Cabo Girão jest mocnym stopem, ale nie ma materiału na pół dnia; resztę buduje rytm południowego wybrzeża.</li>
-                    <li><strong>Wyjazd z noclegu:</strong> 09:00–09:30</li>
-                    <li><strong>Najlepsza kolejność:</strong> Cabo Girão → Câmara de Lobos kawa / lunch → Madalena do Mar / Rota do Banana → zachód przy bazie lub w Ponta do Sol</li>
-                    <li><strong>Szacowany czas całego dnia:</strong> 5–7 h</li>
-                    <li><strong>Łączny czas jazdy autem:</strong> 1:00–1:45</li>
-                    <li><strong>Łączny czas chodzenia:</strong> 0:45–1:30</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Operacyjnie</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Rezerwować wcześniej:</strong> płatność za dostęp do Cabo Girão — sprawdź najwygodniejszy tryb w SIMplifica przed podjazdem</li>
-                    <li><strong>Sprawdzić dzień wcześniej:</strong> przejrzystość nieba pod zachód; ewentualnie czy chcesz ten dzień zamienić na moduł miejski</li>
-                    <li><strong>Parking:</strong> Cabo Girão parking przy punkcie; Câmara de Lobos port; seafront w Madalena do Mar</li>
-                    <li><strong>Dojście od parkingu:</strong> 2–10 min na każdym stopie</li>
-                    <li><strong>Toalety / infrastruktura:</strong> na południu infrastruktura jest najłatwiejsza — to dobry dzień na oddech logistyczny</li>
-                    <li><strong>Jedzenie / kawa:</strong> Câmara de Lobos lub Madalena do Mar</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Ocena miejsca</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Naprawdę warto:</strong> Cabo Girão jako 15–25 min stop, port w Câmara de Lobos, płaski spacer wśród bananowców, zachód przy bazie</li>
-                    <li><strong>Można pominąć bez żalu:</strong> robienie z Cabo Girão dnia premium; to za mało treści na taki brief</li>
-                    <li><strong>Najlepsze okno światła:</strong> sunset 20:55</li>
-                    <li><strong>Ryzyka:</strong> tłok na Cabo Girão, płaska jakość światła przy pełnym overcaście, zbyt dużo małych stopów bez sensu</li>
-                    <li><strong>Plan B:</strong> Funchal old town / Monte jako moduł miejsko-kulturowy</li>
-                    <li><strong>Plan C:</strong> pełna regeneracja w bazie</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Dla Twojego briefu</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dobre przy niskiej energii:</strong> tak</li>
-                    <li><strong>Sensowne przy przylocie / wylocie:</strong> tak jako typ dnia, ale nie z lotem w środku</li>
-                    <li><strong>Werdykt:</strong> <span class="font-semibold">zostawić</span></li>
-                    <li><strong>Uwaga metodologiczna:</strong> czasy jazdy są zakresem mapowym dla bazy w pasie Ribeira Brava – Ponta do Sol; dalej na zachód dolicz 10–20 min.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 p-4">
-              <div class="flex flex-wrap items-center justify-between gap-3">
-                <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Alternatywy na ten dzień</h4>
-                <p class="text-xs text-slate-500">Każda opcja ma sens tylko w swoim kontekście — to nie są „must-do” w próżni.</p>
-              </div>
-              <div class="mt-4 grid gap-4 md:grid-cols-2">
-                
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Dobra pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Bazowy wariant. Dla osób chcących ładnego południa bez cardio. Koszt: Cabo Girão 5 € / os. &gt;12 lat + reszta zależnie od gastronomii. Wysiłek: low. Plusy: łatwy dzień. Minusy: mniej „epicko” niż góry lub wschód. Ryzyka: tłum. Status: potwierdzone.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Słaba pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Old Town Funchal i spokojny dzień miejski. Dla sytuacji, gdy chcesz odpuścić chmurny krajobraz. Koszt: zmienny. Wysiłek: low. Plusy: pełen backup. Minusy: słabszy fit do briefu widokowego. Ryzyka: parking i miasto. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Low energy</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Sama Câmara de Lobos + zachód przy bazie. Koszt: niski. Wysiłek: very low. Plusy: pełna regeneracja. Minusy: mało treści. Ryzyka: praktycznie brak. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Worth it only if conditions are perfect</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Monte Palace + Carreiros zamiast południa tylko gdy naprawdę chcesz moduł kulturowy i nie przeszkadzają Ci kolejki oraz pochyły teren. Koszt: wyższy. Wysiłek: low/medium w praktyce. Plusy: klasyk Madery. Minusy: słaby ROI dla briefu smart effort. Ryzyka: kolejki, wczesne zamknięcie zjazdów. Status: warunkowe.</p>
-            </div>
-            
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-4">
-              <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Źródła dnia</h4>
-              <ul class="mt-3 grid gap-2 md:grid-cols-2">
-                <li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://visitmadeira.com/pt/onde-ir/madeira/costa-sul/camara-de-lobos/cabo-girao/" target="_blank" rel="noopener">Visit Madeira Cabo Girão</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener">Sunrise/sunset Funchal</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-        
-
-        <details id="d5" class="day-card group rounded-3xl border border-slate-200 bg-white shadow-sm ">
-          <summary class="flex cursor-pointer list-none flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between md:p-6">
-            <div class="space-y-2">
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">5</span>
-                <p class="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">11.05.2026 • poniedziałek</p>
-              </div>
-              <h3 class="text-xl font-semibold text-slate-900">Ribeiro Frio + Balcões + Santana + Rocha do Navio</h3>
-              <p class="max-w-3xl text-sm text-slate-600">Zobaczyć zieloną Maderę bez wchodzenia w długie lewady o wątpliwym payoffie do wysiłku.</p>
-            </div>
-            <div class="flex flex-wrap items-center gap-2 md:justify-end">
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">low</span>
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">zostawić</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">jazda 2:15–3:00</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">chodzenie 1:15–2:00</span>
-            </div>
-          </summary>
-          <div class="border-t border-slate-200 px-5 pb-6 pt-5 md:px-6">
-            <div class="grid gap-6 lg:grid-cols-2">
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Układ dnia</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dlaczego ten układ działa:</strong> Balcões ma świetny stosunek efekt/wysiłek. Santana i Rocha do Navio są logicznymi dopięciami, ale nie muszą dominować dnia.</li>
-                    <li><strong>Wyjazd z noclegu:</strong> 08:00–08:30</li>
-                    <li><strong>Najlepsza kolejność:</strong> Ribeiro Frio → PR11 Balcões → Santana krótko → Rocha do Navio viewpoint / cable car jeśli działa → powrót</li>
-                    <li><strong>Szacowany czas całego dnia:</strong> 6–8 h</li>
-                    <li><strong>Łączny czas jazdy autem:</strong> 2:15–3:00</li>
-                    <li><strong>Łączny czas chodzenia:</strong> 1:15–2:00</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Operacyjnie</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Rezerwować wcześniej:</strong> PR11 przez SIMplifica; jeśli finalnie robisz PR9.1, rezerwujesz PR9.1 zamiast PR11</li>
-                    <li><strong>Sprawdzić dzień wcześniej:</strong> widoczność w Balcões, działanie kolejki Rocha do Navio, ewentualny status PR9 / PR9.1 jeśli chcesz podmianę</li>
-                    <li><strong>Parking:</strong> Ribeiro Frio przy starcie; Santana w centrum; Rocha do Navio przy kolejce / viewpoint</li>
-                    <li><strong>Dojście od parkingu:</strong> 0–5 min do startu PR11; 2–10 min na pozostałych stopach</li>
-                    <li><strong>Toalety / infrastruktura:</strong> licz na miasteczka i kawiarnie, nie na sam viewpoints</li>
-                    <li><strong>Jedzenie / kawa:</strong> Ribeiro Frio lub Santana</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Ocena miejsca</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Naprawdę warto:</strong> Balcões przy dobrej widzialności, klify Rocha do Navio, krótki kontrast architektoniczny Santany</li>
-                    <li><strong>Można pominąć bez żalu:</strong> długie siedzenie w Santanie tylko dlatego, że jest na mapie</li>
-                    <li><strong>Najlepsze okno światła:</strong> poranek i późne przedpołudnie są tu sensowniejsze niż środek dnia</li>
-                    <li><strong>Ryzyka:</strong> niska chmura, słaba widzialność, kolejka nie działa, zbyt optymistyczny plan z PR9 bez jasnego statusu</li>
-                    <li><strong>Plan B:</strong> Queimadas + PR9.1 jako wariant bardziej dostępny</li>
-                    <li><strong>Plan C:</strong> moduł miejski Funchal / Monte albo powrót na południe</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Dla Twojego briefu</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dobre przy niskiej energii:</strong> tak</li>
-                    <li><strong>Sensowne przy przylocie / wylocie:</strong> nie</li>
-                    <li><strong>Werdykt:</strong> <span class="font-semibold">zostawić</span></li>
-                    <li><strong>Uwaga metodologiczna:</strong> czasy jazdy są zakresem mapowym dla bazy w pasie Ribeira Brava – Ponta do Sol; dalej na zachód dolicz 10–20 min.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 p-4">
-              <div class="flex flex-wrap items-center justify-between gap-3">
-                <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Alternatywy na ten dzień</h4>
-                <p class="text-xs text-slate-500">Każda opcja ma sens tylko w swoim kontekście — to nie są „must-do” w próżni.</p>
-              </div>
-              <div class="mt-4 grid gap-4 md:grid-cols-2">
-                
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Dobra pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Balcões + Rocha do Navio cable car. Dla pary chcącej zieleni i klifu. Koszt: PR11 4,50 € / os. + kolejka jeśli działa. Wysiłek: low. Plusy: świetny payoff bez cardio. Minusy: Balcões traci moc bez widoku. Ryzyka: chmura. Status: potwierdzone / kolejka warunkowa.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Słaba pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Queimadas + PR9.1 jako bardziej osłonięty i krótki wariant. Koszt: 4,50 € / os. Wysiłek: low. Plusy: nadal natura. Minusy: mniej szerokich widoków. Ryzyka: mokro i ślisko. Status: potwierdzone dla PR9.1.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Low energy</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Santana + Rocha do Navio viewpoint bez Balcões. Koszt: niski. Wysiłek: very low. Plusy: minimalny wysiłek. Minusy: najsłabszy payoff dnia. Ryzyka: łatwo poczuć niedosyt. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Worth it only if conditions are perfect</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">PR9 do Caldeirão Verde tylko jeśli oficjalny status w praktyce jest jasny i SIMplifica pokazuje dostępność trasy, bo oficjalne źródła nie są tu idealnie zgodne. Koszt: 4,50 € / os. Wysiłek: medium w czasie, nie w stromiźnie. Plusy: mocna lewada. Minusy: długi czas. Ryzyka: niejasny status i tłok. Status: niepewne / do ponownej kontroli.</p>
-            </div>
-            
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-4">
-              <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Źródła dnia</h4>
-              <ul class="mt-3 grid gap-2 md:grid-cols-2">
-                <li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-11-vereda-dos-balcoes/" target="_blank" rel="noopener">Visit Madeira PR11</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-91-levada-do-caldeirao-verde-um-caminho-para-todos/" target="_blank" rel="noopener">Visit Madeira PR9.1</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://visitmadeira.com/en/means-of-transportation/rocha-do-navio-cable-car/" target="_blank" rel="noopener">Visit Madeira Rocha do Navio</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/" target="_blank" rel="noopener">Visit Madeira PR9</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-        
-
-        <details id="d6" class="day-card group rounded-3xl border border-slate-200 bg-white shadow-sm ">
-          <summary class="flex cursor-pointer list-none flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between md:p-6">
-            <div class="space-y-2">
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">6</span>
-                <p class="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">12.05.2026 • wtorek</p>
-              </div>
-              <h3 class="text-xl font-semibold text-slate-900">Seixal + Véu da Noiva + Porto Moniz</h3>
-              <p class="max-w-3xl text-sm text-slate-600">Zrobić najbardziej fotogeniczny wodno-bazaltowy dzień bez udawania, że każda kąpiel jest obowiązkowa.</p>
-            </div>
-            <div class="flex flex-wrap items-center gap-2 md:justify-end">
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">low</span>
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">zostawić</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">jazda 2:15–3:15</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">chodzenie 0:30–1:30</span>
-            </div>
-          </summary>
-          <div class="border-t border-slate-200 px-5 pb-6 pt-5 md:px-6">
-            <div class="grid gap-6 lg:grid-cols-2">
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Układ dnia</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dlaczego ten układ działa:</strong> North-west najlepiej działa samochodem i krótkimi stopami. Wchodzenie do oceanu ma sens tylko przy spokojnym morzu.</li>
-                    <li><strong>Wyjazd z noclegu:</strong> 08:00–08:30</li>
-                    <li><strong>Najlepsza kolejność:</strong> Seixal rano → Véu da Noiva → Porto Moniz (kąpiel / lunch / spacer) → powrót</li>
-                    <li><strong>Szacowany czas całego dnia:</strong> 6–8 h</li>
-                    <li><strong>Łączny czas jazdy autem:</strong> 2:15–3:15</li>
-                    <li><strong>Łączny czas chodzenia:</strong> 0:30–1:30</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Operacyjnie</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Rezerwować wcześniej:</strong> brak krytycznej rezerwacji z oficjalnych źródeł, które sprawdzałem</li>
-                    <li><strong>Sprawdzić dzień wcześniej:</strong> stan morza, wiatr, deszcz na północy, własną gotowość do kąpieli</li>
-                    <li><strong>Parking:</strong> Seixal beach / pools; Véu da Noiva roadside stop; Porto Moniz parking miejski</li>
-                    <li><strong>Dojście od parkingu:</strong> 2–10 min</li>
-                    <li><strong>Toalety / infrastruktura:</strong> Porto Moniz ma changing rooms, bar, first aid, parking i jest najlepszym miejscem na toaletę / reset</li>
-                    <li><strong>Jedzenie / kawa:</strong> Porto Moniz</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Ocena miejsca</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Naprawdę warto:</strong> Seixal o poranku, Véu da Noiva, Porto Moniz jako infrastrukturalny hub na północy</li>
-                    <li><strong>Można pominąć bez żalu:</strong> wchodzenie do wzburzonego oceanu „bo już jesteśmy”</li>
-                    <li><strong>Najlepsze okno światła:</strong> Seixal najlepiej wcześnie; później rośnie tłok i ostrzejsze światło</li>
-                    <li><strong>Ryzyka:</strong> swell, śliskie skały, tłum w Porto Moniz, pogoda północna gorsza niż na południu</li>
-                    <li><strong>Plan B:</strong> same viewpointy + lunch, bez wody</li>
-                    <li><strong>Plan C:</strong> powrót na południe, jeśli północ jest zupełnie nieczytelna pogodowo</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Dla Twojego briefu</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dobre przy niskiej energii:</strong> tak</li>
-                    <li><strong>Sensowne przy przylocie / wylocie:</strong> nie</li>
-                    <li><strong>Werdykt:</strong> <span class="font-semibold">zostawić</span></li>
-                    <li><strong>Uwaga metodologiczna:</strong> czasy jazdy są zakresem mapowym dla bazy w pasie Ribeira Brava – Ponta do Sol; dalej na zachód dolicz 10–20 min.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 p-4">
-              <div class="flex flex-wrap items-center justify-between gap-3">
-                <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Alternatywy na ten dzień</h4>
-                <p class="text-xs text-slate-500">Każda opcja ma sens tylko w swoim kontekście — to nie są „must-do” w próżni.</p>
-              </div>
-              <div class="mt-4 grid gap-4 md:grid-cols-2">
-                
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Dobra pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Seixal + Porto Moniz z opcją wody. Dla tych, którzy chcą plaży lub basenów. Koszt: zmienny. Wysiłek: low. Plusy: bardzo dobry kontrast zielonego i czarnego. Minusy: tłum w południe. Ryzyka: fale. Status: potwierdzone co do miejsca, warunkowe co do kąpieli.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Słaba pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Véu da Noiva + Porto Moniz tylko jako spacer i lunch. Koszt: niski/średni. Wysiłek: very low. Plusy: nadal działa wizualnie. Minusy: mniej „funu”. Ryzyka: wiatr i deszcz. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Low energy</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Tylko Porto Moniz + 1–2 stop pointy po drodze. Koszt: średni. Wysiłek: very low. Plusy: bardzo lekki dzień. Minusy: mniejsza gęstość wrażeń. Ryzyka: praktycznie brak. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Worth it only if conditions are perfect</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Wejście do oceanu w Seixal / Praia da Laje tylko przy spokojnym morzu i bez silnego surge. Koszt: niski. Wysiłek: low. Plusy: mocny moment wyjazdu. Minusy: w złych warunkach kompletnie nie warto. Ryzyka: fale, śliskie wyjście. Status: warunkowe.</p>
-            </div>
-            
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-4">
-              <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Źródła dnia</h4>
-              <ul class="mt-3 grid gap-2 md:grid-cols-2">
-                <li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://visitmadeira.com/en/where-to-go/madeira/north-coast/porto-moniz/natural-pools-of-porto-moniz/" target="_blank" rel="noopener">Visit Madeira Porto Moniz pools</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener">Sunrise/sunset Funchal</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-        
-
-        <details id="d7" class="day-card group rounded-3xl border border-slate-200 bg-white shadow-sm ">
-          <summary class="flex cursor-pointer list-none flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between md:p-6">
-            <div class="space-y-2">
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">7</span>
-                <p class="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">13.05.2026 • środa</p>
-              </div>
-              <h3 class="text-xl font-semibold text-slate-900">Achadas da Cruz + Garganta Funda + Ponta do Pargo</h3>
-              <p class="max-w-3xl text-sm text-slate-600">Zakończyć trip jednym z najlepszych low-cardio loopów na zachodzie.</p>
-            </div>
-            <div class="flex flex-wrap items-center gap-2 md:justify-end">
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">low</span>
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">zostawić</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">jazda 2:30–3:30</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">chodzenie 0:45–2:00</span>
-            </div>
-          </summary>
-          <div class="border-t border-slate-200 px-5 pb-6 pt-5 md:px-6">
-            <div class="grid gap-6 lg:grid-cols-2">
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Układ dnia</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dlaczego ten układ działa:</strong> Tu payoff robią pionowe klify, nie dystans. Najbardziej logiczne jest ustawienie dnia pod popołudniowe światło w Garganta Funda i zachód w Ponta do Pargo.</li>
-                    <li><strong>Wyjazd z noclegu:</strong> 10:00–10:30</li>
-                    <li><strong>Najlepsza kolejność:</strong> Achadas da Cruz → zjazd tylko jeśli działa i nie wieje za mocno → krótki spacer na fajã → lunch / coffee → Garganta Funda po południu → Ponta do Pargo sunset</li>
-                    <li><strong>Szacowany czas całego dnia:</strong> 7–9 h</li>
-                    <li><strong>Łączny czas jazdy autem:</strong> 2:30–3:30</li>
-                    <li><strong>Łączny czas chodzenia:</strong> 0:45–2:00</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Operacyjnie</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Rezerwować wcześniej:</strong> brak krytycznej rezerwacji z oficjalnych źródeł, które potwierdziłem</li>
-                    <li><strong>Sprawdzić dzień wcześniej:</strong> wiatr, ewentualny edital serwisowy dla teleférico, stan wodospadu, zachmurzenie na zachodzie</li>
-                    <li><strong>Parking:</strong> Achadas cable car; parking przy ścieżce do Garganta Funda; lighthouse / viewpoint Ponta do Pargo</li>
-                    <li><strong>Dojście od parkingu:</strong> 0–5 min, 5–10 min, 2–5 min</li>
-                    <li><strong>Toalety / infrastruktura:</strong> na viewpointach nie licz na toalety; użyj infrastruktury w miasteczkach</li>
-                    <li><strong>Jedzenie / kawa:</strong> Porto Moniz po drodze albo Ponta do Pargo village</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Ocena miejsca</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Naprawdę warto:</strong> sam zjazd / panorama, Garganta Funda w dobrym świetle, zachód na zachodnim krańcu</li>
-                    <li><strong>Można pominąć bez żalu:</strong> długi spacer na dole jeśli warunki nie dowożą; Fanal bez mgły</li>
-                    <li><strong>Najlepsze okno światła:</strong> Garganta Funda najlepiej 16:00–18:00; sunset 20:57</li>
-                    <li><strong>Ryzyka:</strong> wiatr wyłączający kolejkę, niski przepływ wodospadu, mgła połykająca zachód</li>
-                    <li><strong>Plan B:</strong> Ponta da Ladeira + Garganta + Ponta do Pargo bez zjazdu</li>
-                    <li><strong>Plan C:</strong> południe / miasto jako miękki backup</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Dla Twojego briefu</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dobre przy niskiej energii:</strong> tak — zwłaszcza bez schodzenia na dół</li>
-                    <li><strong>Sensowne przy przylocie / wylocie:</strong> nie</li>
-                    <li><strong>Werdykt:</strong> <span class="font-semibold">zostawić</span></li>
-                    <li><strong>Uwaga metodologiczna:</strong> czasy jazdy są zakresem mapowym dla bazy w pasie Ribeira Brava – Ponta do Sol; dalej na zachód dolicz 10–20 min.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 p-4">
-              <div class="flex flex-wrap items-center justify-between gap-3">
-                <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Alternatywy na ten dzień</h4>
-                <p class="text-xs text-slate-500">Każda opcja ma sens tylko w swoim kontekście — to nie są „must-do” w próżni.</p>
-              </div>
-              <div class="mt-4 grid gap-4 md:grid-cols-2">
-                
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Dobra pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Bazowy wariant zachodni. Dla pary chcącej dużego wow przy małym wysiłku. Koszt: zmienny; oficjalna cena kolejki nie była jasno podana w dostępnych stronach. Wysiłek: low. Plusy: bardzo wysoki payoff. Minusy: zależność od kolejki. Ryzyka: wiatr. Status: potwierdzone co do miejsca, niepewne co do ceny/godzin bieżących.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Słaba pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Zostań na górnych viewpointach albo przerzuć się na południe. Koszt: niski. Wysiłek: very low. Plusy: ratujesz dzień. Minusy: tracisz ten „dziki” feeling. Ryzyka: mgła. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Low energy</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Ponta da Ladeira + Garganta Funda + Ponta do Pargo. Koszt: niski. Wysiłek: very low. Plusy: prawie zero cardio. Minusy: bez zjazdu nie ma pełnego efektu Achadas. Ryzyka: ograniczone. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Worth it only if conditions are perfect</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Fanal jako detour tylko przy aktywnej mgle / niskiej chmurze. Koszt: niski. Wysiłek: low. Plusy: bajkowy klimat. Minusy: bez mgły słaby ROI przy tym briefie. Ryzyka: objazd bez efektu. Status: warunkowe.</p>
-            </div>
-            
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-4">
-              <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Źródła dnia</h4>
-              <ul class="mt-3 grid gap-2 md:grid-cols-2">
-                <li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://visitmadeira.com/en/means-of-transportation/achadas-da-cruz-cable-car/" target="_blank" rel="noopener">Visit Madeira Achadas</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://www.portomoniz.pt/pt/documentos/category/121-teleferico?download=149%3Ateleferico-achadas-da-cruz" target="_blank" rel="noopener">Porto Moniz regulation</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener">Sunrise/sunset Funchal</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-        
-
-        <details id="d8" class="day-card group rounded-3xl border border-slate-200 bg-white shadow-sm ">
-          <summary class="flex cursor-pointer list-none flex-col gap-4 p-5 md:flex-row md:items-center md:justify-between md:p-6">
-            <div class="space-y-2">
-              <div class="flex flex-wrap items-center gap-2">
-                <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">8</span>
-                <p class="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">14.05.2026 • czwartek</p>
-              </div>
-              <h3 class="text-xl font-semibold text-slate-900">Wylot: krótki poranek bez głupich ambicji</h3>
-              <p class="max-w-3xl text-sm text-slate-600">Zamknąć wyjazd bez presji i oddać auto z zapasem.</p>
-            </div>
-            <div class="flex flex-wrap items-center gap-2 md:justify-end">
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-slate-100 text-slate-700 border border-slate-200">very low</span>
-              <span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-semibold bg-emerald-50 text-emerald-700 border border-emerald-200">zostawić</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">jazda 0:45–1:30</span>
-              <span class="inline-flex items-center rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-semibold text-slate-700">chodzenie 0:15–0:45</span>
-            </div>
-          </summary>
-          <div class="border-t border-slate-200 px-5 pb-6 pt-5 md:px-6">
-            <div class="grid gap-6 lg:grid-cols-2">
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Układ dnia</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dlaczego ten układ działa:</strong> Wylot 16:45 oznacza, że każdy „jeszcze tylko szybki Monte/Funchal” łatwo robi się złą decyzją.</li>
-                    <li><strong>Wyjazd z noclegu:</strong> 10:30–11:00 z bazy, wcześniej jeśli śpisz dalej na zachodzie</li>
-                    <li><strong>Najlepsza kolejność:</strong> śniadanie → checkout → ewentualnie jeden łatwy stop po drodze na wschód → lekki lunch → lotnisko 13:45–14:15</li>
-                    <li><strong>Szacowany czas całego dnia:</strong> 4–5 h</li>
-                    <li><strong>Łączny czas jazdy autem:</strong> 0:45–1:30</li>
-                    <li><strong>Łączny czas chodzenia:</strong> 0:15–0:45</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Operacyjnie</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Rezerwować wcześniej:</strong> nic nowego poza logistyką auta i lotu</li>
-                    <li><strong>Sprawdzić dzień wcześniej:</strong> politykę paliwową, dokumenty, czas dojazdu do lotniska, warunki zdania auta</li>
-                    <li><strong>Parking:</strong> krótki stop tylko tam, gdzie nie musisz ciągnąć walizek daleko</li>
-                    <li><strong>Dojście od parkingu:</strong> 2–10 min</li>
-                    <li><strong>Toalety / infrastruktura:</strong> pełna przy lotnisku i w miastach przy wschodnim wybrzeżu</li>
-                    <li><strong>Jedzenie / kawa:</strong> Machico lub Santa Cruz najwygodniej logistycznie</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="space-y-4">
-                <div class="rounded-2xl border border-slate-200 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Ocena miejsca</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Naprawdę warto:</strong> krótki coast stop po trasie tylko jeśli nie generuje stresu</li>
-                    <li><strong>Można pominąć bez żalu:</strong> Monte, pełen Funchal, ambitny lunch, wszystko co ma kolejkę lub duży parkingowy chaos</li>
-                    <li><strong>Najlepsze okno światła:</strong> sunrise 07:09; lot 16:45, więc i tak pracujesz pod logistykę, nie pod światło</li>
-                    <li><strong>Ryzyka:</strong> spóźniony zwrot auta, zbyt późny wyjazd, ekspozycja bagaży, zakorkowany dojazd</li>
-                    <li><strong>Plan B:</strong> lotnisko prosto</li>
-                    <li><strong>Plan C:</strong> kawa w Santa Cruz / Machico i koniec</li>
-                  </ul>
-                </div>
-                <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Dla Twojego briefu</h4>
-                  <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-700">
-                    <li><strong>Dobre przy niskiej energii:</strong> tak</li>
-                    <li><strong>Sensowne przy przylocie / wylocie:</strong> tak — to dokładnie taki dzień</li>
-                    <li><strong>Werdykt:</strong> <span class="font-semibold">zostawić</span></li>
-                    <li><strong>Uwaga metodologiczna:</strong> czasy jazdy są zakresem mapowym dla bazy w pasie Ribeira Brava – Ponta do Sol; dalej na zachód dolicz 10–20 min.</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 p-4">
-              <div class="flex flex-wrap items-center justify-between gap-3">
-                <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Alternatywy na ten dzień</h4>
-                <p class="text-xs text-slate-500">Każda opcja ma sens tylko w swoim kontekście — to nie są „must-do” w próżni.</p>
-              </div>
-              <div class="mt-4 grid gap-4 md:grid-cols-2">
-                
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Dobra pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Krótki Machico promenade / lunch near airport. Dla tych, którzy lubią zamknąć wyjazd widokiem, ale bez stresu. Koszt: niski. Wysiłek: very low. Plusy: eleganckie domknięcie. Minusy: mały margines na opóźnienia. Ryzyka: ruch. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Słaba pogoda</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Bez zwiedzania: śniadanie, checkout, lotnisko. Koszt: minimalny. Wysiłek: very low. Plusy: zero ryzyka. Minusy: zero bonusu. Ryzyka: żadne. Status: potwierdzona najbezpieczniejsza opcja.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Low energy</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Tylko kawa po drodze i prosto na FNC. Koszt: minimalny. Wysiłek: very low. Plusy: spokój. Minusy: brak ostatniego punktu. Ryzyka: praktycznie brak. Status: prawdopodobne.</p>
-            </div>
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <h5 class="text-sm font-semibold text-slate-900">Worth it only if conditions are perfect</h5>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Szybki Old Town Funchal tylko jeśli śpisz blisko, nie masz bagażu w aucie albo możesz go bezpiecznie zostawić, a ruch jest lekki. Koszt: niski/średni. Wysiłek: low. Plusy: miastowe pożegnanie. Minusy: słaby fit do dnia wylotu. Ryzyka: parking, czas. Status: warunkowe.</p>
-            </div>
-            
-              </div>
-            </div>
-
-            <div class="mt-6 rounded-2xl border border-slate-200 bg-white p-4">
-              <h4 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-500">Źródła dnia</h4>
-              <ul class="mt-3 grid gap-2 md:grid-cols-2">
-                <li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://www.madeiraairport.pt/en/fnc/access-parking/for-your-full-comfort/car-rental" target="_blank" rel="noopener">Madeira Airport car rental</a></li><li><a class="text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900" href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener">Sunrise/sunset Funchal</a></li>
-              </ul>
-            </div>
-          </div>
-        </details>
-        
-      </div>
-    </section>
-
-    <section class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft md:p-8">
-        <div class="grid gap-8 lg:grid-cols-2">
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Zmiany względem starego planu</p>
-            <h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">Co zostało poprawione i dlaczego</h2>
-            <ul class="mt-5 space-y-3 text-sm leading-7 text-slate-700">
-              <li><strong></strong>Dodałem dzień przylotu i dzień wylotu jako realne dni operacyjne</li><li><strong></strong>Areeiro przeniosłem na początek pobytu</li><li><strong></strong>PR8 skróciłem do rozsądnego bazowego wariantu</li><li><strong></strong>Monte/Funchal zdegradowałem z rdzenia do modułu opcjonalnego</li><li><strong></strong>Split-stay przestał być domyślną rekomendacją</li><li><strong></strong>Usunąłem fałszywą precyzję z kosztów i dojazdów</li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Worth it vs skip if tired</p>
-            <h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">Szybki filtr decyzji w terenie</h2>
-            <div class="mt-5 grid gap-4">
-              <div class="rounded-2xl border border-emerald-200 bg-emerald-50 p-4">
-                <h3 class="text-sm font-semibold uppercase tracking-[0.12em] text-emerald-700">Worth it</h3>
-                <ul class="mt-3 space-y-2 text-sm leading-6 text-emerald-900">
-                  <li>Ponta do Rosto o świcie</li>
-                  <li>Areeiro + Ninho da Manta przy dobrej widoczności</li>
-                  <li>Balcões, jeśli góry widać</li>
-                  <li>Seixal rano</li>
-                  <li>Garganta Funda + Ponta do Pargo w dobrym świetle</li>
-                </ul>
-              </div>
-              <div class="rounded-2xl border border-amber-200 bg-amber-50 p-4">
-                <h3 class="text-sm font-semibold uppercase tracking-[0.12em] text-amber-700">Tylko warunkowo</h3>
-                <ul class="mt-3 space-y-2 text-sm leading-6 text-amber-900">
-                  <li>PR9 do Caldeirão Verde — tylko przy jednoznacznym statusie</li>
-                  <li>Boat-return na PR8 — tylko z potwierdzoną logistyką</li>
-                  <li>Achadas / Rocha cable cars — tylko jeśli działają i nie wieje za mocno</li>
-                  <li>Fanal — tylko z mgłą</li>
-                </ul>
-              </div>
-              <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                <h3 class="text-sm font-semibold uppercase tracking-[0.12em] text-slate-700">Skip if tired</h3>
-                <ul class="mt-3 space-y-2 text-sm leading-6 text-slate-800">
-                  <li>długie siedzenie w Santanie</li>
-                  <li>robienie z Cabo Girão „całego dnia”</li>
-                  <li>Monte / Carreiros tylko dlatego, że to klasyk</li>
-                  <li>dodatkowe miradouros, które rozwalają rytm dnia bez realnego zysku</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <article class="status-card">
+            <div class="badge-row">
+              <span class="badge badge--fact-check">Fakt: Wymaga fact-checku</span>
+            </div>
+            <h3>Achadas / Cristo Rei / cable cars</h3>
+            <p>
+              Godziny, ceny i dokładne ograniczenia nie są w pełni zamknięte w samym pliku. To dobre opcje warunkowe, ale nie filary planu.
+            </p>
+            <div class="status-card__links">
+              <a href="https://visitmadeira.com/en/means-of-transportation/achadas-da-cruz-cable-car/" target="_blank" rel="noopener noreferrer">Visit Madeira — Achadas</a>
+              <a href="https://visitmadeira.com/en/means-of-transportation/rocha-do-navio-cable-car/" target="_blank" rel="noopener noreferrer">Visit Madeira — Rocha do Navio</a>
+              <a href="https://visitmadeira.com/pt/onde-ir/madeira/costa-este/santa-cruz/miradouro-do-cristo-rei/" target="_blank" rel="noopener noreferrer">Visit Madeira — Cristo Rei</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="costs" class="anchor-offset mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div class="grid gap-6 lg:grid-cols-2">
-        <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft md:p-8">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Koszty — potwierdzone</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">Twarde liczby, które można wpisać do budżetu</h2>
-          <div class="mt-5 overflow-hidden rounded-2xl border border-slate-200">
-            <table class="w-full text-left">
-              <thead class="bg-slate-50">
-                <tr>
-                  <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Pozycja</th>
-                  <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Cena</th>
-                  <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Status</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100 bg-white">
-                
-    <tr class="border-b border-slate-100 last:border-b-0">
-      <td class="py-3 pr-4 align-top text-sm font-medium text-slate-900">PR1 do Pedra Rija</td>
-      <td class="py-3 pr-4 align-top text-sm text-slate-700">4,50 € / os.</td>
-      <td class="py-3 align-top text-sm text-slate-500">potwierdzone oficjalnie</td>
-    </tr>
-    <tr class="border-b border-slate-100 last:border-b-0">
-      <td class="py-3 pr-4 align-top text-sm font-medium text-slate-900">PR8 Ponta de São Lourenço</td>
-      <td class="py-3 pr-4 align-top text-sm text-slate-700">4,50 € / os.</td>
-      <td class="py-3 align-top text-sm text-slate-500">potwierdzone oficjalnie</td>
-    </tr>
-    <tr class="border-b border-slate-100 last:border-b-0">
-      <td class="py-3 pr-4 align-top text-sm font-medium text-slate-900">PR11 Balcões</td>
-      <td class="py-3 pr-4 align-top text-sm text-slate-700">4,50 € / os.</td>
-      <td class="py-3 align-top text-sm text-slate-500">potwierdzone oficjalnie</td>
-    </tr>
-    <tr class="border-b border-slate-100 last:border-b-0">
-      <td class="py-3 pr-4 align-top text-sm font-medium text-slate-900">Cabo Girão</td>
-      <td class="py-3 pr-4 align-top text-sm text-slate-700">5,00 € / os. &gt; 12 lat</td>
-      <td class="py-3 align-top text-sm text-slate-500">potwierdzone oficjalnie</td>
-    </tr>
-    <tr class="border-b border-slate-100 last:border-b-0">
-      <td class="py-3 pr-4 align-top text-sm font-medium text-slate-900">Teleférico Funchal–Monte</td>
-      <td class="py-3 pr-4 align-top text-sm text-slate-700">16 € one-way / 22 € round trip</td>
-      <td class="py-3 align-top text-sm text-slate-500">potwierdzone u operatora</td>
-    </tr>
-    <tr class="border-b border-slate-100 last:border-b-0">
-      <td class="py-3 pr-4 align-top text-sm font-medium text-slate-900">Carreiros do Monte</td>
-      <td class="py-3 pr-4 align-top text-sm text-slate-700">35 € / 2 osoby</td>
-      <td class="py-3 align-top text-sm text-slate-500">potwierdzone u operatora</td>
-    </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="mt-4 flex flex-wrap gap-3">
-            <a href="https://visitmadeira.com/pt/onde-ir/madeira/costa-sul/camara-de-lobos/cabo-girao/" target="_blank" rel="noopener" class="rounded-full border border-slate-200 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50">Cabo Girão</a>
-            <a href="https://madeiracablecar.com/en/price-and-schedule/" target="_blank" rel="noopener" class="rounded-full border border-slate-200 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50">Funchal cable car</a>
-            <a href="https://www.carreirosdomonte.com/v3/en/index.php" target="_blank" rel="noopener" class="rounded-full border border-slate-200 px-3 py-2 text-sm text-slate-700 hover:bg-slate-50">Carreiros</a>
-          </div>
-        </article>
+    <section id="desk" class="section section--tinted">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Decyzje w terenie</p>
+          <h2>Co ma być widoczne zanim rozwiniesz połowę strony</h2>
+          <p class="muted">
+            Najpierw sprawdzasz warunki i statusy. Dopiero potem rozwijasz kartę dnia. Ten blok ma skrócić dojście do decyzji: jedziemy, skracamy, przekładamy albo odpuszczamy.
+          </p>
+        </div>
 
-        <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft md:p-8">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Koszty — sprawdzić</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">Tego nie wpisuj do Excela jako pewnik</h2>
-          <div class="mt-5 overflow-hidden rounded-2xl border border-slate-200">
-            <table class="w-full text-left">
-              <thead class="bg-slate-50">
-                <tr>
-                  <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Pozycja</th>
-                  <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Cena</th>
-                  <th class="px-4 py-3 text-xs font-semibold uppercase tracking-[0.14em] text-slate-500">Dlaczego</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-slate-100 bg-white">
-                
-    <tr class="border-b border-slate-100 last:border-b-0">
-      <td class="py-3 pr-4 align-top text-sm font-medium text-slate-900">Achadas da Cruz cable car</td>
-      <td class="py-3 pr-4 align-top text-sm text-slate-700">sprawdzić na miejscu / przed dniem</td>
-      <td class="py-3 align-top text-sm text-slate-500">w dostępnych oficjalnych stronach brak twardej ceny</td>
-    </tr>
-    <tr class="border-b border-slate-100 last:border-b-0">
-      <td class="py-3 pr-4 align-top text-sm font-medium text-slate-900">Rocha do Navio cable car</td>
-      <td class="py-3 pr-4 align-top text-sm text-slate-700">sprawdzić na miejscu / przed dniem</td>
-      <td class="py-3 align-top text-sm text-slate-500">oficjalne godziny są, cena nie była jasno podana</td>
-    </tr>
-    <tr class="border-b border-slate-100 last:border-b-0">
-      <td class="py-3 pr-4 align-top text-sm font-medium text-slate-900">Porto Moniz pools entry</td>
-      <td class="py-3 pr-4 align-top text-sm text-slate-700">sprawdzić na miejscu</td>
-      <td class="py-3 align-top text-sm text-slate-500">oficjalna strona potwierdza infrastrukturę, nie cena w otwartym tekście</td>
-    </tr>
-    <tr class="border-b border-slate-100 last:border-b-0">
-      <td class="py-3 pr-4 align-top text-sm font-medium text-slate-900">Monte Palace</td>
-      <td class="py-3 pr-4 align-top text-sm text-slate-700">sprawdzić aktualną cenę przy zakupie</td>
-      <td class="py-3 align-top text-sm text-slate-500">godziny są potwierdzone, cena nie była pobrana w tym fact-checku</td>
-    </tr>
-    <tr class="border-b border-slate-100 last:border-b-0">
-      <td class="py-3 pr-4 align-top text-sm font-medium text-slate-900">Boat-return PR8</td>
-      <td class="py-3 pr-4 align-top text-sm text-slate-700">nie budować budżetu bazowego</td>
-      <td class="py-3 align-top text-sm text-slate-500">to wariant zewnętrzny, nie rdzeń planu</td>
-    </tr>
-              </tbody>
-            </table>
+        <div class="panel">
+          <p class="eyebrow">Szybkie skoki do dni</p>
+          <div class="jump-list" style="margin-top: 0.8rem;">
+            <a href="#d1">07.05</a>
+            <a href="#d2">08.05</a>
+            <a href="#d3">09.05</a>
+            <a href="#d4">10.05</a>
+            <a href="#d5">11.05</a>
+            <a href="#d6">12.05</a>
+            <a href="#d7">13.05</a>
+            <a href="#d8">14.05</a>
           </div>
-          <p class="mt-4 text-sm leading-6 text-slate-600">Jeśli oficjalna strona, którą sprawdziłem, nie pokazuje wprost ceny albo godziny w otwartym tekście, badge jest „sprawdzić”. Koniec zgadywania.</p>
-        </article>
+        </div>
+
+        <div class="swap-grid" style="margin-top: 1rem;">
+          <article class="swap-card">
+            <h3>Góry w chmurach</h3>
+            <p>Nie pal d2. Zamień z d4 albo d3. Jeśli chmura siedzi już o świcie, nie próbuj „może się otworzy”.</p>
+          </article>
+          <article class="swap-card">
+            <h3>Wschód bardzo wietrzny</h3>
+            <p>d3 skracasz do viewpointów i Machico albo przerzucasz dzień na południe. Boat-return wypada pierwszy.</p>
+          </article>
+          <article class="swap-card">
+            <h3>Morze wzburzone</h3>
+            <p>d6 zostaje dniem viewpointów i lunchu. Wejście do wody skreślasz bez dyskusji, nawet jeśli „już tam jesteś”.</p>
+          </article>
+          <article class="swap-card">
+            <h3>Zachód mglisty lub cable car off</h3>
+            <p>d7 redukujesz do górnych viewpointów, Garganta Funda i Ponta do Pargo albo uciekasz na południe.</p>
+          </article>
+          <article class="swap-card">
+            <h3>Fanal</h3>
+            <p>Jedź tylko za aktywną mgłą. Bez niej to objazd o słabym sensie operacyjnym dla tych założeń i tego kalendarza.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section class="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8">
-      <div class="grid gap-6 lg:grid-cols-2">
-        <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft md:p-8">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Rezerwacje</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">Co naprawdę trzeba ogarnąć wcześniej</h2>
-          <ol class="mt-5 space-y-4">
-            
-            <li class="flex gap-4">
-              <div class="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">1</div>
-              <div>
-                <p class="text-sm font-semibold text-slate-900">Teraz / przed wyjazdem</p>
-                <p class="mt-1 text-sm leading-6 text-slate-600">auto, nocleg, pierwsza noc, ewentualna wybrana baza; załóż konto w SIMplifica i zapisz loginy offline</p>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <div class="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">2</div>
-              <div>
-                <p class="text-sm font-semibold text-slate-900">48–72 h wcześniej</p>
-                <p class="mt-1 text-sm leading-6 text-slate-600">kup PR1, PR8, PR11 lub PR9.1 zgodnie z finalną pogodą; nie zakładaj, że weekendowe okna będą czekały</p>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <div class="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">3</div>
-              <div>
-                <p class="text-sm font-semibold text-slate-900">Dzień wcześniej</p>
-                <p class="mt-1 text-sm leading-6 text-slate-600">sprawdź IFCN + Visit Madeira + SIMplifica dla PR1/PR9/PR8; zrób screenshoty potwierdzeń</p>
-              </div>
-            </li>
-            <li class="flex gap-4">
-              <div class="flex h-8 w-8 flex-none items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">4</div>
-              <div>
-                <p class="text-sm font-semibold text-slate-900">W dniu atrakcji</p>
-                <p class="mt-1 text-sm leading-6 text-slate-600">Carreiros: bilet tylko na miejscu; cable cars na północy i zachodzie — sprawdź operacyjnie rano; Monte / Funchal cable car możesz kupić online, ale nie jest to krytyczny rdzeń planu</p>
-              </div>
-            </li>
-          </ol>
-          <div class="mt-5 flex flex-wrap gap-3">
-            <a href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener" class="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-800">SIMplifica</a>
-            <a href="https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados/faq-s-taxas-percursos-pedestres-classificados.html" target="_blank" rel="noopener" class="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50">IFCN FAQ</a>
+    <section id="itinerary" class="section">
+      <div class="container">
+        <div class="section-head-row">
+          <div class="section-intro" style="margin-bottom: 0;">
+            <p class="eyebrow">Plan</p>
+            <h2>Plan w skrócie</h2>
+            <p class="muted">Każda karta pokazuje decyzję dnia, wysiłek i godzinę startu jeszcze przed wejściem w szczegóły.</p>
           </div>
-        </article>
+          <div class="controls">
+            <button type="button" class="control-button" onclick="expandAllDays()">Rozwiń dni</button>
+            <button type="button" class="control-button" onclick="collapseAllDays()">Zwiń dni</button>
+          </div>
+        </div>
 
-        <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft md:p-8">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Pogoda i backupi</p>
-          <h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">Zasady zamiany dni zamiast improwizacji w aucie</h2>
-          <div class="mt-5 grid gap-4">
-            
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <p class="text-sm font-semibold text-slate-900">Góry w chmurach</p>
-              <p class="mt-2 text-sm leading-6 text-slate-700">nie marnuj Areeiro. Zamień z dniem południowym albo wschodnim.</p>
+        <div class="snapshot-grid">
+          <article class="snapshot">
+            <p class="snapshot__date">07.05 • czwartek</p>
+            <h3><a href="#d1">Przylot i miękkie wejście</a></h3>
+            <div class="badge-row">
+              <span class="badge badge--fact-confirmed">Potwierdzone</span>
+              <span class="badge badge--go">Jedź</span>
+              <span class="badge badge--effort-very-light">Bardzo lekki</span>
             </div>
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <p class="text-sm font-semibold text-slate-900">Wschód bardzo wietrzny</p>
-              <p class="mt-2 text-sm leading-6 text-slate-700">skracasz PR8 do viewpointów lub przerzucasz dzień na Machico / południe.</p>
+            <p class="muted">Wyjazd: po odbiorze auta. Tylko spokojny wieczór o niskim ryzyku.</p>
+          </article>
+
+          <article class="snapshot">
+            <p class="snapshot__date">08.05 • piątek</p>
+            <h3><a href="#d2">Areeiro + Eira do Serrado</a></h3>
+            <div class="badge-row">
+              <span class="badge badge--fact-check">Wymaga fact-checku</span>
+              <span class="badge badge--go">Jedź</span>
+              <span class="badge badge--effort-medium">Średni</span>
             </div>
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <p class="text-sm font-semibold text-slate-900">Morze wzburzone</p>
-              <p class="mt-2 text-sm leading-6 text-slate-700">Seixal i wejścia do wody skreślasz bez dyskusji; zostają viewpointy i Porto Moniz jako spacer/lunch.</p>
+            <p class="muted">Wyjazd: 05:50–06:10. Najbardziej wrażliwy operacyjnie dzień.</p>
+          </article>
+
+          <article class="snapshot">
+            <p class="snapshot__date">09.05 • sobota</p>
+            <h3><a href="#d3">Ponta do Rosto + PR8</a></h3>
+            <div class="badge-row">
+              <span class="badge badge--fact-confirmed">Potwierdzone</span>
+              <span class="badge badge--trim">Skróć</span>
+              <span class="badge badge--effort-medium">Średni</span>
             </div>
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <p class="text-sm font-semibold text-slate-900">Zachód mglisty / cable car off</p>
-              <p class="mt-2 text-sm leading-6 text-slate-700">robisz top-viewpointy + Garganta Funda + Ponta do Pargo albo od razu uciekasz na południe.</p>
+            <p class="muted">Wyjazd: 05:40–06:00. Trzon dnia kończy się przy Casa do Sardinha.</p>
+          </article>
+
+          <article class="snapshot">
+            <p class="snapshot__date">10.05 • niedziela</p>
+            <h3><a href="#d4">Południe z małą ilością jazdy</a></h3>
+            <div class="badge-row">
+              <span class="badge badge--fact-confirmed">Potwierdzone</span>
+              <span class="badge badge--go">Jedź</span>
+              <span class="badge badge--effort-light">Lekki</span>
             </div>
-            <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <p class="text-sm font-semibold text-slate-900">Fanal</p>
-              <p class="mt-2 text-sm leading-6 text-slate-700">jedź tylko za mgłą; bez niej nie jest to najlepszy ROI dla tego briefu.</p>
+            <p class="muted">Wyjazd: 09:00–09:30. Reset po dwóch wczesnych porankach.</p>
+          </article>
+
+          <article class="snapshot">
+            <p class="snapshot__date">11.05 • poniedziałek</p>
+            <h3><a href="#d5">Ribeiro Frio + Santana</a></h3>
+            <div class="badge-row">
+              <span class="badge badge--fact-confirmed">Potwierdzone</span>
+              <span class="badge badge--go">Jedź</span>
+              <span class="badge badge--effort-light">Lekki</span>
             </div>
-          </div>
-        </article>
+            <p class="muted">Wyjazd: 08:00–08:30. Balcões jest rdzeniem, reszta jest modułowa.</p>
+          </article>
+
+          <article class="snapshot">
+            <p class="snapshot__date">12.05 • wtorek</p>
+            <h3><a href="#d6">Seixal + Porto Moniz</a></h3>
+            <div class="badge-row">
+              <span class="badge badge--conditional">Warunkowe</span>
+              <span class="badge badge--go">Jedź</span>
+              <span class="badge badge--effort-light">Lekki</span>
+            </div>
+            <p class="muted">Wyjazd: 08:00–08:30. Widoki są pewniejsze niż kąpiel.</p>
+          </article>
+
+          <article class="snapshot">
+            <p class="snapshot__date">13.05 • środa</p>
+            <h3><a href="#d7">Achadas + Garganta + Ponta do Pargo</a></h3>
+            <div class="badge-row">
+              <span class="badge badge--fact-check">Wymaga fact-checku</span>
+              <span class="badge badge--go">Jedź</span>
+              <span class="badge badge--effort-light">Lekki</span>
+            </div>
+            <p class="muted">Wyjazd: 10:00–10:30. Wysoki efekt przy małym wysiłku, ale cable car trzeba sprawdzić.</p>
+          </article>
+
+          <article class="snapshot">
+            <p class="snapshot__date">14.05 • czwartek</p>
+            <h3><a href="#d8">Wylot: tylko niskie ryzyko</a></h3>
+            <div class="badge-row">
+              <span class="badge badge--fact-confirmed">Potwierdzone</span>
+              <span class="badge badge--skip">Odpuszcz</span>
+              <span class="badge badge--effort-very-light">Bardzo lekki</span>
+            </div>
+            <p class="muted">Wyjazd: 10:30–11:00. Tnij wszystko, co dodaje chaosu.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="checks" class="anchor-offset mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
-      <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft md:p-8">
-        <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Ostatnie rzeczy do sprawdzenia</p>
-        <h2 class="mt-2 text-2xl font-bold tracking-tight text-slate-900">Check-lista przed wyjazdem i przed każdym dniem</h2>
-        <div class="mt-6 grid gap-6 lg:grid-cols-2 xl:grid-cols-4">
-          
-          <article class="rounded-2xl border border-slate-200 p-4">
-            <h3 class="text-base font-semibold text-slate-900">7 dni przed</h3>
-            <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-700">
-              <li>• prawo jazdy, karta, warunki wynajmu, ubezpieczenie, limity bagażu</li><li>• czy baza ma parking i sensowny dojazd po zmroku</li><li>• czy nadal chcesz 1 bazę, czy świadomie wybierasz split-stay</li>
+    <section id="days" class="section section--tinted">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Dzień po dniu</p>
+          <h2>Operacyjne karty dni</h2>
+          <p class="muted">
+            Każda karta pokazuje z przodu decyzję, godzinę startu i kryteria przejścia na wersję skróconą albo backupową.
+          </p>
+        </div>
+
+        <div class="day-list">
+          <details id="d1" class="day-card">
+            <summary>
+              <div class="day-summary__top">
+                <div class="day-summary__lead">
+                  <p class="day-summary__date">Dzień 1 • 07.05.2026 • czwartek</p>
+                  <h3 class="day-summary__title">Przylot i miękkie wejście</h3>
+                  <p class="day-summary__subtitle">Lot, auto, check-in i tylko taki wieczór, który nie zepsuje następnego poranka.</p>
+                </div>
+                <span class="chevron" aria-hidden="true">▾</span>
+              </div>
+              <div class="badge-row">
+                <span class="badge badge--fact-confirmed">Fakt: Potwierdzone</span>
+                <span class="badge badge--go">Decyzja: Jedź</span>
+                <span class="badge badge--effort-very-light">Wysiłek: Bardzo lekki</span>
+                <span class="badge badge--neutral">Wyjazd: po odbiorze auta</span>
+              </div>
+              <div class="rule-grid">
+                <article class="rule-card">
+                  <p class="rule-card__label">Jedź jeśli</p>
+                  <p>Auto odbierasz najpóźniej około 17:45, a check-in nie wymaga objazdu ani sztywnej godziny.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Skróć jeśli</p>
+                  <p>Lot, bagaż albo kolejka po auto przesuwają start pod zmrok i rośnie presja czasu.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Plan B / C</p>
+                  <p>Zakupy operacyjne, kolacja przy bazie, sen. Zero ambitnych stopów po drodze.</p>
+                </article>
+              </div>
+            </summary>
+            <div class="day-body">
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Układ dnia</h4>
+                  <ul>
+                    <li>Logika: 4–6 h od lądowania do kolacji. To dzień na obniżenie tarcia, nie na odhaczanie atrakcji.</li>
+                    <li>Kolejność: lotnisko → auto → woda / prowiant / eSIM → check-in → krótki spacer tylko blisko bazy.</li>
+                    <li>Jazda: 0:35–1:10. Chodzenie: 0:15–0:45.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Operacyjnie</h4>
+                  <ul>
+                    <li>Rezerwacje: auto, nocleg, parking przy noclegu.</li>
+                    <li>Sprawdź wieczorem: zasady odbioru auta, paliwo, prognozę i status d2.</li>
+                    <li>Jedzenie i toalety: pełna infrastruktura na lotnisku, potem bazuj na miasteczkach.</li>
+                  </ul>
+                </section>
+              </div>
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Fakty i ryzyka</h4>
+                  <ul>
+                    <li>Naprawdę warto tylko krótki zachód blisko bazy, jeśli wszystko szło sprawnie.</li>
+                    <li>Nie wciskaj tu Monte, pełnego Funchal ani miejsc z niejasnym statusem.</li>
+                    <li>Ryzyka: opóźniony bagaż, kolejka po auto, zmęczenie po podróży.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Źródła dnia</h4>
+                  <div class="source-list">
+                    <a href="https://www.madeiraairport.pt/en/fnc/access-parking/for-your-full-comfort/car-rental" target="_blank" rel="noopener noreferrer">Madeira Airport — wynajem aut</a>
+                    <a href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener noreferrer">timeanddate — światło</a>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </details>
+
+          <details id="d2" class="day-card" open>
+            <summary>
+              <div class="day-summary__top">
+                <div class="day-summary__lead">
+                  <p class="day-summary__date">Dzień 2 • 08.05.2026 • piątek</p>
+                  <h3 class="day-summary__title">Areeiro + Eira do Serrado</h3>
+                  <p class="day-summary__subtitle">Największy efekt górski na najwcześniejszym sensownym oknie pobytu.</p>
+                </div>
+                <span class="chevron" aria-hidden="true">▾</span>
+              </div>
+              <div class="badge-row">
+                <span class="badge badge--fact-check">Fakt: Wymaga fact-checku</span>
+                <span class="badge badge--go">Decyzja: Jedź</span>
+                <span class="badge badge--effort-medium">Wysiłek: Średni</span>
+                <span class="badge badge--neutral">Wyjazd: 05:50–06:10</span>
+              </div>
+              <div class="rule-grid">
+                <article class="rule-card">
+                  <p class="rule-card__label">Jedź jeśli</p>
+                  <p>IFCN i SIMplifica dzień wcześniej nadal pokazują dostępność PR1, a rano widać granię i nie wieje na granicy komfortu.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Skróć jeśli</p>
+                  <p>Parking się zatyka, widoczność siada albo wiatr sprawia, że dalsze wejście nie ma sensu.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Plan B / C</p>
+                  <p>Tylko viewpoint + Ninho da Manta + Eira do Serrado albo zamiana z d4.</p>
+                </article>
+              </div>
+            </summary>
+            <div class="day-body">
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Układ dnia</h4>
+                  <ul>
+                    <li>Kolejność: parking Areeiro → wschód słońca → Ninho da Manta → zawrotka do Pedra Rija w bazowym wariancie → śniadanie po zejściu → Eira do Serrado.</li>
+                    <li>Jazda: 2:15–3:00. Chodzenie: 1:45–2:45. Cały dzień: 7–9 h z przerwami.</li>
+                    <li>Najlepsze światło: 06:50–07:40 przy wschodzie słońca około 07:14.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Operacyjnie</h4>
+                  <ul>
+                    <li>Rezerwacja: PR1 przez SIMplifica.</li>
+                    <li>Sprawdź dzień wcześniej: status IFCN, okno wejścia, wiatr, zachmurzenie, widoczność, realny zakres otwarcia.</li>
+                    <li>Poranek traktuj jako samowystarczalny start: nie zakładaj działającej infrastruktury na górze.</li>
+                  </ul>
+                </section>
+              </div>
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Fakty i ryzyka</h4>
+                  <ul>
+                    <li>Największa wartość: wschód słońca, Ninho da Manta i pierwszy odcinek grani.</li>
+                    <li>Nie dociągaj planu siłowo do pełnej ikony, jeśli status i logistyka tego nie wspierają.</li>
+                    <li>Ryzyka: zamknięcie, mgła, ekspozycja, tłum, brak miejsc parkingowych.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Źródła dnia</h4>
+                  <div class="source-list">
+                    <a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/" target="_blank" rel="noopener noreferrer">Visit Madeira — PR1</a>
+                    <a href="https://ifcn.madeira.gov.pt/pt/?catid=146&format=pdf&id=973%3Apr-1-unidirecional&tmpl=component&view=article" target="_blank" rel="noopener noreferrer">IFCN — komunikat</a>
+                    <a href="https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados/faq-s-taxas-percursos-pedestres-classificados.html" target="_blank" rel="noopener noreferrer">IFCN / SIMplifica — FAQ</a>
+                    <a href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener noreferrer">timeanddate — światło</a>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </details>
+
+          <details id="d3" class="day-card">
+            <summary>
+              <div class="day-summary__top">
+                <div class="day-summary__lead">
+                  <p class="day-summary__date">Dzień 3 • 09.05.2026 • sobota</p>
+                  <h3 class="day-summary__title">Ponta do Rosto + PR8</h3>
+                  <p class="day-summary__subtitle">Najmocniejsze światło na wschodzie, ale tylko tyle marszu, ile faktycznie ma sens.</p>
+                </div>
+                <span class="chevron" aria-hidden="true">▾</span>
+              </div>
+              <div class="badge-row">
+                <span class="badge badge--fact-confirmed">Fakt: Potwierdzone</span>
+                <span class="badge badge--trim">Decyzja: Skróć</span>
+                <span class="badge badge--effort-medium">Wysiłek: Średni</span>
+                <span class="badge badge--neutral">Wyjazd: 05:40–06:00</span>
+              </div>
+              <div class="rule-grid">
+                <article class="rule-card">
+                  <p class="rule-card__label">Jedź jeśli</p>
+                  <p>PR8 jest aktywny, wiatr nie zrywa komfortu na grani, a celem jest wersja do Casa do Sardinha.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Skróć jeśli</p>
+                  <p>Po wschodzie słońca szybko widać, czy słońce i wiatr obniżą jakość dnia albo czy energia jest tylko średnia.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Plan B / C</p>
+                  <p>Same viewpointy wschodu + Machico / Caniçal albo zamiana z d4.</p>
+                </article>
+              </div>
+            </summary>
+            <div class="day-body">
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Układ dnia</h4>
+                  <ul>
+                    <li>Kolejność: Ponta do Rosto o świcie → start szlaku Baía d'Abra → PR8 do Casa do Sardinha → późny lunch w Machico.</li>
+                    <li>Jazda: 2:30–3:15. Chodzenie: 2:30–4:00. Cały dzień: 7–8,5 h.</li>
+                    <li>Najlepsze światło: 06:50–08:15. Po 09:00 rośnie tłok i ekspozycja na słońce.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Operacyjnie</h4>
+                  <ul>
+                    <li>Rezerwacja: PR8 przez SIMplifica.</li>
+                    <li>Sprawdź dzień wcześniej: wiatr, ekspozycję słoneczną, status trasy; jeśli rozważasz łódź, to także operatora i transfer do auta.</li>
+                    <li>Na starcie szlaku nie zakładaj wygód; jedzenie i odpoczynek planuj dopiero po zejściu.</li>
+                  </ul>
+                </section>
+              </div>
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Fakty i ryzyka</h4>
+                  <ul>
+                    <li>Największa wartość: Ponta do Rosto, pierwsza połowa PR8 i Casa do Sardinha.</li>
+                    <li>Boat-return to wariant zewnętrzny, nie domyślna oszczędność wysiłku.</li>
+                    <li>Ryzyka: silny wiatr, odwodnienie, tłum, mylne założenie że łódź „rozwiąże wszystko”.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Źródła dnia</h4>
+                  <div class="source-list">
+                    <a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-8-vereda-da-ponta-de-sao-lourenco/" target="_blank" rel="noopener noreferrer">Visit Madeira — PR8</a>
+                    <a href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener noreferrer">SIMplifica</a>
+                    <a href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener noreferrer">timeanddate — światło</a>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </details>
+
+          <details id="d4" class="day-card">
+            <summary>
+              <div class="day-summary__top">
+                <div class="day-summary__lead">
+                  <p class="day-summary__date">Dzień 4 • 10.05.2026 • niedziela</p>
+                  <h3 class="day-summary__title">Południe z małą ilością jazdy: Cabo Girão + Câmara de Lobos + Madalena do Mar</h3>
+                  <p class="day-summary__subtitle">Dzień na odzyskanie rytmu, a nie kolejny pakiet do odhaczenia.</p>
+                </div>
+                <span class="chevron" aria-hidden="true">▾</span>
+              </div>
+              <div class="badge-row">
+                <span class="badge badge--fact-confirmed">Fakt: Potwierdzone</span>
+                <span class="badge badge--go">Decyzja: Jedź</span>
+                <span class="badge badge--effort-light">Wysiłek: Lekki</span>
+                <span class="badge badge--neutral">Wyjazd: 09:00–09:30</span>
+              </div>
+              <div class="rule-grid">
+                <article class="rule-card">
+                  <p class="rule-card__label">Jedź jeśli</p>
+                  <p>Po dwóch wczesnych porankach potrzebujesz dnia o niskim tarciu i nie próbujesz robić z Cabo Girão pół dnia.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Skróć jeśli</p>
+                  <p>Energia jest niska albo warunki pod zachód są słabe. Zostaw samą Câmara de Lobos i bazę.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Plan B / C</p>
+                  <p>Moduł miejski Funchal / Monte tylko świadomie. W przeciwnym razie pełna regeneracja.</p>
+                </article>
+              </div>
+            </summary>
+            <div class="day-body">
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Układ dnia</h4>
+                  <ul>
+                    <li>Kolejność: Cabo Girão → kawa lub lunch w Câmara de Lobos → Madalena do Mar / Rota do Banana → zachód przy bazie.</li>
+                    <li>Jazda: 1:00–1:45. Chodzenie: 0:45–1:30. Cały dzień: 5–7 h.</li>
+                    <li>Cabo Girão traktuj jako 15–25 minutowy stop, nie kotwicę całego dnia.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Operacyjnie</h4>
+                  <ul>
+                    <li>Sprawdź przed dniem najwygodniejszy tryb płatności za dostęp do Cabo Girão.</li>
+                    <li>Na południu infrastruktura jest najłatwiejsza: to dobry dzień na logistyczny oddech.</li>
+                    <li>Jedzenie: Câmara de Lobos lub Madalena do Mar.</li>
+                  </ul>
+                </section>
+              </div>
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Fakty i ryzyka</h4>
+                  <ul>
+                    <li>Naprawdę warto: krótki stop na Cabo Girão, port, płaski spacer i spokojny zachód.</li>
+                    <li>Nie ma sensu dopychać dnia dodatkowymi małymi stopami bez wyraźnego zysku.</li>
+                    <li>Ryzyka: tłok na Cabo Girão i słaba jakość światła przy pełnym overcaście.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Źródła dnia</h4>
+                  <div class="source-list">
+                    <a href="https://visitmadeira.com/pt/onde-ir/madeira/costa-sul/camara-de-lobos/cabo-girao/" target="_blank" rel="noopener noreferrer">Visit Madeira — Cabo Girão</a>
+                    <a href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener noreferrer">timeanddate — światło</a>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </details>
+
+          <details id="d5" class="day-card">
+            <summary>
+              <div class="day-summary__top">
+                <div class="day-summary__lead">
+                  <p class="day-summary__date">Dzień 5 • 11.05.2026 • poniedziałek</p>
+                  <h3 class="day-summary__title">Ribeiro Frio + Balcões + Santana + Rocha do Navio</h3>
+                  <p class="day-summary__subtitle">Zielona Madera bez długich lewad o wątpliwym stosunku efektu do wysiłku.</p>
+                </div>
+                <span class="chevron" aria-hidden="true">▾</span>
+              </div>
+              <div class="badge-row">
+                <span class="badge badge--fact-confirmed">Fakt: Potwierdzone</span>
+                <span class="badge badge--go">Decyzja: Jedź</span>
+                <span class="badge badge--effort-light">Wysiłek: Lekki</span>
+                <span class="badge badge--neutral">Wyjazd: 08:00–08:30</span>
+              </div>
+              <div class="rule-grid">
+                <article class="rule-card">
+                  <p class="rule-card__label">Jedź jeśli</p>
+                  <p>PR11 jest zarezerwowany, a poranna widoczność w Balcões ma sens. To jest rdzeń dnia.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Skróć jeśli</p>
+                  <p>Chmura siada w Ribeiro Frio albo kolejka Rocha do Navio nie działa. Zostaw tylko Santana i viewpoint.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Plan B / C</p>
+                  <p>Queimadas + PR9.1 albo moduł miejski na południu, jeśli północ jest martwa pogodowo.</p>
+                </article>
+              </div>
+            </summary>
+            <div class="day-body">
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Układ dnia</h4>
+                  <ul>
+                    <li>Kolejność: Ribeiro Frio → PR11 Balcões → Santana krótko → Rocha do Navio viewpoint lub cable car, jeśli działa.</li>
+                    <li>Jazda: 2:15–3:00. Chodzenie: 1:15–2:00. Cały dzień: 6–8 h.</li>
+                    <li>Balcões ma najlepszy stosunek efekt / wysiłek. Reszta dnia jest modułowa.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Operacyjnie</h4>
+                  <ul>
+                    <li>Rezerwacja: PR11 przez SIMplifica. Jeśli zamieniasz dzień na PR9.1, rezerwujesz PR9.1 zamiast PR11.</li>
+                    <li>Sprawdź dzień wcześniej: widoczność w Balcões, działanie kolejki, status PR9 / PR9.1 jeśli rozważasz podmianę.</li>
+                    <li>Jedzenie: Ribeiro Frio lub Santana. Nie planuj długiego siedzenia w Santanie.</li>
+                  </ul>
+                </section>
+              </div>
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Fakty i ryzyka</h4>
+                  <ul>
+                    <li>Największa wartość: Balcões przy dobrej widoczności i klif Rocha do Navio.</li>
+                    <li>PR9 zostaje tylko jako opcja warunkowa, nie podstawowa trasa dnia.</li>
+                    <li>Ryzyka: niska chmura, niedziałająca kolejka, zbyt optymistyczny plan z PR9.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Źródła dnia</h4>
+                  <div class="source-list">
+                    <a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-11-vereda-dos-balcoes/" target="_blank" rel="noopener noreferrer">Visit Madeira — PR11</a>
+                    <a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-91-levada-do-caldeirao-verde-um-caminho-para-todos/" target="_blank" rel="noopener noreferrer">Visit Madeira — PR9.1</a>
+                    <a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/" target="_blank" rel="noopener noreferrer">Visit Madeira — PR9</a>
+                    <a href="https://visitmadeira.com/en/means-of-transportation/rocha-do-navio-cable-car/" target="_blank" rel="noopener noreferrer">Visit Madeira — Rocha do Navio</a>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </details>
+
+          <details id="d6" class="day-card">
+            <summary>
+              <div class="day-summary__top">
+                <div class="day-summary__lead">
+                  <p class="day-summary__date">Dzień 6 • 12.05.2026 • wtorek</p>
+                  <h3 class="day-summary__title">Seixal + Véu da Noiva + Porto Moniz</h3>
+                  <p class="day-summary__subtitle">Wodno-bazaltowy dzień, w którym kąpiel jest dodatkiem, a nie obowiązkiem.</p>
+                </div>
+                <span class="chevron" aria-hidden="true">▾</span>
+              </div>
+              <div class="badge-row">
+                <span class="badge badge--conditional">Fakt: Warunkowe</span>
+                <span class="badge badge--go">Decyzja: Jedź</span>
+                <span class="badge badge--effort-light">Wysiłek: Lekki</span>
+                <span class="badge badge--neutral">Wyjazd: 08:00–08:30</span>
+              </div>
+              <div class="rule-grid">
+                <article class="rule-card">
+                  <p class="rule-card__label">Jedź jeśli</p>
+                  <p>Północ jest czytelna pogodowo, a stan morza pozwala przynajmniej zbliżyć się do brzegu bez stresu.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Skróć jeśli</p>
+                  <p>Morze jest wzburzone albo pada na północy. Zostaw same viewpointy, lunch i Porto Moniz jako zaplecze.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Plan B / C</p>
+                  <p>Powrót na południe, jeśli północ jest kompletnie nieczytelna. Kąpiel skreślasz jako pierwszą.</p>
+                </article>
+              </div>
+            </summary>
+            <div class="day-body">
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Układ dnia</h4>
+                  <ul>
+                    <li>Kolejność: Seixal rano → Véu da Noiva → Porto Moniz na lunch, spacer i opcjonalną wodę.</li>
+                    <li>Jazda: 2:15–3:15. Chodzenie: 0:30–1:30. Cały dzień: 6–8 h.</li>
+                    <li>Największy sens ma poranek w Seixal. Później rośnie tłok i światło robi się ostrzejsze.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Operacyjnie</h4>
+                  <ul>
+                    <li>Brak krytycznej rezerwacji, ale dzień wcześniej sprawdzasz stan morza, wiatr, deszcz i własną gotowość do kąpieli.</li>
+                    <li>Porto Moniz to najlepsze miejsce na toaletę, odpoczynek, przebranie i jedzenie.</li>
+                    <li>Parking: Seixal, krótki stop przy Véu da Noiva i miejski parking Porto Moniz.</li>
+                  </ul>
+                </section>
+              </div>
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Fakty i ryzyka</h4>
+                  <ul>
+                    <li>Potwierdzone jest miejsce i infrastruktura, ale wejście do wody pozostaje warunkowe.</li>
+                    <li>Nie wchodź do oceanu „bo już tu jesteś”. To z definicji nie jest dzień obowiązkowej kąpieli.</li>
+                    <li>Ryzyka: swell, śliskie skały, tłum w Porto Moniz, północ gorsza pogodowo niż południe.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Źródła dnia</h4>
+                  <div class="source-list">
+                    <a href="https://visitmadeira.com/en/where-to-go/madeira/north-coast/porto-moniz/natural-pools-of-porto-moniz/" target="_blank" rel="noopener noreferrer">Visit Madeira — Porto Moniz</a>
+                    <a href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener noreferrer">timeanddate — światło</a>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </details>
+
+          <details id="d7" class="day-card">
+            <summary>
+              <div class="day-summary__top">
+                <div class="day-summary__lead">
+                  <p class="day-summary__date">Dzień 7 • 13.05.2026 • środa</p>
+                  <h3 class="day-summary__title">Achadas da Cruz + Garganta Funda + Ponta do Pargo</h3>
+                  <p class="day-summary__subtitle">Jedna z najlepszych zachodnich pętli o niskim cardio, ale z zależnością od wiatru i teleférico.</p>
+                </div>
+                <span class="chevron" aria-hidden="true">▾</span>
+              </div>
+              <div class="badge-row">
+                <span class="badge badge--fact-check">Fakt: Wymaga fact-checku</span>
+                <span class="badge badge--go">Decyzja: Jedź</span>
+                <span class="badge badge--effort-light">Wysiłek: Lekki</span>
+                <span class="badge badge--neutral">Wyjazd: 10:00–10:30</span>
+              </div>
+              <div class="rule-grid">
+                <article class="rule-card">
+                  <p class="rule-card__label">Jedź jeśli</p>
+                  <p>Wiatr nie wyłącza teleférico albo górne viewpointy nadal dają sensowny wariant zachodni.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Skróć jeśli</p>
+                  <p>Cable car jest off, wodospad słaby albo zachód tonie w mgle. Zostaw górne viewpointy i Garganta.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Plan B / C</p>
+                  <p>Ponta da Ladeira + Garganta + Ponta do Pargo bez zjazdu albo miękki powrót na południe.</p>
+                </article>
+              </div>
+            </summary>
+            <div class="day-body">
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Układ dnia</h4>
+                  <ul>
+                    <li>Kolejność: Achadas da Cruz → zjazd tylko jeśli działa i nie wieje za mocno → lunch → Garganta Funda po południu → Ponta do Pargo na zachód słońca.</li>
+                    <li>Jazda: 2:30–3:30. Chodzenie: 0:45–2:00. Cały dzień: 7–9 h.</li>
+                    <li>Tu efekt robią klify i światło, nie dystans.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Operacyjnie</h4>
+                  <ul>
+                    <li>Sprawdź dzień wcześniej: wiatr, ewentualny komunikat serwisowy, stan wodospadu i zachmurzenie zachodu.</li>
+                    <li>Na viewpointach nie licz na toalety; odpoczynek planuj w miasteczkach po drodze.</li>
+                    <li>Jedzenie: Porto Moniz po drodze lub Ponta do Pargo village.</li>
+                  </ul>
+                </section>
+              </div>
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Fakty i ryzyka</h4>
+                  <ul>
+                    <li>Potwierdzone jest miejsce, ale bieżące godziny i cena teleférico nie są zamknięte w tym pliku.</li>
+                    <li>Fanal pozostaje wyłącznie wariantem mgłowym, nie planem domyślnym.</li>
+                    <li>Ryzyka: wiatr wyłączający kolejkę, niski przepływ wodospadu, mgła połykająca zachód.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Źródła dnia</h4>
+                  <div class="source-list">
+                    <a href="https://visitmadeira.com/en/means-of-transportation/achadas-da-cruz-cable-car/" target="_blank" rel="noopener noreferrer">Visit Madeira — Achadas</a>
+                    <a href="https://www.portomoniz.pt/pt/documentos/category/121-teleferico?download=149%3Ateleferico-achadas-da-cruz" target="_blank" rel="noopener noreferrer">Porto Moniz — regulamin</a>
+                    <a href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener noreferrer">timeanddate — światło</a>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </details>
+
+          <details id="d8" class="day-card">
+            <summary>
+              <div class="day-summary__top">
+                <div class="day-summary__lead">
+                  <p class="day-summary__date">Dzień 8 • 14.05.2026 • czwartek</p>
+                  <h3 class="day-summary__title">Wylot: krótki poranek bez dużych planów</h3>
+                  <p class="day-summary__subtitle">Zamknięcie wyjazdu bez presji, bez ryzykownych objazdów i bez ekspozycji bagaży.</p>
+                </div>
+                <span class="chevron" aria-hidden="true">▾</span>
+              </div>
+              <div class="badge-row">
+                <span class="badge badge--fact-confirmed">Fakt: Potwierdzone</span>
+                <span class="badge badge--skip">Decyzja: Odpuszcz</span>
+                <span class="badge badge--effort-very-light">Wysiłek: Bardzo lekki</span>
+                <span class="badge badge--neutral">Wyjazd: 10:30–11:00</span>
+              </div>
+              <div class="rule-grid">
+                <article class="rule-card">
+                  <p class="rule-card__label">Jedź jeśli</p>
+                  <p>Masz bezpieczny margines na zwrot auta i tylko jeden stop o niskim ryzyku po trasie na wschód.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Skróć jeśli</p>
+                  <p>Ruch, bagaż albo stres czasowy rosną. Zostaw tylko kawę po drodze albo od razu lotnisko.</p>
+                </article>
+                <article class="rule-card">
+                  <p class="rule-card__label">Plan B / C</p>
+                  <p>Machico lub Santa Cruz tylko przy pełnym spokoju logistycznym. W innym przypadku lotnisko prosto.</p>
+                </article>
+              </div>
+            </summary>
+            <div class="day-body">
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Układ dnia</h4>
+                  <ul>
+                    <li>Kolejność: śniadanie → checkout → ewentualnie jeden łatwy stop → lekki lunch → lotnisko 13:45–14:15.</li>
+                    <li>Jazda: 0:45–1:30. Chodzenie: 0:15–0:45. Cały dzień: 4–5 h.</li>
+                    <li>To nie jest dzień na Monte, pełen Funchal ani cokolwiek z kolejką i chaosem parkingowym.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Operacyjnie</h4>
+                  <ul>
+                    <li>Sprawdź dzień wcześniej: politykę paliwową, dokumenty, czas dojazdu do lotniska i warunki zdania auta.</li>
+                    <li>Krótki stop tylko tam, gdzie nie trzeba ciągnąć walizek daleko.</li>
+                    <li>Jedzenie i toalety: lotnisko, Machico albo Santa Cruz.</li>
+                  </ul>
+                </section>
+              </div>
+              <div class="day-body-grid">
+                <section class="subpanel">
+                  <h4>Fakty i ryzyka</h4>
+                  <ul>
+                    <li>Najbezpieczniejsza logika to poranek o niskim ryzyku i szybkie domknięcie logistyki.</li>
+                    <li>To dzień na odpuszczanie, nie na „ostatni bonus”.</li>
+                    <li>Ryzyka: spóźniony zwrot auta, późny wyjazd z bazy, ekspozycja bagaży, korki przy lotnisku.</li>
+                  </ul>
+                </section>
+                <section class="subpanel subpanel--tone">
+                  <h4>Źródła dnia</h4>
+                  <div class="source-list">
+                    <a href="https://www.madeiraairport.pt/en/fnc/access-parking/for-your-full-comfort/car-rental" target="_blank" rel="noopener noreferrer">Madeira Airport — wynajem aut</a>
+                    <a href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener noreferrer">timeanddate — światło</a>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Filtr decyzji w terenie</p>
+          <h2>Co warto dowozić, a co odpuścić bez żalu</h2>
+        </div>
+
+        <div class="decision-filter">
+          <article class="decision-filter__panel">
+            <h3>Dowieź, jeśli warunki są dobre</h3>
+            <ul>
+              <li>Ponta do Rosto o świcie.</li>
+              <li>Areeiro + Ninho da Manta przy dobrej widoczności.</li>
+              <li>Balcões, jeśli góry widać.</li>
+              <li>Seixal rano.</li>
+              <li>Garganta Funda + Ponta do Pargo w dobrym świetle.</li>
             </ul>
           </article>
-          <article class="rounded-2xl border border-slate-200 p-4">
-            <h3 class="text-base font-semibold text-slate-900">2 dni przed</h3>
-            <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-700">
-              <li>• pogoda w trzech strefach: góry / wschód / północ-zachód</li><li>• statusy PR1, PR8, PR11/PR9.1</li><li>• czy warto przesunąć dzień Areeiro na najwcześniejszy pogodowo czysty slot</li>
+          <article class="decision-filter__panel">
+            <h3>Traktuj warunkowo</h3>
+            <ul>
+              <li>PR9 do Caldeirão Verde.</li>
+              <li>Boat-return na PR8.</li>
+              <li>Achadas i Rocha do Navio cable cars.</li>
+              <li>Wejście do wody w Seixal.</li>
+              <li>Fanal bez aktywnej mgły.</li>
             </ul>
           </article>
-          <article class="rounded-2xl border border-slate-200 p-4">
-            <h3 class="text-base font-semibold text-slate-900">Wieczorem przed każdym dniem</h3>
-            <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-700">
-              <li>• IFCN + Visit Madeira + SIMplifica</li><li>• mapa parkingu i realny czas dojazdu</li><li>• woda, kurtka, warstwa na wiatr, powerbank, screeny rezerwacji</li>
-            </ul>
-          </article>
-          <article class="rounded-2xl border border-slate-200 p-4">
-            <h3 class="text-base font-semibold text-slate-900">W poranek dnia</h3>
-            <ul class="mt-4 space-y-3 text-sm leading-6 text-slate-700">
-              <li>• czy warunki nadal są zgodne z planem A</li><li>• czy plan B jest już gotowy bez improwizacji</li><li>• czy punkt docelowy jest wart wysiłku właśnie dziś — nie teoretycznie</li>
+          <article class="decision-filter__panel">
+            <h3>Odpuszcz bez żalu</h3>
+            <ul>
+              <li>Robienie z Cabo Girão całego dnia.</li>
+              <li>Długie siedzenie w Santanie tylko dlatego, że „już jesteś”.</li>
+              <li>Monte / Carreiros tylko dlatego, że to klasyk.</li>
+              <li>Dodatkowe miradouros, które rozwalają rytm bez realnego zysku.</li>
             </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="sources" class="anchor-offset mx-auto max-w-7xl px-4 py-4 pb-20 sm:px-6 lg:px-8">
-      <div class="grid gap-6 lg:grid-cols-3">
-        <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Źródła oficjalne</p>
-          <ul class="mt-4 space-y-2">
-            <li><a href='https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados.html' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>IFCN — percursos pedestres + FAQ</a></li><li><a href='https://ifcn.madeira.gov.pt/pt/?catid=146&format=pdf&id=973%3Apr-1-unidirecional&tmpl=component&view=article' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>IFCN — notice PR1 / phased reopening</a></li><li><a href='https://simplifica.madeira.gov.pt/services/78-82-259' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>SIMplifica — hiking fees</a></li><li><a href='https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — PR1</a></li><li><a href='https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-8-vereda-da-ponta-de-sao-lourenco/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — PR8</a></li><li><a href='https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-11-vereda-dos-balcoes/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — PR11</a></li><li><a href='https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — PR9</a></li><li><a href='https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-91-levada-do-caldeirao-verde-um-caminho-para-todos/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — PR9.1</a></li><li><a href='https://visitmadeira.com/pt/onde-ir/madeira/costa-sul/camara-de-lobos/cabo-girao/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — Cabo Girão</a></li><li><a href='https://visitmadeira.com/pt/onde-ir/madeira/costa-norte/santana/miradouro-do-ninho-da-manta/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — Ninho da Manta</a></li><li><a href='https://visitmadeira.com/en/where-to-go/madeira/north-coast/porto-moniz/natural-pools-of-porto-moniz/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — Porto Moniz Natural Pools</a></li><li><a href='https://visitmadeira.com/en/means-of-transportation/rocha-do-navio-cable-car/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — Rocha do Navio cable car</a></li><li><a href='https://visitmadeira.com/en/means-of-transportation/achadas-da-cruz-cable-car/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — Achadas da Cruz cable car</a></li><li><a href='https://visitmadeira.com/pt/onde-ir/madeira/costa-este/santa-cruz/miradouro-do-cristo-rei/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — Cristo Rei viewpoint / statue</a></li><li><a href='https://visitmadeira.com/en/what-to-do/culture-passionates/gardens/monte-palace-madeira-garden/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — Monte Palace</a></li><li><a href='https://visitmadeira.com/en/means-of-transportation/funchal-cable-car/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — Funchal cable car</a></li><li><a href='https://visitmadeira.com/en/means-of-transportation/garajau-cable-car/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Visit Madeira — Garajau cable car</a></li><li><a href='https://montepalacemadeira.com/visita/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Monte Palace operator</a></li><li><a href='https://madeiracablecar.com/en/price-and-schedule/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Madeira Cable Car operator</a></li><li><a href='https://www.carreirosdomonte.com/v3/en/index.php' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Carreiros do Monte operator</a></li><li><a href='https://www.madeiraairport.pt/en/fnc/access-parking/for-your-full-comfort/car-rental' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Madeira Airport</a></li>
-          </ul>
-        </article>
-        <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Źródła pomocnicze</p>
-          <ul class="mt-4 space-y-2">
-            <li><a href='https://www.timeanddate.com/sun/portugal/funchal?month=5' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>timeanddate — sunrise/sunset for Funchal (May 2026)</a></li>
-          </ul>
-          <p class="mt-4 text-sm leading-6 text-slate-600">W tej wersji helpery są używane tylko tam, gdzie nie zmieniają statusu miejsca, a jedynie doprecyzowują światło albo kontekst.</p>
-        </article>
-        <article class="rounded-3xl border border-slate-200 bg-white p-6 shadow-soft">
-          <p class="text-sm font-semibold uppercase tracking-[0.18em] text-teal-700">Niepewne / do ponownej kontroli</p>
-          <ul class="mt-4 space-y-2">
-            <li><a href='https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>PR9 exact usable extent vs page-level closure badge</a></li><li><a href='https://ifcn.madeira.gov.pt/pt/?catid=146&format=pdf&id=973%3Apr-1-unidirecional&tmpl=component&view=article' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>PR1 weekday pattern after phased reopening</a></li><li><a href='https://visitmadeira.com/pt/o-que-fazer/apaixonados-por-cultura/patrimonio/monumentos-e-arquitetura/estatua-do-cristo-rei-do-garajau/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Cristo Rei conditioned status / exact restriction</a></li><li><a href='https://visitmadeira.com/en/means-of-transportation/achadas-da-cruz-cable-car/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Achadas da Cruz current hours/price</a></li><li><a href='https://visitmadeira.com/en/means-of-transportation/rocha-do-navio-cable-car/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Rocha do Navio current service / price</a></li><li><a href='https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Areeiro parking charges and capacities</a></li><li><a href='https://simplifica.madeira.gov.pt/services/78-82-259' target='_blank' rel='noopener' class='text-sm text-teal-700 underline decoration-slate-300 underline-offset-4 hover:text-teal-900'>Accepted payment methods in SIMplifica checkout</a></li>
-          </ul>
-          <p class="mt-4 text-sm leading-6 text-slate-600">To są punkty, których nie traktowałbym jako zamkniętych do dnia wyjazdu. Mają badge „sprawdzić” albo „warunkowe”.</p>
-        </article>
+    <section id="costs" class="section section--tinted">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Koszty</p>
+          <h2>Budżet tylko z twardych liczb albo z wyraźnym oznaczeniem niepewności</h2>
+        </div>
+
+        <div class="cost-columns">
+          <article class="cost-column">
+            <p class="eyebrow">Koszty do budżetu</p>
+            <h3>Twarde liczby</h3>
+            <div class="cost-list">
+              <article class="cost-card">
+                <div class="cost-card__head">
+                  <strong>PR1 do Pedra Rija</strong>
+                  <span class="badge badge--fact-confirmed">4,50 € / os.</span>
+                </div>
+                <p class="cost-card__why">Potwierdzone oficjalnie. Nadal wymaga sprawdzenia samej dostępności dnia.</p>
+              </article>
+              <article class="cost-card">
+                <div class="cost-card__head">
+                  <strong>PR8 Ponta de São Lourenço</strong>
+                  <span class="badge badge--fact-confirmed">4,50 € / os.</span>
+                </div>
+                <p class="cost-card__why">Potwierdzone oficjalnie dla bazowego wariantu bez boat-return.</p>
+              </article>
+              <article class="cost-card">
+                <div class="cost-card__head">
+                  <strong>PR11 Balcões</strong>
+                  <span class="badge badge--fact-confirmed">4,50 € / os.</span>
+                </div>
+                <p class="cost-card__why">Potwierdzone oficjalnie. Jeśli zamieniasz dzień na PR9.1, budżetuj osobno ten wariant.</p>
+              </article>
+              <article class="cost-card">
+                <div class="cost-card__head">
+                  <strong>Cabo Girão</strong>
+                  <span class="badge badge--fact-confirmed">5,00 € / os. &gt; 12 lat</span>
+                </div>
+                <p class="cost-card__why">Potwierdzone oficjalnie. Wpisuj do budżetu tylko jako krótki stop.</p>
+              </article>
+              <article class="cost-card">
+                <div class="cost-card__head">
+                  <strong>Teleférico Funchal–Monte</strong>
+                  <span class="badge badge--fact-confirmed">16 € / 22 €</span>
+                </div>
+                <p class="cost-card__why">Potwierdzone u operatora, ale to nadal moduł opcjonalny.</p>
+              </article>
+              <article class="cost-card">
+                <div class="cost-card__head">
+                  <strong>Carreiros do Monte</strong>
+                  <span class="badge badge--fact-confirmed">35 € / 2 osoby</span>
+                </div>
+                <p class="cost-card__why">Potwierdzone u operatora. Nie buduj pod to rdzenia wyjazdu.</p>
+              </article>
+            </div>
+          </article>
+
+          <article class="cost-column">
+            <p class="eyebrow">Koszty wymagające fact-checku</p>
+            <h3>Nie wpisuj ich do Excela jako pewnik</h3>
+            <div class="cost-list">
+              <article class="cost-card">
+                <div class="cost-card__head">
+                  <strong>Achadas da Cruz cable car</strong>
+                  <span class="badge badge--fact-check">Sprawdź przed dniem</span>
+                </div>
+                <p class="cost-card__why">W dostępnych oficjalnych stronach brak jednej, twardej ceny wprost w otwartym tekście.</p>
+              </article>
+              <article class="cost-card">
+                <div class="cost-card__head">
+                  <strong>Rocha do Navio cable car</strong>
+                  <span class="badge badge--fact-check">Sprawdź przed dniem</span>
+                </div>
+                <p class="cost-card__why">Godziny są sygnalizowane, ale bieżąca cena i realna operacyjność wymagają ponownej kontroli.</p>
+              </article>
+              <article class="cost-card">
+                <div class="cost-card__head">
+                  <strong>Porto Moniz pools entry</strong>
+                  <span class="badge badge--fact-check">Sprawdź na miejscu</span>
+                </div>
+                <p class="cost-card__why">Infrastruktura jest potwierdzona, ale cena nie była pobrana w tej iteracji planu.</p>
+              </article>
+              <article class="cost-card">
+                <div class="cost-card__head">
+                  <strong>Monte Palace</strong>
+                  <span class="badge badge--fact-check">Sprawdź przy zakupie</span>
+                </div>
+                <p class="cost-card__why">Godziny są dostępne, ale cena nie została tu zafiksowana jako pewnik.</p>
+              </article>
+              <article class="cost-card">
+                <div class="cost-card__head">
+                  <strong>Boat-return PR8</strong>
+                  <span class="badge badge--conditional">Nie budżetuj bazowo</span>
+                </div>
+                <p class="cost-card__why">To zewnętrzny wariant logistyczny, nie część podstawowego dnia wschodniego.</p>
+              </article>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="checks" class="section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Rezerwacje i check-lista</p>
+          <h2>Co trzeba ogarnąć wcześniej, żeby plik działał w terenie</h2>
+        </div>
+
+        <div class="key-grid">
+          <article class="key-card">
+            <h3>Co rezerwować i kiedy</h3>
+            <ul>
+              <li>Teraz: auto, nocleg, parking przy bazie, konto w SIMplifica i zapisane loginy do użycia bez internetu.</li>
+              <li>48–72 h wcześniej: PR1, PR8, PR11 albo PR9.1 po finalnej pogodzie.</li>
+              <li>Dzień wcześniej: IFCN + Visit Madeira + SIMplifica oraz screenshoty potwierdzeń.</li>
+              <li>W dniu atrakcji: Carreiros na miejscu; cable cars sprawdzaj operacyjnie rano.</li>
+            </ul>
+          </article>
+          <article class="key-card">
+            <h3>Jak używać tego pliku rano</h3>
+            <ul>
+              <li>Sprawdź najpierw pogodę w trzech strefach: góry, wschód, północ-zachód.</li>
+              <li>Potem otwórz tylko kartę dnia i porównaj z regułami „Jedź jeśli” oraz „Skróć jeśli”.</li>
+              <li>Jeśli reguła odcina plan A, przechodzisz od razu do planu B/C bez dodatkowego kombinowania.</li>
+            </ul>
+          </article>
+          <article class="key-card">
+            <h3>Co zapisać bez internetu</h3>
+            <ul>
+              <li>Screeny rezerwacji PR1 / PR8 / PR11 lub PR9.1.</li>
+              <li>Loginy do SIMplifica i adres noclegu z parkingiem.</li>
+              <li>Mapę dojazdu do startów szlaków i lotniska.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="check-grid" style="margin-top: 1rem;">
+          <article class="check-card">
+            <h3>7 dni przed</h3>
+            <ul>
+              <li>Prawo jazdy, karta, warunki wynajmu, ubezpieczenie i limity bagażu.</li>
+              <li>Czy baza ma parking i sensowny dojazd po zmroku.</li>
+              <li>Czy nadal świadomie wybierasz jedną bazę.</li>
+            </ul>
+          </article>
+          <article class="check-card">
+            <h3>2 dni przed</h3>
+            <ul>
+              <li>Pogoda w trzech strefach: góry, wschód, północ-zachód.</li>
+              <li>Statusy PR1, PR8, PR11 / PR9.1.</li>
+              <li>Czy Areeiro trzeba przesunąć na najczystsze okno pogodowe.</li>
+            </ul>
+          </article>
+          <article class="check-card">
+            <h3>Wieczorem przed dniem</h3>
+            <ul>
+              <li>IFCN + Visit Madeira + SIMplifica.</li>
+              <li>Mapa parkingu i realny czas dojazdu.</li>
+              <li>Woda, kurtka, warstwa na wiatr, powerbank, screeny rezerwacji.</li>
+            </ul>
+          </article>
+          <article class="check-card">
+            <h3>W poranek dnia</h3>
+            <ul>
+              <li>Czy warunki nadal zgadzają się z planem A.</li>
+              <li>Czy plan B jest gotowy bez improwizacji.</li>
+              <li>Czy punkt docelowy jest wart wysiłku właśnie dziś, a nie teoretycznie.</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="source-list" style="margin-top: 1rem;">
+          <a href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener noreferrer">SIMplifica</a>
+          <a href="https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados/faq-s-taxas-percursos-pedestres-classificados.html" target="_blank" rel="noopener noreferrer">IFCN — FAQ</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="sources" class="section section--tinted">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Źródła</p>
+          <h2>Co jest oficjalne, co pomocnicze i co nadal wymaga ponownej kontroli</h2>
+        </div>
+
+        <div class="key-grid">
+          <article class="key-card">
+            <h3>Źródła oficjalne</h3>
+            <ul>
+              <li><a href="https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados.html" target="_blank" rel="noopener noreferrer">IFCN — percursos pedestres + FAQ</a></li>
+              <li><a href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener noreferrer">SIMplifica — opłaty za szlaki</a></li>
+              <li><a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/" target="_blank" rel="noopener noreferrer">Visit Madeira — PR1</a></li>
+              <li><a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-8-vereda-da-ponta-de-sao-lourenco/" target="_blank" rel="noopener noreferrer">Visit Madeira — PR8</a></li>
+              <li><a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-11-vereda-dos-balcoes/" target="_blank" rel="noopener noreferrer">Visit Madeira — PR11</a></li>
+              <li><a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-91-levada-do-caldeirao-verde-um-caminho-para-todos/" target="_blank" rel="noopener noreferrer">Visit Madeira — PR9.1</a></li>
+            </ul>
+          </article>
+
+          <article class="key-card">
+            <h3>Źródła pomocnicze</h3>
+            <ul>
+              <li><a href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener noreferrer">timeanddate — światło dla Funchal</a></li>
+              <li><a href="https://madeiracablecar.com/en/price-and-schedule/" target="_blank" rel="noopener noreferrer">Madeira Cable Car — operator</a></li>
+              <li><a href="https://www.carreirosdomonte.com/v3/en/index.php" target="_blank" rel="noopener noreferrer">Carreiros do Monte — operator</a></li>
+              <li><a href="https://www.madeiraairport.pt/en/fnc/access-parking/for-your-full-comfort/car-rental" target="_blank" rel="noopener noreferrer">Madeira Airport — wynajem aut</a></li>
+            </ul>
+          </article>
+
+          <article class="key-card">
+            <h3>Wymaga fact-checku do dnia wyjazdu</h3>
+            <ul>
+              <li><a href="https://ifcn.madeira.gov.pt/pt/?catid=146&format=pdf&id=973%3Apr-1-unidirecional&tmpl=component&view=article" target="_blank" rel="noopener noreferrer">PR1 — wzór otwarcia po reotwarciu fazowanym</a></li>
+              <li><a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/" target="_blank" rel="noopener noreferrer">PR9 — realny używalny zakres</a></li>
+              <li><a href="https://visitmadeira.com/en/means-of-transportation/achadas-da-cruz-cable-car/" target="_blank" rel="noopener noreferrer">Achadas da Cruz — bieżące godziny i cena</a></li>
+              <li><a href="https://visitmadeira.com/en/means-of-transportation/rocha-do-navio-cable-car/" target="_blank" rel="noopener noreferrer">Rocha do Navio — serwis i cena</a></li>
+              <li><a href="https://visitmadeira.com/pt/onde-ir/madeira/costa-este/santa-cruz/miradouro-do-cristo-rei/" target="_blank" rel="noopener noreferrer">Cristo Rei — dokładne ograniczenie</a></li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="border-t border-slate-200 bg-white">
-    <div class="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-8 text-sm text-slate-500 sm:px-6 lg:px-8 md:flex-row md:items-center md:justify-between">
-      <p>Fact-check i rekonstrukcja planu: 13.04.2026. Priorytet: użyteczność w terenie, nie landing-page vibe.</p>
-      <div class="flex flex-wrap gap-3">
-        <a href="https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados.html" target="_blank" rel="noopener" class="text-teal-700 underline decoration-slate-300 underline-offset-4">IFCN</a>
-        <a href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener" class="text-teal-700 underline decoration-slate-300 underline-offset-4">SIMplifica</a>
-        <a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-8-vereda-da-ponta-de-sao-lourenco/" target="_blank" rel="noopener" class="text-teal-700 underline decoration-slate-300 underline-offset-4">Visit Madeira</a>
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <strong>Madera 07–14.05.2026</strong>
+        <p class="muted">Wersja mobilna i odporna na brak internetu: treść, style i kontrolki działają lokalnie; zewnętrzne linki nadal wymagają internetu.</p>
+      </div>
+      <div class="source-list">
+        <a href="https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados.html" target="_blank" rel="noopener noreferrer">IFCN</a>
+        <a href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener noreferrer">SIMplifica</a>
+        <a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-8-vereda-da-ponta-de-sao-lourenco/" target="_blank" rel="noopener noreferrer">Visit Madeira</a>
       </div>
     </div>
   </footer>
 
   <script>
+    const menuButton = document.getElementById('menuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+    const mobileLinks = document.querySelectorAll('[data-nav-link="mobile"]');
+
+    function setMenuState(isOpen) {
+      menuButton.setAttribute('aria-expanded', String(isOpen));
+      mobileNav.hidden = !isOpen;
+      document.body.classList.toggle('menu-open', isOpen);
+    }
+
     function toggleMenu() {
-      document.getElementById('mobileMenu').classList.toggle('hidden');
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      setMenuState(!isOpen);
     }
+
+    menuButton.addEventListener('click', toggleMenu);
+
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => setMenuState(false));
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        setMenuState(false);
+      }
+    });
+
     function expandAllDays() {
-      document.querySelectorAll('details.day-card').forEach((el) => el.open = true);
+      document.querySelectorAll('.day-card').forEach((day) => {
+        day.open = true;
+      });
     }
+
     function collapseAllDays() {
-      document.querySelectorAll('details.day-card').forEach((el) => el.open = false);
+      document.querySelectorAll('.day-card').forEach((day) => {
+        day.open = false;
+      });
     }
   </script>
 </body>
