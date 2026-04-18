@@ -9,7 +9,7 @@ Ten dokument zastępuje wcześniejszą, bardziej prezentacyjną narrację wersj�
 - **Rekomendacja bazowa:** jedna baza w pasie **Ribeira Brava - Ponta do Sol**. Split-stay zostaje tylko jako wariant opcjonalny dla bardziej "ikonicznych" kadrów.
 - **Najważniejsza korekta planu:** Areeiro wchodzi na pierwszy pełny dzień, bo PR1 nadal ma status warunkowy i nie warto odkładać go na środek pobytu.
 - **Monte / Funchal:** nie znikają, ale schodzą z pozycji core day do roli backupu lub dnia bardziej miejskiego.
-- **PR8:** boat-return nie jest już domyślną "smart effort" strategią; to wariant warunkowy, jeśli warunki są idealne i świadomie chcecie za niego dopłacić.
+- **PR8:** boat-return nie jest już domyślną "smart effort" strategią; to **osobna usługa wodna** (Cais do Sardinha / Quinta do Lorde), **nie powrót do zaparkowanego auta** — wymaga osobnej logistyki transferu. Wariant warunkowy i nie budżetowany bazowo.
 - **PR9 / PR9.1:** to nie jest obszar na twarde deklaracje. Status i używalny zakres trzeba sprawdzać dzień wcześniej w oficjalnych źródłach.
 - **Krytyczne punkty do weryfikacji:** PR1, PR9/PR9.1, Cristo Rei, Achadas da Cruz, Rocha do Navio, warunki morza dla Seixal i Porto Moniz.
 
@@ -92,13 +92,13 @@ Nowa wersja planu ma najpierw pomóc podejmować decyzje w podróży, a dopiero 
 - **Dobra pogoda:** krótki zachód blisko bazy. Koszt: niski. Wysiłek: `very low`. Plusy: ładne wejście w klimat bez logistyki. Minusy: łatwo przeciągnąć wieczór.
 - **Słaba pogoda:** zakupy, kolacja i ustawienie planu na kolejne `48 h`. Koszt: tylko operacyjny. Wysiłek: `very low`. Status: najbezpieczniejsza logika.
 - **Low energy:** hotel + `15-20 min` spaceru po okolicy. Plusy: maksymalna regeneracja. Minusy: brak "atrakcji".
-- **Worth it only if conditions are perfect:** Cristo Rei / Garajau na krótki zachód tylko jeśli śpisz bliżej Funchal/Caniço i oficjalny status nie budzi wątpliwości. Status: niepewne.
+- **Worth it only if conditions are perfect:** Cristo Rei / Garajau na krótki zachód — to wariant **tylko dla wyjątku od zasady jednej bazy** (gdy śpisz bliżej Funchal/Caniço); nie dotyczy bazy Ribeira Brava – Ponta do Sol. Oficjalna strona pomnika ma status `CONDICIONADO` — sprawdzaj wieczorem dzień wcześniej. Status: niepewne.
 
 ### Dzień 2 - 08.05, piątek - Areeiro + Eira do Serrado
 
 - **Cel:** zagrać najmocniejszy i najbardziej wrażliwy operacyjnie moduł na początku pobytu.
 - **Dlaczego ten układ ma sens:** po reotwarciu fazowanym PR1 piątek-niedziela to najbardziej racjonalne okno na próbę Areeiro; nie warto odkładać go na środek wyjazdu.
-- **Wyjazd z noclegu:** `05:50-06:10`.
+- **Wyjazd z noclegu:** `05:50` z Ribeira Brava / `06:10` z Ponta do Sol (dolicz `10-20 min` przy bazie dalej na zachodzie).
 - **Kolejność:** Areeiro parking -> sunrise -> Ninho da Manta -> odcinek do Pedra Rija, jeśli oficjalnie dostępny -> śniadanie/kawa niżej -> Eira do Serrado -> powrót i regeneracja.
 - **Szacowany czas całego dnia:** `7-9 h`.
 - **Łączny czas jazdy autem:** `2:15-3:00`.
@@ -130,7 +130,7 @@ Nowa wersja planu ma najpierw pomóc podejmować decyzje w podróży, a dopiero 
 
 - **Cel:** zebrać klifowy, surowy krajobraz wschodu bez zmuszania się do pełnego przejścia za wszelką cenę.
 - **Dlaczego ten układ ma sens:** wschód daje ogromny efekt wizualny, ale klasyczny błąd to robienie "całości za wszelką cenę" pod słońcem i wietrze.
-- **Wyjazd z noclegu:** `05:40-06:00`.
+- **Wyjazd z noclegu:** `05:20` z Ribeira Brava / `05:40` z Ponta do Sol (dystans ~60 km; przy bazie na zachodzie dolicz dalsze `10-20 min`).
 - **Kolejność:** Ponta do Rosto sunrise -> Baia d'Abra trailhead -> PR8 do Casa do Sardinha / ewentualnie dalej tylko przy dobrej energii -> Machico późny lunch -> powrót.
 - **Szacowany czas całego dnia:** `7-8,5 h`.
 - **Łączny czas jazdy autem:** `2:30-3:15`.
@@ -146,6 +146,7 @@ Nowa wersja planu ma najpierw pomóc podejmować decyzje w podróży, a dopiero 
 - **Skip if tired:** pełna wersja PR8 albo boat-return tylko dlatego, że "już tu jesteśmy".
 - **Najlepsze okno światła:** sunrise około `07:13`; najlepsze `06:50-08:15`.
 - **Ryzyka:** silny wiatr, pełne słońce, odwodnienie, tłum po `09:00`, błędne założenie, że łódź rozwiąże logistykę.
+- **Ostrzeżenie sprzętowe:** motorówka na otwartym Atlantyku generuje gęsty salt-spray; sprzęt foto tylko w zamykanych, 100% wodoszczelnych workach (dry-bag). Sól trwale niszczy elektronikę i optykę.
 - **Plan B:** same wschodnie viewpointy + Machico / Canical.
 - **Plan C:** zamiana z dniem południowym.
 - **Dobre przy niskiej energii:** tak, ale tylko w wersji viewpoint-hopping bez pełnego PR8.
@@ -156,7 +157,7 @@ Nowa wersja planu ma najpierw pomóc podejmować decyzje w podróży, a dopiero 
 - **Dobra pogoda:** Ponta do Rosto + skrócony PR8 do Casa do Sardinha. Koszt: `PR8 4,50 EUR / os.` Wysiłek: `medium`. Plusy: zostaje najlepsza część dnia.
 - **Słaba pogoda:** Machico + Canical + punkty widokowe wschodu. Wysiłek: `low`. Plusy: nadal widoki przy mniejszym ryzyku.
 - **Low energy:** Ponta do Rosto + Miradouro do Guindaste + promenada w Machico. Wysiłek: `very low / low`.
-- **Worth it only if conditions are perfect:** boat-return z Sao Lourenco tylko z potwierdzonym operatorem, odbiorem i transferem do auta. Status: niepewne.
+- **Worth it only if conditions are perfect:** boat-return z Sao Lourenco to osobna usługa wodna (Cais do Sardinha / Quinta do Lorde), **nie jest powrotem do zaparkowanego auta** przy Baía d'Abra; wymaga własnego transferu do auta na koniec dnia. Status: niepewne, nie budżetować bazowo.
 
 ### Dzień 4 - 10.05, niedziela - Południe / recovery day
 
@@ -242,6 +243,7 @@ Nowa wersja planu ma najpierw pomóc podejmować decyzje w podróży, a dopiero 
 - **Skip if tired:** wymuszoną kąpiel przy złych warunkach albo dokładanie kolejnych wodnych punktów na siłę.
 - **Najlepsze okno światła:** Seixal najlepiej wcześnie rano.
 - **Ryzyka:** swell, śliskie skały, tłum w Porto Moniz, gorsza pogoda na północy niż na południu.
+- **Ostrzeżenie sprzętowe:** w Seixal i Porto Moniz nieprzewidziane wyższe fale regularnie zalewają turystów; sprzęt foto tylko w zamykanym plecaku z pokrowcem przeciwdeszczowym. Nic na skałach przy surge.
 - **Plan B:** viewpoints + Porto Moniz bez wejścia do wody.
 - **Plan C:** południowy reset, jeśli północ jest pogodowo fatalna.
 - **Dobre przy niskiej energii:** tak.
@@ -316,7 +318,7 @@ Nowa wersja planu ma najpierw pomóc podejmować decyzje w podróży, a dopiero 
 - **Dobra pogoda:** krótki spacer w Machico albo Santa Cruz po stronie lotniskowej. Wysiłek: `very low`. Plusy: eleganckie domknięcie bez stresu.
 - **Słaba pogoda:** bez zwiedzania: śniadanie, checkout, lotnisko. Status: najbezpieczniejsza opcja.
 - **Low energy:** tylko kawa po drodze i prosto na `FNC`.
-- **Worth it only if conditions are perfect:** krótki Garajau / Cristo Rei tylko jeśli śpisz bardziej po wschodniej stronie, nie masz bagażowego chaosu i status dojścia jest jasny. Status: niepewne.
+- **Worth it only if conditions are perfect:** krótki Garajau / Cristo Rei — to wariant **tylko dla wyjątku od zasady jednej bazy** (gdy śpisz bliżej wschodniej strony); nie dotyczy bazy Ribeira Brava – Ponta do Sol. Oficjalny status `CONDICIONADO` — sprawdź wieczorem dzień wcześniej i wtedy decyduj. Status: niepewne.
 
 ## 4. Trzy warianty planu
 
@@ -362,45 +364,88 @@ Nowa wersja planu ma najpierw pomóc podejmować decyzje w podróży, a dopiero 
 
 - **PR poza PR1:** `4,50 EUR`.
 - **PR1 conditioned do Pedra Rija:** `4,50 EUR`.
-- **Multi-day / daily dla kombinacji non-PR1:** `9,00 EUR / 22,50 EUR / 52,50 EUR`, naliczane automatycznie w SIMplifica, nie kupowane jako osobny produkt.
-- **Cabo Girao:** `5 EUR` powyżej 12 lat.
-- **Funchal Cable Car:** `22 EUR` round-trip / `16 EUR` one-way.
-- **Carreiros do Monte:** `35 EUR` za 2 osoby.
+- **Multi-day / daily dla kombinacji non-PR1:** `9,00 EUR / 22,50 EUR / 52,50 EUR`, naliczane automatycznie w SIMplifica (best-price), nie kupowane jako osobny produkt.
+- **Cabo Girao:** `5,00 EUR` powyżej 12 lat; SIMplifica; `08:00-20:00` codziennie.
+- **Funchal Cable Car:** `22 EUR` round-trip / `16 EUR` one-way; `08:45-17:45`.
+- **Carreiros do Monte:** `35,00 EUR` za 2 osoby; `09:00-18:00`; **wyłącznie gotówka na miejscu**; możliwe wcześniejsze zamknięcie przy kolejce/pogodzie.
+- **Achadas da Cruz cable car:** `3,00 EUR` / 1 przejazd, `5,00 EUR` / ida-volta; codziennie (reguła wiatru operacyjnie warunkowa).
+- **Porto Moniz pools:** `3,00 EUR` / os. > 3 lata; cały rok; `09:00-19:00` czas letni, `09:00-17:00` zimą.
+- **Monte Palace:** `18,00 EUR` / dorosły; ogród `09:00-19:00` (kwiecień-wrzesień); codziennie poza 25.12.
+- **Rocha do Navio cable car:** godziny `09:00-13:00` i `14:00-17:00` (wkd do `18:00`); cena — sprawdź na miejscu.
 
 ### 5.2 Koszty do sprawdzenia
 
-- Achadas da Cruz cable car.
-- Rocha do Navio cable car.
-- Porto Moniz entry.
-- Boat-return z PR8.
-- Monte Palace garden entry.
+- Boat-return z PR8 (osobna usługa wodna, nie powrót do auta; budżet osobny, nie bazowy).
+- Rocha do Navio cable car — aktualna cena.
+- Cristo Rei / Garajau — status `CONDICIONADO` wg oficjalnych źródeł, sprawdzaj dzień wcześniej.
+- PR1 — reguła „dzień wcześniej vs dzień dnia" w SIMplifica; brak jednoznacznej oficjalnej polityki last-minute dla maja 2026.
 
 ### 5.3 Rezerwacje i zakupy
 
 - **Teraz / przed wyjazdem:** auto, nocleg, parking noclegu, konto w SIMplifica, zapisanie danych offline.
-- **48-72 h wcześniej:** kupić PR1, PR8 i PR11 lub PR9.1 zgodnie z finalną pogodą.
-- **Dzień wcześniej:** sprawdzić IFCN + Visit Madeira + SIMplifica dla PR1/PR8/PR9/PR9.1/PR11; zrobić screenshoty potwierdzeń.
-- **W dniu atrakcji:** Carreiros do Monte kupowane na miejscu; północne i zachodnie cable cars traktować jako operacyjnie warunkowe.
+- **Domyślnie wieczorem dnia poprzedniego:** rezerwacja PR1, PR8, PR11 albo PR9.1 po finalnej prognozie i statusie IFCN; zrobić screenshoty potwierdzeń i zapisać kody QR offline.
+- **Okno 48-72 h wcześniej:** tylko gdy prognoza i status są stabilne i świadomie akceptujesz mniejszą elastyczność.
+- **W dniu atrakcji:** Carreiros do Monte kupowane na miejscu, **gotówka**; północne i zachodnie cable cars traktować jako operacyjnie warunkowe.
 - **Zasada:** nie zakładać elastycznego rebookingu, jeśli oficjalne zamknięcie nie daje do tego podstawy.
 
-### 5.4 Pogoda i backupi
+### 5.4 Rytuał 20:00 (wieczór dnia poprzedniego)
+
+Stała, krótka checklista wieczorna — kolejność ma znaczenie.
+
+1. **IFCN** — status trasy na jutro.
+2. **SIMplifica** — rezerwacja + QR, screen do galerii.
+3. **Pogoda** — wiatr, chmura, widoczność (IPMA jest najlepszą apką na chmury orograficzne).
+4. **Parking** — dojazd, alternatywa, godzina startu.
+5. **Sprzęt** — woda, kurtka wiatrowa, powerbank, gotówka.
+6. **Offline** — screeny rezerwacji, mapa offline, adres bazy.
+
+### 5.5 Pogoda i backupi
 
 - **Góry w chmurach:** nie marnować Areeiro; zamienić z dniem południowym albo wschodnim.
 - **Wschód bardzo wietrzny:** skrócić PR8 do viewpointów lub przerzucić dzień na Machico / południe.
 - **Morze wzburzone:** Seixal i wejścia do wody skreślić bez dyskusji; zostawić viewpointy i Porto Moniz jako spacer/lunch.
 - **Cable car off:** grać górne miradouros i zachód, nie próbować na siłę ratować identycznego programu.
 - **Fanal:** tylko za mgłą. Bez mgły nie jest najlepszym ROI dla tego briefu.
+- **Areeiro niedostępne cały tydzień:** brak substytutu tej samej klasy krajobrazowej. Priorytet: PR8 sunrise deck → Eira do Serrado + południowe viewpointy → zachodnie wybrzeże (Ponta do Pargo, Garganta Funda). Bez dokładania cardio i bez pełnego PR9.
+- **Tryb „chory / zero energii / jedna osoba odpada":** zostań blisko bazy (promień do 45 min jazdy), łatwy parking, toaleta, łatwy powrót. Opcje: Madalena do Mar, seafront Ponta do Sol, kawa w Ribeira Brava. Zero tras z rezerwacją i sztywnymi godzinami.
+- **Zachód mglisty 12-13.05 (cable cars off):** D6 → same viewpointy + lunch, zero wody; D7 → Ponta da Ladeira + Garganta Funda + Ponta do Pargo bez zjazdu Achadas. Fallback: ucieczka na południe.
 
-### 5.5 Final checks
+### 5.6 Okno lunchowe — twarda reguła
+
+Kuchnie poza Funchal zamykają się zwykle `15:00-18:30`. Jeśli przekroczysz to okno w górach, lądujesz w supermarkecie.
+
+- **Twarde okno lunch: `13:00-14:30`** — dopasuj zakończenie modułu terenowego.
+- Po `15:00` zakładaj Funchal lub bazę, nie okolice szlaków.
+- Supermarkety Pingo Doce / Continente — plan B na zimne jedzenie.
+
+### 5.7 Bezpieczeństwo sprzętu foto
+
+- Motorówka PR8, Seixal, Porto Moniz, wietrzny PR8 — **tylko w dry-bagu / zamykanym plecaku**.
+- Salt-spray z Atlantyku trwale niszczy elektronikę i optykę.
+- Nic na skałach przy surge; żadnego statywu na odsłoniętej krawędzi przy silnym wietrze.
+- Pokrowiec przeciwdeszczowy na każdy dzień terenowy.
+
+### 5.8 Auto, drogi, ubezpieczenie
+
+- Wykup **CDW bez wkładu własnego** — na Maderze to standard.
+- **Żadnych dróg szutrowych / nieutwardzonych** — większość wypożyczalni uznaje to za złamanie umowy.
+- Polityka paliwowa: zwykle „full-to-full" — sprawdź w umowie.
+- Zdjęcia stanu auta przy odbiorze i zdaniu (cały obwód + wnętrze).
+- Tunele, strome serpentyny, wąskie drogi — tempo adekwatne do widoczności.
+- Mapy offline (Google Maps / Maps.me / OsmAnd) pobrane przed wyjazdem.
+- eSIM aktywowany zaraz po lądowaniu — zasięg w dolinach bywa zerowy.
+- Numer alarmowy **112** (UE-wspólny); apteczka w aucie.
+
+### 5.9 Final checks
 
 - kody QR z SIMplifica offline,
 - status PR1 / PR8 / PR11 / PR9.1,
 - warunki morza dla Seixal,
 - praca cable cars,
-- godziny Monte / cable car / Carreiros, jeśli ten backup ma wejść do gry,
-- polityka paliwowa i zwrot auta,
+- godziny Monte / cable car / Carreiros (gotówka), jeśli backup miejski ma wejść do gry,
+- polityka paliwowa i zwrot auta, CDW, zdjęcia auta,
 - warstwa na wiatr i zimny poranek w górach,
-- woda i ochrona przeciwsłoneczna na PR8.
+- woda, ochrona przeciwsłoneczna i dry-bag na PR8 i północno-zachodnie wybrzeże.
 
 ## 6. Appendix źródeł
 
@@ -458,19 +503,20 @@ Helpery w tej wersji służą tylko do światła i kontekstu. Nie podnoszą stat
 
 ### 6.3 Do ponownej kontroli
 
-- PR9 exact usable extent vs page-level closure badge  
+- PR9 exact usable extent vs page-level closure badge (status: obecnie **zamknięty** wg IFCN)  
   https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/
-- PR1 weekday pattern after phased reopening  
+- PR1 weekday pattern after phased reopening (używalny odcinek do Pedra Rija, `4,50 EUR`)  
   https://ifcn.madeira.gov.pt/pt/?catid=146&format=pdf&id=973%3Apr-1-unidirecional&tmpl=component&view=article
-- Cristo Rei conditioned status / exact restriction  
+- Cristo Rei / Garajau — oficjalna strona pomnika ma status `CONDICIONADO`; strona miradouro wygląda normalnie — źródła niespójne.  
   https://visitmadeira.com/pt/o-que-fazer/apaixonados-por-cultura/patrimonio/monumentos-e-arquitetura/estatua-do-cristo-rei-do-garajau/
-- Achadas da Cruz current hours/price  
-  https://visitmadeira.com/en/means-of-transportation/achadas-da-cruz-cable-car/
-- Rocha do Navio current service / price  
+- Rocha do Navio — godziny potwierdzone oficjalnie; cena wymaga sprawdzenia na miejscu.  
   https://visitmadeira.com/en/means-of-transportation/rocha-do-navio-cable-car/
+- Achadas da Cruz — reguła wiatru i dni serwisowe (ceny i godziny: potwierdzone, 3/5 €).  
+  https://www.portomoniz.pt/en/visit/points-interest/cable-car
 - Areeiro parking charges and capacities  
   https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/
-- Accepted payment methods in SIMplifica checkout  
+- Accepted payment methods in SIMplifica checkout; polityka last-minute dla PR1/PR8/PR11 w maju 2026  
   https://simplifica.madeira.gov.pt/services/78-82-259
+- Loty W6 1535 / W6 1536 na 07.05 i 14.05.2026 — źródła wtórne zgodne z planem, brak twardego oficjalnego ekranu Wizz/ANA dla tych dat.
 
 To są punkty, których nie warto traktować jako definitywnie zamkniętych przed samym wyjazdem. W praktyce powinny mieć status **sprawdzić** albo **warunkowe** aż do dnia użycia.

@@ -17,6 +17,19 @@
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pl_PL" />
   <link rel="stylesheet" href="operational-plan.css" />
+  <style>
+    /* Awaryjny fallback: czytelność podstawowa, gdy zewnętrzny CSS zostanie usunięty z cache'u mobilnego */
+    body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; color: #12212b; background: #f7fbf9; line-height: 1.55; }
+    .container { width: min(1120px, calc(100% - 2rem)); margin: 0 auto; padding: 0.5rem 0; }
+    h1, h2, h3, h4 { margin-top: 1.2rem; line-height: 1.2; }
+    a { color: #0b5953; }
+    ul, ol { padding-left: 1.2rem; }
+    .badge { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 999px; background: #e7f6ea; color: #12212b; font-size: 0.85rem; margin: 0.15rem 0.25rem 0.15rem 0; }
+    details { border: 1px solid #d6e1dd; border-radius: 8px; padding: 0.6rem 0.9rem; margin-bottom: 0.6rem; background: #fff; }
+    summary { cursor: pointer; font-weight: 600; }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .menu-button { display: none; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -63,7 +76,7 @@
             <span class="badge badge--fact-check">Fakt: Wymaga fact-checku</span>
             <span class="badge badge--conditional">Fakt: Warunkowe</span>
           </div>
-          <p class="eyebrow" style="color: rgba(247, 251, 255, 0.86); margin-top: 1rem;">
+          <p class="eyebrow" style="color: rgba(247, 251, 255, 0.95); margin-top: 1rem;">
             07.05.2026 — 14.05.2026
           </p>
           <h1>Madera jako plan terenowy: 6 pełnych dni, 2 dni operacyjne i decyzje bez improwizacji.</h1>
@@ -75,22 +88,22 @@
 
           <div class="kpi-grid">
             <article class="metric-card">
-              <p class="eyebrow" style="color: rgba(247, 251, 255, 0.7);">Kalendarz</p>
+              <p class="eyebrow" style="color: rgba(247, 251, 255, 0.92);">Kalendarz</p>
               <strong>8 dni kalendarzowych</strong>
               <p>07.05 przylot po południu, 14.05 wylot po południu. Licz 6 pełnych dni + 2 operacyjne.</p>
             </article>
             <article class="metric-card">
-              <p class="eyebrow" style="color: rgba(247, 251, 255, 0.7);">Baza</p>
+              <p class="eyebrow" style="color: rgba(247, 251, 255, 0.92);">Baza</p>
               <strong>1 baza rekomendowana</strong>
               <p>Południowo-centralny pas daje najmniej tarcia przy tych założeniach i tym układzie dni.</p>
             </article>
             <article class="metric-card">
-              <p class="eyebrow" style="color: rgba(247, 251, 255, 0.7);">Rezerwacje</p>
+              <p class="eyebrow" style="color: rgba(247, 251, 255, 0.92);">Rezerwacje</p>
               <strong>3 krytyczne okna</strong>
-              <p>PR1, PR8, PR11 albo PR9.1. Rezerwuj po pogodzie, nie z automatu.</p>
+              <p>PR1, PR8, PR11 albo PR9.1. Domyślnie rezerwuj wieczorem dnia poprzedniego, po prognozie i statusie.</p>
             </article>
             <article class="metric-card">
-              <p class="eyebrow" style="color: rgba(247, 251, 255, 0.7);">Światło</p>
+              <p class="eyebrow" style="color: rgba(247, 251, 255, 0.92);">Światło</p>
               <strong>Wschód 07:15 → 07:09</strong>
               <p>Zachód 20:53 → 20:58. Największe znaczenie ma to dla d2, d3 i d7.</p>
             </article>
@@ -99,17 +112,18 @@
 
         <aside class="hero-aside">
           <div class="panel panel--dark">
-            <p class="eyebrow" style="color: rgba(247, 251, 255, 0.62);">Szybka ocena</p>
+            <p class="eyebrow" style="color: rgba(247, 251, 255, 0.92);">Szybka ocena</p>
             <ul>
               <li>Najważniejsza korekta: plan realnie mieści <strong>6 pełnych modułów</strong>, nie 7.</li>
               <li>Najbardziej wrażliwy dzień: <strong>Areeiro</strong> powinno być na początku pobytu, nie w środku.</li>
-              <li>Najbardziej przeszacowany moduł: <strong>boat-return na PR8</strong> nie jest domyślnym rozwiązaniem.</li>
+              <li>Najbardziej przeszacowany moduł: <strong>boat-return na PR8</strong> — nie jest powrotem do auta przy trailheadzie, tylko osobną usługą wodną.</li>
               <li>Monte i Funchal zostają <strong>opcją</strong>, a nie rdzeniem całego wyjazdu.</li>
+              <li>Reguła rezerwacji: <strong>wieczorem dnia poprzedniego</strong>; okno 48–72 h tylko gdy prognoza i status są stabilne.</li>
             </ul>
           </div>
 
           <div class="panel panel--dark hero-note">
-            <p class="eyebrow" style="color: rgba(247, 251, 255, 0.62);">Loty</p>
+            <p class="eyebrow" style="color: rgba(247, 251, 255, 0.92);">Loty</p>
             <div class="flight-grid">
               <article class="flight-card">
                 <div class="flight-card__row">
@@ -198,11 +212,11 @@
 
           <article class="status-card">
             <div class="badge-row">
-              <span class="badge badge--fact-check">Fakt: Wymaga fact-checku</span>
+              <span class="badge badge--conditional">Fakt: Warunkowe</span>
             </div>
             <h3>Achadas / Cristo Rei / cable cars</h3>
             <p>
-              Godziny, ceny i dokładne ograniczenia nie są w pełni zamknięte w samym pliku. To dobre opcje warunkowe, ale nie filary planu.
+              Achadas da Cruz: 3,00 € / 5,00 € (1 przejazd / ida-volta), codziennie. Cristo Rei / Garajau — oficjalne źródła niespójne, status <strong>CONDICIONADO</strong> — sprawdzaj dzień wcześniej. Reguła wiatru dla kolejek nadal operacyjnie warunkowa.
             </p>
             <div class="status-card__links">
               <a href="https://visitmadeira.com/en/means-of-transportation/achadas-da-cruz-cable-car/" target="_blank" rel="noopener noreferrer">Visit Madeira — Achadas</a>
@@ -297,18 +311,18 @@
               <span class="badge badge--go">Jedź</span>
               <span class="badge badge--effort-medium">Średni</span>
             </div>
-            <p class="muted">Wyjazd: 05:50–06:10. Najbardziej wrażliwy operacyjnie dzień.</p>
+            <p class="muted">Wyjazd: 05:50 z Ribeira Brava / 06:10 z Ponta do Sol. Najbardziej wrażliwy operacyjnie dzień.</p>
           </article>
 
           <article class="snapshot">
             <p class="snapshot__date">09.05 • sobota</p>
             <h3><a href="#d3">Ponta do Rosto + PR8</a></h3>
             <div class="badge-row">
-              <span class="badge badge--fact-confirmed">Potwierdzone</span>
+              <span class="badge badge--fact-check">Wymaga checku operacyjnego</span>
               <span class="badge badge--trim">Skróć</span>
               <span class="badge badge--effort-medium">Średni</span>
             </div>
-            <p class="muted">Wyjazd: 05:40–06:00. Trzon dnia kończy się przy Casa do Sardinha.</p>
+            <p class="muted">Wyjazd: 05:20 z Ribeira Brava / 05:40 z Ponta do Sol. Trzon dnia kończy się przy Casa do Sardinha.</p>
           </article>
 
           <article class="snapshot">
@@ -360,7 +374,7 @@
             <h3><a href="#d8">Wylot: tylko niskie ryzyko</a></h3>
             <div class="badge-row">
               <span class="badge badge--fact-confirmed">Potwierdzone</span>
-              <span class="badge badge--skip">Odpuszcz</span>
+              <span class="badge badge--skip">Odpuść</span>
               <span class="badge badge--effort-very-light">Bardzo lekki</span>
             </div>
             <p class="muted">Wyjazd: 10:30–11:00. Tnij wszystko, co dodaje chaosu.</p>
@@ -464,7 +478,7 @@
                 <span class="badge badge--fact-check">Fakt: Wymaga fact-checku</span>
                 <span class="badge badge--go">Decyzja: Jedź</span>
                 <span class="badge badge--effort-medium">Wysiłek: Średni</span>
-                <span class="badge badge--neutral">Wyjazd: 05:50–06:10</span>
+                <span class="badge badge--neutral">Wyjazd: 05:50 RB / 06:10 PdS</span>
               </div>
               <div class="rule-grid">
                 <article class="rule-card">
@@ -533,10 +547,10 @@
                 <span class="chevron" aria-hidden="true">▾</span>
               </div>
               <div class="badge-row">
-                <span class="badge badge--fact-confirmed">Fakt: Potwierdzone</span>
+                <span class="badge badge--fact-check">Fakt: Potwierdzony rdzeń / check operacyjny wymagany</span>
                 <span class="badge badge--trim">Decyzja: Skróć</span>
                 <span class="badge badge--effort-medium">Wysiłek: Średni</span>
-                <span class="badge badge--neutral">Wyjazd: 05:40–06:00</span>
+                <span class="badge badge--neutral">Wyjazd: 05:20 RB / 05:40 PdS</span>
               </div>
               <div class="rule-grid">
                 <article class="rule-card">
@@ -577,7 +591,8 @@
                   <h4>Fakty i ryzyka</h4>
                   <ul>
                     <li>Największa wartość: Ponta do Rosto, pierwsza połowa PR8 i Casa do Sardinha.</li>
-                    <li>Boat-return to wariant zewnętrzny, nie domyślna oszczędność wysiłku.</li>
+                    <li><strong>Boat-return nie jest powrotem do zaparkowanego auta</strong> przy Baía d'Abra — to osobna usługa wodna z/do Cais do Sardinha lub Quinta do Lorde. Wymaga osobnej logistyki transferu.</li>
+                    <li><strong>Ostrzeżenie sprzętowe:</strong> motorówka na otwartym Atlantyku generuje gęsty salt-spray. Sprzęt foto tylko w zamykanych, 100% wodoszczelnych workach (dry-bag). Sól trwale niszczy elektronikę i optykę.</li>
                     <li>Ryzyka: silny wiatr, odwodnienie, tłum, mylne założenie że łódź „rozwiąże wszystko”.</li>
                   </ul>
                 </section>
@@ -791,6 +806,7 @@
                   <ul>
                     <li>Potwierdzone jest miejsce i infrastruktura, ale wejście do wody pozostaje warunkowe.</li>
                     <li>Nie wchodź do oceanu „bo już tu jesteś”. To z definicji nie jest dzień obowiązkowej kąpieli.</li>
+                    <li><strong>Ostrzeżenie sprzętowe:</strong> w Seixal i Porto Moniz nieprzewidziane fale regularnie zalewają turystów; sprzęt foto tylko w zamykanym plecaku z pokrowcem przeciwdeszczowym. Nic na skałach przy surge.</li>
                     <li>Ryzyka: swell, śliskie skały, tłum w Porto Moniz, północ gorsza pogodowo niż południe.</li>
                   </ul>
                 </section>
@@ -888,7 +904,7 @@
               </div>
               <div class="badge-row">
                 <span class="badge badge--fact-confirmed">Fakt: Potwierdzone</span>
-                <span class="badge badge--skip">Decyzja: Odpuszcz</span>
+                <span class="badge badge--skip">Decyzja: Odpuść</span>
                 <span class="badge badge--effort-very-light">Wysiłek: Bardzo lekki</span>
                 <span class="badge badge--neutral">Wyjazd: 10:30–11:00</span>
               </div>
@@ -977,12 +993,100 @@
             </ul>
           </article>
           <article class="decision-filter__panel">
-            <h3>Odpuszcz bez żalu</h3>
+            <h3>Odpuść bez żalu</h3>
             <ul>
               <li>Robienie z Cabo Girão całego dnia.</li>
               <li>Długie siedzenie w Santanie tylko dlatego, że „już jesteś”.</li>
               <li>Monte / Carreiros tylko dlatego, że to klasyk.</li>
               <li>Dodatkowe miradouros, które rozwalają rytm bez realnego zysku.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-intro">
+          <p class="eyebrow">Tryby awaryjne i operacyjne</p>
+          <h2>Warianty, które nie wymagają improwizacji</h2>
+          <p class="muted">
+            Awaria pogodowa, zdrowotna albo infrastrukturalna nie powinna wywalać całego wyjazdu. Te moduły czytasz wtedy, gdy plan A się sypie — zanim zaczniesz kombinować w aucie.
+          </p>
+        </div>
+
+        <div class="key-grid">
+          <article class="key-card">
+            <h3>Areeiro niedostępne cały tydzień</h3>
+            <p><strong>Brak substytutu tej samej klasy krajobrazowej.</strong> Zamiast dokładać cardio, przestaw priorytety:</p>
+            <ol>
+              <li>PR8 sunrise deck (Ponta do Rosto) — najmocniejszy alternatywny poranek.</li>
+              <li>Eira do Serrado + południowe viewpointy — moduł górski bez PR1.</li>
+              <li>Zachodnie wybrzeże (Ponta do Pargo, Garganta Funda) zamiast „dodatkowego cardio”.</li>
+              <li>Bez improwizowanego pełnego PR9 — status pozostaje zamknięty.</li>
+            </ol>
+          </article>
+
+          <article class="key-card">
+            <h3>Tryb „ktoś chory / zero energii”</h3>
+            <ul>
+              <li>Zostań blisko bazy: promień do 45 min jazdy, max.</li>
+              <li>Priorytet: łatwy parking, toaleta, łatwy powrót.</li>
+              <li>Opcje: Madalena do Mar, Ponta do Sol seafront, kawa w Ribeira Brava.</li>
+              <li>Zero trasy wymagającej rezerwacji i sztywnych godzin.</li>
+              <li>Odwołaj SIMplifica z wyprzedzeniem, jeśli jest ekspozycja finansowa.</li>
+            </ul>
+          </article>
+
+          <article class="key-card">
+            <h3>Zachód mglisty 12–13.05 (cable cars off)</h3>
+            <ul>
+              <li>D6 → same viewpointy + lunch, zero wody.</li>
+              <li>D7 → Ponta da Ladeira + Garganta Funda + Ponta do Pargo bez zjazdu Achadas.</li>
+              <li>Fallback: ucieczka na południe (Cabo Girão, Madalena).</li>
+              <li>Nie kompensuj straty przez „jeszcze jeden Funchal”.</li>
+            </ul>
+          </article>
+
+          <article class="key-card">
+            <h3>Okno lunchowe — twarda reguła</h3>
+            <p>Kuchnie poza Funchal zamykają się zwykle 15:00–18:30. Jeśli przekroczysz to okno w górach, lądujesz w supermarkecie.</p>
+            <ul>
+              <li><strong>Twarde okno lunch: 13:00–14:30</strong> — dopasuj zakończenie modułu terenowego.</li>
+              <li>Po 15:00 zakładaj Funchal lub bazę, nie okolice szlaków.</li>
+              <li>Supermarkety Pingo Doce / Continente — plan B na zimne jedzenie.</li>
+            </ul>
+          </article>
+
+          <article class="key-card">
+            <h3>Sprzęt fotograficzny — bezpieczeństwo</h3>
+            <ul>
+              <li>Motorówka, PR8, Seixal, Porto Moniz — <strong>tylko w dry-bagu</strong>.</li>
+              <li>Salt-spray z Atlantyku niszczy elektronikę i optykę trwale.</li>
+              <li>Nic na skałach przy surge; żadnego statywu na odsłoniętej krawędzi w wietrze.</li>
+              <li>Pokrowiec przeciwdeszczowy na każdy dzień terenowy.</li>
+            </ul>
+          </article>
+
+          <article class="key-card">
+            <h3>Auto i drogi — zasady CDW</h3>
+            <ul>
+              <li>Wykup <strong>CDW bez wkładu własnego</strong>; na Maderze to standard spokoju.</li>
+              <li><strong>Żadnych dróg szutrowych / nieutwardzonych</strong> — większość wypożyczalni uznaje to za złamanie umowy.</li>
+              <li>Polityka paliwowa: zwykle „full-to-full” — sprawdź w umowie.</li>
+              <li>Zdjęcia stanu auta przy odbiorze i zdaniu (cały obwód + wnętrze).</li>
+              <li>Tunele, strome serpentyny, wąskie drogi — tempo adekwatne do widoczności.</li>
+            </ul>
+          </article>
+
+          <article class="key-card">
+            <h3>Offline + nawigacja</h3>
+            <ul>
+              <li>Mapy offline (Google Maps / Maps.me / OsmAnd) pobrane przed wyjazdem.</li>
+              <li>eSIM aktywowany zaraz po lądowaniu — zasięg w dolinach bywa zerowy.</li>
+              <li>Apteczka + numer alarmowy <strong>112</strong> (UE-wspólny).</li>
+              <li><strong>IPMA</strong> (oficjalny portugalski instytut meteorologiczny) — jedyna sensowna apka na chmury orograficzne.</li>
+              <li>Screeny rezerwacji PR1/PR8/PR11 w galerii, nie tylko w mailu.</li>
             </ul>
           </article>
         </div>
@@ -1053,9 +1157,9 @@
               <article class="cost-card">
                 <div class="cost-card__head">
                   <strong>Achadas da Cruz cable car</strong>
-                  <span class="badge badge--fact-check">Sprawdź przed dniem</span>
+                  <span class="badge badge--fact-confirmed">3,00 € / 5,00 €</span>
                 </div>
-                <p class="cost-card__why">W dostępnych oficjalnych stronach brak jednej, twardej ceny wprost w otwartym tekście.</p>
+                <p class="cost-card__why">Potwierdzone oficjalnie (gmina Porto Moniz): 3 € w jedną stronę, 5 € ida-volta; działa codziennie. Reguła wiatru nadal operacyjnie warunkowa.</p>
               </article>
               <article class="cost-card">
                 <div class="cost-card__head">
@@ -1067,23 +1171,23 @@
               <article class="cost-card">
                 <div class="cost-card__head">
                   <strong>Porto Moniz pools entry</strong>
-                  <span class="badge badge--fact-check">Sprawdź na miejscu</span>
+                  <span class="badge badge--fact-confirmed">3,00 € / os.</span>
                 </div>
-                <p class="cost-card__why">Infrastruktura jest potwierdzona, ale cena nie była pobrana w tej iteracji planu.</p>
+                <p class="cost-card__why">Potwierdzone oficjalnie (gmina Porto Moniz): 3 € dla osób powyżej 3 lat. Godziny: 09:00–19:00 w czasie letnim, 09:00–17:00 zimą. Otwarte cały rok.</p>
               </article>
               <article class="cost-card">
                 <div class="cost-card__head">
                   <strong>Monte Palace</strong>
-                  <span class="badge badge--fact-check">Sprawdź przy zakupie</span>
+                  <span class="badge badge--fact-confirmed">18 € / dorosły</span>
                 </div>
-                <p class="cost-card__why">Godziny są dostępne, ale cena nie została tu zafiksowana jako pewnik.</p>
+                <p class="cost-card__why">Potwierdzone u operatora: 18 €; ogród 09:00–19:00 (kwiecień–wrzesień), codziennie poza 25.12. Moduł opcjonalny, nie core day.</p>
               </article>
               <article class="cost-card">
                 <div class="cost-card__head">
                   <strong>Boat-return PR8</strong>
                   <span class="badge badge--conditional">Nie budżetuj bazowo</span>
                 </div>
-                <p class="cost-card__why">To zewnętrzny wariant logistyczny, nie część podstawowego dnia wschodniego.</p>
+                <p class="cost-card__why">To osobna usługa wodna z/do Cais do Sardinha lub Quinta do Lorde — <strong>nie jest powrotem do zaparkowanego auta</strong> przy Baía d'Abra. Wymaga osobnej logistyki transferu.</p>
               </article>
             </div>
           </article>
@@ -1103,9 +1207,9 @@
             <h3>Co rezerwować i kiedy</h3>
             <ul>
               <li>Teraz: auto, nocleg, parking przy bazie, konto w SIMplifica i zapisane loginy do użycia bez internetu.</li>
-              <li>48–72 h wcześniej: PR1, PR8, PR11 albo PR9.1 po finalnej pogodzie.</li>
-              <li>Dzień wcześniej: IFCN + Visit Madeira + SIMplifica oraz screenshoty potwierdzeń.</li>
-              <li>W dniu atrakcji: Carreiros na miejscu; cable cars sprawdzaj operacyjnie rano.</li>
+              <li><strong>Domyślnie wieczorem dnia poprzedniego</strong>: PR1, PR8, PR11 albo PR9.1 — po finalnej prognozie i statusie IFCN.</li>
+              <li>Okno 48–72 h wcześniej: tylko gdy prognoza i status są stabilne i świadomie akceptujesz mniejszą elastyczność.</li>
+              <li>W dniu atrakcji: Carreiros na miejscu (gotówka!); cable cars sprawdzaj operacyjnie rano.</li>
             </ul>
           </article>
           <article class="key-card">
@@ -1144,12 +1248,15 @@
             </ul>
           </article>
           <article class="check-card">
-            <h3>Wieczorem przed dniem</h3>
-            <ul>
-              <li>IFCN + Visit Madeira + SIMplifica.</li>
-              <li>Mapa parkingu i realny czas dojazdu.</li>
-              <li>Woda, kurtka, warstwa na wiatr, powerbank, screeny rezerwacji.</li>
-            </ul>
+            <h3>Rytuał 20:00 (wieczór dnia poprzedniego)</h3>
+            <ol>
+              <li>IFCN — status trasy na jutro.</li>
+              <li>SIMplifica — rezerwacja + QR, screen do galerii.</li>
+              <li>Pogoda: wiatr, chmura, widoczność (IPMA).</li>
+              <li>Parking: dojazd, alternatywa, godzina startu.</li>
+              <li>Sprzęt: woda, kurtka wiatrowa, powerbank, gotówka.</li>
+              <li>Screeny i mapa offline — zapisz przed snem.</li>
+            </ol>
           </article>
           <article class="check-card">
             <h3>W poranek dnia</h3>
@@ -1217,7 +1324,7 @@
     <div class="container footer__inner">
       <div>
         <strong>Madera 07–14.05.2026</strong>
-        <p class="muted">Wersja mobilna i odporna na brak internetu: treść, style i kontrolki działają lokalnie; zewnętrzne linki nadal wymagają internetu.</p>
+        <p class="muted">Wersja mobilna: treść HTML i kontrolki działają lokalnie. Pełny wygląd wymaga dołączonego pliku <code>operational-plan.css</code> (współdzielony z HTML) — przy intensywnym użyciu urządzenia cache może zostać zwolniony przez system, wtedy strona wyświetli się w uproszczonym formacie. Zewnętrzne linki wymagają internetu.</p>
       </div>
       <div class="source-list">
         <a href="https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados.html" target="_blank" rel="noopener noreferrer">IFCN</a>

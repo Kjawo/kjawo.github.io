@@ -187,7 +187,7 @@ h3 {
 }
 
 .nav-links a {
-  color: rgba(247, 251, 255, 0.82);
+  color: rgba(247, 251, 255, 0.92);
   text-decoration: none;
   font-size: 0.95rem;
 }
@@ -259,7 +259,7 @@ h3 {
 }
 
 .hero p {
-  color: rgba(247, 251, 255, 0.82);
+  color: rgba(247, 251, 255, 0.92);
 }
 
 .panel {
@@ -282,7 +282,7 @@ h3 {
 
 .panel--dark p,
 .panel--dark li {
-  color: rgba(247, 251, 255, 0.84);
+  color: rgba(247, 251, 255, 0.93);
 }
 
 .panel--soft {
