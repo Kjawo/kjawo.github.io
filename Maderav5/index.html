@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#2a2820">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Madera 2026 · Centrum Dowodzenia</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%232a2820'/><path d='M4 22 Q8 18 12 20 T20 18 T28 22' stroke='%23d4a14a' fill='none' stroke-width='1.5'/><path d='M4 18 Q8 14 12 16 T20 14 T28 18' stroke='%23d4a14a' fill='none' stroke-width='1' opacity='0.6'/></svg>">
+</head>
+<body>
+
+<!-- TOPO BACKGROUND -->
+<div class="topo-bg" aria-hidden="true">
+  <svg xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1200 800" fill="none" stroke="currentColor" stroke-width="0.5" style="color: var(--fg);">
+    <!-- contour lines -->
+    <path d="M-50,120 Q200,80 450,140 T950,120 T1250,150" opacity="0.3"/>
+    <path d="M-50,180 Q220,150 460,200 T970,180 T1250,210" opacity="0.25"/>
+    <path d="M-50,240 Q240,220 480,260 T990,240 T1250,270" opacity="0.3"/>
+    <path d="M-50,310 Q260,290 500,330 T1010,310 T1250,340" opacity="0.25"/>
+    <path d="M-50,380 Q280,360 520,400 T1030,380 T1250,410" opacity="0.3"/>
+    <path d="M-50,460 Q300,440 540,480 T1050,460 T1250,490" opacity="0.25"/>
+    <path d="M-50,540 Q320,520 560,560 T1070,540 T1250,570" opacity="0.3"/>
+    <path d="M-50,620 Q340,600 580,640 T1090,620 T1250,650" opacity="0.25"/>
+    <path d="M-50,700 Q360,680 600,720 T1110,700 T1250,730" opacity="0.3"/>
+    <!-- small crosshair ticks -->
+    <g opacity="0.3">
+      <line x1="100" y1="0" x2="100" y2="20"/>
+      <line x1="300" y1="0" x2="300" y2="20"/>
+      <line x1="500" y1="0" x2="500" y2="20"/>
+      <line x1="700" y1="0" x2="700" y2="20"/>
+      <line x1="900" y1="0" x2="900" y2="20"/>
+      <line x1="1100" y1="0" x2="1100" y2="20"/>
+    </g>
+  </svg>
+</div>
+
+<div class="app">
+
+  <!-- HEADER -->
+  <header class="hdr">
+    <div>
+      <div class="coords" style="margin-bottom: 6px;">
+        <span class="tick">32°44′N · 16°57′W</span>
+        <span class="tick">ARQUIPÉLAGO DA MADEIRA</span>
+        <span class="tick">RM-PRT</span>
+      </div>
+      <h1 id="trip-title">MADEIRA</h1>
+      <div class="sub">
+        <span id="trip-sub" class="label" style="color:var(--amber-2);">PLAN OPERACYJNY</span>
+        · <span id="trip-dates" class="mono">07.05 – 14.05.2026</span>
+        · <span id="trip-base" class="mono" style="color:var(--fg-3);">BAZA: Ribeira Brava – Ponta do Sol</span>
+      </div>
+    </div>
+    <div class="hdr-right hide-mobile">
+      <div class="tick">PRZYLOT</div>
+      <div class="mono" style="font-size:13px;"><span id="arr-flight" style="color:var(--amber-2);font-weight:600;">W6 1535</span> · <span id="arr-route">WAW 11:40 → FNC 16:05</span></div>
+      <div class="tick" style="margin-top:4px;">WYLOT</div>
+      <div class="mono" style="font-size:13px;"><span id="dep-flight" style="color:var(--amber-2);font-weight:600;">W6 1536</span> · <span id="dep-route">FNC 16:45 → WAW 22:50</span></div>
+    </div>
+  </header>
+
+  <!-- PROGRESS -->
+  <div class="progress">
+    <span id="progress-label">DZIEŃ –/8</span>
+    <div class="progress-track">
+      <div id="progress-fill" class="progress-fill" style="width:0;"></div>
+      <div id="progress-ticks" class="progress-ticks"></div>
+    </div>
+    <span class="mono" style="color:var(--fg-3);">6 TERENOWYCH · 2 OPERACYJNE</span>
+  </div>
+
+  <!-- TIMELINE -->
+  <section class="timeline-wrap" aria-label="Timeline 8 dni">
+    <div class="row" style="justify-content:space-between; margin-bottom: 4px;">
+      <span class="label">◈ TIMELINE · 8 DNI</span>
+      <span class="tick">← → klawiatura / swipe</span>
+    </div>
+    <div class="timeline-scroll">
+      <div id="timeline" class="timeline"></div>
+    </div>
+  </section>
+
+  <!-- DAY CARD -->
+  <section id="day-card" class="day-card" aria-live="polite"></section>
+
+  <!-- FOOTER -->
+  <footer style="margin-top:40px;padding:20px 4px;border-top:1px solid var(--border);color:var(--fg-3);font-family:var(--ff-mono);font-size:10px;letter-spacing:0.12em;text-transform:uppercase;text-align:center;line-height:1.8;">
+    NAJPIERW POMÓC PODEJMOWAĆ DECYZJE W PODRÓŻY · POTEM WYGLĄDAĆ DOBRZE NA PAPIERZE<br>
+    STATUSY ZMIENIAJĄ SIĘ WARUNKOWO · RYTUAŁ 20:00 WIECZÓR DNIA POPRZEDNIEGO · NIE RANO W AUCIE<br>
+    DZIAŁA OFFLINE · DANE ZAPISYWANE LOKALNIE
+  </footer>
+
+</div>
+
+<!-- EVENING PILL -->
+<button id="evening-pill" class="evening-pill" title="Rytuał 20:00">
+  <span class="dot"></span> RYTUAŁ 20:00
+</button>
+
+<!-- TWEAKS PANEL -->
+<aside id="tweaks-panel" class="tweaks-panel">
+  <h4>◈ TWEAKS</h4>
+  <div class="tweak-group">
+    <div class="label" style="font-size:10px;">WARIANT PLANU</div>
+    <div class="tweak-opts" data-tweak="variant">
+      <button data-val="rec">Rekomend.</button>
+      <button data-val="relax">Relaks</button>
+      <button data-val="iconic">Ikonicz.</button>
+    </div>
+    <div id="variant-note" class="mono" style="font-size:10px;color:var(--fg-3);line-height:1.4;margin-top:4px;"></div>
+  </div>
+  <div class="tweak-group">
+    <div class="label" style="font-size:10px;">GĘSTOŚĆ</div>
+    <div class="tweak-opts" data-tweak="density">
+      <button data-val="compact">Kompakt</button>
+      <button data-val="comfort">Komfort</button>
+    </div>
+  </div>
+  <div class="mono" style="font-size:9px;color:var(--fg-3);border-top:1px solid var(--border);padding-top:10px;letter-spacing:0.08em;">TRYB KOLORÓW: AUTO (SYSTEM)</div>
+</aside>
+
+<!-- SHEETS -->
+<div id="sheet-backdrop" class="sheet-backdrop"></div>
+
+<aside id="sheet-evening" class="sheet" role="dialog" aria-label="Rytuał 20:00">
+  <div class="sheet-handle"></div>
+  <div class="sheet-head">
+    <h3>◈ Rytuał 20:00</h3>
+    <button class="sheet-close" aria-label="Zamknij">✕</button>
+  </div>
+  <div id="sheet-evening-body" class="sheet-body"></div>
+</aside>
+
+<aside id="sheet-weather" class="sheet" role="dialog" aria-label="Scenariusze pogodowe">
+  <div class="sheet-handle"></div>
+  <div class="sheet-head">
+    <h3>⌖ Scenariusze pogodowe</h3>
+    <button class="sheet-close">✕</button>
+  </div>
+  <div id="sheet-weather-body" class="sheet-body"></div>
+</aside>
+
+<aside id="sheet-packing" class="sheet" role="dialog" aria-label="Pakowanie">
+  <div class="sheet-handle"></div>
+  <div class="sheet-head">
+    <h3>▲ Checklist pakowania</h3>
+    <button class="sheet-close">✕</button>
+  </div>
+  <div id="sheet-packing-body" class="sheet-body"></div>
+</aside>
+
+<aside id="sheet-costs" class="sheet" role="dialog" aria-label="Koszty">
+  <div class="sheet-handle"></div>
+  <div class="sheet-head">
+    <h3>€ Koszty potwierdzone</h3>
+    <button class="sheet-close">✕</button>
+  </div>
+  <div id="sheet-costs-body" class="sheet-body"></div>
+</aside>
+
+<aside id="sheet-links" class="sheet" role="dialog" aria-label="Linki oficjalne">
+  <div class="sheet-handle"></div>
+  <div class="sheet-head">
+    <h3>↗ Linki oficjalne + auto</h3>
+    <button class="sheet-close">✕</button>
+  </div>
+  <div id="sheet-links-body" class="sheet-body"></div>
+</aside>
+
+<aside id="sheet-map" class="sheet" role="dialog" aria-label="Mapa">
+  <div class="sheet-handle"></div>
+  <div class="sheet-head">
+    <h3>◈ Mapa wyjazdu</h3>
+    <button class="sheet-close">✕</button>
+  </div>
+  <div id="sheet-map-body" class="sheet-body"></div>
+</aside>
+
+<!-- BOTTOM NAV -->
+<nav class="bottom-nav" aria-label="Narzędzia">
+  <button id="btn-map" class="bn-btn" title="Mapa">◈ Mapa</button>
+  <button id="btn-weather" class="bn-btn" title="Pogoda / backupy">⌖ Pogoda</button>
+  <button id="btn-evening" class="bn-btn accent" title="Rytuał 20:00">● 20:00</button>
+  <button id="btn-packing" class="bn-btn" title="Pakowanie">▲ Pakuj</button>
+  <button id="btn-costs" class="bn-btn" title="Koszty">€ Koszty</button>
+  <button id="btn-links" class="bn-btn" title="Linki">↗ Linki</button>
+  <button id="btn-tweaks" class="bn-btn" title="Tweaks">◈</button>
+</nav>
+
+<script>
+// Wymuszenie czystego startu: wyczyść stare cache i odrejestruj poprzednie SW
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.getRegistrations().then(regs => {
+    const hadOld = regs.some(r => r.active && !r.active.scriptURL.includes("sw.js"));
+  });
+}
+if (window.caches) {
+  caches.keys().then(keys => keys.forEach(k => { if (k !== "madera-2026-v3") caches.delete(k); }));
+}
+</script>
+<script src="trip.js?v=2"></script>
+<script src="app.js?v=2"></script>
+</body>
+</html>
