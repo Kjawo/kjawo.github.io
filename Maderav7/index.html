@@ -371,6 +371,12 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .segmented{display:flex;gap:6px;flex-wrap:wrap}
 .decision-btn{min-height:40px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;border-radius:999px;padding:7px 11px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
 .decision-btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.pr1-gates{gap:7px}
+.gate-check{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:start;font-size:12px;color:var(--mgla-100);margin:7px 0}
+.gate-check input{width:16px;height:16px;margin:1px 0 0;accent-color:var(--accent)}
+.gate-status{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--zloto-300);margin-top:10px}
+.gate-status[data-ready="true"]{color:#a4d9ba}
+.gate-status[data-ready="false"]{color:#eab0a3}
 .decision-rec{border:1px solid rgba(255,255,255,.14);border-left:4px solid var(--accent);border-radius:4px;background:rgba(255,255,255,.05);padding:14px}
 .decision-rec .rh{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--zloto-300);margin-bottom:6px}
 .decision-rec .rv{font-family:var(--serif);font-size:24px;line-height:1.1;color:#fff}
@@ -842,6 +848,15 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
             <button class="decision-btn" type="button" data-decision="pr1" data-value="go" aria-pressed="false">GO</button>
             <button class="decision-btn" type="button" data-decision="pr1" data-value="no" aria-pressed="false">NO-GO</button>
           </div>
+        </div>
+        <div class="decision-group pr1-gates" aria-label="Bramki PR1 przed decyzją GO">
+          <div class="dg-label">Bramki PR1 · przed GO</div>
+          <label class="gate-check"><input type="checkbox" data-pr1-gate="official"/><span>IFCN/SIMplifica pokazuje dostępny odcinek.</span></label>
+          <label class="gate-check"><input type="checkbox" data-pr1-gate="qr"/><span>QR i rezerwacja są zapisane offline.</span></label>
+          <label class="gate-check"><input type="checkbox" data-pr1-gate="warnings"/><span>Brak ostrzeżeń pogodowych i terenowych.</span></label>
+          <label class="gate-check"><input type="checkbox" data-pr1-gate="visibility"/><span>Widoczność realna, nie tylko optymistyczna prognoza.</span></label>
+          <label class="gate-check"><input type="checkbox" data-pr1-gate="sleep"/><span>Obie osoby mają minimum 7 h snu.</span></label>
+          <div class="gate-status" id="pr1GateStatus" aria-live="polite">0 / 5 bramek</div>
         </div>
         <div class="decision-group">
           <div class="dg-label">PR8 · Ponta de Sao Lourenco</div>
@@ -1620,7 +1635,8 @@ const DAYS = [
     photos:[
       {file:"Achadas da Cruz, Madeira, view.jpg", label:"Achadas da Cruz", by:"Gerda Arendt · CC BY-SA 4.0", alt:"Klify i fajã przy Achadas da Cruz na zachodzie Madery"},
       {file:"Madeira-Ponta do Pargo-lands end-03ESD.jpg", label:"Ponta do Pargo · klify", by:"Rikki Mitterer · CC BY-SA 4.0", alt:"Klify zachodniego krańca Madery w rejonie Ponta do Pargo"},
-      {source:"https://visitmadeira.com/en/where-to-go/madeira/west-coast/calheta/garganta-funda-waterfall/", label:"Garganta Funda", by:"Visit Madeira · official", alt:"Wodospad Garganta Funda przy Ponta do Pargo na zachodzie Madery"}
+      {source:"https://visitmadeira.com/en/where-to-go/madeira/west-coast/calheta/garganta-funda-waterfall/", label:"Garganta Funda", by:"Visit Madeira · official", alt:"Wodospad Garganta Funda przy Ponta do Pargo na zachodzie Madery"},
+      {src:"assets/day/d07-forest-fanal-fog-optional-01.jpg", source:"assets/day/d07-forest-fanal-fog-optional-01.jpg", scene:"forest", label:"Fanal · tylko przy mgle", by:"Lokalny asset · offline", alt:"Mglisty las Fanal jako opcjonalny objazd tylko przy aktywnej mgle"}
     ]
   },
   { n:8, date:"14.05", dow:"czw", kind:"op", kindLabel:"operacyjny",
@@ -1818,6 +1834,13 @@ const MODE_LABELS = {
   low:"Low energy",
   "72h":"72 h złej pogody"
 };
+const PR1_GATES = [
+  {id:"official", label:"IFCN/SIMplifica"},
+  {id:"qr", label:"QR offline"},
+  {id:"warnings", label:"Brak ostrzeżeń"},
+  {id:"visibility", label:"Widoczność"},
+  {id:"sleep", label:"7 h snu"}
+];
 const DAY_ENRICHMENT = {
   1:{scene:"base", modeFit:["bad","low","72h"], decisionRole:"travel", riskFocus:["operator","zmeczenie"], photos:["assets/day/d01-base-fnc-airport-01.jpg","assets/day/d01-base-ponta-do-sol-01.jpg","assets/day/d01-base-madalena-promenade-01.jpg"]},
   2:{scene:"ridge", modeFit:["good"], decisionRole:"pr1", riskFocus:["pogoda","szlak","parking","zmeczenie"], photos:["assets/day/d02-ridge-pico-areeiro-01.jpg","assets/day/d02-ridge-ninho-da-manta-01.jpg","assets/day/d02-ridge-eira-do-serrado-01.jpg"]},
@@ -1825,7 +1848,7 @@ const DAY_ENRICHMENT = {
   4:{scene:"base", modeFit:["bad","low","72h"], decisionRole:"recovery", riskFocus:["parking","operator"], photos:["assets/day/d04-base-cabo-girao-01.jpg","assets/day/d04-base-camara-de-lobos-01.jpg","assets/day/d04-base-rota-do-banana-01.jpg"]},
   5:{scene:"forest", modeFit:["bad","low"], decisionRole:"base", riskFocus:["pogoda","szlak","operator"], photos:["assets/day/d05-forest-ribeiro-frio-01.jpg","assets/day/d05-forest-balcoes-01.jpg","assets/day/d05-forest-santana-01.jpg"]},
   6:{scene:"ocean", modeFit:["good","bad","low"], decisionRole:"base", riskFocus:["morze","parking"], photos:["assets/day/d06-ocean-veu-da-noiva-01.jpg","assets/day/d06-ocean-seixal-black-sand-01.jpg","assets/day/d06-ocean-porto-moniz-pools-01.jpg"]},
-  7:{scene:"west", modeFit:["good","low"], decisionRole:"operator", riskFocus:["pogoda","operator","zmeczenie"], photos:["assets/day/d07-west-achadas-da-cruz-01.jpg","assets/day/d07-west-ponta-do-pargo-01.jpg","assets/day/d07-west-garganta-funda-01.jpg"]},
+  7:{scene:"west", modeFit:["good","low"], decisionRole:"operator", riskFocus:["pogoda","operator","zmeczenie"], photos:["assets/day/d07-west-achadas-da-cruz-01.jpg","assets/day/d07-west-ponta-do-pargo-01.jpg","assets/day/d07-west-garganta-funda-01.jpg","assets/day/d07-forest-fanal-fog-optional-01.jpg"]},
   8:{scene:"base", modeFit:["bad","low","72h"], decisionRole:"travel", riskFocus:["operator"], photos:["assets/day/d08-base-machico-monument-01.jpg","assets/day/d08-base-santa-cruz-beach-01.jpg","assets/day/d08-base-fnc-from-santa-cruz-01.jpg"]}
 };
 
@@ -1847,9 +1870,17 @@ function normalizeDecision(v){
   const ok = x => ["unknown","go","no"].includes(x) ? x : "unknown";
   return {pr1:ok(d.pr1), pr8:ok(d.pr8)};
 }
+function normalizePr1Gates(v){
+  const source = v && typeof v==="object" && !Array.isArray(v) ? v : {};
+  return PR1_GATES.reduce((acc, gate)=>{
+    acc[gate.id] = !!source[gate.id];
+    return acc;
+  }, {});
+}
 const APP_STATE = {
   mode: Object.prototype.hasOwnProperty.call(MODE_REC, LS.get("mode","good")) ? LS.get("mode","good") : "good",
-  decision: normalizeDecision(LS.get("decision", {pr1:"unknown", pr8:"unknown"}))
+  decision: normalizeDecision(LS.get("decision", {pr1:"unknown", pr8:"unknown"})),
+  pr1Gates: normalizePr1Gates(LS.get("pr1Gates", {}))
 };
 const STORAGE_SCHEMA = 1;
 const COMMONS_FILE = "https://commons.wikimedia.org/wiki/File:";
@@ -1889,7 +1920,8 @@ function enrichDayData(){
     d.riskFocus = meta.riskFocus || [];
     (d.photos || []).forEach((p,i)=>{
       if(meta.photos && meta.photos[i]) p.src = meta.photos[i];
-      p.fallbackSrc = d.scene==="ridge" || d.scene==="forest"
+      const fallbackScene = p.scene || d.scene;
+      p.fallbackSrc = fallbackScene==="ridge" || fallbackScene==="forest"
         ? "assets/fallback/madeira-ridge-fallback.jpg"
         : "assets/fallback/madeira-ocean-fallback.jpg";
     });
@@ -1999,7 +2031,11 @@ function setMode(m){
   });
   const r = MODE_REC[m];
   const path = DECISION_PATHS[getDecisionPath()];
-  $("#moderec").innerHTML = `<div class="mrh">${r.h}</div><ul>${r.l.map(x=>`<li>${x}</li>`).join("")}<li><b>Ścieżka PR:</b> ${path.label} — ${path.text}</li></ul>`;
+  const gates = pr1GateStats();
+  const gateNote = APP_STATE.decision.pr1==="go" && !gates.ready
+    ? `<li><b>Bramki PR1:</b> ${gates.done}/${gates.total}; brakuje: ${gates.missingLabels.join(", ")}.</li>`
+    : "";
+  $("#moderec").innerHTML = `<div class="mrh">${r.h}</div><ul>${r.l.map(x=>`<li>${x}</li>`).join("")}<li><b>Ścieżka PR:</b> ${path.label} — ${path.text}</li>${gateNote}</ul>`;
   applyModeToDays(m);
   applyModeToBackups(m);
   applyModeToRisk(m);
@@ -2064,18 +2100,51 @@ function setDecision(key, value){
   updateDecisionUI();
   setMode(APP_STATE.mode);
 }
+function pr1GateStats(){
+  const missing = PR1_GATES.filter(gate=>!APP_STATE.pr1Gates[gate.id]);
+  return {
+    total: PR1_GATES.length,
+    done: PR1_GATES.length - missing.length,
+    ready: missing.length===0,
+    missingLabels: missing.map(gate=>gate.label)
+  };
+}
+function setPr1Gate(id, checked){
+  if(!PR1_GATES.some(gate=>gate.id===id)) return;
+  APP_STATE.pr1Gates[id] = !!checked;
+  LS.set("pr1Gates", APP_STATE.pr1Gates);
+  setMode(APP_STATE.mode);
+}
+function updatePr1GateUI(){
+  $$("[data-pr1-gate]").forEach(box=>{
+    box.checked = !!APP_STATE.pr1Gates[box.dataset.pr1Gate];
+  });
+  const stats = pr1GateStats();
+  const status = $("#pr1GateStatus");
+  if(status){
+    status.dataset.ready = stats.ready ? "true" : "false";
+    status.textContent = stats.ready
+      ? `${stats.done} / ${stats.total} bramek · PR1 może dostać GO`
+      : `${stats.done} / ${stats.total} bramek · brakuje: ${stats.missingLabels.join(", ")}`;
+  }
+}
 function updateDecisionUI(){
+  updatePr1GateUI();
   $$(".decision-btn[data-decision]").forEach(btn=>{
     const active = APP_STATE.decision[btn.dataset.decision]===btn.dataset.value;
     btn.setAttribute("aria-pressed", active ? "true" : "false");
   });
   const pathKey = getDecisionPath();
   const path = DECISION_PATHS[pathKey];
+  const gates = pr1GateStats();
+  const gateWarning = APP_STATE.decision.pr1==="go" && !gates.ready
+    ? `<div class="rt"><b>Bramki PR1:</b> ${gates.done}/${gates.total}. Brakuje: ${gates.missingLabels.join(", ")}. GO jest oznaczone, ale operacyjnie nadal warunkowe.</div>`
+    : "";
   const matrix = $("#matrix");
   if(matrix) matrix.dataset.activePath = pathKey;
   const rec = $("#decisionRec");
   if(rec){
-    rec.innerHTML = `<div class="rh">Rekomendacja</div><div class="rv">${path.label}</div><div class="rt">${path.text}</div>`;
+    rec.innerHTML = `<div class="rh">Rekomendacja</div><div class="rv">${path.label}</div><div class="rt">${path.text}</div>${gateWarning}`;
   }
   $$(".mcell[data-path]").forEach(cell=>{
     const active = cell.dataset.path===pathKey;
@@ -2106,7 +2175,10 @@ function updateHeroBento(){
   setText("heroPath", path.label);
   setText("heroPathText", path.text);
   setText("heroDecision", APP_STATE.decision.pr1==="unknown" ? "PR1 T-1" : (APP_STATE.decision.pr1==="go" ? "PR1 GO" : "PR8 fallback"));
-  setText("heroDecisionText", APP_STATE.decision.pr1==="go" ? "PR1 wygrywa; PR8 zostaje D3." : "Unknown/NO-GO wymaga statusu PR8 i backupu.");
+  const gates = pr1GateStats();
+  setText("heroDecisionText", APP_STATE.decision.pr1==="go"
+    ? (gates.ready ? "PR1 wygrywa; wszystkie bramki są odhaczone." : `PR1 GO warunkowe: ${gates.done}/${gates.total} bramek.`)
+    : "Unknown/NO-GO wymaga statusu PR8 i backupu.");
   const timing = mode==="bad" || mode==="72h" ? DAYS[3] : DAYS[1];
   setText("heroTiming", `D${timing.n} ${timing.light.split(" · ")[0]}`);
   setText("heroTimingText", timing.start);
@@ -2210,6 +2282,7 @@ function importStateFile(file){
       }
     });
     APP_STATE.decision = normalizeDecision(LS.get("decision", {pr1:"unknown", pr8:"unknown"}));
+    APP_STATE.pr1Gates = normalizePr1Gates(LS.get("pr1Gates", {}));
     setMode(LS.get("mode","good"));
     syncChecklistState();
     storageMessage(`Zaimportowano ${restored} kluczy.`);
@@ -2502,6 +2575,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
 
   $$(".mode").forEach(b=>b.addEventListener("click", ()=>setMode(b.dataset.mode)));
   $$(".decision-btn").forEach(b=>b.addEventListener("click", ()=>setDecision(b.dataset.decision, b.dataset.value)));
+  $$("[data-pr1-gate]").forEach(box=>box.addEventListener("change", ()=>setPr1Gate(box.dataset.pr1Gate, box.checked)));
   updateDecisionUI();
   setMode(APP_STATE.mode);
   safeCharts();
