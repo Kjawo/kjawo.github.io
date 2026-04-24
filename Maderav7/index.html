@@ -615,8 +615,8 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 <!-- ===================== HERO IMAGE STRIP ===================== -->
 <div class="strip" aria-label="Madera — krajobrazy referencyjne">
   <figure>
-    <img src="assets/pico-do-areeiro-clouds.jpg" alt="Pico do Areeiro o wschodzie słońca — morze chmur ponad graniami Madery" loading="lazy" decoding="async"/>
-    <figcaption>Pico do Areeiro · sunrise</figcaption>
+    <img src="assets/pico-do-areeiro-clouds.jpg" alt="Pico do Areeiro — morze chmur ponad graniami Madery" loading="lazy" decoding="async"/>
+    <figcaption>Pico do Areeiro — morze chmur ponad graniami Madery</figcaption>
   </figure>
   <figure>
     <img src="assets/ponta-sao-lourenco.jpg" alt="Ponta de São Lourenço — surowy wschodni półwysep z czerwono-ochrowymi klifami i Atlantykiem" loading="lazy" decoding="async"/>
@@ -647,9 +647,10 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
   </div>
   <div class="alert info">
     <strong>Założenia operacyjne</strong>
-    Czasy jazdy zakładają bazę Ribeira Brava – Ponta do Sol. Jeśli śpisz dalej na zachodzie, dolicz 10–20 min do porannych dojazdów. Widełki chodzenia dotyczą wariantu bazowego, nie wersji ambitnej.
+    Czasy jazdy zakładają bazę Ribeira Brava – Ponta do Sol. Jeśli śpisz dalej na zachodzie, dolicz 10–20 min do porannych dojazdów. Widełki chodzenia dotyczą wariantu bazowego, nie wersji ambitnej. Statusy PR1, PR8, PR9/PR9.1, PR11 i cable cars sprawdzaj wieczorem dzień wcześniej, nie rano w aucie.
   </div>
   <div id="dayCards"></div>
+  <noscript>Karty dni, galerie, checklisty i wykresy wymagają włączonego JavaScriptu.</noscript>
 </section>
 
 <!-- ===================== DECISIONS / GO-NO-GO ===================== -->
@@ -1137,19 +1138,21 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
       <p>Kopie w <code>Maderav7/assets/</code>, żeby pasek hero nie zależał od wygasających zewnętrznych URL-i.</p>
       <ul>
         <li><a href="https://commons.wikimedia.org/wiki/File:2016_Nubes_desde_o_Pico_do_Areeiro_Madeira_Portugal-2.jpg" target="_blank" rel="noopener">Pico do Areeiro clouds</a> — Luis Miguel Bugallo Sánchez, CC BY-SA 4.0.</li>
-        <li><a href="https://commons.wikimedia.org/wiki/File:Madeira_-_Ponta_de_S%C3%A3o_Louren%C3%A7o_(32756339843).jpg" target="_blank" rel="noopener">Ponta de São Lourenço</a> — muffinn, CC BY 2.0.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Ponta_de_S%C3%A3o_Louren%C3%A7o_north_north_east.jpg" target="_blank" rel="noopener">Ponta de São Lourenço</a> — Richard Bartz, CC BY-SA 3.0.</li>
         <li><a href="https://commons.wikimedia.org/wiki/File:Piscinas_naturais_-_Porto_Moniz_-_Madeira_01.jpg" target="_blank" rel="noopener">Piscinas naturais, Porto Moniz</a> — H. Zell, CC BY-SA 3.0 / GFDL.</li>
       </ul>
     </div>
     <div class="tier">
       <span class="rank">7</span>
       <h3>Zdjęcia w kartach dni</h3>
-      <p>Galerie dni korzystają z miniatur Wikimedia Commons przez <code>Special:FilePath</code>; podpis każdego zdjęcia prowadzi do strony pliku z autorem i licencją.</p>
+      <p>Galerie dni korzystają z miniatur Wikimedia Commons przez <code>Special:FilePath</code>; pojedyncze wpisy mogą używać bezpośredniego <code>src</code>, jeśli mają osobne źródło. Podpis każdego zdjęcia prowadzi do strony źródłowej.</p>
       <ul>
         <li><a href="https://commons.wikimedia.org/wiki/Category:Madeira" target="_blank" rel="noopener">Wikimedia Commons · Madeira</a></li>
         <li><a href="https://commons.wikimedia.org/wiki/Category:Pico_do_Areeiro" target="_blank" rel="noopener">Commons · Pico do Areeiro</a></li>
         <li><a href="https://commons.wikimedia.org/wiki/Category:Ponta_de_S%C3%A3o_Louren%C3%A7o" target="_blank" rel="noopener">Commons · Ponta de São Lourenço</a></li>
         <li><a href="https://commons.wikimedia.org/wiki/Category:Porto_Moniz" target="_blank" rel="noopener">Commons · Porto Moniz</a></li>
+        <li><a href="https://visitmadeira.com/en/where-to-go/madeira/west-coast/calheta/garganta-funda-waterfall/" target="_blank" rel="noopener">Visit Madeira · Garganta Funda Waterfall</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/Category:Santa_Cruz_(Madeira)" target="_blank" rel="noopener">Commons · Santa Cruz</a></li>
       </ul>
     </div>
   </div>
@@ -1207,6 +1210,7 @@ const DAYS = [
     stops:["Lotnisko FNC · odbiór auta","Szybki sklep (woda 5 l + śniadanie)","Check-in · baza","Kolacja przy bazie","Sen — światło zgaszone do 22:00 przy D2 sunrise"],
     meta:{
       "Cel":"Odebrać auto, dojechać do bazy, nie przepalić energii.",
+      "Wyjazd":"~17:15–17:45 po odbiorze auta",
       "Wyjazd z lotniska":"~17:15–17:45 po odbiorze auta",
       "Czas dnia":"4–6 h od lądowania do kolacji",
       "Rezerwować":"auto, nocleg, parking noclegu",
@@ -1249,6 +1253,7 @@ const DAYS = [
     stops:["Areeiro parking (overflow: krążenie max 10 min)","Sunrise — punkt widokowy","Ninho da Manta","Pedra Rija — TYLKO jeśli oficjalnie dostępna","Śniadanie / kawa niżej","Eira do Serrado","Powrót — regeneracja"],
     meta:{
       "Cel":"Najmocniejszy i najbardziej wrażliwy operacyjnie moduł na początku.",
+      "Wyjazd":"05:50 z Ribeira Brava / 06:10 z Ponta do Sol",
       "Czas dnia":"7–9 h",
       "Rezerwować":"PR1 przez SIMplifica",
       "Sprawdzić":"IFCN, SIMplifica slot, wiatr, zachmurzenie, widoczność, zakres odcinka",
@@ -1281,7 +1286,7 @@ const DAYS = [
     photos:[
       {file:"Around Pico do Areeiro, Madeira, Portugal, June-July 2011 - panoramio (34).jpg", label:"Pico do Areeiro · grań", by:"anagh · CC BY-SA 3.0", alt:"Górska grań w rejonie Pico do Areeiro na Maderze"},
       {file:"Miradouro do «Ninho da Manta», José Lemos Silva, novembro de 2021, Pico do Areeiro - Image 199057.jpg", label:"Ninho da Manta", by:"José Lemos Silva · CC BY-SA 4.0", alt:"Punkt widokowy Ninho da Manta w rejonie Pico do Areeiro"},
-      {file:"Pico do areeiro panorama.jpg", label:"Panorama Areeiro", by:"Nmnogueira · CC BY-SA 3.0", alt:"Panoramiczny widok gór wokół Pico do Areeiro"}
+      {file:"Curral das Freiras from Eira do Serrado 05.jpg", label:"Eira do Serrado", by:"H. Zell · CC BY-SA 3.0", alt:"Widok z Eira do Serrado na dolinę Curral das Freiras"}
     ]
   },
   { n:3, date:"09.05", dow:"sob", kind:"pr", kindLabel:"priorytet",
@@ -1294,6 +1299,7 @@ const DAYS = [
     stops:["Ponta do Rosto sunrise (po bramce snu)","Baia d'Abra trailhead","PR8 do Casa do Sardinha","Dalej tylko przy dobrej energii","Machico — późny lunch","Powrót"],
     meta:{
       "Cel":"Zebrać wschód bez wymuszonego pełnego przejścia.",
+      "Wyjazd":"05:20 z Ribeira Brava / 05:40 z Ponta do Sol tylko po bramce snu; inaczej po śniadaniu",
       "Czas dnia":"7–8,5 h",
       "Rezerwować":"PR8 przez SIMplifica",
       "Sprawdzić":"wiatr, ekspozycję słoneczną, status szlaku; boat-return: operator + transfer",
@@ -1338,6 +1344,7 @@ const DAYS = [
     stops:["Cabo Girão (15–25 min stop)","Câmara de Lobos — kawa / lunch","Madalena do Mar / Rota do Banana","Zachód przy bazie / Ponta do Sol"],
     meta:{
       "Cel":"Lekki dzień po dwóch mocnych porankach.",
+      "Wyjazd":"09:00–09:30",
       "Czas dnia":"5–7 h",
       "Rezerwować":"płatność za Cabo Girão — sprawdź tryb przed podjazdem",
       "Sprawdzić":"pogodę zachód; czy nie zamienić na moduł miejski",
@@ -1365,12 +1372,12 @@ const DAYS = [
     ],
     photos:[
       {file:"Madeira Cabo Girao.jpg", label:"Cabo Girão z Câmara de Lobos", by:"Unukorno · CC BY 3.0", alt:"Widok z Câmara de Lobos w stronę klifu Cabo Girão"},
-      {file:"Cabo Girau from Camara de Lobos (52616794761).jpg", label:"Klif Cabo Girão", by:"Michael Gaylard · CC BY 2.0", alt:"Cabo Girão widziany znad Câmara de Lobos"},
+      {file:"Câmara de Lobos - Harbor 01.jpg", label:"Câmara de Lobos · port", by:"H. Zell · CC BY-SA 3.0", alt:"Port rybacki w Câmara de Lobos na południu Madery"},
       {file:"Banana plantations in Madalena do Mar.jpg", label:"Rota do Banana", by:"Patrice78500 · CC BY-SA 4.0", alt:"Plantacje bananów w Madalena do Mar"}
     ]
   },
   { n:5, date:"11.05", dow:"pn", kind:"bz", kindLabel:"bazowy",
-    title:"Ribeiro Frio · Balcões · Santana · Rocha do Navio",
+    title:"Ribeiro Frio · Balcões · Santana · Rocha do Navio warunkowo",
     headline:"Zielony, spokojniejszy kontrast do dni klifowych.",
     drive:"2:15–3:00", walk:"1:15–2:00", effort:"l", effortLabel:"low",
     start:"08:00–08:30", light:"poranek i późne przedpołudnie", retreat:"niska chmura / brak statusu PR9.1",
@@ -1379,6 +1386,7 @@ const DAYS = [
     stops:["Ribeiro Frio","PR11 Balcões","Santana krótko","Rocha do Navio (viewpoint / cable car jeśli działa)","Powrót"],
     meta:{
       "Cel":"Zielony kontrast bez cardio.",
+      "Wyjazd":"08:00–08:30",
       "Czas dnia":"6–8 h",
       "Rezerwować":"PR11 przez SIMplifica (lub PR9.1, jeśli podmiana)",
       "Sprawdzić":"widoczność Balcões, kolejka Rocha do Navio, status PR9/PR9.1",
@@ -1422,6 +1430,7 @@ const DAYS = [
     stops:["Seixal rano","Véu da Noiva","Porto Moniz — dłuższy stop + lunch","Powrót"],
     meta:{
       "Cel":"Widoki bez cardio.",
+      "Wyjazd":"08:00–08:30",
       "Czas dnia":"6–8 h",
       "Rezerwować":"brak krytycznej rezerwacji potwierdzonej",
       "Sprawdzić":"fale, wiatr, deszcz na północy, możliwość kąpieli i własną gotowość do wejścia do wody",
@@ -1465,6 +1474,7 @@ const DAYS = [
     stops:["Achadas da Cruz → zjazd tylko jeśli działa i nie wieje","Krótki spacer na fajã","Lunch / coffee","Garganta Funda po południu","Ponta do Pargo sunset"],
     meta:{
       "Cel":"Zachodni payoff przy niskim wysiłku.",
+      "Wyjazd":"10:00–10:30",
       "Czas dnia":"10–12 h elapsed od wyjazdu do powrotu",
       "Rezerwować":"brak krytycznej rezerwacji",
       "Sprawdzić":"kolejka, wiatr, edital serwisowy, wodospad, zachmurzenie; spakować rzeczy na wieczór i D8 przed wyjazdem",
@@ -1495,7 +1505,7 @@ const DAYS = [
     photos:[
       {file:"Achadas da Cruz, Madeira, view.jpg", label:"Achadas da Cruz", by:"Gerda Arendt · CC BY-SA 4.0", alt:"Klify i fajã przy Achadas da Cruz na zachodzie Madery"},
       {file:"Madeira-Ponta do Pargo-lands end-03ESD.jpg", label:"Ponta do Pargo · klify", by:"Rikki Mitterer · CC BY-SA 4.0", alt:"Klify zachodniego krańca Madery w rejonie Ponta do Pargo"},
-      {file:"Ponta do Pargo (Madeira, Portugal), Farol da Ponta do Pargo -- 2025 -- 1815.jpg", label:"Farol da Ponta do Pargo", by:"Dietmar Rabich · CC BY-SA 4.0", alt:"Latarnia morska Farol da Ponta do Pargo na zachodnim krańcu Madery"}
+      {src:"https://visitmadeira.com/media/rn4fjikl/garganta-funda-waterfall-viewpoint-madeira-digitaltravelcouple.jpg?width=1920&height=1080&rnd=133250753649900000", source:"https://visitmadeira.com/en/where-to-go/madeira/west-coast/calheta/garganta-funda-waterfall/", label:"Garganta Funda", by:"Visit Madeira · official", alt:"Wodospad Garganta Funda przy Ponta do Pargo na zachodzie Madery"}
     ]
   },
   { n:8, date:"14.05", dow:"czw", kind:"op", kindLabel:"operacyjny",
@@ -1508,6 +1518,7 @@ const DAYS = [
     stops:["Śniadanie","Checkout","Paliwo zgodnie z umową","Ewentualnie jeden łatwy stop na wschodzie","Lekki lunch (Machico / Santa Cruz)","Zwrot auta","Lotnisko 13:45–14:15"],
     meta:{
       "Cel":"Domknąć wyjazd bez stresu.",
+      "Wyjazd":"10:30–11:00 z bazy; wcześniej, jeśli śpisz dalej na zachodzie",
       "Czas dnia":"4–5 h",
       "Rezerwować":"nic nowego poza logistyką auta i lotu",
       "Sprawdzić":"polityka paliwowa, dokumenty, czas dojazdu, zdanie auta, bezpieczeństwo stopu",
@@ -1538,7 +1549,7 @@ const DAYS = [
     ],
     photos:[
       {file:"Monument to the founders of Machico. Madeira, Portugal.jpg", label:"Machico · łatwy lunch", by:"Ввласенко · CC BY-SA 3.0", alt:"Pomnik założycieli Machico na wschodnim wybrzeżu Madery"},
-      {file:"Madeira-Canico-Ponta do Garajau-Christo Rei statue-01ASD.jpg", label:"Cristo Rei / Garajau", by:"Asurnipal · CC BY-SA 4.0", alt:"Pomnik Cristo Rei na Ponta do Garajau"},
+      {file:"Madeira - Santa Cruz - beach (33455456251).jpg", label:"Santa Cruz / FNC · ostatni niski stop", by:"muffinn · CC BY 2.0", alt:"Santa Cruz lub okolice lotniska Madery jako krótki stop przed wylotem"},
       {file:"View of Madeira Airport from Santa Cruz. Portugal.jpg", label:"Santa Cruz przed FNC", by:"Ввласенко · CC BY-SA 3.0", alt:"Widok na lotnisko Madery od strony Santa Cruz"}
     ]
   }
@@ -1705,10 +1716,16 @@ function commonsThumb(file, width=720){
 function commonsFile(file){
   return `${COMMONS_FILE}${commonsPath(file)}`;
 }
+function photoSrc(p, width=720){
+  return p.src || commonsThumb(p.file, width);
+}
+function photoSource(p){
+  return p.source || (p.file ? commonsFile(p.file) : p.src);
+}
 function renderPhotoCard(p, width=720){
   return `<figure class="photo-card">
-    <img src="${commonsThumb(p.file, width)}" alt="${p.alt}" loading="lazy" decoding="async"/>
-    <figcaption><span>${p.label}</span><a href="${commonsFile(p.file)}" target="_blank" rel="noopener">${p.by}</a></figcaption>
+    <img src="${photoSrc(p, width)}" alt="${p.alt}" loading="lazy" decoding="async"/>
+    <figcaption><span>${p.label}</span><a href="${photoSource(p)}" target="_blank" rel="noopener">${p.by}</a></figcaption>
   </figure>`;
 }
 
@@ -1720,7 +1737,7 @@ function renderOverview(){
     const tile = el("a", {href:"#d-"+d.n, class:"daytile", "aria-label":`Dzień ${d.n}, ${d.date}, ${d.title}`});
     const cover = d.photos && d.photos[0] ? d.photos[0] : null;
     tile.innerHTML = `
-      ${cover ? `<div class="daytile-photo"><img src="${commonsThumb(cover.file, 420)}" alt="" loading="lazy" decoding="async"/></div>` : ""}
+      ${cover ? `<div class="daytile-photo"><img src="${photoSrc(cover, 420)}" alt="" loading="lazy" decoding="async"/></div>` : ""}
       <span class="dkind ${d.kind}">${d.kindLabel}</span>
       <div>
         <div class="ddate">${d.date} · ${d.dow}</div>
