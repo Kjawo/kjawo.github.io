@@ -12,46 +12,51 @@
 <style>
 /* ---------- TOKENS ---------- */
 :root{
-  --bazalt-950:#0b1014;
-  --bazalt-900:#11181e;
-  --bazalt-800:#1a2229;
-  --bazalt-700:#263039;
-  --bazalt-600:#3a4752;
-  --bazalt-500:#5a6874;
-  --bazalt-400:#8c97a1;
-  --bazalt-300:#b9c1c8;
-  --bazalt-200:#d8dde1;
-  --mgla-100:#eef1f3;
-  --mgla-050:#f6f7f8;
-  --ocean-900:#0d2230;
-  --ocean-700:#17445e;
-  --ocean-500:#2b7aa3;
-  --ocean-300:#6db0cf;
-  --wawrzyn-800:#1f3a2b;
-  --wawrzyn-600:#35624a;
-  --wawrzyn-400:#69a07f;
-  --sunrise-600:#c64a27;
-  --sunrise-500:#e66a3c;
-  --sunrise-400:#f18a5a;
-  --zloto-500:#d9a341;
-  --zloto-300:#ecc878;
-  --lava-950:#070b0d;
-  --basalt-900:#101719;
-  --laurel-600:#2e6a45;
-  --ocean-600:#0d6d83;
-  --ember-500:#e66a3c;
+  --ember:#c04a22;
+  --ocean:#0f5b74;
+  --laurel:#2e6a45;
+  --gold:#c68a2b;
 
-  --go:#3e8a5a;
-  --warn:#d9a341;
-  --nogo:#c04933;
-  --info:#3d7a99;
+  --bazalt-950:#0f1416;
+  --bazalt-900:#1a2026;
+  --bazalt-800:#20282e;
+  --bazalt-700:#303a41;
+  --bazalt-600:#4a545b;
+  --bazalt-500:#6b7379;
+  --bazalt-400:#8a929a;
+  --bazalt-300:#b8bec2;
+  --bazalt-200:#d9d3c6;
+  --mgla-100:#f0ece3;
+  --mgla-050:#f5f2ec;
+  --ocean-900:#0d2230;
+  --ocean-700:var(--ocean);
+  --ocean-500:#2f7d93;
+  --ocean-300:#82b8c8;
+  --wawrzyn-800:#1f3a2b;
+  --wawrzyn-600:var(--laurel);
+  --wawrzyn-400:#6ca982;
+  --sunrise-600:var(--ember);
+  --sunrise-500:var(--ember);
+  --sunrise-400:#d97852;
+  --zloto-500:var(--gold);
+  --zloto-300:#e0b773;
+  --lava-950:#0d1216;
+  --basalt-900:#1a2026;
+  --laurel-600:var(--laurel);
+  --ocean-600:var(--ocean);
+  --ember-500:var(--ember);
+
+  --go:var(--laurel);
+  --warn:var(--gold);
+  --nogo:#b8412a;
+  --info:var(--ocean);
 
   --ink:var(--bazalt-950);
-  --paper:#f4f2ee; /* warm mist */
-  --paper-2:#ebe7df;
-  --paper-3:#d9d2c5;
-  --rule:rgba(11,16,20,.12);
-  --rule-strong:rgba(11,16,20,.3);
+  --paper:#f5f2ec;
+  --paper-2:#ece7dc;
+  --paper-3:#ddd4c1;
+  --rule:rgba(15,20,22,.11);
+  --rule-strong:rgba(15,20,22,.24);
 
   --mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
   --sans:'Inter', system-ui, sans-serif;
@@ -61,21 +66,21 @@
   --accent:var(--sunrise-500);
   --accent-soft:rgba(230,106,60,.16);
   --hero-image:url("assets/hero/hero-areeiro-cloud-inversion.jpg");
-  --hero-mobile-image:url("assets/hero/hero-pico-arieiro-sunset-unsplash.jpg");
+  --hero-mobile-image:url("assets/hero/hero-mobile-pico-arieiro-ruivo-path.jpg");
   --hero-y:0px;
-  --sensor-glow:0 0 22px rgba(230,106,60,.35), inset 0 1px 0 rgba(255,255,255,.14);
+  --sensor-glow:inset 0 1px 0 rgba(255,255,255,.14);
 }
-[data-scene="ridge"]{--accent:var(--ember-500);--accent-soft:rgba(230,106,60,.18)}
-[data-scene="forest"]{--accent:var(--laurel-600);--accent-soft:rgba(46,106,69,.18)}
-[data-scene="ocean"]{--accent:var(--ocean-600);--accent-soft:rgba(13,109,131,.18)}
-[data-scene="west"]{--accent:var(--zloto-500);--accent-soft:rgba(217,163,65,.18)}
+[data-scene="ridge"]{--accent:var(--ember);--accent-soft:rgba(192,74,34,.14)}
+[data-scene="forest"]{--accent:var(--laurel);--accent-soft:rgba(46,106,69,.14)}
+[data-scene="ocean"]{--accent:var(--ocean);--accent-soft:rgba(15,91,116,.14)}
+[data-scene="west"]{--accent:var(--gold);--accent-soft:rgba(198,138,43,.14)}
 [data-scene="base"]{--accent:var(--ocean-700);--accent-soft:rgba(13,68,94,.14)}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body{
   background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(230,106,60,.11), transparent 60%),
-    radial-gradient(900px 500px at 10% 110%, rgba(23,68,94,.11), transparent 60%),
+    radial-gradient(1200px 600px at 80% -10%, rgba(192,74,34,.06), transparent 60%),
+    radial-gradient(900px 500px at 10% 110%, rgba(15,91,116,.06), transparent 60%),
     linear-gradient(180deg, rgba(11,16,20,.035), transparent 220px),
     var(--paper);
 }
@@ -124,13 +129,7 @@ button{font:inherit;color:inherit}
   isolation:isolate;
 }
 .hero::before{
-  content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(ellipse at 18% 18%, rgba(255,255,255,.2), transparent 24%),
-    linear-gradient(105deg, transparent 0 18%, rgba(255,255,255,.14) 32%, transparent 49% 100%),
-    repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 4px);
-  mix-blend-mode:screen;opacity:.72;
-  transform:translateY(calc(var(--hero-y) * -.16));
+  content:none;
 }
 .hero::after{
   content:"";position:absolute;inset:auto 0 0;height:42px;background:linear-gradient(180deg, transparent, var(--paper));pointer-events:none;
@@ -219,40 +218,34 @@ button{font:inherit;color:inherit}
   .brand .dot{width:7px;height:7px;box-shadow:0 0 0 3px rgba(230,106,60,.18)}
 
   .hero{
-    min-height:calc(100svh - 50px);
-    padding:18px 16px calc(86px + env(safe-area-inset-bottom));
+    min-height:min(590px, 76svh);
+    padding:18px 16px calc(78px + env(safe-area-inset-bottom));
     display:flex;align-items:flex-end;
     background:
-      linear-gradient(180deg, rgba(7,11,13,.04) 0%, rgba(7,11,13,.14) 28%, rgba(7,11,13,.56) 63%, rgba(7,11,13,.92) 100%),
-      var(--hero-mobile-image) center calc(72% + var(--hero-y))/cover no-repeat;
-  }
-  .hero::before{
-    background:
-      radial-gradient(ellipse at 54% 38%, rgba(255,210,150,.2), transparent 28%),
-      linear-gradient(104deg, transparent 0 35%, rgba(255,255,255,.1) 48%, transparent 60% 100%),
-      repeating-linear-gradient(0deg, rgba(255,255,255,.02) 0 1px, transparent 1px 5px);
-    opacity:.54;
+      linear-gradient(90deg, rgba(7,11,13,.36) 0%, rgba(7,11,13,.08) 46%, rgba(7,11,13,.22) 100%),
+      linear-gradient(180deg, rgba(7,11,13,0) 0%, rgba(7,11,13,.08) 34%, rgba(7,11,13,.66) 72%, rgba(7,11,13,.95) 100%),
+      var(--hero-mobile-image) 53% calc(50% + var(--hero-y))/cover no-repeat;
   }
   .hero::after{height:30px}
   .hero-grid{gap:12px;align-content:end}
-  .hero-copy{text-align:left;margin-top:26svh}
+  .hero-copy{text-align:left;margin-top:16svh}
   .kicker{font-size:9px;letter-spacing:.16em;color:rgba(236,200,120,.92)}
-  .title{font-size:clamp(42px,15vw,60px);line-height:.88;margin:8px 0 9px;text-shadow:0 4px 22px rgba(0,0,0,.54)}
+  .title{font-size:clamp(34px,11vw,48px);line-height:.9;margin:8px 0 9px;text-shadow:0 3px 16px rgba(0,0,0,.5)}
   .hero-copy p{max-width:34ch;margin:0;color:rgba(255,255,255,.86);font-size:13px;line-height:1.45}
   .subtitle{justify-content:flex-start;display:grid;grid-template-columns:1fr;gap:3px;margin-top:10px;font-size:10px;line-height:1.35;color:rgba(255,255,255,.78)}
   .subtitle .sep{display:none}
   .quickbar{
-    justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;gap:7px;
-    margin:14px -16px 0;padding:0 16px 5px;scrollbar-width:none;
+    display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px;
+    margin:14px 0 0;padding:0;overflow:visible;
   }
   .quickbar::-webkit-scrollbar{display:none}
-  .chip{min-height:38px;padding:7px 11px;font-size:10px;flex:0 0 auto}
+  .chip{min-height:42px;padding:9px 12px;font-size:10px;justify-content:center;min-width:0}
   .hero .chip{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.3);backdrop-filter:blur(12px)}
   .hero .chip.solid{background:#fff;color:var(--ink)}
 
   .hero-panel{
-    padding:8px;border-radius:8px;background:rgba(7,11,13,.48);
-    border-color:rgba(255,255,255,.22);box-shadow:0 16px 48px rgba(0,0,0,.28), inset 0 1px 0 rgba(255,255,255,.12);
+    padding:8px;border-radius:12px;background:rgba(7,11,13,.44);
+    border-color:rgba(255,255,255,.18);box-shadow:0 16px 38px rgba(0,0,0,.24), inset 0 1px 0 rgba(255,255,255,.12);
     backdrop-filter:blur(16px) saturate(1.16);
   }
   .hero-panel h4{display:none}
@@ -266,17 +259,16 @@ button{font:inherit;color:inherit}
 }
 @media(max-width:390px){
   .hero{padding-inline:14px;padding-bottom:calc(82px + env(safe-area-inset-bottom))}
-  .hero-copy{margin-top:20svh}
-  .title{font-size:clamp(38px,14vw,52px)}
+  .hero-copy{margin-top:12svh}
+  .title{font-size:clamp(32px,11vw,43px)}
   .hero-copy p{font-size:12px}
-  .quickbar{margin-inline:-14px;padding-inline:14px}
   .flight .route{font-size:15px}
 }
 @media(max-width:340px){
   .hero{padding-bottom:calc(110px + env(safe-area-inset-bottom))}
   .hero-copy p,
   .subtitle span:nth-child(3){display:none}
-  .title{font-size:clamp(36px,13vw,48px)}
+  .title{font-size:clamp(31px,11vw,38px)}
 }
 .navlinks a:focus-visible,
 .mobnav a:focus-visible,
@@ -695,6 +687,123 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 .mobnav a.active{background:var(--ink);color:#fff}
 @media(max-width:900px){.mobnav{display:block}footer.foot{margin-bottom:80px}}
 
+/* ---------- REDESIGN OVERRIDES ---------- */
+.navlinks a,.chip,.mode{border-radius:999px}
+.hero-panel::before,.state::after,.tag.ok::after,.tag.no::after,.decision-btn[aria-pressed="true"]::after{content:none}
+.title em{display:block}
+@media(max-width:760px){
+  .hero-copy p{display:none}
+  .hero-panel{max-width:none}
+}
+.weather-strip{
+  display:grid;grid-template-columns:repeat(8,1fr);gap:8px;margin:-6px 0 18px;
+}
+.weather-day,.weather-loading{
+  background:#fff;border:1px solid var(--rule);border-radius:8px;padding:10px 12px;
+  box-shadow:0 12px 32px -30px rgba(15,20,22,.35);
+}
+.weather-loading{grid-column:1/-1;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500)}
+.weather-day{display:grid;gap:3px;min-width:0}
+.weather-day .wd-date{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500)}
+.weather-day .wd-icon{font-size:20px;line-height:1}
+.weather-day .wd-temp{font-family:var(--serif);font-size:18px;line-height:1;font-weight:500}
+.weather-day .wd-label{font-size:11px;color:var(--bazalt-600);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media(max-width:900px){.weather-strip{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:560px){.weather-strip{display:flex;overflow-x:auto;padding-bottom:4px;scroll-snap-type:x mandatory}.weather-day{flex:0 0 118px;scroll-snap-align:start}}
+
+.overview{gap:12px}
+.daytile{border-radius:8px;padding:0;min-height:270px;background:#fff;text-decoration:none;box-shadow:0 16px 36px -34px rgba(15,20,22,.36)}
+.daytile::before{display:none}
+.daytile-photo{height:auto;aspect-ratio:3/4;margin:0;border:0}
+.daytile-photo img{filter:saturate(1.1) contrast(1.02)}
+.daytile .dkind{top:10px;right:10px;border-radius:999px;background:rgba(15,20,22,.78);color:#fff;border:1px solid rgba(255,255,255,.18)}
+.daytile .tile-copy{display:grid;gap:6px;padding:12px}
+.daytile .dtitle{font-size:14px;line-height:1.25}
+.daytile .startlight{font-size:9px}
+.dstat .pill{border-radius:999px;background:var(--paper-2);color:var(--bazalt-700)}
+@media(max-width:560px){.daytile{min-height:0}.daytile-photo{aspect-ratio:4/3}}
+
+.daycard{border-left:0;border-radius:10px;background:#fff;box-shadow:0 20px 50px -42px rgba(15,20,22,.48)}
+.daycard summary{padding:14px 18px;grid-template-columns:auto 1fr auto;background:#fff}
+.daycard .dc-num{width:auto;font-size:34px;color:var(--accent)}
+.daycard .dc-tags{display:none}
+.daycard .dc-body{padding:0 18px 22px;background:#fff}
+.day-cover{position:relative;margin:0 -18px 16px;aspect-ratio:4/3;overflow:hidden;background:var(--paper-2)}
+.day-cover img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.1) contrast(1.03)}
+.day-cover::after{content:"";position:absolute;inset:auto 0 0;height:64%;background:linear-gradient(180deg, transparent, rgba(8,12,14,.86))}
+.day-cover .cover-label{position:absolute;left:16px;right:16px;bottom:15px;color:#fff;z-index:1}
+.day-cover .cover-k{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+.day-cover h3{font-family:var(--serif);font-size:clamp(24px,3vw,34px);font-weight:500;line-height:1;margin:4px 0 0;text-shadow:0 2px 12px rgba(0,0,0,.4)}
+.stats-strip{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--rule);border-radius:10px;overflow:hidden;margin-bottom:14px}
+.stats-strip .s{padding:10px 12px;background:#fff;border-right:1px solid var(--rule);min-width:0}
+.stats-strip .s:last-child{border-right:0}
+.stats-strip .l{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--bazalt-500)}
+.stats-strip .v{font-family:var(--serif);font-size:17px;line-height:1.15;margin-top:4px;overflow-wrap:anywhere}
+.daycard .why{font-family:var(--serif);font-style:italic;font-size:16px;border-left:3px solid var(--gold);background:#fbf7ea;color:#3a2f11;border-radius:0 8px 8px 0}
+.stops{border-left:1px solid var(--rule-strong)}
+.stops li::before{background:#fff;border:2px solid var(--ember);left:-6px}
+.day-gates{display:grid;gap:8px;margin:10px 0 18px}
+.gate-line{
+  display:grid;grid-template-columns:18px 1fr auto;gap:10px;align-items:center;
+  border:1px solid var(--rule);border-radius:10px;padding:10px 12px;background:#fff;
+}
+.gate-line .dot{width:10px;height:10px;border-radius:50%;background:var(--bazalt-400);box-shadow:0 0 0 4px rgba(15,20,22,.06)}
+.gate-line.ok .dot{background:var(--laurel);box-shadow:0 0 0 4px rgba(46,106,69,.14)}
+.gate-line.warn .dot{background:var(--gold);box-shadow:0 0 0 4px rgba(198,138,43,.16)}
+.gate-line.no .dot{background:var(--nogo);box-shadow:0 0 0 4px rgba(184,65,42,.14)}
+.gate-line .gt{font-size:13px;font-weight:600;line-height:1.25}
+.gate-line .gs{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500);margin-top:2px}
+.gate-line .state{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;border-radius:999px;padding:4px 7px;background:var(--paper-2)}
+.photo-card{animation:none;border-radius:8px}
+.photo-grid{grid-template-columns:repeat(3,1fr);margin:18px 0 0}
+.photo-card:first-child{grid-column:auto;min-height:190px}
+
+.gates{display:grid;grid-template-columns:1fr;gap:8px}
+.gate{border-radius:10px;display:grid;grid-template-columns:18px 1fr auto;gap:10px;align-items:start;padding:12px 14px}
+.gate::before{content:"";position:static;width:10px;height:10px;border-radius:50%;background:var(--bazalt-400);grid-column:1;grid-row:1;margin-top:5px}
+.gate:has(.state.ok)::before{background:var(--laurel);box-shadow:0 0 0 4px rgba(46,106,69,.14)}
+.gate:has(.state.warn)::before{background:var(--gold);box-shadow:0 0 0 4px rgba(198,138,43,.16)}
+.gate:has(.state.no)::before{background:var(--nogo);box-shadow:0 0 0 4px rgba(184,65,42,.14)}
+.gate .lbl,.gate h3,.gate ul{grid-column:2;margin:0}
+.gate h3{font-size:17px}
+.gate ul{margin-top:5px}
+.gate .state{grid-column:3;grid-row:1 / span 3;margin:0;white-space:nowrap;border-radius:999px}
+
+.gate-check{border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:9px 10px;background:rgba(255,255,255,.04)}
+.decision-rec,.mcell{box-shadow:none}
+
+.maplayout{grid-template-columns:1fr 1fr}
+.map-open{display:none}
+@media(max-width:760px){
+  .maplayout{display:flex;flex-direction:column}
+  .islandmap{order:1}
+  .mapwrap{order:2;min-height:0;aspect-ratio:auto;background:transparent;border:0;box-shadow:none}
+  .mapwrap iframe{display:none}
+  .map-open{display:flex;align-items:center;justify-content:center;min-height:44px;border-radius:999px;background:var(--ink);color:#fff;text-decoration:none;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+}
+
+.chartgrid{grid-template-columns:1fr}
+.analysis-more{grid-column:1/-1;background:#fff;border:1px solid var(--rule);border-radius:8px;padding:12px 14px}
+.analysis-more summary{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-600)}
+.analysis-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:12px}
+.analysis-grid .chartcard{border-color:var(--rule)}
+@media(max-width:900px){.analysis-grid{grid-template-columns:1fr}.analysis-more:not([open]){display:block}}
+
+.cl{border-radius:8px}
+.cl-toolbar{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:8px 0 10px}
+.cl-toggle{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ocean);background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.cl-progress{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}
+.cl-progress .bar{grid-column:1/-1;height:6px;border-radius:999px;background:var(--paper-2);overflow:hidden}
+.cl-progress .bar span{display:block;height:100%;width:var(--pct,0%);border-radius:inherit;background:linear-gradient(90deg,var(--laurel),var(--gold))}
+.cl.hide-done label[data-done="true"]{display:none}
+.cl label span:last-child{min-width:0;overflow-wrap:anywhere}
+
+.mobnav{background:rgba(245,242,236,.92);backdrop-filter:blur(16px) saturate(1.1);padding:6px 8px calc(8px + env(safe-area-inset-bottom))}
+.mobnav ul{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;overflow:visible}
+.mobnav a{min-height:52px;padding:6px 4px;border-radius:16px;display:flex;flex-direction:column;justify-content:center;gap:3px;text-align:center;font-size:8.5px;white-space:normal}
+.mobnav svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.7;fill:none}
+.mobnav a.active{background:var(--ink);color:#fff}
+
 /* resilience note */
 .resilience{
   margin-top:22px;background:linear-gradient(180deg, var(--bazalt-950) 0%, #152029 100%);color:#fff;padding:24px;border-radius:3px;
@@ -766,13 +875,8 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
         <span>Wizz W6 1535 / 1536</span>
       </div>
       <div class="quickbar" role="navigation" aria-label="Szybkie skróty">
-        <a class="chip solid" href="#overview">Overview</a>
-        <a class="chip" href="#d-1" id="todayBtn">Dzisiaj</a>
+        <a class="chip solid" href="#d-1" id="todayBtn">Dzisiaj · D1</a>
         <a class="chip" href="#decyzje">Decyzje</a>
-        <a class="chip" href="#mapa">Mapa</a>
-        <a class="chip" href="#rytual">Rytuał 20:00</a>
-        <a class="chip" href="#backupy">Backup</a>
-        <button class="chip" onclick="window.print()" aria-label="Drukuj lub zapisz jako PDF">Print · PDF</button>
       </div>
     </div>
 
@@ -804,6 +908,9 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
     <span class="num">01</span>
     <h2>Overview · 8 dni</h2>
     <span class="note">Kliknij kafel, aby przejść do karty dnia</span>
+  </div>
+  <div class="weather-strip" id="weatherStrip" aria-live="polite">
+    <div class="weather-loading">Pogoda · ładowanie prognozy dziennej</div>
   </div>
   <div class="overview" id="overviewGrid"></div>
 </section>
@@ -1082,6 +1189,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
       <iframe title="Madera 2026 — mapa tras (Google My Maps)"
         src="https://www.google.com/maps/d/embed?mid=1NtSuO52IGWeVbz_27JV7BOM1jsuU5mA"
         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <a class="map-open" href="https://www.google.com/maps/d/viewer?mid=1NtSuO52IGWeVbz_27JV7BOM1jsuU5mA" target="_blank" rel="noopener">Otwórz w Google Maps</a>
     </div>
     <aside class="islandmap" aria-labelledby="islandmapTitle">
       <h4 id="islandmapTitle">Schemat 8 dni · baza Canhas / Ponta do Sol</h4>
@@ -1165,6 +1273,9 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
     <span class="note">Etykiety PL · legendy czytelne</span>
   </div>
   <div class="chartgrid">
+    <details class="analysis-more">
+      <summary>Więcej analiz</summary>
+      <div class="analysis-grid">
     <div class="chartcard">
       <h3>Jazda vs chodzenie</h3>
       <div class="d">godziny · per dzień · wariant bazowy</div>
@@ -1175,6 +1286,8 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
       <div class="d">0 — very low · 4 — high · 8 dni</div>
       <canvas id="ch2"></canvas>
     </div>
+      </div>
+    </details>
     <div class="chartcard wide" id="riskHeatCard">
       <h3>Macierz ryzyk</h3>
       <div class="d">0 brak · 4 wysokie · per dzień × kategoria</div>
@@ -1189,6 +1302,9 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
         </table>
       </details>
     </div>
+    <details class="analysis-more">
+      <summary>Koszty i payoff</summary>
+      <div class="analysis-grid">
     <div class="chartcard">
       <h3>Widoki za wysiłek</h3>
       <div class="d">payoff (1–5) vs wysiłek (0–4)</div>
@@ -1199,6 +1315,8 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
       <div class="d">EUR · per osoba; wyjątki opisane w kosztach</div>
       <canvas id="ch4"></canvas>
     </div>
+      </div>
+    </details>
   </div>
 
   <!-- prep timeline -->
@@ -1395,6 +1513,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
       <p>Kopie w <code>Maderav7/assets/</code>, żeby pasek hero nie zależał od wygasających zewnętrznych URL-i.</p>
       <ul>
         <li><a href="https://commons.wikimedia.org/wiki/File:2016_Nubes_desde_o_Pico_do_Areeiro_Madeira_Portugal-2.jpg" target="_blank" rel="noopener">Pico do Areeiro clouds</a> — Luis Miguel Bugallo Sánchez, CC BY-SA 4.0.</li>
+        <li><a href="https://digitaltravelcouple.com/wp-content/uploads/2021/08/pico-do-arieiro-pico-ruivo-hik-path.jpg" target="_blank" rel="noopener">Pico do Arieiro / Pico Ruivo path</a> — Digital Travel Couple, mobile hero crop.</li>
         <li><a href="https://commons.wikimedia.org/wiki/File:Ponta_de_S%C3%A3o_Louren%C3%A7o_north_north_east.jpg" target="_blank" rel="noopener">Ponta de São Lourenço</a> — Richard Bartz, CC BY-SA 3.0.</li>
         <li><a href="https://commons.wikimedia.org/wiki/File:Piscinas_naturais_-_Porto_Moniz_-_Madeira_01.jpg" target="_blank" rel="noopener">Piscinas naturais, Porto Moniz</a> — H. Zell, CC BY-SA 3.0 / GFDL.</li>
       </ul>
@@ -1441,16 +1560,11 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 <!-- ===================== MOBILE NAV ===================== -->
 <nav class="mobnav" aria-label="Nawigacja mobilna">
   <ul>
-    <li><a href="#overview">Overview</a></li>
-    <li><a href="#dni">Dni</a></li>
-    <li><a href="#decyzje">Decyzje</a></li>
-    <li><a href="#warianty">Warianty</a></li>
-    <li><a href="#mapa">Mapa</a></li>
-    <li><a href="#wykresy">Wykresy</a></li>
-    <li><a href="#backupy">Backup</a></li>
-    <li><a href="#koszty">Koszty</a></li>
-    <li><a href="#checklisty">Checklisty</a></li>
-    <li><a href="#zrodla">Źródła</a></li>
+    <li><a href="#overview"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12 L12 4 L21 12 M5 10 L5 20 L19 20 L19 10"/></svg><span>Plan</span></a></li>
+    <li><a href="#dni"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10 L20 10 M9 3 L9 7 M15 3 L15 7"/></svg><span>Dni</span></a></li>
+    <li><a href="#decyzje"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 6 L12 12 L16 14"/></svg><span>Decyzje</span></a></li>
+    <li><a href="#mapa"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7 L9 5 L15 7 L21 5 L21 17 L15 19 L9 17 L3 19 Z"/><path d="M9 5 L9 17 M15 7 L15 19"/></svg><span>Mapa</span></a></li>
+    <li><a href="#checklisty"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12 L10 17 L20 7"/></svg><span>Lista</span></a></li>
   </ul>
 </nav>
 
@@ -2015,6 +2129,7 @@ const APP_STATE = {
   pr1Gates: normalizePr1Gates(LS.get("pr1Gates", {}))
 };
 const STORAGE_SCHEMA = 1;
+const WEATHER_CACHE_KEY = "weather:daily";
 const COMMONS_FILE = "https://commons.wikimedia.org/wiki/File:";
 const COMMONS_THUMB = "https://commons.wikimedia.org/wiki/Special:FilePath/";
 
@@ -2066,6 +2181,83 @@ function renderPhotoCard(p, width=720){
     <figcaption><span>${p.label}</span><a href="${photoSource(p)}" target="_blank" rel="noopener">${p.by}</a></figcaption>
   </figure>`;
 }
+function weatherCodeMeta(code){
+  if(code == null) return {icon:"--", label:"brak danych"};
+  if(code===0) return {icon:"☀", label:"słońce"};
+  if([1,2,3].includes(code)) return {icon:"◐", label:"chmury"};
+  if([45,48].includes(code)) return {icon:"≋", label:"mgła"};
+  if([51,53,55,56,57,61,63,65,66,67,80,81,82].includes(code)) return {icon:"☂", label:"deszcz"};
+  if([71,73,75,77,85,86].includes(code)) return {icon:"✳", label:"śnieg"};
+  if([95,96,99].includes(code)) return {icon:"⚡", label:"burza"};
+  return {icon:"◌", label:"zmiennie"};
+}
+function tripIsoDate(d){
+  const [dd,mm] = d.date.split(".");
+  return `2026-${mm.padStart(2,"0")}-${dd.padStart(2,"0")}`;
+}
+function isoDateUTC(date){
+  return date.toISOString().slice(0,10);
+}
+function normalizeWeatherPayload(payload){
+  const daily = payload?.daily;
+  if(!daily?.time) return null;
+  const days = {};
+  DAYS.forEach(d=>{
+    const idx = daily.time.indexOf(tripIsoDate(d));
+    if(idx < 0) return;
+    const code = daily.weather_code?.[idx] ?? daily.weathercode?.[idx];
+    const meta = weatherCodeMeta(code);
+    days[d.n] = {
+      tempMin: Math.round(daily.temperature_2m_min?.[idx]),
+      tempMax: Math.round(daily.temperature_2m_max?.[idx]),
+      code,
+      label: meta.label,
+      icon: meta.icon
+    };
+  });
+  return {fetchedAt:new Date().toISOString(), days};
+}
+function renderWeatherStrip(cache){
+  const root = $("#weatherStrip");
+  if(!root) return;
+  const days = cache?.days || {};
+  root.innerHTML = DAYS.map(d=>{
+    const w = days[d.n];
+    const meta = weatherCodeMeta(w?.code);
+    const hasTemp = Number.isFinite(w?.tempMin) && Number.isFinite(w?.tempMax);
+    return `<div class="weather-day" data-day="${d.n}">
+      <div class="wd-date">D${d.n} · ${d.date}</div>
+      <div class="wd-icon" aria-hidden="true">${w?.icon || meta.icon}</div>
+      <div class="wd-temp">${hasTemp ? `${w.tempMin}–${w.tempMax}°` : "--"}</div>
+      <div class="wd-label">${w?.label || meta.label}</div>
+    </div>`;
+  }).join("");
+}
+function cachedWeatherIsFresh(cache){
+  if(!cache?.fetchedAt) return false;
+  return cache.fetchedAt.slice(0,10) === new Date().toISOString().slice(0,10);
+}
+async function setupWeather(){
+  const cached = LS.get(WEATHER_CACHE_KEY, null);
+  if(cached) renderWeatherStrip(cached);
+  if(cachedWeatherIsFresh(cached)) return;
+  try{
+    const start = tripIsoDate(DAYS[0]);
+    const forecastLimit = new Date();
+    forecastLimit.setUTCDate(forecastLimit.getUTCDate() + 15);
+    const end = [tripIsoDate(DAYS[DAYS.length-1]), isoDateUTC(forecastLimit)].sort()[0];
+    if(start > end) throw new Error("trip outside forecast window");
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=32.68&longitude=-17.10&start_date=${start}&end_date=${end}&daily=weather_code,temperature_2m_max,temperature_2m_min&timezone=Europe%2FLisbon`;
+    const res = await fetch(url, {cache:"no-store"});
+    if(!res.ok) throw new Error(`weather ${res.status}`);
+    const normalized = normalizeWeatherPayload(await res.json());
+    if(!normalized) throw new Error("weather payload");
+    LS.set(WEATHER_CACHE_KEY, normalized);
+    renderWeatherStrip(normalized);
+  }catch(e){
+    if(!cached) renderWeatherStrip({days:{}});
+  }
+}
 
 /* =============== OVERVIEW GRID =============== */
 function renderOverview(){
@@ -2080,19 +2272,62 @@ function renderOverview(){
     tile.innerHTML = `
       ${cover ? `<div class="daytile-photo"><img ${imgAttrs(cover, 420, "")}/></div>` : ""}
       <span class="dkind ${d.kind}">${d.kindLabel}</span>
-      <div>
-        <div class="ddate">${d.date} · ${d.dow}</div>
-        <div class="dnum">D${d.n}</div>
-      </div>
-      <div class="dtitle">${d.title}</div>
-      <div class="startlight">🕐 ${d.start}<br/>✴ ${d.light}</div>
-      <div class="dstat">
-        <span class="pill drive">🚗 ${d.drive}</span>
-        <span class="pill walk">🚶 ${d.walk}</span>
-        <span class="pill eff-${d.effort==="very-low"?"vl":d.effort==="l"?"l":"m"}">${d.effortLabel}</span>
+      <div class="tile-copy">
+        <div>
+          <div class="ddate">${d.date} · ${d.dow}</div>
+          <div class="dnum">D${d.n}</div>
+        </div>
+        <div class="dtitle">${d.title}</div>
+        <div class="startlight">${d.start}<br/>${d.light}</div>
+        <div class="dstat">
+          <span class="pill drive">${d.drive}</span>
+          <span class="pill walk">${d.walk}</span>
+          <span class="pill eff-${d.effort==="very-low"?"vl":d.effort==="l"?"l":"m"}">${d.effortLabel}</span>
+        </div>
       </div>`;
     g.append(tile);
   });
+}
+function dayGates(d){
+  if(d.n===2) return [
+    {tone:"warn", title:"PR1 — reotwarcie fazowane", sub:"IFCN + SIMplifica · sprawdź T-1", state:"warunkowe"},
+    {tone:"warn", title:"Sen — min. 7 h obie osoby", sub:"bramka przed sunrise", state:"T-1"},
+    {tone:"no", title:"Parking — krążenie max 10 min", sub:"potem overflow albo skrót", state:"hard"}
+  ];
+  if(d.n===3) return [
+    {tone:"warn", title:"Wiatr i ekspozycja PR8", sub:"viewpointy zamiast pełnego przejścia", state:"check"},
+    {tone:"warn", title:"Sen po D2", sub:"drugi sunrise tylko po 7 h snu", state:"T-1"},
+    {tone:"ok", title:"Machico jako miękkie lądowanie", sub:"lunch i skrót bez żalu", state:"backup"}
+  ];
+  if(d.n===6) return [
+    {tone:"warn", title:"Morze / surge", sub:"wejście do wody tylko przy spokojnym oceanie", state:"check"},
+    {tone:"warn", title:"Sprzęt foto", sub:"dry-bag przy północnym wybrzeżu", state:"hard"},
+    {tone:"ok", title:"Porto Moniz bez kąpieli nadal działa", sub:"viewpoint + lunch", state:"backup"}
+  ];
+  if(d.n===7) return [
+    {tone:"warn", title:"Achadas cable car", sub:"wiatr i status operatora", state:"check"},
+    {tone:"no", title:"Zmęczony kierowca", sub:"hard stop bez negocjacji", state:"hard"},
+    {tone:"ok", title:"Fanal tylko przy mgle", sub:"detour, nie obowiązek", state:"backup"}
+  ];
+  return [
+    {tone:d.status.includes("DO POTWIERDZENIA") ? "warn" : "ok", title:d.status, sub:"status dnia", state:d.status.includes("DO POTWIERDZENIA") ? "check" : "OK"},
+    {tone:"warn", title:"Punkt odwrotu", sub:d.retreat, state:"limit"},
+    {tone:d.effort==="m" ? "warn" : "ok", title:`Wysiłek · ${d.effortLabel}`, sub:d.drive, state:d.effort==="m" ? "medium" : "low"}
+  ];
+}
+function renderDayGates(d){
+  return `<div class="day-gates" aria-label="Bramki dnia ${d.n}">
+    ${dayGates(d).map(g=>`<div class="gate-line ${g.tone}">
+      <span class="dot" aria-hidden="true"></span>
+      <div><div class="gt">${g.title}</div><div class="gs">${g.sub}</div></div>
+      <span class="state">${g.state}</span>
+    </div>`).join("")}
+  </div>`;
+}
+function conciseStart(start){
+  if(start.includes(" z ")) return start.split(" z ")[0];
+  if(start.includes(" · ")) return start.split(" · ")[0];
+  return start;
 }
 /* =============== DAY CARDS =============== */
 function renderCards(){
@@ -2105,12 +2340,13 @@ function renderCards(){
     });
     const isOpen = d.n===1;
     if(isOpen) det.setAttribute("open","");
-    const tags = d.tags.map(t=>`<span class="tag ${t.k}">${t.t}</span>`).join("");
     const stops = d.stops.map(s=>`<li>${s}</li>`).join("");
     const alerts = d.alerts.map(a=>`<div class="alert ${a.k==="info"?"info":a.k==="warn"?"warn":""}"><strong>${a.h}</strong>${a.t}</div>`).join("");
     const metaHtml = Object.entries(d.meta).map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("");
     const alts = d.alts.map(a=>`<div class="alt"><div class="h">${a.h}</div><div class="t">${a.t}</div></div>`).join("");
-    const photos = d.photos ? `<div class="photo-grid" aria-label="Zdjęcia dnia ${d.n}">${d.photos.map((p,i)=>renderPhotoCard(p, i===0 ? 960 : 640)).join("")}</div>` : "";
+    const cover = d.photos?.[0];
+    const secondaryPhotos = d.photos?.slice(1) || [];
+    const photos = secondaryPhotos.length ? `<div class="photo-grid" aria-label="Zdjęcia dnia ${d.n}">${secondaryPhotos.map(p=>renderPhotoCard(p, 640)).join("")}</div>` : "";
     det.innerHTML = `
       <summary aria-expanded="${isOpen ? "true" : "false"}">
         <div class="dc-num">D${d.n}</div>
@@ -2118,20 +2354,31 @@ function renderCards(){
           <h3>${d.title}</h3>
           <div class="sub">${d.date} · ${d.dow} · ${d.kindLabel} · ${d.status}</div>
         </div>
-        <div class="dc-tags">${tags}</div>
         <div class="dc-caret">+</div>
       </summary>
       <div class="dc-body">
-        <h4>Dlaczego ten układ</h4>
-        ${photos}
+        ${cover ? `<figure class="day-cover">
+          <img ${imgAttrs(cover, 960, cover.alt || d.title)}/>
+          <figcaption class="cover-label">
+            <div class="cover-k">D${d.n} · ${d.date} · ${d.dow}</div>
+            <h3>${d.title}</h3>
+          </figcaption>
+        </figure>` : ""}
+        <div class="stats-strip" aria-label="Statystyki dnia ${d.n}">
+          <div class="s"><div class="l">Start</div><div class="v">${conciseStart(d.start)}</div></div>
+          <div class="s"><div class="l">Jazda</div><div class="v">${d.drive}</div></div>
+          <div class="s"><div class="l">Wysiłek</div><div class="v">${d.effortLabel}</div></div>
+        </div>
+        <p class="why">${d.why}</p>
+        ${renderDayGates(d)}
         <div class="dc-grid">
           <div>
-            <p class="why">${d.why}</p>
             ${alerts}
             <h4>Kolejność stopów</h4>
             <ul class="stops">${stops}</ul>
             <h4>Alternatywy</h4>
             <div class="altgrid">${alts}</div>
+            ${photos}
           </div>
           <div>
             <h4 style="margin-top:0">Meta operacyjna</h4>
@@ -2295,6 +2542,16 @@ function applyDecisionToMap(){
     line.dataset.pathActive = pathKey!=="path-unknown" && DECISION_PATHS[pathKey].days.includes(Number(line.dataset.day)) ? "true" : "false";
   });
 }
+function openHashDay(){
+  const id = window.location.hash.slice(1);
+  if(!/^d-\d+$/.test(id)) return;
+  const card = document.getElementById(id);
+  if(card && card.tagName.toLowerCase()==="details"){
+    card.open = true;
+    const summary = card.querySelector("summary");
+    if(summary) summary.setAttribute("aria-expanded", "true");
+  }
+}
 /* =============== ATMOSPHERE =============== */
 function updateAtmosphere(){
   const y = Math.min(180, Math.max(0, window.scrollY * .08));
@@ -2319,13 +2576,27 @@ function renderChecklist(key, items){
   const root = document.querySelector(`[data-cl="${key}"]`);
   const loaded = LS.get("cl:"+key, {});
   const saved = loaded && typeof loaded==="object" && !Array.isArray(loaded) ? loaded : {};
+  root.classList.add("hide-done");
+  const toolbar = el("div", {class:"cl-toolbar"});
+  const toggle = el("button", {class:"cl-toggle", type:"button", "aria-pressed":"false"}, "Pokaż ukończone");
+  toggle.addEventListener("click", ()=>{
+    const showDone = root.classList.toggle("hide-done") === false;
+    toggle.setAttribute("aria-pressed", showDone ? "true" : "false");
+    toggle.textContent = showDone ? "Ukryj ukończone" : "Pokaż ukończone";
+  });
+  toolbar.append(toggle);
+  root.append(toolbar);
   items.forEach((txt,i)=>{
     const id = `cl-${key}-${i}`;
     const lab = el("label", {for:id});
     const inp = el("input",{type:"checkbox",id});
     inp.checked = !!saved[i];
+    lab.dataset.done = inp.checked ? "true" : "false";
     inp.addEventListener("change", ()=>{
-      saved[i] = inp.checked; LS.set("cl:"+key,saved); updateProgress(key);
+      saved[i] = inp.checked;
+      lab.dataset.done = inp.checked ? "true" : "false";
+      LS.set("cl:"+key,saved);
+      updateProgress(key);
     });
     lab.append(inp, el("span",{class:"step-n"}, String(i+1).padStart(2,"0")), el("span",{}, txt));
     root.append(lab);
@@ -2335,10 +2606,11 @@ function renderChecklist(key, items){
   resetBtn.addEventListener("click", ()=>{
     if(!confirm("Wyczyścić tę checklistę?")) return;
     LS.set("cl:"+key,{});
+    $$(`[data-cl="${key}"] label`).forEach(l=>l.dataset.done = "false");
     $$(`[data-cl="${key}"] input[type=checkbox]`).forEach(i=>i.checked=false);
     updateProgress(key);
   });
-  prog.innerHTML = `<span data-prog="${key}">0 / ${items.length}</span>`;
+  prog.innerHTML = `<span data-prog="${key}">0 / ${items.length}</span><div class="bar" aria-hidden="true"><span data-progbar="${key}"></span></div>`;
   prog.append(resetBtn);
   root.append(prog);
   updateProgress(key);
@@ -2347,7 +2619,9 @@ function updateProgress(key){
   const boxes = $$(`[data-cl="${key}"] input[type=checkbox]`);
   const done = boxes.filter(b=>b.checked).length;
   const t = document.querySelector(`[data-prog="${key}"]`);
-  if(t) t.textContent = `${done} / ${boxes.length}`;
+  if(t) t.textContent = `${done} / ${boxes.length} ukończone`;
+  const bar = document.querySelector(`[data-progbar="${key}"]`);
+  if(bar) bar.style.setProperty("--pct", boxes.length ? `${Math.round(done / boxes.length * 100)}%` : "0%");
 }
 
 function syncChecklistState(){
@@ -2357,6 +2631,8 @@ function syncChecklistState(){
     const saved = loaded && typeof loaded==="object" && !Array.isArray(loaded) ? loaded : {};
     $$(`[data-cl="${key}"] input[type=checkbox]`).forEach((box,i)=>{
       box.checked = !!saved[i];
+      const label = box.closest("label");
+      if(label) label.dataset.done = box.checked ? "true" : "false";
     });
     updateProgress(key);
   });
@@ -2643,9 +2919,11 @@ function markToday(){
   if(idx>=0){
     $("#todayMarker").textContent = `Dzisiaj: D${DAYS[idx].n} · ${DAYS[idx].title}`;
     $("#todayBtn").setAttribute("href", "#d-"+DAYS[idx].n);
+    $("#todayBtn").textContent = `Dzisiaj · D${DAYS[idx].n}`;
   } else {
     $("#todayMarker").textContent = `Dzień poza wyjazdem (trip: 07–14.05.2026)`;
     $("#todayBtn").setAttribute("href", "#d-1");
+    $("#todayBtn").textContent = "Dzisiaj · D1";
   }
 }
 
@@ -2666,8 +2944,9 @@ function updatePrintStamp(){
 /* =============== NAV HIGHLIGHT =============== */
 function navHighlight(){
   const ids = ["overview","dni","decyzje","warianty","mapa","wykresy","backupy","koszty","checklisty","zrodla"];
+  const mobIds = ["overview","dni","decyzje","mapa","checklisty"];
   const links = ids.map(id=>document.querySelector(`.navlinks a[href="#${id}"]`));
-  const moblinks = ids.map(id=>document.querySelector(`.mobnav a[href="#${id}"]`));
+  const moblinks = mobIds.map(id=>document.querySelector(`.mobnav a[href="#${id}"]`));
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
@@ -2683,6 +2962,7 @@ function navHighlight(){
 /* =============== INIT =============== */
 document.addEventListener("DOMContentLoaded", ()=>{
   renderOverview();
+  setupWeather();
   renderCards();
   renderBackups();
   renderPrep();
@@ -2700,6 +2980,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
   tickClock(); setInterval(tickClock, 1000);
   navHighlight();
   setupAtmosphere();
+  openHashDay();
+  window.addEventListener("hashchange", openHashDay);
 
   $$(".mode").forEach(b=>b.addEventListener("click", ()=>setMode(b.dataset.mode)));
   $$(".decision-btn").forEach(b=>b.addEventListener("click", ()=>setDecision(b.dataset.decision, b.dataset.value)));
