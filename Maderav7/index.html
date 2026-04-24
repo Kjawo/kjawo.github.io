@@ -1,0 +1,1887 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Madera 2026 — Widoki i Logistyka · Command Center</title>
+<meta name="description" content="Operacyjny panel podróży Madera 07–14.05.2026: dni, decyzje, bramki GO/NO-GO, mapa, backupy, koszty, checklisty." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+/* ---------- TOKENS ---------- */
+:root{
+  --bazalt-950:#0b1014;
+  --bazalt-900:#11181e;
+  --bazalt-800:#1a2229;
+  --bazalt-700:#263039;
+  --bazalt-600:#3a4752;
+  --bazalt-500:#5a6874;
+  --bazalt-400:#8c97a1;
+  --bazalt-300:#b9c1c8;
+  --bazalt-200:#d8dde1;
+  --mgla-100:#eef1f3;
+  --mgla-050:#f6f7f8;
+  --ocean-900:#0d2230;
+  --ocean-700:#17445e;
+  --ocean-500:#2b7aa3;
+  --ocean-300:#6db0cf;
+  --wawrzyn-800:#1f3a2b;
+  --wawrzyn-600:#35624a;
+  --wawrzyn-400:#69a07f;
+  --sunrise-600:#c64a27;
+  --sunrise-500:#e66a3c;
+  --sunrise-400:#f18a5a;
+  --zloto-500:#d9a341;
+  --zloto-300:#ecc878;
+
+  --go:#3e8a5a;
+  --warn:#d9a341;
+  --nogo:#c04933;
+  --info:#3d7a99;
+
+  --ink:var(--bazalt-950);
+  --paper:#f4f2ee; /* warm mist */
+  --paper-2:#ebe7df;
+  --paper-3:#d9d2c5;
+  --rule:rgba(11,16,20,.12);
+  --rule-strong:rgba(11,16,20,.3);
+
+  --mono:'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --sans:'Inter', system-ui, sans-serif;
+  --serif:'Fraunces', Georgia, serif;
+
+  --maxw: 1440px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(230,106,60,.07), transparent 60%),
+    radial-gradient(900px 500px at 10% 110%, rgba(23,68,94,.06), transparent 60%),
+    var(--paper);
+}
+a{color:inherit}
+button{font:inherit;color:inherit}
+::selection{background:var(--sunrise-500);color:#fff}
+
+/* ---------- TOPO TEXTURE (SVG) ---------- */
+.topo-bg{position:absolute;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:multiply}
+
+/* ---------- TOP BAR ---------- */
+.topbar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(244,242,238,.85);
+  backdrop-filter:saturate(1.1) blur(10px);
+  -webkit-backdrop-filter:saturate(1.1) blur(10px);
+  border-bottom:1px solid var(--rule);
+}
+.topbar-inner{
+  max-width:var(--maxw);margin:0 auto;padding:10px 24px;
+  display:flex;align-items:center;gap:18px;
+}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase}
+.brand .dot{width:8px;height:8px;border-radius:50%;background:var(--sunrise-500);box-shadow:0 0 0 4px rgba(230,106,60,.18)}
+.navlinks{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
+.navlinks a{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  padding:7px 10px;border-radius:999px;text-decoration:none;color:var(--bazalt-600);
+  transition:background .15s, color .15s;
+}
+.navlinks a:hover,.navlinks a.active{background:var(--bazalt-900);color:#fff}
+.clock{font-family:var(--mono);font-size:11px;color:var(--bazalt-500);letter-spacing:.06em}
+@media (max-width:900px){
+  .navlinks{display:none}
+  .clock{display:none}
+}
+
+/* ---------- HERO ---------- */
+.hero{
+  position:relative;overflow:hidden;
+  max-width:var(--maxw);margin:0 auto;padding:28px 24px 8px;
+}
+.hero-grid{
+  display:grid;grid-template-columns: 1.15fr .85fr; gap:28px;
+}
+@media(max-width:1000px){.hero-grid{grid-template-columns:1fr}}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sunrise-600)}
+.title{
+  font-family:var(--serif);font-weight:500;font-size:clamp(40px,6.2vw,86px);
+  line-height:.95;letter-spacing:-.02em;margin:10px 0 6px;
+}
+.title em{font-style:italic;color:var(--wawrzyn-600);font-weight:400}
+.subtitle{
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--bazalt-500);
+  display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;
+}
+.subtitle .sep{opacity:.4}
+.hero-copy p{max-width:54ch;color:var(--bazalt-700);font-size:15px}
+
+.hero-panel{
+  position:relative;border:1px solid var(--rule);background:#fff;border-radius:4px;
+  padding:18px;overflow:hidden;
+}
+.hero-panel h4{
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--bazalt-500);margin:0 0 10px;font-weight:600
+}
+.heroflights{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin-bottom:14px}
+.flight{border:1px solid var(--rule);padding:10px 12px;border-radius:3px;background:var(--paper)}
+.flight .code{font-family:var(--mono);font-size:11px;color:var(--sunrise-600);letter-spacing:.1em}
+.flight .route{font-family:var(--serif);font-size:22px;margin-top:2px}
+.flight .meta{font-family:var(--mono);font-size:11px;color:var(--bazalt-500);margin-top:2px}
+.heroflights .arr{font-family:var(--mono);font-size:10px;color:var(--bazalt-400);text-align:center}
+
+.metrics{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule)
+}
+.metric{padding:12px 10px;border-right:1px solid var(--rule)}
+.metric:last-child{border-right:0}
+.metric .n{font-family:var(--serif);font-size:34px;line-height:1;font-weight:500}
+.metric .l{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bazalt-500);margin-top:4px}
+
+/* short chips / CTA */
+.quickbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  padding:8px 12px;border:1px solid var(--rule-strong);border-radius:999px;background:#fff;
+  cursor:pointer;text-decoration:none;color:var(--ink);transition:background .12s,border-color .12s,color .12s
+}
+.chip:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip.solid{background:var(--ink);color:#fff;border-color:var(--ink)}
+.chip.solid:hover{background:var(--sunrise-500);border-color:var(--sunrise-500)}
+.navlinks a:focus-visible,
+.mobnav a:focus-visible,
+.chip:focus-visible,
+.mode:focus-visible,
+.daycard summary:focus-visible,
+.reset:focus-visible,
+.cl input[type=checkbox]:focus-visible{
+  outline:3px solid var(--zloto-500);
+  outline-offset:3px;
+  box-shadow:0 0 0 5px rgba(217,163,65,.2);
+}
+
+/* ---------- HERO IMAGE STRIP ---------- */
+.strip{
+  max-width:var(--maxw);margin:18px auto 0;padding:0 24px;
+  display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;height:clamp(220px,32vw,360px);
+}
+.strip figure{margin:0;overflow:hidden;position:relative;border-radius:3px;background:var(--paper-2)}
+.strip img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.02)}
+.strip figcaption{
+  position:absolute;left:10px;bottom:8px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6);
+}
+@media(max-width:760px){.strip{grid-template-columns:1fr 1fr;height:auto}.strip figure{height:180px}.strip figure:first-child{grid-column:1/-1;height:220px}}
+
+/* ---------- SECTION SHELL ---------- */
+section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relative;scroll-margin-top:72px}
+.sechead{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--rule-strong);padding-bottom:12px;margin-bottom:22px}
+.sechead .num{font-family:var(--mono);font-size:12px;color:var(--sunrise-600);letter-spacing:.2em}
+.sechead h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.5vw,42px);margin:0;letter-spacing:-.01em}
+.sechead .note{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--bazalt-500);letter-spacing:.06em}
+
+/* ---------- OVERVIEW TIMELINE ---------- */
+.overview{
+  display:grid;grid-template-columns:repeat(8,1fr);gap:8px;
+}
+@media(max-width:1100px){.overview{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:560px){.overview{grid-template-columns:repeat(2,1fr)}}
+.daytile{
+  position:relative;background:#fff;border:1px solid var(--rule);padding:14px;border-radius:3px;
+  display:flex;flex-direction:column;gap:6px;min-height:200px;cursor:pointer;
+  transition:transform .15s, box-shadow .15s, border-color .15s;
+}
+.daytile:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(11,16,20,.25);border-color:var(--bazalt-400)}
+.daytile .dnum{font-family:var(--serif);font-size:28px;line-height:1;font-weight:500}
+.daytile .ddate{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--bazalt-500);text-transform:uppercase}
+.daytile .dtitle{font-size:13px;font-weight:600;margin-top:2px}
+.daytile .dkind{
+  position:absolute;top:10px;right:10px;font-family:var(--mono);font-size:9px;letter-spacing:.14em;
+  padding:3px 7px;border-radius:2px;text-transform:uppercase;
+}
+.dkind.op{background:var(--bazalt-900);color:#fff}
+.dkind.pr{background:var(--sunrise-500);color:#fff}
+.dkind.rc{background:var(--wawrzyn-600);color:#fff}
+.dkind.bz{background:var(--ocean-700);color:#fff}
+.daytile .dstat{display:flex;gap:4px;flex-wrap:wrap;margin-top:auto}
+.dstat .pill{font-family:var(--mono);font-size:9px;letter-spacing:.08em;padding:2px 5px;border-radius:2px;text-transform:uppercase}
+.pill.drive{background:var(--paper-2);color:var(--bazalt-700)}
+.pill.walk{background:var(--paper-3);color:var(--bazalt-700)}
+.pill.eff-vl{background:#e8efe8;color:var(--wawrzyn-800)}
+.pill.eff-l{background:#dcead9;color:var(--wawrzyn-800)}
+.pill.eff-m{background:#f3d9c4;color:var(--sunrise-600)}
+.daytile .startlight{font-family:var(--mono);font-size:10px;color:var(--bazalt-500);letter-spacing:.06em;margin-top:4px}
+
+/* ---------- DAY CARDS (expanded) ---------- */
+.daycard{
+  background:#fff;border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-bottom:14px;
+  scroll-margin-top:72px;
+}
+.daycard summary{list-style:none;cursor:pointer;padding:16px 20px;display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center}
+.daycard summary::-webkit-details-marker{display:none}
+.daycard .dc-num{font-family:var(--serif);font-size:46px;line-height:1;font-weight:500;color:var(--bazalt-300);width:64px}
+.daycard .dc-hd h3{margin:0;font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:-.01em}
+.daycard .dc-hd .sub{font-family:var(--mono);font-size:11px;color:var(--bazalt-500);letter-spacing:.08em;margin-top:2px}
+.daycard .dc-tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.daycard .dc-caret{font-family:var(--mono);font-size:18px;color:var(--bazalt-400);transition:transform .2s}
+.daycard[open] .dc-caret{transform:rotate(45deg)}
+.daycard .dc-body{padding:0 20px 20px;border-top:1px solid var(--rule)}
+.dc-body h4{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--bazalt-500);margin:20px 0 6px;font-weight:600}
+.dc-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}
+@media(max-width:820px){.dc-grid{grid-template-columns:1fr}}
+.dc-grid p{margin:6px 0;color:var(--bazalt-700)}
+.dc-grid .why{font-family:var(--serif);font-size:17px;font-style:italic;color:var(--bazalt-800);line-height:1.45}
+.stops{display:flex;flex-direction:column;gap:0;margin:8px 0 0;padding:0;list-style:none;border-left:2px solid var(--bazalt-200)}
+.stops li{position:relative;padding:6px 0 6px 18px;font-size:14px}
+.stops li::before{content:"";position:absolute;left:-5px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--sunrise-500)}
+.kv{display:grid;grid-template-columns:140px 1fr;gap:6px 10px;font-size:13px;border-top:1px solid var(--rule);padding-top:8px;margin-top:8px}
+.kv dt{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--bazalt-500);padding-top:3px}
+.kv dd{margin:0}
+.tagrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.tag{font-family:var(--mono);font-size:10px;padding:3px 7px;border:1px solid var(--rule-strong);border-radius:2px;letter-spacing:.06em;text-transform:uppercase;background:#fff}
+.tag.warn{background:#fff6e0;border-color:#e3c988;color:#8a6b1f}
+.tag.ok{background:#e6f3ea;border-color:#9bc4a8;color:#2d5a3d}
+.tag.no{background:#fbe6e2;border-color:#d9a396;color:#a8351f}
+.tag.info{background:#e4eef3;border-color:#a3c0cf;color:#1e4a63}
+.alert{
+  border-left:3px solid var(--nogo);background:#fff7f4;padding:10px 14px;margin:10px 0;
+  font-size:13px;color:#7b2c1d;
+}
+.alert.warn{border-color:var(--warn);background:#fff9eb;color:#6b5215}
+.alert.info{border-color:var(--info);background:#eaf2f7;color:#1e4a63}
+.alert strong{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:3px}
+
+.altgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px}
+@media(max-width:640px){.altgrid{grid-template-columns:1fr}}
+.alt{border:1px solid var(--rule);padding:10px 12px;border-radius:3px;background:var(--paper)}
+.alt .h{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bazalt-500);margin-bottom:4px}
+.alt .t{font-size:13px;color:var(--bazalt-800)}
+
+/* ---------- GATES / GO-NO-GO ---------- */
+.gates{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:900px){.gates{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.gates{grid-template-columns:1fr}}
+.gate{
+  background:#fff;border:1px solid var(--rule);padding:16px;border-radius:3px;position:relative;overflow:hidden;
+}
+.gate::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--bazalt-400)}
+.gate.ok::before{background:var(--go)}
+.gate.warn::before{background:var(--warn)}
+.gate.no::before{background:var(--nogo)}
+.gate h3{font-family:var(--serif);font-size:19px;font-weight:500;margin:0 0 4px}
+.gate .lbl{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bazalt-500)}
+.gate ul{margin:8px 0 0;padding-left:16px;font-size:13px;color:var(--bazalt-700)}
+.gate ul li{margin:3px 0}
+.gate .state{
+  font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  padding:4px 8px;border-radius:2px;display:inline-block;margin-top:8px;
+}
+.state.ok{background:#e6f3ea;color:var(--go)}
+.state.warn{background:#fff3d6;color:#8a6b1f}
+.state.no{background:#fbe6e2;color:var(--nogo)}
+
+/* decision matrix */
+.matrix{
+  margin-top:22px;background:var(--bazalt-950);color:var(--mgla-100);border-radius:4px;padding:22px;position:relative;overflow:hidden;
+}
+.matrix h3{font-family:var(--serif);font-size:22px;font-weight:500;margin:0 0 4px;color:#fff}
+.matrix .mlbl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sunrise-400)}
+.matrixgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+@media(max-width:900px){.matrixgrid{grid-template-columns:1fr}}
+.mcell{border:1px solid rgba(255,255,255,.1);padding:14px;border-radius:3px;background:rgba(255,255,255,.02)}
+.mcell .cond{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--zloto-300);margin-bottom:8px}
+.mcell .cond span{display:inline-block;padding:2px 6px;border-radius:2px;margin-right:4px}
+.mcell .cond .ok{background:rgba(62,138,90,.25);color:#a4d9ba}
+.mcell .cond .no{background:rgba(192,73,51,.25);color:#eab0a3}
+.mcell ol{margin:0;padding-left:18px;font-size:13px;color:var(--mgla-100)}
+.mcell ol li{margin:4px 0}
+.mcell ol li b{color:#fff}
+
+/* ---------- MODES ---------- */
+.modes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.mode{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  padding:8px 14px;border:1px solid var(--rule-strong);background:#fff;border-radius:999px;cursor:pointer;
+  transition:all .12s;
+}
+.mode.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.mode[data-mode="bad"].active{background:var(--nogo);border-color:var(--nogo)}
+.mode[data-mode="low"].active{background:var(--warn);border-color:var(--warn);color:#2a2212}
+.mode[data-mode="72h"].active{background:var(--bazalt-950)}
+.moderec{
+  background:#fff;border:1px solid var(--rule);padding:16px 20px;border-radius:3px;
+  font-size:14px;color:var(--bazalt-800);
+}
+.moderec .mrh{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sunrise-600);margin-bottom:6px}
+.moderec ul{margin:8px 0 0;padding-left:18px}
+.moderec ul li{margin:4px 0}
+
+/* ---------- MAP ---------- */
+.maplayout{display:grid;grid-template-columns:1.5fr 1fr;gap:14px}
+@media(max-width:900px){.maplayout{grid-template-columns:1fr}}
+.mapwrap{
+  position:relative;border:1px solid var(--rule);border-radius:3px;overflow:hidden;background:#fff;
+  min-height:480px;
+}
+.mapwrap iframe{width:100%;height:100%;border:0;display:block;min-height:480px}
+.islandmap{
+  background:var(--bazalt-950);color:var(--mgla-100);border-radius:3px;padding:18px;display:flex;flex-direction:column;gap:8px;
+  position:relative;overflow:hidden;
+}
+.islandmap h4{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--zloto-300);margin:0}
+.islandmap svg{width:100%;height:auto;display:block}
+.islandmap .legend{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mgla-100)}
+.islandmap .legend .sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+
+/* ---------- CHARTS ---------- */
+.chartgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media(max-width:900px){.chartgrid{grid-template-columns:1fr}}
+.chartcard{background:#fff;border:1px solid var(--rule);padding:18px;border-radius:3px}
+.chartcard h3{font-family:var(--serif);font-size:19px;margin:0;font-weight:500}
+.chartcard .d{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500);margin-top:2px}
+.chartcard canvas{margin-top:10px;max-height:280px}
+.chartcard.wide{grid-column:1/-1}
+.chartfallback{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--bazalt-500);margin:14px 0 0}
+
+/* risk matrix table */
+.rtable{width:100%;border-collapse:collapse;font-size:12px;margin-top:12px}
+.rtable th{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--bazalt-500);font-weight:600;text-align:left;padding:6px 8px;border-bottom:1px solid var(--rule)}
+.rtable td{padding:6px 8px;border-bottom:1px solid var(--rule)}
+.rtable td.d{font-family:var(--mono);font-size:11px;color:var(--bazalt-700);white-space:nowrap}
+.rcell{display:inline-block;width:14px;height:14px;border-radius:2px}
+.r0{background:#eef2ee}
+.r1{background:#cfe4d3}
+.r2{background:#f0d58b}
+.r3{background:#e19b6e}
+.r4{background:#c04933}
+
+/* prep timeline */
+.preprow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:16px}
+@media(max-width:800px){.preprow{grid-template-columns:repeat(3,1fr)}}
+.prep{border:1px solid var(--rule);background:var(--paper);padding:12px;border-radius:3px;position:relative}
+.prep .t{font-family:var(--serif);font-size:24px;font-weight:500}
+.prep .s{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--bazalt-500);text-transform:uppercase}
+.prep ul{margin:8px 0 0;padding-left:16px;font-size:12px;color:var(--bazalt-700)}
+.prep ul li{margin:2px 0}
+
+/* ---------- BACKUP PLAYBOOK ---------- */
+.backups{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:800px){.backups{grid-template-columns:1fr}}
+.bkp{background:#fff;border:1px solid var(--rule);padding:16px;border-radius:3px;position:relative}
+.bkp h3{font-family:var(--serif);font-size:19px;margin:0 0 4px;font-weight:500}
+.bkp .when{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--nogo)}
+.bkp ol{margin:8px 0 0;padding-left:18px;font-size:13px;color:var(--bazalt-700)}
+.bkp ol li{margin:3px 0}
+.bkp ol li b{color:var(--ink)}
+
+/* ---------- COMPACT INFO GRIDS ---------- */
+.statusgrid,.variantgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 22px}
+.variantgrid{grid-template-columns:repeat(3,1fr)}
+@media(max-width:1000px){.statusgrid,.variantgrid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.statusgrid,.variantgrid{grid-template-columns:1fr}}
+.statusbox,.variantbox{background:#fff;border:1px solid var(--rule);padding:14px 16px;border-radius:3px}
+.statusbox h3,.variantbox h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 6px;color:var(--bazalt-600)}
+.statusbox p,.variantbox p{font-size:13px;color:var(--bazalt-700);margin:0}
+.variantbox ul{margin:8px 0 0;padding-left:18px;font-size:13px;color:var(--bazalt-700)}
+.variantbox li{margin:3px 0}
+
+/* ---------- COSTS ---------- */
+.costgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media(max-width:900px){.costgrid{grid-template-columns:1fr}}
+.costcol{background:#fff;border:1px solid var(--rule);padding:16px;border-radius:3px}
+.costcol h3{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;margin:0 0 10px;color:var(--bazalt-500)}
+.costcol.ok h3{color:var(--go)}
+.costcol.ch h3{color:var(--warn)}
+.costcol.no h3{color:var(--bazalt-600)}
+.cost{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed var(--rule);font-size:13px}
+.cost:last-child{border-bottom:0}
+.cost .price{font-family:var(--mono);color:var(--ink);font-weight:600;white-space:nowrap}
+.cost .price.q{color:var(--warn)}
+.cost .name{color:var(--bazalt-700)}
+.cost .name small{display:block;color:var(--bazalt-500);font-size:11px;margin-top:2px}
+
+/* ---------- CHECKLISTS ---------- */
+.checklists{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+@media(max-width:900px){.checklists{grid-template-columns:1fr}}
+.cl{background:#fff;border:1px solid var(--rule);padding:16px;border-radius:3px}
+.cl h3{font-family:var(--serif);font-size:19px;font-weight:500;margin:0 0 2px}
+.cl .sub{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500);margin-bottom:10px}
+.cl label{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--rule);font-size:13px;cursor:pointer}
+.cl label:first-of-type{border-top:0}
+.cl input[type=checkbox]{
+  appearance:none;-webkit-appearance:none;
+  width:18px;height:18px;border:1.5px solid var(--bazalt-500);border-radius:2px;
+  flex-shrink:0;margin-top:1px;position:relative;cursor:pointer;transition:all .12s;
+}
+.cl input[type=checkbox]:checked{background:var(--wawrzyn-600);border-color:var(--wawrzyn-600)}
+.cl input[type=checkbox]:checked::after{
+  content:"";position:absolute;left:4px;top:0px;width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)
+}
+.cl input[type=checkbox]:checked ~ span{color:var(--bazalt-500);text-decoration:line-through}
+.cl .step-n{font-family:var(--mono);font-size:10px;color:var(--bazalt-400);margin-right:6px}
+.cl-progress{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--bazalt-500);margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);display:flex;justify-content:space-between}
+.reset{font-family:var(--mono);font-size:10px;color:var(--nogo);text-decoration:underline;cursor:pointer;background:none;border:0;padding:0}
+
+/* ---------- RULES (lunch/parking) ---------- */
+.rules{display:grid;grid-template-columns:1fr;gap:14px}
+.rulehead{
+  background:var(--ink);color:#fff;padding:18px 20px;border-radius:3px;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+}
+@media(max-width:800px){.rulehead{grid-template-columns:1fr 1fr}}
+.rulehead .r{padding-right:14px;border-right:1px solid rgba(255,255,255,.12)}
+.rulehead .r:last-child{border-right:0}
+.rulehead .rk{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--zloto-300);text-transform:uppercase}
+.rulehead .rv{font-family:var(--serif);font-size:22px;margin-top:4px}
+.rulehead .rm{font-size:12px;color:var(--mgla-100);margin-top:4px;opacity:.8}
+.ruletable{width:100%;border-collapse:collapse;font-size:13px;background:#fff;border:1px solid var(--rule);border-radius:3px;overflow:hidden}
+.ruletable th{text-align:left;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500);padding:10px 12px;background:var(--paper);border-bottom:1px solid var(--rule);font-weight:600}
+.ruletable td{padding:10px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+.ruletable tr:last-child td{border-bottom:0}
+.ruletable td:first-child{font-family:var(--mono);font-size:11px;color:var(--sunrise-600);white-space:nowrap}
+
+/* ---------- SOURCES ---------- */
+.sources{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:800px){.sources{grid-template-columns:1fr}}
+.tier{background:#fff;border:1px solid var(--rule);padding:16px;border-radius:3px}
+.tier .rank{font-family:var(--serif);font-size:46px;line-height:1;color:var(--bazalt-200);float:left;margin-right:12px;font-weight:500}
+.tier h3{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 2px}
+.tier p{margin:2px 0;color:var(--bazalt-700);font-size:13px}
+.tier ul{margin:8px 0 0;padding-left:16px;font-size:12px;clear:left}
+.tier a{color:var(--ocean-700);text-decoration:underline;text-underline-offset:2px}
+
+/* ---------- FOOTER ---------- */
+footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:1px solid var(--rule);color:var(--bazalt-500);font-family:var(--mono);font-size:11px;letter-spacing:.08em;display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+
+/* ---------- MOBILE BOTTOM NAV ---------- */
+.mobnav{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(244,242,238,.97);backdrop-filter:blur(10px);border-top:1px solid var(--rule);padding:6px 4px 10px}
+.mobnav ul{list-style:none;margin:0;padding:0;display:flex;overflow-x:auto;gap:2px;scrollbar-width:none}
+.mobnav ul::-webkit-scrollbar{display:none}
+.mobnav a{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;border-radius:999px;text-decoration:none;color:var(--bazalt-600);white-space:nowrap}
+.mobnav a.active{background:var(--ink);color:#fff}
+@media(max-width:900px){.mobnav{display:block}footer.foot{margin-bottom:80px}}
+
+/* resilience note */
+.resilience{
+  margin-top:22px;background:linear-gradient(180deg, var(--bazalt-950) 0%, #152029 100%);color:#fff;padding:24px;border-radius:3px;
+}
+.resilience h3{font-family:var(--serif);font-weight:500;font-size:24px;margin:0 0 8px}
+.resilience p{color:var(--mgla-100);max-width:80ch;margin:4px 0;font-size:14px}
+.resilience ul{color:var(--mgla-100);font-size:13px;padding-left:18px}
+
+/* ---------- PRINT ---------- */
+@media print{
+  :root{--paper:#fff}
+  body{background:#fff;color:#000;font-size:11pt}
+  .topbar,.mobnav,.quickbar,.modes,.reset,.chip{display:none !important}
+  section.sec{margin:14px 0;page-break-inside:avoid;padding:0 6mm}
+  .daycard{page-break-inside:avoid;box-shadow:none;border-color:#999}
+  .daycard[open] .dc-body{display:block}
+  details:not([open]) .dc-body{display:block !important}
+  details{border:1px solid #999 !important}
+  .chartcard,.cl,.gate,.bkp,.costcol,.tier,.statusbox,.variantbox{border-color:#999}
+  .mapwrap iframe{display:none}
+  .strip{display:none}
+  a{color:#000;text-decoration:none}
+  .hero{padding-top:6mm}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== TOPBAR ===================== -->
+<div class="topbar" role="banner">
+  <div class="topbar-inner">
+    <div class="brand" aria-label="Madeira 2026 Command Center">
+      <span class="dot" aria-hidden="true"></span>
+      MAD · 07–14.05.2026
+    </div>
+    <nav class="navlinks" aria-label="Główna nawigacja">
+      <a href="#overview">Overview</a>
+      <a href="#dni">Dni</a>
+      <a href="#decyzje">Decyzje</a>
+      <a href="#warianty">Warianty</a>
+      <a href="#mapa">Mapa</a>
+      <a href="#wykresy">Wykresy</a>
+      <a href="#backupy">Backupy</a>
+      <a href="#koszty">Koszty</a>
+      <a href="#checklisty">Checklisty</a>
+      <a href="#zrodla">Źródła</a>
+    </nav>
+    <div class="clock" id="clock" aria-hidden="true">—</div>
+  </div>
+</div>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero" id="top">
+  <div class="hero-grid">
+    <div class="hero-copy">
+      <div class="kicker">Travel Command Center · v7 operacyjny</div>
+      <h1 class="title">Madera 2026<br/><em>Widoki i Logistyka</em></h1>
+      <p>Panel operacyjny zastępuje wcześniejszą, prezentacyjną wersję planu. Priorytetem są: realny kalendarz, twarde bramki GO/NO-GO, sensowne backupy i jednoznaczne rozróżnienie między faktem, założeniem i rzeczą do sprawdzenia.</p>
+      <div class="subtitle">
+        <span>07–14.05.2026</span><span class="sep">·</span>
+        <span>Baza: Ribeira Brava – Ponta do Sol</span><span class="sep">·</span>
+        <span>Split-stay tylko opcjonalnie</span><span class="sep">·</span>
+        <span>Wizz W6 1535 / 1536</span>
+      </div>
+      <div class="quickbar" role="navigation" aria-label="Szybkie skróty">
+        <a class="chip solid" href="#overview">Overview</a>
+        <a class="chip" href="#d-1" id="todayBtn">Dzisiaj</a>
+        <a class="chip" href="#decyzje">Decyzje</a>
+        <a class="chip" href="#mapa">Mapa</a>
+        <a class="chip" href="#rytual">Rytuał 20:00</a>
+        <a class="chip" href="#backupy">Backup</a>
+        <button class="chip" onclick="window.print()" aria-label="Drukuj lub zapisz jako PDF">Print · PDF</button>
+      </div>
+    </div>
+
+    <aside class="hero-panel" aria-label="Loty i metryki">
+      <h4>Loty Wizz · DO POTWIERDZENIA T-7 / T-3 / T-0</h4>
+      <div class="heroflights">
+        <div class="flight">
+          <div class="code">W6 1535 · 07.05</div>
+          <div class="route">WAW → FNC</div>
+          <div class="meta">11:40 → 16:05 · start</div>
+        </div>
+        <div class="arr">godziny lokalne</div>
+        <div class="flight">
+          <div class="code">W6 1536 · 14.05</div>
+          <div class="route">FNC → WAW</div>
+          <div class="meta">16:45 → 22:50 · powrót</div>
+        </div>
+      </div>
+      <div class="metrics" aria-label="Metryki wyjazdu">
+        <div class="metric"><div class="n">8</div><div class="l">Dni kalen.</div></div>
+        <div class="metric"><div class="n">6</div><div class="l">Dni terenowych</div></div>
+        <div class="metric"><div class="n">2</div><div class="l">Dni operacyjne</div></div>
+        <div class="metric"><div class="n">1</div><div class="l">Baza</div></div>
+        <div class="metric"><div class="n">2</div><div class="l">Dni priorytet.</div></div>
+        <div class="metric"><div class="n">20:00</div><div class="l">Rytuał</div></div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ===================== HERO IMAGE STRIP ===================== -->
+<div class="strip" aria-label="Madera — krajobrazy referencyjne">
+  <figure>
+    <img src="assets/pico-do-areeiro-clouds.jpg" alt="Pico do Areeiro o wschodzie słońca — morze chmur ponad graniami Madery" loading="lazy" decoding="async"/>
+    <figcaption>Pico do Areeiro · sunrise</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/ponta-sao-lourenco.jpg" alt="Ponta de São Lourenço — surowy wschodni półwysep z czerwono-ochrowymi klifami i Atlantykiem" loading="lazy" decoding="async"/>
+    <figcaption>Ponta de São Lourenço</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/porto-moniz-pools.jpg" alt="Czarne wulkaniczne skały i baseny w Porto Moniz" loading="lazy" decoding="async"/>
+    <figcaption>Porto Moniz · bazalt</figcaption>
+  </figure>
+</div>
+
+<!-- ===================== OVERVIEW ===================== -->
+<section class="sec" id="overview">
+  <div class="sechead">
+    <span class="num">01</span>
+    <h2>Overview · 8 dni</h2>
+    <span class="note">Kliknij kafel, aby przejść do karty dnia</span>
+  </div>
+  <div class="overview" id="overviewGrid"></div>
+</section>
+
+<!-- ===================== DAY CARDS ===================== -->
+<section class="sec" id="dni">
+  <div class="sechead">
+    <span class="num">02</span>
+    <h2>Karty dni</h2>
+    <span class="note" id="todayMarker">Dzisiaj: —</span>
+  </div>
+  <div class="alert info">
+    <strong>Założenia operacyjne</strong>
+    Czasy jazdy zakładają bazę Ribeira Brava – Ponta do Sol. Jeśli śpisz dalej na zachodzie, dolicz 10–20 min do porannych dojazdów. Widełki chodzenia dotyczą wariantu bazowego, nie wersji ambitnej.
+  </div>
+  <div id="dayCards"></div>
+</section>
+
+<!-- ===================== DECISIONS / GO-NO-GO ===================== -->
+<section class="sec" id="decyzje">
+  <div class="sechead">
+    <span class="num">03</span>
+    <h2>Bramki decyzyjne <em style="font-style:italic;color:var(--sunrise-600)">GO / NO-GO</em></h2>
+    <span class="note">Decyzja ≤ 10 s na telefonie</span>
+  </div>
+
+  <div class="statusgrid" aria-label="Statusy planu">
+    <div class="statusbox">
+      <h3>Potwierdzone</h3>
+      <p>Oparte na źródłach oficjalnych lub operatorach. Nadal sprawdzaj przy transakcji, jeśli płacisz lub rezerwujesz.</p>
+    </div>
+    <div class="statusbox">
+      <h3>Sprawdzić</h3>
+      <p>Istotne operacyjnie, ale wymaga kontroli dzień wcześniej albo przy zakupie.</p>
+    </div>
+    <div class="statusbox">
+      <h3>Warunkowe</h3>
+      <p>Zależne od pogody, ograniczeń operacyjnych albo niespójnych komunikatów.</p>
+    </div>
+    <div class="statusbox">
+      <h3>DO POTWIERDZENIA</h3>
+      <p>Zależne od hotelu, wypożyczalni, Wizz, SIMplifica albo płatności na miejscu. Nie traktować jako faktu.</p>
+    </div>
+  </div>
+
+  <div class="gates">
+    <div class="gate">
+      <div class="lbl">G01 · Auto</div>
+      <h3>Auto — umowa, karta, zdjęcia</h3>
+      <ul>
+        <li><b>GO:</b> umowa = rezerwacja, karta działa na depozyt, zdjęcia auta zrobione, paliwo i zwrot jasne.</li>
+        <li><b>NO-GO:</b> odmowa karty/depozytu, niejasny wkład własny, brak zgody na after-hours, brak zdjęć.</li>
+      </ul>
+      <span class="state no">Najpierw auto, potem plan</span>
+    </div>
+
+    <div class="gate">
+      <div class="lbl">G02 · PR1 Areeiro</div>
+      <h3>PR1 — reotwarcie fazowane</h3>
+      <ul>
+        <li><b>GO:</b> IFCN/SIMplifica pokazuje dostępny odcinek, QR offline, brak ostrzeżeń, widoczność realna.</li>
+        <li><b>Bramka snu:</b> obie osoby min. <b>7 h</b>.</li>
+        <li><b>Zakaz:</b> nie wychodzić poza oficjalny odcinek, nawet jeśli inni idą dalej.</li>
+      </ul>
+      <span class="state warn">Warunkowe · sprawdź T-1</span>
+    </div>
+
+    <div class="gate">
+      <div class="lbl">G03 · Drugi sunrise</div>
+      <h3>Sunrise D3 po sunrise D2</h3>
+      <ul>
+        <li><b>GO:</b> po min. 7 h snu <em>i</em> zakończeniu D2 przed 15:00.</li>
+        <li><b>NO-GO:</b> start dzienny i skrócony PR8 / viewpointy.</li>
+      </ul>
+      <span class="state warn">Zależne od D2</span>
+    </div>
+
+    <div class="gate">
+      <div class="lbl">G04 · Parking</div>
+      <h3>Limit krążenia: 10 min</h3>
+      <ul>
+        <li>Po 10 minutach — overflow albo plan skrócony.</li>
+        <li>Nie wolno spalić poranka na „idealne miejsce".</li>
+      </ul>
+      <span class="state ok">Twarda reguła</span>
+    </div>
+
+    <div class="gate">
+      <div class="lbl">G05 · Lunch po 15:00</div>
+      <h3>Okno kuchni poza Funchal</h3>
+      <ul>
+        <li>Twarde okno lunchu: <b>13:00–14:30</b>.</li>
+        <li>Po 15:00: supermarket, Funchal albo baza. Nie dokładamy szlaku.</li>
+      </ul>
+      <span class="state warn">Reguła operacyjna</span>
+    </div>
+
+    <div class="gate">
+      <div class="lbl">G06 · Zmęczony kierowca</div>
+      <h3>Koniec ambicji na dany dzień</h3>
+      <ul>
+        <li>Najbliższa baza, kawa/jedzenie, przerwa.</li>
+        <li>Ewentualnie powrót bez zachodu.</li>
+      </ul>
+      <span class="state no">Hard stop</span>
+    </div>
+  </div>
+
+  <!-- PR1/PR8 decision matrix -->
+  <div class="matrix" id="matrix">
+    <div class="mlbl">Macierz PR1 / PR8</div>
+    <h3>Trzy ścieżki D2–D4 w zależności od piątkowego PR1</h3>
+    <div class="matrixgrid">
+      <div class="mcell">
+        <div class="cond"><span class="ok">PR1 GO</span></div>
+        <ol>
+          <li><b>D2</b> · PR1 (Areeiro + Pedra Rija, jeśli dostępna)</li>
+          <li><b>D3</b> · PR8 wschód</li>
+          <li><b>D4</b> · recovery · południe</li>
+        </ol>
+      </div>
+      <div class="mcell">
+        <div class="cond"><span class="no">PR1 NO-GO</span><span class="ok">PR8 GO</span></div>
+        <ol>
+          <li><b>D2</b> · PR8 bez dociskania</li>
+          <li><b>D3</b> · recovery · południe</li>
+          <li><b>D4</b> · retry PR1, jeśli GO</li>
+        </ol>
+      </div>
+      <div class="mcell">
+        <div class="cond"><span class="no">PR1 NO-GO</span><span class="no">PR8 NO-GO</span></div>
+        <ol>
+          <li><b>D2</b> · południe / Funchal</li>
+          <li><b>D3</b> · Machico / viewpointy</li>
+          <li><b>D4</b> · retry PR1 tylko przy GO</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive modes -->
+  <div style="margin-top:30px">
+    <h3 style="font-family:var(--serif);font-weight:500;font-size:22px;margin:0 0 6px">Tryby operacyjne</h3>
+    <p style="color:var(--bazalt-600);font-size:13px;margin:0 0 12px">Zmień tryb, aby zobaczyć rekomendowane warianty i ostrzeżenia. Wybór zapisywany w <code>localStorage</code>.</p>
+    <div class="modes" aria-label="Tryby operacyjne">
+      <button class="mode active" data-mode="good" aria-pressed="true">Dobra pogoda</button>
+      <button class="mode" data-mode="bad" aria-pressed="false">Słaba pogoda</button>
+      <button class="mode" data-mode="low" aria-pressed="false">Low energy</button>
+      <button class="mode" data-mode="72h" aria-pressed="false">72 h złej pogody</button>
+    </div>
+    <div class="moderec" id="moderec" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- ===================== PLAN VARIANTS ===================== -->
+<section class="sec" id="warianty">
+  <div class="sechead">
+    <span class="num">03B</span>
+    <h2>Trzy warianty planu</h2>
+    <span class="note">Bazowy, spokojniejszy i foto-first</span>
+  </div>
+  <div class="variantgrid">
+    <div class="variantbox">
+      <h3>Rekomendowana</h3>
+      <p>Jedna baza południowo-centralna. Najlepszy stosunek widok / logistyka / zmęczenie.</p>
+      <ul>
+        <li>D1 przylot.</li>
+        <li>D2 Areeiro i D3 wschód jako dwa mocne dni na początku.</li>
+        <li>D4 południe jako recovery day.</li>
+        <li>D5 interior północny, D6 północny-zachód, D7 zachód jako niskotarciowa końcówka zależna od pogody i operatorów.</li>
+        <li>D8 wylot; Monte/Funchal tylko jako backup lub wariant miejski.</li>
+      </ul>
+    </div>
+    <div class="variantbox">
+      <h3>Bardziej relaks</h3>
+      <p>Mniej ryzyka pogodowo-zmęczeniowego i bez spinania dwóch mocnych poranków.</p>
+      <ul>
+        <li>D1 przylot.</li>
+        <li>D2 Areeiro tylko viewpoints + Eira do Serrado.</li>
+        <li>D3 Ponta do Rosto + krótki fragment PR8 + Machico.</li>
+        <li>D4 południe i pełny reset.</li>
+        <li>D5 Balcões + Santana; D6 Seixal / Porto Moniz.</li>
+        <li>D7 wolniejszy zachód albo Funchal jako backup; D8 wylot.</li>
+      </ul>
+    </div>
+    <div class="variantbox">
+      <h3>Ikoniczne widoki</h3>
+      <p>Foto-first, świadomie bardziej zależne od pogody i operatorów.</p>
+      <ul>
+        <li>D1 przylot.</li>
+        <li>D2 Areeiro w pełnym priorytecie pogodowym.</li>
+        <li>D3 PR8 ambitniej lub boat-return tylko przy idealnych warunkach.</li>
+        <li>D4 południe krócej; D5 Balcões / Santana skrócone.</li>
+        <li>D6 Seixal / Porto Moniz.</li>
+        <li>D7 Achadas + Garganta + Ponta do Pargo; Fanal tylko przy aktywnej mgle; D8 wylot.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== MAP ===================== -->
+<section class="sec" id="mapa">
+  <div class="sechead">
+    <span class="num">04</span>
+    <h2>Mapa i topografia</h2>
+    <span class="note">Google My Maps · warstwa trasy 8 dni</span>
+  </div>
+  <div class="maplayout">
+    <div class="mapwrap">
+      <iframe title="Madera 2026 — mapa tras (Google My Maps)"
+        src="https://www.google.com/maps/d/embed?mid=1NtSuO52IGWeVbz_27JV7BOM1jsuU5mA"
+        loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="islandmap">
+      <h4>Schemat 8 dni · baza w centrum-południu</h4>
+      <svg viewBox="0 0 420 240" role="img" aria-label="Schemat Madery z zaznaczonymi punktami dni">
+        <defs>
+          <pattern id="topo" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(12)">
+            <path d="M0 9 Q 9 0 18 9 T 36 9" fill="none" stroke="rgba(236,200,120,.18)" stroke-width=".7"/>
+          </pattern>
+        </defs>
+        <!-- sea -->
+        <rect width="420" height="240" fill="#0d2230"/>
+        <!-- island (abstract) -->
+        <path d="M30 150 C 40 110, 90 80, 150 82 C 220 75, 310 85, 370 108 C 400 120, 395 155, 360 168 C 300 185, 220 190, 150 182 C 80 178, 30 175, 30 150 Z"
+          fill="#1f2e38" stroke="#3a4752" stroke-width="1.2"/>
+        <path d="M30 150 C 40 110, 90 80, 150 82 C 220 75, 310 85, 370 108 C 400 120, 395 155, 360 168 C 300 185, 220 190, 150 182 C 80 178, 30 175, 30 150 Z"
+          fill="url(#topo)"/>
+        <!-- central ridge -->
+        <path d="M120 130 Q 180 100 230 115 T 320 125" fill="none" stroke="#69a07f" stroke-width="1" stroke-dasharray="2 3" opacity=".7"/>
+        <!-- base band -->
+        <path d="M125 150 L 195 152" stroke="#ecc878" stroke-width="2"/>
+        <text x="130" y="166" font-family="JetBrains Mono" font-size="9" fill="#ecc878" letter-spacing=".1em">BAZA</text>
+
+        <!-- route lines (schematic) -->
+        <path d="M160 155 L 230 125 L 260 100" fill="none" stroke="#e66a3c" stroke-width="1.5" opacity=".9"/> <!-- D2 Areeiro -->
+        <path d="M160 155 L 300 110 L 360 115" fill="none" stroke="#e66a3c" stroke-width="1.5" opacity=".9"/> <!-- D3 east -->
+        <path d="M160 155 L 140 160 L 120 165" fill="none" stroke="#69a07f" stroke-width="1.3" opacity=".8"/> <!-- D4 south -->
+        <path d="M160 155 L 220 130 L 270 108" fill="none" stroke="#6db0cf" stroke-width="1.3" opacity=".7"/> <!-- D5 -->
+        <path d="M160 155 L 120 135 L 85 120" fill="none" stroke="#6db0cf" stroke-width="1.3" opacity=".8"/> <!-- D6 NW -->
+        <path d="M160 155 L 100 145 L 50 140" fill="none" stroke="#ecc878" stroke-width="1.5" opacity=".9"/> <!-- D7 W -->
+
+        <!-- points -->
+        <g font-family="JetBrains Mono" font-size="8" fill="#f4f2ee">
+          <circle cx="160" cy="155" r="4.5" fill="#ecc878"/><text x="166" y="158">Baza · Ribeira Brava</text>
+          <circle cx="260" cy="100" r="3.5" fill="#e66a3c"/><text x="234" y="94">D2 Areeiro</text>
+          <circle cx="360" cy="115" r="3.5" fill="#e66a3c"/><text x="330" y="108">D3 PR8 / Rosto</text>
+          <circle cx="120" cy="165" r="3" fill="#69a07f"/><text x="90" y="180">D4 Cabo Girão</text>
+          <circle cx="270" cy="108" r="3" fill="#6db0cf"/><text x="252" y="122">D5 Balcões</text>
+          <circle cx="85" cy="120" r="3" fill="#6db0cf"/><text x="58" y="112">D6 Seixal</text>
+          <circle cx="50" cy="140" r="3" fill="#ecc878"/><text x="28" y="134">D7 Achadas</text>
+          <!-- airport -->
+          <rect x="340" y="128" width="7" height="7" fill="#d8dde1"/><text x="325" y="148">FNC</text>
+        </g>
+      </svg>
+      <div class="legend">
+        <span><span class="sw" style="background:#ecc878"></span>Baza / zachód</span>
+        <span><span class="sw" style="background:#e66a3c"></span>Priorytet</span>
+        <span><span class="sw" style="background:#69a07f"></span>Recovery</span>
+        <span><span class="sw" style="background:#6db0cf"></span>Warunkowe</span>
+        <span><span class="sw" style="background:#d8dde1"></span>Lotnisko</span>
+      </div>
+      <p style="font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:#b9c1c8;margin-top:6px">
+        Schemat orientacyjny. Użyteczna topografia: wschód surowy, góry w centrum, wybrzeże NW z fajãs, skalisty zachód, południe łagodne.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== CHARTS ===================== -->
+<section class="sec" id="wykresy">
+  <div class="sechead">
+    <span class="num">05</span>
+    <h2>Wykresy · realne trade-offy</h2>
+    <span class="note">Etykiety PL · legendy czytelne</span>
+  </div>
+  <div class="chartgrid">
+    <div class="chartcard">
+      <h3>Jazda vs chodzenie</h3>
+      <div class="d">godziny · per dzień · wariant bazowy</div>
+      <canvas id="ch1"></canvas>
+    </div>
+    <div class="chartcard">
+      <h3>Krzywa wysiłku</h3>
+      <div class="d">0 — very low · 4 — high · 8 dni</div>
+      <canvas id="ch2"></canvas>
+    </div>
+    <div class="chartcard wide">
+      <h3>Macierz ryzyk</h3>
+      <div class="d">0 brak · 4 wysokie · per dzień × kategoria</div>
+      <table class="rtable" aria-label="Macierz ryzyk dzień vs kategoria">
+        <thead>
+          <tr><th>Dzień</th><th>Pogoda</th><th>Szlak</th><th>Parking</th><th>Morze</th><th>Operator</th><th>Zmęczenie</th></tr>
+        </thead>
+        <tbody id="riskbody"></tbody>
+      </table>
+    </div>
+    <div class="chartcard">
+      <h3>Widoki za wysiłek</h3>
+      <div class="d">payoff (1–5) vs wysiłek (0–4)</div>
+      <canvas id="ch3"></canvas>
+    </div>
+    <div class="chartcard">
+      <h3>Koszty: potwierdzone vs do sprawdzenia</h3>
+      <div class="d">EUR · per osoba; wyjątki opisane w kosztach</div>
+      <canvas id="ch4"></canvas>
+    </div>
+  </div>
+
+  <!-- prep timeline -->
+  <h3 style="font-family:var(--serif);font-weight:500;font-size:22px;margin:34px 0 0">Preparation timeline</h3>
+  <div class="preprow" id="prepRow"></div>
+</section>
+
+<!-- ===================== BACKUP PLAYBOOK ===================== -->
+<section class="sec" id="backupy">
+  <div class="sechead">
+    <span class="num">06</span>
+    <h2>Backup playbook</h2>
+    <span class="note">Co robić, gdy plan się sypie</span>
+  </div>
+  <div class="backups" id="backups"></div>
+</section>
+
+<!-- ===================== COSTS ===================== -->
+<section class="sec" id="koszty">
+  <div class="sechead">
+    <span class="num">07</span>
+    <h2>Koszty i rezerwacje</h2>
+    <span class="note">EUR · per osoba (jeśli nie zaznaczono)</span>
+  </div>
+  <div class="costgrid">
+    <div class="costcol ok">
+      <h3>Potwierdzone</h3>
+      <div class="cost"><span class="name">PR poza PR1 · SIMplifica</span><span class="price">4,50</span></div>
+      <div class="cost"><span class="name">PR1 conditioned do Pedra Rija</span><span class="price">4,50</span></div>
+      <div class="cost"><span class="name">Multi-day / daily non-PR1 <small>best-price automatycznie w SIMplifica; nie osobny produkt</small></span><span class="price">9 / 22,5 / 52,5</span></div>
+      <div class="cost"><span class="name">Cabo Girão · &gt; 12 lat <small>SIMplifica; 08:00–20:00</small></span><span class="price">5,00</span></div>
+      <div class="cost"><span class="name">Funchal Cable Car RT / OW <small>08:45–17:45; backup miejski</small></span><span class="price">22 / 16</span></div>
+      <div class="cost"><span class="name">Carreiros do Monte · za 2 os. <small>na miejscu; gotówka 35 EUR + zapas; karta DO POTWIERDZENIA; możliwe wcześniejsze zamknięcie</small></span><span class="price">35,00</span></div>
+      <div class="cost"><span class="name">Achadas da Cruz · 1× / ida-volta <small>codziennie; wiatr operacyjnie warunkowy</small></span><span class="price">3 / 5</span></div>
+      <div class="cost"><span class="name">Porto Moniz pools · &gt; 3 lata <small>09:00–19:00 lato; 09:00–17:00 zima</small></span><span class="price">3,00</span></div>
+      <div class="cost"><span class="name">Monte Palace · dorosły <small>09:00–19:00 IV–IX; backup kulturowy</small></span><span class="price">18,00</span></div>
+    </div>
+    <div class="costcol ch">
+      <h3>Do sprawdzenia</h3>
+      <div class="cost"><span class="name">Rocha do Navio · cena aktualna <small>godziny potwierdzone: 09:00–13:00 i 14:00–17:00; weekend do 18:00</small></span><span class="price q">?</span></div>
+      <div class="cost"><span class="name">Cristo Rei / Garajau · status CONDICIONADO</span><span class="price q">?</span></div>
+      <div class="cost"><span class="name">Reguła last-minute PR1 w SIMplifica <small>dzień wcześniej vs dzień dnia nie jest jednoznaczne dla maja 2026</small></span><span class="price q">?</span></div>
+      <div class="cost"><span class="name">Karta akceptowana na depozyt auta</span><span class="price q">?</span></div>
+      <div class="cost"><span class="name">Wkład własny / szyby / opony</span><span class="price q">?</span></div>
+      <div class="cost"><span class="name">Polityka paliwowa (full-to-full?)</span><span class="price q">?</span></div>
+      <div class="cost"><span class="name">After-hours zwrot auta</span><span class="price q">?</span></div>
+      <div class="cost"><span class="name">PR9 / PR9.1 · używalny zakres</span><span class="price q">?</span></div>
+    </div>
+    <div class="costcol no">
+      <h3>Niebudżetowane bazowo</h3>
+      <div class="cost"><span class="name">PR8 boat-return <small>osobna usługa wodna; nie powrót do auta; wymaga transferu</small></span><span class="price">—</span></div>
+      <div class="cost"><span class="name">Rebooking alternatywnych PR „na wszelki wypadek"</span><span class="price">—</span></div>
+      <div class="cost"><span class="name">Cristo Rei · dopóki NIE potwierdzone</span><span class="price">—</span></div>
+      <div class="cost"><span class="name">Monte Palace / Carreiros · tylko przy backupie miejskim</span><span class="price">—</span></div>
+      <div class="cost"><span class="name">Fanal detour bez mgły</span><span class="price">—</span></div>
+    </div>
+  </div>
+
+  <!-- Field rules: lunch & parking -->
+  <h3 style="font-family:var(--serif);font-weight:500;font-size:22px;margin:30px 0 10px">Reguły terenowe</h3>
+  <div class="rules">
+    <div class="rulehead">
+      <div class="r"><div class="rk">Lunch window</div><div class="rv">13:00–14:30</div><div class="rm">Twarda reguła — dopasuj moduł terenowy.</div></div>
+      <div class="r"><div class="rk">Po 15:00</div><div class="rv">Supermarket / Funchal / Baza</div><div class="rm">Nie dokładamy szlaku.</div></div>
+      <div class="r"><div class="rk">Parking · krążenie</div><div class="rv">max 10 min</div><div class="rm">Potem overflow lub plan skrócony.</div></div>
+      <div class="r"><div class="rk">Woda w aucie</div><div class="rv">5 l</div><div class="rm">Uzupełniane po każdym dniu terenowym.</div></div>
+    </div>
+    <table class="ruletable" aria-label="Reguły lunch / parking / punkty odwrotu">
+      <thead><tr><th>Dzień</th><th>Punkt jedzenia B</th><th>Sklep B</th><th>Limit parkingu</th><th>Punkt odwrotu</th></tr></thead>
+      <tbody id="ruletbody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===================== CHECKLISTS ===================== -->
+<section class="sec" id="checklisty">
+  <div class="sechead">
+    <span class="num">08</span>
+    <h2>Checklisty · <em style="color:var(--wawrzyn-600)">stan zapisywany lokalnie</em></h2>
+    <span class="note">localStorage · offline-safe</span>
+  </div>
+
+  <div class="checklists" id="rytual">
+    <div class="cl" data-cl="rytual">
+      <h3>Rytuał 20:00</h3>
+      <div class="sub">Wieczór dnia poprzedniego · kolejność ma znaczenie</div>
+    </div>
+    <div class="cl" data-cl="final">
+      <h3>Final checks</h3>
+      <div class="sub">Przed snem / przed startem</div>
+    </div>
+    <div class="cl" data-cl="prep">
+      <h3>Pakowanie · core</h3>
+      <div class="sub">Sprzęt, dokumenty, finanse</div>
+    </div>
+    <div class="cl" data-cl="auto">
+      <h3>Auto · drogi · ubezpieczenie</h3>
+      <div class="sub">Do domknięcia po rezerwacji auta</div>
+    </div>
+    <div class="cl" data-cl="health">
+      <h3>Zdrowie · dokumenty · finanse</h3>
+      <div class="sub">Offline i u drugiej osoby</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SOURCES ===================== -->
+<section class="sec" id="zrodla">
+  <div class="sechead">
+    <span class="num">09</span>
+    <h2>Źródła i wiarygodność</h2>
+    <span class="note">W razie sprzeczności wygrywa bliżej operatora</span>
+  </div>
+  <div class="sources">
+    <div class="tier">
+      <span class="rank">1</span>
+      <h3>Operator / aplikacja transakcyjna</h3>
+      <p>Wypożyczalnia, Wizz app, operator cable car, Carreiros, SIMplifica przy płatności.</p>
+      <ul>
+        <li><a href="https://www.madeiraairport.pt/en/fnc/access-parking/for-your-full-comfort/car-rental" target="_blank" rel="noopener">Madeira Airport · car rental</a></li>
+        <li><a href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener">SIMplifica · hiking fees</a></li>
+        <li><a href="https://madeiracablecar.com/en/price-and-schedule/" target="_blank" rel="noopener">Madeira Cable Car operator</a></li>
+        <li><a href="https://www.carreirosdomonte.com/v3/en/index.php" target="_blank" rel="noopener">Carreiros do Monte</a></li>
+        <li><a href="https://montepalacemadeira.com/visita/" target="_blank" rel="noopener">Monte Palace operator</a></li>
+      </ul>
+    </div>
+    <div class="tier">
+      <span class="rank">2</span>
+      <h3>Visit Madeira PT · SIMplifica · IFCN</h3>
+      <p>Szlaki, statusy i opłaty publiczne.</p>
+      <ul>
+        <li><a href="https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados.html" target="_blank" rel="noopener">IFCN · percursos pedestres</a></li>
+        <li><a href="https://ifcn.madeira.gov.pt/pt/?catid=146&format=pdf&id=973%3Apr-1-unidirecional&tmpl=component&view=article" target="_blank" rel="noopener">IFCN · PR1 phased reopening</a></li>
+        <li><a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/" target="_blank" rel="noopener">Visit Madeira · PR1</a></li>
+        <li><a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-8-vereda-da-ponta-de-sao-lourenco/" target="_blank" rel="noopener">Visit Madeira · PR8</a></li>
+        <li><a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-11-vereda-dos-balcoes/" target="_blank" rel="noopener">Visit Madeira · PR11</a></li>
+        <li><a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/" target="_blank" rel="noopener">Visit Madeira · PR9</a></li>
+        <li><a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-91-levada-do-caldeirao-verde-um-caminho-para-todos/" target="_blank" rel="noopener">Visit Madeira · PR9.1</a></li>
+        <li><a href="https://visitmadeira.com/pt/onde-ir/madeira/costa-sul/camara-de-lobos/cabo-girao/" target="_blank" rel="noopener">Visit Madeira · Cabo Girão</a></li>
+        <li><a href="https://visitmadeira.com/pt/onde-ir/madeira/costa-norte/santana/miradouro-do-ninho-da-manta/" target="_blank" rel="noopener">Visit Madeira · Ninho da Manta</a></li>
+        <li><a href="https://visitmadeira.com/pt/onde-ir/madeira/costa-este/santa-cruz/miradouro-do-cristo-rei/" target="_blank" rel="noopener">Visit Madeira · Cristo Rei viewpoint</a></li>
+      </ul>
+    </div>
+    <div class="tier">
+      <span class="rank">3</span>
+      <h3>Visit Madeira EN</h3>
+      <p>Dobre do logistyki i opisów; przy różnicy z PT/IFCN — niższy priorytet.</p>
+      <ul>
+        <li><a href="https://visitmadeira.com/en/means-of-transportation/rocha-do-navio-cable-car/" target="_blank" rel="noopener">Rocha do Navio cable car</a></li>
+        <li><a href="https://visitmadeira.com/en/means-of-transportation/achadas-da-cruz-cable-car/" target="_blank" rel="noopener">Achadas da Cruz cable car</a></li>
+        <li><a href="https://visitmadeira.com/en/where-to-go/madeira/north-coast/porto-moniz/natural-pools-of-porto-moniz/" target="_blank" rel="noopener">Porto Moniz Natural Pools</a></li>
+        <li><a href="https://visitmadeira.com/en/what-to-do/culture-passionates/gardens/monte-palace-madeira-garden/" target="_blank" rel="noopener">Monte Palace Madeira Garden</a></li>
+        <li><a href="https://visitmadeira.com/en/means-of-transportation/funchal-cable-car/" target="_blank" rel="noopener">Funchal cable car</a></li>
+        <li><a href="https://visitmadeira.com/en/means-of-transportation/garajau-cable-car/" target="_blank" rel="noopener">Garajau cable car</a></li>
+      </ul>
+    </div>
+    <div class="tier">
+      <span class="rank">4</span>
+      <h3>Źródła wtórne</h3>
+      <p>Tylko orientacja. Nie podnoszą statusu atrakcji do „potwierdzone".</p>
+      <ul>
+        <li><a href="https://www.timeanddate.com/sun/portugal/funchal?month=5" target="_blank" rel="noopener">Sunrise/sunset Funchal · maj</a></li>
+      </ul>
+    </div>
+    <div class="tier">
+      <span class="rank">5</span>
+      <h3>Do ponownej kontroli</h3>
+      <p>Nie podnosić do „potwierdzone”, dopóki status nie zgadza się w źródle operacyjnym.</p>
+      <ul>
+        <li><a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/" target="_blank" rel="noopener">PR9 exact usable extent</a> vs page-level closure badge — obecnie traktować jako zamknięty wg IFCN.</li>
+        <li><a href="https://ifcn.madeira.gov.pt/pt/?catid=146&format=pdf&id=973%3Apr-1-unidirecional&tmpl=component&view=article" target="_blank" rel="noopener">PR1 weekday pattern</a> po phased reopening i używalny odcinek do Pedra Rija.</li>
+        <li><a href="https://visitmadeira.com/pt/o-que-fazer/apaixonados-por-cultura/patrimonio/monumentos-e-arquitetura/estatua-do-cristo-rei-do-garajau/" target="_blank" rel="noopener">Cristo Rei / Garajau</a> — niespójność między stroną pomnika i miradouro; sprawdzać dzień wcześniej.</li>
+        <li><a href="https://visitmadeira.com/en/means-of-transportation/rocha-do-navio-cable-car/" target="_blank" rel="noopener">Rocha do Navio</a> — cena na miejscu; godziny oficjalnie potwierdzone.</li>
+        <li><a href="https://www.portomoniz.pt/en/visit/points-interest/cable-car" target="_blank" rel="noopener">Achadas da Cruz</a> — reguła wiatru i dni serwisowe.</li>
+        <li><a href="https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/" target="_blank" rel="noopener">Areeiro</a> — parking charges and capacities.</li>
+        <li><a href="https://simplifica.madeira.gov.pt/services/78-82-259" target="_blank" rel="noopener">SIMplifica</a> — payment methods i polityka last-minute dla PR1/PR8/PR11.</li>
+        <li>Loty W6 1535 / W6 1536 — oficjalny ekran Wizz/ANA nadal wymagany.</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <span class="rank">6</span>
+      <h3>Zdjęcia lokalne</h3>
+      <p>Kopie w <code>Maderav7/assets/</code>, żeby pasek hero nie zależał od wygasających zewnętrznych URL-i.</p>
+      <ul>
+        <li><a href="https://commons.wikimedia.org/wiki/File:2016_Nubes_desde_o_Pico_do_Areeiro_Madeira_Portugal-2.jpg" target="_blank" rel="noopener">Pico do Areeiro clouds</a> — Luis Miguel Bugallo Sánchez, CC BY-SA 4.0.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Madeira_-_Ponta_de_S%C3%A3o_Louren%C3%A7o_(32756339843).jpg" target="_blank" rel="noopener">Ponta de São Lourenço</a> — muffinn, CC BY 2.0.</li>
+        <li><a href="https://commons.wikimedia.org/wiki/File:Piscinas_naturais_-_Porto_Moniz_-_Madeira_01.jpg" target="_blank" rel="noopener">Piscinas naturais, Porto Moniz</a> — H. Zell, CC BY-SA 3.0 / GFDL.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Resilience -->
+  <div class="resilience" id="resilience">
+    <h3>Dlaczego ten plan jest odporny na zmianę warunków</h3>
+    <ul>
+      <li>PR1 wchodzi na <b>pierwszy pełny dzień</b> — jest czas na retry, zanim pobyt się skończy.</li>
+      <li>Macierz <b>PR1/PR8</b> zamienia trzy najbardziej wrażliwe dni zależnie od statusu IFCN, bez improwizacji w terenie.</li>
+      <li><b>Jedna baza</b> = mniej tarcia logistycznego i realny budżet czasu na pogodowe przerzuty.</li>
+      <li>Każdy dzień ma <b>Plan B i Plan C</b> oraz punkt odwrotu — decyzja zapada z listy, nie z emocji.</li>
+      <li>Fakty, założenia i rzeczy do sprawdzenia są <b>wizualnie rozdzielone</b> — status ≠ przypuszczenie.</li>
+      <li>Boat-return PR8, Fanal, Rocha do Navio i Cristo Rei są opisane jako <b>warunkowe</b> — nie zajmują miejsca w budżecie ani w pierwszym planie.</li>
+      <li>Rytuał 20:00 i final checks wymuszają <b>weryfikację operatorów</b> wieczorem, nie rano w aucie.</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="foot">
+  <span>Madera Command Center · v7 · PL</span>
+  <span>Stan zapisywany w localStorage · działa offline</span>
+  <span><a href="#top" style="text-decoration:underline">↑ Góra</a></span>
+</footer>
+
+<!-- ===================== MOBILE NAV ===================== -->
+<nav class="mobnav" aria-label="Nawigacja mobilna">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#dni">Dni</a></li>
+    <li><a href="#decyzje">Decyzje</a></li>
+    <li><a href="#warianty">Warianty</a></li>
+    <li><a href="#mapa">Mapa</a></li>
+    <li><a href="#wykresy">Wykresy</a></li>
+    <li><a href="#backupy">Backup</a></li>
+    <li><a href="#koszty">Koszty</a></li>
+    <li><a href="#checklisty">Checklisty</a></li>
+    <li><a href="#zrodla">Źródła</a></li>
+  </ul>
+</nav>
+
+<script>
+/* =============== DATA =============== */
+const DAYS = [
+  { n:1, date:"07.05", dow:"czw", kind:"op", kindLabel:"operacyjny",
+    title:"Przylot i miękkie wejście",
+    headline:"Lotnisko → auto → sklep → check-in → kolacja → sen.",
+    drive:"0:35–1:10", walk:"0:15–0:45", effort:"very-low", effortLabel:"very low",
+    start:"FNC 16:05", light:"sunset 20:53", retreat:"Lotnisko → hotel bez stopów",
+    status:"DO POTWIERDZENIA: auto, hotel, Wizz",
+    why:"Lądujesz 16:05 — po bagażu, aucie i dojeździe nie ma sensownego buforu na ambitny program.",
+    stops:["Lotnisko FNC · odbiór auta","Szybki sklep (woda 5 l + śniadanie)","Check-in · baza","Kolacja przy bazie","Sen — światło zgaszone do 22:00 przy D2 sunrise"],
+    meta:{
+      "Cel":"Odebrać auto, dojechać do bazy, nie przepalić energii.",
+      "Wyjazd z lotniska":"~17:15–17:45 po odbiorze auta",
+      "Czas dnia":"4–6 h od lądowania do kolacji",
+      "Rezerwować":"auto, nocleg, parking noclegu",
+      "Sprawdzić":"odbiór auta, godziny check-in, parking, paliwo, prognoza 08.05",
+      "Parking":"parking noclegu; seafront przy krótkim spacerze",
+      "Dojście od parkingu":"2–10 min",
+      "Jedzenie / kawa":"kolacja przy bazie",
+      "Toalety / infrastruktura":"lotnisko ma pełną infrastrukturę; później głównie miasteczka",
+      "Worth it":"bardzo lekki spacer w promieniu kilku minut",
+      "Skip if tired":"ambitny objazd, Monte, pełen Funchal, cokolwiek ze sztywną godziną",
+      "Najlepsze światło":"sunset 20:53",
+      "Ryzyka":"kolejka po auto, opóźniony bagaż, zmęczenie, ruch przy wyjeździe",
+      "Low energy":"tak — to dzień oszczędzający baterię",
+      "Przylot / wylot":"tak — jedyny sensowny tryb na dzień przylotu",
+      "Werdykt":"zostawić jako pełnoprawny dzień operacyjny",
+      "Plan B":"Zakupy + kolacja + wczesny sen",
+      "Plan C":"Lotnisko → hotel, bez przystanków",
+    },
+    tags:[{k:"warn",t:"DO POTWIERDZENIA · auto"},{k:"warn",t:"Wizz T-0"}],
+    alerts:[{k:"info",h:"Reguła",t:"Sunset to wyjątek — tylko jeśli D2 NIE jest dniem sunrise."}],
+    alts:[
+      {h:"Dobra pogoda",t:"Krótki spacer blisko bazy. very low."},
+      {h:"Słaba pogoda",t:"Zakupy, kolacja, ustawienie planu na 48 h."},
+      {h:"Low energy",t:"Hotel + 15–20 min spaceru."},
+      {h:"Warunkowo",t:"Cristo Rei / Garajau tylko jeśli śpisz bliżej Funchal/Caniço; nie dotyczy bazy RB–PdS. CONDICIONADO."}
+    ]
+  },
+  { n:2, date:"08.05", dow:"pt", kind:"pr", kindLabel:"priorytet",
+    title:"Pico do Areeiro + Eira do Serrado",
+    headline:"PR1 + Ninho da Manta + (Pedra Rija, jeśli dostępna).",
+    drive:"2:15–3:00", walk:"1:45–2:45", effort:"m", effortLabel:"medium",
+    start:"05:50 RB / 06:10 PdS", light:"sunrise ~07:14 · best 06:50–07:40", retreat:"Brak QR / mgła / 10 min bez miejsca",
+    status:"DO POTWIERDZENIA: PR1, parking",
+    why:"Po fazowanym reotwarciu PR1 piątek–niedziela to najbardziej racjonalne okno. Nie odkładaj Areeiro na środek pobytu.",
+    stops:["Areeiro parking (overflow: krążenie max 10 min)","Sunrise — punkt widokowy","Ninho da Manta","Pedra Rija — TYLKO jeśli oficjalnie dostępna","Śniadanie / kawa niżej","Eira do Serrado","Powrót — regeneracja"],
+    meta:{
+      "Cel":"Najmocniejszy i najbardziej wrażliwy operacyjnie moduł na początku.",
+      "Czas dnia":"7–9 h",
+      "Rezerwować":"PR1 przez SIMplifica",
+      "Sprawdzić":"IFCN, SIMplifica slot, wiatr, zachmurzenie, widoczność, zakres odcinka",
+      "Parking":"Areeiro / overflow niżej; Eira do Serrado przy punkcie",
+      "Dojście od parkingu":"Areeiro 5–20 min zależnie od miejsca; Eira do Serrado 5–10 min",
+      "Jedzenie / kawa":"kawa po zejściu, nie przed sunrise; woda i jedzenie w aucie",
+      "Toalety / infrastruktura":"przed świtem na górze nie zakładaj działającej infrastruktury; start self-sufficient",
+      "Worth it":"sunrise, Ninho da Manta, fragment grani, Eira do Serrado",
+      "GO / NO-GO PR1":"GO tylko przy dostępnym odcinku, QR offline, braku ostrzeżeń, realnej widoczności i 7 h snu u obu osób",
+      "Skip if tired":"forsowanie dłuższego PR1 przy mgle, wietrze, krótkim śnie",
+      "Najlepsze światło":"sunrise ~07:14",
+      "Ryzyka":"zamknięcie odcinka, tłum, wiatr, brak miejsc, mgła",
+      "Low energy":"tak, ale tylko viewpoint + Ninho da Manta bez ciśnienia na Pedra Rija",
+      "Przylot / wylot":"nie",
+      "Werdykt":"zostawić i traktować jako pierwszy pełny dzień",
+      "Plan B":"zamiana z dniem wschodnim (macierz) albo południe low-drive",
+      "Plan C":"Cabo Girão + Câmara de Lobos + rest",
+    },
+    tags:[{k:"warn",t:"PR1 warunkowe"},{k:"warn",t:"bramka snu 7 h"}],
+    alerts:[
+      {k:"alert",h:"ZAKAZ",t:"Nie wychodzić poza oficjalnie dostępny odcinek PR1 — nawet jeśli inni idą dalej."},
+      {k:"warn",h:"Parking",t:"Krążenie max 10 min. Potem overflow lub: viewpoint + Ninho da Manta, bez Pedra Rija."}
+    ],
+    alts:[
+      {h:"Dobra pogoda",t:"Bazowy wariant. PR1 4,50 EUR/os. medium."},
+      {h:"Słaba pogoda",t:"Przełożyć góry, jechać na południe. low."},
+      {h:"Low energy",t:"Viewpoint + Ninho da Manta + Eira do Serrado. low."},
+      {h:"Warunkowo",t:"Przejście w stronę Pico Ruivo tylko po pełnym reotwarciu i z transportem. Bardzo warunkowe."}
+    ]
+  },
+  { n:3, date:"09.05", dow:"sob", kind:"pr", kindLabel:"priorytet",
+    title:"Wschód · Ponta do Rosto + PR8 + Machico",
+    headline:"Klifowy, surowy krajobraz wschodu — bez pełnego przejścia za wszelką cenę.",
+    drive:"2:30–3:15", walk:"2:30–4:00", effort:"m", effortLabel:"medium",
+    start:"05:20 RB / 05:40 PdS · tylko po bramce snu", light:"sunrise ~07:13 · best 06:50–08:15", retreat:"Silny wiatr / brak 7 h snu / słońce",
+    status:"DO POTWIERDZENIA: PR8, sen, wiatr",
+    why:"Wschód daje ogromny efekt wizualny, ale klasyczny błąd to robienie całości za wszelką cenę pod słońcem i wietrze.",
+    stops:["Ponta do Rosto sunrise (po bramce snu)","Baia d'Abra trailhead","PR8 do Casa do Sardinha","Dalej tylko przy dobrej energii","Machico — późny lunch","Powrót"],
+    meta:{
+      "Cel":"Zebrać wschód bez wymuszonego pełnego przejścia.",
+      "Czas dnia":"7–8,5 h",
+      "Rezerwować":"PR8 przez SIMplifica",
+      "Sprawdzić":"wiatr, ekspozycję słoneczną, status szlaku; boat-return: operator + transfer",
+      "Parking":"Ponta do Rosto viewpoint; Baia d'Abra trailhead",
+      "Dojście od parkingu":"viewpoint 2–5 min; start PR8 praktycznie przy parkingu",
+      "Jedzenie / kawa":"Machico po zejściu",
+      "Toalety / infrastruktura":"na trailheadzie nie zakładaj wygód; bazuj na mieście przed i po trasie",
+      "Worth it":"Ponta do Rosto o świcie, pierwsza połowa PR8, Casa do Sardinha",
+      "Skip if tired":"pełny PR8 / boat-return skoro już tu jesteśmy",
+      "Najlepsze światło":"sunrise ~07:13",
+      "Ryzyka":"wiatr, pełne słońce, odwodnienie, tłum po 09:00, błędne założenie że łódź rozwiąże logistykę",
+      "Low energy":"tak, ale tylko viewpoint-hopping bez pełnego PR8",
+      "Przylot / wylot":"nie",
+      "Werdykt":"zostawić, ale domyślnie skrócić",
+      "Plan B":"start dzienny, viewpointy wschodu + Machico / Caniçal; PR8 skrócić bez żalu",
+      "Plan C":"zamiana z dniem południowym",
+    },
+    tags:[{k:"warn",t:"bramka snu 7 h"},{k:"warn",t:"salt-spray · dry-bag"}],
+    alerts:[
+      {k:"warn",h:"Sprzęt",t:"Motorówka PR8 generuje gęsty salt-spray. Sprzęt foto tylko w 100% wodoszczelnych workach; sól trwale niszczy elektronikę i optykę."},
+      {k:"info",h:"Boat-return",t:"To osobna usługa wodna (Cais do Sardinha / Quinta do Lorde) — NIE powrót do zaparkowanego auta. Wymaga własnego transferu. Nie budżetować bazowo."}
+    ],
+    alts:[
+      {h:"Dobra pogoda",t:"Ponta do Rosto + skrócony PR8 do Casa do Sardinha. 4,50 EUR/os."},
+      {h:"Słaba pogoda",t:"Machico + Caniçal + viewpointy wschodu. low."},
+      {h:"Low energy",t:"Ponta do Rosto + Guindaste + promenada Machico. very low / low."},
+      {h:"Warunkowo",t:"Boat-return — niepewne, nie budżetować bazowo."}
+    ]
+  },
+  { n:4, date:"10.05", dow:"nd", kind:"rc", kindLabel:"recovery",
+    title:"Południe · Cabo Girão + Câmara de Lobos",
+    headline:"Lekki, niski-koszt dzień po dwóch mocnych porankach.",
+    drive:"1:00–1:45", walk:"0:45–1:30", effort:"l", effortLabel:"low",
+    start:"09:00–09:30", light:"sunset ~20:55", retreat:"tłok + brak energii = baza",
+    status:"DO POTWIERDZENIA: płatność, parking",
+    why:"To ma być dzień lekki, a nie kolejny moduł do odhaczania. Cabo Girão jest mocnym stopem, ale nie niesie pół dnia.",
+    stops:["Cabo Girão (15–25 min stop)","Câmara de Lobos — kawa / lunch","Madalena do Mar / Rota do Banana","Zachód przy bazie / Ponta do Sol"],
+    meta:{
+      "Cel":"Lekki dzień po dwóch mocnych porankach.",
+      "Czas dnia":"5–7 h",
+      "Rezerwować":"płatność za Cabo Girão — sprawdź tryb przed podjazdem",
+      "Sprawdzić":"pogodę zachód; czy nie zamienić na moduł miejski",
+      "Parking":"Cabo Girão przy punkcie; CdL port; seafront Madalena do Mar",
+      "Dojście od parkingu":"2–10 min na każdym stopie",
+      "Jedzenie / kawa":"Câmara de Lobos lub Madalena do Mar",
+      "Toalety / infrastruktura":"południe ma najłatwiejszą infrastrukturę; dobry dzień na oddech logistyczny",
+      "Worth it":"Cabo Girão krótko, port CdL, spacer wśród bananowców, zachód",
+      "Skip if tired":"robienie z Cabo Girão dnia premium; losowe małe stopy",
+      "Najlepsze światło":"sunset ~20:55",
+      "Ryzyka":"tłok na Cabo Girão, płaski overcast, zbyt dużo stopów",
+      "Low energy":"tak",
+      "Przylot / wylot":"tak jako typ dnia, ale nie z lotem w środku",
+      "Werdykt":"zostawić, ale trzymać krótko",
+      "Plan B":"moduł miejski Funchal / Monte",
+      "Plan C":"pełna regeneracja w hotelu",
+    },
+    tags:[{k:"ok",t:"low effort"},{k:"info",t:"Cabo Girão 5 EUR"}],
+    alerts:[],
+    alts:[
+      {h:"Dobra pogoda",t:"Bazowy wariant południowy."},
+      {h:"Słaba pogoda",t:"Old Town Funchal jako backup miejski."},
+      {h:"Low energy",t:"Sama Câmara de Lobos + zachód przy bazie."},
+      {h:"Warunkowo",t:"Monte Palace + Carreiros tylko jeśli chcesz moduł kulturowy."}
+    ]
+  },
+  { n:5, date:"11.05", dow:"pn", kind:"bz", kindLabel:"bazowy",
+    title:"Ribeiro Frio · Balcões · Santana · Rocha do Navio",
+    headline:"Zielony, spokojniejszy kontrast do dni klifowych.",
+    drive:"2:15–3:00", walk:"1:15–2:00", effort:"l", effortLabel:"low",
+    start:"08:00–08:30", light:"poranek i późne przedpołudnie", retreat:"niska chmura / brak statusu PR9.1",
+    status:"DO POTWIERDZENIA: PR11, Rocha",
+    why:"Balcões ma świetny stosunek efekt/wysiłek. Santana i Rocha do Navio są logicznymi dopięciami, ale nie muszą dominować.",
+    stops:["Ribeiro Frio","PR11 Balcões","Santana krótko","Rocha do Navio (viewpoint / cable car jeśli działa)","Powrót"],
+    meta:{
+      "Cel":"Zielony kontrast bez cardio.",
+      "Czas dnia":"6–8 h",
+      "Rezerwować":"PR11 przez SIMplifica (lub PR9.1, jeśli podmiana)",
+      "Sprawdzić":"widoczność Balcões, kolejka Rocha do Navio, status PR9/PR9.1",
+      "Parking":"Ribeiro Frio przy starcie; Santana centrum; Rocha — kolejka/viewpoint",
+      "Dojście od parkingu":"0–5 min do startu PR11; 2–10 min na pozostałych stopach",
+      "Jedzenie / kawa":"Ribeiro Frio lub Santana",
+      "Toalety / infrastruktura":"licz na miasteczka i kawiarnie, nie na same viewpointy",
+      "Worth it":"Balcões przy dobrej widzialności, klify Rocha do Navio, Santana architektura",
+      "Skip if tired":"długie siedzenie w Santanie / dopychanie Rocha bez kolejki",
+      "Najlepsze światło":"poranek / późne przedpołudnie",
+      "Ryzyka":"niska chmura, nieczynna kolejka, PR9 bez jasnego statusu",
+      "Low energy":"tak",
+      "Przylot / wylot":"nie",
+      "Werdykt":"zostawić, z Rocha do Navio jako warunkowym dodatkiem",
+      "Plan B":"PR9.1 / Queimadas — tylko przy zgodnym statusie oficjalnym i QR z SIMplifica; nie traktować jako substytutu pełnego PR9",
+      "Plan C":"viewpointy północne lub Funchal / Monte",
+    },
+    tags:[{k:"info",t:"PR11 4,50 EUR"},{k:"warn",t:"PR9 zamknięty wg IFCN"}],
+    alerts:[
+      {k:"info",h:"PR9 vs PR9.1",t:"Pełny PR9 traktuj jako niedostępny, dopóki oficjalnie się nie zmieni. PR9.1 jest lekką alternatywą, ale NIE substytutem."}
+    ],
+    alts:[
+      {h:"Dobra pogoda",t:"Balcões + Rocha do Navio cable car."},
+      {h:"Słaba pogoda",t:"Queimadas + PR9.1 — tylko przy zgodnym statusie."},
+      {h:"Low energy",t:"Santana + Rocha viewpoint bez Balcões."},
+      {h:"Warunkowo",t:"Pełny PR9 traktuj jako niedostępny, dopóki oficjalnie nie zmieni statusu. PR9.1 nie jest substytutem pełnego PR9."}
+    ]
+  },
+  { n:6, date:"12.05", dow:"wt", kind:"bz", kindLabel:"bazowy",
+    title:"Seixal · Véu da Noiva · Porto Moniz",
+    headline:"Jeden z najlepszych dni widoki bez cardio.",
+    drive:"2:15–3:15", walk:"0:30–1:30", effort:"l", effortLabel:"low",
+    start:"08:00–08:30", light:"Seixal — wcześnie rano", retreat:"swell / surge / deszcz północ",
+    status:"DO POTWIERDZENIA: morze, parking",
+    why:"Północny-zachód najlepiej działa samochodem i krótkimi stopami. Wejście do oceanu ma sens tylko przy spokojnym morzu.",
+    stops:["Seixal rano","Véu da Noiva","Porto Moniz — dłuższy stop + lunch","Powrót"],
+    meta:{
+      "Cel":"Widoki bez cardio.",
+      "Czas dnia":"6–8 h",
+      "Rezerwować":"brak krytycznej rezerwacji potwierdzonej",
+      "Sprawdzić":"fale, wiatr, deszcz na północy, możliwość kąpieli i własną gotowość do wejścia do wody",
+      "Parking":"Seixal beach/pools; Véu da Noiva roadside; Porto Moniz miejski",
+      "Dojście od parkingu":"2–10 min",
+      "Jedzenie / kawa":"Porto Moniz",
+      "Toalety / infrastruktura":"Porto Moniz ma najlepszą infrastrukturę dnia: przebieralnie, bar, first aid, parking",
+      "Worth it":"Seixal nawet bez kąpieli, Véu da Noiva, Porto Moniz",
+      "Skip if tired":"wymuszona kąpiel, dokładanie wodnych punktów",
+      "Najlepsze światło":"Seixal wcześnie rano",
+      "Ryzyka":"swell, śliskie skały, tłum Porto Moniz, pogoda gorsza na północy",
+      "Low energy":"tak",
+      "Przylot / wylot":"nie",
+      "Werdykt":"zostawić",
+      "Plan B":"viewpoints + Porto Moniz bez wody",
+      "Plan C":"południowy reset",
+    },
+    tags:[{k:"warn",t:"salt-spray · dry-bag"},{k:"info",t:"Porto Moniz pools 3 EUR"}],
+    alerts:[
+      {k:"warn",h:"Sprzęt",t:"Seixal i Porto Moniz: nieprzewidziane fale regularnie zalewają turystów. Sprzęt foto tylko w zamykanym plecaku z pokrowcem; nic na skałach przy surge."}
+    ],
+    alts:[
+      {h:"Dobra pogoda",t:"Seixal + Porto Moniz z opcją wody."},
+      {h:"Słaba pogoda",t:"Véu da Noiva + Porto Moniz — spacer i lunch."},
+      {h:"Low energy",t:"Tylko Porto Moniz + 1–2 stop-pointy."},
+      {h:"Warunkowo",t:"Wejście do oceanu w Seixal — tylko spokojne morze bez surge."}
+    ]
+  },
+  { n:7, date:"13.05", dow:"śr", kind:"bz", kindLabel:"bazowy",
+    title:"Zachód · Achadas · Garganta Funda · Ponta do Pargo",
+    headline:"Maksymalny zachodni payoff przy minimalnym wysiłku.",
+    drive:"2:30–3:30", walk:"0:45–2:00", effort:"l", effortLabel:"low",
+    start:"10:00–10:30", light:"Garganta 16:00–18:00 · sunset ~20:57", retreat:"Po zachodzie — hard stop, powrót do bazy",
+    status:"DO POTWIERDZENIA: kolejka, wiatr",
+    why:"Payoff robią pionowe klify, nie dystans. Dzień ustawiony pod popołudniowe światło w Garganta Funda i zachód w Ponta do Pargo.",
+    stops:["Achadas da Cruz → zjazd tylko jeśli działa i nie wieje","Krótki spacer na fajã","Lunch / coffee","Garganta Funda po południu","Ponta do Pargo sunset"],
+    meta:{
+      "Cel":"Zachodni payoff przy niskim wysiłku.",
+      "Czas dnia":"10–12 h elapsed od wyjazdu do powrotu",
+      "Rezerwować":"brak krytycznej rezerwacji",
+      "Sprawdzić":"kolejka, wiatr, edital serwisowy, wodospad, zachmurzenie; spakować rzeczy na wieczór i D8 przed wyjazdem",
+      "Parking":"Achadas cable car; ścieżka Garganta; Ponta do Pargo lighthouse",
+      "Dojście od parkingu":"Achadas 0–5 min; Garganta 5–10 min; Ponta do Pargo 2–5 min",
+      "Jedzenie / kawa":"Porto Moniz po drodze / Ponta do Pargo village",
+      "Toalety / infrastruktura":"na viewpointach nie licz na toalety; użyj infrastruktury w miasteczkach",
+      "Worth it":"zachodni kraniec, Garganta w dobrym świetle, Achadas przy działającej kolejce",
+      "Skip if tired":"objazdy w środku dnia, Ponta do Pargo sunset przy zmęczonym kierowcy",
+      "Najlepsze światło":"Garganta 16–18, sunset ~20:57",
+      "Ryzyka":"wiatr wyłączający kolejkę, niski wodospad, mgła zabierająca zachód",
+      "Low energy":"tak — zwłaszcza bez schodzenia na dół",
+      "Przylot / wylot":"nie",
+      "Werdykt":"zostawić",
+      "Plan B":"górne miradouros bez zjazdu / Ponta da Ladeira + Garganta + PdP",
+      "Plan C":"spokojniejszy dzień południe lub backup miejski",
+    },
+    tags:[{k:"ok",t:"low effort"},{k:"no",t:"hard stop po zachodzie"}],
+    alerts:[
+      {k:"alert",h:"Hard stop",t:"Po zachodzie NIE ma kolejnych atrakcji. Powrót do bazy, paliwo tylko jeśli konieczne, bez objazdów."}
+    ],
+    alts:[
+      {h:"Dobra pogoda",t:"Bazowy wariant zachodni z Achadas."},
+      {h:"Słaba pogoda",t:"Górne viewpointy / przerzut na południe."},
+      {h:"Low energy",t:"Ponta da Ladeira + Garganta; PdP sunset — tylko jeśli kierowca świeży."},
+      {h:"Warunkowo",t:"Fanal jako detour — TYLKO przy aktywnej mgle. Bez mgły słaby ROI."}
+    ]
+  },
+  { n:8, date:"14.05", dow:"czw", kind:"op", kindLabel:"operacyjny",
+    title:"Wylot",
+    headline:"Zamknąć wyjazd bez ryzyka spóźnienia.",
+    drive:"0:45–1:30", walk:"0:15–0:45", effort:"very-low", effortLabel:"very low",
+    start:"10:30–11:00 z bazy; wcześniej, jeśli śpisz dalej na zachodzie", light:"—", retreat:"Prosto na lotnisko",
+    status:"DO POTWIERDZENIA: zwrot auta, Wizz",
+    why:"Wylot 16:45 — każdy jeszcze tylko szybki Monte/Funchal łatwo robi się złą decyzją.",
+    stops:["Śniadanie","Checkout","Paliwo zgodnie z umową","Ewentualnie jeden łatwy stop na wschodzie","Lekki lunch (Machico / Santa Cruz)","Zwrot auta","Lotnisko 13:45–14:15"],
+    meta:{
+      "Cel":"Domknąć wyjazd bez stresu.",
+      "Czas dnia":"4–5 h",
+      "Rezerwować":"nic nowego poza logistyką auta i lotu",
+      "Sprawdzić":"polityka paliwowa, dokumenty, czas dojazdu, zdanie auta, bezpieczeństwo stopu",
+      "Parking":"tylko gdzie bagaż NIE jest eksponowany — inaczej stop odpada",
+      "Dojście od parkingu":"2–10 min",
+      "Jedzenie / kawa":"Machico / Santa Cruz — najwygodniej",
+      "Toalety / infrastruktura":"pełna przy lotnisku i w miastach po wschodniej stronie",
+      "Worth it":"mały, niski-tarciowy stop, jeśli wszystko pod kontrolą",
+      "Skip if tired":"Monte, Areeiro, pełen Funchal, ambitne objazdy na koniec",
+      "Najlepsze światło":"nieistotne — pracujesz pod logistykę",
+      "Ryzyka":"spóźniony zwrot auta, zbyt późny wyjazd, ekspozycja bagaży, korek",
+      "Minimalny bufor":"paliwo + zwrot auta + dojście z bagażem do terminala to osobny blok czasu, nie „po drodze”",
+      "Low energy":"tak",
+      "Przylot / wylot":"tak — dokładnie taki dzień",
+      "Werdykt":"zostawić jako dzień operacyjny",
+      "Plan B":"prosto na lotnisko",
+      "Plan C":"kawa Santa Cruz / Machico i koniec",
+    },
+    tags:[{k:"info",t:"FNC 16:45"},{k:"warn",t:"Wizz T-0 screenshot"}],
+    alerts:[
+      {k:"warn",h:"Bagaż w aucie",t:"Jeśli bagaż jest widoczny — stop odpada. Ekspozycja = ryzyko."}
+    ],
+    alts:[
+      {h:"Dobra pogoda",t:"Krótki spacer Machico / Santa Cruz."},
+      {h:"Słaba pogoda",t:"Bez zwiedzania: śniadanie → checkout → lotnisko."},
+      {h:"Low energy",t:"Kawa po drodze i prosto na FNC."},
+      {h:"Warunkowo",t:"Cristo Rei / Garajau — tylko przy wyjątku od jednej bazy po stronie wschodniej; nie dotyczy RB–PdS. CONDICIONADO."}
+    ]
+  }
+];
+
+const MODE_REC = {
+  good:{
+    h:"Dobra pogoda — wariant bazowy",
+    l:[
+      "D2 · PR1 Areeiro — pełny wariant z Pedra Rija, jeśli oficjalnie dostępna.",
+      "D3 · Ponta do Rosto sunrise + skrócony PR8 do Casa do Sardinha + Machico.",
+      "D7 · Achadas + Garganta + Ponta do Pargo sunset — maksymalny payoff."
+    ]
+  },
+  bad:{
+    h:"Słaba pogoda — przerzut na południe",
+    l:[
+      "Góry w chmurach — NIE marnuj Areeiro. Zamień z południem albo wschodem.",
+      "Wschód wietrzny — PR8 do viewpointów, albo Machico / południe.",
+      "Cable car off — górne miradouros, zachód, bez forsowania programu.",
+      "Fanal TYLKO przy aktywnej mgle (kamery); bez mgły słaby ROI."
+    ]
+  },
+  low:{
+    h:"Low energy — promień bazy ≤ 45 min",
+    l:[
+      "Baza + Madalena do Mar + seafront Ponta do Sol + kawa Ribeira Brava.",
+      "Zero tras z rezerwacją i sztywnymi godzinami.",
+      "Łatwy parking i toaleta blisko. Łatwy powrót.",
+      "Dzień priorytetowy przenieś, nie forsuj."
+    ]
+  },
+  "72h":{
+    h:"72 h złej pogody — tryb bazowy + miasto",
+    l:[
+      "Rdzeń: baza + południe. Funchal / Monte bez koszyków jako opcja miejska.",
+      "Pranie, zakupy, spokojne posiłki, porządkowanie zdjęć.",
+      "ZERO płatnych szlaków i alternatyw bo może się poprawi.",
+      "Nie ratuj planu kolejnymi rezerwacjami."
+    ]
+  }
+};
+
+const BACKUPS = [
+  {t:"Góry w chmurach", w:"D2 / D5", s:["Nie marnuj Areeiro. Zamień dzień z południem lub wschodem.","Balcões przy niskiej chmurze — często blok widoczności. Przerzuć na zachód."]},
+  {t:"Wschód bardzo wietrzny", w:"D3", s:["Skróć PR8 do viewpointów.","Przerzut na Machico / Caniçal / południe.","Boat-return: NIE rozwiązuje logistyki."]},
+  {t:"Morze wzburzone", w:"D6", s:["Seixal i wejścia do wody — skreślone bez dyskusji.","Viewpointy + Porto Moniz jako spacer / lunch.","Sprzęt foto tylko w dry-bagu."]},
+  {t:"Cable car off", w:"D5 / D7", s:["Górne miradouros.","Nie próbuj ratować identycznego programu.","Achadas: zostań na górnych punktach, Garganta + PdP bez zjazdu."]},
+  {t:"Fanal tylko przy mgle", w:"D7 opcjonalnie", s:["Bez aktywnej mgły — słaby ROI.","Detour tylko gdy kamery pokazują warunki.","Nie budżetuj jako bazowy."]},
+  {t:"Areeiro niedostępne cały tydzień", w:"D2–D5", s:["Brak substytutu tej samej klasy.","Priorytet: PR8 sunrise deck → Eira do Serrado + południe → zachód.","Bez dokładania cardio i bez pełnego PR9."]},
+  {t:"Chory / jedna osoba odpada", w:"dowolny dzień", s:["Promień do 45 min jazdy.","Łatwy parking, toaleta, łatwy powrót.","Madalena do Mar, seafront PdS, kawa Ribeira Brava.","Zero tras z rezerwacją i sztywnymi godzinami."]},
+  {t:"72 h złej pogody", w:"2+ dni z rzędu", s:["Baza + południe jako rdzeń.","Funchal / Monte bez koszyków.","Pranie, zakupy, zdjęcia.","Zero płatnych szlaków na wszelki wypadek."]}
+];
+
+const RYTUAL = [
+  "IFCN — status trasy na jutro.",
+  "SIMplifica — rezerwacja + QR, screen do galerii.",
+  "Pogoda — wiatr, chmura, widoczność (IPMA).",
+  "Parking — dojazd, alternatywa, godzina startu.",
+  "Sprzęt — woda, kurtka wiatrowa, powerbank, gotówka.",
+  "Offline — screeny rezerwacji, mapa offline, adres bazy."
+];
+const FINAL = [
+  "QR SIMplifica offline.",
+  "Status PR1 / PR8 / PR11 / PR9.1.",
+  "Warunki morza dla Seixal.",
+  "Cable cars — praca i godziny.",
+  "Monte / Funchal / Carreiros — godziny i płatność na miejscu, tylko jeśli backup miejski wchodzi do gry.",
+  "Wizz screenshots T-7 / T-3 / T-0.",
+  "Auto — paliwo, zwrot, depozyt, wkład własny, szyby/opony/podwozie, zdjęcia.",
+  "Woda 5 l w aucie.",
+  "Dry-bag / sprzęt foto na PR8 i północno-zachodnie wybrzeże.",
+  "Polisa, EKUZ, assistance, druga karta, gotówka."
+];
+const PREP_CORE = [
+  "Kurtka wiatrowa + warstwa na zimny poranek.",
+  "Dry-bag / pokrowiec przeciwdeszczowy.",
+  "Przy surge nic na skałach; przy silnym wietrze żadnego statywu na odsłoniętej krawędzi.",
+  "Powerbank + kable.",
+  "Mapy offline (Google, Maps.me, OsmAnd).",
+  "eSIM aktywowany po lądowaniu.",
+  "Apteczka + krem SPF.",
+  "Paszport/dowód, prawo jazdy.",
+  "Umowa auta, polisa, EKUZ, assistance.",
+  "Druga karta + gotówka (35 EUR + zapas na Carreiros).",
+  "Kopie dokumentów offline — druga osoba."
+];
+
+const AUTO_RULES = [
+  "Karta i depozyt: potwierdź kredytowa/debetowa, wysokość depozytu i blokady po rezerwacji.",
+  "Ubezpieczenie: CDW, wkład własny, wyłączenia, szyby, opony i podwozie — bez wpisywania „bez wkładu”, jeśli nie ma tego w umowie.",
+  "Drugi kierowca: dopisać w umowie, jeśli ma realnie prowadzić; bez wpisu druga osoba nie prowadzi.",
+  "After-hours: odbiór/zwrot, dopłaty i procedura kluczy do uzupełnienia po rezerwacji.",
+  "Żadnych dróg szutrowych / nieutwardzonych.",
+  "Polityka paliwowa: jeśli full-to-full, tankowanie przed lotniskiem.",
+  "Zdjęcia auta: obwód, dach, felgi, opony, szyby, podwozie o ile widoczne, licznik, paliwo i wnętrze.",
+  "Tunele, serpentyny, wąskie drogi: tempo adekwatne do widoczności."
+];
+
+const HEALTH_FINANCE = [
+  "Polisa, EKUZ i numer assistance offline oraz u drugiej osoby.",
+  "Najbliższa pomoc medyczna od bazy: wpisać po wyborze hotelu.",
+  "Dokumenty offline: paszport/dowód, prawo jazdy, umowa auta, polisa, bilety, nocleg, QR SIMplifica, Wizz.",
+  "Finanse: druga karta osobno, gotówka na małe płatności i Carreiros, limity transakcji sprawdzone.",
+  "Utrata telefonu: druga osoba ma dokumenty offline, adres bazy, dane auta i dostęp do pieniędzy.",
+  "Najważniejsze QR i rezerwacje także w galerii drugiego telefonu.",
+  "Woda 5 l w aucie jako stały zapas, uzupełniany po każdym dniu terenowym.",
+  "Numer alarmowy 112; apteczka w aucie; eSIM po lądowaniu, zasięg w dolinach bywa zerowy."
+];
+
+const PREP = [
+  {t:"T-30", s:"auto / nocleg", l:["auto, nocleg, parking noclegu","depozyt, karta, wkład własny","polisa, EKUZ, assistance","konto SIMplifica"]},
+  {t:"T-14", s:"statusy", l:["PR1 po MIUT","PR8 / PR9 / PR9.1 / PR11","płatności SIMplifica i cable cars","plan 72 h złej pogody"]},
+  {t:"T-7",  s:"Wizz screen", l:["oficjalny screen Wizz","test logowania SIMplifica","mapy offline, dokumenty offline","wstępna prognoza i moduły"]},
+  {t:"T-3",  s:"kontrola", l:["ponowny screen Wizz","kontrola auta / check-in / parkingu","statusy szlaków","decyzja, czy kupować cokolwiek wcześniej"]},
+  {t:"T-1",  s:"rezerwacje", l:["PR1, PR8, PR11 / PR9.1 — po prognozie","screeny QR offline"]},
+  {t:"T-0",  s:"GO day", l:["screen Wizz","odprawa / dokumenty","paliwo / zwrot","status szlaku / cable car"]}
+];
+
+const RULES_ROWS = [
+  ["D2 Areeiro","kawa/śniadanie po zejściu niżej","sklep przy bazie po powrocie","10 min Areeiro, potem overflow/skrócenie","brak QR, mgła/wiatr, brak miejsca po 10 min"],
+  ["D3 PR8","Machico / Caniçal","Machico","10 min Baía d'Abra, potem viewpointy","wiatr, brak snu 7 h, słońce/odwodnienie"],
+  ["D4 południe","Câmara de Lobos / Madalena do Mar","Ribeira Brava / PdS","10 min przy Cabo Girão/Câmara","tłok + brak energii = baza"],
+  ["D5 Balcões","Ribeiro Frio / Santana","Santana","10 min Ribeiro Frio, potem Santana/viewpointy","niska chmura, brak statusu PR9.1"],
+  ["D6 NW","Porto Moniz","Porto Moniz / São Vicente","10 min Seixal/Porto Moniz","swell, surge, deszcz na północy"],
+  ["D7 zachód","Porto Moniz / Ponta do Pargo","Porto Moniz","10 min Achadas/Garganta","zmęczony kierowca, kolejka off, wiatr"]
+];
+
+const RISK = [
+  // [day, pogoda, szlak, parking, morze, operator, zmeczenie]
+  [1,1,0,1,0,1,2],
+  [2,4,4,3,0,3,3],
+  [3,3,2,2,1,2,3],
+  [4,1,1,2,0,2,1],
+  [5,3,3,1,0,2,2],
+  [6,2,1,2,4,2,1],
+  [7,3,1,1,0,3,2],
+  [8,1,0,1,0,3,1],
+];
+
+/* =============== HELPERS =============== */
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const el = (t, a={}, c=[]) => {
+  const n=document.createElement(t);
+  for(const k in a){ if(k==="class") n.className=a[k]; else if(k==="html") n.innerHTML=a[k]; else n.setAttribute(k,a[k]); }
+  (Array.isArray(c)?c:[c]).forEach(x=>n.append(typeof x==="string"?document.createTextNode(x):x));
+  return n;
+};
+const LS = {
+  get(k,def){ try{const v=localStorage.getItem("madera2026:"+k);return v===null?def:JSON.parse(v)}catch(e){return def} },
+  set(k,v){ try{localStorage.setItem("madera2026:"+k,JSON.stringify(v))}catch(e){} }
+};
+
+/* =============== OVERVIEW GRID =============== */
+function renderOverview(){
+  const g = $("#overviewGrid");
+  g.innerHTML = "";
+  DAYS.forEach(d=>{
+    const tile = el("a", {href:"#d-"+d.n, class:"daytile", "aria-label":`Dzień ${d.n}, ${d.date}, ${d.title}`});
+    tile.innerHTML = `
+      <span class="dkind ${d.kind}">${d.kindLabel}</span>
+      <div>
+        <div class="ddate">${d.date} · ${d.dow}</div>
+        <div class="dnum">D${d.n}</div>
+      </div>
+      <div class="dtitle">${d.title}</div>
+      <div class="startlight">🕐 ${d.start}<br/>✴ ${d.light}</div>
+      <div class="dstat">
+        <span class="pill drive">🚗 ${d.drive}</span>
+        <span class="pill walk">🚶 ${d.walk}</span>
+        <span class="pill eff-${d.effort==="very-low"?"vl":d.effort==="l"?"l":"m"}">${d.effortLabel}</span>
+      </div>`;
+    g.append(tile);
+  });
+}
+
+/* =============== DAY CARDS =============== */
+function renderCards(){
+  const root = $("#dayCards");
+  root.innerHTML = "";
+  DAYS.forEach(d=>{
+    const det = el("details", {class:"daycard", id:"d-"+d.n});
+    if(d.n===1) det.setAttribute("open","");
+    const tags = d.tags.map(t=>`<span class="tag ${t.k}">${t.t}</span>`).join("");
+    const stops = d.stops.map(s=>`<li>${s}</li>`).join("");
+    const alerts = d.alerts.map(a=>`<div class="alert ${a.k==="info"?"info":a.k==="warn"?"warn":""}"><strong>${a.h}</strong>${a.t}</div>`).join("");
+    const metaHtml = Object.entries(d.meta).map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("");
+    const alts = d.alts.map(a=>`<div class="alt"><div class="h">${a.h}</div><div class="t">${a.t}</div></div>`).join("");
+    det.innerHTML = `
+      <summary>
+        <div class="dc-num">D${d.n}</div>
+        <div class="dc-hd">
+          <h3>${d.title}</h3>
+          <div class="sub">${d.date} · ${d.dow} · ${d.kindLabel} · ${d.status}</div>
+        </div>
+        <div class="dc-tags">${tags}</div>
+        <div class="dc-caret">+</div>
+      </summary>
+      <div class="dc-body">
+        <h4>Dlaczego ten układ</h4>
+        <div class="dc-grid">
+          <div>
+            <p class="why">${d.why}</p>
+            ${alerts}
+            <h4>Kolejność stopów</h4>
+            <ul class="stops">${stops}</ul>
+            <h4>Alternatywy</h4>
+            <div class="altgrid">${alts}</div>
+          </div>
+          <div>
+            <h4 style="margin-top:0">Meta operacyjna</h4>
+            <dl class="kv">${metaHtml}</dl>
+            <h4>Punkt odwrotu</h4>
+            <p style="margin:0;color:var(--nogo);font-family:var(--mono);font-size:12px">${d.retreat}</p>
+          </div>
+        </div>
+      </div>`;
+    root.append(det);
+  });
+}
+
+/* =============== MODES =============== */
+function setMode(m){
+  if(!Object.prototype.hasOwnProperty.call(MODE_REC, m)) m = "good";
+  LS.set("mode", m);
+  $$(".mode").forEach(b=>{
+    const active = b.dataset.mode===m;
+    b.classList.toggle("active", active);
+    b.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+  const r = MODE_REC[m];
+  $("#moderec").innerHTML = `<div class="mrh">${r.h}</div><ul>${r.l.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+}
+
+/* =============== CHECKLISTS =============== */
+function renderChecklist(key, items){
+  const root = document.querySelector(`[data-cl="${key}"]`);
+  const loaded = LS.get("cl:"+key, {});
+  const saved = loaded && typeof loaded==="object" && !Array.isArray(loaded) ? loaded : {};
+  items.forEach((txt,i)=>{
+    const id = `cl-${key}-${i}`;
+    const lab = el("label", {for:id});
+    const inp = el("input",{type:"checkbox",id});
+    inp.checked = !!saved[i];
+    inp.addEventListener("change", ()=>{
+      saved[i] = inp.checked; LS.set("cl:"+key,saved); updateProgress(key);
+    });
+    lab.append(inp, el("span",{class:"step-n"}, String(i+1).padStart(2,"0")), el("span",{}, txt));
+    root.append(lab);
+  });
+  const prog = el("div",{class:"cl-progress"});
+  const resetBtn = el("button",{class:"reset", type:"button"},"Reset");
+  resetBtn.addEventListener("click", ()=>{
+    if(!confirm("Wyczyścić tę checklistę?")) return;
+    LS.set("cl:"+key,{});
+    $$(`[data-cl="${key}"] input[type=checkbox]`).forEach(i=>i.checked=false);
+    updateProgress(key);
+  });
+  prog.innerHTML = `<span data-prog="${key}">0 / ${items.length}</span>`;
+  prog.append(resetBtn);
+  root.append(prog);
+  updateProgress(key);
+}
+function updateProgress(key){
+  const boxes = $$(`[data-cl="${key}"] input[type=checkbox]`);
+  const done = boxes.filter(b=>b.checked).length;
+  const t = document.querySelector(`[data-prog="${key}"]`);
+  if(t) t.textContent = `${done} / ${boxes.length}`;
+}
+
+/* =============== BACKUPS =============== */
+function renderBackups(){
+  const root = $("#backups");
+  root.innerHTML = "";
+  BACKUPS.forEach(b=>{
+    root.append(el("div",{class:"bkp", html:`
+      <div class="when">${b.w}</div>
+      <h3>${b.t}</h3>
+      <ol>${b.s.map(x=>`<li>${x}</li>`).join("")}</ol>`}));
+  });
+}
+
+/* =============== PREP =============== */
+function renderPrep(){
+  const root = $("#prepRow");
+  root.innerHTML = "";
+  PREP.forEach(p=>{
+    root.append(el("div",{class:"prep", html:`
+      <div class="t">${p.t}</div>
+      <div class="s">${p.s}</div>
+      <ul>${p.l.map(x=>`<li>${x}</li>`).join("")}</ul>`}));
+  });
+}
+
+/* =============== RULES TABLE =============== */
+function renderRules(){
+  const tb = $("#ruletbody");
+  RULES_ROWS.forEach(r=>{
+    tb.append(el("tr",{html:r.map((c,i)=>`<td>${c}</td>`).join("")}));
+  });
+}
+
+/* =============== RISK TABLE =============== */
+function renderRisk(){
+  const labels = ["","Przylot","Areeiro","Wschód","Południe","Balcões","Seixal","Zachód","Wylot"];
+  const tb = $("#riskbody");
+  RISK.forEach(row=>{
+    const [d,...vals] = row;
+    const tds = [`<td class="d">D${d} · ${labels[d]}</td>`].concat(
+      vals.map(v=>`<td><span class="rcell r${v}" title="${v}/4" aria-label="${v} z 4"></span> <span style="font-family:var(--mono);font-size:11px;color:var(--bazalt-600)">${v}</span></td>`)
+    ).join("");
+    tb.append(el("tr",{html:tds}));
+  });
+}
+
+/* =============== CHARTS =============== */
+function charts(){
+  Chart.defaults.font.family = "Inter, system-ui";
+  Chart.defaults.color = "#263039";
+  const dayLabels = DAYS.map(d=>`D${d.n}·${d.date}`);
+  const mid=(r)=>{const [a,b]=r.split("–").map(x=>{const [h,m]=x.split(":").map(Number);return h+m/60});return (a+b)/2;};
+  const drive = DAYS.map(d=>+mid(d.drive).toFixed(2));
+  const walk  = DAYS.map(d=>+mid(d.walk).toFixed(2));
+  const effortMap = {"very-low":0.7,"l":1.8,"m":3};
+  const effort = DAYS.map(d=>effortMap[d.effort]);
+  const payoff = [1.5, 5, 4.5, 2.5, 3, 4, 4.5, 1];
+
+  new Chart($("#ch1"), {
+    type:"bar",
+    data:{labels:dayLabels, datasets:[
+      {label:"Jazda (h)", data:drive, backgroundColor:"#17445e"},
+      {label:"Chodzenie (h)", data:walk, backgroundColor:"#69a07f"}
+    ]},
+    options:{responsive:true, maintainAspectRatio:false,
+      scales:{x:{stacked:true, grid:{display:false}},y:{stacked:true, grid:{color:"rgba(0,0,0,.06)"}, title:{display:true,text:"godziny"}}},
+      plugins:{legend:{position:"bottom"}}}
+  });
+  new Chart($("#ch2"), {
+    type:"line",
+    data:{labels:dayLabels, datasets:[{label:"Wysiłek (0–4)", data:effort, borderColor:"#e66a3c", backgroundColor:"rgba(230,106,60,.12)", tension:.35, fill:true, pointRadius:4, pointBackgroundColor:"#e66a3c"}]},
+    options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{position:"bottom"}}, scales:{y:{min:0,max:4, grid:{color:"rgba(0,0,0,.06)"}}}}
+  });
+  new Chart($("#ch3"), {
+    type:"scatter",
+    data:{datasets:[{
+      label:"Dzień",
+      data: DAYS.map((d,i)=>({x:effort[i], y:payoff[i], label:`D${d.n}`})),
+      backgroundColor: DAYS.map(d=>d.kind==="pr"?"#e66a3c":d.kind==="rc"?"#69a07f":d.kind==="bz"?"#17445e":"#8c97a1"),
+      pointRadius:10, pointHoverRadius:13
+    }]},
+    options:{responsive:true, maintainAspectRatio:false,
+      scales:{x:{title:{display:true,text:"Wysiłek"},min:0,max:4,grid:{color:"rgba(0,0,0,.06)"}},
+              y:{title:{display:true,text:"Payoff widokowy"},min:0,max:5.5,grid:{color:"rgba(0,0,0,.06)"}}},
+      plugins:{legend:{display:false},
+        tooltip:{callbacks:{label:c=>`${c.raw.label}: payoff ${c.raw.y}, wysiłek ${c.raw.x}`}}}}
+  });
+  new Chart($("#ch4"), {
+    type:"doughnut",
+    data:{labels:["PR fees jeśli 4 płatne szlaki","Cabo Girão","Porto Moniz pools","Achadas ida-volta","Multi-day SIM opcja","Do sprawdzenia: Rocha do Navio","Do sprawdzenia: depozyt auta"],
+          datasets:[{data:[18, 5, 3, 5, 22.5, 0.01, 0.01],
+            backgroundColor:["#3e8a5a","#35624a","#69a07f","#2b7aa3","#17445e","#d9a341","#c04933"]}]},
+    options:{responsive:true, maintainAspectRatio:false, plugins:{legend:{position:"bottom",labels:{boxWidth:10}}}}
+  });
+}
+
+function showChartFallback(){
+  $$("canvas[id^='ch']").forEach(canvas=>{
+    canvas.hidden = true;
+    if(!canvas.parentElement.querySelector(".chartfallback")){
+      canvas.insertAdjacentElement("afterend", el("p", {class:"chartfallback"}, "Wykres niedostępny offline."));
+    }
+  });
+}
+
+function safeCharts(){
+  if(!window.Chart){
+    showChartFallback();
+    return;
+  }
+  try{
+    charts();
+  }catch(e){
+    console.warn("Chart.js initialization failed", e);
+    showChartFallback();
+  }
+}
+
+/* =============== TODAY HIGHLIGHTER =============== */
+function markToday(){
+  const now = new Date();
+  const trip = DAYS.map(d=>{
+    const [dd,mm] = d.date.split(".");
+    return new Date(2026, +mm-1, +dd);
+  });
+  let idx = -1;
+  for(let i=0;i<trip.length;i++){
+    const cur=trip[i], nxt=trip[i+1]||new Date(trip[i].getTime()+86400000);
+    if(now>=cur && now<nxt){ idx=i; break; }
+  }
+  if(idx>=0){
+    $("#todayMarker").textContent = `Dzisiaj: D${DAYS[idx].n} · ${DAYS[idx].title}`;
+    $("#todayBtn").setAttribute("href", "#d-"+DAYS[idx].n);
+  } else {
+    $("#todayMarker").textContent = `Dzień poza wyjazdem (trip: 07–14.05.2026)`;
+    $("#todayBtn").setAttribute("href", "#d-1");
+  }
+}
+
+/* =============== CLOCK =============== */
+function tickClock(){
+  const n=new Date();
+  const p=k=>String(k).padStart(2,"0");
+  $("#clock").textContent = `${p(n.getHours())}:${p(n.getMinutes())}:${p(n.getSeconds())} · ${n.toLocaleDateString("pl-PL",{weekday:"short",day:"2-digit",month:"short"})}`;
+}
+
+/* =============== NAV HIGHLIGHT =============== */
+function navHighlight(){
+  const ids = ["overview","dni","decyzje","warianty","mapa","wykresy","backupy","koszty","checklisty","zrodla"];
+  const links = ids.map(id=>document.querySelector(`.navlinks a[href="#${id}"]`));
+  const moblinks = ids.map(id=>document.querySelector(`.mobnav a[href="#${id}"]`));
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        const id=e.target.id;
+        links.forEach(a=>a && a.classList.toggle("active", a.getAttribute("href")==="#"+id));
+        moblinks.forEach(a=>a && a.classList.toggle("active", a.getAttribute("href")==="#"+id));
+      }
+    });
+  },{rootMargin:"-40% 0px -55% 0px"});
+  ids.forEach(id=>{const s=document.getElementById(id); if(s) io.observe(s);});
+}
+
+/* =============== INIT =============== */
+document.addEventListener("DOMContentLoaded", ()=>{
+  renderOverview();
+  renderCards();
+  renderBackups();
+  renderPrep();
+  renderRules();
+  renderRisk();
+  renderChecklist("rytual", RYTUAL);
+  renderChecklist("final", FINAL);
+  renderChecklist("prep", PREP_CORE);
+  renderChecklist("auto", AUTO_RULES);
+  renderChecklist("health", HEALTH_FINANCE);
+  markToday();
+  tickClock(); setInterval(tickClock, 1000);
+  navHighlight();
+
+  $$(".mode").forEach(b=>b.addEventListener("click", ()=>setMode(b.dataset.mode)));
+  setMode(LS.get("mode","good"));
+  safeCharts();
+});
+</script>
+</body>
+</html>
