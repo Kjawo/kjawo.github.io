@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="assets/chart.umd.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'"></script>
 <style>
 /* ---------- TOKENS ---------- */
 :root{
@@ -86,7 +86,8 @@ button{font:inherit;color:inherit}
 .navlinks{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
 .navlinks a{
   font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
-  padding:7px 10px;border-radius:999px;text-decoration:none;color:var(--bazalt-600);
+  min-height:44px;padding:7px 10px;border-radius:999px;text-decoration:none;color:var(--bazalt-600);
+  display:inline-flex;align-items:center;
   transition:background .15s, color .15s;
 }
 .navlinks a:hover,.navlinks a.active{background:var(--bazalt-900);color:#fff}
@@ -145,7 +146,8 @@ button{font:inherit;color:inherit}
 .quickbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
 .chip{
   font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  padding:8px 12px;border:1px solid var(--rule-strong);border-radius:999px;background:#fff;
+  min-height:44px;padding:8px 12px;border:1px solid var(--rule-strong);border-radius:999px;background:#fff;
+  display:inline-flex;align-items:center;
   cursor:pointer;text-decoration:none;color:var(--ink);transition:background .12s,border-color .12s,color .12s
 }
 .chip:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -155,6 +157,8 @@ button{font:inherit;color:inherit}
 .mobnav a:focus-visible,
 .chip:focus-visible,
 .mode:focus-visible,
+button:focus-visible,
+.daytile:focus-visible,
 .daycard summary:focus-visible,
 .reset:focus-visible,
 .cl input[type=checkbox]:focus-visible{
@@ -169,6 +173,7 @@ button{font:inherit;color:inherit}
   display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;height:clamp(220px,32vw,360px);
 }
 .strip figure{margin:0;overflow:hidden;position:relative;border-radius:3px;background:var(--paper-2)}
+.strip figure{aspect-ratio:16/9}
 .strip img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.02)}
 .strip figcaption{
   position:absolute;left:10px;bottom:8px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
@@ -178,6 +183,7 @@ button{font:inherit;color:inherit}
 
 /* ---------- SECTION SHELL ---------- */
 section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relative;scroll-margin-top:72px}
+@media(max-width:760px){section.sec{margin:32px auto}}
 .sechead{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--rule-strong);padding-bottom:12px;margin-bottom:22px}
 .sechead .num{font-family:var(--mono);font-size:12px;color:var(--sunrise-600);letter-spacing:.2em}
 .sechead h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.5vw,42px);margin:0;letter-spacing:-.01em}
@@ -193,8 +199,11 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
   position:relative;background:#fff;border:1px solid var(--rule);padding:14px;border-radius:3px;
   display:flex;flex-direction:column;gap:6px;min-height:200px;cursor:pointer;
   transition:transform .15s, box-shadow .15s, border-color .15s;
+  overflow:hidden;
 }
 .daytile:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(11,16,20,.25);border-color:var(--bazalt-400)}
+.daytile-photo{height:82px;margin:-14px -14px 8px;overflow:hidden;background:var(--paper-2);border-bottom:1px solid var(--rule)}
+.daytile-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.04)}
 .daytile .dnum{font-family:var(--serif);font-size:28px;line-height:1;font-weight:500}
 .daytile .ddate{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--bazalt-500);text-transform:uppercase}
 .daytile .dtitle{font-size:13px;font-weight:600;margin-top:2px}
@@ -233,7 +242,10 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .dc-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}
 @media(max-width:820px){.dc-grid{grid-template-columns:1fr}}
 .dc-grid p{margin:6px 0;color:var(--bazalt-700)}
-.dc-grid .why{font-family:var(--serif);font-size:17px;font-style:italic;color:var(--bazalt-800);line-height:1.45}
+.dc-grid .why{
+  font-family:var(--serif);font-size:17px;font-style:italic;color:var(--bazalt-800);line-height:1.45;
+  background:#f8f4ea;border-left:3px solid var(--zloto-500);padding:12px 14px;margin:8px 0 12px;border-radius:2px;
+}
 .stops{display:flex;flex-direction:column;gap:0;margin:8px 0 0;padding:0;list-style:none;border-left:2px solid var(--bazalt-200)}
 .stops li{position:relative;padding:6px 0 6px 18px;font-size:14px}
 .stops li::before{content:"";position:absolute;left:-5px;top:14px;width:8px;height:8px;border-radius:50%;background:var(--sunrise-500)}
@@ -246,6 +258,8 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .tag.ok{background:#e6f3ea;border-color:#9bc4a8;color:#2d5a3d}
 .tag.no{background:#fbe6e2;border-color:#d9a396;color:#a8351f}
 .tag.info{background:#e4eef3;border-color:#a3c0cf;color:#1e4a63}
+.tag.ok::before,.state.ok::before,.mcell .cond .ok::before{content:"✓ ";font-weight:700}
+.tag.no::before,.state.no::before,.mcell .cond .no::before{content:"× ";font-weight:700}
 .alert{
   border-left:3px solid var(--nogo);background:#fff7f4;padding:10px 14px;margin:10px 0;
   font-size:13px;color:#7b2c1d;
@@ -259,6 +273,24 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .alt{border:1px solid var(--rule);padding:10px 12px;border-radius:3px;background:var(--paper)}
 .alt .h{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bazalt-500);margin-bottom:4px}
 .alt .t{font-size:13px;color:var(--bazalt-800)}
+
+.photo-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:8px;margin:16px 0 20px}
+.photo-card{margin:0;position:relative;overflow:hidden;border-radius:3px;background:var(--paper-2);min-height:190px;border:1px solid var(--rule)}
+.photo-card:first-child{grid-column:span 2;min-height:260px}
+.photo-card img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.04)}
+.photo-card figcaption{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:28px 10px 9px;
+  background:linear-gradient(180deg, transparent, rgba(11,16,20,.76));
+  color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
+  display:flex;gap:8px;justify-content:space-between;align-items:flex-end
+}
+.photo-card figcaption span{max-width:62%;text-shadow:0 1px 2px rgba(0,0,0,.55)}
+.photo-card figcaption a{color:#fff;text-decoration:underline;text-underline-offset:2px;text-align:right;opacity:.9}
+@media(max-width:760px){
+  .photo-grid{grid-template-columns:1fr}
+  .photo-card,.photo-card:first-child{grid-column:auto;min-height:220px}
+}
 
 /* ---------- GATES / GO-NO-GO ---------- */
 .gates{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
@@ -324,9 +356,10 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 @media(max-width:900px){.maplayout{grid-template-columns:1fr}}
 .mapwrap{
   position:relative;border:1px solid var(--rule);border-radius:3px;overflow:hidden;background:#fff;
-  min-height:480px;
+  min-height:420px;aspect-ratio:16/9;
 }
-.mapwrap iframe{width:100%;height:100%;border:0;display:block;min-height:480px}
+.mapwrap iframe{position:absolute;inset:0;width:100%;height:100%;border:0;display:block;min-height:0}
+@media(max-width:640px){.mapwrap{min-height:340px;aspect-ratio:4/5}}
 .islandmap{
   background:var(--bazalt-950);color:var(--mgla-100);border-radius:3px;padding:18px;display:flex;flex-direction:column;gap:8px;
   position:relative;overflow:hidden;
@@ -344,7 +377,10 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .chartcard .d{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500);margin-top:2px}
 .chartcard canvas{margin-top:10px;max-height:280px}
 .chartcard.wide{grid-column:1/-1}
-.chartfallback{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--bazalt-500);margin:14px 0 0}
+.chartfallback{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6b5215;margin:14px 0 0;
+  border-left:3px solid var(--warn);background:#fff9eb;padding:10px 12px;
+}
 
 /* risk matrix table */
 .rtable{width:100%;border-collapse:collapse;font-size:12px;margin-top:12px}
@@ -381,7 +417,8 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .statusgrid,.variantgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:0 0 22px}
 .variantgrid{grid-template-columns:repeat(3,1fr)}
 @media(max-width:1000px){.statusgrid,.variantgrid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.statusgrid,.variantgrid{grid-template-columns:1fr}}
+@media(max-width:720px){.statusgrid{grid-template-columns:1fr}}
+@media(max-width:640px){.variantgrid{grid-template-columns:1fr}}
 .statusbox,.variantbox{background:#fff;border:1px solid var(--rule);padding:14px 16px;border-radius:3px}
 .statusbox h3,.variantbox h3{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;margin:0 0 6px;color:var(--bazalt-600)}
 .statusbox p,.variantbox p{font-size:13px;color:var(--bazalt-700);margin:0}
@@ -424,6 +461,11 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .cl .step-n{font-family:var(--mono);font-size:10px;color:var(--bazalt-400);margin-right:6px}
 .cl-progress{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--bazalt-500);margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);display:flex;justify-content:space-between}
 .reset{font-family:var(--mono);font-size:10px;color:var(--nogo);text-decoration:underline;cursor:pointer;background:none;border:0;padding:0}
+.storage-tools{grid-column:1/-1;background:#fff;border:1px solid var(--rule);border-radius:3px;padding:14px 16px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.storage-tools .copy{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--bazalt-500)}
+.storage-tools .actions{display:flex;gap:8px;flex-wrap:wrap}
+.storage-tools .status{font-family:var(--mono);font-size:10px;color:var(--bazalt-600);min-height:1.5em}
+.storage-tools input[type=file]{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* ---------- RULES (lunch/parking) ---------- */
 .rules{display:grid;grid-template-columns:1fr;gap:14px}
@@ -455,12 +497,13 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 
 /* ---------- FOOTER ---------- */
 footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:1px solid var(--rule);color:var(--bazalt-500);font-family:var(--mono);font-size:11px;letter-spacing:.08em;display:flex;gap:20px;flex-wrap:wrap;justify-content:space-between}
+.printstamp{display:none}
 
 /* ---------- MOBILE BOTTOM NAV ---------- */
-.mobnav{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:rgba(244,242,238,.97);backdrop-filter:blur(10px);border-top:1px solid var(--rule);padding:6px 4px 10px}
+.mobnav{display:none;position:fixed;left:0;right:0;bottom:0;z-index:60;background:var(--paper);backdrop-filter:blur(10px);border-top:1px solid var(--rule-strong);box-shadow:0 -10px 28px rgba(11,16,20,.14);padding:6px 4px calc(10px + env(safe-area-inset-bottom))}
 .mobnav ul{list-style:none;margin:0;padding:0;display:flex;overflow-x:auto;gap:2px;scrollbar-width:none}
 .mobnav ul::-webkit-scrollbar{display:none}
-.mobnav a{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;padding:8px 10px;border-radius:999px;text-decoration:none;color:var(--bazalt-600);white-space:nowrap}
+.mobnav a{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;min-height:44px;padding:8px 10px;border-radius:999px;text-decoration:none;color:var(--bazalt-700);white-space:nowrap;display:flex;align-items:center}
 .mobnav a.active{background:var(--ink);color:#fff}
 @media(max-width:900px){.mobnav{display:block}footer.foot{margin-bottom:80px}}
 
@@ -485,6 +528,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
   .chartcard,.cl,.gate,.bkp,.costcol,.tier,.statusbox,.variantbox{border-color:#999}
   .mapwrap iframe{display:none}
   .strip{display:none}
+  .printstamp{display:block;position:fixed;left:6mm;right:6mm;bottom:4mm;border-top:1px solid #999;padding-top:2mm;font-family:var(--mono);font-size:8pt;color:#000}
   a{color:#000;text-decoration:none}
   .hero{padding-top:6mm}
 }
@@ -514,6 +558,8 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
     <div class="clock" id="clock" aria-hidden="true">—</div>
   </div>
 </div>
+
+<main id="main">
 
 <!-- ===================== HERO ===================== -->
 <section class="hero" id="top">
@@ -801,8 +847,8 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
         src="https://www.google.com/maps/d/embed?mid=1NtSuO52IGWeVbz_27JV7BOM1jsuU5mA"
         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <div class="islandmap">
-      <h4>Schemat 8 dni · baza w centrum-południu</h4>
+    <aside class="islandmap" aria-labelledby="islandmapTitle">
+      <h4 id="islandmapTitle">Schemat 8 dni · baza w centrum-południu</h4>
       <svg viewBox="0 0 420 240" role="img" aria-label="Schemat Madery z zaznaczonymi punktami dni">
         <defs>
           <pattern id="topo" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(12)">
@@ -853,7 +899,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
       <p style="font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:#b9c1c8;margin-top:6px">
         Schemat orientacyjny. Użyteczna topografia: wschód surowy, góry w centrum, wybrzeże NW z fajãs, skalisty zachód, południe łagodne.
       </p>
-    </div>
+    </aside>
   </div>
 </section>
 
@@ -978,6 +1024,17 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
   </div>
 
   <div class="checklists" id="rytual">
+    <div class="storage-tools" aria-label="Kopia zapasowa checklist i trybu">
+      <div>
+        <div class="copy">Backup stanu lokalnego · schema 1</div>
+        <div class="status" id="storageStatus" aria-live="polite"></div>
+      </div>
+      <div class="actions">
+        <button class="chip" id="exportState" type="button">Eksport</button>
+        <button class="chip" id="importTrigger" type="button">Import</button>
+        <input id="importState" type="file" accept="application/json,.json" />
+      </div>
+    </div>
     <div class="cl" data-cl="rytual">
       <h3>Rytuał 20:00</h3>
       <div class="sub">Wieczór dnia poprzedniego · kolejność ma znaczenie</div>
@@ -1076,12 +1133,23 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
     </div>
     <div class="tier">
       <span class="rank">6</span>
-      <h3>Zdjęcia lokalne</h3>
+      <h3>Zdjęcia lokalne · hero</h3>
       <p>Kopie w <code>Maderav7/assets/</code>, żeby pasek hero nie zależał od wygasających zewnętrznych URL-i.</p>
       <ul>
         <li><a href="https://commons.wikimedia.org/wiki/File:2016_Nubes_desde_o_Pico_do_Areeiro_Madeira_Portugal-2.jpg" target="_blank" rel="noopener">Pico do Areeiro clouds</a> — Luis Miguel Bugallo Sánchez, CC BY-SA 4.0.</li>
         <li><a href="https://commons.wikimedia.org/wiki/File:Madeira_-_Ponta_de_S%C3%A3o_Louren%C3%A7o_(32756339843).jpg" target="_blank" rel="noopener">Ponta de São Lourenço</a> — muffinn, CC BY 2.0.</li>
         <li><a href="https://commons.wikimedia.org/wiki/File:Piscinas_naturais_-_Porto_Moniz_-_Madeira_01.jpg" target="_blank" rel="noopener">Piscinas naturais, Porto Moniz</a> — H. Zell, CC BY-SA 3.0 / GFDL.</li>
+      </ul>
+    </div>
+    <div class="tier">
+      <span class="rank">7</span>
+      <h3>Zdjęcia w kartach dni</h3>
+      <p>Galerie dni korzystają z miniatur Wikimedia Commons przez <code>Special:FilePath</code>; podpis każdego zdjęcia prowadzi do strony pliku z autorem i licencją.</p>
+      <ul>
+        <li><a href="https://commons.wikimedia.org/wiki/Category:Madeira" target="_blank" rel="noopener">Wikimedia Commons · Madeira</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/Category:Pico_do_Areeiro" target="_blank" rel="noopener">Commons · Pico do Areeiro</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/Category:Ponta_de_S%C3%A3o_Louren%C3%A7o" target="_blank" rel="noopener">Commons · Ponta de São Lourenço</a></li>
+        <li><a href="https://commons.wikimedia.org/wiki/Category:Porto_Moniz" target="_blank" rel="noopener">Commons · Porto Moniz</a></li>
       </ul>
     </div>
   </div>
@@ -1101,11 +1169,14 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
   </div>
 </section>
 
+</main>
+
 <footer class="foot">
   <span>Madera Command Center · v7 · PL</span>
   <span>Stan zapisywany w localStorage · działa offline</span>
   <span><a href="#top" style="text-decoration:underline">↑ Góra</a></span>
 </footer>
+<div class="printstamp" id="printstamp" aria-hidden="true">Wydruk: —</div>
 
 <!-- ===================== MOBILE NAV ===================== -->
 <nav class="mobnav" aria-label="Nawigacja mobilna">
@@ -1161,6 +1232,11 @@ const DAYS = [
       {h:"Słaba pogoda",t:"Zakupy, kolacja, ustawienie planu na 48 h."},
       {h:"Low energy",t:"Hotel + 15–20 min spaceru."},
       {h:"Warunkowo",t:"Cristo Rei / Garajau tylko jeśli śpisz bliżej Funchal/Caniço; nie dotyczy bazy RB–PdS. CONDICIONADO."}
+    ],
+    photos:[
+      {file:"Madeira - Funchal - Airport Viewed From Machico (11887124906).jpg", label:"Lotnisko FNC od strony Machico", by:"Michael Gaylard · CC BY 2.0", alt:"Lotnisko Madery widziane od strony Machico i Atlantyku"},
+      {file:"0 Panorama view Ponta do Sol Madeira.jpg", label:"Ponta do Sol · miękki wieczór", by:"Herbert wie · CC BY-SA 4.0", alt:"Panorama Ponta do Sol na południowym wybrzeżu Madery"},
+      {file:"Promenade of Madalena do Mar, Ponta do Sol, Madeira, 2023 May.jpg", label:"Madalena do Mar · promenada", by:"Ximonic · CC BY-SA 4.0", alt:"Promenada w Madalena do Mar między oceanem i klifami"}
     ]
   },
   { n:2, date:"08.05", dow:"pt", kind:"pr", kindLabel:"priorytet",
@@ -1201,6 +1277,11 @@ const DAYS = [
       {h:"Słaba pogoda",t:"Przełożyć góry, jechać na południe. low."},
       {h:"Low energy",t:"Viewpoint + Ninho da Manta + Eira do Serrado. low."},
       {h:"Warunkowo",t:"Przejście w stronę Pico Ruivo tylko po pełnym reotwarciu i z transportem. Bardzo warunkowe."}
+    ],
+    photos:[
+      {file:"Around Pico do Areeiro, Madeira, Portugal, June-July 2011 - panoramio (34).jpg", label:"Pico do Areeiro · grań", by:"anagh · CC BY-SA 3.0", alt:"Górska grań w rejonie Pico do Areeiro na Maderze"},
+      {file:"Miradouro do «Ninho da Manta», José Lemos Silva, novembro de 2021, Pico do Areeiro - Image 199057.jpg", label:"Ninho da Manta", by:"José Lemos Silva · CC BY-SA 4.0", alt:"Punkt widokowy Ninho da Manta w rejonie Pico do Areeiro"},
+      {file:"Pico do areeiro panorama.jpg", label:"Panorama Areeiro", by:"Nmnogueira · CC BY-SA 3.0", alt:"Panoramiczny widok gór wokół Pico do Areeiro"}
     ]
   },
   { n:3, date:"09.05", dow:"sob", kind:"pr", kindLabel:"priorytet",
@@ -1240,6 +1321,11 @@ const DAYS = [
       {h:"Słaba pogoda",t:"Machico + Caniçal + viewpointy wschodu. low."},
       {h:"Low energy",t:"Ponta do Rosto + Guindaste + promenada Machico. very low / low."},
       {h:"Warunkowo",t:"Boat-return — niepewne, nie budżetować bazowo."}
+    ],
+    photos:[
+      {file:"Ponta de São Lourenço north north east.jpg", label:"Ponta de São Lourenço", by:"Richard Bartz · CC BY-SA 3.0", alt:"Suchy wschodni półwysep Ponta de São Lourenço z klifami nad Atlantykiem"},
+      {file:"Ponta de São Lourenço, Madeira, Portugal, 2019-05-28, DD 31.jpg", label:"PR8 · ochrowe klify", by:"Diego Delso · CC BY-SA 4.0", alt:"Klify i ścieżka na Ponta de São Lourenço"},
+      {file:"Marina of Machico. Madeira, Portugal.jpg", label:"Machico po zejściu", by:"Ввласенко · CC BY-SA 3.0", alt:"Marina i zatoka w Machico na wschodzie Madery"}
     ]
   },
   { n:4, date:"10.05", dow:"nd", kind:"rc", kindLabel:"recovery",
@@ -1276,6 +1362,11 @@ const DAYS = [
       {h:"Słaba pogoda",t:"Old Town Funchal jako backup miejski."},
       {h:"Low energy",t:"Sama Câmara de Lobos + zachód przy bazie."},
       {h:"Warunkowo",t:"Monte Palace + Carreiros tylko jeśli chcesz moduł kulturowy."}
+    ],
+    photos:[
+      {file:"Madeira Cabo Girao.jpg", label:"Cabo Girão z Câmara de Lobos", by:"Unukorno · CC BY 3.0", alt:"Widok z Câmara de Lobos w stronę klifu Cabo Girão"},
+      {file:"Cabo Girau from Camara de Lobos (52616794761).jpg", label:"Klif Cabo Girão", by:"Michael Gaylard · CC BY 2.0", alt:"Cabo Girão widziany znad Câmara de Lobos"},
+      {file:"Banana plantations in Madalena do Mar.jpg", label:"Rota do Banana", by:"Patrice78500 · CC BY-SA 4.0", alt:"Plantacje bananów w Madalena do Mar"}
     ]
   },
   { n:5, date:"11.05", dow:"pn", kind:"bz", kindLabel:"bazowy",
@@ -1314,6 +1405,11 @@ const DAYS = [
       {h:"Słaba pogoda",t:"Queimadas + PR9.1 — tylko przy zgodnym statusie."},
       {h:"Low energy",t:"Santana + Rocha viewpoint bez Balcões."},
       {h:"Warunkowo",t:"Pełny PR9 traktuj jako niedostępny, dopóki oficjalnie nie zmieni statusu. PR9.1 nie jest substytutem pełnego PR9."}
+    ],
+    photos:[
+      {file:"Ribeiro Frio (Madeira, Portugal), Ribeiro Frio -- 2025 -- 1498.jpg", label:"Ribeiro Frio", by:"Dietmar Rabich · CC BY-SA 4.0", alt:"Zielony las w Ribeiro Frio na Maderze"},
+      {file:"Nogueira valley view from Balcões, São Roque do Faial, Santana, Madeira, 2023 May.jpg", label:"Balcões", by:"Ximonic · CC BY-SA 4.0", alt:"Punkt widokowy Balcões ponad zielonymi dolinami Madery"},
+      {file:"Santana, typical houses, Madeira (16401034500).jpg", label:"Santana", by:"Glyn Lowe · CC BY 2.0", alt:"Tradycyjne domy w Santanie na północy Madery"}
     ]
   },
   { n:6, date:"12.05", dow:"wt", kind:"bz", kindLabel:"bazowy",
@@ -1352,6 +1448,11 @@ const DAYS = [
       {h:"Słaba pogoda",t:"Véu da Noiva + Porto Moniz — spacer i lunch."},
       {h:"Low energy",t:"Tylko Porto Moniz + 1–2 stop-pointy."},
       {h:"Warunkowo",t:"Wejście do oceanu w Seixal — tylko spokojne morze bez surge."}
+    ],
+    photos:[
+      {file:"Madeira - North - Ribeira de Janela Seixal Miradouro do Véu da Noiva DSCF1483 (52620204778).jpg", label:"Véu da Noiva", by:"Michael Gaylard · CC BY 2.0", alt:"Punkt widokowy Véu da Noiva na północnym wybrzeżu Madery"},
+      {file:"Seixal (Madeira, Portugal, 1-7-2014) (33398146181).jpg", label:"Seixal", by:"Juanje Orío · CC BY-SA 2.0", alt:"Seixal na północnym wybrzeżu Madery z zielonymi klifami"},
+      {file:"Porto Moniz (Madeira, Portugal), Piscinas Naturais do Porto Moniz -- 2025 -- 1779.jpg", label:"Porto Moniz pools", by:"Dietmar Rabich · CC BY-SA 4.0", alt:"Naturalne baseny wulkaniczne w Porto Moniz"}
     ]
   },
   { n:7, date:"13.05", dow:"śr", kind:"bz", kindLabel:"bazowy",
@@ -1390,6 +1491,11 @@ const DAYS = [
       {h:"Słaba pogoda",t:"Górne viewpointy / przerzut na południe."},
       {h:"Low energy",t:"Ponta da Ladeira + Garganta; PdP sunset — tylko jeśli kierowca świeży."},
       {h:"Warunkowo",t:"Fanal jako detour — TYLKO przy aktywnej mgle. Bez mgły słaby ROI."}
+    ],
+    photos:[
+      {file:"Achadas da Cruz, Madeira, view.jpg", label:"Achadas da Cruz", by:"Gerda Arendt · CC BY-SA 4.0", alt:"Klify i fajã przy Achadas da Cruz na zachodzie Madery"},
+      {file:"Madeira-Ponta do Pargo-lands end-03ESD.jpg", label:"Ponta do Pargo · klify", by:"Rikki Mitterer · CC BY-SA 4.0", alt:"Klify zachodniego krańca Madery w rejonie Ponta do Pargo"},
+      {file:"Ponta do Pargo (Madeira, Portugal), Farol da Ponta do Pargo -- 2025 -- 1815.jpg", label:"Farol da Ponta do Pargo", by:"Dietmar Rabich · CC BY-SA 4.0", alt:"Latarnia morska Farol da Ponta do Pargo na zachodnim krańcu Madery"}
     ]
   },
   { n:8, date:"14.05", dow:"czw", kind:"op", kindLabel:"operacyjny",
@@ -1429,6 +1535,11 @@ const DAYS = [
       {h:"Słaba pogoda",t:"Bez zwiedzania: śniadanie → checkout → lotnisko."},
       {h:"Low energy",t:"Kawa po drodze i prosto na FNC."},
       {h:"Warunkowo",t:"Cristo Rei / Garajau — tylko przy wyjątku od jednej bazy po stronie wschodniej; nie dotyczy RB–PdS. CONDICIONADO."}
+    ],
+    photos:[
+      {file:"Monument to the founders of Machico. Madeira, Portugal.jpg", label:"Machico · łatwy lunch", by:"Ввласенко · CC BY-SA 3.0", alt:"Pomnik założycieli Machico na wschodnim wybrzeżu Madery"},
+      {file:"Madeira-Canico-Ponta do Garajau-Christo Rei statue-01ASD.jpg", label:"Cristo Rei / Garajau", by:"Asurnipal · CC BY-SA 4.0", alt:"Pomnik Cristo Rei na Ponta do Garajau"},
+      {file:"View of Madeira Airport from Santa Cruz. Portugal.jpg", label:"Santa Cruz przed FNC", by:"Ввласенко · CC BY-SA 3.0", alt:"Widok na lotnisko Madery od strony Santa Cruz"}
     ]
   }
 ];
@@ -1581,6 +1692,25 @@ const LS = {
   get(k,def){ try{const v=localStorage.getItem("madera2026:"+k);return v===null?def:JSON.parse(v)}catch(e){return def} },
   set(k,v){ try{localStorage.setItem("madera2026:"+k,JSON.stringify(v))}catch(e){} }
 };
+const STORAGE_SCHEMA = 1;
+const COMMONS_FILE = "https://commons.wikimedia.org/wiki/File:";
+const COMMONS_THUMB = "https://commons.wikimedia.org/wiki/Special:FilePath/";
+
+function commonsPath(file){
+  return encodeURIComponent(file).replace(/%20/g, "_");
+}
+function commonsThumb(file, width=720){
+  return `${COMMONS_THUMB}${encodeURIComponent(file)}?width=${width}`;
+}
+function commonsFile(file){
+  return `${COMMONS_FILE}${commonsPath(file)}`;
+}
+function renderPhotoCard(p, width=720){
+  return `<figure class="photo-card">
+    <img src="${commonsThumb(p.file, width)}" alt="${p.alt}" loading="lazy" decoding="async"/>
+    <figcaption><span>${p.label}</span><a href="${commonsFile(p.file)}" target="_blank" rel="noopener">${p.by}</a></figcaption>
+  </figure>`;
+}
 
 /* =============== OVERVIEW GRID =============== */
 function renderOverview(){
@@ -1588,7 +1718,9 @@ function renderOverview(){
   g.innerHTML = "";
   DAYS.forEach(d=>{
     const tile = el("a", {href:"#d-"+d.n, class:"daytile", "aria-label":`Dzień ${d.n}, ${d.date}, ${d.title}`});
+    const cover = d.photos && d.photos[0] ? d.photos[0] : null;
     tile.innerHTML = `
+      ${cover ? `<div class="daytile-photo"><img src="${commonsThumb(cover.file, 420)}" alt="" loading="lazy" decoding="async"/></div>` : ""}
       <span class="dkind ${d.kind}">${d.kindLabel}</span>
       <div>
         <div class="ddate">${d.date} · ${d.dow}</div>
@@ -1611,14 +1743,16 @@ function renderCards(){
   root.innerHTML = "";
   DAYS.forEach(d=>{
     const det = el("details", {class:"daycard", id:"d-"+d.n});
-    if(d.n===1) det.setAttribute("open","");
+    const isOpen = d.n===1;
+    if(isOpen) det.setAttribute("open","");
     const tags = d.tags.map(t=>`<span class="tag ${t.k}">${t.t}</span>`).join("");
     const stops = d.stops.map(s=>`<li>${s}</li>`).join("");
     const alerts = d.alerts.map(a=>`<div class="alert ${a.k==="info"?"info":a.k==="warn"?"warn":""}"><strong>${a.h}</strong>${a.t}</div>`).join("");
     const metaHtml = Object.entries(d.meta).map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("");
     const alts = d.alts.map(a=>`<div class="alt"><div class="h">${a.h}</div><div class="t">${a.t}</div></div>`).join("");
+    const photos = d.photos ? `<div class="photo-grid" aria-label="Zdjęcia dnia ${d.n}">${d.photos.map((p,i)=>renderPhotoCard(p, i===0 ? 960 : 640)).join("")}</div>` : "";
     det.innerHTML = `
-      <summary>
+      <summary aria-expanded="${isOpen ? "true" : "false"}">
         <div class="dc-num">D${d.n}</div>
         <div class="dc-hd">
           <h3>${d.title}</h3>
@@ -1629,6 +1763,7 @@ function renderCards(){
       </summary>
       <div class="dc-body">
         <h4>Dlaczego ten układ</h4>
+        ${photos}
         <div class="dc-grid">
           <div>
             <p class="why">${d.why}</p>
@@ -1646,6 +1781,10 @@ function renderCards(){
           </div>
         </div>
       </div>`;
+    const summary = det.querySelector("summary");
+    det.addEventListener("toggle", ()=>{
+      summary.setAttribute("aria-expanded", det.open ? "true" : "false");
+    });
     root.append(det);
   });
 }
@@ -1697,6 +1836,84 @@ function updateProgress(key){
   const done = boxes.filter(b=>b.checked).length;
   const t = document.querySelector(`[data-prog="${key}"]`);
   if(t) t.textContent = `${done} / ${boxes.length}`;
+}
+
+function syncChecklistState(){
+  $$(".cl[data-cl]").forEach(root=>{
+    const key = root.dataset.cl;
+    const loaded = LS.get("cl:"+key, {});
+    const saved = loaded && typeof loaded==="object" && !Array.isArray(loaded) ? loaded : {};
+    $$(`[data-cl="${key}"] input[type=checkbox]`).forEach((box,i)=>{
+      box.checked = !!saved[i];
+    });
+    updateProgress(key);
+  });
+}
+
+function storageMessage(text){
+  const status = $("#storageStatus");
+  if(status) status.textContent = text;
+}
+
+function exportState(){
+  const keys = {};
+  try{
+    for(let i=0;i<localStorage.length;i++){
+      const key = localStorage.key(i);
+      if(key && key.startsWith("madera2026:")) keys[key] = localStorage.getItem(key);
+    }
+  }catch(e){
+    storageMessage("Eksport niedostępny w tej przeglądarce.");
+    return;
+  }
+  const payload = {schema:STORAGE_SCHEMA, exportedAt:new Date().toISOString(), keys};
+  const blob = new Blob([JSON.stringify(payload,null,2)], {type:"application/json"});
+  const url = URL.createObjectURL(blob);
+  const a = el("a", {
+    href:url,
+    download:`madera2026-state-${new Date().toISOString().slice(0,10)}.json`
+  });
+  document.body.append(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+  storageMessage(`Wyeksportowano ${Object.keys(keys).length} kluczy.`);
+}
+
+function importStateFile(file){
+  if(!file) return;
+  file.text().then(text=>{
+    let payload;
+    try{ payload = JSON.parse(text); }
+    catch(e){ throw new Error("Nieprawidłowy plik JSON."); }
+    if(!payload || payload.schema!==STORAGE_SCHEMA || !payload.keys || typeof payload.keys!=="object" || Array.isArray(payload.keys)){
+      throw new Error("Nieobsługiwany format backupu.");
+    }
+    let restored = 0;
+    Object.entries(payload.keys).forEach(([key,value])=>{
+      if(key.startsWith("madera2026:") && typeof value==="string"){
+        localStorage.setItem(key, value);
+        restored++;
+      }
+    });
+    setMode(LS.get("mode","good"));
+    syncChecklistState();
+    storageMessage(`Zaimportowano ${restored} kluczy.`);
+  }).catch(err=>{
+    storageMessage(err.message || "Import nie powiódł się.");
+  });
+}
+
+function setupStorageTools(){
+  const exportBtn = $("#exportState");
+  const importBtn = $("#importTrigger");
+  const importInput = $("#importState");
+  if(exportBtn) exportBtn.addEventListener("click", exportState);
+  if(importBtn && importInput) importBtn.addEventListener("click", ()=>importInput.click());
+  if(importInput) importInput.addEventListener("change", ()=>{
+    importStateFile(importInput.files && importInput.files[0]);
+    importInput.value = "";
+  });
 }
 
 /* =============== BACKUPS =============== */
@@ -1844,6 +2061,13 @@ function tickClock(){
   $("#clock").textContent = `${p(n.getHours())}:${p(n.getMinutes())}:${p(n.getSeconds())} · ${n.toLocaleDateString("pl-PL",{weekday:"short",day:"2-digit",month:"short"})}`;
 }
 
+function updatePrintStamp(){
+  const stamp = $("#printstamp");
+  if(stamp){
+    stamp.textContent = `Wydruk: ${new Date().toLocaleString("pl-PL", {dateStyle:"medium", timeStyle:"short"})}`;
+  }
+}
+
 /* =============== NAV HIGHLIGHT =============== */
 function navHighlight(){
   const ids = ["overview","dni","decyzje","warianty","mapa","wykresy","backupy","koszty","checklisty","zrodla"];
@@ -1874,7 +2098,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
   renderChecklist("prep", PREP_CORE);
   renderChecklist("auto", AUTO_RULES);
   renderChecklist("health", HEALTH_FINANCE);
+  setupStorageTools();
   markToday();
+  updatePrintStamp();
+  window.addEventListener("beforeprint", updatePrintStamp);
   tickClock(); setInterval(tickClock, 1000);
   navHighlight();
 
