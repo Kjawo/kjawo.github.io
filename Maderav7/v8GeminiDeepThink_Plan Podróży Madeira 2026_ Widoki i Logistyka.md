@@ -1,4 +1,4 @@
-# Madera 07-14.05.2026: raport korekty planu i finalny plan operacyjny
+# Madera v8 07-14.05.2026: raport korekty planu i finalny plan operacyjny
 
 Ten dokument zastępuje wcześniejszą, bardziej prezentacyjną narrację wersją operacyjną: opartą na realnym kalendarzu lotów, jednej rekomendowanej bazie, statusach oficjalnych i twardym rozdzieleniu faktów od założeń.
 
@@ -6,7 +6,8 @@ Ten dokument zastępuje wcześniejszą, bardziej prezentacyjną narrację wersj�
 
 - **Daty i loty:** 07.05.2026 przylot `W6 1535` `WAW 11:40 -> FNC 16:05`; 14.05.2026 wylot `W6 1536` `FNC 16:45 -> WAW 22:50`. To są godziny robocze do planowania; wymagają potwierdzenia w aplikacji Wizz na `T-7`, `T-3` i `T-0` oraz zapisania oficjalnego screenshotu offline.
 - **Prawdziwa długość wyjazdu:** 8 dni kalendarzowych, ale tylko **6 pełnych dni terenowych + 2 dni operacyjne**.
-- **Rekomendacja bazowa:** jedna baza w pasie **Ribeira Brava - Ponta do Sol**. Split-stay zostaje tylko jako wariant opcjonalny dla bardziej "ikonicznych" kadrów.
+- **Baza noclegowa:** **Rose Sun House**, Rua do Jogo da Bola n49, Canhas, 9360-348, Madera. Status: **Potwierdzone**. Baza leży w gminie Ponta do Sol, ok. `450 m n.p.m.`, czyli powyżej wybrzeża i VR1; każdy wyjazd na główną sieć dróg wymaga najpierw zjazdu/podjazdu serpentynami.
+- **Rekomendacja bazowa:** jedna baza **Canhas / Ponta do Sol**. Split-stay zostaje tylko jako wariant opcjonalny dla bardziej "ikonicznych" kadrów.
 - **Najważniejsza korekta planu:** Areeiro wchodzi na pierwszy pełny dzień, bo PR1 nadal ma status warunkowy i nie warto odkładać go na środek pobytu.
 - **Monte / Funchal:** nie znikają, ale schodzą z pozycji core day do roli backupu lub dnia bardziej miejskiego.
 - **PR8:** boat-return nie jest już domyślną "smart effort" strategią; to **osobna usługa wodna** (Cais do Sardinha / Quinta do Lorde), **nie powrót do zaparkowanego auta** — wymaga osobnej logistyki transferu. Wariant warunkowy i nie budżetowany bazowo.
@@ -15,7 +16,7 @@ Ten dokument zastępuje wcześniejszą, bardziej prezentacyjną narrację wersj�
 
 ### Najważniejsze niedomknięcia przed wyjazdem
 
-- **Auto / karta / depozyt:** wypożyczalnia, typ karty akceptowanej do depozytu, wysokość depozytu, wkład własny, szyby/opony/podwozie, drugi kierowca, after-hours i zakaz szutrów - `[DO UZUPEŁNIENIA PO REZERWACJI]`.
+- **Auto / karta / depozyt:** wypożyczalnia, typ karty akceptowanej do depozytu, wysokość depozytu, wkład własny, szyby/opony/podwozie, drugi kierowca, after-hours i zakaz szutrów. Status: **Sprawdzić u operatora auta**.
 - **PR1 po MIUT + SIMplifica:** potwierdzić dostępny odcinek w IFCN/SIMplifica, kupić tylko realnie używany slot, zapisać QR offline.
 - **Loty Wizz:** zrobić oficjalny screenshot godzin i warunków odprawy w aplikacji Wizz na `T-7`, `T-3`, `T-0`.
 - **Plan 72 h złej pogody:** gotowy tryb południe / baza / Funchal-Monte bez koszyków / pranie / zakupy / zero płatnych szlaków.
@@ -26,7 +27,7 @@ Ten dokument zastępuje wcześniejszą, bardziej prezentacyjną narrację wersj�
 - **Potwierdzone** - oparte na źródłach oficjalnych lub operatorach.
 - **Sprawdzić** - informacje istotne, ale wymagające kontroli dzień wcześniej lub przy zakupie.
 - **Warunkowe** - zależne od pogody, ograniczeń operacyjnych albo niespójnych komunikatów.
-- **DO POTWIERDZENIA** - zależne od konkretnego hotelu, wypożyczalni, aplikacji Wizz, SIMplifica albo płatności na miejscu. Nie traktować jako faktu do czasu sprawdzenia w źródle transakcyjnym.
+- **DO POTWIERDZENIA** - zależne od wypożyczalni, aplikacji Wizz, SIMplifica, operatora albo płatności na miejscu. Nie traktować jako faktu do czasu sprawdzenia w źródle transakcyjnym.
 
 ## 2. Audyt starego planu
 
@@ -55,7 +56,7 @@ Nowa wersja planu ma najpierw pomóc podejmować decyzje w podróży, a dopiero 
 
 | Data | Dzień | Układ | Status |
 | --- | ---: | --- | --- |
-| 07.05 | 1 | przylot, auto, sklep, check-in, kolacja i sen | operacyjny / DO POTWIERDZENIA: auto, hotel, Wizz |
+| 07.05 | 1 | przylot, auto, sklep, check-in, kolacja i sen | operacyjny / Potwierdzone: baza; Sprawdzić: auto, Wizz |
 | 08.05 | 2 | Areeiro + Ninho da Manta + Pedra Rija, jeśli dostępna + Eira do Serrado | priorytet / DO POTWIERDZENIA: PR1, parking |
 | 09.05 | 3 | Ponta do Rosto sunrise + PR8 w wersji skróconej lub smart + Machico | priorytet / DO POTWIERDZENIA: PR8, sen, wiatr |
 | 10.05 | 4 | Cabo Girao + Camara de Lobos + lekki południowy reset | recovery / DO POTWIERDZENIA: płatność, parking |
@@ -66,8 +67,9 @@ Nowa wersja planu ma najpierw pomóc podejmować decyzje w podróży, a dopiero 
 
 ### Założenia operacyjne do kart dni
 
-- Wszystkie czasy jazdy zakładają bazę w pasie **Ribeira Brava - Ponta do Sol**.
-- Jeśli śpisz dalej na zachodzie, dolicz orientacyjnie `10-20 min` do porannych dojazdów.
+- Wszystkie czasy jazdy zakładają bazę **Rose Sun House, Canhas / Ponta do Sol**.
+- Canhas leży powyżej Ponta do Sol: z/do VR1 trzeba doliczyć stały blok serpentyn `8-10 min` między poziomem morza a bazą. Poniższe widełki kart dni już uwzględniają ten bufor.
+- Jeśli danego dnia startujesz z poziomu morza w Ponta do Sol, czasy mogą być krótsze o ok. `8-10 min` w jedną stronę.
 - Widełki chodzenia odnoszą się do **wariantu bazowego**, nie do wersji ambitnej ani pełnego dociskania każdego miejsca.
 - Statusy `PR1`, `PR8`, `PR9/PR9.1`, `PR11` i cable cars sprawdzaj **wieczorem dzień wcześniej**, nie rano w aucie.
 
@@ -89,23 +91,23 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 - **Cel:** odebrać auto, dojechać do bazy, zrobić drobne zakupy i nie przepalić energii pierwszego dnia.
 - **Dlaczego ten układ ma sens:** lądujesz o `16:05`, więc po bagażu, aucie i dojeździe nie ma sensownego buforu na ambitny program.
 - **Wyjazd z lotniska:** orientacyjnie około `17:15-17:45` po odbiorze auta.
-- **Kolejność:** lotnisko -> auto -> szybki sklep -> check-in -> kolacja -> sen. Jeśli D2 ma sunrise, realny sunset nie jest opcją bazową.
+- **Kolejność:** lotnisko -> auto -> Pingo Doce Canhas / szybki sklep -> check-in Rose Sun House -> kolacja -> sen. Jeśli D2 ma sunrise, realny sunset nie jest opcją bazową.
 - **Szacowany czas całego dnia:** `4-6 h` od lądowania do kolacji.
-- **Łączny czas jazdy autem:** `0:35-1:10`.
+- **Łączny czas jazdy autem:** `0:50-1:25`.
 - **Łączny czas chodzenia:** `0:15-0:45`.
 - **Realny poziom wysiłku:** `very low`.
 - **Rezerwować wcześniej:** auto, nocleg, parking noclegu.
 - **Sprawdzić wcześniej:** zasady odbioru auta, godziny check-in, parking noclegu, paliwo, prognozę i status na `08.05`.
-- **Parking:** parking noclegu; ewentualnie najbliższy seafront przy krótkim spacerze.
+- **Parking:** Rose Sun House / Rua do Jogo da Bola według instrukcji hosta; ewentualnie najbliższy seafront przy krótkim spacerze, jeśli host potwierdzi bezpieczny wariant.
 - **Dojście od parkingu:** orientacyjnie `2-10 min`.
 - **Jedzenie / kawa:** kolacja przy bazie; nie buduj dnia pod konkretną restaurację.
 - **Toalety / infrastruktura:** lotnisko ma pełną infrastrukturę; później licz głównie na miasteczka.
-- **Worth it:** tylko bardzo lekki spacer w promieniu kilku minut od noclegu. Sunset zostaje wyjątkiem wyłącznie wtedy, gdy rezygnujesz z porannego D2.
+- **Worth it:** tylko bardzo lekki spacer w promieniu kilku minut od noclegu albo lokalny oddech przy starcie Levada do Moinho / Levada Nova, jeśli energia jest dobra. Sunset zostaje wyjątkiem wyłącznie wtedy, gdy rezygnujesz z porannego D2.
 - **Skip if tired:** jakikolwiek ambitny objazd wyspy, Monte, pełen Funchal albo punkt ze sztywną godziną.
 - **Najlepsze okno światła:** sunset około `20:53`.
 - **Ryzyka:** kolejka po auto, opóźniony bagaż, zmęczenie po podróży, ruch przy wyjeździe z lotniska.
 - **Plan B:** zakupy + kolacja + wczesny sen; światło zgaszone do `22:00`, jeśli D2 zostaje dniem sunrise.
-- **Plan C:** lotnisko -> hotel bez żadnych przystanków.
+- **Plan C:** lotnisko -> Rose Sun House bez żadnych przystanków poza absolutnie koniecznym sklepem.
 - **Dobre przy niskiej energii:** tak - to ma być dzień oszczędzający baterię.
 - **Sensowne przy przylocie / wylocie:** tak - to jedyny sensowny tryb na dzień przylotu.
 - **Werdykt:** **zostawić** jako pełnoprawny dzień operacyjny.
@@ -113,17 +115,17 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 **Alternatywy**
 - **Dobra pogoda:** krótki spacer blisko bazy. Koszt: niski. Wysiłek: `very low`. Plusy: ładne wejście w klimat bez logistyki. Minusy: łatwo przeciągnąć wieczór.
 - **Słaba pogoda:** zakupy, kolacja i ustawienie planu na kolejne `48 h`. Koszt: tylko operacyjny. Wysiłek: `very low`. Status: najbezpieczniejsza logika.
-- **Low energy:** hotel + `15-20 min` spaceru po okolicy. Plusy: maksymalna regeneracja. Minusy: brak "atrakcji".
-- **Worth it only if conditions are perfect:** Cristo Rei / Garajau na krótki zachód — to wariant **tylko dla wyjątku od zasady jednej bazy** (gdy śpisz bliżej Funchal/Caniço); nie dotyczy bazy Ribeira Brava – Ponta do Sol. Oficjalna strona pomnika ma status `CONDICIONADO` — sprawdzaj wieczorem dzień wcześniej. Status: niepewne.
+- **Low energy:** Rose Sun House + `15-20 min` spaceru po okolicy. Plusy: maksymalna regeneracja. Minusy: brak "atrakcji".
+- **Worth it only if conditions are perfect:** Cristo Rei / Garajau na krótki zachód — to wariant **tylko dla wyjątku od zasady jednej bazy** (gdy śpisz bliżej Funchal/Caniço); nie dotyczy bazy Canhas / Ponta do Sol. Oficjalna strona pomnika ma status `CONDICIONADO` — sprawdzaj wieczorem dzień wcześniej. Status: niepewne.
 
 ### Dzień 2 - 08.05, piątek - Areeiro + Eira do Serrado
 
 - **Cel:** zagrać najmocniejszy i najbardziej wrażliwy operacyjnie moduł na początku pobytu.
 - **Dlaczego ten układ ma sens:** po reotwarciu fazowanym PR1 piątek-niedziela to najbardziej racjonalne okno na próbę Areeiro; nie warto odkładać go na środek wyjazdu.
-- **Wyjazd z noclegu:** `05:50` z Ribeira Brava / `06:10` z Ponta do Sol (dolicz `10-20 min` przy bazie dalej na zachodzie).
+- **Wyjazd z noclegu:** `05:55-06:05` z Rose Sun House (Canhas). Pierwsze `8-10 min` to zjazd serpentynami do osi VR1 / Ponta do Sol, więc nie traktuj tego jako bufora do odzyskania później.
 - **Kolejność:** Areeiro parking -> sunrise -> Ninho da Manta -> odcinek do Pedra Rija, jeśli oficjalnie dostępny -> śniadanie/kawa niżej -> Eira do Serrado -> powrót i regeneracja.
 - **Szacowany czas całego dnia:** `7-9 h`.
-- **Łączny czas jazdy autem:** `2:15-3:00`.
+- **Łączny czas jazdy autem:** `2:35-3:20`.
 - **Łączny czas chodzenia:** `1:45-2:45`.
 - **Realny poziom wysiłku:** `medium`.
 - **Rezerwować wcześniej:** PR1 przez SIMplifica.
@@ -155,10 +157,10 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 
 - **Cel:** zebrać klifowy, surowy krajobraz wschodu bez zmuszania się do pełnego przejścia za wszelką cenę.
 - **Dlaczego ten układ ma sens:** wschód daje ogromny efekt wizualny, ale klasyczny błąd to robienie "całości za wszelką cenę" pod słońcem i wietrze.
-- **Wyjazd z noclegu:** sunrise tylko jeśli po D2 było minimum `7 h` snu i D2 zakończył się przed `15:00`: `05:20` z Ribeira Brava / `05:40` z Ponta do Sol. W innym wypadku start dzienny po śniadaniu i krótszy wariant.
+- **Wyjazd z noclegu:** sunrise tylko jeśli po D2 było minimum `7 h` snu i D2 zakończył się przed `15:00`: `05:25-05:35` z Rose Sun House (Canhas). W innym wypadku start dzienny po śniadaniu i krótszy wariant.
 - **Kolejność:** Ponta do Rosto sunrise tylko przy spełnionej bramce snu -> Baia d'Abra trailhead -> PR8 do Casa do Sardinha / ewentualnie dalej tylko przy dobrej energii -> Machico późny lunch -> powrót. Przy braku bramki: Baia d'Abra / viewpointy wschodu -> Machico -> baza.
 - **Szacowany czas całego dnia:** `7-8,5 h`.
-- **Łączny czas jazdy autem:** `2:30-3:15`.
+- **Łączny czas jazdy autem:** `2:50-3:35`.
 - **Łączny czas chodzenia:** `2:30-4:00`.
 - **Realny poziom wysiłku:** `medium`.
 - **Rezerwować wcześniej:** PR8 przez SIMplifica.
@@ -188,10 +190,10 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 
 - **Cel:** wstawić lekki, niski-kosztowo dzień po dwóch mocniejszych porankach.
 - **Dlaczego ten układ ma sens:** to ma być dzień lekki, a nie kolejny moduł do odhaczania. Cabo Girao jest mocnym stopem, ale nie niesie pół dnia.
-- **Wyjazd z noclegu:** `09:00-09:30`.
+- **Wyjazd z noclegu:** `09:00-09:30` z Rose Sun House; przy pierwszym przejeździe dnia uwzględnij zjazd z Canhas do VR1.
 - **Kolejność:** Cabo Girao -> Camara de Lobos kawa / lunch -> Madalena do Mar / Rota do Banana -> zachód przy bazie lub w Ponta do Sol.
 - **Szacowany czas całego dnia:** `5-7 h`.
-- **Łączny czas jazdy autem:** `1:00-1:45`.
+- **Łączny czas jazdy autem:** `1:15-2:00`.
 - **Łączny czas chodzenia:** `0:45-1:30`.
 - **Realny poziom wysiłku:** `low`.
 - **Rezerwować wcześniej:** płatność za dostęp do Cabo Girao - sprawdź najwygodniejszy tryb przed podjazdem.
@@ -205,7 +207,7 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 - **Najlepsze okno światła:** sunset około `20:55`.
 - **Ryzyka:** tłok na Cabo Girao, płaska jakość światła przy pełnym overcaście, zbyt dużo małych stopów bez sensu.
 - **Plan B:** bardziej miejski dzień Funchal/Monte.
-- **Plan C:** pełna regeneracja w hotelu.
+- **Plan C:** pełna regeneracja w bazie.
 - **Dobre przy niskiej energii:** tak.
 - **Sensowne przy przylocie / wylocie:** tak jako typ dnia, ale nie z lotem w środku.
 - **Werdykt:** **zostawić**, ale trzymać krótko.
@@ -220,10 +222,10 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 
 - **Cel:** zielony i spokojniejszy kontrast dla dni klifowych i górskich.
 - **Dlaczego ten układ ma sens:** Balcoes ma świetny stosunek efekt/wysiłek, a Santana i Rocha do Navio są logicznymi dopięciami, ale nie muszą dominować dnia.
-- **Wyjazd z noclegu:** `08:00-08:30`.
+- **Wyjazd z noclegu:** `08:00-08:30` z Rose Sun House.
 - **Kolejność:** Ribeiro Frio -> PR11 Balcoes -> Santana krótko -> Rocha do Navio viewpoint / cable car jeśli działa -> powrót.
 - **Szacowany czas całego dnia:** `6-8 h`.
-- **Łączny czas jazdy autem:** `2:15-3:00`.
+- **Łączny czas jazdy autem:** `2:35-3:20`.
 - **Łączny czas chodzenia:** `1:15-2:00`.
 - **Realny poziom wysiłku:** `low`.
 - **Rezerwować wcześniej:** PR11 przez SIMplifica; jeśli finalnie robisz PR9.1, rezerwujesz PR9.1 zamiast PR11.
@@ -252,10 +254,10 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 
 - **Cel:** zagrać jeden z najlepszych dni "widoki bez cardio".
 - **Dlaczego ten układ ma sens:** północny zachód najlepiej działa samochodem i krótkimi stopami; wejście do oceanu ma sens tylko przy spokojnym morzu.
-- **Wyjazd z noclegu:** `08:00-08:30`.
+- **Wyjazd z noclegu:** `08:00-08:30` z Rose Sun House.
 - **Kolejność:** Seixal rano -> Veu da Noiva -> Porto Moniz na dłuższy stop i lunch -> powrót.
 - **Szacowany czas całego dnia:** `6-8 h`.
-- **Łączny czas jazdy autem:** `2:15-3:15`.
+- **Łączny czas jazdy autem:** `2:35-3:35`.
 - **Łączny czas chodzenia:** `0:30-1:30`.
 - **Realny poziom wysiłku:** `low`.
 - **Rezerwować wcześniej:** brak krytycznej rezerwacji potwierdzonej w oficjalnych źródłach.
@@ -285,10 +287,10 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 
 - **Cel:** maksymalny zachodni payoff widokowy przy minimalnym wysiłku.
 - **Dlaczego ten układ ma sens:** tu payoff robią pionowe klify, nie dystans. Najlepiej ustawić dzień pod popołudniowe światło w Garganta Funda i zachód w Ponta do Pargo.
-- **Wyjazd z noclegu:** `10:00-10:30`.
+- **Wyjazd z noclegu:** `10:00-10:30` z Rose Sun House.
 - **Kolejność:** Achadas da Cruz -> zjazd tylko jeśli działa i nie wieje za mocno -> krótki spacer na fajã -> lunch / coffee -> Garganta Funda po południu -> Ponta do Pargo sunset.
 - **Szacowany czas całego dnia:** `10-12 h elapsed` od wyjazdu z bazy do powrotu po zachodzie.
-- **Łączny czas jazdy autem:** `2:30-3:30`.
+- **Łączny czas jazdy autem:** `2:45-3:50`.
 - **Łączny czas chodzenia:** `0:45-2:00`.
 - **Realny poziom wysiłku:** `low`.
 - **Rezerwować wcześniej:** brak krytycznej rezerwacji z potwierdzonych źródeł.
@@ -318,10 +320,10 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 
 - **Cel:** zamknąć wyjazd bez ryzyka spóźnienia i bez udawania, że to normalny dzień zwiedzania.
 - **Dlaczego ten układ ma sens:** wylot `16:45` oznacza, że każdy "jeszcze tylko szybki Monte/Funchal" bardzo łatwo robi się złą decyzją.
-- **Wyjazd z noclegu:** `10:30-11:00` z bazy; wcześniej, jeśli śpisz dalej na zachodzie.
+- **Wyjazd z noclegu:** `10:15-10:45` z Rose Sun House; zjazd z Canhas i ewentualne tankowanie traktuj jako osobne bloki, nie jako część "krótkiego stopu".
 - **Kolejność:** śniadanie -> checkout -> paliwo zgodnie z umową -> ewentualnie jeden łatwy stop po drodze na wschód -> lekki lunch -> zwrot auta -> lotnisko `13:45-14:15`.
 - **Szacowany czas całego dnia:** `4-5 h`.
-- **Łączny czas jazdy autem:** `0:45-1:30`.
+- **Łączny czas jazdy autem:** `1:00-1:45`.
 - **Łączny czas chodzenia:** `0:15-0:45`.
 - **Realny poziom wysiłku:** `very low`.
 - **Rezerwować wcześniej:** nic nowego poza logistyką auta i lotu.
@@ -345,13 +347,13 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 - **Dobra pogoda:** krótki spacer w Machico albo Santa Cruz po stronie lotniskowej. Wysiłek: `very low`. Plusy: eleganckie domknięcie bez stresu.
 - **Słaba pogoda:** bez zwiedzania: śniadanie, checkout, lotnisko. Status: najbezpieczniejsza opcja.
 - **Low energy:** tylko kawa po drodze i prosto na `FNC`.
-- **Worth it only if conditions are perfect:** krótki Garajau / Cristo Rei — to wariant **tylko dla wyjątku od zasady jednej bazy** (gdy śpisz bliżej wschodniej strony); nie dotyczy bazy Ribeira Brava – Ponta do Sol. Oficjalny status `CONDICIONADO` — sprawdź wieczorem dzień wcześniej i wtedy decyduj. Status: niepewne.
+- **Worth it only if conditions are perfect:** krótki Garajau / Cristo Rei — to wariant **tylko dla wyjątku od zasady jednej bazy** (gdy śpisz bliżej wschodniej strony); nie dotyczy bazy Canhas / Ponta do Sol. Oficjalny status `CONDICIONADO` — sprawdź wieczorem dzień wcześniej i wtedy decyduj. Status: niepewne.
 
 ## 4. Trzy warianty planu
 
 ### 4.1 Wersja rekomendowana
 
-- Jedna baza południowo-centralna.
+- Jedna baza południowo-centralna: Rose Sun House, Canhas / Ponta do Sol.
 - Areeiro i wschód jako dwa osobne, mocne dni na początku.
 - Południe jako recovery day.
 - Północny interior, północny-zachód i zachód jako względnie niskotarciowe moduły końcówki pobytu, nadal zależne od pogody i operatorów.
@@ -421,7 +423,7 @@ W razie sprzeczności wygrywa źródło bliżej operatora i transakcji:
 - **T-30:** auto, nocleg, parking noclegu, warunki depozytu, karta kredytowa/debetowa, polisa, EKUZ, assistance, konto w SIMplifica.
 - **T-14:** sprawdzić PR1 po MIUT, statusy PR8/PR9/PR9.1/PR11, zasady płatności SIMplifica, koszty cable cars, plan 72 h złej pogody.
 - **T-7:** oficjalny screenshot Wizz, test logowania SIMplifica, mapy offline, kopie dokumentów offline, wstępna prognoza i plan modułów.
-- **T-3:** ponowny screenshot Wizz, kontrola auta/check-in/parkingu hotelu, statusy szlaków, decyzja czy cokolwiek ma sens kupić wcześniej.
+- **T-3:** ponowny screenshot Wizz, kontrola auta/check-in/parkingu bazy, statusy szlaków, decyzja czy cokolwiek ma sens kupić wcześniej.
 - **T-1:** rezerwacja PR1, PR8, PR11 albo PR9.1 dopiero po finalnej prognozie i statusie IFCN; screenshoty potwierdzeń i QR offline.
 - **T-0:** screenshot Wizz, odprawa/dokumenty, paliwo/zwrot auta, aktualny status szlaku/cable car przed wyjazdem.
 - **W dniu atrakcji:** Carreiros do Monte kupowane na miejscu; miej gotówkę `35 EUR` + zapas; karta `[DO POTWIERDZENIA]`. Północne i zachodnie cable cars traktować jako operacyjnie warunkowe.
@@ -437,6 +439,7 @@ Stała, krótka checklista wieczorna — kolejność ma znaczenie.
 4. **Parking** — dojazd, alternatywa, godzina startu.
 5. **Sprzęt** — woda, kurtka wiatrowa, powerbank, gotówka.
 6. **Offline** — screeny rezerwacji, mapa offline, adres bazy.
+7. **Baza Canhas** — [Rose Sun House, Rua do Jogo da Bola n49, Canhas, 9360-348](https://www.google.com/maps/search/?api=1&query=Rose%20Sun%20House%20Rua%20do%20Jogo%20da%20Bola%20n49%20Canhas%209360-348%20Madeira); potwierdź instrukcję parkowania hosta i zapisz trasę z/na VR1 offline.
 
 ### 5.5 Pogoda i backupi
 
@@ -446,7 +449,7 @@ Stała, krótka checklista wieczorna — kolejność ma znaczenie.
 - **Cable car off:** grać górne miradouros i zachód, nie próbować na siłę ratować identycznego programu.
 - **Fanal:** tylko za mgłą. Bez mgły nie jest najlepszym ROI dla tego briefu.
 - **Areeiro niedostępne cały tydzień:** brak substytutu tej samej klasy krajobrazowej. Priorytet: PR8 sunrise deck → Eira do Serrado + południowe viewpointy → zachodnie wybrzeże (Ponta do Pargo, Garganta Funda). Bez dokładania cardio i bez pełnego PR9.
-- **Tryb „chory / zero energii / jedna osoba odpada":** zostań blisko bazy (promień do 45 min jazdy), łatwy parking, toaleta, łatwy powrót. Opcje: Madalena do Mar, seafront Ponta do Sol, kawa w Ribeira Brava. Zero tras z rezerwacją i sztywnymi godzinami.
+- **Tryb „chory / zero energii / jedna osoba odpada":** zostań blisko bazy (promień do 45 min jazdy), łatwy parking, toaleta, łatwy powrót. Opcje: start Levada do Moinho / Levada Nova, Madalena do Mar, seafront Ponta do Sol, kawa w Ribeira Brava. Zero tras z rezerwacją i sztywnymi godzinami.
 - **Zachód mglisty 12-13.05 (cable cars off):** D6 → same viewpointy + lunch, zero wody; D7 → Ponta da Ladeira + Garganta Funda + Ponta do Pargo bez zjazdu Achadas. Fallback: ucieczka na południe.
 - **72 h złej pogody:** południe i baza jako rdzeń, Funchal/Monte bez koszyków jako opcja miejska, pranie, zakupy, spokojne posiłki, porządkowanie zdjęć, zero płatnych szlaków i zero płatnych alternatyw "bo może się poprawi". Nie ratować planu kolejnymi rezerwacjami.
 
@@ -462,7 +465,7 @@ Kuchnie poza Funchal często zamykają się w oknie `15:00-18:30`; konkretne mie
 | --- | --- | --- | --- | --- |
 | D2 Areeiro | kawa/śniadanie po zejściu niżej | sklep przy bazie po powrocie | `10 min` Areeiro, potem overflow/skrócenie | brak QR, mgła/wiatr, brak miejsca po `10 min` |
 | D3 PR8 | Machico / Canical | Machico | `10 min` Baia d'Abra, potem viewpointy | silny wiatr, brak snu `7 h`, słońce/odwodnienie |
-| D4 południe | Camara de Lobos / Madalena do Mar | Ribeira Brava / Ponta do Sol | `10 min` przy Cabo Girao/Camara | tłok + brak energii = baza |
+| D4 południe | Camara de Lobos / Madalena do Mar | Pingo Doce Canhas / Ponta do Sol | `10 min` przy Cabo Girao/Camara | tłok + brak energii = baza |
 | D5 Balcoes | Ribeiro Frio / Santana | Santana | `10 min` Ribeiro Frio, potem Santana/viewpointy | niska chmura, brak statusu PR9.1 |
 | D6 północny zachód | Porto Moniz | Porto Moniz / Sao Vicente | `10 min` Seixal/Porto Moniz | swell, surge, deszcz na północy |
 | D7 zachód | Porto Moniz / Ponta do Pargo village | Porto Moniz | `10 min` Achadas/Garganta | zmęczony kierowca, kolejka off, wiatr |
@@ -476,14 +479,15 @@ Kuchnie poza Funchal często zamykają się w oknie `15:00-18:30`; konkretne mie
 
 ### 5.8 Auto, drogi, ubezpieczenie
 
-- **Karta i depozyt:** potwierdź, czy wymagana jest karta kredytowa, czy wystarczy debetowa; wysokość depozytu i blokady wpisz po rezerwacji `[DO UZUPEŁNIENIA PO REZERWACJI]`.
+- **Karta i depozyt:** potwierdź, czy wymagana jest karta kredytowa, czy wystarczy debetowa; wysokość depozytu i blokady wpisz po rezerwacji auta. Status: **Sprawdzić u operatora auta**.
 - **Ubezpieczenie:** sprawdź CDW, wkład własny, udział własny w szkodzie, wyłączenia oraz czy szyby/opony/podwozie są objęte. Nie wpisuj "bez wkładu własnego", dopóki nie wynika to z umowy.
 - **Drugi kierowca:** dopisać w umowie, jeśli ma realnie prowadzić. Bez wpisu druga osoba nie prowadzi.
-- **After-hours:** odbiór/zwrot poza godzinami, dopłaty i procedura kluczy `[DO UZUPEŁNIENIA PO REZERWACJI]`.
+- **After-hours:** odbiór/zwrot poza godzinami, dopłaty i procedura kluczy. Status: **Sprawdzić u operatora auta**.
 - **Żadnych dróg szutrowych / nieutwardzonych** — większość wypożyczalni uznaje to za złamanie umowy.
 - **Polityka paliwowa:** sprawdź w umowie; jeśli full-to-full, zaplanuj tankowanie przed lotniskiem.
 - **Zdjęcia stanu auta:** przy odbiorze i zdaniu cały obwód, dach, felgi, opony, szyby, podwozie o ile widoczne, licznik, paliwo i wnętrze.
 - Tunele, strome serpentyny, wąskie drogi — tempo adekwatne do widoczności.
+- Dojazd do Rose Sun House z/do VR1 wymaga serpentyn i zmiany wysokości ok. `450 m`; po zmroku i w deszczu nie ścinać czasu przejazdu kosztem tempa.
 - Mapy offline (Google Maps / Maps.me / OsmAnd) pobrane przed wyjazdem.
 - eSIM aktywowany zaraz po lądowaniu — zasięg w dolinach bywa zerowy.
 - Numer alarmowy **112** (UE-wspólny); apteczka w aucie.
@@ -491,7 +495,7 @@ Kuchnie poza Funchal często zamykają się w oknie `15:00-18:30`; konkretne mie
 ### 5.9 Zdrowie, dokumenty, finanse
 
 - **Polisa i EKUZ:** polisa turystyczna + EKUZ + numer assistance zapisane offline i u drugiej osoby.
-- **Najbliższa pomoc medyczna od bazy:** wpisać po wyborze hotelu `[DO UZUPEŁNIENIA PO REZERWACJI]`.
+- **Najbliższa pomoc medyczna od bazy:** sprawdzić operacyjnie przed wyjazdem dla adresu Rose Sun House, Canhas; numer alarmowy `112` pozostaje główną procedurą pilną.
 - **Dokumenty offline:** paszport/dowód, prawo jazdy, umowa auta, polisa, bilety, nocleg, QR SIMplifica, screenshoty Wizz.
 - **Finanse:** druga karta trzymana osobno, gotówka na małe płatności i Carreiros, limity transakcji sprawdzone przed wyjazdem.
 - **Utrata telefonu:** druga osoba ma offline kopie dokumentów, adres bazy, dane auta i dostęp do pieniędzy. Najważniejsze QR i rezerwacje są też w galerii drugiego telefonu.
@@ -509,6 +513,25 @@ Kuchnie poza Funchal często zamykają się w oknie `15:00-18:30`; konkretne mie
 - warstwa na wiatr i zimny poranek w górach,
 - woda, ochrona przeciwsłoneczna i dry-bag na PR8 i północno-zachodnie wybrzeże,
 - polisa, EKUZ, assistance, druga karta i gotówka.
+
+### 5.11 Charakterystyka Bazy (Canhas)
+
+Rose Sun House jest bazą potwierdzoną i zastępuje wcześniejsze założenie ogólnego hotelu w pasie południowo-centralnym.
+
+| Element | Dane operacyjne | Status |
+| --- | --- | --- |
+| Nocleg | Rose Sun House, Rua do Jogo da Bola n49, Canhas, 9360-348, Madera | Potwierdzone |
+| Położenie | Canhas, gmina Ponta do Sol, ok. `450 m n.p.m.` | Potwierdzone |
+| Dojazd do VR1 / poziomu morza | serpentyny w dół/górę, orientacyjnie `8-10 min` w jedną stronę | Potwierdzone |
+| Najbliższy duży sklep | Pingo Doce Canhas, ok. `3 min` autem | Potwierdzone |
+| Lokalny wariant low cardio | start Levada do Moinho / Levada Nova, ok. `5 min` od domu | Potwierdzone |
+| Parking | przy posesji lub na Rua do Jogo da Bola zgodnie z instrukcją hosta | Sprawdzić |
+
+**Konsekwencje dla planu:** Canhas jest wyżej i spokojniej niż wybrzeże, ale każdy większy wyjazd zaczyna się od zjazdu do osi drogowej. Nie planować startu "co do minuty" bez bufora na wąski odcinek osiedlowy, lokalny ruch i serpentyny.
+
+**Temperatura:** przyjmij roboczo, że rano i wieczorem w Canhas może być ok. `2-4°C` chłodniej niż na seafroncie Ponta do Sol; wilgoć i wiatr są bardziej odczuwalne na wysokości. Lekka warstwa na wieczór zostaje w standardowym zestawie, nawet jeśli prognoza dla wybrzeża wygląda ciepło.
+
+**Infrastruktura:** Pingo Doce Canhas jest głównym punktem zakupowym przy bazie. To domyślny plan B dla jedzenia po `15:00`, uzupełniania wody i zakupów przed dniami terenowymi. Levada do Moinho / Levada Nova pełni rolę lokalnej, niskotarciowej aktywności, nie zamiennika pełnego dnia terenowego.
 
 ## 6. Appendix źródeł
 

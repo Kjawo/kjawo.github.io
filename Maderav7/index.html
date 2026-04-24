@@ -486,6 +486,18 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .statusbox p,.variantbox p{font-size:13px;color:var(--bazalt-700);margin:0}
 .variantbox ul{margin:8px 0 0;padding-left:18px;font-size:13px;color:var(--bazalt-700)}
 .variantbox li{margin:3px 0}
+.baseops{background:#fff;border:1px solid var(--rule);border-left:4px solid var(--ocean-700);border-radius:3px;margin:14px 0 18px;overflow:hidden}
+.baseops-inner{display:grid;grid-template-columns:minmax(260px,.95fr) repeat(4,minmax(130px,1fr));gap:0}
+.baseops-lead,.baseops-cell{padding:14px 16px;border-right:1px solid var(--rule)}
+.baseops-cell:last-child{border-right:0}
+.baseops .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ocean-700);margin-bottom:5px}
+.baseops h3{font-family:var(--serif);font-size:22px;font-weight:500;line-height:1.1;margin:0 0 4px}
+.baseops p{font-size:13px;color:var(--bazalt-700);margin:0}
+.baseops .v{font-family:var(--serif);font-size:21px;line-height:1.1}
+.baseops .s{font-size:12px;color:var(--bazalt-600);margin-top:4px}
+.baseops a{color:var(--ocean-700);text-decoration:underline;text-underline-offset:2px}
+@media(max-width:980px){.baseops-inner{grid-template-columns:1fr 1fr}.baseops-lead{grid-column:1/-1}.baseops-cell{border-top:1px solid var(--rule)}}
+@media(max-width:560px){.baseops-inner{grid-template-columns:1fr}.baseops-lead,.baseops-cell{border-right:0}}
 
 /* ---------- COSTS ---------- */
 .costgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
@@ -636,7 +648,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
       <p>Operacyjny kokpit na 07–14.05.2026: decyzje PR1/PR8, tryby pogodowe, lokalne zdjęcia, checklisty i mapa schematyczna działają bez sieci.</p>
       <div class="subtitle">
         <span>07–14.05.2026</span><span class="sep">·</span>
-        <span>Baza: Ribeira Brava – Ponta do Sol</span><span class="sep">·</span>
+        <span>Baza: Rose Sun House · Canhas / Ponta do Sol</span><span class="sep">·</span>
         <span>Wizz W6 1535 / 1536</span>
       </div>
       <div class="quickbar" role="navigation" aria-label="Szybkie skróty">
@@ -667,6 +679,11 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
               <div class="meta">16:45 -> 22:50 · powrót</div>
             </div>
           </div>
+        </div>
+        <div class="bento-card">
+          <div class="bh">Baza potwierdzona</div>
+          <div class="bv">Canhas · 450 m</div>
+          <div class="bt">Rose Sun House; każdy większy start zaczyna się od 8–10 min serpentyn do VR1.</div>
         </div>
         <div class="bento-card is-primary" id="heroDecisionCard">
           <div class="bh">Następna decyzja</div>
@@ -700,8 +717,8 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
         </div>
         <div class="bento-card">
           <div class="bh">Rytuał 20:00</div>
-          <div class="bv" id="heroRitual">0 / 6</div>
-          <div class="bt">IFCN, SIMplifica, pogoda, parking, sprzęt, offline.</div>
+          <div class="bv" id="heroRitual">0 / 7</div>
+          <div class="bt">IFCN, SIMplifica, pogoda, parking, sprzęt, offline, baza Canhas.</div>
         </div>
       </div>
     </aside>
@@ -727,7 +744,36 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
   </div>
   <div class="alert info">
     <strong>Założenia operacyjne</strong>
-    Czasy jazdy zakładają bazę Ribeira Brava – Ponta do Sol. Jeśli śpisz dalej na zachodzie, dolicz 10–20 min do porannych dojazdów. Widełki chodzenia dotyczą wariantu bazowego, nie wersji ambitnej. Statusy PR1, PR8, PR9/PR9.1, PR11 i cable cars sprawdzaj wieczorem dzień wcześniej, nie rano w aucie.
+    Czasy jazdy zakładają bazę Rose Sun House, Canhas / Ponta do Sol. Canhas leży ok. 450 m n.p.m.; każdy większy wyjazd ma stały blok 8–10 min serpentyn do/z VR1 i poziomu morza. Widełki kart dni już uwzględniają ten bufor. Statusy PR1, PR8, PR9/PR9.1, PR11 i cable cars sprawdzaj wieczorem dzień wcześniej, nie rano w aucie.
+  </div>
+  <div class="baseops" aria-label="Baza Canhas">
+    <div class="baseops-inner">
+      <div class="baseops-lead">
+        <div class="eyebrow">Baza Canhas · status potwierdzone</div>
+        <h3>Rose Sun House</h3>
+        <p><a href="https://www.google.com/maps/search/?api=1&amp;query=Rose%20Sun%20House%20Rua%20do%20Jogo%20da%20Bola%20n49%20Canhas%209360-348%20Madeira" target="_blank" rel="noopener">Rua do Jogo da Bola n49, Canhas, 9360-348</a></p>
+      </div>
+      <div class="baseops-cell">
+        <div class="eyebrow">Wysokość</div>
+        <div class="v">~450 m</div>
+        <div class="s">chłodniej rano i wieczorem niż na seafroncie</div>
+      </div>
+      <div class="baseops-cell">
+        <div class="eyebrow">Serpentyny</div>
+        <div class="v">8–10 min</div>
+        <div class="s">osobny blok do/z VR1; nie odzyskiwać go tempem</div>
+      </div>
+      <div class="baseops-cell">
+        <div class="eyebrow">Sklep B</div>
+        <div class="v">Pingo Doce Canhas</div>
+        <div class="s">woda, śniadanie, zimne jedzenie po 15:00</div>
+      </div>
+      <div class="baseops-cell">
+        <div class="eyebrow">Low cardio</div>
+        <div class="v">Levada do Moinho</div>
+        <div class="s">Levada Nova jako lokalny oddech, nie zamiennik dnia</div>
+      </div>
+    </div>
   </div>
   <div id="dayCards"></div>
   <noscript>Karty dni, galerie, checklisty i wykresy wymagają włączonego JavaScriptu.</noscript>
@@ -744,7 +790,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
   <div class="statusgrid" aria-label="Statusy planu">
     <div class="statusbox">
       <h3>Potwierdzone</h3>
-      <p>Oparte na źródłach oficjalnych lub operatorach. Nadal sprawdzaj przy transakcji, jeśli płacisz lub rezerwujesz.</p>
+      <p>Rose Sun House, Canhas / Ponta do Sol jest bazą planu. Pozostałe fakty sprawdzaj przy transakcji, jeśli płacisz lub rezerwujesz.</p>
     </div>
     <div class="statusbox">
       <h3>Sprawdzić</h3>
@@ -756,7 +802,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
     </div>
     <div class="statusbox">
       <h3>DO POTWIERDZENIA</h3>
-      <p>Zależne od hotelu, wypożyczalni, Wizz, SIMplifica albo płatności na miejscu. Nie traktować jako faktu.</p>
+      <p>Zależne od wypożyczalni, Wizz, SIMplifica, operatora albo płatności na miejscu. Nie traktować jako faktu.</p>
     </div>
   </div>
 
@@ -915,7 +961,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
   <div class="variantgrid">
     <div class="variantbox">
       <h3>Rekomendowana</h3>
-      <p>Jedna baza południowo-centralna. Najlepszy stosunek widok / logistyka / zmęczenie.</p>
+      <p>Jedna baza południowo-centralna: Rose Sun House, Canhas / Ponta do Sol. Najlepszy stosunek widok / logistyka / zmęczenie.</p>
       <ul>
         <li>D1 przylot.</li>
         <li>D2 Areeiro i D3 wschód jako dwa mocne dni na początku.</li>
@@ -965,7 +1011,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
     <aside class="islandmap" aria-labelledby="islandmapTitle">
-      <h4 id="islandmapTitle">Schemat 8 dni · baza w centrum-południu</h4>
+      <h4 id="islandmapTitle">Schemat 8 dni · baza Canhas / Ponta do Sol</h4>
       <svg viewBox="0 0 420 240" role="img" aria-label="Schemat Madery z zaznaczonymi punktami dni">
         <defs>
           <pattern id="topo" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(12)">
@@ -995,7 +1041,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 
         <!-- points -->
         <g font-family="JetBrains Mono" font-size="8" fill="#f4f2ee">
-          <circle cx="160" cy="155" r="4.5" fill="#ecc878"/><text x="166" y="158">Baza · Ribeira Brava</text>
+          <circle cx="160" cy="155" r="4.5" fill="#ecc878"/><text x="166" y="158">Baza · Canhas</text>
           <circle cx="260" cy="100" r="3.5" fill="#e66a3c"/><text x="234" y="94">D2 Areeiro</text>
           <circle cx="360" cy="115" r="3.5" fill="#e66a3c"/><text x="330" y="108">D3 PR8 / Rosto</text>
           <circle cx="120" cy="165" r="3" fill="#69a07f"/><text x="90" y="180">D4 Cabo Girão</text>
@@ -1014,7 +1060,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
         <span><span class="sw" style="background:#d8dde1"></span>Lotnisko</span>
       </div>
       <p style="font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:#b9c1c8;margin-top:6px">
-        Schemat orientacyjny. Użyteczna topografia: wschód surowy, góry w centrum, wybrzeże NW z fajãs, skalisty zachód, południe łagodne.
+        Schemat orientacyjny. Baza leży powyżej wybrzeża: każdy większy moduł zaczyna i kończy się blokiem serpentyn do/z VR1.
       </p>
     </aside>
   </div>
@@ -1104,10 +1150,10 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
       <div class="cost"><span class="name">Rocha do Navio · cena aktualna <small>godziny potwierdzone: 09:00–13:00 i 14:00–17:00; weekend do 18:00</small></span><span class="price q">?</span></div>
       <div class="cost"><span class="name">Cristo Rei / Garajau · status CONDICIONADO</span><span class="price q">?</span></div>
       <div class="cost"><span class="name">Reguła last-minute PR1 w SIMplifica <small>dzień wcześniej vs dzień dnia nie jest jednoznaczne dla maja 2026</small></span><span class="price q">?</span></div>
-      <div class="cost"><span class="name">Karta akceptowana na depozyt auta</span><span class="price q">?</span></div>
-      <div class="cost"><span class="name">Wkład własny / szyby / opony</span><span class="price q">?</span></div>
+      <div class="cost"><span class="name">Karta akceptowana na depozyt auta <small>Sprawdzić u operatora auta</small></span><span class="price q">?</span></div>
+      <div class="cost"><span class="name">Wkład własny / szyby / opony <small>Sprawdzić u operatora auta</small></span><span class="price q">?</span></div>
       <div class="cost"><span class="name">Polityka paliwowa (full-to-full?)</span><span class="price q">?</span></div>
-      <div class="cost"><span class="name">After-hours zwrot auta</span><span class="price q">?</span></div>
+      <div class="cost"><span class="name">After-hours zwrot auta <small>Sprawdzić u operatora auta</small></span><span class="price q">?</span></div>
       <div class="cost"><span class="name">PR9 / PR9.1 · używalny zakres</span><span class="price q">?</span></div>
     </div>
     <div class="costcol no">
@@ -1295,7 +1341,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 </main>
 
 <footer class="foot">
-  <span>Madera Command Center · v7 · PL</span>
+  <span>Madera Command Center · v8 · PL</span>
   <span>Stan zapisywany w localStorage · działa offline</span>
   <span><a href="#top" style="text-decoration:underline">↑ Góra</a></span>
 </footer>
@@ -1322,24 +1368,24 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 const DAYS = [
   { n:1, date:"07.05", dow:"czw", kind:"op", kindLabel:"operacyjny",
     title:"Przylot i miękkie wejście",
-    headline:"Lotnisko → auto → sklep → check-in → kolacja → sen.",
-    drive:"0:35–1:10", walk:"0:15–0:45", effort:"very-low", effortLabel:"very low",
-    start:"FNC 16:05", light:"sunset 20:53", retreat:"Lotnisko → hotel bez stopów",
-    status:"DO POTWIERDZENIA: auto, hotel, Wizz",
+    headline:"Lotnisko → auto → Pingo Doce Canhas → Rose Sun House → kolacja → sen.",
+    drive:"0:50–1:25", walk:"0:15–0:45", effort:"very-low", effortLabel:"very low",
+    start:"FNC 16:05", light:"sunset 20:53", retreat:"Lotnisko → Rose Sun House bez stopów",
+    status:"Potwierdzone: baza; Sprawdzić: auto, Wizz",
     why:"Lądujesz 16:05 — po bagażu, aucie i dojeździe nie ma sensownego buforu na ambitny program.",
-    stops:["Lotnisko FNC · odbiór auta","Szybki sklep (woda 5 l + śniadanie)","Check-in · baza","Kolacja przy bazie","Sen — światło zgaszone do 22:00 przy D2 sunrise"],
+    stops:["Lotnisko FNC · odbiór auta","Pingo Doce Canhas / szybki sklep","Check-in · Rose Sun House","Kolacja przy bazie","Opcjonalnie lokalny oddech: Levada do Moinho / Levada Nova","Sen — światło zgaszone do 22:00 przy D2 sunrise"],
     meta:{
       "Cel":"Odebrać auto, dojechać do bazy, nie przepalić energii.",
       "Wyjazd":"~17:15–17:45 po odbiorze auta",
       "Wyjazd z lotniska":"~17:15–17:45 po odbiorze auta",
       "Czas dnia":"4–6 h od lądowania do kolacji",
-      "Rezerwować":"auto, nocleg, parking noclegu",
-      "Sprawdzić":"odbiór auta, godziny check-in, parking, paliwo, prognoza 08.05",
-      "Parking":"parking noclegu; seafront przy krótkim spacerze",
+      "Rezerwować":"auto, nocleg, parking bazy",
+      "Sprawdzić":"odbiór auta, godziny check-in, instrukcje hosta, parking, paliwo, prognoza 08.05",
+      "Parking":"Rose Sun House / Rua do Jogo da Bola według instrukcji hosta",
       "Dojście od parkingu":"2–10 min",
       "Jedzenie / kawa":"kolacja przy bazie",
       "Toalety / infrastruktura":"lotnisko ma pełną infrastrukturę; później głównie miasteczka",
-      "Worth it":"bardzo lekki spacer w promieniu kilku minut",
+      "Worth it":"bardzo lekki spacer przy bazie albo start Levada do Moinho / Levada Nova, jeśli energia jest dobra",
       "Skip if tired":"ambitny objazd, Monte, pełen Funchal, cokolwiek ze sztywną godziną",
       "Najlepsze światło":"sunset 20:53",
       "Ryzyka":"kolejka po auto, opóźniony bagaż, zmęczenie, ruch przy wyjeździe",
@@ -1347,15 +1393,15 @@ const DAYS = [
       "Przylot / wylot":"tak — jedyny sensowny tryb na dzień przylotu",
       "Werdykt":"zostawić jako pełnoprawny dzień operacyjny",
       "Plan B":"Zakupy + kolacja + wczesny sen",
-      "Plan C":"Lotnisko → hotel, bez przystanków",
+      "Plan C":"Lotnisko → Rose Sun House bez przystanków poza absolutnie koniecznym sklepem",
     },
-    tags:[{k:"warn",t:"DO POTWIERDZENIA · auto"},{k:"warn",t:"Wizz T-0"}],
+    tags:[{k:"ok",t:"baza potwierdzona"},{k:"warn",t:"auto · sprawdzić"},{k:"warn",t:"Wizz T-0"}],
     alerts:[{k:"info",h:"Reguła",t:"Sunset to wyjątek — tylko jeśli D2 NIE jest dniem sunrise."}],
     alts:[
       {h:"Dobra pogoda",t:"Krótki spacer blisko bazy. very low."},
       {h:"Słaba pogoda",t:"Zakupy, kolacja, ustawienie planu na 48 h."},
-      {h:"Low energy",t:"Hotel + 15–20 min spaceru."},
-      {h:"Warunkowo",t:"Cristo Rei / Garajau tylko jeśli śpisz bliżej Funchal/Caniço; nie dotyczy bazy RB–PdS. CONDICIONADO."}
+      {h:"Low energy",t:"Rose Sun House + 15–20 min spaceru po okolicy."},
+      {h:"Warunkowo",t:"Cristo Rei / Garajau tylko jeśli śpisz bliżej Funchal/Caniço; nie dotyczy bazy Canhas / Ponta do Sol. CONDICIONADO."}
     ],
     photos:[
       {src:"assets/day/d01-base-ponta-do-sol-dusk-02.jpg", source:"https://commons.wikimedia.org/wiki/File:0_Restaurante_Ponta_do_Sol_Madeira.jpg", label:"Ponta do Sol · blue hour", by:"Herbert wie · CC BY-SA 4.0", alt:"Ponta do Sol o zmierzchu z ciepłym światłem nad oceanem"},
@@ -1366,18 +1412,18 @@ const DAYS = [
   { n:2, date:"08.05", dow:"pt", kind:"pr", kindLabel:"priorytet",
     title:"Pico do Areeiro + Eira do Serrado",
     headline:"PR1 + Ninho da Manta + (Pedra Rija, jeśli dostępna).",
-    drive:"2:15–3:00", walk:"1:45–2:45", effort:"m", effortLabel:"medium",
-    start:"05:50 RB / 06:10 PdS", light:"sunrise ~07:14 · best 06:50–07:40", retreat:"Brak QR / mgła / 10 min bez miejsca",
+    drive:"2:35–3:20", walk:"1:45–2:45", effort:"m", effortLabel:"medium",
+    start:"05:55–06:05 z Rose Sun House", light:"sunrise ~07:14 · best 06:50–07:40", retreat:"Brak QR / mgła / 10 min bez miejsca",
     status:"DO POTWIERDZENIA: PR1, parking",
     why:"Po fazowanym reotwarciu PR1 piątek–niedziela to najbardziej racjonalne okno. Nie odkładaj Areeiro na środek pobytu.",
     stops:["Areeiro parking (overflow: krążenie max 10 min)","Sunrise — punkt widokowy","Ninho da Manta","Pedra Rija — TYLKO jeśli oficjalnie dostępna","Śniadanie / kawa niżej","Eira do Serrado","Powrót — regeneracja"],
     meta:{
       "Cel":"Najmocniejszy i najbardziej wrażliwy operacyjnie moduł na początku.",
-      "Wyjazd":"05:50 z Ribeira Brava / 06:10 z Ponta do Sol",
+      "Wyjazd":"05:55–06:05 z Rose Sun House; pierwsze 8–10 min to zjazd serpentynami do osi VR1 / Ponta do Sol",
       "Czas dnia":"7–9 h",
       "Rezerwować":"PR1 przez SIMplifica",
       "Sprawdzić":"IFCN, SIMplifica slot, wiatr, zachmurzenie, widoczność, zakres odcinka",
-      "Parking":"Areeiro / overflow niżej; Eira do Serrado przy punkcie",
+      "Parking":"Areeiro / overflow niżej; Eira do Serrado przy punkcie widokowym",
       "Dojście od parkingu":"Areeiro 5–20 min zależnie od miejsca; Eira do Serrado 5–10 min",
       "Jedzenie / kawa":"kawa po zejściu, nie przed sunrise; woda i jedzenie w aucie",
       "Toalety / infrastruktura":"przed świtem na górze nie zakładaj działającej infrastruktury; start self-sufficient",
@@ -1412,14 +1458,14 @@ const DAYS = [
   { n:3, date:"09.05", dow:"sob", kind:"pr", kindLabel:"priorytet",
     title:"Wschód · Ponta do Rosto + PR8 + Machico",
     headline:"Klifowy, surowy krajobraz wschodu — bez pełnego przejścia za wszelką cenę.",
-    drive:"2:30–3:15", walk:"2:30–4:00", effort:"m", effortLabel:"medium",
-    start:"05:20 RB / 05:40 PdS · tylko po bramce snu", light:"sunrise ~07:13 · best 06:50–08:15", retreat:"Silny wiatr / brak 7 h snu / słońce",
+    drive:"2:50–3:35", walk:"2:30–4:00", effort:"m", effortLabel:"medium",
+    start:"05:25–05:35 z Rose Sun House · tylko po bramce snu", light:"sunrise ~07:13 · best 06:50–08:15", retreat:"Silny wiatr / brak 7 h snu / słońce",
     status:"DO POTWIERDZENIA: PR8, sen, wiatr",
     why:"Wschód daje ogromny efekt wizualny, ale klasyczny błąd to robienie całości za wszelką cenę pod słońcem i wietrze.",
     stops:["Ponta do Rosto sunrise (po bramce snu)","Baia d'Abra trailhead","PR8 do Casa do Sardinha","Dalej tylko przy dobrej energii","Machico — późny lunch","Powrót"],
     meta:{
       "Cel":"Zebrać wschód bez wymuszonego pełnego przejścia.",
-      "Wyjazd":"05:20 z Ribeira Brava / 05:40 z Ponta do Sol tylko po bramce snu; inaczej po śniadaniu",
+      "Wyjazd":"05:25–05:35 z Rose Sun House tylko po bramce snu; inaczej po śniadaniu",
       "Czas dnia":"7–8,5 h",
       "Rezerwować":"PR8 przez SIMplifica",
       "Sprawdzić":"wiatr, ekspozycję słoneczną, status szlaku; boat-return: operator + transfer",
@@ -1457,14 +1503,14 @@ const DAYS = [
   { n:4, date:"10.05", dow:"nd", kind:"rc", kindLabel:"recovery",
     title:"Południe · Cabo Girão + Câmara de Lobos",
     headline:"Lekki, niski-koszt dzień po dwóch mocnych porankach.",
-    drive:"1:00–1:45", walk:"0:45–1:30", effort:"l", effortLabel:"low",
-    start:"09:00–09:30", light:"sunset ~20:55", retreat:"tłok + brak energii = baza",
+    drive:"1:15–2:00", walk:"0:45–1:30", effort:"l", effortLabel:"low",
+    start:"09:00–09:30 z Rose Sun House", light:"sunset ~20:55", retreat:"tłok + brak energii = baza",
     status:"DO POTWIERDZENIA: płatność, parking",
     why:"To ma być dzień lekki, a nie kolejny moduł do odhaczania. Cabo Girão jest mocnym stopem, ale nie niesie pół dnia.",
     stops:["Cabo Girão (15–25 min stop)","Câmara de Lobos — kawa / lunch","Madalena do Mar / Rota do Banana","Zachód przy bazie / Ponta do Sol"],
     meta:{
       "Cel":"Lekki dzień po dwóch mocnych porankach.",
-      "Wyjazd":"09:00–09:30",
+      "Wyjazd":"09:00–09:30 z Rose Sun House; pierwszy przejazd dnia obejmuje zjazd z Canhas do VR1",
       "Czas dnia":"5–7 h",
       "Rezerwować":"płatność za Cabo Girão — sprawdź tryb przed podjazdem",
       "Sprawdzić":"pogodę zachód; czy nie zamienić na moduł miejski",
@@ -1480,7 +1526,7 @@ const DAYS = [
       "Przylot / wylot":"tak jako typ dnia, ale nie z lotem w środku",
       "Werdykt":"zostawić, ale trzymać krótko",
       "Plan B":"moduł miejski Funchal / Monte",
-      "Plan C":"pełna regeneracja w hotelu",
+      "Plan C":"pełna regeneracja w bazie",
     },
     tags:[{k:"ok",t:"low effort"},{k:"info",t:"Cabo Girão 5 EUR"}],
     alerts:[],
@@ -1499,14 +1545,14 @@ const DAYS = [
   { n:5, date:"11.05", dow:"pn", kind:"bz", kindLabel:"bazowy",
     title:"Ribeiro Frio · Balcões · Santana · Rocha do Navio warunkowo",
     headline:"Zielony, spokojniejszy kontrast do dni klifowych.",
-    drive:"2:15–3:00", walk:"1:15–2:00", effort:"l", effortLabel:"low",
-    start:"08:00–08:30", light:"poranek i późne przedpołudnie", retreat:"niska chmura / brak statusu PR9.1",
+    drive:"2:35–3:20", walk:"1:15–2:00", effort:"l", effortLabel:"low",
+    start:"08:00–08:30 z Rose Sun House", light:"poranek i późne przedpołudnie", retreat:"niska chmura / brak statusu PR9.1",
     status:"DO POTWIERDZENIA: PR11, Rocha",
     why:"Balcões ma świetny stosunek efekt/wysiłek. Santana i Rocha do Navio są logicznymi dopięciami, ale nie muszą dominować.",
     stops:["Ribeiro Frio","PR11 Balcões","Santana krótko","Rocha do Navio (viewpoint / cable car jeśli działa)","Powrót"],
     meta:{
       "Cel":"Zielony kontrast bez cardio.",
-      "Wyjazd":"08:00–08:30",
+      "Wyjazd":"08:00–08:30 z Rose Sun House",
       "Czas dnia":"6–8 h",
       "Rezerwować":"PR11 przez SIMplifica (lub PR9.1, jeśli podmiana)",
       "Sprawdzić":"widoczność Balcões, kolejka Rocha do Navio, status PR9/PR9.1",
@@ -1543,14 +1589,14 @@ const DAYS = [
   { n:6, date:"12.05", dow:"wt", kind:"bz", kindLabel:"bazowy",
     title:"Seixal · Véu da Noiva · Porto Moniz",
     headline:"Jeden z najlepszych dni widoki bez cardio.",
-    drive:"2:15–3:15", walk:"0:30–1:30", effort:"l", effortLabel:"low",
-    start:"08:00–08:30", light:"Seixal — wcześnie rano", retreat:"swell / surge / deszcz północ",
+    drive:"2:35–3:35", walk:"0:30–1:30", effort:"l", effortLabel:"low",
+    start:"08:00–08:30 z Rose Sun House", light:"Seixal — wcześnie rano", retreat:"swell / surge / deszcz północ",
     status:"DO POTWIERDZENIA: morze, parking",
     why:"Północny-zachód najlepiej działa samochodem i krótkimi stopami. Wejście do oceanu ma sens tylko przy spokojnym morzu.",
     stops:["Seixal rano","Véu da Noiva","Porto Moniz — dłuższy stop + lunch","Powrót"],
     meta:{
       "Cel":"Widoki bez cardio.",
-      "Wyjazd":"08:00–08:30",
+      "Wyjazd":"08:00–08:30 z Rose Sun House",
       "Czas dnia":"6–8 h",
       "Rezerwować":"brak krytycznej rezerwacji potwierdzonej",
       "Sprawdzić":"fale, wiatr, deszcz na północy, możliwość kąpieli i własną gotowość do wejścia do wody",
@@ -1587,14 +1633,14 @@ const DAYS = [
   { n:7, date:"13.05", dow:"śr", kind:"bz", kindLabel:"bazowy",
     title:"Zachód · Achadas · Garganta Funda · Ponta do Pargo",
     headline:"Maksymalny zachodni payoff przy minimalnym wysiłku.",
-    drive:"2:30–3:30", walk:"0:45–2:00", effort:"l", effortLabel:"low",
-    start:"10:00–10:30", light:"Garganta 16:00–18:00 · sunset ~20:57", retreat:"Po zachodzie — hard stop, powrót do bazy",
+    drive:"2:45–3:50", walk:"0:45–2:00", effort:"l", effortLabel:"low",
+    start:"10:00–10:30 z Rose Sun House", light:"Garganta 16:00–18:00 · sunset ~20:57", retreat:"Po zachodzie — hard stop, powrót do bazy",
     status:"DO POTWIERDZENIA: kolejka, wiatr",
     why:"Payoff robią pionowe klify, nie dystans. Dzień ustawiony pod popołudniowe światło w Garganta Funda i zachód w Ponta do Pargo.",
     stops:["Achadas da Cruz → zjazd tylko jeśli działa i nie wieje","Krótki spacer na fajã","Lunch / coffee","Garganta Funda po południu","Ponta do Pargo sunset"],
     meta:{
       "Cel":"Zachodni payoff przy niskim wysiłku.",
-      "Wyjazd":"10:00–10:30",
+      "Wyjazd":"10:00–10:30 z Rose Sun House",
       "Czas dnia":"10–12 h elapsed od wyjazdu do powrotu",
       "Rezerwować":"brak krytycznej rezerwacji",
       "Sprawdzić":"kolejka, wiatr, edital serwisowy, wodospad, zachmurzenie; spakować rzeczy na wieczór i D8 przed wyjazdem",
@@ -1632,17 +1678,17 @@ const DAYS = [
   { n:8, date:"14.05", dow:"czw", kind:"op", kindLabel:"operacyjny",
     title:"Wylot",
     headline:"Zamknąć wyjazd bez ryzyka spóźnienia.",
-    drive:"0:45–1:30", walk:"0:15–0:45", effort:"very-low", effortLabel:"very low",
-    start:"10:30–11:00 z bazy; wcześniej, jeśli śpisz dalej na zachodzie", light:"—", retreat:"Prosto na lotnisko",
+    drive:"1:00–1:45", walk:"0:15–0:45", effort:"very-low", effortLabel:"very low",
+    start:"10:15–10:45 z Rose Sun House", light:"—", retreat:"Prosto na lotnisko",
     status:"DO POTWIERDZENIA: zwrot auta, Wizz",
     why:"Wylot 16:45 — każdy jeszcze tylko szybki Monte/Funchal łatwo robi się złą decyzją.",
-    stops:["Śniadanie","Checkout","Paliwo zgodnie z umową","Ewentualnie jeden łatwy stop na wschodzie","Lekki lunch (Machico / Santa Cruz)","Zwrot auta","Lotnisko 13:45–14:15"],
+    stops:["Śniadanie","Checkout Rose Sun House","Zjazd z Canhas do VR1","Paliwo zgodnie z umową","Ewentualnie jeden łatwy stop na wschodzie","Lekki lunch (Machico / Santa Cruz)","Zwrot auta","Lotnisko 13:45–14:15"],
     meta:{
       "Cel":"Domknąć wyjazd bez stresu.",
-      "Wyjazd":"10:30–11:00 z bazy; wcześniej, jeśli śpisz dalej na zachodzie",
+      "Wyjazd":"10:15–10:45 z Rose Sun House",
       "Czas dnia":"4–5 h",
       "Rezerwować":"nic nowego poza logistyką auta i lotu",
-      "Sprawdzić":"polityka paliwowa, dokumenty, czas dojazdu, zdanie auta, bezpieczeństwo stopu",
+      "Sprawdzić":"polityka paliwowa, dokumenty, czas dojazdu, zdanie auta, wymagany bufor zwrotu i bezpieczeństwo stopu",
       "Parking":"tylko gdzie bagaż NIE jest eksponowany — inaczej stop odpada",
       "Dojście od parkingu":"2–10 min",
       "Jedzenie / kawa":"Machico / Santa Cruz — najwygodniej",
@@ -1651,7 +1697,7 @@ const DAYS = [
       "Skip if tired":"Monte, Areeiro, pełen Funchal, ambitne objazdy na koniec",
       "Najlepsze światło":"nieistotne — pracujesz pod logistykę",
       "Ryzyka":"spóźniony zwrot auta, zbyt późny wyjazd, ekspozycja bagaży, korek",
-      "Minimalny bufor":"paliwo + zwrot auta + dojście z bagażem do terminala to osobny blok czasu, nie „po drodze”",
+      "Minimalny bufor":"zjazd z Canhas + paliwo + zwrot auta + dojście z bagażem do terminala to osobne bloki czasu, nie „po drodze”",
       "Low energy":"tak",
       "Przylot / wylot":"tak — dokładnie taki dzień",
       "Werdykt":"zostawić jako dzień operacyjny",
@@ -1660,13 +1706,14 @@ const DAYS = [
     },
     tags:[{k:"info",t:"FNC 16:45"},{k:"warn",t:"Wizz T-0 screenshot"}],
     alerts:[
-      {k:"warn",h:"Bagaż w aucie",t:"Jeśli bagaż jest widoczny — stop odpada. Ekspozycja = ryzyko."}
+      {k:"warn",h:"Bagaż w aucie",t:"Jeśli bagaż jest widoczny — stop odpada. Ekspozycja = ryzyko."},
+      {k:"info",h:"Bloki czasu",t:"Zjazd z Canhas do VR1 i tankowanie traktuj jako osobne etapy przed lotniskiem."}
     ],
     alts:[
       {h:"Dobra pogoda",t:"Krótki spacer Machico / Santa Cruz."},
       {h:"Słaba pogoda",t:"Bez zwiedzania: śniadanie → checkout → lotnisko."},
       {h:"Low energy",t:"Kawa po drodze i prosto na FNC."},
-      {h:"Warunkowo",t:"Cristo Rei / Garajau — tylko przy wyjątku od jednej bazy po stronie wschodniej; nie dotyczy RB–PdS. CONDICIONADO."}
+      {h:"Warunkowo",t:"Cristo Rei / Garajau — tylko przy wyjątku od jednej bazy po stronie wschodniej; nie dotyczy bazy Canhas / Ponta do Sol. CONDICIONADO."}
     ],
     photos:[
       {src:"assets/day/d08-base-fnc-dusk-02.jpg", source:"https://commons.wikimedia.org/wiki/File:Madeira_-_Funchal_sunset_(33164069770).jpg", label:"Funchal · zachód", by:"muffinn · CC BY 2.0", alt:"Zachód słońca nad zabudową Funchal na Maderze"},
@@ -1697,7 +1744,8 @@ const MODE_REC = {
   low:{
     h:"Low energy — promień bazy ≤ 45 min",
     l:[
-      "Baza + Madalena do Mar + seafront Ponta do Sol + kawa Ribeira Brava.",
+      "Rose Sun House + start Levada do Moinho / Levada Nova + Pingo Doce Canhas.",
+      "Blisko i łatwo: seafront Ponta do Sol, Madalena do Mar, kawa Ribeira Brava.",
       "Zero tras z rezerwacją i sztywnymi godzinami.",
       "Łatwy parking i toaleta blisko. Łatwy powrót.",
       "Dzień priorytetowy przenieś, nie forsuj."
@@ -1706,7 +1754,8 @@ const MODE_REC = {
   "72h":{
     h:"72 h złej pogody — tryb bazowy + miasto",
     l:[
-      "Rdzeń: baza + południe. Funchal / Monte bez koszyków jako opcja miejska.",
+      "Rdzeń: Rose Sun House / Canhas + południe. Pingo Doce Canhas jako sklep B.",
+      "Funchal / Monte bez koszyków jako opcja miejska.",
       "Pranie, zakupy, spokojne posiłki, porządkowanie zdjęć.",
       "ZERO płatnych szlaków i alternatyw bo może się poprawi.",
       "Nie ratuj planu kolejnymi rezerwacjami."
@@ -1721,8 +1770,8 @@ const BACKUPS = [
   {t:"Cable car off", w:"D5 / D7", s:["Górne miradouros.","Nie próbuj ratować identycznego programu.","Achadas: zostań na górnych punktach, Garganta + PdP bez zjazdu."]},
   {t:"Fanal tylko przy mgle", w:"D7 opcjonalnie", s:["Bez aktywnej mgły — słaby ROI.","Detour tylko gdy kamery pokazują warunki.","Nie budżetuj jako bazowy."]},
   {t:"Areeiro niedostępne cały tydzień", w:"D2–D5", s:["Brak substytutu tej samej klasy.","Priorytet: PR8 sunrise deck → Eira do Serrado + południe → zachód.","Bez dokładania cardio i bez pełnego PR9."]},
-  {t:"Chory / jedna osoba odpada", w:"dowolny dzień", s:["Promień do 45 min jazdy.","Łatwy parking, toaleta, łatwy powrót.","Madalena do Mar, seafront PdS, kawa Ribeira Brava.","Zero tras z rezerwacją i sztywnymi godzinami."]},
-  {t:"72 h złej pogody", w:"2+ dni z rzędu", s:["Baza + południe jako rdzeń.","Funchal / Monte bez koszyków.","Pranie, zakupy, zdjęcia.","Zero płatnych szlaków na wszelki wypadek."]}
+  {t:"Chory / jedna osoba odpada", w:"dowolny dzień", s:["Promień do 45 min jazdy.","Łatwy parking, toaleta, łatwy powrót.","Levada do Moinho / Levada Nova, Pingo Doce Canhas, seafront Ponta do Sol, Madalena do Mar, kawa Ribeira Brava.","Zero tras z rezerwacją i sztywnymi godzinami."]},
+  {t:"72 h złej pogody", w:"2+ dni z rzędu", s:["Rose Sun House / Canhas + południe jako rdzeń.","Funchal / Monte bez koszyków.","Pranie, zakupy w Pingo Doce Canhas, zdjęcia.","Zero płatnych szlaków na wszelki wypadek."]}
 ];
 
 const RYTUAL = [
@@ -1731,7 +1780,8 @@ const RYTUAL = [
   "Pogoda — wiatr, chmura, widoczność (IPMA).",
   "Parking — dojazd, alternatywa, godzina startu.",
   "Sprzęt — woda, kurtka wiatrowa, powerbank, gotówka.",
-  "Offline — screeny rezerwacji, mapa offline, adres bazy."
+  "Offline — screeny rezerwacji, mapa offline, adres bazy.",
+  "Baza Canhas — Rose Sun House, Rua do Jogo da Bola n49, Canhas, 9360-348; Google Maps: https://www.google.com/maps/search/?api=1&query=Rose%20Sun%20House%20Rua%20do%20Jogo%20da%20Bola%20n49%20Canhas%209360-348%20Madeira; potwierdź instrukcję parkowania hosta i zapisz trasę z/na VR1 offline."
 ];
 const FINAL = [
   "QR SIMplifica offline.",
@@ -1741,12 +1791,13 @@ const FINAL = [
   "Monte / Funchal / Carreiros — godziny i płatność na miejscu, tylko jeśli backup miejski wchodzi do gry.",
   "Wizz screenshots T-7 / T-3 / T-0.",
   "Auto — paliwo, zwrot, depozyt, wkład własny, szyby/opony/podwozie, zdjęcia.",
+  "Baza Canhas — adres Rose Sun House, instrukcje parkingowe hosta i trasa z/na VR1 offline.",
   "Woda 5 l w aucie.",
   "Dry-bag / sprzęt foto na PR8 i północno-zachodnie wybrzeże.",
   "Polisa, EKUZ, assistance, druga karta, gotówka."
 ];
 const PREP_CORE = [
-  "Kurtka wiatrowa + warstwa na zimny poranek.",
+  "Kurtka wiatrowa + warstwa na zimny poranek i chłodniejszy wieczór w Canhas.",
   "Dry-bag / pokrowiec przeciwdeszczowy.",
   "Przy surge nic na skałach; przy silnym wietrze żadnego statywu na odsłoniętej krawędzi.",
   "Powerbank + kable.",
@@ -1760,19 +1811,20 @@ const PREP_CORE = [
 ];
 
 const AUTO_RULES = [
-  "Karta i depozyt: potwierdź kredytowa/debetowa, wysokość depozytu i blokady po rezerwacji.",
+  "Karta i depozyt: potwierdź kredytowa/debetowa, wysokość depozytu i blokady. Status: Sprawdzić u operatora auta.",
   "Ubezpieczenie: CDW, wkład własny, wyłączenia, szyby, opony i podwozie — bez wpisywania „bez wkładu”, jeśli nie ma tego w umowie.",
   "Drugi kierowca: dopisać w umowie, jeśli ma realnie prowadzić; bez wpisu druga osoba nie prowadzi.",
-  "After-hours: odbiór/zwrot, dopłaty i procedura kluczy do uzupełnienia po rezerwacji.",
+  "After-hours: odbiór/zwrot, dopłaty i procedura kluczy. Status: Sprawdzić u operatora auta.",
   "Żadnych dróg szutrowych / nieutwardzonych.",
   "Polityka paliwowa: jeśli full-to-full, tankowanie przed lotniskiem.",
   "Zdjęcia auta: obwód, dach, felgi, opony, szyby, podwozie o ile widoczne, licznik, paliwo i wnętrze.",
-  "Tunele, serpentyny, wąskie drogi: tempo adekwatne do widoczności."
+  "Tunele, serpentyny, wąskie drogi: tempo adekwatne do widoczności.",
+  "Rose Sun House: dojazd z/do VR1 wymaga serpentyn i zmiany wysokości ok. 450 m; po zmroku i w deszczu nie ścinać czasu tempem."
 ];
 
 const HEALTH_FINANCE = [
   "Polisa, EKUZ i numer assistance offline oraz u drugiej osoby.",
-  "Najbliższa pomoc medyczna od bazy: wpisać po wyborze hotelu.",
+  "Najbliższa pomoc medyczna od bazy: sprawdzić dla Rose Sun House / Canhas; 112 zostaje procedurą pilną.",
   "Dokumenty offline: paszport/dowód, prawo jazdy, umowa auta, polisa, bilety, nocleg, QR SIMplifica, Wizz.",
   "Finanse: druga karta osobno, gotówka na małe płatności i Carreiros, limity transakcji sprawdzone.",
   "Utrata telefonu: druga osoba ma dokumenty offline, adres bazy, dane auta i dostęp do pieniędzy.",
@@ -1782,10 +1834,10 @@ const HEALTH_FINANCE = [
 ];
 
 const PREP = [
-  {t:"T-30", s:"auto / nocleg", l:["auto, nocleg, parking noclegu","depozyt, karta, wkład własny","polisa, EKUZ, assistance","konto SIMplifica"]},
+  {t:"T-30", s:"auto / nocleg", l:["auto, nocleg, parking bazy","depozyt, karta, wkład własny","polisa, EKUZ, assistance","konto SIMplifica"]},
   {t:"T-14", s:"statusy", l:["PR1 po MIUT","PR8 / PR9 / PR9.1 / PR11","płatności SIMplifica i cable cars","plan 72 h złej pogody"]},
   {t:"T-7",  s:"Wizz screen", l:["oficjalny screen Wizz","test logowania SIMplifica","mapy offline, dokumenty offline","wstępna prognoza i moduły"]},
-  {t:"T-3",  s:"kontrola", l:["ponowny screen Wizz","kontrola auta / check-in / parkingu","statusy szlaków","decyzja, czy kupować cokolwiek wcześniej"]},
+  {t:"T-3",  s:"kontrola", l:["ponowny screen Wizz","kontrola auta / check-in / parkingu bazy","statusy szlaków","decyzja, czy kupować cokolwiek wcześniej"]},
   {t:"T-1",  s:"rezerwacje", l:["PR1, PR8, PR11 / PR9.1 — po prognozie","screeny QR offline"]},
   {t:"T-0",  s:"GO day", l:["screen Wizz","odprawa / dokumenty","paliwo / zwrot","status szlaku / cable car"]}
 ];
@@ -1793,7 +1845,7 @@ const PREP = [
 const RULES_ROWS = [
   ["D2 Areeiro","kawa/śniadanie po zejściu niżej","sklep przy bazie po powrocie","10 min Areeiro, potem overflow/skrócenie","brak QR, mgła/wiatr, brak miejsca po 10 min"],
   ["D3 PR8","Machico / Caniçal","Machico","10 min Baía d'Abra, potem viewpointy","wiatr, brak snu 7 h, słońce/odwodnienie"],
-  ["D4 południe","Câmara de Lobos / Madalena do Mar","Ribeira Brava / PdS","10 min przy Cabo Girão/Câmara","tłok + brak energii = baza"],
+  ["D4 południe","Câmara de Lobos / Madalena do Mar","Pingo Doce Canhas / Ponta do Sol","10 min przy Cabo Girão/Câmara","tłok + brak energii = baza"],
   ["D5 Balcões","Ribeiro Frio / Santana","Santana","10 min Ribeiro Frio, potem Santana/viewpointy","niska chmura, brak statusu PR9.1"],
   ["D6 NW","Porto Moniz","Porto Moniz / São Vicente","10 min Seixal/Porto Moniz","swell, surge, deszcz na północy"],
   ["D7 zachód","Porto Moniz / Ponta do Pargo","Porto Moniz","10 min Achadas/Garganta","zmęczony kierowca, kolejka off, wiatr"]
