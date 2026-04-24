@@ -35,6 +35,11 @@
   --sunrise-400:#f18a5a;
   --zloto-500:#d9a341;
   --zloto-300:#ecc878;
+  --lava-950:#070b0d;
+  --basalt-900:#101719;
+  --laurel-600:#2e6a45;
+  --ocean-600:#0d6d83;
+  --ember-500:#e66a3c;
 
   --go:#3e8a5a;
   --warn:#d9a341;
@@ -53,9 +58,17 @@
   --serif:'Fraunces', Georgia, serif;
 
   --maxw: 1440px;
+  --accent:var(--sunrise-500);
+  --accent-soft:rgba(230,106,60,.16);
+  --hero-image:url("assets/hero/hero-pr8-ponta-sao-lourenco.jpg");
 }
+[data-scene="ridge"]{--accent:var(--ember-500);--accent-soft:rgba(230,106,60,.18)}
+[data-scene="forest"]{--accent:var(--laurel-600);--accent-soft:rgba(46,106,69,.18)}
+[data-scene="ocean"]{--accent:var(--ocean-600);--accent-soft:rgba(13,109,131,.18)}
+[data-scene="west"]{--accent:var(--zloto-500);--accent-soft:rgba(217,163,65,.18)}
+[data-scene="base"]{--accent:var(--bazalt-500);--accent-soft:rgba(90,104,116,.14)}
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body{
   background:
     radial-gradient(1200px 600px at 80% -10%, rgba(230,106,60,.07), transparent 60%),
@@ -99,48 +112,66 @@ button{font:inherit;color:inherit}
 
 /* ---------- HERO ---------- */
 .hero{
-  position:relative;overflow:hidden;
-  max-width:var(--maxw);margin:0 auto;padding:28px 24px 8px;
+  position:relative;overflow:hidden;color:#fff;
+  min-height:min(700px, calc(100svh - 110px));padding:34px 24px 30px;
+  background:
+    linear-gradient(90deg, rgba(7,11,13,.92), rgba(7,11,13,.72) 44%, rgba(7,11,13,.38)),
+    linear-gradient(0deg, rgba(7,11,13,.72), rgba(7,11,13,.08) 36%, rgba(7,11,13,.42)),
+    var(--hero-image) center/cover no-repeat;
 }
+.hero::after{content:"";position:absolute;inset:auto 0 0;height:42px;background:linear-gradient(180deg, transparent, var(--paper));pointer-events:none}
 .hero-grid{
-  display:grid;grid-template-columns: 1.15fr .85fr; gap:28px;
+  position:relative;z-index:1;max-width:var(--maxw);width:100%;margin:0 auto;
+  display:grid;grid-template-columns:minmax(320px,.78fr) minmax(520px,1.22fr);gap:22px;align-items:end;
 }
-@media(max-width:1000px){.hero-grid{grid-template-columns:1fr}}
-.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--sunrise-600)}
+.hero-grid > *{min-width:0}
+@media(max-width:1040px){.hero{min-height:auto}.hero-grid{grid-template-columns:1fr;align-items:start}}
+.kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--zloto-300)}
 .title{
-  font-family:var(--serif);font-weight:500;font-size:clamp(40px,6.2vw,86px);
-  line-height:.95;letter-spacing:-.02em;margin:10px 0 6px;
+  font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,70px);
+  line-height:.96;letter-spacing:0;margin:10px 0 6px;text-shadow:0 3px 18px rgba(0,0,0,.35);
 }
-.title em{font-style:italic;color:var(--wawrzyn-600);font-weight:400}
+.title em{font-style:italic;color:#fff;font-weight:400}
 .subtitle{
-  font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--bazalt-500);
+  font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:rgba(255,255,255,.78);
   display:flex;gap:18px;flex-wrap:wrap;margin-top:10px;
 }
 .subtitle .sep{opacity:.4}
-.hero-copy p{max-width:54ch;color:var(--bazalt-700);font-size:15px}
+.hero-copy p{max-width:58ch;color:rgba(255,255,255,.84);font-size:15px}
 
 .hero-panel{
-  position:relative;border:1px solid var(--rule);background:#fff;border-radius:4px;
-  padding:18px;overflow:hidden;
+  position:relative;border:1px solid rgba(255,255,255,.2);background:rgba(7,11,13,.58);border-radius:6px;
+  padding:16px;overflow:hidden;backdrop-filter:blur(14px) saturate(1.1);min-width:0;width:100%;max-width:100%;
 }
 .hero-panel h4{
   font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
-  color:var(--bazalt-500);margin:0 0 10px;font-weight:600
+  color:var(--zloto-300);margin:0 0 10px;font-weight:600
 }
-.heroflights{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin-bottom:14px}
-.flight{border:1px solid var(--rule);padding:10px 12px;border-radius:3px;background:var(--paper)}
-.flight .code{font-family:var(--mono);font-size:11px;color:var(--sunrise-600);letter-spacing:.1em}
-.flight .route{font-family:var(--serif);font-size:22px;margin-top:2px}
-.flight .meta{font-family:var(--mono);font-size:11px;color:var(--bazalt-500);margin-top:2px}
-.heroflights .arr{font-family:var(--mono);font-size:10px;color:var(--bazalt-400);text-align:center}
+.heroflights{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin-bottom:14px;min-width:0}
+.flight{border:1px solid rgba(255,255,255,.15);padding:10px 12px;border-radius:4px;background:rgba(255,255,255,.08);min-width:0}
+.flight .code{font-family:var(--mono);font-size:11px;color:var(--zloto-300);letter-spacing:.1em}
+.flight .route{font-family:var(--serif);font-size:22px;margin-top:2px;overflow-wrap:anywhere}
+.flight .meta{font-family:var(--mono);font-size:11px;color:rgba(255,255,255,.68);margin-top:2px}
+.heroflights .arr{font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.58);text-align:center}
 
 .metrics{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--rule)
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid rgba(255,255,255,.14)
 }
-.metric{padding:12px 10px;border-right:1px solid var(--rule)}
+.metric{padding:12px 10px;border-right:1px solid rgba(255,255,255,.14)}
 .metric:last-child{border-right:0}
 .metric .n{font-family:var(--serif);font-size:34px;line-height:1;font-weight:500}
-.metric .l{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bazalt-500);margin-top:4px}
+.metric .l{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.64);margin-top:4px}
+.bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;min-width:0}
+.bento-card{
+  min-height:104px;border:1px solid rgba(255,255,255,.16);border-left:3px solid var(--accent);
+  background:rgba(255,255,255,.08);border-radius:6px;padding:12px;display:flex;flex-direction:column;gap:6px;min-width:0;overflow-wrap:anywhere;
+}
+.bento-card .bh{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--zloto-300)}
+.bento-card .bv{font-family:var(--serif);font-size:20px;line-height:1.1}
+.bento-card .bt{font-size:12px;color:rgba(255,255,255,.74);margin-top:auto}
+.bento-card.hero-flights{grid-column:span 4;min-height:0}
+@media(max-width:1040px){.bento{grid-template-columns:repeat(2,minmax(0,1fr))}.bento-card.hero-flights{grid-column:1/-1}}
+@media(max-width:620px){.bento{grid-template-columns:1fr}.bento-card{min-height:auto}.bento-card.hero-flights{grid-column:auto}.heroflights{grid-template-columns:1fr}.heroflights .arr{text-align:left}}
 
 /* short chips / CTA */
 .quickbar{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
@@ -153,6 +184,9 @@ button{font:inherit;color:inherit}
 .chip:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
 .chip.solid{background:var(--ink);color:#fff;border-color:var(--ink)}
 .chip.solid:hover{background:var(--sunrise-500);border-color:var(--sunrise-500)}
+.hero .chip{border-color:rgba(255,255,255,.36);background:rgba(255,255,255,.1);color:#fff}
+.hero .chip:hover{background:#fff;color:var(--ink);border-color:#fff}
+.hero .chip.solid{background:#fff;color:var(--ink);border-color:#fff}
 .navlinks a:focus-visible,
 .mobnav a:focus-visible,
 .chip:focus-visible,
@@ -183,6 +217,7 @@ button:focus-visible,
 
 /* ---------- SECTION SHELL ---------- */
 section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relative;scroll-margin-top:72px}
+#overview{margin-top:-24px;z-index:2}
 @media(max-width:760px){section.sec{margin:32px auto}}
 .sechead{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--rule-strong);padding-bottom:12px;margin-bottom:22px}
 .sechead .num{font-family:var(--mono);font-size:12px;color:var(--sunrise-600);letter-spacing:.2em}
@@ -201,7 +236,11 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
   transition:transform .15s, box-shadow .15s, border-color .15s;
   overflow:hidden;
 }
+.daytile::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);opacity:.72}
 .daytile:hover{transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(11,16,20,.25);border-color:var(--bazalt-400)}
+.daytile[data-mode-score="boosted"]{border-color:color-mix(in srgb, var(--accent), #fff 35%);box-shadow:0 14px 32px -24px var(--accent)}
+.daytile[data-mode-score="muted"]{opacity:.58;filter:saturate(.75)}
+.daytile[data-path-active="true"]::after{content:"ścieżka";position:absolute;left:8px;top:8px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--accent);padding:3px 6px;border-radius:2px}
 .daytile-photo{height:82px;margin:-14px -14px 8px;overflow:hidden;background:var(--paper-2);border-bottom:1px solid var(--rule)}
 .daytile-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.04)}
 .daytile .dnum{font-family:var(--serif);font-size:28px;line-height:1;font-weight:500}
@@ -229,6 +268,10 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
   background:#fff;border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-bottom:14px;
   scroll-margin-top:72px;
 }
+.daycard{border-left:4px solid var(--accent)}
+.daycard[data-mode-score="boosted"]{box-shadow:0 16px 34px -30px var(--accent)}
+.daycard[data-mode-score="muted"]{opacity:.64}
+.daycard[data-path-active="true"] summary{background:linear-gradient(90deg,var(--accent-soft),transparent 48%)}
 .daycard summary{list-style:none;cursor:pointer;padding:16px 20px;display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center}
 .daycard summary::-webkit-details-marker{display:none}
 .daycard .dc-num{font-family:var(--serif);font-size:46px;line-height:1;font-weight:500;color:var(--bazalt-300);width:64px}
@@ -321,9 +364,24 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 }
 .matrix h3{font-family:var(--serif);font-size:22px;font-weight:500;margin:0 0 4px;color:#fff}
 .matrix .mlbl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sunrise-400)}
+.decision-engine{display:grid;grid-template-columns:minmax(260px,.75fr) 1fr;gap:14px;margin-top:16px;align-items:stretch}
+.decision-controls{display:grid;gap:10px}
+.decision-group{border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:12px;background:rgba(255,255,255,.04)}
+.decision-group .dg-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--zloto-300);margin-bottom:8px}
+.segmented{display:flex;gap:6px;flex-wrap:wrap}
+.decision-btn{min-height:40px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;border-radius:999px;padding:7px 11px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.decision-btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.decision-rec{border:1px solid rgba(255,255,255,.14);border-left:4px solid var(--accent);border-radius:4px;background:rgba(255,255,255,.05);padding:14px}
+.decision-rec .rh{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--zloto-300);margin-bottom:6px}
+.decision-rec .rv{font-family:var(--serif);font-size:24px;line-height:1.1;color:#fff}
+.decision-rec .rt{font-size:13px;color:var(--mgla-100);margin-top:8px}
+@media(max-width:860px){.decision-engine{grid-template-columns:1fr}}
 .matrixgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
 @media(max-width:900px){.matrixgrid{grid-template-columns:1fr}}
 .mcell{border:1px solid rgba(255,255,255,.1);padding:14px;border-radius:3px;background:rgba(255,255,255,.02)}
+.mcell[data-active-path="true"]{border-color:var(--accent);background:rgba(255,255,255,.08);box-shadow:0 0 0 1px var(--accent-soft)}
+.mcell[data-active-path="true"]::before{content:"Rekomendacja aktywna";display:inline-block;margin-bottom:8px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--accent);padding:3px 7px;border-radius:2px}
+.mcell[data-muted-path="true"]{opacity:.48}
 .mcell .cond{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--zloto-300);margin-bottom:8px}
 .mcell .cond span{display:inline-block;padding:2px 6px;border-radius:2px;margin-right:4px}
 .mcell .cond .ok{background:rgba(62,138,90,.25);color:#a4d9ba}
@@ -368,6 +426,10 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .islandmap svg{width:100%;height:auto;display:block}
 .islandmap .legend{display:flex;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--mgla-100)}
 .islandmap .legend .sw{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+.islandmap .route-line{transition:opacity .15s, stroke-width .15s}
+.islandmap .route-line[data-mode-score="muted"]{opacity:.22}
+.islandmap .route-line[data-mode-score="boosted"]{stroke-width:3;opacity:1}
+.islandmap .route-line[data-path-active="true"]{stroke-width:3.4;opacity:1}
 
 /* ---------- CHARTS ---------- */
 .chartgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
@@ -377,6 +439,9 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .chartcard .d{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500);margin-top:2px}
 .chartcard canvas{margin-top:10px;max-height:280px}
 .chartcard.wide{grid-column:1/-1}
+#riskHeat{min-height:360px;max-height:440px}
+.riskdetails{margin-top:12px}
+.riskdetails summary{cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500)}
 .chartfallback{
   font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6b5215;margin:14px 0 0;
   border-left:3px solid var(--warn);background:#fff9eb;padding:10px 12px;
@@ -407,6 +472,8 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .backups{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 @media(max-width:800px){.backups{grid-template-columns:1fr}}
 .bkp{background:#fff;border:1px solid var(--rule);padding:16px;border-radius:3px;position:relative}
+.bkp[data-mode-score="boosted"]{border-left:4px solid var(--accent);box-shadow:0 14px 30px -28px var(--accent)}
+.bkp[data-mode-score="muted"]{opacity:.62}
 .bkp h3{font-family:var(--serif);font-size:19px;margin:0 0 4px;font-weight:500}
 .bkp .when{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--nogo)}
 .bkp ol{margin:8px 0 0;padding-left:18px;font-size:13px;color:var(--bazalt-700)}
@@ -515,6 +582,11 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 .resilience p{color:var(--mgla-100);max-width:80ch;margin:4px 0;font-size:14px}
 .resilience ul{color:var(--mgla-100);font-size:13px;padding-left:18px}
 
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{scroll-behavior:auto !important;transition-duration:.01ms !important;animation-duration:.01ms !important;animation-iteration-count:1 !important}
+  .daytile:hover{transform:none}
+}
+
 /* ---------- PRINT ---------- */
 @media print{
   :root{--paper:#fff}
@@ -565,13 +637,12 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 <section class="hero" id="top">
   <div class="hero-grid">
     <div class="hero-copy">
-      <div class="kicker">Travel Command Center · v7 operacyjny</div>
-      <h1 class="title">Madera 2026<br/><em>Widoki i Logistyka</em></h1>
-      <p>Panel operacyjny zastępuje wcześniejszą, prezentacyjną wersję planu. Priorytetem są: realny kalendarz, twarde bramki GO/NO-GO, sensowne backupy i jednoznaczne rozróżnienie między faktem, założeniem i rzeczą do sprawdzenia.</p>
+      <div class="kicker">Travel Command Center · v8 local-first</div>
+      <h1 class="title">Madeira 2026<br/><em>Command Center</em></h1>
+      <p>Operacyjny kokpit na 07–14.05.2026: decyzje PR1/PR8, tryby pogodowe, lokalne zdjęcia, checklisty i mapa schematyczna działają bez sieci.</p>
       <div class="subtitle">
         <span>07–14.05.2026</span><span class="sep">·</span>
         <span>Baza: Ribeira Brava – Ponta do Sol</span><span class="sep">·</span>
-        <span>Split-stay tylko opcjonalnie</span><span class="sep">·</span>
         <span>Wizz W6 1535 / 1536</span>
       </div>
       <div class="quickbar" role="navigation" aria-label="Szybkie skróty">
@@ -585,48 +656,63 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
       </div>
     </div>
 
-    <aside class="hero-panel" aria-label="Loty i metryki">
-      <h4>Loty Wizz · DO POTWIERDZENIA T-7 / T-3 / T-0</h4>
-      <div class="heroflights">
-        <div class="flight">
-          <div class="code">W6 1535 · 07.05</div>
-          <div class="route">WAW → FNC</div>
-          <div class="meta">11:40 → 16:05 · start</div>
+    <aside class="hero-panel" aria-label="Status operacyjny">
+      <div class="bento">
+        <div class="bento-card hero-flights">
+          <h4>Loty Wizz · DO POTWIERDZENIA T-7 / T-3 / T-0</h4>
+          <div class="heroflights">
+            <div class="flight">
+              <div class="code">W6 1535 · 07.05</div>
+              <div class="route">WAW -> FNC</div>
+              <div class="meta">11:40 -> 16:05 · start</div>
+            </div>
+            <div class="arr">godziny lokalne</div>
+            <div class="flight">
+              <div class="code">W6 1536 · 14.05</div>
+              <div class="route">FNC -> WAW</div>
+              <div class="meta">16:45 -> 22:50 · powrót</div>
+            </div>
+          </div>
         </div>
-        <div class="arr">godziny lokalne</div>
-        <div class="flight">
-          <div class="code">W6 1536 · 14.05</div>
-          <div class="route">FNC → WAW</div>
-          <div class="meta">16:45 → 22:50 · powrót</div>
+        <div class="bento-card" id="heroDecisionCard">
+          <div class="bh">Następna decyzja</div>
+          <div class="bv" id="heroDecision">PR1 / PR8</div>
+          <div class="bt" id="heroDecisionText">Status T-1 przed zakupem i startem.</div>
         </div>
-      </div>
-      <div class="metrics" aria-label="Metryki wyjazdu">
-        <div class="metric"><div class="n">8</div><div class="l">Dni kalen.</div></div>
-        <div class="metric"><div class="n">6</div><div class="l">Dni terenowych</div></div>
-        <div class="metric"><div class="n">2</div><div class="l">Dni operacyjne</div></div>
-        <div class="metric"><div class="n">1</div><div class="l">Baza</div></div>
-        <div class="metric"><div class="n">2</div><div class="l">Dni priorytet.</div></div>
-        <div class="metric"><div class="n">20:00</div><div class="l">Rytuał</div></div>
+        <div class="bento-card">
+          <div class="bh">Tryb</div>
+          <div class="bv" id="heroMode">Dobra pogoda</div>
+          <div class="bt" id="heroModeText">D2, D3 i D7 z pełnym priorytetem.</div>
+        </div>
+        <div class="bento-card">
+          <div class="bh">Ścieżka D2-D4</div>
+          <div class="bv" id="heroPath">Sprawdź T-1</div>
+          <div class="bt" id="heroPathText">Unknown nie obiecuje GO.</div>
+        </div>
+        <div class="bento-card">
+          <div class="bh">Logistyka</div>
+          <div class="bv">Auto -> QR -> Wizz</div>
+          <div class="bt">Najpierw umowa auta, potem rezerwacje płatne.</div>
+        </div>
+        <div class="bento-card">
+          <div class="bh">Offline</div>
+          <div class="bv">Local assets</div>
+          <div class="bt">Chart.js, hero i galerie dni są lokalne.</div>
+        </div>
+        <div class="bento-card">
+          <div class="bh">Następne światło</div>
+          <div class="bv" id="heroTiming">D2 sunrise</div>
+          <div class="bt" id="heroTimingText">~07:14 · best 06:50-07:40.</div>
+        </div>
+        <div class="bento-card">
+          <div class="bh">Rytuał 20:00</div>
+          <div class="bv" id="heroRitual">0 / 6</div>
+          <div class="bt">IFCN, SIMplifica, pogoda, parking, sprzęt, offline.</div>
+        </div>
       </div>
     </aside>
   </div>
 </section>
-
-<!-- ===================== HERO IMAGE STRIP ===================== -->
-<div class="strip" aria-label="Madera — krajobrazy referencyjne">
-  <figure>
-    <img src="assets/pico-do-areeiro-clouds.jpg" alt="Pico do Areeiro — morze chmur ponad graniami Madery" loading="lazy" decoding="async"/>
-    <figcaption>Pico do Areeiro — morze chmur ponad graniami Madery</figcaption>
-  </figure>
-  <figure>
-    <img src="assets/ponta-sao-lourenco.jpg" alt="Ponta de São Lourenço — surowy wschodni półwysep z czerwono-ochrowymi klifami i Atlantykiem" loading="lazy" decoding="async"/>
-    <figcaption>Ponta de São Lourenço</figcaption>
-  </figure>
-  <figure>
-    <img src="assets/porto-moniz-pools.jpg" alt="Czarne wulkaniczne skały i baseny w Porto Moniz" loading="lazy" decoding="async"/>
-    <figcaption>Porto Moniz · bazalt</figcaption>
-  </figure>
-</div>
 
 <!-- ===================== OVERVIEW ===================== -->
 <section class="sec" id="overview">
@@ -747,8 +833,33 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
   <div class="matrix" id="matrix">
     <div class="mlbl">Macierz PR1 / PR8</div>
     <h3>Trzy ścieżki D2–D4 w zależności od piątkowego PR1</h3>
+    <div class="decision-engine" aria-label="Interaktywny silnik decyzji PR1 i PR8">
+      <div class="decision-controls">
+        <div class="decision-group">
+          <div class="dg-label">PR1 · Areeiro</div>
+          <div class="segmented" role="group" aria-label="Status PR1">
+            <button class="decision-btn" type="button" data-decision="pr1" data-value="unknown" aria-pressed="true">Unknown</button>
+            <button class="decision-btn" type="button" data-decision="pr1" data-value="go" aria-pressed="false">GO</button>
+            <button class="decision-btn" type="button" data-decision="pr1" data-value="no" aria-pressed="false">NO-GO</button>
+          </div>
+        </div>
+        <div class="decision-group">
+          <div class="dg-label">PR8 · Ponta de Sao Lourenco</div>
+          <div class="segmented" role="group" aria-label="Status PR8">
+            <button class="decision-btn" type="button" data-decision="pr8" data-value="unknown" aria-pressed="true">Unknown</button>
+            <button class="decision-btn" type="button" data-decision="pr8" data-value="go" aria-pressed="false">GO</button>
+            <button class="decision-btn" type="button" data-decision="pr8" data-value="no" aria-pressed="false">NO-GO</button>
+          </div>
+        </div>
+      </div>
+      <div class="decision-rec" id="decisionRec" aria-live="polite">
+        <div class="rh">Rekomendacja</div>
+        <div class="rv">Sprawdź status T-1</div>
+        <div class="rt">Unknown zostaje neutralny: bez obietnicy PR1/PR8, dopóki IFCN, SIMplifica, pogoda i sen nie przejdą bramek.</div>
+      </div>
+    </div>
     <div class="matrixgrid">
-      <div class="mcell">
+      <div class="mcell" data-path="path-pr1-go">
         <div class="cond"><span class="ok">PR1 GO</span></div>
         <ol>
           <li><b>D2</b> · PR1 (Areeiro + Pedra Rija, jeśli dostępna)</li>
@@ -756,7 +867,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
           <li><b>D4</b> · recovery · południe</li>
         </ol>
       </div>
-      <div class="mcell">
+      <div class="mcell" data-path="path-pr8-go">
         <div class="cond"><span class="no">PR1 NO-GO</span><span class="ok">PR8 GO</span></div>
         <ol>
           <li><b>D2</b> · PR8 bez dociskania</li>
@@ -764,7 +875,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
           <li><b>D4</b> · retry PR1, jeśli GO</li>
         </ol>
       </div>
-      <div class="mcell">
+      <div class="mcell" data-path="path-both-no">
         <div class="cond"><span class="no">PR1 NO-GO</span><span class="no">PR8 NO-GO</span></div>
         <ol>
           <li><b>D2</b> · południe / Funchal</li>
@@ -870,12 +981,12 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
         <text x="130" y="166" font-family="JetBrains Mono" font-size="9" fill="#ecc878" letter-spacing=".1em">BAZA</text>
 
         <!-- route lines (schematic) -->
-        <path d="M160 155 L 230 125 L 260 100" fill="none" stroke="#e66a3c" stroke-width="1.5" opacity=".9"/> <!-- D2 Areeiro -->
-        <path d="M160 155 L 300 110 L 360 115" fill="none" stroke="#e66a3c" stroke-width="1.5" opacity=".9"/> <!-- D3 east -->
-        <path d="M160 155 L 140 160 L 120 165" fill="none" stroke="#69a07f" stroke-width="1.3" opacity=".8"/> <!-- D4 south -->
-        <path d="M160 155 L 220 130 L 270 108" fill="none" stroke="#6db0cf" stroke-width="1.3" opacity=".7"/> <!-- D5 -->
-        <path d="M160 155 L 120 135 L 85 120" fill="none" stroke="#6db0cf" stroke-width="1.3" opacity=".8"/> <!-- D6 NW -->
-        <path d="M160 155 L 100 145 L 50 140" fill="none" stroke="#ecc878" stroke-width="1.5" opacity=".9"/> <!-- D7 W -->
+        <path class="route-line" data-day="2" d="M160 155 L 230 125 L 260 100" fill="none" stroke="#e66a3c" stroke-width="1.5" opacity=".9"/> <!-- D2 Areeiro -->
+        <path class="route-line" data-day="3" d="M160 155 L 300 110 L 360 115" fill="none" stroke="#e66a3c" stroke-width="1.5" opacity=".9"/> <!-- D3 east -->
+        <path class="route-line" data-day="4" d="M160 155 L 140 160 L 120 165" fill="none" stroke="#69a07f" stroke-width="1.3" opacity=".8"/> <!-- D4 south -->
+        <path class="route-line" data-day="5" d="M160 155 L 220 130 L 270 108" fill="none" stroke="#6db0cf" stroke-width="1.3" opacity=".7"/> <!-- D5 -->
+        <path class="route-line" data-day="6" d="M160 155 L 120 135 L 85 120" fill="none" stroke="#6db0cf" stroke-width="1.3" opacity=".8"/> <!-- D6 NW -->
+        <path class="route-line" data-day="7" d="M160 155 L 100 145 L 50 140" fill="none" stroke="#ecc878" stroke-width="1.5" opacity=".9"/> <!-- D7 W -->
 
         <!-- points -->
         <g font-family="JetBrains Mono" font-size="8" fill="#f4f2ee">
@@ -922,15 +1033,19 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
       <div class="d">0 — very low · 4 — high · 8 dni</div>
       <canvas id="ch2"></canvas>
     </div>
-    <div class="chartcard wide">
+    <div class="chartcard wide" id="riskHeatCard">
       <h3>Macierz ryzyk</h3>
       <div class="d">0 brak · 4 wysokie · per dzień × kategoria</div>
-      <table class="rtable" aria-label="Macierz ryzyk dzień vs kategoria">
-        <thead>
-          <tr><th>Dzień</th><th>Pogoda</th><th>Szlak</th><th>Parking</th><th>Morze</th><th>Operator</th><th>Zmęczenie</th></tr>
-        </thead>
-        <tbody id="riskbody"></tbody>
-      </table>
+      <canvas id="riskHeat" aria-label="Interaktywna mapa cieplna ryzyk"></canvas>
+      <details class="riskdetails">
+        <summary>Tabela dostępna / fallback</summary>
+        <table class="rtable" aria-label="Macierz ryzyk dzień vs kategoria">
+          <thead>
+            <tr><th>Dzień</th><th>Pogoda</th><th>Szlak</th><th>Parking</th><th>Morze</th><th>Operator</th><th>Zmęczenie</th></tr>
+          </thead>
+          <tbody id="riskbody"></tbody>
+        </table>
+      </details>
     </div>
     <div class="chartcard">
       <h3>Widoki za wysiłek</h3>
@@ -1145,7 +1260,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
     <div class="tier">
       <span class="rank">7</span>
       <h3>Zdjęcia w kartach dni</h3>
-      <p>Galerie dni korzystają z miniatur Wikimedia Commons przez <code>Special:FilePath</code>; pojedyncze wpisy mogą używać bezpośredniego <code>src</code>, jeśli mają osobne źródło. Podpis każdego zdjęcia prowadzi do strony źródłowej.</p>
+      <p>Galerie dni używają lokalnych kopii w <code>Maderav7/assets/day/</code>. Podpis każdego zdjęcia nadal prowadzi do strony źródłowej; zewnętrzny URL jest tylko atrybucją i awaryjnym kontekstem.</p>
       <ul>
         <li><a href="https://commons.wikimedia.org/wiki/Category:Madeira" target="_blank" rel="noopener">Wikimedia Commons · Madeira</a></li>
         <li><a href="https://commons.wikimedia.org/wiki/Category:Pico_do_Areeiro" target="_blank" rel="noopener">Commons · Pico do Areeiro</a></li>
@@ -1505,7 +1620,7 @@ const DAYS = [
     photos:[
       {file:"Achadas da Cruz, Madeira, view.jpg", label:"Achadas da Cruz", by:"Gerda Arendt · CC BY-SA 4.0", alt:"Klify i fajã przy Achadas da Cruz na zachodzie Madery"},
       {file:"Madeira-Ponta do Pargo-lands end-03ESD.jpg", label:"Ponta do Pargo · klify", by:"Rikki Mitterer · CC BY-SA 4.0", alt:"Klify zachodniego krańca Madery w rejonie Ponta do Pargo"},
-      {src:"https://visitmadeira.com/media/rn4fjikl/garganta-funda-waterfall-viewpoint-madeira-digitaltravelcouple.jpg?width=1920&height=1080&rnd=133250753649900000", source:"https://visitmadeira.com/en/where-to-go/madeira/west-coast/calheta/garganta-funda-waterfall/", label:"Garganta Funda", by:"Visit Madeira · official", alt:"Wodospad Garganta Funda przy Ponta do Pargo na zachodzie Madery"}
+      {source:"https://visitmadeira.com/en/where-to-go/madeira/west-coast/calheta/garganta-funda-waterfall/", label:"Garganta Funda", by:"Visit Madeira · official", alt:"Wodospad Garganta Funda przy Ponta do Pargo na zachodzie Madery"}
     ]
   },
   { n:8, date:"14.05", dow:"czw", kind:"op", kindLabel:"operacyjny",
@@ -1690,6 +1805,30 @@ const RISK = [
   [8,1,0,1,0,3,1],
 ];
 
+const RISK_CATEGORIES = ["Pogoda","Szlak","Parking","Morze","Operator","Zmęczenie"];
+const DECISION_PATHS = {
+  "path-pr1-go": {label:"PR1 GO", days:[2,3,4], text:"D2 Areeiro, D3 PR8, D4 recovery. PR1 wygrywa jako najrzadsze okno."},
+  "path-pr8-go": {label:"PR1 NO-GO / PR8 GO", days:[2,3,4], text:"D2 PR8 bez dociskania, D3 recovery, D4 retry PR1 tylko przy realnym GO."},
+  "path-both-no": {label:"PR1 NO-GO / PR8 NO-GO", days:[2,3,4], text:"D2 południe/Funchal, D3 Machico/viewpointy, D4 retry tylko po oficjalnym GO."},
+  "path-unknown": {label:"Sprawdź status T-1", days:[2,3,4], text:"Neutralny stan: IFCN, SIMplifica, prognoza, parking i sen muszą przejść bramki."}
+};
+const MODE_LABELS = {
+  good:"Dobra pogoda",
+  bad:"Słaba pogoda",
+  low:"Low energy",
+  "72h":"72 h złej pogody"
+};
+const DAY_ENRICHMENT = {
+  1:{scene:"base", modeFit:["bad","low","72h"], decisionRole:"travel", riskFocus:["operator","zmeczenie"], photos:["assets/day/d01-base-fnc-airport-01.jpg","assets/day/d01-base-ponta-do-sol-01.jpg","assets/day/d01-base-madalena-promenade-01.jpg"]},
+  2:{scene:"ridge", modeFit:["good"], decisionRole:"pr1", riskFocus:["pogoda","szlak","parking","zmeczenie"], photos:["assets/day/d02-ridge-pico-areeiro-01.jpg","assets/day/d02-ridge-ninho-da-manta-01.jpg","assets/day/d02-ridge-eira-do-serrado-01.jpg"]},
+  3:{scene:"ocean", modeFit:["good"], decisionRole:"pr8", riskFocus:["pogoda","szlak","operator","zmeczenie"], photos:["assets/day/d03-ocean-pr8-ponta-sao-lourenco-01.jpg","assets/day/d03-ocean-pr8-cliffs-01.jpg","assets/day/d03-ocean-machico-marina-01.jpg"]},
+  4:{scene:"base", modeFit:["bad","low","72h"], decisionRole:"recovery", riskFocus:["parking","operator"], photos:["assets/day/d04-base-cabo-girao-01.jpg","assets/day/d04-base-camara-de-lobos-01.jpg","assets/day/d04-base-rota-do-banana-01.jpg"]},
+  5:{scene:"forest", modeFit:["bad","low"], decisionRole:"base", riskFocus:["pogoda","szlak","operator"], photos:["assets/day/d05-forest-ribeiro-frio-01.jpg","assets/day/d05-forest-balcoes-01.jpg","assets/day/d05-forest-santana-01.jpg"]},
+  6:{scene:"ocean", modeFit:["good","bad","low"], decisionRole:"base", riskFocus:["morze","parking"], photos:["assets/day/d06-ocean-veu-da-noiva-01.jpg","assets/day/d06-ocean-seixal-black-sand-01.jpg","assets/day/d06-ocean-porto-moniz-pools-01.jpg"]},
+  7:{scene:"west", modeFit:["good","low"], decisionRole:"operator", riskFocus:["pogoda","operator","zmeczenie"], photos:["assets/day/d07-west-achadas-da-cruz-01.jpg","assets/day/d07-west-ponta-do-pargo-01.jpg","assets/day/d07-west-garganta-funda-01.jpg"]},
+  8:{scene:"base", modeFit:["bad","low","72h"], decisionRole:"travel", riskFocus:["operator"], photos:["assets/day/d08-base-machico-monument-01.jpg","assets/day/d08-base-santa-cruz-beach-01.jpg","assets/day/d08-base-fnc-from-santa-cruz-01.jpg"]}
+};
+
 /* =============== HELPERS =============== */
 const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
@@ -1702,6 +1841,15 @@ const el = (t, a={}, c=[]) => {
 const LS = {
   get(k,def){ try{const v=localStorage.getItem("madera2026:"+k);return v===null?def:JSON.parse(v)}catch(e){return def} },
   set(k,v){ try{localStorage.setItem("madera2026:"+k,JSON.stringify(v))}catch(e){} }
+};
+function normalizeDecision(v){
+  const d = v && typeof v==="object" && !Array.isArray(v) ? v : {};
+  const ok = x => ["unknown","go","no"].includes(x) ? x : "unknown";
+  return {pr1:ok(d.pr1), pr8:ok(d.pr8)};
+}
+const APP_STATE = {
+  mode: Object.prototype.hasOwnProperty.call(MODE_REC, LS.get("mode","good")) ? LS.get("mode","good") : "good",
+  decision: normalizeDecision(LS.get("decision", {pr1:"unknown", pr8:"unknown"}))
 };
 const STORAGE_SCHEMA = 1;
 const COMMONS_FILE = "https://commons.wikimedia.org/wiki/File:";
@@ -1717,14 +1865,40 @@ function commonsFile(file){
   return `${COMMONS_FILE}${commonsPath(file)}`;
 }
 function photoSrc(p, width=720){
-  return p.src || commonsThumb(p.file, width);
+  return p.src || p.fallbackSrc || (p.file ? commonsThumb(p.file, width) : "assets/fallback/madeira-ocean-fallback.jpg");
 }
 function photoSource(p){
   return p.source || (p.file ? commonsFile(p.file) : p.src);
 }
+function imgFallback(img){
+  const fallback = img.dataset.fallback;
+  if(!fallback) return;
+  img.onerror = null;
+  img.src = fallback;
+}
+function imgAttrs(p, width=720, alt){
+  const fallback = p.fallbackSrc || "assets/fallback/madeira-ocean-fallback.jpg";
+  return `src="${photoSrc(p, width)}" alt="${alt ?? p.alt ?? ""}" loading="lazy" decoding="async" data-fallback="${fallback}" onerror="imgFallback(this)"`;
+}
+function enrichDayData(){
+  DAYS.forEach(d=>{
+    const meta = DAY_ENRICHMENT[d.n] || {};
+    d.scene = meta.scene || "base";
+    d.modeFit = meta.modeFit || ["good","bad","low","72h"];
+    d.decisionRole = meta.decisionRole || "base";
+    d.riskFocus = meta.riskFocus || [];
+    (d.photos || []).forEach((p,i)=>{
+      if(meta.photos && meta.photos[i]) p.src = meta.photos[i];
+      p.fallbackSrc = d.scene==="ridge" || d.scene==="forest"
+        ? "assets/fallback/madeira-ridge-fallback.jpg"
+        : "assets/fallback/madeira-ocean-fallback.jpg";
+    });
+  });
+}
+enrichDayData();
 function renderPhotoCard(p, width=720){
   return `<figure class="photo-card">
-    <img src="${photoSrc(p, width)}" alt="${p.alt}" loading="lazy" decoding="async"/>
+    <img ${imgAttrs(p, width)}/>
     <figcaption><span>${p.label}</span><a href="${photoSource(p)}" target="_blank" rel="noopener">${p.by}</a></figcaption>
   </figure>`;
 }
@@ -1734,10 +1908,13 @@ function renderOverview(){
   const g = $("#overviewGrid");
   g.innerHTML = "";
   DAYS.forEach(d=>{
-    const tile = el("a", {href:"#d-"+d.n, class:"daytile", "aria-label":`Dzień ${d.n}, ${d.date}, ${d.title}`});
+    const tile = el("a", {
+      href:"#d-"+d.n, class:"daytile", "aria-label":`Dzień ${d.n}, ${d.date}, ${d.title}`,
+      "data-scene":d.scene, "data-kind":d.kind, "data-mode-fit":d.modeFit.join(" "), "data-risk-focus":d.riskFocus.join(" "), "data-day":d.n
+    });
     const cover = d.photos && d.photos[0] ? d.photos[0] : null;
     tile.innerHTML = `
-      ${cover ? `<div class="daytile-photo"><img src="${photoSrc(cover, 420)}" alt="" loading="lazy" decoding="async"/></div>` : ""}
+      ${cover ? `<div class="daytile-photo"><img ${imgAttrs(cover, 420, "")}/></div>` : ""}
       <span class="dkind ${d.kind}">${d.kindLabel}</span>
       <div>
         <div class="ddate">${d.date} · ${d.dow}</div>
@@ -1759,7 +1936,10 @@ function renderCards(){
   const root = $("#dayCards");
   root.innerHTML = "";
   DAYS.forEach(d=>{
-    const det = el("details", {class:"daycard", id:"d-"+d.n});
+    const det = el("details", {
+      class:"daycard", id:"d-"+d.n, "data-scene":d.scene, "data-kind":d.kind,
+      "data-mode-fit":d.modeFit.join(" "), "data-risk-focus":d.riskFocus.join(" "), "data-day":d.n
+    });
     const isOpen = d.n===1;
     if(isOpen) det.setAttribute("open","");
     const tags = d.tags.map(t=>`<span class="tag ${t.k}">${t.t}</span>`).join("");
@@ -1809,14 +1989,129 @@ function renderCards(){
 /* =============== MODES =============== */
 function setMode(m){
   if(!Object.prototype.hasOwnProperty.call(MODE_REC, m)) m = "good";
+  APP_STATE.mode = m;
   LS.set("mode", m);
+  document.body.dataset.currentMode = m;
   $$(".mode").forEach(b=>{
     const active = b.dataset.mode===m;
     b.classList.toggle("active", active);
     b.setAttribute("aria-pressed", active ? "true" : "false");
   });
   const r = MODE_REC[m];
-  $("#moderec").innerHTML = `<div class="mrh">${r.h}</div><ul>${r.l.map(x=>`<li>${x}</li>`).join("")}</ul>`;
+  const path = DECISION_PATHS[getDecisionPath()];
+  $("#moderec").innerHTML = `<div class="mrh">${r.h}</div><ul>${r.l.map(x=>`<li>${x}</li>`).join("")}<li><b>Ścieżka PR:</b> ${path.label} — ${path.text}</li></ul>`;
+  applyModeToDays(m);
+  applyModeToBackups(m);
+  applyModeToRisk(m);
+  applyModeToMap(m);
+  updateDecisionUI();
+  updateHeroBento();
+}
+
+function modeScoreForDay(d, m){
+  if(!d || !d.modeFit) return "neutral";
+  if(m==="good" && [2,3,7].includes(d.n)) return "boosted";
+  if(d.modeFit.includes(m)) return "boosted";
+  if(["pr1","pr8"].includes(d.decisionRole) && ["bad","low","72h"].includes(m)) return "muted";
+  if(m==="72h" && !["base","travel","recovery"].includes(d.decisionRole)) return "muted";
+  return "neutral";
+}
+function applyModeToDays(m){
+  DAYS.forEach(d=>{
+    const score = modeScoreForDay(d,m);
+    $$(`[data-day="${d.n}"].daytile, [data-day="${d.n}"].daycard`).forEach(node=>node.dataset.modeScore = score);
+  });
+}
+function applyModeToBackups(m){
+  const weights = {
+    good:["Areeiro niedostępne cały tydzień"],
+    bad:["Góry w chmurach","Wschód bardzo wietrzny","Morze wzburzone","Cable car off","Fanal tylko przy mgle"],
+    low:["Chory / jedna osoba odpada"],
+    "72h":["72 h złej pogody","Góry w chmurach","Areeiro niedostępne cały tydzień"]
+  };
+  $$(".bkp").forEach(node=>{
+    const title = node.querySelector("h3")?.textContent || "";
+    node.dataset.modeScore = (weights[m] || []).includes(title) ? "boosted" : "neutral";
+  });
+}
+function applyModeToRisk(m){
+  const card = $("#riskHeatCard");
+  if(card) card.dataset.currentMode = m;
+  if(window.riskHeatChart){
+    window.riskHeatChart.data.datasets[0].backgroundColor = riskHeatPoints().map(p=>riskColor(p.v, m, p.day));
+    window.riskHeatChart.update();
+  }
+}
+function applyModeToMap(m){
+  $$(".route-line[data-day]").forEach(line=>{
+    const d = DAYS.find(x=>String(x.n)===line.dataset.day);
+    line.dataset.modeScore = d ? modeScoreForDay(d,m) : "neutral";
+  });
+  applyDecisionToMap();
+}
+
+function getDecisionPath(){
+  const {pr1, pr8} = APP_STATE.decision;
+  if(pr1==="go") return "path-pr1-go";
+  if(pr1==="no" && pr8==="go") return "path-pr8-go";
+  if(pr1==="no" && pr8==="no") return "path-both-no";
+  return "path-unknown";
+}
+function setDecision(key, value){
+  if(!["pr1","pr8"].includes(key) || !["unknown","go","no"].includes(value)) return;
+  APP_STATE.decision[key] = value;
+  LS.set("decision", APP_STATE.decision);
+  updateDecisionUI();
+  setMode(APP_STATE.mode);
+}
+function updateDecisionUI(){
+  $$(".decision-btn[data-decision]").forEach(btn=>{
+    const active = APP_STATE.decision[btn.dataset.decision]===btn.dataset.value;
+    btn.setAttribute("aria-pressed", active ? "true" : "false");
+  });
+  const pathKey = getDecisionPath();
+  const path = DECISION_PATHS[pathKey];
+  const matrix = $("#matrix");
+  if(matrix) matrix.dataset.activePath = pathKey;
+  const rec = $("#decisionRec");
+  if(rec){
+    rec.innerHTML = `<div class="rh">Rekomendacja</div><div class="rv">${path.label}</div><div class="rt">${path.text}</div>`;
+  }
+  $$(".mcell[data-path]").forEach(cell=>{
+    const active = cell.dataset.path===pathKey;
+    cell.dataset.activePath = active ? "true" : "false";
+    cell.dataset.mutedPath = pathKey==="path-unknown" ? "false" : (!active ? "true" : "false");
+  });
+  $$("[data-path-active]").forEach(node=>node.removeAttribute("data-path-active"));
+  (path.days || []).forEach(day=>{
+    $$(`[data-day="${day}"].daytile, [data-day="${day}"].daycard`).forEach(node=>{
+      node.dataset.pathActive = pathKey==="path-unknown" ? "false" : "true";
+    });
+  });
+  applyDecisionToMap();
+}
+function applyDecisionToMap(){
+  const pathKey = getDecisionPath();
+  $$(".route-line[data-day]").forEach(line=>{
+    line.dataset.pathActive = pathKey!=="path-unknown" && DECISION_PATHS[pathKey].days.includes(Number(line.dataset.day)) ? "true" : "false";
+  });
+}
+function updateHeroBento(){
+  const mode = APP_STATE.mode;
+  const path = DECISION_PATHS[getDecisionPath()];
+  const modeRec = MODE_REC[mode];
+  const setText = (id, text)=>{const node = $("#"+id); if(node) node.textContent = text;};
+  setText("heroMode", MODE_LABELS[mode] || mode);
+  setText("heroModeText", modeRec ? modeRec.l[0] : "");
+  setText("heroPath", path.label);
+  setText("heroPathText", path.text);
+  setText("heroDecision", APP_STATE.decision.pr1==="unknown" ? "PR1 T-1" : (APP_STATE.decision.pr1==="go" ? "PR1 GO" : "PR8 fallback"));
+  setText("heroDecisionText", APP_STATE.decision.pr1==="go" ? "PR1 wygrywa; PR8 zostaje D3." : "Unknown/NO-GO wymaga statusu PR8 i backupu.");
+  const timing = mode==="bad" || mode==="72h" ? DAYS[3] : DAYS[1];
+  setText("heroTiming", `D${timing.n} ${timing.light.split(" · ")[0]}`);
+  setText("heroTimingText", timing.start);
+  const boxes = $$(`[data-cl="rytual"] input[type=checkbox]`);
+  if(boxes.length) setText("heroRitual", `${boxes.filter(b=>b.checked).length} / ${boxes.length}`);
 }
 
 /* =============== CHECKLISTS =============== */
@@ -1853,6 +2148,7 @@ function updateProgress(key){
   const done = boxes.filter(b=>b.checked).length;
   const t = document.querySelector(`[data-prog="${key}"]`);
   if(t) t.textContent = `${done} / ${boxes.length}`;
+  if(key==="rytual") updateHeroBento();
 }
 
 function syncChecklistState(){
@@ -1913,6 +2209,7 @@ function importStateFile(file){
         restored++;
       }
     });
+    APP_STATE.decision = normalizeDecision(LS.get("decision", {pr1:"unknown", pr8:"unknown"}));
     setMode(LS.get("mode","good"));
     syncChecklistState();
     storageMessage(`Zaimportowano ${restored} kluczy.`);
@@ -1979,9 +2276,88 @@ function renderRisk(){
 }
 
 /* =============== CHARTS =============== */
+function riskHeatPoints(){
+  return RISK.flatMap(row=>{
+    const [day, ...vals] = row;
+    const title = DAYS.find(d=>d.n===day)?.title || "";
+    return vals.map((v,cat)=>({x:cat, y:day, v, day, title, category:RISK_CATEGORIES[cat]}));
+  });
+}
+function riskColor(v, mode="good", day=0){
+  const boosted = modeScoreForDay(DAYS.find(d=>d.n===day) || {}, mode)==="boosted";
+  const alpha = boosted ? 1 : .72;
+  return [
+    `rgba(238,242,238,${alpha})`,
+    `rgba(207,228,211,${alpha})`,
+    `rgba(240,213,139,${alpha})`,
+    `rgba(225,155,110,${alpha})`,
+    `rgba(192,73,51,${alpha})`
+  ][v] || `rgba(140,151,161,${alpha})`;
+}
+function riskInterpretation(point){
+  if(APP_STATE.mode==="bad" && ["Pogoda","Szlak"].includes(point.category)) return "Tryb słabej pogody: traktuj jako bramkę, nie sugestię.";
+  if(APP_STATE.mode==="low" && point.category==="Zmęczenie") return "Low energy: skróć moduł albo wróć do bazy.";
+  if(APP_STATE.mode==="72h") return "72 h złej pogody: płatne PR i ambitne okna są drugorzędne.";
+  if(point.v>=4) return "Hard attention: GO tylko po bramkach.";
+  if(point.v===3) return "Presja operacyjna: miej Plan B.";
+  if(point.v===2) return "Watch: kontrola przed startem.";
+  return "Calm: niskie ryzyko bazowe.";
+}
+function makeRiskHeatmap(){
+  const canvas = $("#riskHeat");
+  if(!canvas) return;
+  const points = riskHeatPoints();
+  window.riskHeatChart = new Chart(canvas, {
+    type:"scatter",
+    data:{datasets:[{
+      label:"Ryzyko",
+      data:points,
+      parsing:false,
+      pointStyle:"rectRounded",
+      pointRadius:11,
+      pointHoverRadius:14,
+      backgroundColor:points.map(p=>riskColor(p.v, APP_STATE.mode, p.day)),
+      borderColor:"rgba(11,16,20,.22)",
+      borderWidth:1
+    }]},
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      onClick:(evt, els)=>{
+        if(!els.length) return;
+        const p = points[els[0].index];
+        const target = document.getElementById("d-"+p.day);
+        if(target){
+          target.scrollIntoView({behavior:"smooth", block:"start"});
+          target.dataset.pathActive = "true";
+          setTimeout(()=>{ if(target.dataset.pathActive==="true") delete target.dataset.pathActive; updateDecisionUI(); }, 1200);
+        }
+      },
+      scales:{
+        x:{min:-.5,max:RISK_CATEGORIES.length-.5,grid:{display:false},ticks:{stepSize:1,callback:v=>RISK_CATEGORIES[v] || ""}},
+        y:{min:.5,max:8.5,reverse:true,grid:{color:"rgba(0,0,0,.06)"},ticks:{stepSize:1,callback:v=>`D${v}`}}
+      },
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{
+          title:items=>{
+            const p = items[0].raw;
+            return `D${p.day} · ${p.title}`;
+          },
+          label:item=>{
+            const p = item.raw;
+            return `${p.category}: Ryzyko ${p.v}/4`;
+          },
+          afterLabel:item=>riskInterpretation(item.raw)
+        }}
+      }
+    }
+  });
+}
 function charts(){
   Chart.defaults.font.family = "Inter, system-ui";
   Chart.defaults.color = "#263039";
+  makeRiskHeatmap();
   const dayLabels = DAYS.map(d=>`D${d.n}·${d.date}`);
   const mid=(r)=>{const [a,b]=r.split("–").map(x=>{const [h,m]=x.split(":").map(Number);return h+m/60});return (a+b)/2;};
   const drive = DAYS.map(d=>+mid(d.drive).toFixed(2));
@@ -2029,12 +2405,14 @@ function charts(){
 }
 
 function showChartFallback(){
-  $$("canvas[id^='ch']").forEach(canvas=>{
+  $$("canvas[id^='ch'], #riskHeat").forEach(canvas=>{
     canvas.hidden = true;
     if(!canvas.parentElement.querySelector(".chartfallback")){
       canvas.insertAdjacentElement("afterend", el("p", {class:"chartfallback"}, "Wykres niedostępny offline."));
     }
   });
+  const details = $(".riskdetails");
+  if(details) details.open = true;
 }
 
 function safeCharts(){
@@ -2123,7 +2501,9 @@ document.addEventListener("DOMContentLoaded", ()=>{
   navHighlight();
 
   $$(".mode").forEach(b=>b.addEventListener("click", ()=>setMode(b.dataset.mode)));
-  setMode(LS.get("mode","good"));
+  $$(".decision-btn").forEach(b=>b.addEventListener("click", ()=>setDecision(b.dataset.decision, b.dataset.value)));
+  updateDecisionUI();
+  setMode(APP_STATE.mode);
   safeCharts();
 });
 </script>
