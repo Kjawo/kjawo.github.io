@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>MADEIRA 2026 · 32°44′N 16°57′W</title>
+<meta name="description" content="Operacyjny plan ekspedycji na Maderę 07–14.05.2026">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   RESET
+   ═══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --paper:#F5F0E8;--paper2:#EDE8DC;--paper3:#E4DDCF;
+  --ink:#1A1A18;--ink2:#2C2B28;--ink3:#6B6860;--ink4:#9A9488;--ink5:#BCB8AE;
+  --terra:#C4713B;--terra-dim:rgba(196,113,59,.15);--terra-glow:rgba(196,113,59,.08);
+  --rule:#D4CFC4;--rule2:#C8C2B6;
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --sans:'Space Grotesk',system-ui,-apple-system,sans-serif;
+  --mono:'JetBrains Mono','Cascadia Code','Fira Code',monospace;
+  --ease-out:cubic-bezier(.16,1,.3,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+}
+@media(prefers-color-scheme:dark){
+  :root{
+    --paper:#0F0E0C;--paper2:#171613;--paper3:#1E1D1A;
+    --ink:#E8E4DA;--ink2:#D4CFC4;--ink3:#8A857A;--ink4:#5C5850;--ink5:#3A3832;
+    --terra:#D4834A;--terra-dim:rgba(212,131,74,.18);--terra-glow:rgba(212,131,74,.06);
+    --rule:#2E2D28;--rule2:#3A3930;
+  }
+}
+html{font-size:16px;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);color:var(--ink);background:var(--paper);
+  line-height:1.55;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--terra);text-decoration:none;transition:opacity .2s}
+a:hover{opacity:.65}
+::selection{background:var(--terra-dim);color:var(--ink)}
+
+/* ═══════════════════════════════════════════
+   GRAIN + TOPO
+   ═══════════════════════════════════════════ */
+#grainCanvas{position:fixed;inset:0;z-index:9998;pointer-events:none;opacity:.04;mix-blend-mode:multiply}
+@media(prefers-color-scheme:dark){#grainCanvas{opacity:.06;mix-blend-mode:screen}}
+#topoCanvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.055}
+@media(prefers-color-scheme:dark){#topoCanvas{opacity:.035}}
+
+/* ═══════════════════════════════════════════
+   NAVIGATION RAIL
+   ═══════════════════════════════════════════ */
+.rail{
+  position:fixed;z-index:1000;display:flex;gap:1px;
+  background:var(--paper2);border:1px solid var(--rule);
+}
+@media(min-width:769px){
+  .rail{
+    left:14px;top:50%;transform:translateY(-50%);
+    flex-direction:column;padding:6px 5px;
+    box-shadow:0 8px 40px rgba(0,0,0,.08);
+  }
+}
+@media(max-width:768px){
+  .rail{
+    bottom:0;left:0;right:0;
+    flex-direction:row;justify-content:center;
+    padding:5px 2px calc(5px + env(safe-area-inset-bottom));
+    border-top:1px solid var(--rule);border-left:none;border-right:none;border-bottom:none;
+    backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  }
+}
+.pip{
+  width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:9px;font-weight:500;letter-spacing:.03em;
+  color:var(--ink4);background:transparent;border:none;cursor:pointer;
+  position:relative;transition:all .3s var(--ease-out);
+}
+.pip:hover{color:var(--ink);background:var(--paper3)}
+.pip.on{color:var(--paper);background:var(--terra)}
+.pip.on::after{
+  content:'';position:absolute;width:4px;height:4px;border-radius:50%;
+  background:var(--terra);
+}
+@media(min-width:769px){.pip.on::after{left:-9px;top:50%;transform:translateY(-50%)}}
+@media(max-width:768px){.pip.on::after{top:-7px;left:50%;transform:translateX(-50%)}}
+.rdiv{width:16px;height:1px;margin:5px auto;background:var(--rule)}
+@media(max-width:768px){.rdiv{width:1px;height:16px;margin:0 3px}}
+
+/* ═══════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════ */
+.wrap{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:0 24px 140px}
+@media(min-width:769px){.wrap{padding-left:68px}}
+@media(min-width:1100px){.wrap{padding:0 60px 160px 90px}}
+
+/* ═══════════════════════════════════════════
+   MASTHEAD — full-bleed editorial
+   ═══════════════════════════════════════════ */
+.mast{
+  min-height:100vh;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding-bottom:clamp(40px,8vh,100px);
+  position:relative;overflow:hidden;
+}
+.mast-deco{
+  position:absolute;right:-5%;top:8%;
+  width:clamp(200px,45vw,520px);height:clamp(200px,45vw,520px);
+  opacity:.04;pointer-events:none;
+}
+.mast-coords{
+  font-family:var(--mono);font-size:10px;letter-spacing:.25em;
+  color:var(--ink4);text-transform:uppercase;
+  display:flex;align-items:center;gap:10px;margin-bottom:16px;
+}
+.mast-coords::before{content:'';width:32px;height:1px;background:var(--ink5)}
+.mast-h1{
+  font-family:var(--serif);font-size:clamp(72px,14vw,160px);
+  font-weight:400;letter-spacing:.06em;line-height:.82;
+  color:var(--ink);margin-bottom:0;
+  position:relative;display:inline-block;
+}
+.mast-h1 .accent-bar{
+  display:inline-block;width:4px;height:.7em;background:var(--terra);
+  margin-left:12px;vertical-align:baseline;
+  animation:accentPulse 3s ease-in-out infinite;
+}
+@keyframes accentPulse{0%,100%{opacity:1}50%{opacity:.3}}
+.mast-sub{
+  margin-top:20px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.18em;color:var(--ink3);text-transform:uppercase;
+  line-height:2.2;max-width:560px;
+}
+.mast-flights{
+  margin-top:32px;display:flex;flex-direction:column;gap:6px;
+}
+.fl{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:11px;color:var(--ink3);letter-spacing:.05em;
+}
+.fl-tag{
+  background:var(--ink);color:var(--paper);padding:2px 7px;
+  font-size:8px;letter-spacing:.14em;font-weight:600;
+}
+.fl-arr{color:var(--terra);font-weight:700;font-size:14px}
+.mast-scroll{
+  position:absolute;bottom:20px;left:50%;transform:translateX(-50%);
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;color:var(--ink5);
+  text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.mast-scroll::after{
+  content:'';width:1px;height:28px;background:var(--ink5);
+  animation:scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* ═══════════════════════════════════════════
+   COUNTDOWN
+   ═══════════════════════════════════════════ */
+.countdown{
+  padding:clamp(48px,8vh,90px) 0;
+  border-bottom:1px solid var(--rule);
+  display:grid;grid-template-columns:1fr auto;gap:clamp(20px,4vw,60px);
+  align-items:end;
+}
+@media(max-width:600px){.countdown{grid-template-columns:1fr;gap:16px}}
+.cd-left{}
+.cd-label{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;
+  color:var(--ink4);text-transform:uppercase;margin-bottom:8px;
+}
+.cd-number{
+  font-family:var(--serif);font-size:clamp(64px,12vw,120px);
+  font-weight:400;line-height:.85;color:var(--ink);
+  letter-spacing:-.02em;
+}
+.cd-number .cd-unit{
+  font-family:var(--mono);font-size:clamp(12px,2vw,16px);
+  letter-spacing:.15em;color:var(--ink4);text-transform:uppercase;
+  vertical-align:super;margin-left:4px;
+}
+.cd-sub{
+  margin-top:10px;font-family:var(--mono);font-size:10px;
+  letter-spacing:.08em;color:var(--ink4);
+}
+.cd-right{
+  display:flex;gap:clamp(12px,2vw,24px);align-items:flex-end;
+}
+.cd-block{
+  text-align:center;min-width:48px;
+}
+.cd-block-num{
+  font-family:var(--serif);font-size:clamp(28px,5vw,44px);
+  font-weight:400;line-height:1;color:var(--ink);
+}
+.cd-block-unit{
+  font-family:var(--mono);font-size:8px;letter-spacing:.15em;
+  color:var(--ink4);text-transform:uppercase;margin-top:4px;
+}
+.cd-sep{
+  font-family:var(--serif);font-size:clamp(24px,4vw,36px);
+  color:var(--terra);line-height:1;opacity:.4;padding-bottom:8px;
+}
+
+/* ═══════════════════════════════════════════
+   ELEVATION PROFILE (SVG sparkline)
+   ═══════════════════════════════════════════ */
+.elev-section{
+  padding:clamp(32px,5vh,60px) 0;
+  border-bottom:1px solid var(--rule);
+}
+.elev-label{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;
+  color:var(--ink4);text-transform:uppercase;margin-bottom:20px;
+}
+.elev-wrap{
+  position:relative;width:100%;height:clamp(100px,15vw,180px);
+  overflow:hidden;
+}
+.elev-wrap svg{width:100%;height:100%}
+.elev-area{fill:var(--terra-glow);transition:d .6s var(--ease-out)}
+.elev-line{fill:none;stroke:var(--terra);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:d .6s var(--ease-out)}
+.elev-dot{
+  fill:var(--terra);r:4;transition:all .4s var(--ease-out);
+  filter:drop-shadow(0 0 4px var(--terra-dim));
+}
+.elev-label-g text{
+  font-family:var(--mono);font-size:9px;letter-spacing:.05em;
+  fill:var(--ink4);text-anchor:middle;
+}
+.elev-label-g .elev-active-label{
+  fill:var(--terra);font-weight:600;
+}
+.elev-grid line{stroke:var(--rule);stroke-width:.5;stroke-dasharray:3 4}
+
+/* ═══════════════════════════════════════════
+   TRIP OVERVIEW CHART — enlarged
+   ═══════════════════════════════════════════ */
+.overview{
+  padding:clamp(48px,8vh,100px) 0;
+  border-bottom:1px solid var(--rule);
+}
+.overview-label{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;
+  color:var(--ink4);text-transform:uppercase;margin-bottom:28px;
+}
+.overview-chart{
+  display:grid;grid-template-columns:repeat(8,1fr);gap:4px;
+  align-items:end;min-height:280px;
+  padding:20px 0;position:relative;
+}
+.overview-chart::before{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--rule);
+}
+.ov-col{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  cursor:pointer;position:relative;
+}
+.ov-bar-wrap{
+  width:100%;display:flex;flex-direction:column;align-items:center;gap:2px;
+  position:relative;min-height:200px;justify-content:flex-end;
+}
+.ov-bar{
+  width:clamp(24px,80%,56px);border-radius:2px 2px 0 0;
+  transition:all .5s var(--ease-out);position:relative;overflow:hidden;
+}
+.ov-bar::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 0%,rgba(0,0,0,.08) 100%);
+}
+.ov-bar.drive{background:var(--ink5)}
+.ov-bar.walk{background:var(--terra)}
+.ov-col:hover .ov-bar.drive{background:var(--ink3)}
+.ov-col:hover .ov-bar.walk{background:var(--terra);filter:brightness(1.15)}
+.ov-col.active .ov-bar.drive{background:var(--ink3)}
+.ov-col.active .ov-bar.walk{background:var(--terra);box-shadow:0 -6px 16px var(--terra-dim)}
+.ov-day{
+  font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+  color:var(--ink4);text-transform:uppercase;padding-top:10px;
+  transition:color .3s;
+}
+.ov-col.active .ov-day{color:var(--terra);font-weight:600}
+.ov-effort{
+  font-family:var(--mono);font-size:8px;color:var(--ink5);
+  letter-spacing:.05em;text-transform:uppercase;
+}
+.ov-col.active .ov-effort{color:var(--ink3)}
+.ov-tooltip{
+  position:absolute;top:-48px;left:50%;transform:translateX(-50%);
+  background:var(--ink);color:var(--paper);
+  font-family:var(--mono);font-size:9px;letter-spacing:.05em;
+  padding:5px 12px;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity .2s;z-index:10;
+}
+.ov-tooltip::after{
+  content:'';position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
+  border:4px solid transparent;border-top-color:var(--ink);
+}
+.ov-col:hover .ov-tooltip{opacity:1}
+.chart-legend{
+  display:flex;gap:24px;margin-top:20px;
+  font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--ink4);
+  text-transform:uppercase;
+}
+.chart-legend span{display:flex;align-items:center;gap:6px}
+.chart-legend .swatch{width:14px;height:8px;border-radius:1px}
+.chart-legend .swatch.sw-drive{background:var(--ink5)}
+.chart-legend .swatch.sw-walk{background:var(--terra)}
+
+/* ═══════════════════════════════════════════
+   RADAR CHART (per-day)
+   ═══════════════════════════════════════════ */
+.radar-wrap{
+  width:clamp(160px,20vw,220px);height:clamp(160px,20vw,220px);
+  flex-shrink:0;
+}
+.radar-wrap svg{width:100%;height:100%}
+.radar-ring{fill:none;stroke:var(--rule);stroke-width:.5}
+.radar-axis{stroke:var(--rule);stroke-width:.5}
+.radar-area{fill:var(--terra-dim);stroke:var(--terra);stroke-width:1.5;stroke-linejoin:round}
+.radar-dot{fill:var(--terra);r:3}
+.radar-label{
+  font-family:var(--mono);font-size:8px;letter-spacing:.05em;
+  fill:var(--ink4);text-anchor:middle;
+}
+
+/* ═══════════════════════════════════════════
+   VARIANT TOGGLE
+   ═══════════════════════════════════════════ */
+.variants{
+  padding:32px 0 40px;display:flex;flex-direction:column;gap:16px;
+}
+.var-tabs{
+  display:flex;gap:0;border:1px solid var(--rule);width:fit-content;overflow:hidden;
+}
+.var-tab{
+  font-family:var(--mono);font-size:9px;letter-spacing:.1em;
+  text-transform:uppercase;padding:10px 20px;
+  background:transparent;border:none;border-right:1px solid var(--rule);
+  color:var(--ink4);cursor:pointer;transition:all .25s var(--ease-out);
+  white-space:nowrap;
+}
+.var-tab:last-child{border-right:none}
+.var-tab:hover{color:var(--ink);background:var(--paper3)}
+.var-tab.on{background:var(--ink);color:var(--paper)}
+@media(max-width:520px){
+  .var-tabs{width:100%;flex-wrap:wrap}
+  .var-tab{flex:1;text-align:center;padding:12px 8px;font-size:8px;border-bottom:1px solid var(--rule)}
+}
+.var-desc{
+  font-family:var(--mono);font-size:11px;color:var(--ink3);
+  letter-spacing:.03em;line-height:1.7;max-width:600px;
+  padding-left:20px;border-left:2px solid var(--terra-dim);
+}
+
+/* ═══════════════════════════════════════════
+   DAY CARD — editorial asymmetric
+   ═══════════════════════════════════════════ */
+.day{animation:fadeIn .6s var(--ease-out) forwards;opacity:0}
+@keyframes fadeIn{to{opacity:1}}
+
+.day-hero{
+  display:grid;grid-template-columns:clamp(80px,12vw,140px) 1fr;gap:clamp(16px,3vw,40px);
+  align-items:start;
+  padding:clamp(40px,6vh,80px) 0 clamp(32px,4vh,60px);
+  border-bottom:2px solid var(--ink);
+  position:relative;
+}
+@media(max-width:540px){.day-hero{grid-template-columns:1fr;gap:12px}}
+.day-num{
+  font-family:var(--serif);font-size:clamp(80px,14vw,140px);
+  line-height:.78;color:var(--terra);font-weight:400;
+  position:relative;
+}
+.day-num::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;
+  height:2px;background:var(--terra-dim);
+}
+.day-info{padding-top:clamp(4px,1vw,12px)}
+.day-date{
+  font-family:var(--mono);font-size:9px;letter-spacing:.2em;
+  color:var(--ink4);text-transform:uppercase;margin-bottom:8px;
+}
+.day-h2{
+  font-family:var(--serif);font-size:clamp(28px,4.5vw,48px);
+  font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:12px;
+  font-style:italic;
+}
+.day-status-row{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:16px}
+.day-badge{
+  font-family:var(--mono);font-size:8px;letter-spacing:.12em;
+  text-transform:uppercase;padding:3px 10px;
+  border:1px solid;
+}
+.day-badge[data-s="operacyjny"]{color:var(--ink4);border-color:var(--rule)}
+.day-badge[data-s="priorytet"]{color:var(--terra);border-color:var(--terra)}
+.day-badge[data-s="recovery"]{color:#6B8C5A;border-color:rgba(107,140,90,.3)}
+.day-badge[data-s="stabilny"]{color:var(--ink4);border-color:var(--rule)}
+
+/* Effort Radial Gauge */
+.effort-gauge{
+  display:flex;align-items:center;gap:14px;
+}
+.gauge-ring{position:relative;width:52px;height:52px;flex-shrink:0}
+.gauge-ring svg{width:52px;height:52px;transform:rotate(-90deg)}
+.gauge-ring circle{fill:none;stroke-width:3;stroke-linecap:round}
+.gauge-bg{stroke:var(--rule)}
+.gauge-fill{stroke:var(--terra);transition:stroke-dashoffset .8s var(--ease-out)}
+.gauge-label{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:9px;font-weight:500;color:var(--ink3);
+  letter-spacing:.02em;
+}
+.gauge-text{
+  font-family:var(--mono);font-size:10px;letter-spacing:.08em;
+  color:var(--ink4);text-transform:uppercase;
+}
+
+/* Day Stats — horizontal bar chart style */
+.day-stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;
+  border:1px solid var(--rule);margin:32px 0;
+  background:var(--paper2);
+}
+@media(max-width:600px){.day-stats{grid-template-columns:1fr}}
+.stat{
+  padding:18px 20px;border-bottom:1px solid var(--rule);
+  position:relative;overflow:hidden;
+}
+.stat:nth-child(odd){border-right:1px solid var(--rule)}
+@media(max-width:600px){.stat:nth-child(odd){border-right:none}}
+.stat-label{
+  font-family:var(--mono);font-size:8px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--ink4);margin-bottom:6px;
+}
+.stat-val{
+  font-family:var(--sans);font-size:15px;font-weight:500;color:var(--ink);
+  position:relative;z-index:1;
+}
+.stat-bar{
+  position:absolute;bottom:0;left:0;height:3px;
+  background:var(--terra);opacity:.4;
+  transition:width .8s var(--ease-out);
+}
+
+/* Route Flow — with connecting line */
+.route{padding:24px 0;position:relative}
+.route-title{
+  font-family:var(--mono);font-size:9px;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--ink4);margin-bottom:16px;
+}
+.route-flow{
+  display:flex;flex-wrap:wrap;align-items:center;gap:0;
+}
+.route-stop{
+  font-family:var(--mono);font-size:10px;letter-spacing:.03em;
+  padding:6px 14px;border:1px solid var(--rule);
+  background:var(--paper);color:var(--ink2);
+  position:relative;white-space:nowrap;
+}
+.route-stop:first-child{border-left:3px solid var(--terra)}
+.route-conn{
+  width:20px;height:1px;background:var(--rule);position:relative;flex-shrink:0;
+}
+.route-conn::after{
+  content:'';position:absolute;right:-1px;top:-3px;
+  border:3px solid transparent;border-left:4px solid var(--rule);
+}
+
+/* Collapsible sections */
+.sec{border-bottom:1px solid var(--rule)}
+.sec-head{
+  width:100%;display:flex;align-items:center;justify-content:space-between;
+  padding:18px 0;background:none;border:none;cursor:pointer;
+  font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+  text-transform:uppercase;font-weight:500;color:var(--ink3);text-align:left;
+  transition:color .2s;
+}
+.sec-head:hover{color:var(--ink)}
+.sec-icon{
+  width:14px;height:14px;position:relative;flex-shrink:0;
+  transition:transform .3s var(--ease-out);
+}
+.sec-icon::before,.sec-icon::after{
+  content:'';position:absolute;background:var(--ink4);
+}
+.sec-icon::before{width:14px;height:1px;top:50%;left:0;transform:translateY(-50%)}
+.sec-icon::after{width:1px;height:14px;left:50%;top:0;transform:translateX(-50%);transition:transform .3s var(--ease-out)}
+.sec.open .sec-icon::after{transform:translateX(-50%) scaleY(0)}
+.sec-body{
+  max-height:0;overflow:hidden;
+  transition:max-height .5s var(--ease-out),padding .3s;
+}
+.sec.open .sec-body{max-height:3000px;padding:0 0 24px}
+.sec-body p{font-size:14px;line-height:1.7;color:var(--ink2);margin-bottom:8px}
+.sec-body strong{color:var(--ink);font-weight:600}
+
+/* Tag badges */
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.tag{
+  font-family:var(--mono);font-size:8px;letter-spacing:.08em;
+  padding:3px 10px;text-transform:uppercase;border:1px solid;
+}
+.tag-go{color:#5A7C48;border-color:rgba(90,124,72,.25);background:rgba(90,124,72,.04)}
+.tag-no{color:#8C6B48;border-color:rgba(140,107,72,.25);background:rgba(140,107,72,.04)}
+.tag-risk{color:var(--terra);border-color:var(--terra-dim);background:var(--terra-glow)}
+.tag-warn{color:#8C4848;border-color:rgba(140,72,72,.25);background:rgba(140,72,72,.04)}
+
+/* Alternatives — asymmetric layout */
+.alts{display:grid;grid-template-columns:1fr;gap:8px;margin:12px 0}
+@media(min-width:660px){.alts{grid-template-columns:1fr 1fr}}
+.alt{
+  padding:20px;border:1px solid var(--rule);
+  position:relative;overflow:hidden;
+  transition:border-color .2s;
+}
+.alt:hover{border-color:var(--ink5)}
+.alt::before{
+  content:'';position:absolute;top:0;left:0;bottom:0;width:3px;
+}
+.alt:nth-child(1)::before{background:var(--terra)}
+.alt:nth-child(2)::before{background:var(--ink5)}
+.alt:nth-child(3)::before{background:var(--rule2)}
+.alt:nth-child(4)::before{background:var(--ink4)}
+.alt-label{
+  font-family:var(--mono);font-size:8px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--terra);margin-bottom:8px;
+  font-weight:500;
+}
+.alt p{font-size:12px;line-height:1.65;color:var(--ink3)}
+
+/* ═══════════════════════════════════════════
+   SHEETS
+   ═══════════════════════════════════════════ */
+.ov-mask{
+  position:fixed;inset:0;background:rgba(0,0,0,.35);
+  z-index:2000;opacity:0;pointer-events:none;
+  transition:opacity .35s;backdrop-filter:blur(3px);
+}
+.ov-mask.show{opacity:1;pointer-events:auto}
+.sheet{
+  position:fixed;z-index:2001;background:var(--paper);
+  border:1px solid var(--rule);overflow-y:auto;overscroll-behavior:contain;
+  transition:transform .45s var(--ease-out);
+}
+@media(max-width:768px){
+  .sheet{bottom:0;left:0;right:0;max-height:88vh;
+    border-radius:16px 16px 0 0;transform:translateY(100%);
+    padding:20px 20px calc(20px + env(safe-area-inset-bottom));
+  }
+  .sheet.show{transform:translateY(0)}
+}
+@media(min-width:769px){
+  .sheet{top:0;right:0;bottom:0;width:min(560px,48vw);
+    transform:translateX(100%);padding:48px 36px;
+    border-left:1px solid var(--rule);
+  }
+  .sheet.show{transform:translateX(0)}
+}
+.sh-bar{width:40px;height:4px;background:var(--rule2);border-radius:2px;margin:0 auto 18px}
+@media(min-width:769px){.sh-bar{display:none}}
+.sh-x{
+  position:absolute;top:18px;right:18px;
+  width:30px;height:30px;background:none;border:1px solid var(--rule);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:15px;color:var(--ink4);
+  transition:all .2s;
+}
+.sh-x:hover{border-color:var(--ink4);color:var(--ink)}
+.sh-title{
+  font-family:var(--serif);font-size:clamp(22px,3.5vw,32px);
+  color:var(--ink);margin-bottom:24px;font-style:italic;
+}
+
+/* Checklist */
+.ck{list-style:none;display:flex;flex-direction:column;gap:3px}
+.ck-item{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:14px 12px;border:1px solid var(--rule);
+  cursor:pointer;transition:all .2s;user-select:none;
+}
+.ck-item:hover{background:var(--paper3)}
+.ck-item.done{opacity:.45}
+.ck-item.done .ck-label{text-decoration:line-through}
+.ck-box{
+  width:20px;height:20px;border:2px solid var(--rule);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;color:var(--terra);margin-top:1px;
+}
+.ck-item.done .ck-box{border-color:var(--terra);background:var(--terra-dim)}
+.ck-n{font-family:var(--mono);font-size:9px;color:var(--ink4);margin-top:3px;flex-shrink:0;width:14px}
+.ck-label{font-size:13px;color:var(--ink2);line-height:1.55}
+
+/* Cost table */
+.ct{width:100%;border-collapse:collapse;margin:14px 0}
+.ct th,.ct td{text-align:left;padding:10px 12px;font-size:12px;border-bottom:1px solid var(--rule)}
+.ct th{font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink4);font-weight:500;border-bottom:2px solid var(--rule)}
+.ct td{color:var(--ink2)}
+.ct .cp{font-family:var(--mono);font-weight:500;color:var(--ink);white-space:nowrap}
+.cw{
+  display:inline-flex;align-items:center;gap:3px;
+  font-family:var(--mono);font-size:8px;letter-spacing:.08em;
+  color:var(--terra);text-transform:uppercase;padding:2px 7px;
+  border:1px solid var(--terra-dim);margin-left:4px;
+}
+
+/* Weather rules */
+.wx{padding:14px 16px;border-left:3px solid var(--terra);background:var(--paper2);margin-bottom:8px}
+.wx-t{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--terra);margin-bottom:5px;font-weight:500}
+.wx p{font-size:12px;line-height:1.6;color:var(--ink2)}
+
+/* Equipment */
+.eq{padding:12px 14px;border:1px solid var(--rule);margin-bottom:5px;font-size:12px;line-height:1.6;color:var(--ink2)}
+
+/* Links */
+.lc{margin-bottom:20px}
+.lc-h{font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px;padding-bottom:6px;border-bottom:1px solid var(--rule)}
+.li{display:block;padding:7px 0;font-size:12px;border-bottom:1px solid var(--rule2);color:var(--ink2)}
+.li:hover{color:var(--terra)}
+.li-u{font-family:var(--mono);font-size:9px;color:var(--ink5);display:block;margin-top:1px;word-break:break-all}
+
+/* Map */
+.map-wrap{position:relative;width:100%;padding-bottom:56%;min-height:380px;border:1px solid var(--rule);margin-top:12px;overflow:hidden}
+.map-wrap iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+footer{
+  margin-top:100px;padding:48px 0 40px;
+  border-top:2px solid var(--ink);
+  position:relative;z-index:1;
+}
+.ft-q{
+  font-family:var(--serif);font-size:clamp(18px,2.8vw,26px);
+  color:var(--ink3);line-height:1.5;max-width:700px;
+  font-style:italic;margin-bottom:24px;
+  position:relative;padding-left:28px;
+}
+.ft-q::before{
+  content:'"';position:absolute;left:0;top:-8px;
+  font-family:var(--serif);font-size:48px;color:var(--terra);
+  line-height:1;opacity:.5;
+}
+.ft-m{
+  font-family:var(--mono);font-size:8px;letter-spacing:.12em;
+  color:var(--ink5);text-transform:uppercase;line-height:2.2;
+}
+
+/* ═══════════════════════════════════════════
+   SCROLLBAR
+   ═══════════════════════════════════════════ */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--rule2);border-radius:3px}
+
+/* ═══════════════════════════════════════════
+   PRINT
+   ═══════════════════════════════════════════ */
+@media print{
+  .rail,#grainCanvas,#topoCanvas,.ov-mask,.sheet,.mast-scroll{display:none!important}
+  .wrap{padding:20px!important}
+  .sec .sec-body{max-height:none!important;padding-bottom:12px!important}
+}
+</style>
+</head>
+<body>
+
+<!-- GRAIN NOISE — canvas-based for true randomness -->
+<canvas id="grainCanvas" aria-hidden="true"></canvas>
+
+<!-- TOPO CONTOUR MAP — hand-drawn SVG -->
+<canvas id="topoCanvas" aria-hidden="true"></canvas>
+
+<!-- NAV RAIL -->
+<nav class="rail" id="rail" role="navigation" aria-label="Nawigacja">
+  <button class="pip on" data-d="1" aria-label="Dzień 1" id="n1">D1</button>
+  <button class="pip" data-d="2" aria-label="Dzień 2" id="n2">D2</button>
+  <button class="pip" data-d="3" aria-label="Dzień 3" id="n3">D3</button>
+  <button class="pip" data-d="4" aria-label="Dzień 4" id="n4">D4</button>
+  <button class="pip" data-d="5" aria-label="Dzień 5" id="n5">D5</button>
+  <button class="pip" data-d="6" aria-label="Dzień 6" id="n6">D6</button>
+  <button class="pip" data-d="7" aria-label="Dzień 7" id="n7">D7</button>
+  <button class="pip" data-d="8" aria-label="Dzień 8" id="n8">D8</button>
+  <div class="rdiv"></div>
+  <button class="pip" data-sh="map" aria-label="Mapa" id="nm">◈</button>
+  <button class="pip" data-sh="weather" aria-label="Pogoda" id="nw">⌖</button>
+  <button class="pip" data-sh="ritual" aria-label="Rytuał" id="nr">●</button>
+  <button class="pip" data-sh="equip" aria-label="Sprzęt" id="ne">▲</button>
+  <button class="pip" data-sh="costs" aria-label="Koszty" id="nc">€</button>
+  <button class="pip" data-sh="links" aria-label="Linki" id="nl">↗</button>
+</nav>
+
+<!-- OVERLAY -->
+<div class="ov-mask" id="mask"></div>
+
+<!-- SHEETS -->
+<aside class="sheet" id="s-map" role="dialog" aria-label="Mapa wyjazdu">
+  <div class="sh-bar"></div><button class="sh-x" aria-label="Zamknij">×</button>
+  <h2 class="sh-title">Mapa wyjazdu</h2>
+  <div class="map-wrap"><iframe src="https://www.google.com/maps/d/u/0/embed?mid=1NtSuO52IGWeVbz_27JV7BOM1jsuU5mA" loading="lazy" title="Google My Maps — Madeira 2026" allowfullscreen></iframe></div>
+</aside>
+<aside class="sheet" id="s-weather" role="dialog" aria-label="Scenariusze pogodowe">
+  <div class="sh-bar"></div><button class="sh-x" aria-label="Zamknij">×</button>
+  <h2 class="sh-title">Scenariusze pogodowe</h2>
+  <div id="wxBox"></div>
+</aside>
+<aside class="sheet" id="s-ritual" role="dialog" aria-label="Rytuał 20:00">
+  <div class="sh-bar"></div><button class="sh-x" aria-label="Zamknij">×</button>
+  <h2 class="sh-title">Rytuał 20:00</h2>
+  <p style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--ink4);text-transform:uppercase;margin-bottom:14px">Stała wieczorna checklista — kolejność ma znaczenie</p>
+  <ul class="ck" id="ckList"></ul>
+</aside>
+<aside class="sheet" id="s-equip" role="dialog" aria-label="Pakowanie i sprzęt">
+  <div class="sh-bar"></div><button class="sh-x" aria-label="Zamknij">×</button>
+  <h2 class="sh-title">Pakowanie / Sprzęt</h2>
+  <div id="eqBox"></div>
+</aside>
+<aside class="sheet" id="s-costs" role="dialog" aria-label="Koszty">
+  <div class="sh-bar"></div><button class="sh-x" aria-label="Zamknij">×</button>
+  <h2 class="sh-title">Koszty</h2>
+  <div id="coBox"></div>
+</aside>
+<aside class="sheet" id="s-links" role="dialog" aria-label="Linki oficjalne">
+  <div class="sh-bar"></div><button class="sh-x" aria-label="Zamknij">×</button>
+  <h2 class="sh-title">Linki oficjalne</h2>
+  <div id="lkBox"></div>
+</aside>
+
+<div class="wrap">
+
+  <!-- MASTHEAD -->
+  <header class="mast" id="mast">
+    <!-- Compass Rose SVG decoration -->
+    <svg class="mast-deco" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="100" cy="100" r="90" stroke="currentColor" stroke-width=".4"/>
+      <circle cx="100" cy="100" r="70" stroke="currentColor" stroke-width=".3"/>
+      <circle cx="100" cy="100" r="50" stroke="currentColor" stroke-width=".3"/>
+      <circle cx="100" cy="100" r="3" fill="currentColor" opacity=".3"/>
+      <line x1="100" y1="5" x2="100" y2="195" stroke="currentColor" stroke-width=".3"/>
+      <line x1="5" y1="100" x2="195" y2="100" stroke="currentColor" stroke-width=".3"/>
+      <line x1="30" y1="30" x2="170" y2="170" stroke="currentColor" stroke-width=".2"/>
+      <line x1="170" y1="30" x2="30" y2="170" stroke="currentColor" stroke-width=".2"/>
+      <polygon points="100,8 104,28 100,24 96,28" fill="currentColor" opacity=".3"/>
+      <text x="100" y="4" text-anchor="middle" font-family="var(--mono)" font-size="5" fill="currentColor" opacity=".3">N</text>
+      <text x="197" y="102" text-anchor="middle" font-family="var(--mono)" font-size="5" fill="currentColor" opacity=".3">E</text>
+      <text x="100" y="199" text-anchor="middle" font-family="var(--mono)" font-size="5" fill="currentColor" opacity=".3">S</text>
+      <text x="4" y="102" text-anchor="middle" font-family="var(--mono)" font-size="5" fill="currentColor" opacity=".3">W</text>
+      <!-- Tick marks -->
+      <g stroke="currentColor" stroke-width=".3" opacity=".2">
+        <line x1="100" y1="10" x2="100" y2="16"/><line x1="100" y1="184" x2="100" y2="190"/>
+        <line x1="10" y1="100" x2="16" y2="100"/><line x1="184" y1="100" x2="190" y2="100"/>
+        <line x1="136" y1="14" x2="133" y2="20"/><line x1="64" y1="14" x2="67" y2="20"/>
+        <line x1="136" y1="186" x2="133" y2="180"/><line x1="64" y1="186" x2="67" y2="180"/>
+      </g>
+    </svg>
+
+    <div class="mast-coords">32°44′N · 16°57′W</div>
+    <h1 class="mast-h1">MADEIRA<span class="accent-bar"></span></h1>
+    <div class="mast-sub">
+      Plan operacyjny · 07.05 – 14.05.2026<br>
+      Baza: Ribeira Brava – Ponta do Sol
+    </div>
+    <div class="mast-flights">
+      <div class="fl"><span class="fl-tag">PRZYLOT</span>W6 1535 &ensp;WAW 11:40 <span class="fl-arr">→</span> FNC 16:05</div>
+      <div class="fl"><span class="fl-tag">WYLOT</span>W6 1536 &ensp;FNC 16:45 <span class="fl-arr">→</span> WAW 22:50</div>
+    </div>
+    <div class="mast-scroll"><span>Przewiń</span></div>
+  </header>
+
+  <!-- COUNTDOWN -->
+  <section class="countdown" id="countdown" aria-label="Odliczanie">
+    <div class="cd-left">
+      <div class="cd-label">Do wylotu pozostało</div>
+      <div class="cd-number" id="cdDays">—<span class="cd-unit">dni</span></div>
+      <div class="cd-sub" id="cdDate"></div>
+    </div>
+    <div class="cd-right" id="cdBlocks"></div>
+  </section>
+
+  <!-- ELEVATION PROFILE -->
+  <section class="elev-section" aria-label="Profil intensywności">
+    <div class="elev-label">Profil intensywności · wysiłek i czas aktywny na przestrzeni 8 dni</div>
+    <div class="elev-wrap" id="elevWrap"></div>
+  </section>
+
+  <!-- TRIP OVERVIEW CHART -->
+  <section class="overview" id="overview" aria-label="Przegląd podróży">
+    <div class="overview-label">Przegląd 8 dni · czas jazdy vs czas chodzenia (h)</div>
+    <div class="overview-chart" id="ovChart"></div>
+    <div class="chart-legend">
+      <span><span class="swatch sw-drive"></span>Jazda autem</span>
+      <span><span class="swatch sw-walk"></span>Chodzenie</span>
+    </div>
+  </section>
+
+  <!-- VARIANTS -->
+  <section class="variants" aria-label="Warianty planu">
+    <div class="var-tabs" role="tablist">
+      <button class="var-tab on" data-v="reko" role="tab" aria-selected="true" id="vr">Rekomendowana</button>
+      <button class="var-tab" data-v="relax" role="tab" aria-selected="false" id="vx">Bardziej relaks</button>
+      <button class="var-tab" data-v="iconic" role="tab" aria-selected="false" id="vi">Ikoniczne widoki</button>
+    </div>
+    <div class="var-desc" id="vDesc"></div>
+  </section>
+
+  <!-- DAY -->
+  <section id="dayBox" aria-live="polite"></section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p class="ft-q">Najpierw pomóc podejmować decyzje w podróży — potem wyglądać dobrze na papierze.</p>
+    <div class="ft-m">
+      Dane warunkowe i statusy wymagają weryfikacji dzień wcześniej<br>
+      Działa offline · Dane zapisywane lokalnie
+    </div>
+  </footer>
+</div>
+
+<script>
+/* ═══════════════════════════════════════════
+   CANVAS: GRAIN NOISE
+   ═══════════════════════════════════════════ */
+(function(){
+  const c=document.getElementById('grainCanvas'),x=c.getContext('2d');
+  let w,h;
+  function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight}
+  function draw(){
+    const img=x.createImageData(w,h),d=img.data;
+    for(let i=0;i<d.length;i+=4){
+      const v=Math.random()*255;
+      d[i]=d[i+1]=d[i+2]=v;d[i+3]=255;
+    }
+    x.putImageData(img,0,0);
+  }
+  resize();draw();
+  window.addEventListener('resize',()=>{resize();draw()});
+})();
+
+/* ═══════════════════════════════════════════
+   CANVAS: TOPO CONTOUR LINES (procedural)
+   ═══════════════════════════════════════════ */
+(function(){
+  const c=document.getElementById('topoCanvas'),x=c.getContext('2d');
+  let w,h,scrollY=0;
+  function resize(){w=c.width=window.innerWidth;h=c.height=window.innerHeight}
+  function drawContour(cx,cy,rx,ry,rot,rings){
+    for(let r=0;r<rings;r++){
+      const scale=1-r/(rings+1);
+      x.beginPath();
+      for(let a=0;a<=Math.PI*2+.1;a+=.04){
+        const noise=Math.sin(a*3+r)*rx*.02+Math.cos(a*5-r*.7)*ry*.015;
+        const px=cx+Math.cos(a+rot)*(rx*scale+noise);
+        const py=cy+Math.sin(a+rot)*(ry*scale+noise);
+        a===0?x.moveTo(px,py):x.lineTo(px,py);
+      }
+      x.stroke();
+    }
+  }
+  function draw(){
+    x.clearRect(0,0,w,h);
+    const cs=getComputedStyle(document.documentElement);
+    const isDark=cs.getPropertyValue('--paper').trim()==='#0F0E0C';
+    x.strokeStyle=isDark?'rgba(232,228,218,.12)':'rgba(26,26,24,.12)';
+    x.lineWidth=.5;
+    const oy=scrollY*.02;
+    // Main island contours
+    drawContour(w*.55,h*.4+oy,w*.38,h*.14,-.14,12);
+    // Secondary peaks
+    drawContour(w*.25,h*.6+oy,w*.15,h*.08,-.2,7);
+    drawContour(w*.75,h*.3+oy,w*.12,h*.06,.25,6);
+    drawContour(w*.45,h*.75+oy,w*.1,h*.05,.1,5);
+    // Ridge lines
+    x.lineWidth=.7;
+    x.beginPath();
+    x.moveTo(w*.15,h*.5+oy);
+    x.bezierCurveTo(w*.3,h*.35+oy,w*.55,h*.38+oy,w*.85,h*.42+oy);
+    x.stroke();
+    x.beginPath();
+    x.moveTo(w*.1,h*.58+oy);
+    x.bezierCurveTo(w*.35,h*.48+oy,w*.6,h*.52+oy,w*.9,h*.45+oy);
+    x.stroke();
+  }
+  resize();draw();
+  window.addEventListener('resize',()=>{resize();draw()});
+  window.addEventListener('scroll',()=>{scrollY=window.scrollY;requestAnimationFrame(draw)},{passive:true});
+})();
+
+/* ═══════════════════════════════════════════
+   DATA — FAITHFUL TO SOURCE DOCUMENT
+   ═══════════════════════════════════════════ */
+const D=[
+  {n:1,dt:'07.05',wd:'czwartek',t:'Przylot i miękkie wejście',st:'operacyjny',eff:'very low',el:1,
+   driveH:0.75,walkH:0.5,
+   cel:'Odebrać auto, dojechać do bazy, zrobić drobne zakupy i nie przepalić energii pierwszego dnia.',
+   rat:'Lądujesz o 16:05, więc po bagażu, aucie i dojeździe nie ma sensownego buforu na ambitny program.',
+   dep:'Wyjazd z lotniska zwykle około 17:15–17:45 po odbiorze auta.',
+   route:['Lotnisko','Auto','Sklep','Check-in','Kolacja','Zachód blisko bazy'],
+   time:'4–6 h od lądowania do kolacji',drive:'0:35–1:10',walk:'0:15–0:45',
+   book:'Auto, nocleg, parking noclegu.',
+   chk:'Zasady odbioru auta, godziny check-in, parking noclegu, paliwo, prognozę i status na 08.05.',
+   park:'Parking noclegu; ewentualnie najbliższy seafront przy krótkim spacerze.',
+   wp:'Zwykle 2–10 min.',
+   food:'Kolacja przy bazie; nie buduj dnia pod konkretną restaurację.',
+   wc:'Lotnisko ma pełną infrastrukturę; później licz głównie na miasteczka.',
+   go:'Tylko bardzo lekki zachód w promieniu kilku minut od noclegu, jeśli wszystko poszło sprawnie.',
+   skip:'Jakikolwiek ambitny objazd wyspy, Monte, pełen Funchal albo punkt ze sztywną godziną.',
+   light:'Sunset około 20:53.',
+   risk:'Kolejka po auto, opóźniony bagaż, zmęczenie po podróży, ruch przy wyjeździe z lotniska.',
+   eqw:null,
+   pb:'Zakupy + kolacja + wczesny sen.',pc:'Lotnisko → hotel bez żadnych przystanków.',
+   low:'Tak — to ma być dzień oszczędzający baterię.',
+   ad:'Tak — to jedyny sensowny tryb na dzień przylotu.',
+   vrd:'Zostawić jako pełnoprawny dzień operacyjny.',
+   alt:[
+     {l:'Dobra pogoda',x:'Krótki zachód blisko bazy. Koszt: niski. Wysiłek: very low. Plusy: ładne wejście w klimat bez logistyki. Minusy: łatwo przeciągnąć wieczór.'},
+     {l:'Słaba pogoda',x:'Zakupy, kolacja i ustawienie planu na kolejne 48 h. Koszt: tylko operacyjny. Wysiłek: very low. Status: najbezpieczniejsza logika.'},
+     {l:'Low energy',x:'Hotel + 15–20 min spaceru po okolicy. Plusy: maksymalna regeneracja. Minusy: brak „atrakcji".'},
+     {l:'Worth it only if conditions are perfect',x:'Cristo Rei / Garajau na krótki zachód — to wariant tylko dla wyjątku od zasady jednej bazy (gdy śpisz bliżej Funchal/Caniço); nie dotyczy bazy Ribeira Brava – Ponta do Sol. Oficjalna strona pomnika ma status CONDICIONADO — sprawdzaj wieczorem dzień wcześniej. Status: niepewne.'}
+   ]},
+  {n:2,dt:'08.05',wd:'piątek',t:'Areeiro + Eira do Serrado',st:'priorytet',eff:'medium',el:3,
+   driveH:2.5,walkH:2.25,
+   cel:'Zagrać najmocniejszy i najbardziej wrażliwy operacyjnie moduł na początku pobytu.',
+   rat:'Po reotwarciu fazowanym PR1 piątek–niedziela to najbardziej racjonalne okno na próbę Areeiro; nie warto odkładać go na środek wyjazdu.',
+   dep:'05:50 z Ribeira Brava / 06:10 z Ponta do Sol (dolicz 10–20 min przy bazie dalej na zachodzie).',
+   route:['Areeiro parking','Sunrise','Ninho da Manta','Pedra Rija (jeśli dostępny)','Śniadanie/kawa','Eira do Serrado','Powrót'],
+   time:'7–9 h',drive:'2:15–3:00',walk:'1:45–2:45',
+   book:'PR1 przez SIMplifica.',
+   chk:'IFCN, slot w SIMplifica, wiatr, zachmurzenie, widoczność i realny zakres dostępnego odcinka.',
+   park:'Parking przy Pico do Areeiro / overflow niżej; Eira do Serrado przy hotelu i punkcie widokowym.',
+   wp:'Areeiro zwykle 5–20 min zależnie od miejsca; Eira do Serrado 5–10 min.',
+   food:'Kawa i śniadanie po zejściu, nie przed sunrise.',
+   wc:'Przed świtem na górze nie zakładaj działającej infrastruktury; potraktuj start jako self-sufficient.',
+   go:'Sunrise, Ninho da Manta, pierwszy fragment grani, Eira do Serrado jako kontrast krajobrazowy.',
+   skip:'Forsowanie dłuższego odcinka PR1 przy mgle, silnym wietrze albo słabej widoczności.',
+   light:'Sunrise około 07:14; najlepsze 06:50–07:40, jeśli nie ma chmur.',
+   risk:'Zamknięcie lub ograniczenie odcinka, tłum, wiatr, brak miejsc, mgła i bardzo słaba widoczność.',
+   eqw:null,
+   pb:'Zamiana z dniem wschodnim albo południe low-drive.',pc:'Cabo Girao + Camara de Lobos + rest.',
+   low:'Tak, ale tylko w skróconej wersji: punkt widokowy + Ninho da Manta bez ciśnienia na Pedra Rija.',
+   ad:'Nie.',
+   vrd:'Zostawić i traktować jako pierwszy pełny dzień.',
+   alt:[
+     {l:'Dobra pogoda',x:'Bazowy wariant dnia. Koszt: PR1 4,50 EUR / os. Wysiłek: medium. Plusy: największy payoff widokowy. Minusy: bardzo wczesny start i tłum.'},
+     {l:'Słaba pogoda',x:'Przełóż góry i jedź na południe. Wysiłek: low. Plusy: nie przepalasz poranka w chmurze.'},
+     {l:'Low energy',x:'Sam punkt widokowy + Ninho da Manta + Eira do Serrado. Wysiłek: low. Plusy: masz obraz Areeiro bez dociskania.'},
+     {l:'Worth it only if conditions are perfect',x:'Dalsze przejście po pełnym reotwarciu w stronę Pico Ruivo tylko przy jasnym statusie IFCN i rozwiązanym transporcie. Status: bardzo warunkowe.'}
+   ]},
+  {n:3,dt:'09.05',wd:'sobota',t:'Wschód / Ponta do Rosto / PR8',st:'priorytet',eff:'medium',el:3,
+   driveH:2.75,walkH:3.25,
+   cel:'Zebrać klifowy, surowy krajobraz wschodu bez zmuszania się do pełnego przejścia za wszelką cenę.',
+   rat:'Wschód daje ogromny efekt wizualny, ale klasyczny błąd to robienie „całości za wszelką cenę" pod słońcem i wietrze.',
+   dep:'05:20 z Ribeira Brava / 05:40 z Ponta do Sol (dystans ~60 km; przy bazie na zachodzie dolicz dalsze 10–20 min).',
+   route:['Ponta do Rosto sunrise','Baía d\'Abra trailhead','PR8 → Casa do Sardinha','Machico lunch','Powrót'],
+   time:'7–8,5 h',drive:'2:30–3:15',walk:'2:30–4:00',
+   book:'PR8 przez SIMplifica.',
+   chk:'Wiatr, ekspozycję słoneczną, status szlaku; jeśli rozważasz boat-return, także operatora i transfer do auta.',
+   park:'Ponta do Rosto viewpoint; Baía d\'Abra trailhead.',
+   wp:'Viewpoint 2–5 min; start PR8 praktycznie przy parkingu.',
+   food:'Machico po zejściu.',
+   wc:'Na trailheadzie nie zakładaj wygód; bazuj na mieście przed i po trasie.',
+   go:'Ponta do Rosto o świcie, pierwsza połowa PR8, Casa do Sardinha.',
+   skip:'Pełna wersja PR8 albo boat-return tylko dlatego, że „już tu jesteśmy".',
+   light:'Sunrise około 07:13; najlepsze 06:50–08:15.',
+   risk:'Silny wiatr, pełne słońce, odwodnienie, tłum po 09:00, błędne założenie, że łódź rozwiąże logistykę.',
+   eqw:'Motorówka na otwartym Atlantyku generuje gęsty salt-spray; sprzęt foto tylko w zamykanych, 100% wodoszczelnych workach (dry-bag). Sól trwale niszczy elektronikę i optykę.',
+   pb:'Same wschodnie viewpointy + Machico / Canical.',pc:'Zamiana z dniem południowym.',
+   low:'Tak, ale tylko w wersji viewpoint-hopping bez pełnego PR8.',
+   ad:'Nie.',
+   vrd:'Zostawić, ale domyślnie skrócić.',
+   alt:[
+     {l:'Dobra pogoda',x:'Ponta do Rosto + skrócony PR8 do Casa do Sardinha. Koszt: PR8 4,50 EUR / os. Wysiłek: medium. Plusy: zostaje najlepsza część dnia.'},
+     {l:'Słaba pogoda',x:'Machico + Canical + punkty widokowe wschodu. Wysiłek: low. Plusy: nadal widoki przy mniejszym ryzyku.'},
+     {l:'Low energy',x:'Ponta do Rosto + Miradouro do Guindaste + promenada w Machico. Wysiłek: very low / low.'},
+     {l:'Worth it only if conditions are perfect',x:'Boat-return z São Lourenço to osobna usługa wodna (Cais do Sardinha / Quinta do Lorde), nie jest powrotem do zaparkowanego auta przy Baía d\'Abra; wymaga własnego transferu do auta na koniec dnia. Status: niepewne, nie budżetować bazowo.'}
+   ]},
+  {n:4,dt:'10.05',wd:'niedziela',t:'Południe / recovery day',st:'recovery',eff:'low',el:2,
+   driveH:1.25,walkH:1.1,
+   cel:'Wstawić lekki, niski-kosztowo dzień po dwóch mocniejszych porankach.',
+   rat:'To ma być dzień lekki, a nie kolejny moduł do odhaczania. Cabo Girao jest mocnym stopem, ale nie niesie pół dnia.',
+   dep:'09:00–09:30.',
+   route:['Cabo Girão','Câmara de Lobos','Madalena do Mar / Rota do Banana','Zachód przy bazie'],
+   time:'5–7 h',drive:'1:00–1:45',walk:'0:45–1:30',
+   book:'Płatność za dostęp do Cabo Girao — sprawdź najwygodniejszy tryb przed podjazdem.',
+   chk:'Pogodę na zachód i czy nie chcesz zamienić dnia na moduł miejski.',
+   park:'Cabo Girao przy punkcie; Câmara de Lobos port; seafront w Madalena do Mar.',
+   wp:'Zwykle 2–10 min na każdym stopie.',
+   food:'Câmara de Lobos lub Madalena do Mar.',
+   wc:'Południe ma najłatwiejszą infrastrukturę — to dobry dzień na oddech logistyczny.',
+   go:'Cabo Girão jako 15–25 min stop, port w Câmara de Lobos, płaski spacer wśród bananowców, zachód przy bazie.',
+   skip:'Robienie z Cabo Girão dnia premium albo dokładanie losowych małych stopów.',
+   light:'Sunset około 20:55.',
+   risk:'Tłok na Cabo Girão, płaska jakość światła przy pełnym overcaście, zbyt dużo małych stopów bez sensu.',
+   eqw:null,
+   pb:'Bardziej miejski dzień Funchal/Monte.',pc:'Pełna regeneracja w hotelu.',
+   low:'Tak.',
+   ad:'Tak jako typ dnia, ale nie z lotem w środku.',
+   vrd:'Zostawić, ale trzymać krótko.',
+   alt:[
+     {l:'Dobra pogoda',x:'Bazowy wariant południowy. Koszt: Cabo Girao 5 EUR / os. > 12 lat. Wysiłek: low. Plusy: łatwy dzień bez cardio.'},
+     {l:'Słaba pogoda',x:'Old Town Funchal jako spokojny backup miejski. Wysiłek: low. Minusy: słabszy fit do briefu widokowego.'},
+     {l:'Low energy',x:'Sama Câmara de Lobos + zachód przy bazie. Wysiłek: very low.'},
+     {l:'Worth it only if conditions are perfect',x:'Monte Palace + Carreiros tylko gdy naprawdę chcesz moduł kulturowy i nie przeszkadzają Ci kolejki. Status: warunkowe.'}
+   ]},
+  {n:5,dt:'11.05',wd:'poniedziałek',t:'Ribeiro Frio / Balcões / Santana',st:'stabilny',eff:'low',el:2,
+   driveH:2.5,walkH:1.6,
+   cel:'Zielony i spokojniejszy kontrast dla dni klifowych i górskich.',
+   rat:'Balcões ma świetny stosunek efekt/wysiłek, a Santana i Rocha do Navio są logicznymi dopięciami, ale nie muszą dominować dnia.',
+   dep:'08:00–08:30.',
+   route:['Ribeiro Frio','PR11 Balcões','Santana','Rocha do Navio (warunkowo)','Powrót'],
+   time:'6–8 h',drive:'2:15–3:00',walk:'1:15–2:00',
+   book:'PR11 przez SIMplifica; jeśli finalnie robisz PR9.1, rezerwujesz PR9.1 zamiast PR11.',
+   chk:'Widoczność w Balcões, działanie kolejki Rocha do Navio i ewentualny status PR9 / PR9.1 przy podmianie.',
+   park:'Ribeiro Frio przy starcie; Santana w centrum; Rocha do Navio przy kolejce / viewpoint.',
+   wp:'0–5 min do startu PR11; 2–10 min na pozostałych stopach.',
+   food:'Ribeiro Frio lub Santana.',
+   wc:'Licz na miasteczka i kawiarnie, nie na same viewpointy.',
+   go:'Balcões przy dobrej widzialności, klify Rocha do Navio, krótki kontrast architektoniczny Santany.',
+   skip:'Długie siedzenie w Santanie albo dopychanie Rocha do Navio, gdy kolejka nie działa sensownie.',
+   light:'Poranek i późne przedpołudnie są tu lepsze niż środek dnia.',
+   risk:'Niska chmura, słaba widzialność, nieczynna kolejka, zbyt optymistyczny plan z PR9 bez jasnego statusu.',
+   eqw:null,
+   pb:'PR9.1 / Queimadas jako bardziej leśny wariant.',pc:'Same viewpointy północne albo moduł miejski Funchal / Monte.',
+   low:'Tak.',ad:'Nie.',
+   vrd:'Zostawić, z Rocha do Navio jako warunkowym dodatkiem.',
+   alt:[
+     {l:'Dobra pogoda',x:'Balcões + Rocha do Navio cable car. Koszt: PR11 4,50 EUR / os. + kolejka jeśli działa. Wysiłek: low.'},
+     {l:'Słaba pogoda',x:'Queimadas + PR9.1 jako bardziej osłonięty wariant. Wysiłek: low. Status: potwierdzone dla PR9.1.'},
+     {l:'Low energy',x:'Santana + Rocha do Navio viewpoint bez Balcões. Wysiłek: very low.'},
+     {l:'Worth it only if conditions are perfect',x:'PR9 do Caldeirão Verde tylko jeśli status praktycznie jest jasny i SIMplifica pokazuje dostępność. Status: niepewne / do ponownej kontroli.'}
+   ]},
+  {n:6,dt:'12.05',wd:'wtorek',t:'Seixal / Véu da Noiva / Porto Moniz',st:'stabilny',eff:'low',el:2,
+   driveH:2.75,walkH:1,
+   cel:'Zagrać jeden z najlepszych dni „widoki bez cardio".',
+   rat:'Północny zachód najlepiej działa samochodem i krótkimi stopami; wejście do oceanu ma sens tylko przy spokojnym morzu.',
+   dep:'08:00–08:30.',
+   route:['Seixal rano','Véu da Noiva','Porto Moniz lunch','Powrót'],
+   time:'6–8 h',drive:'2:15–3:15',walk:'0:30–1:30',
+   book:'Brak krytycznej rezerwacji potwierdzonej w oficjalnych źródłach.',
+   chk:'Fale, wiatr, deszcz na północy, możliwość kąpieli i własną gotowość do wejścia do wody.',
+   park:'Seixal beach / pools; Véu da Noiva roadside stop; Porto Moniz parking miejski.',
+   wp:'Zwykle 2–10 min.',
+   food:'Porto Moniz.',
+   wc:'Porto Moniz ma najlepszą infrastrukturę na tym dniu: przebieralnie, bar, first aid, parking.',
+   go:'Seixal nawet bez kąpieli, Véu da Noiva, Porto Moniz jako relaks i spacer.',
+   skip:'Wymuszoną kąpiel przy złych warunkach albo dokładanie kolejnych wodnych punktów na siłę.',
+   light:'Seixal najlepiej wcześnie rano.',
+   risk:'Swell, śliskie skały, tłum w Porto Moniz, gorsza pogoda na północy niż na południu.',
+   eqw:'W Seixal i Porto Moniz nieprzewidziane wyższe fale regularnie zalewają turystów; sprzęt foto tylko w zamykanym plecaku z pokrowcem przeciwdeszczowym. Nic na skałach przy surge.',
+   pb:'Viewpoints + Porto Moniz bez wejścia do wody.',pc:'Południowy reset, jeśli północ jest pogodowo fatalna.',
+   low:'Tak.',ad:'Nie.',
+   vrd:'Zostawić.',
+   alt:[
+     {l:'Dobra pogoda',x:'Seixal + Porto Moniz z opcją wody. Wysiłek: low. Status: potwierdzone co do miejsc, warunkowe co do kąpieli.'},
+     {l:'Słaba pogoda',x:'Véu da Noiva + Porto Moniz jako spacer i lunch. Wysiłek: very low.'},
+     {l:'Low energy',x:'Tylko Porto Moniz + 1–2 stop pointy po drodze. Wysiłek: very low.'},
+     {l:'Worth it only if conditions are perfect',x:'Wejście do oceanu w Seixal tylko przy spokojnym morzu i bez silnego surge. Status: warunkowe.'}
+   ]},
+  {n:7,dt:'13.05',wd:'środa',t:'Zachód / Achadas / Garganta / Ponta do Pargo',st:'stabilny',eff:'low',el:2,
+   driveH:3,walkH:1.4,
+   cel:'Maksymalny zachodni payoff widokowy przy minimalnym wysiłku.',
+   rat:'Tu payoff robią pionowe klify, nie dystans. Najlepiej ustawić dzień pod popołudniowe światło w Garganta Funda i zachód w Ponta do Pargo.',
+   dep:'10:00–10:30.',
+   route:['Achadas da Cruz','Zjazd (jeśli działa)','Fajã spacer','Lunch','Garganta Funda','Ponta do Pargo sunset'],
+   time:'7–9 h',drive:'2:30–3:30',walk:'0:45–2:00',
+   book:'Brak krytycznej rezerwacji z potwierdzonych źródeł.',
+   chk:'Działanie kolejki, wiatr, ewentualny edital serwisowy, stan wodospadu i zachmurzenie na zachodzie.',
+   park:'Achadas cable car; parking przy ścieżce do Garganta Funda; lighthouse / viewpoint Ponta do Pargo.',
+   wp:'Zwykle 0–5 min, 5–10 min, 2–5 min.',
+   food:'Porto Moniz po drodze albo Ponta do Pargo village.',
+   wc:'Na viewpointach nie licz na toalety; użyj infrastruktury w miasteczkach.',
+   go:'Sam zachodni kraniec, Garganta Funda w dobrym świetle i Achadas tylko wtedy, gdy kolejka działa sensownie.',
+   skip:'Dodatkowe objazdy w środku dnia i dokładanie losowych przystanków kosztem zachodu.',
+   light:'Garganta Funda najlepiej około 16:00–18:00; sunset około 20:57.',
+   risk:'Wiatr wyłączający kolejkę, niski przepływ wodospadu, mgła zabierająca zachód.',
+   eqw:null,
+   pb:'Górne miradouros bez zjazdu albo Ponta da Ladeira + Garganta + Ponta do Pargo.',
+   pc:'Spokojniejszy dzień na południu albo miękki backup miejski.',
+   low:'Tak — zwłaszcza bez schodzenia na dół.',ad:'Nie.',
+   vrd:'Zostawić.',
+   alt:[
+     {l:'Dobra pogoda',x:'Bazowy wariant zachodni z Achadas. Wysiłek: low. Plusy: bardzo wysoki wow per step. Minusy: zależność od kolejki.'},
+     {l:'Słaba pogoda',x:'Zostań na górnych viewpointach albo przerzuć dzień na południe. Wysiłek: very low.'},
+     {l:'Low energy',x:'Ponta da Ladeira + Garganta Funda + Ponta do Pargo. Wysiłek: very low.'},
+     {l:'Worth it only if conditions are perfect',x:'Fanal jako detour tylko przy aktywnej mgle / niskiej chmurze. Bez mgły — słaby ROI.'}
+   ]},
+  {n:8,dt:'14.05',wd:'czwartek',t:'Wylot',st:'operacyjny',eff:'very low',el:1,
+   driveH:1.1,walkH:0.5,
+   cel:'Zamknąć wyjazd bez ryzyka spóźnienia i bez udawania, że to normalny dzień zwiedzania.',
+   rat:'Wylot 16:45 oznacza, że każdy „jeszcze tylko szybki Monte/Funchal" bardzo łatwo robi się złą decyzją.',
+   dep:'10:30–11:00 z bazy; wcześniej, jeśli śpisz dalej na zachodzie.',
+   route:['Śniadanie','Checkout','Łatwy stop po drodze','Lunch','Zwrot auta','Lotnisko 13:45–14:15'],
+   time:'4–5 h',drive:'0:45–1:30',walk:'0:15–0:45',
+   book:'Nic nowego poza logistyką auta i lotu.',
+   chk:'Politykę paliwową, dokumenty, czas dojazdu do lotniska, warunki zdania auta i bezpieczeństwo krótkiego ostatniego stopu.',
+   park:'Krótki stop tylko tam, gdzie nie musisz ciągnąć walizek daleko.',
+   wp:'Zwykle 2–10 min.',
+   food:'Machico albo Santa Cruz są najwygodniejsze logistycznie.',
+   wc:'Pełna przy lotnisku i w miastach po wschodniej stronie.',
+   go:'Tylko mały, niski-tarciowy punkt po drodze, jeśli wszystko jest pod kontrolą.',
+   skip:'Monte, Areeiro, pełen Funchal, ambitne objazdy „na koniec".',
+   light:'Nieistotne — tego dnia pracujesz pod logistykę, nie pod światło.',
+   risk:'Spóźniony zwrot auta, zbyt późny wyjazd, ekspozycja bagaży, zakorkowany dojazd.',
+   eqw:null,
+   pb:'Prosto na lotnisko.',pc:'Kawa w Santa Cruz / Machico i koniec.',
+   low:'Tak.',
+   ad:'Tak — to dokładnie taki dzień.',
+   vrd:'Zostawić jako dzień operacyjny.',
+   alt:[
+     {l:'Dobra pogoda',x:'Krótki spacer w Machico albo Santa Cruz po stronie lotniskowej. Wysiłek: very low. Plusy: eleganckie domknięcie bez stresu.'},
+     {l:'Słaba pogoda',x:'Bez zwiedzania: śniadanie, checkout, lotnisko. Status: najbezpieczniejsza opcja.'},
+     {l:'Low energy',x:'Tylko kawa po drodze i prosto na FNC.'},
+     {l:'Worth it only if conditions are perfect',x:'Krótki Garajau / Cristo Rei — to wariant tylko dla wyjątku od zasady jednej bazy (gdy śpisz bliżej wschodniej strony); nie dotyczy bazy Ribeira Brava – Ponta do Sol. Oficjalny status CONDICIONADO — sprawdź wieczorem dzień wcześniej i wtedy decyduj. Status: niepewne.'}
+   ]}
+];
+
+const VAR={
+  reko:{d:'Dla pary, która chce najlepszego stosunku widok/logistyka/zmęczenie. Jedna baza południowo-centralna. Areeiro i wschód jako dwa osobne, mocne dni na początku. Południe jako recovery day. Północny interior, północny-zachód i zachód jako stabilne moduły końcówki pobytu. Monte/Funchal tylko jako backup.'},
+  relax:{d:'Dla wersji z mniejszym ryzykiem pogodowo-zmęczeniowym. D2 Areeiro tylko viewpoints + Eira do Serrado. D3 krótki fragment PR8. D4 pełny reset. D5 Balcões + Santana. D6 Seixal / Porto Moniz. D7 wolniejszy zachód albo Funchal jako backup.'},
+  iconic:{d:'Bardziej foto-first, świadomie bardziej zależna od pogody. D2 Areeiro w pełnym priorytecie pogodowym. D3 PR8 ambitniej lub z boat-return. D5 Balcões / Santana skrócone. D7 z Fanal tylko wtedy, gdy kamery pokazują mgłę.'}
+};
+
+const WX=[
+  {t:'Góry w chmurach',x:'Nie marnować Areeiro; zamienić z dniem południowym albo wschodnim.'},
+  {t:'Wschód bardzo wietrzny',x:'Skrócić PR8 do viewpointów lub przerzucić dzień na Machico / południe.'},
+  {t:'Morze wzburzone',x:'Seixal i wejścia do wody skreślić bez dyskusji; zostawić viewpointy i Porto Moniz jako spacer/lunch.'},
+  {t:'Cable car off',x:'Grać górne miradouros i zachód, nie próbować na siłę ratować identycznego programu.'},
+  {t:'Fanal',x:'Tylko za mgłą. Bez mgły nie jest najlepszym ROI dla tego briefu.'},
+  {t:'Areeiro niedostępne cały tydzień',x:'Brak substytutu tej samej klasy krajobrazowej. Priorytet: PR8 sunrise deck → Eira do Serrado + południowe viewpointy → zachodnie wybrzeże (Ponta do Pargo, Garganta Funda). Bez dokładania cardio i bez pełnego PR9.'},
+  {t:'Tryb „chory / zero energii"',x:'Zostań blisko bazy (promień do 45 min jazdy), łatwy parking, toaleta, łatwy powrót. Opcje: Madalena do Mar, seafront Ponta do Sol, kawa w Ribeira Brava. Zero tras z rezerwacją i sztywnymi godzinami.'},
+  {t:'Zachód mglisty 12–13.05',x:'D6 → same viewpointy + lunch, zero wody; D7 → Ponta da Ladeira + Garganta Funda + Ponta do Pargo bez zjazdu Achadas. Fallback: ucieczka na południe.'},
+  {t:'Okno lunchowe — twarda reguła',x:'Kuchnie poza Funchal zamykają się 15:00–18:30. Twarde okno: 13:00–14:30. Po 15:00 zakładaj Funchal lub bazę. Plan B: Pingo Doce / Continente.'}
+];
+
+const RIT=[
+  {id:'r1',l:'IFCN — status trasy na jutro.'},
+  {id:'r2',l:'SIMplifica — rezerwacja + QR, screen do galerii.'},
+  {id:'r3',l:'Pogoda — wiatr, chmura, widoczność (IPMA — chmury orograficzne).'},
+  {id:'r4',l:'Parking — dojazd, alternatywa, godzina startu.'},
+  {id:'r5',l:'Sprzęt — woda, kurtka wiatrowa, powerbank, gotówka.'},
+  {id:'r6',l:'Offline — screeny rezerwacji, mapa offline, adres bazy.'}
+];
+
+const EQ=[
+  ['Bezpieczeństwo sprzętu foto',[
+    'Motorówka PR8, Seixal, Porto Moniz, wietrzny PR8 — tylko w dry-bagu / zamykanym plecaku.',
+    'Salt-spray z Atlantyku trwale niszczy elektronikę i optykę.',
+    'Nic na skałach przy surge; żadnego statywu na odsłoniętej krawędzi przy silnym wietrze.',
+    'Pokrowiec przeciwdeszczowy na każdy dzień terenowy.'
+  ]],
+  ['Auto, drogi, ubezpieczenie',[
+    'Wykup CDW bez wkładu własnego — na Maderze to standard.',
+    'Żadnych dróg szutrowych — wypożyczalnia uzna to za złamanie umowy.',
+    'Polityka paliwowa: zwykle „full-to-full" — sprawdź w umowie.',
+    'Zdjęcia stanu auta przy odbiorze i zdaniu (cały obwód + wnętrze).',
+    'Tunele, serpentyny, wąskie drogi — tempo adekwatne do widoczności.',
+    'Mapy offline (Google Maps / Maps.me / OsmAnd) pobrane przed wyjazdem.',
+    'eSIM aktywowany zaraz po lądowaniu — zasięg w dolinach bywa zerowy.',
+    'Numer alarmowy 112 (UE-wspólny); apteczka w aucie.'
+  ]]
+];
+
+const CC=[
+  {i:'PR poza PR1',p:'4,50 EUR',n:'za osobę'},
+  {i:'PR1 conditioned do Pedra Rija',p:'4,50 EUR',n:'za osobę'},
+  {i:'Multi-day / daily (non-PR1)',p:'9 / 22,50 / 52,50 EUR',n:'SIMplifica best-price'},
+  {i:'Cabo Girão',p:'5,00 EUR',n:'> 12 lat; 08:00–20:00'},
+  {i:'Funchal Cable Car',p:'22 EUR RT / 16 EUR OW',n:'08:45–17:45'},
+  {i:'Carreiros do Monte',p:'35,00 EUR',n:'2 os.; gotówka; 09:00–18:00'},
+  {i:'Achadas da Cruz cable car',p:'3 / 5 EUR',n:'ida / ida-volta; reguła wiatru'},
+  {i:'Porto Moniz pools',p:'3,00 EUR',n:'> 3 lata; 09:00–19:00 letni'},
+  {i:'Monte Palace',p:'18,00 EUR',n:'dorosły; 09:00–19:00'},
+  {i:'Rocha do Navio cable car',p:'sprawdzić',n:'09:00–13:00 / 14:00–17:00'}
+];
+const CK=[
+  'Boat-return z PR8 (osobna usługa wodna; budżet osobny)',
+  'Rocha do Navio cable car — aktualna cena',
+  'Cristo Rei / Garajau — status CONDICIONADO',
+  'PR1 — reguła „dzień wcześniej vs dzień dnia" w SIMplifica'
+];
+
+const LK={
+  o:[
+    {n:'IFCN – percursos pedestres + FAQ',u:'https://ifcn.madeira.gov.pt/pt/atividades-de-natureza/percursos-pedestres-recomendados.html'},
+    {n:'IFCN – notice PR1 / phased reopening',u:'https://ifcn.madeira.gov.pt/pt/?catid=146&format=pdf&id=973%3Apr-1-unidirecional&tmpl=component&view=article'},
+    {n:'SIMplifica – hiking fees',u:'https://simplifica.madeira.gov.pt/services/78-82-259'},
+    {n:'Visit Madeira – PR1',u:'https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/'},
+    {n:'Visit Madeira – PR8',u:'https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-8-vereda-da-ponta-de-sao-lourenco/'},
+    {n:'Visit Madeira – PR11',u:'https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-11-vereda-dos-balcoes/'},
+    {n:'Visit Madeira – PR9',u:'https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/'},
+    {n:'Visit Madeira – PR9.1',u:'https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-91-levada-do-caldeirao-verde-um-caminho-para-todos/'},
+    {n:'Visit Madeira – Cabo Girão',u:'https://visitmadeira.com/pt/onde-ir/madeira/costa-sul/camara-de-lobos/cabo-girao/'},
+    {n:'Visit Madeira – Ninho da Manta',u:'https://visitmadeira.com/pt/onde-ir/madeira/costa-norte/santana/miradouro-do-ninho-da-manta/'},
+    {n:'Visit Madeira – Porto Moniz pools',u:'https://visitmadeira.com/en/where-to-go/madeira/north-coast/porto-moniz/natural-pools-of-porto-moniz/'},
+    {n:'Visit Madeira – Rocha do Navio',u:'https://visitmadeira.com/en/means-of-transportation/rocha-do-navio-cable-car/'},
+    {n:'Visit Madeira – Achadas da Cruz',u:'https://visitmadeira.com/en/means-of-transportation/achadas-da-cruz-cable-car/'},
+    {n:'Visit Madeira – Cristo Rei',u:'https://visitmadeira.com/pt/onde-ir/madeira/costa-este/santa-cruz/miradouro-do-cristo-rei/'},
+    {n:'Visit Madeira – Monte Palace',u:'https://visitmadeira.com/en/what-to-do/culture-passionates/gardens/monte-palace-madeira-garden/'},
+    {n:'Visit Madeira – Funchal cable car',u:'https://visitmadeira.com/en/means-of-transportation/funchal-cable-car/'},
+    {n:'Visit Madeira – Garajau cable car',u:'https://visitmadeira.com/en/means-of-transportation/garajau-cable-car/'},
+    {n:'Monte Palace operator',u:'https://montepalacemadeira.com/visita/'},
+    {n:'Madeira Cable Car operator',u:'https://madeiracablecar.com/en/price-and-schedule/'},
+    {n:'Carreiros do Monte operator',u:'https://www.carreirosdomonte.com/v3/en/index.php'},
+    {n:'Madeira Airport – car rental',u:'https://www.madeiraairport.pt/en/fnc/access-parking/for-your-full-comfort/car-rental'}
+  ],
+  p:[{n:'timeanddate – sunrise/sunset Funchal (May 2026)',u:'https://www.timeanddate.com/sun/portugal/funchal?month=5'}],
+  k:[
+    {n:'PR9 — status vs closure badge',u:'https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr-9-levada-do-caldeirao-verde/'},
+    {n:'PR1 — weekday pattern after phased reopening',u:'https://ifcn.madeira.gov.pt/pt/?catid=146&format=pdf&id=973%3Apr-1-unidirecional&tmpl=component&view=article'},
+    {n:'Cristo Rei / Garajau — niespójne źródła',u:'https://visitmadeira.com/pt/o-que-fazer/apaixonados-por-cultura/patrimonio/monumentos-e-arquitetura/estatua-do-cristo-rei-do-garajau/'},
+    {n:'Rocha do Navio — cena sprawdzić',u:'https://visitmadeira.com/en/means-of-transportation/rocha-do-navio-cable-car/'},
+    {n:'Achadas da Cruz — reguła wiatru',u:'https://www.portomoniz.pt/en/visit/points-interest/cable-car'},
+    {n:'Areeiro parking',u:'https://visitmadeira.com/pt/o-que-fazer/exploradores-da-natureza/atividades/caminhadas/pr1-vereda-do-areeiro/'},
+    {n:'SIMplifica — polityka last-minute',u:'https://simplifica.madeira.gov.pt/services/78-82-259'},
+    {n:'W6 1535/1536 — brak twardego źródła',u:'#'}
+  ]
+};
+
+/* ═══════════════════════════════════════════
+   STATE
+   ═══════════════════════════════════════════ */
+let cur=+(localStorage.getItem('m26d')||1);
+let cvar=localStorage.getItem('m26v')||'reko';
+let rit=JSON.parse(localStorage.getItem('m26r')||'{}');
+
+/* ═══════════════════════════════════════════
+   COUNTDOWN TIMER
+   ═══════════════════════════════════════════ */
+function buildCountdown(){
+  const dep=new Date('2026-05-07T11:40:00+02:00');
+  const now=new Date();
+  const diff=dep-now;
+  const totalDays=Math.max(0,Math.floor(diff/(1000*60*60*24)));
+  const hours=Math.max(0,Math.floor((diff%(1000*60*60*24))/(1000*60*60)));
+  const mins=Math.max(0,Math.floor((diff%(1000*60*60))/(1000*60)));
+  const secs=Math.max(0,Math.floor((diff%(1000*60))/1000));
+  document.getElementById('cdDays').innerHTML=totalDays+'<span class="cd-unit">dni</span>';
+  document.getElementById('cdDate').textContent='07 maja 2026 · WAW 11:40';
+  document.getElementById('cdBlocks').innerHTML=
+    '<div class="cd-block"><div class="cd-block-num">'+String(hours).padStart(2,'0')+'</div><div class="cd-block-unit">godz</div></div>'+
+    '<div class="cd-sep">:</div>'+
+    '<div class="cd-block"><div class="cd-block-num">'+String(mins).padStart(2,'0')+'</div><div class="cd-block-unit">min</div></div>'+
+    '<div class="cd-sep">:</div>'+
+    '<div class="cd-block"><div class="cd-block-num">'+String(secs).padStart(2,'0')+'</div><div class="cd-block-unit">sek</div></div>';
+}
+
+/* ═══════════════════════════════════════════
+   ELEVATION / INTENSITY PROFILE
+   ═══════════════════════════════════════════ */
+function buildElev(){
+  const wrap=document.getElementById('elevWrap');
+  const W=wrap.clientWidth||800;
+  const H=wrap.clientHeight||160;
+  const pad={l:30,r:30,t:20,b:30};
+  const iW=W-pad.l-pad.r;
+  const iH=H-pad.t-pad.b;
+  const vals=D.map(function(d){return(d.driveH+d.walkH)*(d.el/3)});
+  const maxV=Math.max.apply(null,vals)*1.1;
+  const pts=D.map(function(d,i){
+    return{x:pad.l+i*(iW/7),y:pad.t+iH-(vals[i]/maxV)*iH,d:d};
+  });
+  function catmullRom(pts){
+    if(pts.length<2) return '';
+    var path='M'+pts[0].x+','+pts[0].y;
+    for(var i=0;i<pts.length-1;i++){
+      var p0=pts[Math.max(0,i-1)],p1=pts[i],p2=pts[Math.min(pts.length-1,i+1)],p3=pts[Math.min(pts.length-1,i+2)];
+      path+=' C'+(p1.x+(p2.x-p0.x)/6)+','+(p1.y+(p2.y-p0.y)/6)+' '+(p2.x-(p3.x-p1.x)/6)+','+(p2.y-(p3.y-p1.y)/6)+' '+p2.x+','+p2.y;
+    }
+    return path;
+  }
+  var linePath=catmullRom(pts);
+  var areaPath=linePath+' L'+pts[pts.length-1].x+','+(pad.t+iH)+' L'+pts[0].x+','+(pad.t+iH)+' Z';
+  var gridHTML='';
+  for(var i=0;i<4;i++){gridHTML+='<line x1="'+pad.l+'" y1="'+(pad.t+i*(iH/3))+'" x2="'+(W-pad.r)+'" y2="'+(pad.t+i*(iH/3))+'"/>';}
+  var labelsHTML='',dotsHTML='';
+  pts.forEach(function(p,i){
+    var isActive=D[i].n===cur;
+    labelsHTML+='<text x="'+p.x+'" y="'+(H-6)+'" class="'+(isActive?'elev-active-label':'')+'">D'+D[i].n+'</text>';
+    dotsHTML+='<circle cx="'+p.x+'" cy="'+p.y+'" r="'+(isActive?6:2.5)+'" fill="'+(isActive?'var(--terra)':'var(--ink5)')+'" style="cursor:pointer;transition:all .3s" data-d="'+D[i].n+'"/>';
+  });
+  var ap=pts[cur-1];
+  wrap.innerHTML='<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="none">'+
+    '<g class="elev-grid">'+gridHTML+'</g>'+
+    '<path class="elev-area" d="'+areaPath+'"/>'+
+    '<path class="elev-line" d="'+linePath+'"/>'+
+    dotsHTML+
+    '<circle class="elev-dot" cx="'+ap.x+'" cy="'+ap.y+'" r="8" fill="none" stroke="var(--terra)" stroke-width="2" opacity=".4">'+
+    '<animate attributeName="r" values="6;12;6" dur="2.5s" repeatCount="indefinite"/>'+
+    '<animate attributeName="opacity" values=".5;.15;.5" dur="2.5s" repeatCount="indefinite"/>'+
+    '</circle>'+
+    '<g class="elev-label-g">'+labelsHTML+'</g></svg>';
+  wrap.querySelectorAll('circle[data-d]').forEach(function(c){c.addEventListener('click',function(){go(+c.dataset.d)})});
+}
+
+/* ═══════════════════════════════════════════
+   RADAR CHART (per-day)
+   ═══════════════════════════════════════════ */
+function radarHTML(d){
+  var cx=110,cy=110,maxR=80;
+  var dims=[{label:'Wysiłek',val:d.el/5},{label:'Jazda',val:d.driveH/3.5},{label:'Chodzenie',val:d.walkH/4},{label:'Czas dnia',val:Math.min((d.driveH+d.walkH)/6,1)},{label:'Logistyka',val:d.route.length/7}];
+  var n=dims.length,step=Math.PI*2/n;
+  var rings='';
+  [.25,.5,.75,1].forEach(function(s){
+    var pts=[];
+    for(var i=0;i<n;i++){var a=-Math.PI/2+i*step;pts.push((cx+Math.cos(a)*maxR*s)+','+(cy+Math.sin(a)*maxR*s));}
+    rings+='<polygon class="radar-ring" points="'+pts.join(' ')+'"/>';
+  });
+  var axes='',dataPts=[],dots='',labels='';
+  for(var i=0;i<n;i++){
+    var a=-Math.PI/2+i*step;
+    axes+='<line class="radar-axis" x1="'+cx+'" y1="'+cy+'" x2="'+(cx+Math.cos(a)*maxR)+'" y2="'+(cy+Math.sin(a)*maxR)+'"/>';
+    var r=maxR*Math.max(dims[i].val,.08),x=cx+Math.cos(a)*r,y=cy+Math.sin(a)*r;
+    dataPts.push(x+','+y);
+    dots+='<circle class="radar-dot" cx="'+x+'" cy="'+y+'"/>';
+    var lx=cx+Math.cos(a)*(maxR+16),ly=cy+Math.sin(a)*(maxR+16);
+    labels+='<text class="radar-label" x="'+lx+'" y="'+ly+'" dominant-baseline="central">'+dims[i].label+'</text>';
+  }
+  return '<div class="radar-wrap"><svg viewBox="0 0 220 220">'+rings+axes+'<polygon class="radar-area" points="'+dataPts.join(' ')+'"/>'+dots+labels+'</svg></div>';
+}
+
+/* ═══════════════════════════════════════════
+   OVERVIEW CHART
+   ═══════════════════════════════════════════ */
+function buildChart(){
+  const el=document.getElementById('ovChart');
+  const maxH=Math.max(...D.map(d=>d.driveH+d.walkH));
+  el.innerHTML=D.map(d=>{
+    const dH=(d.driveH/maxH*160);
+    const wH=(d.walkH/maxH*160);
+    return`<div class="ov-col${d.n===cur?' active':''}" data-d="${d.n}">
+      <div class="ov-tooltip">${d.drive} jazdy · ${d.walk} chodzenia</div>
+      <div class="ov-bar-wrap">
+        <div class="ov-bar walk" style="height:${wH}px"></div>
+        <div class="ov-bar drive" style="height:${dH}px"></div>
+      </div>
+      <div class="ov-day">D${d.n}</div>
+      <div class="ov-effort">${d.eff}</div>
+    </div>`;
+  }).join('');
+  el.querySelectorAll('.ov-col').forEach(c=>c.addEventListener('click',()=>go(+c.dataset.d)));
+}
+
+/* ═══════════════════════════════════════════
+   EFFORT GAUGE SVG
+   ═══════════════════════════════════════════ */
+function gaugeHTML(level,label){
+  const r=20,circ=2*Math.PI*r;
+  const pct=level/5;
+  const offset=circ*(1-pct);
+  return`<div class="effort-gauge">
+    <div class="gauge-ring">
+      <svg viewBox="0 0 52 52"><circle class="gauge-bg" cx="26" cy="26" r="${r}"/><circle class="gauge-fill" cx="26" cy="26" r="${r}" stroke-dasharray="${circ}" stroke-dashoffset="${offset}"/></svg>
+      <div class="gauge-label">${level}/5</div>
+    </div>
+    <div class="gauge-text">${label}</div>
+  </div>`;
+}
+
+/* ═══════════════════════════════════════════
+   DAY CARD RENDER
+   ═══════════════════════════════════════════ */
+function renderDay(d){
+  const box=document.getElementById('dayBox');
+  const routeH=d.route.map(s=>`<span class="route-stop">${s}</span>`).join('<span class="route-conn"><span></span></span>');
+
+  // stat bar widths (relative)
+  const maxDrive=3.5,maxWalk=4;
+  const dPct=Math.min(d.driveH/maxDrive*100,100);
+  const wPct=Math.min(d.walkH/maxWalk*100,100);
+
+  const secs=[
+    {t:'Cel i logika dnia',c:`<p><strong>Cel:</strong> ${d.cel}</p><p><strong>Dlaczego ten układ ma sens:</strong> ${d.rat}</p><p><strong>Werdykt:</strong> ${d.vrd}</p>`,o:1},
+    {t:'Trasa i kolejność',c:`<div class="route"><div class="route-title">Kolejność</div><div class="route-flow">${routeH}</div></div>
+      <div class="day-stats">
+        <div class="stat"><div class="stat-label">Wyjazd</div><div class="stat-val">${d.dep}</div></div>
+        <div class="stat"><div class="stat-label">Czas całego dnia</div><div class="stat-val">${d.time}</div></div>
+        <div class="stat"><div class="stat-label">Jazda autem</div><div class="stat-val">${d.drive}</div><div class="stat-bar" style="width:${dPct}%"></div></div>
+        <div class="stat"><div class="stat-label">Chodzenie</div><div class="stat-val">${d.walk}</div><div class="stat-bar" style="width:${wPct}%"></div></div>
+        <div class="stat"><div class="stat-label">Najlepsze światło</div><div class="stat-val">${d.light}</div></div>
+      </div>`,o:1},
+    {t:'Rezerwacje i weryfikacja',c:`<p><strong>Rezerwować wcześniej:</strong> ${d.book}</p><p><strong>Sprawdzić wcześniej:</strong> ${d.chk}</p>`},
+    {t:'Parking i dojście',c:`<p><strong>Parking:</strong> ${d.park}</p><p><strong>Dojście:</strong> ${d.wp}</p>`},
+    {t:'Jedzenie i infrastruktura',c:`<p><strong>Jedzenie / kawa:</strong> ${d.food}</p><p><strong>Toalety / infrastruktura:</strong> ${d.wc}</p>`},
+    {t:'Worth it / Skip if tired',c:`<div class="tags"><span class="tag tag-go">Worth it</span></div><p>${d.go}</p><div class="tags"><span class="tag tag-no">Skip if tired</span></div><p>${d.skip}</p>`},
+    {t:'Ryzyka i ostrzeżenia',c:`<div class="tags"><span class="tag tag-risk">Ryzyka</span></div><p>${d.risk}</p>${d.eqw?`<div class="tags"><span class="tag tag-warn">Ostrzeżenie sprzętowe</span></div><p>${d.eqw}</p>`:''}`},
+    {t:'Plan B · Plan C · Energia',c:`<p><strong>Plan B:</strong> ${d.pb}</p><p><strong>Plan C:</strong> ${d.pc}</p><p><strong>Dobre przy niskiej energii:</strong> ${d.low}</p><p><strong>Sensowne przy przylocie / wylocie:</strong> ${d.ad}</p>`},
+    {t:'Alternatywy',c:`<div class="alts">${d.alt.map(a=>`<div class="alt"><div class="alt-label">${a.l}</div><p>${a.x}</p></div>`).join('')}</div>`}
+  ];
+
+  box.innerHTML=`<article class="day">
+    <div class="day-hero">
+      <div class="day-num">${String(d.n).padStart(2,'0')}</div>
+      <div class="day-info">
+        <div class="day-date">${d.dt}.2026 · ${d.wd}</div>
+        <h2 class="day-h2">${d.t}</h2>
+        <div class="day-status-row">
+          <span class="day-badge" data-s="${d.st}">${d.st}</span>
+        </div>
+        ${gaugeHTML(d.el,d.eff)}
+        ${radarHTML(d)}
+      </div>
+    </div>
+    ${secs.map(s=>`<div class="sec${s.o?' open':''}">
+      <button class="sec-head" aria-expanded="${s.o?'true':'false'}">
+        <span>${s.t}</span><span class="sec-icon"></span>
+      </button>
+      <div class="sec-body">${s.c}</div>
+    </div>`).join('')}
+  </article>`;
+
+  // Animate stat bars
+  setTimeout(()=>{
+    box.querySelectorAll('.stat-bar').forEach(b=>{
+      const w=b.style.width;b.style.width='0';
+      requestAnimationFrame(()=>{b.style.width=w});
+    });
+  },100);
+
+  // Bind toggles
+  box.querySelectorAll('.sec-head').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const s=btn.parentElement;
+      const open=s.classList.toggle('open');
+      btn.setAttribute('aria-expanded',open);
+    });
+  });
+}
+
+function go(n){
+  cur=n;localStorage.setItem('m26d',n);
+  renderDay(D[n-1]);
+  buildChart();
+  buildElev();
+  document.querySelectorAll('.pip[data-d]').forEach(p=>p.classList.toggle('on',+p.dataset.d===n));
+  document.getElementById('dayBox').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function setVar(v){
+  cvar=v;localStorage.setItem('m26v',v);
+  document.querySelectorAll('.var-tab').forEach(b=>{
+    const on=b.dataset.v===v;
+    b.classList.toggle('on',on);b.setAttribute('aria-selected',on);
+  });
+  document.getElementById('vDesc').textContent=VAR[v].d;
+}
+
+/* SHEETS */
+function openSh(id){
+  document.getElementById('mask').classList.add('show');
+  document.getElementById('s-'+id).classList.add('show');
+  document.body.style.overflow='hidden';
+}
+function closeSh(){
+  document.getElementById('mask').classList.remove('show');
+  document.querySelectorAll('.sheet').forEach(s=>s.classList.remove('show'));
+  document.body.style.overflow='';
+}
+
+function buildWx(){
+  document.getElementById('wxBox').innerHTML=WX.map(w=>`<div class="wx"><div class="wx-t">${w.t}</div><p>${w.x}</p></div>`).join('');
+}
+function buildRit(){
+  const el=document.getElementById('ckList');
+  el.innerHTML=RIT.map((r,i)=>{
+    const done=rit[r.id]||false;
+    return`<li class="ck-item${done?' done':''}" data-id="${r.id}" tabindex="0" role="checkbox" aria-checked="${done}">
+      <span class="ck-n">${i+1}.</span>
+      <span class="ck-box">${done?'✓':''}</span>
+      <span class="ck-label">${r.l}</span>
+    </li>`;
+  }).join('');
+  el.querySelectorAll('.ck-item').forEach(li=>{
+    const toggle=()=>{const id=li.dataset.id;rit[id]=!rit[id];localStorage.setItem('m26r',JSON.stringify(rit));li.classList.toggle('done');li.querySelector('.ck-box').textContent=rit[id]?'✓':'';li.setAttribute('aria-checked',rit[id])};
+    li.addEventListener('click',toggle);
+    li.addEventListener('keydown',e=>{if(e.key===' '||e.key==='Enter'){e.preventDefault();toggle()}});
+  });
+}
+function buildEq(){
+  document.getElementById('eqBox').innerHTML=EQ.map(([title,items])=>`<h3 style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin:20px 0 10px">${title}</h3>${items.map(t=>`<div class="eq">${t}</div>`).join('')}`).join('');
+}
+function buildCo(){
+  let h='<h3 style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink4);margin-bottom:10px">Koszty potwierdzone</h3>';
+  h+='<table class="ct"><thead><tr><th>Element</th><th>Cena</th><th>Uwagi</th></tr></thead><tbody>';
+  CC.forEach(c=>{h+=`<tr><td>${c.i}</td><td class="cp">${c.p}</td><td>${c.n}</td></tr>`});
+  h+='</tbody></table>';
+  h+='<h3 style="font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--terra);margin:24px 0 10px">Do sprawdzenia <span class="cw">sprawdzić</span></h3>';
+  h+='<ul style="list-style:none">';
+  CK.forEach(c=>{h+=`<li style="padding:8px 0;border-bottom:1px solid var(--rule);font-size:12px;color:var(--ink2)">${c}</li>`});
+  h+='</ul>';
+  document.getElementById('coBox').innerHTML=h;
+}
+function buildLk(){
+  const cats=[{k:'o',t:'Oficjalne'},{k:'p',t:'Pomocnicze'},{k:'k',t:'Do ponownej kontroli'}];
+  document.getElementById('lkBox').innerHTML=cats.map(c=>`<div class="lc"><div class="lc-h">${c.t}</div>${LK[c.k].map(l=>`<a class="li" href="${l.u}" target="_blank" rel="noopener">${l.n}<span class="li-u">${l.u}</span></a>`).join('')}</div>`).join('');
+}
+
+/* INIT */
+function init(){
+  buildCountdown();
+  setInterval(buildCountdown,1000);
+  buildElev();
+  buildChart();
+  renderDay(D[cur-1]);
+  setVar(cvar);
+  buildWx();buildRit();buildEq();buildCo();buildLk();
+
+  var resizeTimer;
+  window.addEventListener('resize',function(){clearTimeout(resizeTimer);resizeTimer=setTimeout(buildElev,200)});
+
+  document.querySelectorAll('.pip[data-d]').forEach(b=>b.addEventListener('click',()=>go(+b.dataset.d)));
+  document.querySelectorAll('.pip[data-sh]').forEach(b=>b.addEventListener('click',()=>openSh(b.dataset.sh)));
+  document.querySelectorAll('.var-tab').forEach(b=>b.addEventListener('click',()=>setVar(b.dataset.v)));
+  document.getElementById('mask').addEventListener('click',closeSh);
+  document.querySelectorAll('.sh-x').forEach(b=>b.addEventListener('click',closeSh));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeSh()});
+}
+document.addEventListener('DOMContentLoaded',init);
+</script>
+</body>
+</html>
