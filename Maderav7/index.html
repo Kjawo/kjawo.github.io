@@ -60,19 +60,19 @@
   --maxw: 1440px;
   --accent:var(--sunrise-500);
   --accent-soft:rgba(230,106,60,.16);
-  --hero-image:url("assets/hero/hero-pr8-ponta-sao-lourenco.jpg");
+  --hero-image:url("assets/hero/hero-areeiro-cloud-inversion.jpg");
 }
 [data-scene="ridge"]{--accent:var(--ember-500);--accent-soft:rgba(230,106,60,.18)}
 [data-scene="forest"]{--accent:var(--laurel-600);--accent-soft:rgba(46,106,69,.18)}
 [data-scene="ocean"]{--accent:var(--ocean-600);--accent-soft:rgba(13,109,131,.18)}
 [data-scene="west"]{--accent:var(--zloto-500);--accent-soft:rgba(217,163,65,.18)}
-[data-scene="base"]{--accent:var(--bazalt-500);--accent-soft:rgba(90,104,116,.14)}
+[data-scene="base"]{--accent:var(--ocean-700);--accent-soft:rgba(13,68,94,.14)}
 *{box-sizing:border-box}
 html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body{
   background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(230,106,60,.07), transparent 60%),
-    radial-gradient(900px 500px at 10% 110%, rgba(23,68,94,.06), transparent 60%),
+    radial-gradient(1200px 600px at 80% -10%, rgba(230,106,60,.11), transparent 60%),
+    radial-gradient(900px 500px at 10% 110%, rgba(23,68,94,.11), transparent 60%),
     var(--paper);
 }
 a{color:inherit}
@@ -115,8 +115,7 @@ button{font:inherit;color:inherit}
   position:relative;overflow:hidden;color:#fff;
   min-height:min(700px, calc(100svh - 110px));padding:34px 24px 30px;
   background:
-    linear-gradient(90deg, rgba(7,11,13,.92), rgba(7,11,13,.72) 44%, rgba(7,11,13,.38)),
-    linear-gradient(0deg, rgba(7,11,13,.72), rgba(7,11,13,.08) 36%, rgba(7,11,13,.42)),
+    linear-gradient(0deg, rgba(7,11,13,.88) 0%, rgba(7,11,13,.55) 28%, rgba(7,11,13,.18) 55%, transparent 75%),
     var(--hero-image) center/cover no-repeat;
 }
 .hero::after{content:"";position:absolute;inset:auto 0 0;height:42px;background:linear-gradient(180deg, transparent, var(--paper));pointer-events:none}
@@ -129,7 +128,8 @@ button{font:inherit;color:inherit}
 .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--zloto-300)}
 .title{
   font-family:var(--serif);font-weight:500;font-size:clamp(34px,5vw,70px);
-  line-height:.96;letter-spacing:0;margin:10px 0 6px;text-shadow:0 3px 18px rgba(0,0,0,.35);
+  line-height:.92;letter-spacing:-.015em;margin:10px 0 6px;text-shadow:0 3px 18px rgba(0,0,0,.35);
+  font-variation-settings:"opsz" 144;
 }
 .title em{font-style:italic;color:#fff;font-weight:400}
 .subtitle{
@@ -163,9 +163,10 @@ button{font:inherit;color:inherit}
 .metric .l{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.64);margin-top:4px}
 .bento{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;min-width:0}
 .bento-card{
-  min-height:104px;border:1px solid rgba(255,255,255,.16);border-left:3px solid var(--accent);
+  min-height:104px;border:1px solid rgba(255,255,255,.16);border-top:1px solid rgba(255,255,255,.18);
   background:rgba(255,255,255,.08);border-radius:6px;padding:12px;display:flex;flex-direction:column;gap:6px;min-width:0;overflow-wrap:anywhere;
 }
+.bento-card.is-primary{border-left:3px solid var(--accent)}
 .bento-card .bh{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--zloto-300)}
 .bento-card .bv{font-family:var(--serif);font-size:20px;line-height:1.1}
 .bento-card .bt{font-size:12px;color:rgba(255,255,255,.74);margin-top:auto}
@@ -201,27 +202,13 @@ button:focus-visible,
   box-shadow:0 0 0 5px rgba(217,163,65,.2);
 }
 
-/* ---------- HERO IMAGE STRIP ---------- */
-.strip{
-  max-width:var(--maxw);margin:18px auto 0;padding:0 24px;
-  display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;height:clamp(220px,32vw,360px);
-}
-.strip figure{margin:0;overflow:hidden;position:relative;border-radius:3px;background:var(--paper-2)}
-.strip figure{aspect-ratio:16/9}
-.strip img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.02)}
-.strip figcaption{
-  position:absolute;left:10px;bottom:8px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;
-  text-transform:uppercase;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.6);
-}
-@media(max-width:760px){.strip{grid-template-columns:1fr 1fr;height:auto}.strip figure{height:180px}.strip figure:first-child{grid-column:1/-1;height:220px}}
-
 /* ---------- SECTION SHELL ---------- */
 section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relative;scroll-margin-top:72px}
 #overview{margin-top:-24px;z-index:2}
 @media(max-width:760px){section.sec{margin:32px auto}}
 .sechead{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--rule-strong);padding-bottom:12px;margin-bottom:22px}
-.sechead .num{font-family:var(--mono);font-size:12px;color:var(--sunrise-600);letter-spacing:.2em}
-.sechead h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.5vw,42px);margin:0;letter-spacing:-.01em}
+.sechead .num{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.2em}
+.sechead h2{font-family:var(--serif);font-weight:500;font-size:clamp(26px,3.5vw,42px);margin:0;letter-spacing:-.01em;font-variation-settings:"opsz" 96}
 .sechead .note{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--bazalt-500);letter-spacing:.06em}
 
 /* ---------- OVERVIEW TIMELINE ---------- */
@@ -232,7 +219,7 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 @media(max-width:560px){.overview{grid-template-columns:repeat(2,1fr)}}
 .daytile{
   position:relative;background:#fff;border:1px solid var(--rule);padding:14px;border-radius:3px;
-  display:flex;flex-direction:column;gap:6px;min-height:200px;cursor:pointer;
+  display:flex;flex-direction:column;gap:6px;min-height:240px;cursor:pointer;
   transition:transform .15s, box-shadow .15s, border-color .15s;
   overflow:hidden;
 }
@@ -241,8 +228,8 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .daytile[data-mode-score="boosted"]{border-color:color-mix(in srgb, var(--accent), #fff 35%);box-shadow:0 14px 32px -24px var(--accent)}
 .daytile[data-mode-score="muted"]{opacity:.58;filter:saturate(.75)}
 .daytile[data-path-active="true"]::after{content:"ścieżka";position:absolute;left:8px;top:8px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--accent);padding:3px 6px;border-radius:2px}
-.daytile-photo{height:82px;margin:-14px -14px 8px;overflow:hidden;background:var(--paper-2);border-bottom:1px solid var(--rule)}
-.daytile-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.04)}
+.daytile-photo{height:120px;margin:-14px -14px 8px;overflow:hidden;background:var(--paper-2);border-bottom:1px solid var(--rule)}
+.daytile-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.06) contrast(1.02)}
 .daytile .dnum{font-family:var(--serif);font-size:28px;line-height:1;font-weight:500}
 .daytile .ddate{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--bazalt-500);text-transform:uppercase}
 .daytile .dtitle{font-size:13px;font-weight:600;margin-top:2px}
@@ -275,7 +262,7 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .daycard summary{list-style:none;cursor:pointer;padding:16px 20px;display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center}
 .daycard summary::-webkit-details-marker{display:none}
 .daycard .dc-num{font-family:var(--serif);font-size:46px;line-height:1;font-weight:500;color:var(--bazalt-300);width:64px}
-.daycard .dc-hd h3{margin:0;font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:-.01em}
+.daycard .dc-hd h3{margin:0;font-family:var(--serif);font-size:22px;font-weight:500;letter-spacing:-.01em;font-variation-settings:"opsz" 36}
 .daycard .dc-hd .sub{font-family:var(--mono);font-size:11px;color:var(--bazalt-500);letter-spacing:.08em;margin-top:2px}
 .daycard .dc-tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end}
 .daycard .dc-caret{font-family:var(--mono);font-size:18px;color:var(--bazalt-400);transition:transform .2s}
@@ -317,10 +304,10 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .alt .h{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--bazalt-500);margin-bottom:4px}
 .alt .t{font-size:13px;color:var(--bazalt-800)}
 
-.photo-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:8px;margin:16px 0 20px}
+.photo-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:8px;margin:16px 0 20px}
 .photo-card{margin:0;position:relative;overflow:hidden;border-radius:3px;background:var(--paper-2);min-height:190px;border:1px solid var(--rule)}
-.photo-card:first-child{grid-column:span 2;min-height:260px}
-.photo-card img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.04)}
+.photo-card:first-child{grid-column:span 2;min-height:320px}
+.photo-card img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.06) contrast(1.02)}
 .photo-card figcaption{
   position:absolute;left:0;right:0;bottom:0;
   padding:28px 10px 9px;
@@ -360,9 +347,11 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 
 /* decision matrix */
 .matrix{
-  margin-top:22px;background:var(--bazalt-950);color:var(--mgla-100);border-radius:4px;padding:22px;position:relative;overflow:hidden;
+  margin-top:22px;background:var(--bazalt-950);color:var(--mgla-100);border-radius:0;padding:28px 0;position:relative;overflow:hidden;
+  width:100vw;margin-left:calc(50% - 50vw);
 }
-.matrix h3{font-family:var(--serif);font-size:22px;font-weight:500;margin:0 0 4px;color:#fff}
+.matrix-inner{max-width:var(--maxw);margin-inline:auto;padding-inline:24px}
+.matrix h3{font-family:var(--serif);font-size:22px;font-weight:500;margin:0 0 4px;color:#fff;font-variation-settings:"opsz" 72}
 .matrix .mlbl{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sunrise-400)}
 .decision-engine{display:grid;grid-template-columns:minmax(260px,.75fr) 1fr;gap:14px;margin-top:16px;align-items:stretch}
 .decision-controls{display:grid;gap:10px}
@@ -585,7 +574,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
   margin-top:22px;background:linear-gradient(180deg, var(--bazalt-950) 0%, #152029 100%);color:#fff;padding:24px;border-radius:3px;
 }
 .resilience h3{font-family:var(--serif);font-weight:500;font-size:24px;margin:0 0 8px}
-.resilience p{color:var(--mgla-100);max-width:80ch;margin:4px 0;font-size:14px}
+.resilience p{color:var(--mgla-100);max-width:68ch;margin:4px 0;font-size:14px}
 .resilience ul{color:var(--mgla-100);font-size:13px;padding-left:18px}
 
 @media (prefers-reduced-motion: reduce){
@@ -605,7 +594,6 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
   details{border:1px solid #999 !important}
   .chartcard,.cl,.gate,.bkp,.costcol,.tier,.statusbox,.variantbox{border-color:#999}
   .mapwrap iframe{display:none}
-  .strip{display:none}
   .printstamp{display:block;position:fixed;left:6mm;right:6mm;bottom:4mm;border-top:1px solid #999;padding-top:2mm;font-family:var(--mono);font-size:8pt;color:#000}
   a{color:#000;text-decoration:none}
   .hero{padding-top:6mm}
@@ -680,7 +668,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
             </div>
           </div>
         </div>
-        <div class="bento-card" id="heroDecisionCard">
+        <div class="bento-card is-primary" id="heroDecisionCard">
           <div class="bh">Następna decyzja</div>
           <div class="bv" id="heroDecision">PR1 / PR8</div>
           <div class="bt" id="heroDecisionText">Status T-1 przed zakupem i startem.</div>
@@ -837,66 +825,68 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 
   <!-- PR1/PR8 decision matrix -->
   <div class="matrix" id="matrix">
-    <div class="mlbl">Macierz PR1 / PR8</div>
-    <h3>Trzy ścieżki D2–D4 w zależności od piątkowego PR1</h3>
-    <div class="decision-engine" aria-label="Interaktywny silnik decyzji PR1 i PR8">
-      <div class="decision-controls">
-        <div class="decision-group">
-          <div class="dg-label">PR1 · Areeiro</div>
-          <div class="segmented" role="group" aria-label="Status PR1">
-            <button class="decision-btn" type="button" data-decision="pr1" data-value="unknown" aria-pressed="true">Unknown</button>
-            <button class="decision-btn" type="button" data-decision="pr1" data-value="go" aria-pressed="false">GO</button>
-            <button class="decision-btn" type="button" data-decision="pr1" data-value="no" aria-pressed="false">NO-GO</button>
+    <div class="matrix-inner">
+      <div class="mlbl">Macierz PR1 / PR8</div>
+      <h3>Trzy ścieżki D2–D4 w zależności od piątkowego PR1</h3>
+      <div class="decision-engine" aria-label="Interaktywny silnik decyzji PR1 i PR8">
+        <div class="decision-controls">
+          <div class="decision-group">
+            <div class="dg-label">PR1 · Areeiro</div>
+            <div class="segmented" role="group" aria-label="Status PR1">
+              <button class="decision-btn" type="button" data-decision="pr1" data-value="unknown" aria-pressed="true">Unknown</button>
+              <button class="decision-btn" type="button" data-decision="pr1" data-value="go" aria-pressed="false">GO</button>
+              <button class="decision-btn" type="button" data-decision="pr1" data-value="no" aria-pressed="false">NO-GO</button>
+            </div>
+          </div>
+          <div class="decision-group pr1-gates" aria-label="Bramki PR1 przed decyzją GO">
+            <div class="dg-label">Bramki PR1 · przed GO</div>
+            <label class="gate-check"><input type="checkbox" data-pr1-gate="official"/><span>IFCN/SIMplifica pokazuje dostępny odcinek.</span></label>
+            <label class="gate-check"><input type="checkbox" data-pr1-gate="qr"/><span>QR i rezerwacja są zapisane offline.</span></label>
+            <label class="gate-check"><input type="checkbox" data-pr1-gate="warnings"/><span>Brak ostrzeżeń pogodowych i terenowych.</span></label>
+            <label class="gate-check"><input type="checkbox" data-pr1-gate="visibility"/><span>Widoczność realna, nie tylko optymistyczna prognoza.</span></label>
+            <label class="gate-check"><input type="checkbox" data-pr1-gate="sleep"/><span>Obie osoby mają minimum 7 h snu.</span></label>
+            <div class="gate-status" id="pr1GateStatus" aria-live="polite">0 / 5 bramek</div>
+          </div>
+          <div class="decision-group">
+            <div class="dg-label">PR8 · Ponta de Sao Lourenco</div>
+            <div class="segmented" role="group" aria-label="Status PR8">
+              <button class="decision-btn" type="button" data-decision="pr8" data-value="unknown" aria-pressed="true">Unknown</button>
+              <button class="decision-btn" type="button" data-decision="pr8" data-value="go" aria-pressed="false">GO</button>
+              <button class="decision-btn" type="button" data-decision="pr8" data-value="no" aria-pressed="false">NO-GO</button>
+            </div>
           </div>
         </div>
-        <div class="decision-group pr1-gates" aria-label="Bramki PR1 przed decyzją GO">
-          <div class="dg-label">Bramki PR1 · przed GO</div>
-          <label class="gate-check"><input type="checkbox" data-pr1-gate="official"/><span>IFCN/SIMplifica pokazuje dostępny odcinek.</span></label>
-          <label class="gate-check"><input type="checkbox" data-pr1-gate="qr"/><span>QR i rezerwacja są zapisane offline.</span></label>
-          <label class="gate-check"><input type="checkbox" data-pr1-gate="warnings"/><span>Brak ostrzeżeń pogodowych i terenowych.</span></label>
-          <label class="gate-check"><input type="checkbox" data-pr1-gate="visibility"/><span>Widoczność realna, nie tylko optymistyczna prognoza.</span></label>
-          <label class="gate-check"><input type="checkbox" data-pr1-gate="sleep"/><span>Obie osoby mają minimum 7 h snu.</span></label>
-          <div class="gate-status" id="pr1GateStatus" aria-live="polite">0 / 5 bramek</div>
-        </div>
-        <div class="decision-group">
-          <div class="dg-label">PR8 · Ponta de Sao Lourenco</div>
-          <div class="segmented" role="group" aria-label="Status PR8">
-            <button class="decision-btn" type="button" data-decision="pr8" data-value="unknown" aria-pressed="true">Unknown</button>
-            <button class="decision-btn" type="button" data-decision="pr8" data-value="go" aria-pressed="false">GO</button>
-            <button class="decision-btn" type="button" data-decision="pr8" data-value="no" aria-pressed="false">NO-GO</button>
-          </div>
+        <div class="decision-rec" id="decisionRec" aria-live="polite">
+          <div class="rh">Rekomendacja</div>
+          <div class="rv">Sprawdź status T-1</div>
+          <div class="rt">Unknown zostaje neutralny: bez obietnicy PR1/PR8, dopóki IFCN, SIMplifica, pogoda i sen nie przejdą bramek.</div>
         </div>
       </div>
-      <div class="decision-rec" id="decisionRec" aria-live="polite">
-        <div class="rh">Rekomendacja</div>
-        <div class="rv">Sprawdź status T-1</div>
-        <div class="rt">Unknown zostaje neutralny: bez obietnicy PR1/PR8, dopóki IFCN, SIMplifica, pogoda i sen nie przejdą bramek.</div>
-      </div>
-    </div>
-    <div class="matrixgrid">
-      <div class="mcell" data-path="path-pr1-go">
-        <div class="cond"><span class="ok">PR1 GO</span></div>
-        <ol>
-          <li><b>D2</b> · PR1 (Areeiro + Pedra Rija, jeśli dostępna)</li>
-          <li><b>D3</b> · PR8 wschód</li>
-          <li><b>D4</b> · recovery · południe</li>
-        </ol>
-      </div>
-      <div class="mcell" data-path="path-pr8-go">
-        <div class="cond"><span class="no">PR1 NO-GO</span><span class="ok">PR8 GO</span></div>
-        <ol>
-          <li><b>D2</b> · PR8 bez dociskania</li>
-          <li><b>D3</b> · recovery · południe</li>
-          <li><b>D4</b> · retry PR1, jeśli GO</li>
-        </ol>
-      </div>
-      <div class="mcell" data-path="path-both-no">
-        <div class="cond"><span class="no">PR1 NO-GO</span><span class="no">PR8 NO-GO</span></div>
-        <ol>
-          <li><b>D2</b> · południe / Funchal</li>
-          <li><b>D3</b> · Machico / viewpointy</li>
-          <li><b>D4</b> · retry PR1 tylko przy GO</li>
-        </ol>
+      <div class="matrixgrid">
+        <div class="mcell" data-path="path-pr1-go">
+          <div class="cond"><span class="ok">PR1 GO</span></div>
+          <ol>
+            <li><b>D2</b> · PR1 (Areeiro + Pedra Rija, jeśli dostępna)</li>
+            <li><b>D3</b> · PR8 wschód</li>
+            <li><b>D4</b> · recovery · południe</li>
+          </ol>
+        </div>
+        <div class="mcell" data-path="path-pr8-go">
+          <div class="cond"><span class="no">PR1 NO-GO</span><span class="ok">PR8 GO</span></div>
+          <ol>
+            <li><b>D2</b> · PR8 bez dociskania</li>
+            <li><b>D3</b> · recovery · południe</li>
+            <li><b>D4</b> · retry PR1, jeśli GO</li>
+          </ol>
+        </div>
+        <div class="mcell" data-path="path-both-no">
+          <div class="cond"><span class="no">PR1 NO-GO</span><span class="no">PR8 NO-GO</span></div>
+          <ol>
+            <li><b>D2</b> · południe / Funchal</li>
+            <li><b>D3</b> · Machico / viewpointy</li>
+            <li><b>D4</b> · retry PR1 tylko przy GO</li>
+          </ol>
+        </div>
       </div>
     </div>
   </div>
@@ -1368,9 +1358,9 @@ const DAYS = [
       {h:"Warunkowo",t:"Cristo Rei / Garajau tylko jeśli śpisz bliżej Funchal/Caniço; nie dotyczy bazy RB–PdS. CONDICIONADO."}
     ],
     photos:[
-      {file:"Madeira - Funchal - Airport Viewed From Machico (11887124906).jpg", label:"Lotnisko FNC od strony Machico", by:"Michael Gaylard · CC BY 2.0", alt:"Lotnisko Madery widziane od strony Machico i Atlantyku"},
-      {file:"0 Panorama view Ponta do Sol Madeira.jpg", label:"Ponta do Sol · miękki wieczór", by:"Herbert wie · CC BY-SA 4.0", alt:"Panorama Ponta do Sol na południowym wybrzeżu Madery"},
-      {file:"Promenade of Madalena do Mar, Ponta do Sol, Madeira, 2023 May.jpg", label:"Madalena do Mar · promenada", by:"Ximonic · CC BY-SA 4.0", alt:"Promenada w Madalena do Mar między oceanem i klifami"}
+      {src:"assets/day/d01-base-ponta-do-sol-dusk-02.jpg", source:"https://commons.wikimedia.org/wiki/File:0_Restaurante_Ponta_do_Sol_Madeira.jpg", label:"Ponta do Sol · blue hour", by:"Herbert wie · CC BY-SA 4.0", alt:"Ponta do Sol o zmierzchu z ciepłym światłem nad oceanem"},
+      {file:"Promenade of Madalena do Mar, Ponta do Sol, Madeira, 2023 May.jpg", label:"Madalena do Mar · promenada", by:"Ximonic · CC BY-SA 4.0", alt:"Promenada w Madalena do Mar między oceanem i klifami"},
+      {file:"Madeira - Funchal - Airport Viewed From Machico (11887124906).jpg", label:"Lotnisko FNC od strony Machico", by:"Michael Gaylard · CC BY 2.0", alt:"Lotnisko Madery widziane od strony Machico i Atlantyku"}
     ]
   },
   { n:2, date:"08.05", dow:"pt", kind:"pr", kindLabel:"priorytet",
@@ -1414,7 +1404,7 @@ const DAYS = [
       {h:"Warunkowo",t:"Przejście w stronę Pico Ruivo tylko po pełnym reotwarciu i z transportem. Bardzo warunkowe."}
     ],
     photos:[
-      {file:"Around Pico do Areeiro, Madeira, Portugal, June-July 2011 - panoramio (34).jpg", label:"Pico do Areeiro · grań", by:"anagh · CC BY-SA 3.0", alt:"Górska grań w rejonie Pico do Areeiro na Maderze"},
+      {src:"assets/day/d02-ridge-areeiro-cloudsea-sunrise-02.jpg", source:"https://commons.wikimedia.org/wiki/File:2016_Nubes_desde_o_Pico_do_Areeiro_Madeira_Portugal-2.jpg", scene:"ridge", label:"Pico do Areeiro · morze chmur", by:"Luis Miguel Bugallo Sánchez (Lmbuga) · CC BY-SA 4.0", alt:"Morze chmur widziane z Pico do Areeiro na Maderze"},
       {file:"Miradouro do «Ninho da Manta», José Lemos Silva, novembro de 2021, Pico do Areeiro - Image 199057.jpg", label:"Ninho da Manta", by:"José Lemos Silva · CC BY-SA 4.0", alt:"Punkt widokowy Ninho da Manta w rejonie Pico do Areeiro"},
       {file:"Curral das Freiras from Eira do Serrado 05.jpg", label:"Eira do Serrado", by:"H. Zell · CC BY-SA 3.0", alt:"Widok z Eira do Serrado na dolinę Curral das Freiras"}
     ]
@@ -1459,7 +1449,7 @@ const DAYS = [
       {h:"Warunkowo",t:"Boat-return — niepewne, nie budżetować bazowo."}
     ],
     photos:[
-      {file:"Ponta de São Lourenço north north east.jpg", label:"Ponta de São Lourenço", by:"Richard Bartz · CC BY-SA 3.0", alt:"Suchy wschodni półwysep Ponta de São Lourenço z klifami nad Atlantykiem"},
+      {src:"assets/day/d03-ocean-pr8-ponta-sao-lourenco-02.jpg", source:"https://commons.wikimedia.org/wiki/File:Ponta_de_S%C3%A3o_Louren%C3%A7o_north_north_east.jpg", label:"Ponta de São Lourenço", by:"Richard Bartz · CC BY-SA 3.0", alt:"Suchy wschodni półwysep Ponta de São Lourenço z klifami nad Atlantykiem"},
       {file:"Ponta de São Lourenço, Madeira, Portugal, 2019-05-28, DD 31.jpg", label:"PR8 · ochrowe klify", by:"Diego Delso · CC BY-SA 4.0", alt:"Klify i ścieżka na Ponta de São Lourenço"},
       {file:"Marina of Machico. Madeira, Portugal.jpg", label:"Machico po zejściu", by:"Ввласенко · CC BY-SA 3.0", alt:"Marina i zatoka w Machico na wschodzie Madery"}
     ]
@@ -1501,9 +1491,9 @@ const DAYS = [
       {h:"Warunkowo",t:"Monte Palace + Carreiros tylko jeśli chcesz moduł kulturowy."}
     ],
     photos:[
-      {file:"Madeira Cabo Girao.jpg", label:"Cabo Girão z Câmara de Lobos", by:"Unukorno · CC BY 3.0", alt:"Widok z Câmara de Lobos w stronę klifu Cabo Girão"},
+      {src:"assets/day/d04-base-cabo-girao-skywalk-02.jpg", source:"https://commons.wikimedia.org/wiki/File:Cabo_Gir%C3%A3o_-_Skywalk.JPG", label:"Cabo Girão · skywalk", by:"Dirk Klaassen · CC BY-SA 4.0", alt:"Widok przez szklany skywalk Cabo Girão na pola pod klifem"},
       {file:"Câmara de Lobos - Harbor 01.jpg", label:"Câmara de Lobos · port", by:"H. Zell · CC BY-SA 3.0", alt:"Port rybacki w Câmara de Lobos na południu Madery"},
-      {file:"Banana plantations in Madalena do Mar.jpg", label:"Rota do Banana", by:"Patrice78500 · CC BY-SA 4.0", alt:"Plantacje bananów w Madalena do Mar"}
+      {src:"assets/day/d04-base-madalena-terraces-02.jpg", source:"https://commons.wikimedia.org/wiki/File:Madeira-Madalena_do_Mar-02ASD.jpg", label:"Madalena do Mar · tarasy", by:"Rikki Mitterer · CC BY-SA 4.0", alt:"Tarasy Madalena do Mar opadające w stronę Atlantyku"}
     ]
   },
   { n:5, date:"11.05", dow:"pn", kind:"bz", kindLabel:"bazowy",
@@ -1545,7 +1535,7 @@ const DAYS = [
       {h:"Warunkowo",t:"Pełny PR9 traktuj jako niedostępny, dopóki oficjalnie nie zmieni statusu. PR9.1 nie jest substytutem pełnego PR9."}
     ],
     photos:[
-      {file:"Ribeiro Frio (Madeira, Portugal), Ribeiro Frio -- 2025 -- 1498.jpg", label:"Ribeiro Frio", by:"Dietmar Rabich · CC BY-SA 4.0", alt:"Zielony las w Ribeiro Frio na Maderze"},
+      {src:"assets/day/d05-forest-laurissilva-godrays-02.jpg", source:"https://commons.wikimedia.org/wiki/File:Ribeiro_Frio_(Madeira,_Portugal),_Levada_zur_Forellenzucht_--_2025_--_1511_(cinematic).jpg", scene:"forest", label:"Laurissilva · mgła", by:"Dietmar Rabich · CC BY-SA 4.0", alt:"Mglisty las Laurissilva w rejonie Ribeiro Frio na Maderze"},
       {file:"Nogueira valley view from Balcões, São Roque do Faial, Santana, Madeira, 2023 May.jpg", label:"Balcões", by:"Ximonic · CC BY-SA 4.0", alt:"Punkt widokowy Balcões ponad zielonymi dolinami Madery"},
       {file:"Santana, typical houses, Madeira (16401034500).jpg", label:"Santana", by:"Glyn Lowe · CC BY 2.0", alt:"Tradycyjne domy w Santanie na północy Madery"}
     ]
@@ -1589,9 +1579,9 @@ const DAYS = [
       {h:"Warunkowo",t:"Wejście do oceanu w Seixal — tylko spokojne morze bez surge."}
     ],
     photos:[
-      {file:"Madeira - North - Ribeira de Janela Seixal Miradouro do Véu da Noiva DSCF1483 (52620204778).jpg", label:"Véu da Noiva", by:"Michael Gaylard · CC BY 2.0", alt:"Punkt widokowy Véu da Noiva na północnym wybrzeżu Madery"},
+      {src:"assets/day/d06-ocean-veu-da-noiva-vertical-02.jpg", source:"https://commons.wikimedia.org/wiki/File:Madeira_-_North_-_Ribeira_de_Janela_Seixal_Miradouro_do_V%C3%A9u_da_Noiva_DSCF1483_(52620204778).jpg", label:"Véu da Noiva", by:"Michael Gaylard · CC BY 2.0", alt:"Punkt widokowy Véu da Noiva na północnym wybrzeżu Madery"},
       {file:"Seixal (Madeira, Portugal, 1-7-2014) (33398146181).jpg", label:"Seixal", by:"Juanje Orío · CC BY-SA 2.0", alt:"Seixal na północnym wybrzeżu Madery z zielonymi klifami"},
-      {file:"Porto Moniz (Madeira, Portugal), Piscinas Naturais do Porto Moniz -- 2025 -- 1779.jpg", label:"Porto Moniz pools", by:"Dietmar Rabich · CC BY-SA 4.0", alt:"Naturalne baseny wulkaniczne w Porto Moniz"}
+      {src:"assets/day/d06-ocean-porto-moniz-basalt-02.jpg", source:"https://commons.wikimedia.org/wiki/File:Porto_Moniz_(Madeira,_Portugal),_Piscinas_Naturais_do_Porto_Moniz_--_2025_--_1779.jpg", label:"Porto Moniz · bazalt", by:"Dietmar Rabich · CC BY-SA 4.0", alt:"Bazaltowe krawędzie naturalnych basenów w Porto Moniz przy Atlantyku"}
     ]
   },
   { n:7, date:"13.05", dow:"śr", kind:"bz", kindLabel:"bazowy",
@@ -1633,10 +1623,10 @@ const DAYS = [
       {h:"Warunkowo",t:"Fanal jako detour — TYLKO przy aktywnej mgle. Bez mgły słaby ROI."}
     ],
     photos:[
+      {src:"assets/day/d07-forest-fanal-fog-optional-01.jpg", source:"assets/day/d07-forest-fanal-fog-optional-01.jpg", scene:"forest", label:"Fanal · las we mgle", by:"Lokalny asset · offline", alt:"Mglisty las Fanal na zachodzie Madery"},
       {file:"Achadas da Cruz, Madeira, view.jpg", label:"Achadas da Cruz", by:"Gerda Arendt · CC BY-SA 4.0", alt:"Klify i fajã przy Achadas da Cruz na zachodzie Madery"},
       {file:"Madeira-Ponta do Pargo-lands end-03ESD.jpg", label:"Ponta do Pargo · klify", by:"Rikki Mitterer · CC BY-SA 4.0", alt:"Klify zachodniego krańca Madery w rejonie Ponta do Pargo"},
-      {source:"https://visitmadeira.com/en/where-to-go/madeira/west-coast/calheta/garganta-funda-waterfall/", label:"Garganta Funda", by:"Visit Madeira · official", alt:"Wodospad Garganta Funda przy Ponta do Pargo na zachodzie Madery"},
-      {src:"assets/day/d07-forest-fanal-fog-optional-01.jpg", source:"assets/day/d07-forest-fanal-fog-optional-01.jpg", scene:"forest", label:"Fanal · tylko przy mgle", by:"Lokalny asset · offline", alt:"Mglisty las Fanal jako opcjonalny objazd tylko przy aktywnej mgle"}
+      {source:"https://visitmadeira.com/en/where-to-go/madeira/west-coast/calheta/garganta-funda-waterfall/", label:"Garganta Funda", by:"Visit Madeira · official", alt:"Wodospad Garganta Funda przy Ponta do Pargo na zachodzie Madery"}
     ]
   },
   { n:8, date:"14.05", dow:"czw", kind:"op", kindLabel:"operacyjny",
@@ -1679,9 +1669,9 @@ const DAYS = [
       {h:"Warunkowo",t:"Cristo Rei / Garajau — tylko przy wyjątku od jednej bazy po stronie wschodniej; nie dotyczy RB–PdS. CONDICIONADO."}
     ],
     photos:[
+      {src:"assets/day/d08-base-fnc-dusk-02.jpg", source:"https://commons.wikimedia.org/wiki/File:Madeira_-_Funchal_sunset_(33164069770).jpg", label:"Funchal · zachód", by:"muffinn · CC BY 2.0", alt:"Zachód słońca nad zabudową Funchal na Maderze"},
       {file:"Monument to the founders of Machico. Madeira, Portugal.jpg", label:"Machico · łatwy lunch", by:"Ввласенко · CC BY-SA 3.0", alt:"Pomnik założycieli Machico na wschodnim wybrzeżu Madery"},
-      {file:"Madeira - Santa Cruz - beach (33455456251).jpg", label:"Santa Cruz / FNC · ostatni niski stop", by:"muffinn · CC BY 2.0", alt:"Santa Cruz lub okolice lotniska Madery jako krótki stop przed wylotem"},
-      {file:"View of Madeira Airport from Santa Cruz. Portugal.jpg", label:"Santa Cruz przed FNC", by:"Ввласенко · CC BY-SA 3.0", alt:"Widok na lotnisko Madery od strony Santa Cruz"}
+      {file:"Madeira - Santa Cruz - beach (33455456251).jpg", label:"Santa Cruz / FNC · ostatni niski stop", by:"muffinn · CC BY 2.0", alt:"Santa Cruz lub okolice lotniska Madery jako krótki stop przed wylotem"}
     ]
   }
 ];
@@ -1842,14 +1832,14 @@ const PR1_GATES = [
   {id:"sleep", label:"7 h snu"}
 ];
 const DAY_ENRICHMENT = {
-  1:{scene:"base", modeFit:["bad","low","72h"], decisionRole:"travel", riskFocus:["operator","zmeczenie"], photos:["assets/day/d01-base-fnc-airport-01.jpg","assets/day/d01-base-ponta-do-sol-01.jpg","assets/day/d01-base-madalena-promenade-01.jpg"]},
-  2:{scene:"ridge", modeFit:["good"], decisionRole:"pr1", riskFocus:["pogoda","szlak","parking","zmeczenie"], photos:["assets/day/d02-ridge-pico-areeiro-01.jpg","assets/day/d02-ridge-ninho-da-manta-01.jpg","assets/day/d02-ridge-eira-do-serrado-01.jpg"]},
-  3:{scene:"ocean", modeFit:["good"], decisionRole:"pr8", riskFocus:["pogoda","szlak","operator","zmeczenie"], photos:["assets/day/d03-ocean-pr8-ponta-sao-lourenco-01.jpg","assets/day/d03-ocean-pr8-cliffs-01.jpg","assets/day/d03-ocean-machico-marina-01.jpg"]},
-  4:{scene:"base", modeFit:["bad","low","72h"], decisionRole:"recovery", riskFocus:["parking","operator"], photos:["assets/day/d04-base-cabo-girao-01.jpg","assets/day/d04-base-camara-de-lobos-01.jpg","assets/day/d04-base-rota-do-banana-01.jpg"]},
-  5:{scene:"forest", modeFit:["bad","low"], decisionRole:"base", riskFocus:["pogoda","szlak","operator"], photos:["assets/day/d05-forest-ribeiro-frio-01.jpg","assets/day/d05-forest-balcoes-01.jpg","assets/day/d05-forest-santana-01.jpg"]},
-  6:{scene:"ocean", modeFit:["good","bad","low"], decisionRole:"base", riskFocus:["morze","parking"], photos:["assets/day/d06-ocean-veu-da-noiva-01.jpg","assets/day/d06-ocean-seixal-black-sand-01.jpg","assets/day/d06-ocean-porto-moniz-pools-01.jpg"]},
-  7:{scene:"west", modeFit:["good","low"], decisionRole:"operator", riskFocus:["pogoda","operator","zmeczenie"], photos:["assets/day/d07-west-achadas-da-cruz-01.jpg","assets/day/d07-west-ponta-do-pargo-01.jpg","assets/day/d07-west-garganta-funda-01.jpg","assets/day/d07-forest-fanal-fog-optional-01.jpg"]},
-  8:{scene:"base", modeFit:["bad","low","72h"], decisionRole:"travel", riskFocus:["operator"], photos:["assets/day/d08-base-machico-monument-01.jpg","assets/day/d08-base-santa-cruz-beach-01.jpg","assets/day/d08-base-fnc-from-santa-cruz-01.jpg"]}
+  1:{scene:"base", modeFit:["bad","low","72h"], decisionRole:"travel", riskFocus:["operator","zmeczenie"], photos:["assets/day/d01-base-ponta-do-sol-dusk-02.jpg","assets/day/d01-base-madalena-promenade-01.jpg","assets/day/d01-base-fnc-airport-01.jpg"]},
+  2:{scene:"ridge", modeFit:["good"], decisionRole:"pr1", riskFocus:["pogoda","szlak","parking","zmeczenie"], photos:["assets/day/d02-ridge-areeiro-cloudsea-sunrise-02.jpg","assets/day/d02-ridge-ninho-da-manta-01.jpg","assets/day/d02-ridge-eira-do-serrado-01.jpg"]},
+  3:{scene:"ocean", modeFit:["good"], decisionRole:"pr8", riskFocus:["pogoda","szlak","operator","zmeczenie"], photos:["assets/day/d03-ocean-pr8-ponta-sao-lourenco-02.jpg","assets/day/d03-ocean-pr8-cliffs-01.jpg","assets/day/d03-ocean-machico-marina-01.jpg"]},
+  4:{scene:"base", modeFit:["bad","low","72h"], decisionRole:"recovery", riskFocus:["parking","operator"], photos:["assets/day/d04-base-cabo-girao-skywalk-02.jpg","assets/day/d04-base-camara-de-lobos-01.jpg","assets/day/d04-base-madalena-terraces-02.jpg"]},
+  5:{scene:"forest", modeFit:["bad","low"], decisionRole:"base", riskFocus:["pogoda","szlak","operator"], photos:["assets/day/d05-forest-laurissilva-godrays-02.jpg","assets/day/d05-forest-balcoes-01.jpg","assets/day/d05-forest-santana-01.jpg"]},
+  6:{scene:"ocean", modeFit:["good","bad","low"], decisionRole:"base", riskFocus:["morze","parking"], photos:["assets/day/d06-ocean-veu-da-noiva-vertical-02.jpg","assets/day/d06-ocean-seixal-black-sand-01.jpg","assets/day/d06-ocean-porto-moniz-basalt-02.jpg"]},
+  7:{scene:"west", modeFit:["good","low"], decisionRole:"operator", riskFocus:["pogoda","operator","zmeczenie"], photos:["assets/day/d07-forest-fanal-fog-optional-01.jpg","assets/day/d07-west-achadas-da-cruz-01.jpg","assets/day/d07-west-ponta-do-pargo-01.jpg","assets/day/d07-west-garganta-funda-01.jpg"]},
+  8:{scene:"base", modeFit:["bad","low","72h"], decisionRole:"travel", riskFocus:["operator"], photos:["assets/day/d08-base-fnc-dusk-02.jpg","assets/day/d08-base-machico-monument-01.jpg","assets/day/d08-base-santa-cruz-beach-01.jpg"]}
 };
 
 /* =============== HELPERS =============== */
