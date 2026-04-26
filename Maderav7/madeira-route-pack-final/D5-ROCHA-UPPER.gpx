@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<gpx version="1.1" creator="OpenAI ChatGPT" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>D5 Rocha do Navio upper access</name>
+    <desc>Upper access only: Rocha do Navio upper cable-car station / parking -&gt; upper viewpoint -&gt; return. Lower branch is conditional on cable-car operation and is not silently merged into this file. Route ID: D5-ROCHA-UPPER. Notes: Upper access definite. Lower branch stays separate and conditional.</desc>
+  </metadata>
+  <wpt lat="32.814650000" lon="-16.876530000">
+    <name>D5-ROCHA-UPPER 01 Rocha do Navio upper station / parking</name>
+    <desc>Route ID: D5-ROCHA-UPPER; point order: 1</desc>
+  </wpt>
+  <wpt lat="32.814864568" lon="-16.876617605">
+    <name>D5-ROCHA-UPPER 02 Rocha do Navio upper viewpoint</name>
+    <desc>Route ID: D5-ROCHA-UPPER; point order: 2</desc>
+  </wpt>
+  <wpt lat="32.814650000" lon="-16.876530000">
+    <name>D5-ROCHA-UPPER 03 Rocha do Navio upper station / parking</name>
+    <desc>Route ID: D5-ROCHA-UPPER; point order: 3</desc>
+  </wpt>
+  <rte>
+    <name>D5 Rocha do Navio upper access</name>
+    <desc>Upper access only: Rocha do Navio upper cable-car station / parking -&gt; upper viewpoint -&gt; return. Lower branch is conditional on cable-car operation and is not silently merged into this file. Geometry mode: route.</desc>
+    <rtept lat="32.814650000" lon="-16.876530000">
+      <name>Rocha do Navio upper station / parking</name>
+      <desc>Route ID: D5-ROCHA-UPPER; point order: 1</desc>
+    </rtept>
+    <rtept lat="32.814864568" lon="-16.876617605">
+      <name>Rocha do Navio upper viewpoint</name>
+      <desc>Route ID: D5-ROCHA-UPPER; point order: 2</desc>
+    </rtept>
+    <rtept lat="32.814650000" lon="-16.876530000">
+      <name>Rocha do Navio upper station / parking</name>
+      <desc>Route ID: D5-ROCHA-UPPER; point order: 3</desc>
+    </rtept>
+  </rte>
+</gpx>

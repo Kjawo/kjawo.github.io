@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<gpx version="1.1" creator="OpenAI ChatGPT" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>D6 North-west scenic drive</name>
+    <desc>Stop-sequence GPX: Canhas / Ponta do Sol public base anchor -&gt; Seixal beach / pools parking -&gt; Veu da Noiva viewpoint -&gt; Porto Moniz pools / lunch zone -&gt; return to base. Water entry is not part of the geometry. Route ID: D6-DRIVE. Notes: Scenic drive only. No water or promenade sub-routes encoded.</desc>
+  </metadata>
+  <wpt lat="32.684497000" lon="-17.086190000">
+    <name>D6-DRIVE 01 Canhas / Ponta do Sol public base anchor</name>
+    <desc>Route ID: D6-DRIVE; point order: 1</desc>
+  </wpt>
+  <wpt lat="32.822297776" lon="-17.103057128">
+    <name>D6-DRIVE 02 Seixal beach / pools parking</name>
+    <desc>Route ID: D6-DRIVE; point order: 2</desc>
+  </wpt>
+  <wpt lat="32.816211431" lon="-17.095208989">
+    <name>D6-DRIVE 03 Veu da Noiva viewpoint</name>
+    <desc>Route ID: D6-DRIVE; point order: 3</desc>
+  </wpt>
+  <wpt lat="32.868720692" lon="-17.170656504">
+    <name>D6-DRIVE 04 Porto Moniz natural pools / lunch zone</name>
+    <desc>Route ID: D6-DRIVE; point order: 4</desc>
+  </wpt>
+  <wpt lat="32.684497000" lon="-17.086190000">
+    <name>D6-DRIVE 05 Canhas / Ponta do Sol public base anchor</name>
+    <desc>Route ID: D6-DRIVE; point order: 5</desc>
+  </wpt>
+  <rte>
+    <name>D6 North-west scenic drive</name>
+    <desc>Stop-sequence GPX: Canhas / Ponta do Sol public base anchor -&gt; Seixal beach / pools parking -&gt; Veu da Noiva viewpoint -&gt; Porto Moniz pools / lunch zone -&gt; return to base. Water entry is not part of the geometry. Geometry mode: stop_sequence.</desc>
+    <rtept lat="32.684497000" lon="-17.086190000">
+      <name>Canhas / Ponta do Sol public base anchor</name>
+      <desc>Route ID: D6-DRIVE; point order: 1</desc>
+    </rtept>
+    <rtept lat="32.822297776" lon="-17.103057128">
+      <name>Seixal beach / pools parking</name>
+      <desc>Route ID: D6-DRIVE; point order: 2</desc>
+    </rtept>
+    <rtept lat="32.816211431" lon="-17.095208989">
+      <name>Veu da Noiva viewpoint</name>
+      <desc>Route ID: D6-DRIVE; point order: 3</desc>
+    </rtept>
+    <rtept lat="32.868720692" lon="-17.170656504">
+      <name>Porto Moniz natural pools / lunch zone</name>
+      <desc>Route ID: D6-DRIVE; point order: 4</desc>
+    </rtept>
+    <rtept lat="32.684497000" lon="-17.086190000">
+      <name>Canhas / Ponta do Sol public base anchor</name>
+      <desc>Route ID: D6-DRIVE; point order: 5</desc>
+    </rtept>
+  </rte>
+</gpx>

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="OpenAI GPT-5.4 Pro">
+  <wpt lat="32.73549087" lon="-16.92879722"><name>Pico do Areeiro PR1 trailhead</name><desc>Official trailhead / parking area.</desc></wpt><wpt lat="32.73665000" lon="-16.93010000"><name>Ridge path approx 1</name><desc>Manual shaping point; approximate.</desc></wpt><wpt lat="32.73820000" lon="-16.93200000"><name>Ridge path approx 2</name><desc>Manual shaping point; approximate.</desc></wpt><wpt lat="32.73952157" lon="-16.93381416"><name>Ninho da Manta</name><desc>Official viewpoint a few metres from PR1 start.</desc></wpt><wpt lat="32.73915000" lon="-16.93490000"><name>Ridge path approx 3</name><desc>Manual shaping point; approximate.</desc></wpt><wpt lat="32.73910000" lon="-16.93590000"><name>Ridge path approx 4</name><desc>Manual shaping point; approximate.</desc></wpt><wpt lat="32.73917000" lon="-16.93689000"><name>Pedra Rija belvedere</name><desc>Public map viewpoint node on the restricted PR1 segment.</desc></wpt><wpt lat="32.73910000" lon="-16.93590000"><name>Ridge path approx 4 return</name><desc>Manual shaping point; approximate.</desc></wpt><wpt lat="32.73915000" lon="-16.93490000"><name>Ridge path approx 3 return</name><desc>Manual shaping point; approximate.</desc></wpt><wpt lat="32.73952157" lon="-16.93381416"><name>Ninho da Manta return</name><desc>Same-way return.</desc></wpt><wpt lat="32.73820000" lon="-16.93200000"><name>Ridge path approx 2 return</name><desc>Manual shaping point; approximate.</desc></wpt><wpt lat="32.73665000" lon="-16.93010000"><name>Ridge path approx 1 return</name><desc>Manual shaping point; approximate.</desc></wpt><wpt lat="32.73549087" lon="-16.92879722"><name>Pico do Areeiro PR1 trailhead return</name><desc>Return to start.</desc></wpt><metadata>
+    <name>D2 Areeiro restricted out-and-back</name>
+    <desc>D2-AREEIRO: Manually drawn restricted out-and-back from the official current PR1 access intent: Pico do Areeiro -&gt; Ninho da Manta -&gt; Pedra Rija -&gt; same-way return. This is not the full PR1 traverse and is not survey-precise.</desc>
+    <author>
+      <name>OpenAI GPT-5.4 Pro</name>
+    </author>
+  </metadata>
+  <rte>
+    <name>D2 Areeiro restricted out-and-back</name>
+    <cmt>D2-AREEIRO</cmt>
+    <desc>Manually drawn restricted out-and-back from the official current PR1 access intent: Pico do Areeiro -&gt; Ninho da Manta -&gt; Pedra Rija -&gt; same-way return. This is not the full PR1 traverse and is not survey-precise.</desc>
+    <rtept lat="32.73549087" lon="-16.92879722">
+      <name>Pico do Areeiro PR1 trailhead</name>
+      <desc>Official trailhead / parking area.</desc>
+    </rtept>
+    <rtept lat="32.73665000" lon="-16.93010000">
+      <name>Ridge path approx 1</name>
+      <desc>Manual shaping point; approximate.</desc>
+    </rtept>
+    <rtept lat="32.73820000" lon="-16.93200000">
+      <name>Ridge path approx 2</name>
+      <desc>Manual shaping point; approximate.</desc>
+    </rtept>
+    <rtept lat="32.73952157" lon="-16.93381416">
+      <name>Ninho da Manta</name>
+      <desc>Official viewpoint a few metres from PR1 start.</desc>
+    </rtept>
+    <rtept lat="32.73915000" lon="-16.93490000">
+      <name>Ridge path approx 3</name>
+      <desc>Manual shaping point; approximate.</desc>
+    </rtept>
+    <rtept lat="32.73910000" lon="-16.93590000">
+      <name>Ridge path approx 4</name>
+      <desc>Manual shaping point; approximate.</desc>
+    </rtept>
+    <rtept lat="32.73917000" lon="-16.93689000">
+      <name>Pedra Rija belvedere</name>
+      <desc>Public map viewpoint node on the restricted PR1 segment.</desc>
+    </rtept>
+    <rtept lat="32.73910000" lon="-16.93590000">
+      <name>Ridge path approx 4 return</name>
+      <desc>Manual shaping point; approximate.</desc>
+    </rtept>
+    <rtept lat="32.73915000" lon="-16.93490000">
+      <name>Ridge path approx 3 return</name>
+      <desc>Manual shaping point; approximate.</desc>
+    </rtept>
+    <rtept lat="32.73952157" lon="-16.93381416">
+      <name>Ninho da Manta return</name>
+      <desc>Same-way return.</desc>
+    </rtept>
+    <rtept lat="32.73820000" lon="-16.93200000">
+      <name>Ridge path approx 2 return</name>
+      <desc>Manual shaping point; approximate.</desc>
+    </rtept>
+    <rtept lat="32.73665000" lon="-16.93010000">
+      <name>Ridge path approx 1 return</name>
+      <desc>Manual shaping point; approximate.</desc>
+    </rtept>
+    <rtept lat="32.73549087" lon="-16.92879722">
+      <name>Pico do Areeiro PR1 trailhead return</name>
+      <desc>Return to start.</desc>
+    </rtept>
+  </rte>
+</gpx>

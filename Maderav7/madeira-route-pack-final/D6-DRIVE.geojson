@@ -1,0 +1,125 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D6-DRIVE",
+        "name": "D6 North-west scenic drive",
+        "geometry_mode": "stop_sequence",
+        "description": "Stop-sequence GPX: Canhas / Ponta do Sol public base anchor -> Seixal beach / pools parking -> Veu da Noiva viewpoint -> Porto Moniz pools / lunch zone -> return to base. Water entry is not part of the geometry.",
+        "notes": "Scenic drive only. No water or promenade sub-routes encoded."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -17.08619,
+            32.684497
+          ],
+          [
+            -17.103057128061728,
+            32.822297776477996
+          ],
+          [
+            -17.095208989427633,
+            32.81621143090979
+          ],
+          [
+            -17.170656504089138,
+            32.868720692397304
+          ],
+          [
+            -17.08619,
+            32.684497
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D6-DRIVE",
+        "name": "Canhas / Ponta do Sol public base anchor",
+        "order": 1,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.08619,
+          32.684497
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D6-DRIVE",
+        "name": "Seixal beach / pools parking",
+        "order": 2,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.103057128061728,
+          32.822297776477996
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D6-DRIVE",
+        "name": "Veu da Noiva viewpoint",
+        "order": 3,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.095208989427633,
+          32.81621143090979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D6-DRIVE",
+        "name": "Porto Moniz natural pools / lunch zone",
+        "order": 4,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.170656504089138,
+          32.868720692397304
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D6-DRIVE",
+        "name": "Canhas / Ponta do Sol public base anchor",
+        "order": 5,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.08619,
+          32.684497
+        ]
+      }
+    }
+  ]
+}

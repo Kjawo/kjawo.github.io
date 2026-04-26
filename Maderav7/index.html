@@ -381,6 +381,24 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .alert.info{border-color:var(--info);background:#eaf2f7;color:#1e4a63}
 .alert strong{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;display:block;margin-bottom:3px}
 
+.route-list{display:grid;gap:8px;margin:8px 0 0}
+.route-item{border:1px solid var(--rule);border-radius:8px;background:#fff;padding:10px 12px}
+.route-top{display:flex;gap:8px;align-items:flex-start;justify-content:space-between}
+.route-title{min-width:0}
+.route-id{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500)}
+.route-name{font-size:13px;font-weight:650;line-height:1.25;color:var(--bazalt-900);margin-top:2px}
+.route-badge{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--rule-strong);border-radius:999px;padding:4px 7px;white-space:nowrap;background:var(--paper-2);color:var(--bazalt-700)}
+.route-badge.exact-primary{background:#e6f3ea;border-color:#9bc4a8;color:#2d5a3d}
+.route-badge.optional-komoot{background:#e4eef3;border-color:#a3c0cf;color:#1e4a63}
+.route-badge.custom-gpx{background:#fff6e0;border-color:#e3c988;color:#8a6b1f}
+.route-badge.drive-sequence{background:#eef0e3;border-color:#bdc69b;color:#4c5c2a}
+.route-badge.backup-only{background:#f2ece5;border-color:#cdb69b;color:#6d4f2c}
+.route-badge.conditional,.route-badge.manifest-only{background:#fbe6e2;border-color:#d9a396;color:#a8351f}
+.route-note{font-size:12px;line-height:1.35;color:var(--bazalt-700);margin:7px 0 0}
+.route-links{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.route-link{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--rule-strong);border-radius:999px;padding:4px 7px;color:var(--bazalt-700);background:var(--paper)}
+.route-link:hover{border-color:var(--ember);color:var(--ember)}
+
 .altgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px}
 @media(max-width:640px){.altgrid{grid-template-columns:1fr}}
 .alt{border:1px solid var(--rule);padding:10px 12px;border-radius:3px;background:var(--paper)}
@@ -1648,6 +1666,10 @@ const DAYS = [
       {k:"alert",h:"ZAKAZ",t:"Nie wychodzić poza oficjalnie dostępny odcinek PR1 — nawet jeśli inni idą dalej."},
       {k:"warn",h:"Parking",t:"Krążenie max 10 min. Potem overflow lub: viewpoint + Ninho da Manta, bez Pedra Rija."}
     ],
+    routes:[
+      {id:"D2-AREEIRO", label:"Areeiro restricted", type:"hike", role:"core", matchClass:"candidate", komootUrl:"https://www.komoot.com/de-de/tour/1843581600", komootTitle:"Pico do Areeiro - Pedra Rija", gpx:"madeira-route-pack-final/D2-AREEIRO.gpx", geojson:"madeira-route-pack-final/D2-AREEIRO.geojson", labelClass:"custom-gpx", note:"Primary custom GPX: Areeiro -> Ninho da Manta -> Pedra Rija -> powrót. Komoot tylko jako kandydat, nie pełny PR1 smarttour.", conditionality:"oficjalny zakres PR1 sprawdzić T-1"},
+      {id:"D2-EIRA", label:"Eira access", type:"micro-walk", role:"support", matchClass:"none", komootUrl:null, komootTitle:null, gpx:"madeira-route-pack-final/D2-EIRA.gpx", geojson:"madeira-route-pack-final/D2-EIRA.geojson", labelClass:"custom-gpx", note:"Support micro-walk do Eira do Serrado; krótki add-on po module Areeiro."}
+    ],
     alts:[
       {h:"Dobra pogoda",t:"Bazowy wariant. PR1 4,50 EUR/os. medium."},
       {h:"Słaba pogoda",t:"Przełożyć góry, jechać na południe. low."},
@@ -1693,6 +1715,10 @@ const DAYS = [
       {k:"warn",h:"Sprzęt",t:"Motorówka PR8 generuje gęsty salt-spray. Sprzęt foto tylko w 100% wodoszczelnych workach; sól trwale niszczy elektronikę i optykę."},
       {k:"info",h:"Boat-return",t:"To osobna usługa wodna (Cais do Sardinha / Quinta do Lorde) — NIE powrót do zaparkowanego auta. Wymaga własnego transferu. Nie budżetować bazowo."}
     ],
+    routes:[
+      {id:"D3-ROSTO", label:"Rosto sunrise access", type:"micro-walk", role:"optional", matchClass:"none", komootUrl:null, komootTitle:null, gpx:"madeira-route-pack-final/D3-ROSTO.gpx", geojson:"madeira-route-pack-final/D3-ROSTO.geojson", labelClass:"custom-gpx", note:"Opcjonalny sunrise micro-GPX; użyć tylko po przejściu bramki snu/sunrise.", conditionality:"bramka snu i wiatr"},
+      {id:"D3-PR8", label:"PR8 São Lourenço", type:"hike", role:"core", matchClass:"exact", komootUrl:"https://www.komoot.com/smarttour/e1375832832/vereda-da-ponta-de-sao-lourenco-pr8-on-the-island-of-madeira", komootTitle:"Vereda da Ponta de São Lourenço — PR8 on the Island of Madeira", gpx:null, geojson:null, labelClass:"exact-primary", note:"Exact Komoot primary: Baía d'Abra -> Casa do Sardinha -> powrót. Boat-return poza bazowym obiektem trasy."}
+    ],
     alts:[
       {h:"Dobra pogoda",t:"Ponta do Rosto + skrócony PR8 do Casa do Sardinha. 4,50 EUR/os."},
       {h:"Słaba pogoda",t:"Machico + Caniçal + viewpointy wschodu. low."},
@@ -1735,6 +1761,10 @@ const DAYS = [
     },
     tags:[{k:"ok",t:"low effort"},{k:"info",t:"Cabo Girão 5 EUR"}],
     alerts:[],
+    routes:[
+      {id:"D4-DRIVE", label:"South drive", type:"drive", role:"core", matchClass:"none", komootUrl:null, komootTitle:null, gpx:"madeira-route-pack-final/D4-DRIVE.gpx", geojson:"madeira-route-pack-final/D4-DRIVE.geojson", labelClass:"drive-sequence", note:"Scenic drive stop sequence; publiczny plik używa Canhas / Ponta do Sol public base anchor, nie prywatnego pinu."},
+      {id:"D4-BANANA", label:"Banana stroll", type:"micro-walk", role:"optional", matchClass:"exact", komootUrl:"https://www.komoot.com/de-de/tour/1801865266", komootTitle:"Rota de Banana – church loop from Madalena do Mar", gpx:null, geojson:null, labelClass:"optional-komoot", note:"Opcjonalny exact Komoot dla płaskiej Rota de Banana; tylko jeśli dzień nadal ma lekkość."}
+    ],
     alts:[
       {h:"Dobra pogoda",t:"Bazowy wariant południowy."},
       {h:"Słaba pogoda",t:"Old Town Funchal jako backup miejski."},
@@ -1778,6 +1808,13 @@ const DAYS = [
     tags:[{k:"info",t:"PR11 4,50 EUR"},{k:"warn",t:"PR9 zamknięty wg IFCN"}],
     alerts:[
       {k:"info",h:"PR9 vs PR9.1",t:"Pełny PR9 traktuj jako niedostępny, dopóki oficjalnie się nie zmieni. PR9.1 jest lekką alternatywą, ale NIE substytutem."}
+    ],
+    routes:[
+      {id:"D5-PR11", label:"PR11 Balcões", type:"hike", role:"core", matchClass:"exact", komootUrl:"https://www.komoot.com/smarttour/e1375848179/pr11-vereda-dos-balcoes-trail", komootTitle:"PR11 Vereda dos Balcões Trail", gpx:null, geojson:null, labelClass:"exact-primary", note:"Exact Komoot primary dla Ribeiro Frio -> Balcões -> powrót."},
+      {id:"D5-ROCHA", label:"Rocha module", type:"module", role:"conditional", matchClass:"partial", komootUrl:"https://www.komoot.com/de-de/highlight/6591641", komootTitle:"Weg zum Aussichtspunkt und Strand Rocha do Navio", gpx:null, geojson:null, labelClass:"conditional", note:"Moduł warunkowy: górny viewpoint zostaje, dolna gałąź tylko po świeżym sprawdzeniu operatora/statusu.", conditionality:"T-1 / day-of"},
+      {id:"D5-ROCHA-UPPER", label:"Rocha upper", type:"viewpoint_access", role:"conditional", matchClass:"partial", komootUrl:"https://www.komoot.com/de-de/highlight/6591641", komootTitle:"Weg zum Aussichtspunkt und Strand Rocha do Navio", gpx:"madeira-route-pack-final/D5-ROCHA-UPPER.gpx", geojson:"madeira-route-pack-final/D5-ROCHA-UPPER.geojson", labelClass:"custom-gpx", note:"Górny viewpoint GPX only; krótki, ręcznie przybliżony dostęp."},
+      {id:"D5-ROCHA-LOWER-OPTIONAL", label:"Rocha lower optional", type:"module", role:"conditional", matchClass:"none", komootUrl:null, komootTitle:null, gpx:null, geojson:null, labelClass:"manifest-only", note:"Manifest-only, bez aktywnego GPX w paczce; dolna gałąź tylko jeśli operator działa sensownie.", conditionality:"kolejka / status day-of"},
+      {id:"D5-PR91", label:"PR9.1 backup", type:"hike", role:"backup", matchClass:"partial", komootUrl:"https://www.komoot.com/de-de/tour/1073689799", komootTitle:"Madeira PR Joel (Un caminho para todos)", gpx:"madeira-route-pack-final/D5-PR91.gpx", geojson:"madeira-route-pack-final/D5-PR91.geojson", labelClass:"backup-only", note:"Backup-only PR9.1; nie używać jako cichego zamiennika pełnego PR9."}
     ],
     alts:[
       {h:"Dobra pogoda",t:"Balcões + Rocha do Navio cable car."},
@@ -1823,6 +1860,9 @@ const DAYS = [
     alerts:[
       {k:"warn",h:"Sprzęt",t:"Seixal i Porto Moniz: nieprzewidziane fale regularnie zalewają turystów. Sprzęt foto tylko w zamykanym plecaku z pokrowcem; nic na skałach przy surge."}
     ],
+    routes:[
+      {id:"D6-DRIVE", label:"NW drive", type:"drive", role:"core", matchClass:"none", komootUrl:null, komootTitle:null, gpx:"madeira-route-pack-final/D6-DRIVE.gpx", geojson:"madeira-route-pack-final/D6-DRIVE.geojson", labelClass:"drive-sequence", note:"Scenic drive stop sequence; publiczny plik używa Canhas / Ponta do Sol public base anchor. Wejście do wody poza geometrią."}
+    ],
     alts:[
       {h:"Dobra pogoda",t:"Seixal + Porto Moniz z opcją wody."},
       {h:"Słaba pogoda",t:"Véu da Noiva + Porto Moniz — spacer i lunch."},
@@ -1866,6 +1906,9 @@ const DAYS = [
     tags:[{k:"ok",t:"low effort"},{k:"no",t:"hard stop po zachodzie"}],
     alerts:[
       {k:"alert",h:"Hard stop",t:"Po zachodzie NIE ma kolejnych atrakcji. Powrót do bazy, paliwo tylko jeśli konieczne, bez objazdów."}
+    ],
+    routes:[
+      {id:"D7-DRIVE", label:"West drive", type:"drive", role:"core", matchClass:"none", komootUrl:null, komootTitle:null, gpx:"madeira-route-pack-final/D7-DRIVE.gpx", geojson:"madeira-route-pack-final/D7-DRIVE.geojson", labelClass:"drive-sequence", note:"Scenic drive stop sequence z opcjonalnym waypointem kolejki Achadas. Publiczny plik używa Canhas / Ponta do Sol public base anchor.", conditionality:"dolny Achadas tylko przy działającej kolejce; nie jest odcinkiem drivable/walking guarantee"}
     ],
     alts:[
       {h:"Dobra pogoda",t:"Bazowy wariant zachodni z Achadas."},
@@ -2324,6 +2367,40 @@ function renderDayGates(d){
     </div>`).join("")}
   </div>`;
 }
+const ROUTE_LABELS = {
+  "exact-primary":"exact Komoot primary",
+  "optional-komoot":"optional Komoot",
+  "custom-gpx":"custom GPX fallback",
+  "drive-sequence":"scenic drive stop sequence",
+  "backup-only":"backup-only",
+  "conditional":"conditional",
+  "manifest-only":"manifest-only"
+};
+function renderRoutes(d){
+  if(!d.routes || !d.routes.length) return "";
+  return `<h4>Trasy</h4>
+    <div class="route-list" aria-label="Trasy dnia ${d.n}">
+      ${d.routes.map(r=>{
+        const links = [
+          r.komootUrl ? `<a class="route-link" href="${r.komootUrl}" target="_blank" rel="noopener" title="${r.komootTitle || "Komoot"}">Komoot</a>` : "",
+          r.gpx ? `<a class="route-link" href="${r.gpx}" target="_blank" rel="noopener">GPX</a>` : "",
+          r.geojson ? `<a class="route-link" href="${r.geojson}" target="_blank" rel="noopener">GeoJSON</a>` : ""
+        ].filter(Boolean).join("");
+        const conditional = r.conditionality ? ` · ${r.conditionality}` : "";
+        return `<div class="route-item">
+          <div class="route-top">
+            <div class="route-title">
+              <div class="route-id">${r.id} · ${r.role} · ${r.matchClass}</div>
+              <div class="route-name">${r.label}</div>
+            </div>
+            <span class="route-badge ${r.labelClass}">${ROUTE_LABELS[r.labelClass] || r.labelClass}</span>
+          </div>
+          <p class="route-note">${r.note}${conditional}</p>
+          ${links ? `<div class="route-links">${links}</div>` : ""}
+        </div>`;
+      }).join("")}
+    </div>`;
+}
 function conciseStart(start){
   if(start.includes(" z ")) return start.split(" z ")[0];
   if(start.includes(" · ")) return start.split(" · ")[0];
@@ -2344,6 +2421,7 @@ function renderCards(){
     const alerts = d.alerts.map(a=>`<div class="alert ${a.k==="info"?"info":a.k==="warn"?"warn":""}"><strong>${a.h}</strong>${a.t}</div>`).join("");
     const metaHtml = Object.entries(d.meta).map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("");
     const alts = d.alts.map(a=>`<div class="alt"><div class="h">${a.h}</div><div class="t">${a.t}</div></div>`).join("");
+    const routes = renderRoutes(d);
     const cover = d.photos?.[0];
     const secondaryPhotos = d.photos?.slice(1) || [];
     const photos = secondaryPhotos.length ? `<div class="photo-grid" aria-label="Zdjęcia dnia ${d.n}">${secondaryPhotos.map(p=>renderPhotoCard(p, 640)).join("")}</div>` : "";
@@ -2383,6 +2461,7 @@ function renderCards(){
           <div>
             <h4 style="margin-top:0">Meta operacyjna</h4>
             <dl class="kv">${metaHtml}</dl>
+            ${routes}
             <h4>Punkt odwrotu</h4>
             <p style="margin:0;color:var(--nogo);font-family:var(--mono);font-size:12px">${d.retreat}</p>
           </div>

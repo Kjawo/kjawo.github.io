@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="OpenAI GPT-5.4 Pro">
+  <wpt lat="32.78277000" lon="-16.91161000"><name>Parque Florestal das Queimadas</name><desc>Forest park anchor / start.</desc></wpt><wpt lat="32.78180000" lon="-16.90920000"><name>PR9.1 mid approx 1</name><desc>Manual shaping point; approximate.</desc></wpt><wpt lat="32.78030000" lon="-16.90580000"><name>PR9.1 mid approx 2</name><desc>Manual shaping point; approximate.</desc></wpt><wpt lat="32.77833000" lon="-16.90147000"><name>Parque Florestal do Pico das Pedras</name><desc>Forest park anchor / turn point.</desc></wpt><wpt lat="32.78030000" lon="-16.90580000"><name>PR9.1 mid approx 2 return</name><desc>Manual shaping point; approximate.</desc></wpt><wpt lat="32.78180000" lon="-16.90920000"><name>PR9.1 mid approx 1 return</name><desc>Manual shaping point; approximate.</desc></wpt><wpt lat="32.78277000" lon="-16.91161000"><name>Parque Florestal das Queimadas return</name><desc>Return to start.</desc></wpt><metadata>
+    <name>D5 backup PR9.1 round trip</name>
+    <desc>D5-PR91: Backup-only manual route linking the official Queimadas and Pico das Pedras forest-park endpoints, shown as a same-way return from Queimadas. This is not PR9 and must never be treated as a silent substitution for PR9.</desc>
+    <author>
+      <name>OpenAI GPT-5.4 Pro</name>
+    </author>
+  </metadata>
+  <rte>
+    <name>D5 backup PR9.1 round trip</name>
+    <cmt>D5-PR91</cmt>
+    <desc>Backup-only manual route linking the official Queimadas and Pico das Pedras forest-park endpoints, shown as a same-way return from Queimadas. This is not PR9 and must never be treated as a silent substitution for PR9.</desc>
+    <rtept lat="32.78277000" lon="-16.91161000">
+      <name>Parque Florestal das Queimadas</name>
+      <desc>Forest park anchor / start.</desc>
+    </rtept>
+    <rtept lat="32.78180000" lon="-16.90920000">
+      <name>PR9.1 mid approx 1</name>
+      <desc>Manual shaping point; approximate.</desc>
+    </rtept>
+    <rtept lat="32.78030000" lon="-16.90580000">
+      <name>PR9.1 mid approx 2</name>
+      <desc>Manual shaping point; approximate.</desc>
+    </rtept>
+    <rtept lat="32.77833000" lon="-16.90147000">
+      <name>Parque Florestal do Pico das Pedras</name>
+      <desc>Forest park anchor / turn point.</desc>
+    </rtept>
+    <rtept lat="32.78030000" lon="-16.90580000">
+      <name>PR9.1 mid approx 2 return</name>
+      <desc>Manual shaping point; approximate.</desc>
+    </rtept>
+    <rtept lat="32.78180000" lon="-16.90920000">
+      <name>PR9.1 mid approx 1 return</name>
+      <desc>Manual shaping point; approximate.</desc>
+    </rtept>
+    <rtept lat="32.78277000" lon="-16.91161000">
+      <name>Parque Florestal das Queimadas return</name>
+      <desc>Return to start.</desc>
+    </rtept>
+  </rte>
+</gpx>

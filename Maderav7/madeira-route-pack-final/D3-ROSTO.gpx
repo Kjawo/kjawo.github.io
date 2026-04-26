@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="OpenAI GPT-5.4 Pro">
+  <wpt lat="32.75036000" lon="-16.70900000"><name>Ponta do Rosto parking approx</name><desc>Approximate public parking/start anchor.</desc></wpt><wpt lat="32.75052000" lon="-16.70830000"><name>Access path approx</name><desc>Approximate access point.</desc></wpt><wpt lat="32.75068066" lon="-16.70779213"><name>Ponta do Rosto viewpoint</name><desc>Official viewpoint pin.</desc></wpt><wpt lat="32.75052000" lon="-16.70830000"><name>Access path approx return</name><desc>Approximate access point.</desc></wpt><wpt lat="32.75036000" lon="-16.70900000"><name>Ponta do Rosto parking approx return</name><desc>Return to start.</desc></wpt><metadata>
+    <name>D3 Ponta do Rosto sunrise access</name>
+    <desc>D3-ROSTO: Ultra-short sunrise access from the Ponta do Rosto parking area to the viewpoint and back. Parking/start point is approximate.</desc>
+    <author>
+      <name>OpenAI GPT-5.4 Pro</name>
+    </author>
+  </metadata>
+  <rte>
+    <name>D3 Ponta do Rosto sunrise access</name>
+    <cmt>D3-ROSTO</cmt>
+    <desc>Ultra-short sunrise access from the Ponta do Rosto parking area to the viewpoint and back. Parking/start point is approximate.</desc>
+    <rtept lat="32.75036000" lon="-16.70900000">
+      <name>Ponta do Rosto parking approx</name>
+      <desc>Approximate public parking/start anchor.</desc>
+    </rtept>
+    <rtept lat="32.75052000" lon="-16.70830000">
+      <name>Access path approx</name>
+      <desc>Approximate access point.</desc>
+    </rtept>
+    <rtept lat="32.75068066" lon="-16.70779213">
+      <name>Ponta do Rosto viewpoint</name>
+      <desc>Official viewpoint pin.</desc>
+    </rtept>
+    <rtept lat="32.75052000" lon="-16.70830000">
+      <name>Access path approx return</name>
+      <desc>Approximate access point.</desc>
+    </rtept>
+    <rtept lat="32.75036000" lon="-16.70900000">
+      <name>Ponta do Rosto parking approx return</name>
+      <desc>Return to start.</desc>
+    </rtept>
+  </rte>
+</gpx>

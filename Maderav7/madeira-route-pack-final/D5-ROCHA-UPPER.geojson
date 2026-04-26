@@ -1,0 +1,83 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D5-ROCHA-UPPER",
+        "name": "D5 Rocha do Navio upper access",
+        "geometry_mode": "route",
+        "description": "Upper access only: Rocha do Navio upper cable-car station / parking -> upper viewpoint -> return. Lower branch is conditional on cable-car operation and is not silently merged into this file.",
+        "notes": "Upper access definite. Lower branch stays separate and conditional."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -16.87653,
+            32.81465
+          ],
+          [
+            -16.87661760476914,
+            32.814864568347986
+          ],
+          [
+            -16.87653,
+            32.81465
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D5-ROCHA-UPPER",
+        "name": "Rocha do Navio upper station / parking",
+        "order": 1,
+        "optional": false,
+        "geometry_mode": "route"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.87653,
+          32.81465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D5-ROCHA-UPPER",
+        "name": "Rocha do Navio upper viewpoint",
+        "order": 2,
+        "optional": false,
+        "geometry_mode": "route"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.87661760476914,
+          32.814864568347986
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D5-ROCHA-UPPER",
+        "name": "Rocha do Navio upper station / parking",
+        "order": 3,
+        "optional": false,
+        "geometry_mode": "route"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.87653,
+          32.81465
+        ]
+      }
+    }
+  ]
+}

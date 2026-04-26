@@ -1,0 +1,167 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D7-DRIVE",
+        "name": "D7 West-end scenic drive",
+        "geometry_mode": "stop_sequence",
+        "description": "Stop-sequence GPX: Canhas / Ponta do Sol public base anchor -> Achadas da Cruz upper station -> optional lower station via cable car -> Pedregal trailhead -> Garganta Funda viewpoint -> Ponta do Pargo lighthouse -> return to base. Includes one non-driving optional cable-car branch.",
+        "notes": "Drive sequence with one optional cable-car segment and one short access walk module."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -17.08619,
+            32.684497
+          ],
+          [
+            -17.209983502920576,
+            32.85301601365388
+          ],
+          [
+            -17.218231777980193,
+            32.85248601626887
+          ],
+          [
+            -17.242559,
+            32.817505
+          ],
+          [
+            -17.25112921641534,
+            32.82023158984793
+          ],
+          [
+            -17.26276682806198,
+            32.814353270471074
+          ],
+          [
+            -17.08619,
+            32.684497
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D7-DRIVE",
+        "name": "Canhas / Ponta do Sol public base anchor",
+        "order": 1,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.08619,
+          32.684497
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D7-DRIVE",
+        "name": "Achadas da Cruz upper station",
+        "order": 2,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.209983502920576,
+          32.85301601365388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D7-DRIVE",
+        "name": "Optional Achadas da Cruz lower station",
+        "order": 3,
+        "optional": true,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.218231777980193,
+          32.85248601626887
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D7-DRIVE",
+        "name": "Pedregal trailhead",
+        "order": 4,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.242559,
+          32.817505
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D7-DRIVE",
+        "name": "Garganta Funda viewpoint",
+        "order": 5,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.25112921641534,
+          32.82023158984793
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D7-DRIVE",
+        "name": "Ponta do Pargo lighthouse / viewpoint",
+        "order": 6,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.26276682806198,
+          32.814353270471074
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D7-DRIVE",
+        "name": "Canhas / Ponta do Sol public base anchor",
+        "order": 7,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.08619,
+          32.684497
+        ]
+      }
+    }
+  ]
+}

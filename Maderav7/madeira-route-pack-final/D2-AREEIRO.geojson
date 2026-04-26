@@ -1,0 +1,293 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -16.928797218182066,
+            32.73549086827481
+          ],
+          [
+            -16.9301,
+            32.73665
+          ],
+          [
+            -16.932,
+            32.7382
+          ],
+          [
+            -16.933814160594405,
+            32.739521571999234
+          ],
+          [
+            -16.9349,
+            32.73915
+          ],
+          [
+            -16.9359,
+            32.7391
+          ],
+          [
+            -16.93689,
+            32.73917
+          ],
+          [
+            -16.9359,
+            32.7391
+          ],
+          [
+            -16.9349,
+            32.73915
+          ],
+          [
+            -16.933814160594405,
+            32.739521571999234
+          ],
+          [
+            -16.932,
+            32.7382
+          ],
+          [
+            -16.9301,
+            32.73665
+          ],
+          [
+            -16.928797218182066,
+            32.73549086827481
+          ]
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "name": "D2 Areeiro restricted out-and-back",
+        "full_name": "D2 Areeiro sunrise / Ninho da Manta / Pedra Rija restricted out-and-back",
+        "geometry_mode": "route",
+        "note": "Manually drawn restricted out-and-back from the official current PR1 access intent: Pico do Areeiro -> Ninho da Manta -> Pedra Rija -> same-way return. This is not the full PR1 traverse and is not survey-precise."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.928797218182066,
+          32.73549086827481
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "point_index": 0,
+        "point_role": "start",
+        "name": "Pico do Areeiro PR1 trailhead",
+        "description": "Official trailhead / parking area."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.9301,
+          32.73665
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "point_index": 1,
+        "point_role": "via",
+        "name": "Ridge path approx 1",
+        "description": "Manual shaping point; approximate."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.932,
+          32.7382
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "point_index": 2,
+        "point_role": "via",
+        "name": "Ridge path approx 2",
+        "description": "Manual shaping point; approximate."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.933814160594405,
+          32.739521571999234
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "point_index": 3,
+        "point_role": "via",
+        "name": "Ninho da Manta",
+        "description": "Official viewpoint a few metres from PR1 start."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.9349,
+          32.73915
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "point_index": 4,
+        "point_role": "via",
+        "name": "Ridge path approx 3",
+        "description": "Manual shaping point; approximate."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.9359,
+          32.7391
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "point_index": 5,
+        "point_role": "via",
+        "name": "Ridge path approx 4",
+        "description": "Manual shaping point; approximate."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.93689,
+          32.73917
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "point_index": 6,
+        "point_role": "via",
+        "name": "Pedra Rija belvedere",
+        "description": "Public map viewpoint node on the restricted PR1 segment."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.9359,
+          32.7391
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "point_index": 7,
+        "point_role": "via",
+        "name": "Ridge path approx 4 return",
+        "description": "Manual shaping point; approximate."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.9349,
+          32.73915
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "point_index": 8,
+        "point_role": "via",
+        "name": "Ridge path approx 3 return",
+        "description": "Manual shaping point; approximate."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.933814160594405,
+          32.739521571999234
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "point_index": 9,
+        "point_role": "via",
+        "name": "Ninho da Manta return",
+        "description": "Same-way return."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.932,
+          32.7382
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "point_index": 10,
+        "point_role": "via",
+        "name": "Ridge path approx 2 return",
+        "description": "Manual shaping point; approximate."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.9301,
+          32.73665
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "point_index": 11,
+        "point_role": "via",
+        "name": "Ridge path approx 1 return",
+        "description": "Manual shaping point; approximate."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.928797218182066,
+          32.73549086827481
+        ]
+      },
+      "properties": {
+        "route_id": "D2-AREEIRO",
+        "point_index": 12,
+        "point_role": "end",
+        "name": "Pico do Areeiro PR1 trailhead return",
+        "description": "Return to start."
+      }
+    }
+  ]
+}

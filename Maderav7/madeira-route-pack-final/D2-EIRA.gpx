@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<gpx xmlns="http://www.topografix.com/GPX/1/1" version="1.1" creator="OpenAI GPT-5.4 Pro">
+  <wpt lat="32.71012000" lon="-16.96485000"><name>Estalagem / parking approx</name><desc>Approximate public start anchor next to Estalagem da Eira do Serrado.</desc></wpt><wpt lat="32.71031000" lon="-16.96525000"><name>Access path approx</name><desc>Approximate path point.</desc></wpt><wpt lat="32.71049878" lon="-16.96560840"><name>Eira do Serrado viewpoint</name><desc>Official viewpoint pin.</desc></wpt><wpt lat="32.71031000" lon="-16.96525000"><name>Access path approx return</name><desc>Approximate path point.</desc></wpt><wpt lat="32.71012000" lon="-16.96485000"><name>Estalagem / parking approx return</name><desc>Return to start.</desc></wpt><metadata>
+    <name>D2 Eira do Serrado viewpoint access</name>
+    <desc>D2-EIRA: Short viewpoint approach from the Estalagem da Eira do Serrado side. Start/parking point is approximate; this is a viewpoint add-on, not a second hike.</desc>
+    <author>
+      <name>OpenAI GPT-5.4 Pro</name>
+    </author>
+  </metadata>
+  <rte>
+    <name>D2 Eira do Serrado viewpoint access</name>
+    <cmt>D2-EIRA</cmt>
+    <desc>Short viewpoint approach from the Estalagem da Eira do Serrado side. Start/parking point is approximate; this is a viewpoint add-on, not a second hike.</desc>
+    <rtept lat="32.71012000" lon="-16.96485000">
+      <name>Estalagem / parking approx</name>
+      <desc>Approximate public start anchor next to Estalagem da Eira do Serrado.</desc>
+    </rtept>
+    <rtept lat="32.71031000" lon="-16.96525000">
+      <name>Access path approx</name>
+      <desc>Approximate path point.</desc>
+    </rtept>
+    <rtept lat="32.71049878" lon="-16.96560840">
+      <name>Eira do Serrado viewpoint</name>
+      <desc>Official viewpoint pin.</desc>
+    </rtept>
+    <rtept lat="32.71031000" lon="-16.96525000">
+      <name>Access path approx return</name>
+      <desc>Approximate path point.</desc>
+    </rtept>
+    <rtept lat="32.71012000" lon="-16.96485000">
+      <name>Estalagem / parking approx return</name>
+      <desc>Return to start.</desc>
+    </rtept>
+  </rte>
+</gpx>

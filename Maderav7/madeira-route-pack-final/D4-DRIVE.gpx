@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<gpx version="1.1" creator="OpenAI ChatGPT" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>D4 South recovery scenic drive</name>
+    <desc>Stop-sequence GPX: Canhas / Ponta do Sol public base anchor -&gt; Cabo Girao -&gt; Camara de Lobos Bay -&gt; Madalena do Mar -&gt; optional Rota de Banana start -&gt; return to base. This is a scenic driving sequence, not a hiking route. Route ID: D4-DRIVE. Notes: Ordered stop sequence only. Optional banana add-on remains optional.</desc>
+  </metadata>
+  <wpt lat="32.684497000" lon="-17.086190000">
+    <name>D4-DRIVE 01 Canhas / Ponta do Sol public base anchor</name>
+    <desc>Route ID: D4-DRIVE; point order: 1</desc>
+  </wpt>
+  <wpt lat="32.656400435" lon="-17.004203230">
+    <name>D4-DRIVE 02 Cabo Girao parking / skywalk</name>
+    <desc>Route ID: D4-DRIVE; point order: 2</desc>
+  </wpt>
+  <wpt lat="32.648860997" lon="-16.974937469">
+    <name>D4-DRIVE 03 Camara de Lobos Bay / harbour</name>
+    <desc>Route ID: D4-DRIVE; point order: 3</desc>
+  </wpt>
+  <wpt lat="32.702837072" lon="-17.137497416">
+    <name>D4-DRIVE 04 Madalena do Mar seafront</name>
+    <desc>Route ID: D4-DRIVE; point order: 4</desc>
+  </wpt>
+  <wpt lat="32.701618000" lon="-17.133750000">
+    <name>D4-DRIVE 05 Optional Rota de Banana start [optional]</name>
+    <desc>Route ID: D4-DRIVE; point order: 5; optional stop</desc>
+  </wpt>
+  <wpt lat="32.684497000" lon="-17.086190000">
+    <name>D4-DRIVE 06 Canhas / Ponta do Sol public base anchor</name>
+    <desc>Route ID: D4-DRIVE; point order: 6</desc>
+  </wpt>
+  <rte>
+    <name>D4 South recovery scenic drive</name>
+    <desc>Stop-sequence GPX: Canhas / Ponta do Sol public base anchor -&gt; Cabo Girao -&gt; Camara de Lobos Bay -&gt; Madalena do Mar -&gt; optional Rota de Banana start -&gt; return to base. This is a scenic driving sequence, not a hiking route. Geometry mode: stop_sequence.</desc>
+    <rtept lat="32.684497000" lon="-17.086190000">
+      <name>Canhas / Ponta do Sol public base anchor</name>
+      <desc>Route ID: D4-DRIVE; point order: 1</desc>
+    </rtept>
+    <rtept lat="32.656400435" lon="-17.004203230">
+      <name>Cabo Girao parking / skywalk</name>
+      <desc>Route ID: D4-DRIVE; point order: 2</desc>
+    </rtept>
+    <rtept lat="32.648860997" lon="-16.974937469">
+      <name>Camara de Lobos Bay / harbour</name>
+      <desc>Route ID: D4-DRIVE; point order: 3</desc>
+    </rtept>
+    <rtept lat="32.702837072" lon="-17.137497416">
+      <name>Madalena do Mar seafront</name>
+      <desc>Route ID: D4-DRIVE; point order: 4</desc>
+    </rtept>
+    <rtept lat="32.701618000" lon="-17.133750000">
+      <name>Optional Rota de Banana start [optional]</name>
+      <desc>Route ID: D4-DRIVE; point order: 5; optional stop</desc>
+    </rtept>
+    <rtept lat="32.684497000" lon="-17.086190000">
+      <name>Canhas / Ponta do Sol public base anchor</name>
+      <desc>Route ID: D4-DRIVE; point order: 6</desc>
+    </rtept>
+  </rte>
+</gpx>

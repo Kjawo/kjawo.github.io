@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<gpx version="1.1" creator="OpenAI ChatGPT" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd">
+  <metadata>
+    <name>D7 West-end scenic drive</name>
+    <desc>Stop-sequence GPX: Canhas / Ponta do Sol public base anchor -&gt; Achadas da Cruz upper station -&gt; optional lower station via cable car -&gt; Pedregal trailhead -&gt; Garganta Funda viewpoint -&gt; Ponta do Pargo lighthouse -&gt; return to base. Includes one non-driving optional cable-car branch. Route ID: D7-DRIVE. Notes: Drive sequence with one optional cable-car segment and one short access walk module.</desc>
+  </metadata>
+  <wpt lat="32.684497000" lon="-17.086190000">
+    <name>D7-DRIVE 01 Canhas / Ponta do Sol public base anchor</name>
+    <desc>Route ID: D7-DRIVE; point order: 1</desc>
+  </wpt>
+  <wpt lat="32.853016014" lon="-17.209983503">
+    <name>D7-DRIVE 02 Achadas da Cruz upper station</name>
+    <desc>Route ID: D7-DRIVE; point order: 2</desc>
+  </wpt>
+  <wpt lat="32.852486016" lon="-17.218231778">
+    <name>D7-DRIVE 03 Optional Achadas da Cruz lower station [optional]</name>
+    <desc>Route ID: D7-DRIVE; point order: 3; optional stop</desc>
+  </wpt>
+  <wpt lat="32.817505000" lon="-17.242559000">
+    <name>D7-DRIVE 04 Pedregal trailhead</name>
+    <desc>Route ID: D7-DRIVE; point order: 4</desc>
+  </wpt>
+  <wpt lat="32.820231590" lon="-17.251129216">
+    <name>D7-DRIVE 05 Garganta Funda viewpoint</name>
+    <desc>Route ID: D7-DRIVE; point order: 5</desc>
+  </wpt>
+  <wpt lat="32.814353270" lon="-17.262766828">
+    <name>D7-DRIVE 06 Ponta do Pargo lighthouse / viewpoint</name>
+    <desc>Route ID: D7-DRIVE; point order: 6</desc>
+  </wpt>
+  <wpt lat="32.684497000" lon="-17.086190000">
+    <name>D7-DRIVE 07 Canhas / Ponta do Sol public base anchor</name>
+    <desc>Route ID: D7-DRIVE; point order: 7</desc>
+  </wpt>
+  <rte>
+    <name>D7 West-end scenic drive</name>
+    <desc>Stop-sequence GPX: Canhas / Ponta do Sol public base anchor -&gt; Achadas da Cruz upper station -&gt; optional lower station via cable car -&gt; Pedregal trailhead -&gt; Garganta Funda viewpoint -&gt; Ponta do Pargo lighthouse -&gt; return to base. Includes one non-driving optional cable-car branch. Geometry mode: stop_sequence.</desc>
+    <rtept lat="32.684497000" lon="-17.086190000">
+      <name>Canhas / Ponta do Sol public base anchor</name>
+      <desc>Route ID: D7-DRIVE; point order: 1</desc>
+    </rtept>
+    <rtept lat="32.853016014" lon="-17.209983503">
+      <name>Achadas da Cruz upper station</name>
+      <desc>Route ID: D7-DRIVE; point order: 2</desc>
+    </rtept>
+    <rtept lat="32.852486016" lon="-17.218231778">
+      <name>Optional Achadas da Cruz lower station [optional]</name>
+      <desc>Route ID: D7-DRIVE; point order: 3; optional stop</desc>
+    </rtept>
+    <rtept lat="32.817505000" lon="-17.242559000">
+      <name>Pedregal trailhead</name>
+      <desc>Route ID: D7-DRIVE; point order: 4</desc>
+    </rtept>
+    <rtept lat="32.820231590" lon="-17.251129216">
+      <name>Garganta Funda viewpoint</name>
+      <desc>Route ID: D7-DRIVE; point order: 5</desc>
+    </rtept>
+    <rtept lat="32.814353270" lon="-17.262766828">
+      <name>Ponta do Pargo lighthouse / viewpoint</name>
+      <desc>Route ID: D7-DRIVE; point order: 6</desc>
+    </rtept>
+    <rtept lat="32.684497000" lon="-17.086190000">
+      <name>Canhas / Ponta do Sol public base anchor</name>
+      <desc>Route ID: D7-DRIVE; point order: 7</desc>
+    </rtept>
+  </rte>
+</gpx>

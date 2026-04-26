@@ -1,0 +1,167 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -16.91161,
+            32.78277
+          ],
+          [
+            -16.9092,
+            32.7818
+          ],
+          [
+            -16.9058,
+            32.7803
+          ],
+          [
+            -16.90147,
+            32.77833
+          ],
+          [
+            -16.9058,
+            32.7803
+          ],
+          [
+            -16.9092,
+            32.7818
+          ],
+          [
+            -16.91161,
+            32.78277
+          ]
+        ]
+      },
+      "properties": {
+        "route_id": "D5-PR91",
+        "name": "D5 backup PR9.1 round trip",
+        "full_name": "D5 backup-only PR9.1 Queimadas ↔ Pico das Pedras",
+        "geometry_mode": "route",
+        "note": "Backup-only manual route linking the official Queimadas and Pico das Pedras forest-park endpoints, shown as a same-way return from Queimadas. This is not PR9 and must never be treated as a silent substitution for PR9."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.91161,
+          32.78277
+        ]
+      },
+      "properties": {
+        "route_id": "D5-PR91",
+        "point_index": 0,
+        "point_role": "start",
+        "name": "Parque Florestal das Queimadas",
+        "description": "Forest park anchor / start."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.9092,
+          32.7818
+        ]
+      },
+      "properties": {
+        "route_id": "D5-PR91",
+        "point_index": 1,
+        "point_role": "via",
+        "name": "PR9.1 mid approx 1",
+        "description": "Manual shaping point; approximate."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.9058,
+          32.7803
+        ]
+      },
+      "properties": {
+        "route_id": "D5-PR91",
+        "point_index": 2,
+        "point_role": "via",
+        "name": "PR9.1 mid approx 2",
+        "description": "Manual shaping point; approximate."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.90147,
+          32.77833
+        ]
+      },
+      "properties": {
+        "route_id": "D5-PR91",
+        "point_index": 3,
+        "point_role": "via",
+        "name": "Parque Florestal do Pico das Pedras",
+        "description": "Forest park anchor / turn point."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.9058,
+          32.7803
+        ]
+      },
+      "properties": {
+        "route_id": "D5-PR91",
+        "point_index": 4,
+        "point_role": "via",
+        "name": "PR9.1 mid approx 2 return",
+        "description": "Manual shaping point; approximate."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.9092,
+          32.7818
+        ]
+      },
+      "properties": {
+        "route_id": "D5-PR91",
+        "point_index": 5,
+        "point_role": "via",
+        "name": "PR9.1 mid approx 1 return",
+        "description": "Manual shaping point; approximate."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.91161,
+          32.78277
+        ]
+      },
+      "properties": {
+        "route_id": "D5-PR91",
+        "point_index": 6,
+        "point_role": "end",
+        "name": "Parque Florestal das Queimadas return",
+        "description": "Return to start."
+      }
+    }
+  ]
+}

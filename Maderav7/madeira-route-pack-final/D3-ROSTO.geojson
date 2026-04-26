@@ -1,0 +1,125 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -16.709,
+            32.75036
+          ],
+          [
+            -16.7083,
+            32.75052
+          ],
+          [
+            -16.707792131758747,
+            32.75068065708648
+          ],
+          [
+            -16.7083,
+            32.75052
+          ],
+          [
+            -16.709,
+            32.75036
+          ]
+        ]
+      },
+      "properties": {
+        "route_id": "D3-ROSTO",
+        "name": "D3 Ponta do Rosto sunrise access",
+        "full_name": "D3 Ponta do Rosto sunrise micro-access",
+        "geometry_mode": "route",
+        "note": "Ultra-short sunrise access from the Ponta do Rosto parking area to the viewpoint and back. Parking/start point is approximate."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.709,
+          32.75036
+        ]
+      },
+      "properties": {
+        "route_id": "D3-ROSTO",
+        "point_index": 0,
+        "point_role": "start",
+        "name": "Ponta do Rosto parking approx",
+        "description": "Approximate public parking/start anchor."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.7083,
+          32.75052
+        ]
+      },
+      "properties": {
+        "route_id": "D3-ROSTO",
+        "point_index": 1,
+        "point_role": "via",
+        "name": "Access path approx",
+        "description": "Approximate access point."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.707792131758747,
+          32.75068065708648
+        ]
+      },
+      "properties": {
+        "route_id": "D3-ROSTO",
+        "point_index": 2,
+        "point_role": "via",
+        "name": "Ponta do Rosto viewpoint",
+        "description": "Official viewpoint pin."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.7083,
+          32.75052
+        ]
+      },
+      "properties": {
+        "route_id": "D3-ROSTO",
+        "point_index": 3,
+        "point_role": "via",
+        "name": "Access path approx return",
+        "description": "Approximate access point."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.709,
+          32.75036
+        ]
+      },
+      "properties": {
+        "route_id": "D3-ROSTO",
+        "point_index": 4,
+        "point_role": "end",
+        "name": "Ponta do Rosto parking approx return",
+        "description": "Return to start."
+      }
+    }
+  ]
+}

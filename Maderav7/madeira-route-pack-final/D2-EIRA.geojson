@@ -1,0 +1,125 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -16.96485,
+            32.71012
+          ],
+          [
+            -16.96525,
+            32.71031
+          ],
+          [
+            -16.965608402924392,
+            32.71049878333292
+          ],
+          [
+            -16.96525,
+            32.71031
+          ],
+          [
+            -16.96485,
+            32.71012
+          ]
+        ]
+      },
+      "properties": {
+        "route_id": "D2-EIRA",
+        "name": "D2 Eira do Serrado viewpoint access",
+        "full_name": "D2 Eira do Serrado short viewpoint access",
+        "geometry_mode": "route",
+        "note": "Short viewpoint approach from the Estalagem da Eira do Serrado side. Start/parking point is approximate; this is a viewpoint add-on, not a second hike."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.96485,
+          32.71012
+        ]
+      },
+      "properties": {
+        "route_id": "D2-EIRA",
+        "point_index": 0,
+        "point_role": "start",
+        "name": "Estalagem / parking approx",
+        "description": "Approximate public start anchor next to Estalagem da Eira do Serrado."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.96525,
+          32.71031
+        ]
+      },
+      "properties": {
+        "route_id": "D2-EIRA",
+        "point_index": 1,
+        "point_role": "via",
+        "name": "Access path approx",
+        "description": "Approximate path point."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.965608402924392,
+          32.71049878333292
+        ]
+      },
+      "properties": {
+        "route_id": "D2-EIRA",
+        "point_index": 2,
+        "point_role": "via",
+        "name": "Eira do Serrado viewpoint",
+        "description": "Official viewpoint pin."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.96525,
+          32.71031
+        ]
+      },
+      "properties": {
+        "route_id": "D2-EIRA",
+        "point_index": 3,
+        "point_role": "via",
+        "name": "Access path approx return",
+        "description": "Approximate path point."
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.96485,
+          32.71012
+        ]
+      },
+      "properties": {
+        "route_id": "D2-EIRA",
+        "point_index": 4,
+        "point_role": "end",
+        "name": "Estalagem / parking approx return",
+        "description": "Return to start."
+      }
+    }
+  ]
+}

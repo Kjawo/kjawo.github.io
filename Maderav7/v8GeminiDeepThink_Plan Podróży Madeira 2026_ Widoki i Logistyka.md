@@ -132,6 +132,9 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 - **Sprawdzić wcześniej:** IFCN, slot w SIMplifica, wiatr, zachmurzenie, widoczność i realny zakres dostępnego odcinka.
 - **Parking:** parking przy Pico do Areeiro / overflow niżej; Eira do Serrado przy hotelu i punkcie widokowym.
 - **Dojście od parkingu:** Areeiro orientacyjnie `5-20 min` zależnie od miejsca; Eira do Serrado `5-10 min`.
+- **Trasy:**
+  - `D2-AREEIRO` - primary custom GPX: Areeiro -> Ninho da Manta -> Pedra Rija -> powrót tą samą drogą. Komoot tylko jako kandydat/referencja, nie pełny PR1 smarttour. Pliki: [D2-AREEIRO.gpx](madeira-route-pack-final/D2-AREEIRO.gpx), [D2-AREEIRO.geojson](madeira-route-pack-final/D2-AREEIRO.geojson). Link: <https://www.komoot.com/de-de/tour/1843581600>.
+  - `D2-EIRA` - support micro-walk do Eira do Serrado. Pliki: [D2-EIRA.gpx](madeira-route-pack-final/D2-EIRA.gpx), [D2-EIRA.geojson](madeira-route-pack-final/D2-EIRA.geojson).
 - **Parking full:** krążenie maksymalnie `10 min`; potem overflow albo skrócony wariant viewpoint + Ninho da Manta. Bez polowania na idealne miejsce.
 - **Jedzenie / kawa:** kawa i śniadanie po zejściu, nie przed sunrise; woda i jedzenie awaryjne mają być w aucie przed startem.
 - **Toalety / infrastruktura:** przed świtem na górze nie zakładaj działającej infrastruktury; potraktuj start jako self-sufficient.
@@ -167,6 +170,9 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 - **Sprawdzić wcześniej:** wiatr, ekspozycję słoneczną, status szlaku; jeśli rozważasz boat-return, także operatora i transfer do auta.
 - **Parking:** Ponta do Rosto viewpoint; Baia d'Abra trailhead.
 - **Dojście od parkingu:** viewpoint `2-5 min`; start PR8 praktycznie przy parkingu.
+- **Trasy:**
+  - `D3-ROSTO` - opcjonalny sunrise micro-GPX tylko po przejściu bramki snu/sunrise. Pliki: [D3-ROSTO.gpx](madeira-route-pack-final/D3-ROSTO.gpx), [D3-ROSTO.geojson](madeira-route-pack-final/D3-ROSTO.geojson).
+  - `D3-PR8` - exact Komoot primary: Baia d'Abra -> Casa do Sardinha -> powrót. Link: <https://www.komoot.com/smarttour/e1375832832/vereda-da-ponta-de-sao-lourenco-pr8-on-the-island-of-madeira>.
 - **Jedzenie / kawa:** Machico po zejściu.
 - **Toalety / infrastruktura:** na trailheadzie nie zakładaj wygód; bazuj na mieście przed i po trasie.
 - **Worth it:** Ponta do Rosto o świcie, pierwsza połowa PR8, Casa do Sardinha.
@@ -200,6 +206,9 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 - **Sprawdzić wcześniej:** pogodę na zachód i czy nie chcesz zamienić dnia na moduł miejski.
 - **Parking:** Cabo Girao przy punkcie; Camara de Lobos port; seafront w Madalena do Mar.
 - **Dojście od parkingu:** orientacyjnie `2-10 min` na każdym stopie.
+- **Trasy:**
+  - `D4-DRIVE` - scenic drive stop sequence GPX, nie hike i nie gwarancja turn-by-turn po drogach. Publiczny plik używa `Canhas / Ponta do Sol public base anchor`, nie prywatnego pinu noclegu. Pliki: [D4-DRIVE.gpx](madeira-route-pack-final/D4-DRIVE.gpx), [D4-DRIVE.geojson](madeira-route-pack-final/D4-DRIVE.geojson).
+  - `D4-BANANA` - opcjonalny exact Komoot dla płaskiego spaceru Rota de Banana. Link: <https://www.komoot.com/de-de/tour/1801865266>.
 - **Jedzenie / kawa:** Camara de Lobos lub Madalena do Mar.
 - **Toalety / infrastruktura:** południe ma najłatwiejszą infrastrukturę - to dobry dzień na oddech logistyczny.
 - **Worth it:** Cabo Girao jako `15-25 min` stop, port w Camara de Lobos, płaski spacer wśród bananowców, zachód przy bazie.
@@ -232,6 +241,12 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 - **Sprawdzić wcześniej:** widoczność w Balcoes, działanie kolejki Rocha do Navio i ewentualny status PR9 / PR9.1 przy podmianie.
 - **Parking:** Ribeiro Frio przy starcie; Santana w centrum; Rocha do Navio przy kolejce / viewpoint.
 - **Dojście od parkingu:** `0-5 min` do startu PR11; `2-10 min` na pozostałych stopach.
+- **Trasy:**
+  - `D5-PR11` - exact Komoot primary dla PR11 Balcoes. Link: <https://www.komoot.com/smarttour/e1375848179/pr11-vereda-dos-balcoes-trail>.
+  - `D5-ROCHA` - moduł warunkowy: górny viewpoint zostaje, dolna gałąź tylko po świeżym sprawdzeniu operatora/statusu T-1 / day-of. Komoot partial: <https://www.komoot.com/de-de/highlight/6591641>.
+  - `D5-ROCHA-UPPER` - górny viewpoint GPX only. Pliki: [D5-ROCHA-UPPER.gpx](madeira-route-pack-final/D5-ROCHA-UPPER.gpx), [D5-ROCHA-UPPER.geojson](madeira-route-pack-final/D5-ROCHA-UPPER.geojson).
+  - `D5-ROCHA-LOWER-OPTIONAL` - manifest-only, bez aktywnego GPX w paczce.
+  - `D5-PR91` - backup-only PR9.1; nie jest cichym zamiennikiem pełnego PR9. Pliki: [D5-PR91.gpx](madeira-route-pack-final/D5-PR91.gpx), [D5-PR91.geojson](madeira-route-pack-final/D5-PR91.geojson). Link referencyjny: <https://www.komoot.com/de-de/tour/1073689799>.
 - **Jedzenie / kawa:** Ribeiro Frio lub Santana.
 - **Toalety / infrastruktura:** licz na miasteczka i kawiarnie, nie na same viewpointy.
 - **Worth it:** Balcoes przy dobrej widzialności, klify Rocha do Navio, krótki kontrast architektoniczny Santany.
@@ -264,6 +279,8 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 - **Sprawdzić wcześniej:** fale, wiatr, deszcz na północy, możliwość kąpieli i własną gotowość do wejścia do wody.
 - **Parking:** Seixal beach / pools; Veu da Noiva roadside stop; Porto Moniz parking miejski.
 - **Dojście od parkingu:** orientacyjnie `2-10 min`.
+- **Trasy:**
+  - `D6-DRIVE` - scenic drive stop sequence GPX. Publiczny plik używa `Canhas / Ponta do Sol public base anchor`; wejście do wody nie jest częścią geometrii. Pliki: [D6-DRIVE.gpx](madeira-route-pack-final/D6-DRIVE.gpx), [D6-DRIVE.geojson](madeira-route-pack-final/D6-DRIVE.geojson).
 - **Jedzenie / kawa:** Porto Moniz.
 - **Toalety / infrastruktura:** Porto Moniz ma najlepszą infrastrukturę na tym dniu: przebieralnie, bar, first aid, parking.
 - **Worth it:** Seixal nawet bez kąpieli, Veu da Noiva, Porto Moniz jako relaks i spacer.
@@ -297,6 +314,8 @@ Ta sekcja jest wersją terenową na telefon: jeśli jest presja czasu, decyzję 
 - **Sprawdzić wcześniej:** działanie kolejki, wiatr, ewentualny edital serwisowy, stan wodospadu i zachmurzenie na zachodzie. Spakować rzeczy na wieczór i kolejny dzień przed wyjazdem, bo powrót będzie późny.
 - **Parking:** Achadas cable car; parking przy ścieżce do Garganta Funda; lighthouse / viewpoint Ponta do Pargo.
 - **Dojście od parkingu:** orientacyjnie `0-5 min`, `5-10 min`, `2-5 min`.
+- **Trasy:**
+  - `D7-DRIVE` - scenic drive stop sequence GPX z opcjonalnym waypointem kolejki Achadas. Publiczny plik używa `Canhas / Ponta do Sol public base anchor`; dolny waypoint Achadas jest warunkowy, nie oznacza przejezdnego ani potwierdzonego odcinka pieszego. Pliki: [D7-DRIVE.gpx](madeira-route-pack-final/D7-DRIVE.gpx), [D7-DRIVE.geojson](madeira-route-pack-final/D7-DRIVE.geojson).
 - **Jedzenie / kawa:** Porto Moniz po drodze albo Ponta do Pargo village.
 - **Toalety / infrastruktura:** na viewpointach nie licz na toalety; użyj infrastruktury w miasteczkach.
 - **Worth it:** sam zachodni kraniec, Garganta Funda w dobrym świetle i Achadas tylko wtedy, gdy kolejka działa sensownie.

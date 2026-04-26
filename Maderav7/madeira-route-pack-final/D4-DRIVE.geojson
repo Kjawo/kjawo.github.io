@@ -1,0 +1,146 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D4-DRIVE",
+        "name": "D4 South recovery scenic drive",
+        "geometry_mode": "stop_sequence",
+        "description": "Stop-sequence GPX: Canhas / Ponta do Sol public base anchor -> Cabo Girao -> Camara de Lobos Bay -> Madalena do Mar -> optional Rota de Banana start -> return to base. This is a scenic driving sequence, not a hiking route.",
+        "notes": "Ordered stop sequence only. Optional banana add-on remains optional."
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            -17.08619,
+            32.684497
+          ],
+          [
+            -17.004203229760975,
+            32.65640043469785
+          ],
+          [
+            -16.974937469321574,
+            32.64886099725748
+          ],
+          [
+            -17.137497416418523,
+            32.702837072226224
+          ],
+          [
+            -17.13375,
+            32.701618
+          ],
+          [
+            -17.08619,
+            32.684497
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D4-DRIVE",
+        "name": "Canhas / Ponta do Sol public base anchor",
+        "order": 1,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.08619,
+          32.684497
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D4-DRIVE",
+        "name": "Cabo Girao parking / skywalk",
+        "order": 2,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.004203229760975,
+          32.65640043469785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D4-DRIVE",
+        "name": "Camara de Lobos Bay / harbour",
+        "order": 3,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -16.974937469321574,
+          32.64886099725748
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D4-DRIVE",
+        "name": "Madalena do Mar seafront",
+        "order": 4,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.137497416418523,
+          32.702837072226224
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D4-DRIVE",
+        "name": "Optional Rota de Banana start",
+        "order": 5,
+        "optional": true,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.13375,
+          32.701618
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "route_id": "D4-DRIVE",
+        "name": "Canhas / Ponta do Sol public base anchor",
+        "order": 6,
+        "optional": false,
+        "geometry_mode": "stop_sequence"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -17.08619,
+          32.684497
+        ]
+      }
+    }
+  ]
+}
