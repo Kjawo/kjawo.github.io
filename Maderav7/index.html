@@ -9,6 +9,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <script src="assets/chart.umd.min.js" onerror="this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js'"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <style>
 /* ---------- TOKENS ---------- */
 :root{
@@ -851,6 +853,95 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
   a{color:#000;text-decoration:none}
   .hero{padding-top:6mm}
 }
+
+/* ===== DAY MAP PANEL + ROUTE HUB ===== */
+.day-map{margin:0 -18px 14px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);background:#0d1820;color:#e8ecef;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:0;align-items:stretch}
+@media(max-width:780px){.day-map{grid-template-columns:1fr}}
+.day-map .dm-canvas{position:relative;height:220px;background:#0a141c;overflow:hidden}
+.day-map .dm-canvas .leaflet-container{height:100%;width:100%;background:#0a141c}
+.day-map .dm-canvas.no-geo{display:flex;align-items:stretch}
+.day-map .dm-info{padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:linear-gradient(180deg,#15212a 0%,#10191f 100%);border-left:1px solid rgba(255,255,255,.06);min-width:0}
+@media(max-width:780px){.day-map .dm-info{border-left:0;border-top:1px solid rgba(255,255,255,.06)}}
+.day-map .dm-kicker{font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:#8aa0aa;display:flex;justify-content:space-between;gap:10px;align-items:center}
+.day-map .dm-kicker .dm-day{color:#ecc878}
+.day-map .dm-title{font-family:var(--serif);font-size:18px;line-height:1.2;color:#f4f2ee;margin:2px 0 0;font-weight:500}
+.day-map .dm-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:2px}
+.day-map .dm-tag{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:3px 7px;color:#cfd6dc;background:rgba(255,255,255,.04);white-space:nowrap}
+.day-map .dm-tag.t-core{border-color:#9bc4a8;color:#bde2c8;background:rgba(110,170,135,.14)}
+.day-map .dm-tag.t-optional{border-color:#a3c0cf;color:#bcd6e3;background:rgba(120,170,200,.12)}
+.day-map .dm-tag.t-backup{border-color:#cdb69b;color:#e0c9ad;background:rgba(180,150,110,.14)}
+.day-map .dm-tag.t-conditional{border-color:#d9a396;color:#f0c2b6;background:rgba(200,110,80,.16)}
+.day-map .dm-tag.t-logistics{border-color:#c8c1a8;color:#dcd5b8;background:rgba(180,170,120,.14)}
+.day-map .dm-tag.t-hike{background:rgba(110,170,135,.18);border-color:#74a385;color:#cdedd6}
+.day-map .dm-tag.t-drive{background:rgba(180,150,110,.18);border-color:#9b8a64;color:#e9dcc1}
+.day-map .dm-tag.t-micro-walk{background:rgba(120,170,200,.16);border-color:#5e8da3;color:#cfe3ec}
+.day-map .dm-stops{font-family:var(--mono);font-size:11px;line-height:1.5;color:#b9c7d0;margin:2px 0 0;padding-left:14px;border-left:1px solid rgba(255,255,255,.08);display:grid;gap:1px}
+.day-map .dm-stops li{list-style:none;position:relative}
+.day-map .dm-stops li::before{content:"·";position:absolute;left:-10px;color:#5e7585}
+.day-map .dm-cta{margin-top:auto;display:flex;flex-wrap:wrap;gap:5px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.08)}
+.day-map .dm-cta a{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 9px;color:#e3e8eb;background:rgba(255,255,255,.04);transition:border-color .15s, color .15s, background .15s}
+.day-map .dm-cta a:hover,.day-map .dm-cta a:focus-visible{border-color:#ecc878;color:#ecc878;background:rgba(236,200,120,.08);outline:none}
+.day-map .dm-cta a.primary{background:#ecc878;color:#1a2026;border-color:#ecc878;font-weight:600}
+.day-map .dm-cta a.primary:hover,.day-map .dm-cta a.primary:focus-visible{background:#fff;border-color:#fff;color:#1a2026}
+.day-map .dm-cta a.komoot{border-color:#7aa088;color:#cfe7d7}
+.day-map .dm-cta a.komoot:hover{background:rgba(110,170,135,.18);border-color:#a8d2b8;color:#e1f1e6}
+
+.day-map.placeholder .dm-canvas{background:radial-gradient(120% 100% at 30% 30%,#1a2730 0%,#0a141c 70%);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:14px;color:#8aa0aa}
+.day-map.placeholder .dm-canvas .ph-title{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#ecc878}
+.day-map.placeholder .dm-canvas .ph-route{font-family:var(--serif);font-size:18px;color:#f4f2ee;line-height:1.25;max-width:260px}
+.day-map.placeholder .dm-canvas .ph-stops{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:#9eb1bb;line-height:1.5}
+.day-map.placeholder .dm-canvas .ph-deco{position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(236,200,120,.04) 0,rgba(236,200,120,.04) 1px,transparent 1px,transparent 14px);pointer-events:none}
+
+/* Leaflet override for our dark theme */
+.day-map .leaflet-control-attribution{font-size:9px;background:rgba(13,24,32,.7);color:#8aa0aa}
+.day-map .leaflet-control-attribution a{color:#cfd6dc}
+.day-map .leaflet-control-zoom a{background:#15212a;color:#e3e8eb;border-color:rgba(255,255,255,.12)}
+.day-map .leaflet-control-zoom a:hover{background:#1f2c36}
+.day-map .leaflet-tile{filter:contrast(.92) brightness(.78) saturate(.82)}
+.day-map .dm-marker{display:flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#ecc878;color:#1a2026;font-family:var(--mono);font-size:10px;font-weight:700;border:2px solid #0d1820;box-shadow:0 0 0 2px rgba(236,200,120,.35)}
+.day-map .dm-marker.start{background:#9bc4a8}
+.day-map .dm-marker.end{background:#e66a3c;color:#fff}
+.day-map .dm-marker.via{background:#82b8c8;width:14px;height:14px;font-size:0}
+.day-map .dm-marker.base{background:#ecc878}
+.day-map .dm-marker.airport{background:#d8dde1;color:#1a2026}
+.day-map .dm-marker.store{background:#b9c7d0;color:#1a2026;width:14px;height:14px;font-size:0}
+.day-map .leaflet-popup-content-wrapper{background:#15212a;color:#e8ecef;border-radius:8px;box-shadow:0 6px 24px rgba(0,0,0,.4)}
+.day-map .leaflet-popup-content{margin:8px 12px;font-family:var(--mono);font-size:11px;line-height:1.4}
+.day-map .leaflet-popup-tip{background:#15212a}
+
+/* Route hub inside #mapa */
+.routehub{margin-top:18px;border:1px solid var(--rule);border-radius:14px;background:#0e1a23;color:#e8ecef;overflow:hidden}
+.routehub .rh-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:14px 18px 6px;flex-wrap:wrap}
+.routehub .rh-head h4{margin:0;font-family:var(--serif);font-size:18px;font-weight:500;color:#f4f2ee}
+.routehub .rh-head .rh-note{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:#8aa0aa;text-transform:uppercase}
+.routehub .rh-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:10px 18px 14px}
+@media(max-width:880px){.routehub .rh-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.routehub .rh-grid{grid-template-columns:1fr}}
+.routehub .rh-chip{display:flex;flex-direction:column;gap:4px;text-align:left;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 12px;color:inherit;text-decoration:none;cursor:pointer;font:inherit;transition:border-color .15s,background .15s,transform .15s}
+.routehub .rh-chip:hover,.routehub .rh-chip:focus-visible{border-color:#ecc878;background:rgba(236,200,120,.06);outline:none;transform:translateY(-1px)}
+.routehub .rh-chip[aria-current="true"]{border-color:#ecc878;background:rgba(236,200,120,.1)}
+.routehub .rh-chip .rh-k{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#ecc878;display:flex;justify-content:space-between;gap:8px}
+.routehub .rh-chip .rh-k .rh-kind{color:#8aa0aa}
+.routehub .rh-chip .rh-t{font-family:var(--serif);font-size:14px;line-height:1.2;color:#f4f2ee}
+.routehub .rh-chip .rh-meta{font-family:var(--mono);font-size:10px;letter-spacing:.04em;color:#9eb1bb;display:flex;flex-wrap:wrap;gap:6px}
+.routehub .rh-chip .rh-meta span{display:inline-flex;align-items:center;gap:3px}
+.routehub .rh-chip .rh-meta .rh-dot{width:7px;height:7px;border-radius:50%;background:#5e7585;display:inline-block}
+.routehub .rh-chip .rh-meta .rh-dot.core{background:#9bc4a8}
+.routehub .rh-chip .rh-meta .rh-dot.optional{background:#82b8c8}
+.routehub .rh-chip .rh-meta .rh-dot.backup{background:#cdb69b}
+.routehub .rh-chip .rh-meta .rh-dot.conditional{background:#d9a396}
+.routehub .rh-pack{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:10px 18px 14px;border-top:1px dashed rgba(255,255,255,.08)}
+.routehub .rh-pack .rh-pack-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8aa0aa;margin-right:6px}
+.routehub .rh-pack a{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 9px;color:#e3e8eb;background:rgba(255,255,255,.04)}
+.routehub .rh-pack a:hover,.routehub .rh-pack a:focus-visible{border-color:#ecc878;color:#ecc878;outline:none}
+
+/* schematic island map: highlight on hover/active */
+.islandmap .route-line[data-hub-active="true"]{stroke-width:3.6;opacity:1;filter:drop-shadow(0 0 8px currentColor)}
+
+@media print{
+  .day-map{display:none !important}
+  .routehub{display:none !important}
+}
 </style>
 </head>
 <body>
@@ -1280,6 +1371,20 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
         Schemat orientacyjny. Baza leży powyżej wybrzeża: każdy większy moduł zaczyna i kończy się blokiem serpentyn do/z VR1.
       </p>
     </aside>
+  </div>
+  <div class="routehub" id="routehub" aria-labelledby="routehubTitle">
+    <div class="rh-head">
+      <h4 id="routehubTitle">Dzień po dniu · selektor tras</h4>
+      <span class="rh-note">Klik · podświetla schemat i otwiera kartę dnia</span>
+    </div>
+    <div class="rh-grid" id="rhGrid" role="list"></div>
+    <div class="rh-pack">
+      <span class="rh-pack-label">Pakiet offline</span>
+      <a href="madeira-route-pack-final/routes-manifest.json" target="_blank" rel="noopener">Manifest JSON</a>
+      <a href="madeira-route-pack-final/route-pack-summary.md" target="_blank" rel="noopener">Notatki paczki</a>
+      <a href="madeira-route-pack-final/komoot-links.md" target="_blank" rel="noopener">Linki Komoot</a>
+      <a href="madeira-route-pack-final/" target="_blank" rel="noopener">Wszystkie pliki GPX/GeoJSON</a>
+    </div>
   </div>
 </section>
 
@@ -2406,6 +2511,392 @@ function conciseStart(start){
   if(start.includes(" · ")) return start.split(" · ")[0];
   return start;
 }
+
+/* =============== DAY MAPS + ROUTE HUB =============== */
+// Logistics data for D1/D8 (operational days). Coordinates in [lat,lon].
+const DAY_LOGISTICS = {
+  1: {
+    title: "Lotnisko · sklep · baza",
+    kind: "logistics",
+    classification: "core",
+    notes: "Plan po lądowaniu Wizz: odbiór auta, jeden sklep, baza. Zero modułów po drodze.",
+    points: [
+      {role:"airport", code:"FNC", lat:32.6979, lon:-16.7745, label:"FNC · lotnisko Madery", note:"Wizz · screenshots T-7 / T-3 / T-0"},
+      {role:"store",   code:"SP",  lat:32.6646, lon:-17.0335, label:"Pingo Doce Canhas", note:"Sklep B na trasie do bazy"},
+      {role:"base",    code:"BZ",  lat:32.6788, lon:-17.0980, label:"Rose Sun House · Canhas", note:"Rua do Jogo da Bola n49 · 9360-348"}
+    ],
+    cta: [
+      {label:"FNC → Pingo Doce", primary:false, href:"https://www.google.com/maps/dir/?api=1&origin=Aeroporto+Madeira+FNC&destination=Pingo+Doce+Canhas&travelmode=driving"},
+      {label:"Pingo Doce → Baza", primary:false, href:"https://www.google.com/maps/dir/?api=1&origin=Pingo+Doce+Canhas&destination=Rose+Sun+House+Rua+do+Jogo+da+Bola+49+Canhas+9360-348&travelmode=driving"},
+      {label:"FNC → Baza", primary:true, href:"https://www.google.com/maps/dir/?api=1&origin=Aeroporto+Madeira+FNC&destination=Rose+Sun+House+Rua+do+Jogo+da+Bola+49+Canhas+9360-348&travelmode=driving"}
+    ]
+  },
+  8: {
+    title: "Baza · paliwo · zwrot · lotnisko",
+    kind: "logistics",
+    classification: "core",
+    notes: "Wylot 16:45 · bufor zwrotu auta + paliwo + dojście z bagażem to osobne bloki, nie po drodze.",
+    points: [
+      {role:"base",    code:"BZ",  lat:32.6788, lon:-17.0980, label:"Rose Sun House · Canhas", note:"Checkout 10:15–10:45"},
+      {role:"via",     code:"MA",  lat:32.7176, lon:-16.7669, label:"Machico · łatwy lunch (opcjonalnie)", note:"Bagaż w aucie nie eksponowany"},
+      {role:"store",   code:"GA",  lat:32.6885, lon:-16.7820, label:"Stacja paliw przy lotnisku", note:"Tankowanie tuż przed zwrotem"},
+      {role:"airport", code:"FNC", lat:32.6979, lon:-16.7745, label:"FNC · zwrot auta + check-in", note:"Lotnisko 13:45–14:15"}
+    ],
+    cta: [
+      {label:"Baza → Machico", primary:false, href:"https://www.google.com/maps/dir/?api=1&origin=Rose+Sun+House+Canhas&destination=Machico&travelmode=driving"},
+      {label:"Machico → FNC", primary:false, href:"https://www.google.com/maps/dir/?api=1&origin=Machico&destination=Aeroporto+Madeira+FNC&travelmode=driving"},
+      {label:"Baza → FNC bezpośrednio", primary:true, href:"https://www.google.com/maps/dir/?api=1&origin=Rose+Sun+House+Canhas&destination=Aeroporto+Madeira+FNC&travelmode=driving"}
+    ]
+  }
+};
+
+const ROUTE_KIND_LABEL = {
+  hike:"hike", drive:"drive", "micro-walk":"micro-walk", module:"module",
+  viewpoint_access:"viewpoint", logistics:"logistics"
+};
+
+function dayClassification(d){
+  const r = d.routes || [];
+  if(d.n===1 || d.n===8) return "core"; // logistics days
+  if(r.some(x=>x.role==="core")) return "core";
+  if(r.some(x=>x.role==="optional")) return "optional";
+  if(r.some(x=>x.role==="conditional")) return "conditional";
+  if(r.some(x=>x.role==="backup")) return "backup";
+  return "core";
+}
+
+function dayPrimaryKind(d){
+  if(d.n===1 || d.n===8) return "logistics";
+  const r = d.routes || [];
+  const core = r.find(x=>x.role==="core");
+  if(core) return core.type;
+  if(r[0]) return r[0].type;
+  return "module";
+}
+
+function bestPrimaryRoute(d){
+  const r = d.routes || [];
+  // Keep the day identity honest: optional/conditional GeoJSON must not replace the core route.
+  return r.find(x=>x.role==="core") || r.find(x=>x.geojson) || r[0] || null;
+}
+
+function bestMapRoute(d){
+  const primary = bestPrimaryRoute(d);
+  if(primary?.geojson) return primary;
+  return (d.routes || []).find(x=>x.geojson) || null;
+}
+
+function uniqueRouteLinks(d){
+  const r = d.routes || [];
+  const out = [];
+  // primary komoot
+  const exact = r.find(x=>x.matchClass==="exact" && x.komootUrl);
+  const anyKomoot = r.find(x=>x.komootUrl);
+  if(exact) out.push({label:"Komoot · exact", href:exact.komootUrl, klass:"komoot primary"});
+  else if(anyKomoot) out.push({label:"Komoot", href:anyKomoot.komootUrl, klass:"komoot"});
+  const gpx = r.find(x=>x.gpx);
+  if(gpx) out.push({label:"GPX", href:gpx.gpx});
+  const gj = r.find(x=>x.geojson);
+  if(gj) out.push({label:"GeoJSON", href:gj.geojson});
+  return out;
+}
+
+function classificationLabel(c){
+  return {core:"core", optional:"optional", backup:"backup", conditional:"conditional", logistics:"logistics"}[c] || c;
+}
+
+function renderDayMapPanel(d){
+  const cls = dayClassification(d);
+  const kind = dayPrimaryKind(d);
+  const isLogistics = d.n===1 || d.n===8;
+  const primary = bestPrimaryRoute(d);
+  const mapRoute = !isLogistics ? bestMapRoute(d) : null;
+  const hasGeoJson = !isLogistics && !!mapRoute?.geojson;
+  const isPlaceholder = !isLogistics && !hasGeoJson;
+
+  const tagsParts = [];
+  tagsParts.push(`<span class="dm-tag t-${cls}">${classificationLabel(cls)}</span>`);
+  tagsParts.push(`<span class="dm-tag t-${kind}">${ROUTE_KIND_LABEL[kind] || kind}</span>`);
+  if(!isLogistics){
+    if((d.routes||[]).some(r=>r.matchClass==="exact")) tagsParts.push(`<span class="dm-tag">exact Komoot</span>`);
+    if((d.routes||[]).some(r=>r.labelClass==="custom-gpx")) tagsParts.push(`<span class="dm-tag">custom GPX</span>`);
+    if((d.routes||[]).some(r=>r.labelClass==="drive-sequence")) tagsParts.push(`<span class="dm-tag">drive sequence</span>`);
+    if((d.routes||[]).some(r=>r.role==="backup")) tagsParts.push(`<span class="dm-tag t-backup">backup-only</span>`);
+    if((d.routes||[]).some(r=>r.role==="conditional")) tagsParts.push(`<span class="dm-tag t-conditional">warunkowe</span>`);
+    if(mapRoute && primary && mapRoute.id !== primary.id) tagsParts.push(`<span class="dm-tag t-optional">mapa: ${mapRoute.id}</span>`);
+  }
+  const tags = tagsParts.join("");
+
+  // Stops list
+  let stopsHtml = "";
+  if(isLogistics){
+    const log = DAY_LOGISTICS[d.n];
+    stopsHtml = `<ul class="dm-stops">${log.points.map(p=>`<li><b style="color:#ecc878;font-family:var(--mono);font-weight:600">${p.code}</b> · ${p.label}</li>`).join("")}</ul>`;
+  } else {
+    const stops = (d.stops || []).slice(0,3);
+    stopsHtml = stops.length ? `<ul class="dm-stops">${stops.map(s=>`<li>${s}</li>`).join("")}</ul>` : "";
+  }
+
+  // CTA links
+  let ctaHtml = "";
+  if(isLogistics){
+    const log = DAY_LOGISTICS[d.n];
+    ctaHtml = log.cta.map(c=>`<a class="${c.primary?'primary':''}" href="${c.href}" target="_blank" rel="noopener">${c.label}</a>`).join("");
+  } else {
+    const links = uniqueRouteLinks(d);
+    // Primary Google Maps anchor for navigation if we have a route id
+    const dirOrigin = "Rose+Sun+House+Canhas";
+    const destByDay = {
+      2:"Pico+do+Areeiro+Madeira", 3:"Baia+d'Abra+Caniçal+Madeira",
+      4:"Cabo+Girão+Madeira", 5:"Ribeiro+Frio+Madeira",
+      6:"Seixal+Madeira", 7:"Achadas+da+Cruz+Madeira"
+    };
+    const dest = destByDay[d.n];
+    if(dest) links.push({label:"Google Maps · dojazd", href:`https://www.google.com/maps/dir/?api=1&origin=${dirOrigin}&destination=${dest}&travelmode=driving`});
+    ctaHtml = links.map(l=>`<a class="${l.klass||''}" href="${l.href}" target="_blank" rel="noopener">${l.label}</a>`).join("");
+  }
+
+  // Canvas markup: Leaflet container OR placeholder
+  let canvasHtml;
+  if(isLogistics){
+    canvasHtml = `<div class="dm-canvas"><div class="dm-leaflet" data-day-map="${d.n}" data-map-kind="logistics"></div></div>`;
+  } else if(hasGeoJson){
+    canvasHtml = `<div class="dm-canvas"><div class="dm-leaflet" data-day-map="${d.n}" data-map-kind="route" data-geojson="${mapRoute.geojson}"></div></div>`;
+  } else {
+    // Komoot-only placeholder card
+    const r0 = primary || (d.routes||[])[0] || {};
+    const stopsLine = (d.stops||[]).slice(0,3).join("  ·  ");
+    canvasHtml = `<div class="dm-canvas"><div class="ph-deco"></div>
+      <div class="ph-title">${r0.id || "ROUTE"} · komoot only</div>
+      <div class="ph-route">${r0.komootTitle || r0.label || d.title}</div>
+      <div class="ph-stops">${stopsLine || (d.headline || "")}</div>
+    </div>`;
+  }
+
+  const placeholderClass = isPlaceholder ? " placeholder" : "";
+
+  return `<div class="day-map${placeholderClass}" data-day-mapcard="${d.n}">
+    ${canvasHtml}
+    <div class="dm-info">
+      <div class="dm-kicker"><span class="dm-day">D${d.n} · ${d.date}</span><span>${isLogistics ? "logistyka" : (kind === "drive" ? "scenic drive" : kind === "hike" ? "trasa piesza" : kind)}</span></div>
+      <div class="dm-title">${isLogistics ? DAY_LOGISTICS[d.n].title : (primary?.label || d.title)}</div>
+      <div class="dm-tags">${tags}</div>
+      ${stopsHtml}
+      <div class="dm-cta">${ctaHtml}</div>
+    </div>
+  </div>`;
+}
+
+/* =============== LEAFLET INIT =============== */
+const LEAFLET_TILES = {
+  url: "https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png",
+  attribution: '© OpenTopoMap · © OpenStreetMap',
+  maxZoom: 17
+};
+const ROUTE_COLOR_BY_KIND = {
+  hike:"#e66a3c", "micro-walk":"#82b8c8", drive:"#ecc878",
+  module:"#9bc4a8", viewpoint_access:"#82b8c8", logistics:"#ecc878"
+};
+const DAY_MAP_INSTANCES = new Map();
+
+function leafletReady(){
+  return typeof window !== "undefined" && typeof window.L !== "undefined";
+}
+
+async function loadGeoJson(path){
+  try{
+    const res = await fetch(path);
+    if(!res.ok) throw new Error("HTTP "+res.status);
+    return await res.json();
+  }catch(e){
+    return null;
+  }
+}
+
+function initOneDayMap(node){
+  if(!leafletReady()) return;
+  const dayN = Number(node.dataset.dayMap);
+  if(DAY_MAP_INSTANCES.has(dayN)) return; // already
+  const kind = node.dataset.mapKind;
+  try{
+    const map = L.map(node, {
+      attributionControl: true,
+      zoomControl: false,
+      scrollWheelZoom: false,
+      dragging: true,
+      tap: true
+    });
+    L.control.zoom({position:"topright"}).addTo(map);
+    L.tileLayer(LEAFLET_TILES.url, {attribution: LEAFLET_TILES.attribution, maxZoom: LEAFLET_TILES.maxZoom}).addTo(map);
+    DAY_MAP_INSTANCES.set(dayN, map);
+
+    if(kind === "logistics"){
+      const log = DAY_LOGISTICS[dayN];
+      const latlngs = log.points.map(p=>[p.lat, p.lon]);
+      L.polyline(latlngs, {color:"#ecc878", weight:3, opacity:.85, dashArray:"6 6"}).addTo(map);
+      log.points.forEach(p=>{
+        const klass = ["start","via","end","base","airport","store"].includes(p.role) ? p.role : p.role;
+        const icon = L.divIcon({
+          className:"",
+          html:`<div class="dm-marker ${klass}">${p.code || ""}</div>`,
+          iconSize:[18,18], iconAnchor:[9,9]
+        });
+        L.marker([p.lat, p.lon], {icon}).addTo(map).bindPopup(`<b>${p.label}</b><br/>${p.note||""}`);
+      });
+      map.fitBounds(L.latLngBounds(latlngs), {padding:[24,24]});
+    } else {
+      const path = node.dataset.geojson;
+      loadGeoJson(path).then(gj=>{
+        if(!gj){ degradeMap(node); return; }
+        const day = DAYS.find(x=>x.n===dayN);
+        const mapRoute = bestMapRoute(day) || bestPrimaryRoute(day);
+        const color = ROUTE_COLOR_BY_KIND[mapRoute?.type] || "#e66a3c";
+        const isDriveSeq = mapRoute?.labelClass === "drive-sequence";
+        const layer = L.geoJSON(gj, {
+          style: f => {
+            const t = f?.properties?.type;
+            const isStop = t === "stop" || t === "Point";
+            return {
+              color,
+              weight: isDriveSeq ? 2.4 : 3.4,
+              opacity: 0.92,
+              dashArray: isDriveSeq ? "4 6" : null,
+              lineCap:"round", lineJoin:"round"
+            };
+          },
+          pointToLayer: (feature, latlng) => {
+            const props = feature.properties || {};
+            const role = props.role || props.kind || "via";
+            const code = (props.label || props.name || "").slice(0,2).toUpperCase() || "·";
+            const klass = role.includes("start") ? "start" : role.includes("end") ? "end" : "via";
+            const icon = L.divIcon({
+              className:"",
+              html:`<div class="dm-marker ${klass}">${klass==="via" ? "" : code}</div>`,
+              iconSize:[16,16], iconAnchor:[8,8]
+            });
+            return L.marker(latlng, {icon});
+          },
+          onEachFeature: (feature, layer) => {
+            const p = feature.properties || {};
+            const name = p.name || p.label || p.full_name || "";
+            const note = p.note || p.description || "";
+            if(name || note){
+              layer.bindPopup(`<b>${name}</b>${note ? "<br/>"+note : ""}`);
+            }
+          }
+        }).addTo(map);
+        try{
+          const b = layer.getBounds();
+          if(b.isValid()) map.fitBounds(b, {padding:[18,18]});
+          else map.setView([32.75,-17.0], 11);
+        }catch(e){
+          map.setView([32.75,-17.0], 11);
+        }
+      }).catch(()=>degradeMap(node));
+    }
+
+    // ResizeObserver invalidation when card opens
+    setTimeout(()=>{ try{ map.invalidateSize(); }catch(e){} }, 60);
+  }catch(e){
+    console.warn("[day-map] init failed for D"+dayN, e);
+    degradeMap(node);
+  }
+}
+
+function degradeMap(node){
+  // Replace the canvas with a graceful placeholder; do NOT alarm.
+  const card = node.closest(".day-map");
+  if(!card) return;
+  card.classList.add("placeholder");
+  const dayN = Number(node.dataset.dayMap);
+  const day = DAYS.find(x=>x.n===dayN);
+  const primary = day ? bestPrimaryRoute(day) : null;
+  const stopsLine = (day?.stops || []).slice(0,3).join("  ·  ");
+  node.parentElement.innerHTML = `<div class="ph-deco"></div>
+    <div class="ph-title">${primary?.id || ("D"+dayN)} · offline</div>
+    <div class="ph-route">${primary?.komootTitle || primary?.label || day?.title || ""}</div>
+    <div class="ph-stops">${stopsLine || (day?.headline || "")}</div>`;
+}
+
+function initAllDayMaps(){
+  if(!leafletReady()){
+    document.querySelectorAll(".dm-leaflet").forEach(degradeMap);
+    return;
+  }
+  // Init only those whose details is open OR will be visible. We init lazily on toggle.
+  document.querySelectorAll(".daycard").forEach(card => {
+    const node = card.querySelector(".dm-leaflet");
+    if(!node) return;
+    if(card.open){
+      initOneDayMap(node);
+    } else {
+      card.addEventListener("toggle", function once(){
+        if(card.open){
+          initOneDayMap(node);
+          card.removeEventListener("toggle", once);
+        }
+      });
+    }
+  });
+  // Invalidate sizes on window resize
+  window.addEventListener("resize", () => {
+    DAY_MAP_INSTANCES.forEach(m => { try{ m.invalidateSize(); }catch(e){} });
+  });
+}
+
+/* =============== ROUTE HUB =============== */
+function renderRouteHub(){
+  const grid = document.getElementById("rhGrid");
+  if(!grid) return;
+  grid.innerHTML = DAYS.map(d => {
+    const cls = dayClassification(d);
+    const kind = dayPrimaryKind(d);
+    const primary = bestPrimaryRoute(d);
+    const isLog = d.n===1 || d.n===8;
+    const sub = isLog
+      ? DAY_LOGISTICS[d.n].title
+      : (primary?.label || d.title);
+    const meta = [
+      `<span><span class="rh-dot ${cls}"></span>${classificationLabel(cls)}</span>`,
+      `<span>${ROUTE_KIND_LABEL[kind] || kind}</span>`
+    ].join("");
+    return `<button class="rh-chip" type="button" role="listitem" data-rh-day="${d.n}" aria-current="false">
+      <div class="rh-k"><span>D${d.n} · ${d.date} · ${d.dow}</span><span class="rh-kind">${d.kindLabel}</span></div>
+      <div class="rh-t">${sub}</div>
+      <div class="rh-meta">${meta}</div>
+    </button>`;
+  }).join("");
+
+  grid.querySelectorAll(".rh-chip").forEach(btn => {
+    const dayN = Number(btn.dataset.rhDay);
+    btn.addEventListener("mouseenter", () => highlightSchemaDay(dayN, true));
+    btn.addEventListener("focus",      () => highlightSchemaDay(dayN, true));
+    btn.addEventListener("mouseleave", () => highlightSchemaDay(dayN, false));
+    btn.addEventListener("blur",       () => highlightSchemaDay(dayN, false));
+    btn.addEventListener("click", () => {
+      grid.querySelectorAll(".rh-chip").forEach(b=>b.setAttribute("aria-current","false"));
+      btn.setAttribute("aria-current","true");
+      const card = document.getElementById("d-"+dayN);
+      if(card){
+        if(!card.open) card.open = true;
+        try{ card.scrollIntoView({behavior:"smooth", block:"start"}); }catch(e){ card.scrollIntoView(); }
+      }
+    });
+  });
+}
+
+function highlightSchemaDay(dayN, on){
+  document.querySelectorAll('.islandmap .route-line[data-day]').forEach(line => {
+    if(Number(line.dataset.day) === dayN){
+      line.dataset.hubActive = on ? "true" : "false";
+    } else if(on){
+      line.style.opacity = "0.25";
+    } else {
+      line.style.opacity = "";
+    }
+  });
+}
+
 /* =============== DAY CARDS =============== */
 function renderCards(){
   const root = $("#dayCards");
@@ -2442,6 +2933,7 @@ function renderCards(){
             <h3>${d.title}</h3>
           </figcaption>
         </figure>` : ""}
+        ${renderDayMapPanel(d)}
         <div class="stats-strip" aria-label="Statystyki dnia ${d.n}">
           <div class="s"><div class="l">Start</div><div class="v">${conciseStart(d.start)}</div></div>
           <div class="s"><div class="l">Jazda</div><div class="v">${d.drive}</div></div>
@@ -3059,6 +3551,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
   tickClock(); setInterval(tickClock, 1000);
   navHighlight();
   setupAtmosphere();
+  renderRouteHub();
+  initAllDayMaps();
   openHashDay();
   window.addEventListener("hashchange", openHashDay);
 
