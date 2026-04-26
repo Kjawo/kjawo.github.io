@@ -30,7 +30,8 @@
 - Type: full hike, out-and-back
 - Exact Komoot match: exact
 - Link: `https://www.komoot.com/smarttour/e1375832832/vereda-da-ponta-de-sao-lourenco-pr8-on-the-island-of-madeira`
-- GPX file: —
+- GPX file: `D3-PR8.gpx`
+- GeoJSON file: `D3-PR8.geojson`
 - Backup / conditional note: keep boat-return outside the default route object
 - Notes: exact match for Baía d'Abra -> Casa do Sardinha -> return
 
@@ -48,7 +49,8 @@
 - Type: optional flat micro-walk
 - Exact Komoot match: exact
 - Link: `https://www.komoot.com/de-de/tour/1801865266`
-- GPX file: —
+- GPX file: `D5-PR11.gpx`
+- GeoJSON file: `D5-PR11.geojson`
 - Backup / conditional note: optional add-on only
 - Notes: keep only as the flat banana stroll; alternates remain alternates
 

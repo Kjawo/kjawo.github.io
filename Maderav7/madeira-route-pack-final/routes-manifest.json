@@ -89,8 +89,10 @@
     "komoot_title": "Vereda da Ponta de São Lourenço — PR8 on the Island of Madeira",
     "komoot_match_class": "exact",
     "komoot_verified": true,
-    "primary_file": null,
-    "additional_files": [],
+    "primary_file": "D3-PR8.gpx",
+    "additional_files": [
+      "D3-PR8.geojson"
+    ],
     "geometry_mode": "route",
     "start": "Baía d’Abra trailhead",
     "end": "Baía d’Abra trailhead",
@@ -100,7 +102,7 @@
     "current_valid_for_plan": true,
     "official_check_needed_day_before": true,
     "confidence": "high",
-    "notes": "Exact Komoot match kept as website primary CTA. Boat-return remains outside the default route object."
+    "notes": "Exact Komoot match with local GPX/GeoJSON export. Boat-return remains outside the default route object."
   },
   {
     "route_id": "D4-DRIVE",
@@ -168,8 +170,10 @@
     "komoot_title": "PR11 Vereda dos Balcões Trail",
     "komoot_match_class": "exact",
     "komoot_verified": true,
-    "primary_file": null,
-    "additional_files": [],
+    "primary_file": "D5-PR11.gpx",
+    "additional_files": [
+      "D5-PR11.geojson"
+    ],
     "geometry_mode": "route",
     "start": "Ribeiro Frio / E.R. 103",
     "end": "Ribeiro Frio / E.R. 103",
@@ -179,7 +183,7 @@
     "current_valid_for_plan": true,
     "official_check_needed_day_before": true,
     "confidence": "high",
-    "notes": "Exact Komoot match kept as website primary CTA."
+    "notes": "Exact Komoot match with local GPX/GeoJSON export."
   },
   {
     "route_id": "D5-ROCHA",
