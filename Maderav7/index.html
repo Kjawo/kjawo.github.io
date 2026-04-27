@@ -552,6 +552,48 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .islandmap .elevation.major{stroke:rgba(236,200,120,.48);stroke-width:1.1}
 .islandmap .map-node{filter:drop-shadow(0 0 6px rgba(255,255,255,.28))}
 
+/* ---------- ISLAND MAP 3D (Mapbox GL JS) ---------- */
+.islandmap-3d{position:relative;width:100%;aspect-ratio:4/3;min-height:320px;border-radius:6px;overflow:hidden;background:#0d1a22;outline:none;box-shadow:inset 0 0 0 1px rgba(255,255,255,.06)}
+.islandmap-3d:focus-visible{box-shadow:inset 0 0 0 2px var(--zloto-300)}
+.islandmap-3d .mapboxgl-canvas{outline:none}
+.islandmap-3d .mapboxgl-ctrl-group{background:rgba(15,20,22,.85);border:1px solid rgba(236,200,120,.22)}
+.islandmap-3d .mapboxgl-ctrl-group button{filter:invert(.92) hue-rotate(180deg)}
+.islandmap-3d .mapboxgl-ctrl-attrib{background:rgba(15,20,22,.6);font-size:9px}
+.islandmap-3d .mapboxgl-ctrl-attrib a{color:var(--mgla-100)}
+@media(max-width:900px){
+  .islandmap-3d{aspect-ratio:16/10;min-height:280px;max-height:320px}
+}
+.islandmap[data-state="ready"] .islandmap-fallback{display:none}
+.islandmap-fallback{margin-top:6px}
+.islandmap[data-state="loading"] .islandmap-3d{display:none}
+.islandmap[data-state="ready"] .islandmap-3d{display:block}
+.islandmap-notice{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--zloto-300);background:rgba(192,74,34,.12);border:1px solid rgba(236,200,120,.2);padding:8px 10px;border-radius:4px}
+.islandmap-legend{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.islandmap-legend li{margin:0;padding:0}
+.islandmap-legend .im-leg{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(255,255,255,.05);color:var(--mgla-100);
+  border:1px solid rgba(255,255,255,.1);
+  font-family:var(--mono);font-size:10px;letter-spacing:.06em;
+  padding:5px 9px;border-radius:999px;cursor:pointer;
+  transition:background .15s,border-color .15s,opacity .15s;
+}
+.islandmap-legend .im-leg:hover,.islandmap-legend .im-leg:focus-visible{background:rgba(236,200,120,.12);border-color:rgba(236,200,120,.4);outline:none}
+.islandmap-legend .im-leg[aria-pressed="false"]{opacity:.45;text-decoration:line-through}
+.islandmap-legend .im-leg .im-sw{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--c, #ccc);box-shadow:0 0 4px var(--c, transparent)}
+.islandmap-legend .im-leg .im-d{font-weight:600;color:var(--zloto-300)}
+.islandmap-legend .im-leg .im-n{color:var(--mgla-100)}
+.islandmap-legend .im-leg .im-r{color:var(--bazalt-300);font-size:9px;text-transform:uppercase}
+.mapboxgl-popup.im-popup .mapboxgl-popup-content{
+  background:var(--bazalt-950);color:var(--mgla-100);
+  border:1px solid rgba(236,200,120,.35);border-radius:4px;
+  padding:8px 10px;font-family:var(--mono);font-size:11px;letter-spacing:.04em;
+  box-shadow:0 8px 24px -8px rgba(0,0,0,.6);
+}
+.mapboxgl-popup.im-popup .mapboxgl-popup-tip{border-top-color:rgba(236,200,120,.35);border-bottom-color:rgba(236,200,120,.35)}
+.mapboxgl-popup.im-popup .im-pop-h{color:var(--mgla-100);margin-bottom:3px}
+.mapboxgl-popup.im-popup .im-pop-m{color:var(--bazalt-300);font-size:10px}
+
 /* ---------- CHARTS ---------- */
 .chartgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 @media(max-width:900px){.chartgrid{grid-template-columns:1fr}}
@@ -1300,8 +1342,20 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
         loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       <a class="map-open" href="https://www.google.com/maps/d/viewer?mid=1NtSuO52IGWeVbz_27JV7BOM1jsuU5mA" target="_blank" rel="noopener">Otwórz w Google Maps</a>
     </div>
-    <aside class="islandmap" aria-labelledby="islandmapTitle">
-      <h4 id="islandmapTitle">Schemat 8 dni · baza Canhas / Ponta do Sol</h4>
+    <!--
+      ISLAND MAP 3D · Mapbox GL JS v3.7.0 lazy-loaded into .islandmap-3d.
+      Public Mapbox token: paste at MAPBOX_TOKEN constant in the JS module
+      below (search "MAPBOX_TOKEN"); URL-restrict it to https://kjawo.github.io
+      in your Mapbox account → Tokens. Without a valid token, the SVG below
+      stays visible and a Polish notice is shown. BBOX = [-17.30,32.62] SW
+      to [-16.65,32.88] NE (Madeira + ~5% padding).
+    -->
+    <aside class="islandmap" id="islandmap3d" data-state="loading" aria-labelledby="islandmapTitle">
+      <h4 id="islandmapTitle">Mapa 3D · 8 dni · baza Canhas / Ponta do Sol</h4>
+      <div class="islandmap-3d" aria-label="Madera — mapa 3D z trasami" tabindex="0"></div>
+      <div class="islandmap-notice" hidden></div>
+      <ul class="islandmap-legend" id="islandmapLegend" role="list"></ul>
+      <div class="islandmap-fallback" aria-hidden="false">
       <svg viewBox="0 0 420 240" role="img" aria-label="Schemat Madery z zaznaczonymi punktami dni">
         <defs>
           <pattern id="topo" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(12)">
@@ -1367,8 +1421,9 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
         <span><span class="sw" style="background:#6db0cf"></span>Warunkowe</span>
         <span><span class="sw" style="background:#d8dde1"></span>Lotnisko</span>
       </div>
+      </div><!-- /.islandmap-fallback -->
       <p style="font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:#b9c1c8;margin-top:6px">
-        Schemat orientacyjny. Baza leży powyżej wybrzeża: każdy większy moduł zaczyna i kończy się blokiem serpentyn do/z VR1.
+        Mapa 3D zlewa relief z trasami D2–D7. Schemat SVG poniżej zostaje jako fallback — baza leży powyżej wybrzeża: każdy większy moduł zaczyna i kończy się blokiem serpentyn do/z VR1.
       </p>
     </aside>
   </div>
@@ -2881,6 +2936,7 @@ function renderRouteHub(){
         if(!card.open) card.open = true;
         try{ card.scrollIntoView({behavior:"smooth", block:"start"}); }catch(e){ card.scrollIntoView(); }
       }
+      document.dispatchEvent(new CustomEvent("madera:day-select", {detail:{day:dayN, source:"hub"}}));
     });
   });
 }
@@ -2895,6 +2951,9 @@ function highlightSchemaDay(dayN, on){
       line.style.opacity = "";
     }
   });
+  if(typeof window.__maderaMapHighlight === "function"){
+    try{ window.__maderaMapHighlight(dayN, on); }catch(e){}
+  }
 }
 
 /* =============== DAY CARDS =============== */
@@ -3563,6 +3622,356 @@ document.addEventListener("DOMContentLoaded", ()=>{
   setMode(APP_STATE.mode);
   safeCharts();
 });
+
+/* =============== ISLAND MAP 3D · Mapbox GL JS v3.7.0 ===============
+   Lazy-loaded once #mapa nears the viewport. To activate: paste a public
+   token at MAPBOX_TOKEN below and URL-restrict it to https://kjawo.github.io
+   in https://account.mapbox.com/access-tokens/. Without a valid token the
+   inline SVG fallback stays visible and a Polish notice is shown.
+   BBOX = [-17.30,32.62] SW → [-16.65,32.88] NE (Madeira + ~5% padding).
+=================================================================== */
+(function(){
+  const MAPBOX_TOKEN = "pk.eyJ1Ijoia2phd28iLCJhIjoiY21vZ3ZiZDZqMDBjYTJzcjU3dW5ocjFsaiJ9.8zlcI-YvzXiW81-5158_qA"; // public, URL-restrict to kjawo.github.io
+  const MBGL_VER = "3.7.0";
+  const BBOX = [[-17.30, 32.62], [-16.65, 32.88]];
+  const PITCH = 50, EXAGG = 1.55;
+
+  const ROUTES = [
+    {id:"D2-AREEIRO", day:2, name:"Areeiro · Pedra Rija", role:"core",        type:"hike",       color:"#e66a3c", file:"madeira-route-pack-final/D2-AREEIRO.geojson"},
+    {id:"D2-EIRA",    day:2, name:"Eira do Serrado",      role:"support",     type:"micro-walk", color:"#e66a3c", file:"madeira-route-pack-final/D2-EIRA.geojson"},
+    {id:"D3-PR8",     day:3, name:"PR8 São Lourenço",     role:"core",        type:"hike",       color:"#e66a3c", file:"madeira-route-pack-final/D3-PR8.geojson"},
+    {id:"D3-ROSTO",   day:3, name:"Ponta do Rosto",       role:"optional",    type:"micro-walk", color:"#e66a3c", file:"madeira-route-pack-final/D3-ROSTO.geojson"},
+    {id:"D4-DRIVE",   day:4, name:"Cabo Girão · południe", role:"core",       type:"drive",      color:"#69a07f", file:"madeira-route-pack-final/D4-DRIVE.geojson"},
+    {id:"D5-PR11",    day:5, name:"PR11 Balcões",         role:"core",        type:"hike",       color:"#6db0cf", file:"madeira-route-pack-final/D5-PR11.geojson"},
+    {id:"D5-PR91",    day:5, name:"PR9.1 backup",         role:"backup",      type:"hike",       color:"#6db0cf", file:"madeira-route-pack-final/D5-PR91.geojson"},
+    {id:"D5-ROCHA",   day:5, name:"Rocha do Navio (upper)", role:"conditional", type:"viewpoint", color:"#6db0cf", file:"madeira-route-pack-final/D5-ROCHA-UPPER.geojson"},
+    {id:"D6-DRIVE",   day:6, name:"Seixal · Porto Moniz",  role:"core",       type:"drive",      color:"#6db0cf", file:"madeira-route-pack-final/D6-DRIVE.geojson"},
+    {id:"D7-DRIVE",   day:7, name:"Achadas · Pargo",       role:"core",       type:"drive",      color:"#ecc878", file:"madeira-route-pack-final/D7-DRIVE.geojson"}
+  ];
+  const ROLE_PL = {core:"priorytet", support:"wsparcie", optional:"opcjonalna", conditional:"warunkowa", backup:"backup"};
+
+  const root = document.getElementById("islandmap3d");
+  if(!root) return;
+  const mapEl     = root.querySelector(".islandmap-3d");
+  const noticeEl  = root.querySelector(".islandmap-notice");
+  const legendEl  = root.querySelector(".islandmap-legend");
+
+  const PRM = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isMobile = () => innerWidth <= 900;
+  const setNotice = (m) => { if(!noticeEl) return; noticeEl.textContent = m || ""; noticeEl.hidden = !m; };
+
+  const tokenOK = MAPBOX_TOKEN && MAPBOX_TOKEN !== "REPLACE_ME_PUBLIC_TOKEN" && /^pk\./.test(MAPBOX_TOKEN);
+  const webglOK = !!window.WebGL2RenderingContext;
+
+  const byDay = {};
+  ROUTES.forEach(r => (byDay[r.day] = byDay[r.day] || []).push(r));
+  const days = Object.keys(byDay).map(Number).sort((a,b)=>a-b);
+
+  // ---------- legend ----------
+  function buildLegend(){
+    if(!legendEl) return;
+    legendEl.innerHTML = days.map(d => {
+      const rs = byDay[d];
+      const c = rs[0].color;
+      const labels = rs.map(r => r.name).join(" · ");
+      const roles = [...new Set(rs.map(r => ROLE_PL[r.role] || r.role))].join("/");
+      return `<li role="listitem"><button type="button" class="im-leg" data-leg-day="${d}" aria-pressed="true" title="Kliknij, aby ukryć/pokazać dzień ${d}">`
+        + `<span class="im-sw" style="--c:${c}"></span>`
+        + `<span class="im-d">D${d}</span>`
+        + `<span class="im-n">${labels}</span>`
+        + `<span class="im-r">${roles}</span>`
+        + `</button></li>`;
+    }).join("");
+    legendEl.querySelectorAll(".im-leg").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const d = +btn.dataset.legDay;
+        const on = btn.getAttribute("aria-pressed") === "true";
+        btn.setAttribute("aria-pressed", on ? "false" : "true");
+        toggleDayVisible(d, !on);
+      });
+    });
+  }
+  buildLegend();
+
+  if(!webglOK){
+    setNotice("Włącz akcelerację sprzętową, aby zobaczyć mapę 3D.");
+    return;
+  }
+  if(!tokenOK){
+    setNotice("Mapa 3D nieaktywna — brak tokenu Mapbox. Schemat SVG poniżej pozostaje aktualny.");
+    return;
+  }
+
+  // ---------- distance / ascent ----------
+  function haversine(a, b){
+    const R = 6371000, toRad = d => d*Math.PI/180;
+    const dLa = toRad(b[1]-a[1]), dLo = toRad(b[0]-a[0]);
+    const la1 = toRad(a[1]), la2 = toRad(b[1]);
+    const x = Math.sin(dLa/2)**2 + Math.cos(la1)*Math.cos(la2)*Math.sin(dLo/2)**2;
+    return 2*R*Math.asin(Math.sqrt(x));
+  }
+  function statsFor(line){
+    let dist = 0, ascent = 0, has3d = false;
+    for(let i=1;i<line.length;i++){
+      dist += haversine(line[i-1], line[i]);
+      if(line[i].length > 2 && line[i-1].length > 2){
+        has3d = true;
+        const dz = line[i][2] - line[i-1][2];
+        if(dz > 0) ascent += dz;
+      }
+    }
+    return {dist, ascent, has3d};
+  }
+
+  // ---------- map state ----------
+  let map = null;
+  let activeDay = null, hoverDay = null;
+  const dayBounds = {};      // day -> [[w,s],[e,n]]
+  const routeStats = {};     // routeId -> {distKm, ascentM, has3d}
+  const visible = {};
+  days.forEach(d => visible[d] = true);
+
+  function applyOpacity(){
+    if(!map) return;
+    const focus = hoverDay ?? activeDay;
+    ROUTES.forEach(r => {
+      const isVisible = visible[r.day];
+      const dim = focus != null && focus !== r.day;
+      const op = !isVisible ? 0 : (dim ? 0.28 : 1);
+      const wMul = !dim && focus === r.day ? 1.45 : 1;
+      try{
+        map.setPaintProperty("r-"+r.id+"-line", "line-opacity", op);
+        map.setPaintProperty("r-"+r.id+"-glow", "line-opacity", op * 0.55);
+        map.setPaintProperty("r-"+r.id+"-line", "line-width", 3.2 * wMul);
+        map.setPaintProperty("r-"+r.id+"-pts",  "circle-opacity", op);
+      }catch(e){}
+    });
+  }
+
+  function toggleDayVisible(d, on){ visible[d] = on; applyOpacity(); }
+
+  function highlightDay(d, on){
+    hoverDay = on ? d : null;
+    applyOpacity();
+  }
+  window.__maderaMapHighlight = highlightDay;
+
+  function fitDay(d){
+    if(!map || !dayBounds[d]) return;
+    const opts = { padding: 40, pitch: isMobile() ? 0 : PITCH, duration: PRM ? 0 : 1000, bearing: 0 };
+    try{ map.fitBounds(dayBounds[d], opts); }catch(e){}
+  }
+
+  // ---------- IntersectionObserver lazy load ----------
+  const section = document.getElementById("mapa");
+  if(!section){ setNotice("Mapa 3D — błąd inicjalizacji sekcji."); return; }
+
+  let booted = false;
+  const io = new IntersectionObserver((entries) => {
+    if(booted) return;
+    if(entries.some(e => e.isIntersecting)){
+      booted = true;
+      io.disconnect();
+      loadMapbox()
+        .then(initMap)
+        .catch(err => {
+          console.warn("Mapa 3D nie wystartowała:", err);
+          setNotice("Mapa 3D chwilowo niedostępna — schemat SVG pozostaje aktualny.");
+        });
+    }
+  }, { rootMargin: "300px" });
+  io.observe(section);
+
+  function loadMapbox(){
+    return new Promise((res, rej) => {
+      if(window.mapboxgl) return res();
+      const css = document.createElement("link");
+      css.rel = "stylesheet";
+      css.href = "https://api.mapbox.com/mapbox-gl-js/v"+MBGL_VER+"/mapbox-gl.css";
+      document.head.appendChild(css);
+      const js = document.createElement("script");
+      js.src = "https://api.mapbox.com/mapbox-gl-js/v"+MBGL_VER+"/mapbox-gl.js";
+      js.onload  = () => window.mapboxgl ? res() : rej(new Error("mapboxgl missing after load"));
+      js.onerror = () => rej(new Error("Mapbox script failed to load"));
+      document.head.appendChild(js);
+    });
+  }
+
+  // ---------- init ----------
+  function initMap(){
+    if(!window.mapboxgl) throw new Error("mapboxgl unavailable");
+    mapboxgl.accessToken = MAPBOX_TOKEN;
+    try{
+      map = new mapboxgl.Map({
+        container: mapEl,
+        style: "mapbox://styles/mapbox/outdoors-v12",
+        bounds: BBOX,
+        fitBoundsOptions: { padding: 30, pitch: isMobile() ? 0 : PITCH, bearing: 0 },
+        pitch: isMobile() ? 0 : PITCH,
+        bearing: 0,
+        dragRotate: !isMobile(),
+        touchPitch: !isMobile(),
+        maxBounds: [[-17.6, 32.4], [-16.3, 33.1]],
+        attributionControl: true
+      });
+    }catch(e){
+      setNotice("Mapa 3D — przeglądarka odrzuciła inicjalizację GL.");
+      return;
+    }
+    map.addControl(new mapboxgl.NavigationControl({visualizePitch: true}), "top-right");
+    map.addControl(new mapboxgl.FullscreenControl(), "top-right");
+
+    map.on("error", (ev) => {
+      const m = ev?.error?.message || "";
+      if(/access token|401|unauthorized/i.test(m)){
+        setNotice("Token Mapbox odrzucony — schemat SVG pozostaje aktualny.");
+      }
+    });
+
+    map.on("style.load", () => {
+      try{
+        if(!map.getSource("mapbox-dem")){
+          map.addSource("mapbox-dem", {
+            type: "raster-dem",
+            url: "mapbox://mapbox.mapbox-terrain-dem-v1",
+            tileSize: 512, maxzoom: 14
+          });
+        }
+        map.setTerrain({ source: "mapbox-dem", exaggeration: EXAGG });
+        if(!map.getLayer("im-hillshade")){
+          const before = firstSymbolLayer();
+          map.addLayer({
+            id: "im-hillshade", source: "mapbox-dem", type: "hillshade",
+            paint: { "hillshade-exaggeration": 0.55, "hillshade-shadow-color": "#0b1418", "hillshade-highlight-color": "#f5e9d5" }
+          }, before);
+        }
+        if(!map.getLayer("im-sky")){
+          map.addLayer({ id: "im-sky", type: "sky", paint: { "sky-type": "atmosphere", "sky-atmosphere-sun-intensity": 8 } });
+        }
+      }catch(e){}
+      addRoutes();
+    });
+
+    map.once("idle", () => { root.dataset.state = "ready"; });
+
+    addEventListener("resize", () => {
+      if(!map) return;
+      if(isMobile()){
+        try{ map.dragRotate.disable(); map.touchPitch.disable(); }catch(e){}
+        if(map.getPitch() !== 0) map.easeTo({ pitch: 0, duration: PRM ? 0 : 300 });
+      } else {
+        try{ map.dragRotate.enable(); map.touchPitch.enable(); }catch(e){}
+        if(map.getPitch() < PITCH - 1) map.easeTo({ pitch: PITCH, duration: PRM ? 0 : 300 });
+      }
+      map.resize();
+    });
+
+    document.addEventListener("madera:day-select", (ev) => {
+      const d = ev?.detail?.day;
+      if(typeof d !== "number") return;
+      if(ev.detail.source === "map") return;
+      activeDay = d;
+      applyOpacity();
+      fitDay(d);
+    });
+  }
+
+  function firstSymbolLayer(){
+    const layers = map.getStyle().layers || [];
+    for(const l of layers){ if(l.type === "symbol") return l.id; }
+    return undefined;
+  }
+
+  function addRoutes(){
+    Promise.all(ROUTES.map(r =>
+      fetch(r.file).then(rsp => rsp.ok ? rsp.json() : Promise.reject(new Error(r.id+" "+rsp.status)))
+        .then(geo => ({r, geo}))
+        .catch(err => { console.warn("Route load failed:", err); return null; })
+    )).then(results => {
+      results.filter(Boolean).forEach(({r, geo}) => addRoute(r, geo));
+      applyOpacity();
+    });
+  }
+
+  function addRoute(r, geo){
+    const features = geo.features || [];
+    const linesIn = features.filter(f => f.geometry && (f.geometry.type === "LineString" || f.geometry.type === "MultiLineString"));
+    const points  = features.filter(f => f.geometry && f.geometry.type === "Point");
+
+    let dist = 0, ascent = 0, has3d = false;
+    let west = Infinity, south = Infinity, east = -Infinity, north = -Infinity;
+    const pushPt = (c) => { if(c[0]<west)west=c[0]; if(c[1]<south)south=c[1]; if(c[0]>east)east=c[0]; if(c[1]>north)north=c[1]; };
+
+    linesIn.forEach(f => {
+      const sets = f.geometry.type === "LineString" ? [f.geometry.coordinates] : f.geometry.coordinates;
+      sets.forEach(line => {
+        const s = statsFor(line);
+        dist += s.dist; ascent += s.ascent; has3d = has3d || s.has3d;
+        line.forEach(pushPt);
+      });
+    });
+    points.forEach(f => pushPt(f.geometry.coordinates));
+    if(west === Infinity) return;
+
+    routeStats[r.id] = { distKm: dist/1000, ascentM: ascent, has3d };
+    const bbox = [[west, south], [east, north]];
+    if(dayBounds[r.day]){
+      const b = dayBounds[r.day];
+      dayBounds[r.day] = [[Math.min(b[0][0], west), Math.min(b[0][1], south)], [Math.max(b[1][0], east), Math.max(b[1][1], north)]];
+    } else {
+      dayBounds[r.day] = bbox;
+    }
+
+    const lineGeo  = { type: "FeatureCollection", features: linesIn };
+    const pointGeo = { type: "FeatureCollection", features: points };
+
+    map.addSource("r-"+r.id, { type: "geojson", data: lineGeo });
+    map.addSource("r-"+r.id+"-pts", { type: "geojson", data: pointGeo });
+
+    map.addLayer({ id: "r-"+r.id+"-glow", source: "r-"+r.id, type: "line",
+      layout: { "line-cap": "round", "line-join": "round" },
+      paint:  { "line-color": r.color, "line-width": 9, "line-opacity": 0.55, "line-blur": 3 }
+    });
+    map.addLayer({ id: "r-"+r.id+"-line", source: "r-"+r.id, type: "line",
+      layout: { "line-cap": "round", "line-join": "round" },
+      paint:  { "line-color": r.color, "line-width": 3.2, "line-opacity": 1 }
+    });
+    map.addLayer({ id: "r-"+r.id+"-pts", source: "r-"+r.id+"-pts", type: "circle",
+      paint: { "circle-color": r.color, "circle-radius": 4, "circle-stroke-color": "#0f1416", "circle-stroke-width": 1.5, "circle-opacity": 1 }
+    });
+
+    const popup = new mapboxgl.Popup({ closeButton: false, closeOnClick: false, className: "im-popup", offset: 10 });
+
+    const onEnter = (e) => {
+      mapEl.style.cursor = "pointer";
+      highlightDay(r.day, true);
+      const s = routeStats[r.id] || {};
+      const km = s.distKm ? s.distKm.toFixed(1).replace(".", ",") + " km" : "—";
+      const asc = (s.has3d && s.ascentM > 5) ? Math.round(s.ascentM) + " m ↑" : "—";
+      const role = ROLE_PL[r.role] || r.role;
+      popup.setLngLat(e.lngLat).setHTML(
+        '<div class="im-pop-h"><b style="color:'+r.color+'">D'+r.day+'</b> · '+r.name+'</div>'+
+        '<div class="im-pop-m">'+km+' · '+asc+' · '+role+'</div>'
+      ).addTo(map);
+    };
+    const onMove  = (e) => { if(e?.lngLat) popup.setLngLat(e.lngLat); };
+    const onLeave = () => { mapEl.style.cursor = ""; highlightDay(r.day, false); popup.remove(); };
+    const onClick = () => {
+      const chip = document.querySelector('.rh-chip[data-rh-day="'+r.day+'"]');
+      if(chip){ chip.click(); }
+      activeDay = r.day;
+      applyOpacity();
+      fitDay(r.day);
+    };
+
+    ["r-"+r.id+"-line", "r-"+r.id+"-glow", "r-"+r.id+"-pts"].forEach(id => {
+      map.on("mouseenter", id, onEnter);
+      map.on("mouseleave", id, onLeave);
+      map.on("mousemove",  id, onMove);
+      map.on("click",      id, onClick);
+    });
+  }
+})();
 </script>
 </body>
 </html>
