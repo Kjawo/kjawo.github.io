@@ -78,7 +78,7 @@
 [data-scene="west"]{--accent:var(--gold);--accent-soft:rgba(198,138,43,.14)}
 [data-scene="base"]{--accent:var(--ocean-700);--accent-soft:rgba(13,68,94,.14)}
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
 body{
   background:
     radial-gradient(1200px 600px at 80% -10%, rgba(192,74,34,.06), transparent 60%),
@@ -89,6 +89,15 @@ body{
 a{color:inherit}
 button{font:inherit;color:inherit}
 ::selection{background:var(--sunrise-500);color:#fff}
+.skip-link{
+  position:fixed;left:12px;top:12px;z-index:1000;
+  transform:translateY(-150%);background:var(--ink);color:#fff;
+  min-height:44px;padding:12px 16px;border-radius:6px;font-family:var(--mono);font-size:12px;
+  letter-spacing:.08em;text-transform:uppercase;text-decoration:none;
+}
+.skip-link:focus{transform:translateY(0);outline:3px solid var(--zloto-500);outline-offset:2px}
+:where(.overview,.daycard,.dc-grid,.route-item,.route-top,.matrixgrid,.maplayout,.chartgrid,.statusbox,.variantbox,.baseops-cell,.cost,.costcol,.checklists,.cl,.rules,.routehub,.routehub *,.weather-day,.photo-card){min-width:0}
+:where(img,svg,canvas,iframe){max-width:100%}
 
 /* ---------- TOPO TEXTURE (SVG) ---------- */
 .topo-bg{position:absolute;inset:0;pointer-events:none;opacity:.35;mix-blend-mode:multiply}
@@ -110,13 +119,13 @@ button{font:inherit;color:inherit}
 .navlinks{display:flex;gap:2px;margin-left:auto;flex-wrap:wrap}
 .navlinks a{
   font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
-  min-height:44px;padding:7px 10px;border-radius:999px;text-decoration:none;color:var(--bazalt-600);
+  min-height:44px;min-width:44px;padding:7px 10px;border-radius:999px;text-decoration:none;color:var(--bazalt-600);
   display:inline-flex;align-items:center;
   transition:background .15s, color .15s;
 }
 .navlinks a:hover,.navlinks a.active{background:var(--bazalt-900);color:#fff}
 .clock{font-family:var(--mono);font-size:11px;color:var(--bazalt-500);letter-spacing:.06em}
-@media (max-width:900px){
+@media (max-width:760px){
   .navlinks{display:none}
   .clock{display:none}
 }
@@ -233,7 +242,10 @@ button{font:inherit;color:inherit}
   .hero-copy{text-align:left;margin-top:16svh}
   .kicker{font-size:9px;letter-spacing:.16em;color:rgba(236,200,120,.92)}
   .title{font-size:clamp(34px,11vw,48px);line-height:.9;margin:8px 0 9px;text-shadow:0 3px 16px rgba(0,0,0,.5)}
-  .hero-copy p{max-width:34ch;margin:0;color:rgba(255,255,255,.86);font-size:13px;line-height:1.45}
+  .hero-copy p{
+    max-width:36ch;margin:0;color:rgba(255,255,255,.9);font-size:14px;line-height:1.45;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+  }
   .subtitle{justify-content:flex-start;display:grid;grid-template-columns:1fr;gap:3px;margin-top:10px;font-size:10px;line-height:1.35;color:rgba(255,255,255,.78)}
   .subtitle .sep{display:none}
   .quickbar{
@@ -241,7 +253,7 @@ button{font:inherit;color:inherit}
     margin:14px 0 0;padding:0;overflow:visible;
   }
   .quickbar::-webkit-scrollbar{display:none}
-  .chip{min-height:42px;padding:9px 12px;font-size:10px;justify-content:center;min-width:0}
+  .chip{min-height:44px;padding:9px 12px;font-size:12px;justify-content:center;min-width:0}
   .hero .chip{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.3);backdrop-filter:blur(12px)}
   .hero .chip.solid{background:#fff;color:var(--ink)}
 
@@ -263,12 +275,11 @@ button{font:inherit;color:inherit}
   .hero{padding-inline:14px;padding-bottom:calc(82px + env(safe-area-inset-bottom))}
   .hero-copy{margin-top:12svh}
   .title{font-size:clamp(32px,11vw,43px)}
-  .hero-copy p{font-size:12px}
+  .hero-copy p{font-size:14px;max-width:31ch}
   .flight .route{font-size:15px}
 }
 @media(max-width:340px){
   .hero{padding-bottom:calc(110px + env(safe-area-inset-bottom))}
-  .hero-copy p,
   .subtitle span:nth-child(3){display:none}
   .title{font-size:clamp(31px,11vw,38px)}
 }
@@ -288,6 +299,10 @@ button:focus-visible,
 
 /* ---------- SECTION SHELL ---------- */
 section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relative;scroll-margin-top:72px}
+@supports (content-visibility:auto){
+  section.sec{content-visibility:auto;contain-intrinsic-size:1px 900px}
+  #overview,#dni{contain-intrinsic-size:auto}
+}
 #overview{margin-top:-24px;z-index:2}
 @media(max-width:760px){section.sec{margin:32px auto}}
 .sechead{display:flex;align-items:baseline;gap:16px;border-bottom:1px solid var(--rule-strong);padding-bottom:12px;margin-bottom:22px}
@@ -398,7 +413,7 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .route-badge.conditional,.route-badge.manifest-only{background:#fbe6e2;border-color:#d9a396;color:#a8351f}
 .route-note{font-size:12px;line-height:1.35;color:var(--bazalt-700);margin:7px 0 0}
 .route-links{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
-.route-link{font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--rule-strong);border-radius:999px;padding:4px 7px;color:var(--bazalt-700);background:var(--paper)}
+.route-link{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid var(--rule-strong);border-radius:999px;padding:7px 10px;min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;color:var(--bazalt-700);background:var(--paper)}
 .route-link:hover{border-color:var(--ember);color:var(--ember)}
 
 .altgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px}
@@ -421,6 +436,7 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 }
 .photo-card figcaption span{max-width:62%;text-shadow:0 1px 2px rgba(0,0,0,.55)}
 .photo-card figcaption a{color:#fff;text-decoration:underline;text-underline-offset:2px;text-align:right;opacity:.9}
+.photo-card figcaption a{min-width:44px;min-height:44px;display:inline-flex;align-items:flex-end;justify-content:flex-end}
 @media(max-width:760px){
   .photo-grid{grid-template-columns:1fr;margin-inline:-20px}
   .photo-card,.photo-card:first-child{grid-column:auto;min-height:220px}
@@ -459,7 +475,7 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 /* decision matrix */
 .matrix{
   margin-top:22px;background:var(--bazalt-950);color:var(--mgla-100);border-radius:0;padding:28px 0;position:relative;overflow:hidden;
-  width:100vw;margin-left:calc(50% - 50vw);
+  width:auto;margin-left:0;
 }
 .matrix-inner{max-width:var(--maxw);margin-inline:auto;padding-inline:24px}
 .matrix::before{
@@ -477,7 +493,7 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .decision-group{border:1px solid rgba(255,255,255,.12);border-radius:4px;padding:12px;background:rgba(255,255,255,.04)}
 .decision-group .dg-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--zloto-300);margin-bottom:8px}
 .segmented{display:flex;gap:6px;flex-wrap:wrap}
-.decision-btn{min-height:40px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;border-radius:999px;padding:7px 11px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.decision-btn{min-height:44px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:#fff;border-radius:999px;padding:9px 13px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer}
 .decision-btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
 .pr1-gates{gap:7px}
 .gate-check{display:grid;grid-template-columns:auto 1fr;gap:8px;align-items:start;font-size:12px;color:var(--mgla-100);margin:7px 0}
@@ -510,7 +526,7 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .modes{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
 .mode{
   font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  padding:8px 14px;border:1px solid var(--rule-strong);background:#fff;border-radius:999px;cursor:pointer;
+  min-height:44px;padding:9px 14px;border:1px solid var(--rule-strong);background:#fff;border-radius:999px;cursor:pointer;
   transition:all .12s;
 }
 .mode.active{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -575,7 +591,7 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
   background:rgba(255,255,255,.05);color:var(--mgla-100);
   border:1px solid rgba(255,255,255,.1);
   font-family:var(--mono);font-size:10px;letter-spacing:.06em;
-  padding:5px 9px;border-radius:999px;cursor:pointer;
+  min-height:44px;padding:9px 12px;border-radius:999px;cursor:pointer;
   transition:background .15s,border-color .15s,opacity .15s;
 }
 .islandmap-legend .im-leg:hover,.islandmap-legend .im-leg:focus-visible{background:rgba(236,200,120,.12);border-color:rgba(236,200,120,.4);outline:none}
@@ -604,11 +620,17 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .chartcard.wide{grid-column:1/-1}
 #riskHeat{min-height:360px;max-height:440px}
 .riskdetails{margin-top:12px}
-.riskdetails summary{cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500)}
+.riskdetails summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--bazalt-500)}
 .chartfallback{
   font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#6b5215;margin:14px 0 0;
   border-left:3px solid var(--warn);background:#fff9eb;padding:10px 12px;
 }
+.table-scroll{
+  width:100%;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;
+  border-radius:8px;
+}
+.table-scroll:focus-visible{outline:3px solid var(--zloto-500);outline-offset:3px}
+.table-scroll table{min-width:680px}
 
 /* risk matrix table */
 .rtable{width:100%;border-collapse:collapse;font-size:12px;margin-top:12px}
@@ -621,6 +643,29 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .r2{background:#f0d58b}
 .r3{background:#e19b6e}
 .r4{background:#c04933}
+
+@media(max-width:600px){
+  .table-scroll{overflow-x:visible}
+  .table-scroll table{min-width:0}
+  .rtable,.ruletable,.rtable tbody,.ruletable tbody,.rtable tr,.ruletable tr,.rtable td,.ruletable td{
+    display:block;width:100%;
+  }
+  .rtable thead,.ruletable thead{
+    position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;
+  }
+  .rtable tr,.ruletable tr{
+    border:1px solid var(--rule);border-radius:8px;background:#fff;margin:10px 0;padding:8px 10px;
+  }
+  .rtable td,.ruletable td{
+    display:grid;grid-template-columns:minmax(92px,.42fr) minmax(0,1fr);gap:10px;
+    border:0;padding:8px 0;font-size:14px;align-items:start;
+  }
+  .rtable td + td,.ruletable td + td{border-top:1px solid var(--rule)}
+  .rtable td::before,.ruletable td::before{
+    content:attr(data-label);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--bazalt-500);
+  }
+  .rtable td.d,.ruletable td:first-child{white-space:normal;font-size:13px}
+}
 
 /* prep timeline */
 .preprow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:16px}
@@ -688,21 +733,21 @@ section.sec{max-width:var(--maxw);margin:56px auto;padding:0 24px;position:relat
 .cl{background:#fff;border:1px solid var(--rule);padding:16px;border-radius:3px}
 .cl h3{font-family:var(--serif);font-size:19px;font-weight:500;margin:0 0 2px}
 .cl .sub{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500);margin-bottom:10px}
-.cl label{display:flex;gap:10px;align-items:flex-start;padding:7px 0;border-top:1px solid var(--rule);font-size:13px;cursor:pointer}
+.cl label{display:flex;gap:10px;align-items:flex-start;min-height:44px;padding:10px 0;border-top:1px solid var(--rule);font-size:14px;line-height:1.4;cursor:pointer}
 .cl label:first-of-type{border-top:0}
 .cl input[type=checkbox]{
   appearance:none;-webkit-appearance:none;
-  width:18px;height:18px;border:1.5px solid var(--bazalt-500);border-radius:2px;
-  flex-shrink:0;margin-top:1px;position:relative;cursor:pointer;transition:all .12s;
+  width:24px;height:24px;border:1.5px solid var(--bazalt-500);border-radius:4px;
+  flex-shrink:0;margin-top:0;position:relative;cursor:pointer;transition:all .12s;
 }
 .cl input[type=checkbox]:checked{background:var(--wawrzyn-600);border-color:var(--wawrzyn-600)}
 .cl input[type=checkbox]:checked::after{
-  content:"";position:absolute;left:4px;top:0px;width:6px;height:11px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)
+  content:"";position:absolute;left:7px;top:2px;width:7px;height:13px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)
 }
 .cl input[type=checkbox]:checked ~ span{color:var(--bazalt-500);text-decoration:line-through}
 .cl .step-n{font-family:var(--mono);font-size:10px;color:var(--bazalt-400);margin-right:6px}
 .cl-progress{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--bazalt-500);margin-top:10px;padding-top:8px;border-top:1px solid var(--rule);display:flex;justify-content:space-between}
-.reset{font-family:var(--mono);font-size:10px;color:var(--nogo);text-decoration:underline;cursor:pointer;background:none;border:0;padding:0}
+.reset{font-family:var(--mono);font-size:12px;color:var(--nogo);text-decoration:underline;cursor:pointer;background:none;border:0;padding:10px;min-height:44px}
 .storage-tools{grid-column:1/-1;background:#fff;border:1px solid var(--rule);border-radius:3px;padding:14px 16px;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 .storage-tools .copy{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--bazalt-500)}
 .storage-tools .actions{display:flex;gap:8px;flex-wrap:wrap}
@@ -747,14 +792,14 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 .mobnav ul::-webkit-scrollbar{display:none}
 .mobnav a{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;min-height:44px;padding:8px 10px;border-radius:999px;text-decoration:none;color:var(--bazalt-700);white-space:nowrap;display:flex;align-items:center}
 .mobnav a.active{background:var(--ink);color:#fff}
-@media(max-width:900px){.mobnav{display:block}footer.foot{margin-bottom:80px}}
+@media(max-width:760px){.mobnav{display:block}footer.foot{margin-bottom:80px}}
 
 /* ---------- REDESIGN OVERRIDES ---------- */
 .navlinks a,.chip,.mode{border-radius:999px}
 .hero-panel::before,.state::after,.tag.ok::after,.tag.no::after,.decision-btn[aria-pressed="true"]::after{content:none}
 .title em{display:block}
 @media(max-width:760px){
-  .hero-copy p{display:none}
+  .hero-copy p{display:-webkit-box}
   .hero-panel{max-width:none}
 }
 .weather-strip{
@@ -766,10 +811,12 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 }
 .weather-loading{grid-column:1/-1;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500)}
 .weather-day{display:grid;gap:3px;min-width:0}
-.weather-day .wd-date{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-500)}
+.weather-day .wd-date{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--bazalt-600)}
 .weather-day .wd-icon{font-size:20px;line-height:1}
 .weather-day .wd-temp{font-family:var(--serif);font-size:18px;line-height:1;font-weight:500}
 .weather-day .wd-label{font-size:11px;color:var(--bazalt-600);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.weather-strip[data-state="fallback"] .weather-day{border-style:dashed;background:#fffaf0}
+.weather-strip[data-state="fallback"] .wd-label{white-space:normal;color:#6b5215}
 @media(max-width:900px){.weather-strip{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:560px){.weather-strip{display:flex;overflow-x:auto;padding-bottom:4px;scroll-snap-type:x mandatory}.weather-day{flex:0 0 118px;scroll-snap-align:start}}
 
@@ -781,7 +828,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 .daytile .dkind{top:10px;right:10px;border-radius:999px;background:rgba(15,20,22,.78);color:#fff;border:1px solid rgba(255,255,255,.18)}
 .daytile .tile-copy{display:grid;gap:6px;padding:12px}
 .daytile .dtitle{font-size:14px;line-height:1.25}
-.daytile .startlight{font-size:9px}
+.daytile .startlight{font-size:11px}
 .dstat .pill{border-radius:999px;background:var(--paper-2);color:var(--bazalt-700)}
 @media(max-width:560px){.daytile{min-height:0}.daytile-photo{aspect-ratio:4/3}}
 
@@ -846,14 +893,14 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 
 .chartgrid{grid-template-columns:1fr}
 .analysis-more{grid-column:1/-1;background:#fff;border:1px solid var(--rule);border-radius:8px;padding:12px 14px}
-.analysis-more summary{cursor:pointer;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--bazalt-600)}
+.analysis-more summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--bazalt-600)}
 .analysis-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:12px}
 .analysis-grid .chartcard{border-color:var(--rule)}
 @media(max-width:900px){.analysis-grid{grid-template-columns:1fr}.analysis-more:not([open]){display:block}}
 
 .cl{border-radius:8px}
 .cl-toolbar{display:flex;justify-content:space-between;gap:10px;align-items:center;margin:8px 0 10px}
-.cl-toggle{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ocean);background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
+.cl-toggle{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ocean);background:none;border:0;min-height:44px;padding:10px 0;text-decoration:underline;text-underline-offset:2px;cursor:pointer}
 .cl-progress{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}
 .cl-progress .bar{grid-column:1/-1;height:6px;border-radius:999px;background:var(--paper-2);overflow:hidden}
 .cl-progress .bar span{display:block;height:100%;width:var(--pct,0%);border-radius:inherit;background:linear-gradient(90deg,var(--laurel),var(--gold))}
@@ -862,7 +909,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 
 .mobnav{background:rgba(245,242,236,.92);backdrop-filter:blur(16px) saturate(1.1);padding:6px 8px calc(8px + env(safe-area-inset-bottom))}
 .mobnav ul{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;overflow:visible}
-.mobnav a{min-height:52px;padding:6px 4px;border-radius:16px;display:flex;flex-direction:column;justify-content:center;gap:3px;text-align:center;font-size:8.5px;white-space:normal}
+.mobnav a{min-height:56px;padding:6px 2px;border-radius:16px;display:flex;flex-direction:column;justify-content:center;gap:3px;text-align:center;font-size:12px;letter-spacing:.02em;white-space:normal}
 .mobnav svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.7;fill:none}
 .mobnav a.active{background:var(--ink);color:#fff}
 
@@ -921,7 +968,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 .day-map .dm-stops li{list-style:none;position:relative}
 .day-map .dm-stops li::before{content:"·";position:absolute;left:-10px;color:#5e7585}
 .day-map .dm-cta{margin-top:auto;display:flex;flex-wrap:wrap;gap:5px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.08)}
-.day-map .dm-cta a{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 9px;color:#e3e8eb;background:rgba(255,255,255,.04);transition:border-color .15s, color .15s, background .15s}
+.day-map .dm-cta a{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 12px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;color:#e3e8eb;background:rgba(255,255,255,.04);transition:border-color .15s, color .15s, background .15s}
 .day-map .dm-cta a:hover,.day-map .dm-cta a:focus-visible{border-color:#ecc878;color:#ecc878;background:rgba(236,200,120,.08);outline:none}
 .day-map .dm-cta a.primary{background:#ecc878;color:#1a2026;border-color:#ecc878;font-weight:600}
 .day-map .dm-cta a.primary:hover,.day-map .dm-cta a.primary:focus-visible{background:#fff;border-color:#fff;color:#1a2026}
@@ -939,14 +986,17 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 .day-map .leaflet-control-attribution a{color:#cfd6dc}
 .day-map .leaflet-control-zoom a{background:#15212a;color:#e3e8eb;border-color:rgba(255,255,255,.12)}
 .day-map .leaflet-control-zoom a:hover{background:#1f2c36}
+.day-map .leaflet-control-zoom a{width:44px;height:44px;line-height:44px}
+.day-map .leaflet-control-zoom-in,.day-map .leaflet-control-zoom-out{font-size:22px}
+.day-map .leaflet-marker-icon.leaflet-interactive{width:44px !important;height:44px !important;margin-left:-22px !important;margin-top:-22px !important}
 .day-map .leaflet-tile{filter:contrast(.92) brightness(.78) saturate(.82)}
-.day-map .dm-marker{display:flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#ecc878;color:#1a2026;font-family:var(--mono);font-size:10px;font-weight:700;border:2px solid #0d1820;box-shadow:0 0 0 2px rgba(236,200,120,.35)}
+.day-map .dm-marker{display:flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:#ecc878;color:#1a2026;font-family:var(--mono);font-size:12px;font-weight:700;border:2px solid #0d1820;box-shadow:0 0 0 2px rgba(236,200,120,.35)}
 .day-map .dm-marker.start{background:#9bc4a8}
 .day-map .dm-marker.end{background:#e66a3c;color:#fff}
-.day-map .dm-marker.via{background:#82b8c8;width:14px;height:14px;font-size:0}
+.day-map .dm-marker.via{background:#82b8c8;width:44px;height:44px;font-size:0}
 .day-map .dm-marker.base{background:#ecc878}
 .day-map .dm-marker.airport{background:#d8dde1;color:#1a2026}
-.day-map .dm-marker.store{background:#b9c7d0;color:#1a2026;width:14px;height:14px;font-size:0}
+.day-map .dm-marker.store{background:#b9c7d0;color:#1a2026;width:44px;height:44px;font-size:0}
 .day-map .leaflet-popup-content-wrapper{background:#15212a;color:#e8ecef;border-radius:8px;box-shadow:0 6px 24px rgba(0,0,0,.4)}
 .day-map .leaflet-popup-content{margin:8px 12px;font-family:var(--mono);font-size:11px;line-height:1.4}
 .day-map .leaflet-popup-tip{background:#15212a}
@@ -961,7 +1011,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 @media(max-width:520px){.routehub .rh-grid{grid-template-columns:1fr}}
 .routehub .rh-chip{display:flex;flex-direction:column;gap:4px;text-align:left;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 12px;color:inherit;text-decoration:none;cursor:pointer;font:inherit;transition:border-color .15s,background .15s,transform .15s}
 .routehub .rh-chip:hover,.routehub .rh-chip:focus-visible{border-color:#ecc878;background:rgba(236,200,120,.06);outline:none;transform:translateY(-1px)}
-.routehub .rh-chip[aria-current="true"]{border-color:#ecc878;background:rgba(236,200,120,.1)}
+.routehub .rh-chip[aria-pressed="true"]{border-color:#ecc878;background:rgba(236,200,120,.1)}
 .routehub .rh-chip .rh-k{font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:#ecc878;display:flex;justify-content:space-between;gap:8px}
 .routehub .rh-chip .rh-k .rh-kind{color:#8aa0aa}
 .routehub .rh-chip .rh-t{font-family:var(--serif);font-size:14px;line-height:1.2;color:#f4f2ee}
@@ -974,8 +1024,38 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 .routehub .rh-chip .rh-meta .rh-dot.conditional{background:#d9a396}
 .routehub .rh-pack{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:10px 18px 14px;border-top:1px dashed rgba(255,255,255,.08)}
 .routehub .rh-pack .rh-pack-label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#8aa0aa;margin-right:6px}
-.routehub .rh-pack a{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:5px 9px;color:#e3e8eb;background:rgba(255,255,255,.04)}
+.routehub .rh-pack a{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:9px 12px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;color:#e3e8eb;background:rgba(255,255,255,.04)}
 .routehub .rh-pack a:hover,.routehub .rh-pack a:focus-visible{border-color:#ecc878;color:#ecc878;outline:none}
+
+@media(max-width:760px){
+  body{font-size:16px;padding-bottom:calc(76px + env(safe-area-inset-bottom))}
+  section.sec{padding-inline:16px;scroll-margin-top:58px}
+  .sechead{align-items:flex-start;gap:8px;flex-direction:column}
+  .sechead .note{margin-left:0;font-size:12px;line-height:1.35}
+  .navlinks a,.chip,.mode,.decision-btn,.route-link,.map-open,.day-map .dm-cta a,.routehub .rh-pack a,.islandmap-legend .im-leg,.cl-toggle{
+    min-height:44px;
+  }
+  .cl-toggle{padding:10px 0;font-size:12px}
+  .daytile .ddate,.daytile .startlight,.route-id,.route-badge,.day-map .dm-tag,.day-map .dm-kicker,.gate-line .gs,.gate-line .state,.stats-strip .l{
+    font-size:11px;letter-spacing:.06em;
+  }
+  .daytile .dtitle,.route-name,.route-note,.gate-line .gt,.cost,.statusbox p,.variantbox p,.bkp ol,.tier p,.tier ul{
+    font-size:14px;line-height:1.4;
+  }
+  .route-top{display:grid;grid-template-columns:1fr;gap:8px}
+  .route-badge{justify-self:start;white-space:normal;line-height:1.25}
+  .route-links,.day-map .dm-cta,.routehub .rh-pack{gap:8px}
+  .route-link,.day-map .dm-cta a,.routehub .rh-pack a{
+    justify-content:center;padding:9px 12px;font-size:12px;
+  }
+  .gate-check{grid-template-columns:28px 1fr;font-size:14px;align-items:center}
+  .gate-check input{width:24px;height:24px;margin:0}
+  .stats-strip{grid-template-columns:1fr}
+  .stats-strip .s{border-right:0;border-bottom:1px solid var(--rule)}
+  .stats-strip .s:last-child{border-bottom:0}
+  .cost{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:start;min-height:44px;padding:10px 0}
+  .weather-day{flex-basis:132px}
+}
 
 /* schematic island map: highlight on hover/active */
 .islandmap .route-line[data-hub-active="true"]{stroke-width:3.6;opacity:1;filter:drop-shadow(0 0 8px currentColor)}
@@ -987,9 +1067,10 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Przejdź do treści</a>
 
 <!-- ===================== TOPBAR ===================== -->
-<div class="topbar" role="banner">
+<header class="topbar">
   <div class="topbar-inner">
     <div class="brand" aria-label="Madeira 2026 Command Center">
       <span class="dot" aria-hidden="true"></span>
@@ -1009,7 +1090,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
     </nav>
     <div class="clock" id="clock" aria-hidden="true">—</div>
   </div>
-</div>
+</header>
 
 <main id="main">
 
@@ -1432,7 +1513,7 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
       <h4 id="routehubTitle">Dzień po dniu · selektor tras</h4>
       <span class="rh-note">Klik · podświetla schemat i otwiera kartę dnia</span>
     </div>
-    <div class="rh-grid" id="rhGrid" role="list"></div>
+    <div class="rh-grid" id="rhGrid" role="group" aria-label="Wybór dnia trasy"></div>
     <div class="rh-pack">
       <span class="rh-pack-label">Pakiet offline</span>
       <a href="madeira-route-pack-final/routes-manifest.json" target="_blank" rel="noopener">Manifest JSON</a>
@@ -1472,12 +1553,14 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
       <canvas id="riskHeat" aria-label="Interaktywna mapa cieplna ryzyk"></canvas>
       <details class="riskdetails">
         <summary>Tabela dostępna / fallback</summary>
-        <table class="rtable" aria-label="Macierz ryzyk dzień vs kategoria">
-          <thead>
-            <tr><th>Dzień</th><th>Pogoda</th><th>Szlak</th><th>Parking</th><th>Morze</th><th>Operator</th><th>Zmęczenie</th></tr>
-          </thead>
-          <tbody id="riskbody"></tbody>
-        </table>
+        <div class="table-scroll" tabindex="0" aria-label="Przewijana tabela ryzyk">
+          <table class="rtable" aria-label="Macierz ryzyk dzień vs kategoria">
+            <thead>
+              <tr><th>Dzień</th><th>Pogoda</th><th>Szlak</th><th>Parking</th><th>Morze</th><th>Operator</th><th>Zmęczenie</th></tr>
+            </thead>
+            <tbody id="riskbody"></tbody>
+          </table>
+        </div>
       </details>
     </div>
     <details class="analysis-more">
@@ -1562,10 +1645,12 @@ footer.foot{max-width:var(--maxw);margin:60px auto 40px;padding:24px;border-top:
       <div class="r"><div class="rk">Parking · krążenie</div><div class="rv">max 10 min</div><div class="rm">Potem overflow lub plan skrócony.</div></div>
       <div class="r"><div class="rk">Woda w aucie</div><div class="rv">5 l</div><div class="rm">Uzupełniane po każdym dniu terenowym.</div></div>
     </div>
-    <table class="ruletable" aria-label="Reguły lunch / parking / punkty odwrotu">
-      <thead><tr><th>Dzień</th><th>Punkt jedzenia B</th><th>Sklep B</th><th>Limit parkingu</th><th>Punkt odwrotu</th></tr></thead>
-      <tbody id="ruletbody"></tbody>
-    </table>
+    <div class="table-scroll" tabindex="0" aria-label="Przewijana tabela reguł terenowych">
+      <table class="ruletable" aria-label="Reguły lunch / parking / punkty odwrotu">
+        <thead><tr><th>Dzień</th><th>Punkt jedzenia B</th><th>Sklep B</th><th>Limit parkingu</th><th>Punkt odwrotu</th></tr></thead>
+        <tbody id="ruletbody"></tbody>
+      </table>
+    </div>
   </div>
 </section>
 
@@ -2335,6 +2420,51 @@ const STORAGE_SCHEMA = 1;
 const WEATHER_CACHE_KEY = "weather:daily";
 const COMMONS_FILE = "https://commons.wikimedia.org/wiki/File:";
 const COMMONS_THUMB = "https://commons.wikimedia.org/wiki/Special:FilePath/";
+const LOCAL_IMAGE_DIMS = {
+  "assets/day/d01-base-fnc-airport-01.jpg":[1280,960],
+  "assets/day/d01-base-madalena-promenade-01.jpg":[1280,853],
+  "assets/day/d01-base-ponta-do-sol-01.jpg":[1280,853],
+  "assets/day/d01-base-ponta-do-sol-dusk-02.jpg":[1500,1000],
+  "assets/day/d02-ridge-areeiro-cloudsea-sunrise-02.jpg":[1600,1067],
+  "assets/day/d02-ridge-eira-do-serrado-01.jpg":[1280,1085],
+  "assets/day/d02-ridge-ninho-da-manta-01.jpg":[1280,794],
+  "assets/day/d02-ridge-pico-areeiro-01.jpg":[1280,850],
+  "assets/day/d03-ocean-machico-marina-01.jpg":[1280,854],
+  "assets/day/d03-ocean-pr8-cliffs-01.jpg":[1280,885],
+  "assets/day/d03-ocean-pr8-ponta-sao-lourenco-01.jpg":[1280,585],
+  "assets/day/d03-ocean-pr8-ponta-sao-lourenco-02.jpg":[1600,1067],
+  "assets/day/d04-base-cabo-girao-01.jpg":[1280,853],
+  "assets/day/d04-base-cabo-girao-skywalk-02.jpg":[1600,1067],
+  "assets/day/d04-base-camara-de-lobos-01.jpg":[1280,780],
+  "assets/day/d04-base-madalena-terraces-02.jpg":[1200,1500],
+  "assets/day/d04-base-rota-do-banana-01.jpg":[1280,960],
+  "assets/day/d05-forest-balcoes-01.jpg":[1280,745],
+  "assets/day/d05-forest-laurissilva-godrays-02.jpg":[1600,1067],
+  "assets/day/d05-forest-ribeiro-frio-01.jpg":[1280,853],
+  "assets/day/d05-forest-santana-01.jpg":[1024,683],
+  "assets/day/d06-ocean-porto-moniz-basalt-02.jpg":[1600,1067],
+  "assets/day/d06-ocean-porto-moniz-pools-01.jpg":[1280,853],
+  "assets/day/d06-ocean-seixal-black-sand-01.jpg":[1280,853],
+  "assets/day/d06-ocean-veu-da-noiva-01.jpg":[1280,1707],
+  "assets/day/d06-ocean-veu-da-noiva-vertical-02.jpg":[1200,1500],
+  "assets/day/d07-forest-fanal-fog-optional-01.jpg":[1920,1280],
+  "assets/day/d07-west-achadas-da-cruz-01.jpg":[1280,960],
+  "assets/day/d07-west-garganta-funda-01.jpg":[1280,720],
+  "assets/day/d07-west-ponta-do-pargo-01.jpg":[1280,960],
+  "assets/day/d08-base-fnc-dusk-02.jpg":[1600,1067],
+  "assets/day/d08-base-fnc-from-santa-cruz-01.jpg":[1280,951],
+  "assets/day/d08-base-machico-monument-01.jpg":[1280,1942],
+  "assets/day/d08-base-santa-cruz-beach-01.jpg":[1280,1920],
+  "assets/fallback/madeira-ocean-fallback.jpg":[1280,853],
+  "assets/fallback/madeira-ridge-fallback.jpg":[1920,1280],
+  "assets/hero/hero-areeiro-cloud-inversion.jpg":[2520,1080],
+  "assets/hero/hero-mobile-pico-arieiro-ruivo-path.jpg":[1924,1080],
+  "assets/hero/hero-pico-arieiro-sunset-unsplash.jpg":[1200,1768],
+  "assets/hero/hero-pr8-ponta-sao-lourenco.jpg":[1920,878],
+  "assets/pico-do-areeiro-clouds.jpg":[1920,1280],
+  "assets/ponta-sao-lourenco.jpg":[1920,878],
+  "assets/porto-moniz-pools.jpg":[1280,853]
+};
 
 function commonsPath(file){
   return encodeURIComponent(file).replace(/%20/g, "_");
@@ -2359,7 +2489,13 @@ function imgFallback(img){
 }
 function imgAttrs(p, width=720, alt){
   const fallback = p.fallbackSrc || "assets/fallback/madeira-ocean-fallback.jpg";
-  return `src="${photoSrc(p, width)}" alt="${alt ?? p.alt ?? ""}" loading="lazy" decoding="async" data-fallback="${fallback}" onerror="imgFallback(this)"`;
+  const src = photoSrc(p, width);
+  const dim = LOCAL_IMAGE_DIMS[src] || LOCAL_IMAGE_DIMS[fallback];
+  const dimAttrs = dim ? ` width="${dim[0]}" height="${dim[1]}"` : "";
+  const sizes = width >= 900
+    ? "(max-width: 760px) 100vw, 960px"
+    : "(max-width: 560px) 100vw, 640px";
+  return `src="${src}" alt="${alt ?? p.alt ?? ""}" loading="lazy" decoding="async"${dimAttrs} sizes="${sizes}" data-fallback="${fallback}" onerror="imgFallback(this)"`;
 }
 function enrichDayData(){
   DAYS.forEach(d=>{
@@ -2424,6 +2560,12 @@ function renderWeatherStrip(cache){
   const root = $("#weatherStrip");
   if(!root) return;
   const days = cache?.days || {};
+  root.dataset.state = cache?.error ? "fallback" : "ready";
+  if(cache?.error){
+    root.setAttribute("aria-label", "Prognoza niedostępna, pokazuję fallback bez danych live");
+  } else {
+    root.removeAttribute("aria-label");
+  }
   root.innerHTML = DAYS.map(d=>{
     const w = days[d.n];
     const meta = weatherCodeMeta(w?.code);
@@ -2432,7 +2574,7 @@ function renderWeatherStrip(cache){
       <div class="wd-date">D${d.n} · ${d.date}</div>
       <div class="wd-icon" aria-hidden="true">${w?.icon || meta.icon}</div>
       <div class="wd-temp">${hasTemp ? `${w.tempMin}–${w.tempMax}°` : "--"}</div>
-      <div class="wd-label">${w?.label || meta.label}</div>
+      <div class="wd-label">${w?.label || (cache?.error ? "offline fallback" : meta.label)}</div>
     </div>`;
   }).join("");
 }
@@ -2458,7 +2600,7 @@ async function setupWeather(){
     LS.set(WEATHER_CACHE_KEY, normalized);
     renderWeatherStrip(normalized);
   }catch(e){
-    if(!cached) renderWeatherStrip({days:{}});
+    renderWeatherStrip(cached ? {...cached, error:true} : {days:{}, error:true});
   }
 }
 
@@ -2915,7 +3057,7 @@ function renderRouteHub(){
       `<span><span class="rh-dot ${cls}"></span>${classificationLabel(cls)}</span>`,
       `<span>${ROUTE_KIND_LABEL[kind] || kind}</span>`
     ].join("");
-    return `<button class="rh-chip" type="button" role="listitem" data-rh-day="${d.n}" aria-current="false">
+    return `<button class="rh-chip" type="button" data-rh-day="${d.n}" aria-pressed="false">
       <div class="rh-k"><span>D${d.n} · ${d.date} · ${d.dow}</span><span class="rh-kind">${d.kindLabel}</span></div>
       <div class="rh-t">${sub}</div>
       <div class="rh-meta">${meta}</div>
@@ -2929,8 +3071,8 @@ function renderRouteHub(){
     btn.addEventListener("mouseleave", () => highlightSchemaDay(dayN, false));
     btn.addEventListener("blur",       () => highlightSchemaDay(dayN, false));
     btn.addEventListener("click", () => {
-      grid.querySelectorAll(".rh-chip").forEach(b=>b.setAttribute("aria-current","false"));
-      btn.setAttribute("aria-current","true");
+      grid.querySelectorAll(".rh-chip").forEach(b=>b.setAttribute("aria-pressed","false"));
+      btn.setAttribute("aria-pressed","true");
       const card = document.getElementById("d-"+dayN);
       if(card){
         if(!card.open) card.open = true;
@@ -3363,19 +3505,21 @@ function renderPrep(){
 /* =============== RULES TABLE =============== */
 function renderRules(){
   const tb = $("#ruletbody");
+  const labels = ["Dzień","Punkt jedzenia B","Sklep B","Limit parkingu","Punkt odwrotu"];
   RULES_ROWS.forEach(r=>{
-    tb.append(el("tr",{html:r.map((c,i)=>`<td>${c}</td>`).join("")}));
+    tb.append(el("tr",{html:r.map((c,i)=>`<td data-label="${labels[i]}">${c}</td>`).join("")}));
   });
 }
 
 /* =============== RISK TABLE =============== */
 function renderRisk(){
   const labels = ["","Przylot","Areeiro","Wschód","Południe","Balcões","Seixal","Zachód","Wylot"];
+  const cats = ["Dzień", ...RISK_CATEGORIES];
   const tb = $("#riskbody");
   RISK.forEach(row=>{
     const [d,...vals] = row;
-    const tds = [`<td class="d">D${d} · ${labels[d]}</td>`].concat(
-      vals.map(v=>`<td><span class="rcell r${v}" title="${v}/4" aria-label="${v} z 4"></span> <span style="font-family:var(--mono);font-size:11px;color:var(--bazalt-600)">${v}</span></td>`)
+    const tds = [`<td class="d" data-label="${cats[0]}">D${d} · ${labels[d]}</td>`].concat(
+      vals.map((v,i)=>`<td data-label="${cats[i+1]}"><span class="rcell r${v}" title="${v}/4" aria-label="${v} z 4"></span> <span style="font-family:var(--mono);font-size:11px;color:var(--bazalt-600)">${v}</span></td>`)
     ).join("");
     tb.append(el("tr",{html:tds}));
   });
