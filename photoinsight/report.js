@@ -42,7 +42,7 @@ function bars(id, groups, field, known, horizontal = false) {
     grid: { left: horizontal ? (innerWidth < 500 ? 118 : 250) : 48, right: 26, top: 14, bottom: zoom ? 92 : 60 },
     xAxis: horizontal ? { type: 'value', minInterval: 1 } : { type: 'category', data: values.map(g => format(field, g.value)), axisLabel: { rotate: values.length > 8 ? 40 : 0, hideOverlap: true } },
     yAxis: horizontal ? { type: 'category', inverse: true, data: values.map(g => format(field, g.value)), axisLabel: { width: innerWidth < 500 ? 105 : 235, overflow: 'truncate', fontSize: 10 }, axisTick: { show: false } } : { type: 'value', minInterval: 1, splitLine: { lineStyle: { type: 'dashed', color: '#e9eee3' } } },
-    dataZoom: zoom ? [{ type: 'slider', start: 0, end: Math.min(100, 20 / values.length * 100), bottom: 8, height: 20, brushSelect: false }, { type: 'inside', zoomOnMouseWheel: false }] : [],
+    dataZoom: zoom ? [{ type: 'slider', start: 0, end: 100, bottom: 8, height: 20, brushSelect: false }, { type: 'inside', zoomOnMouseWheel: false }] : [],
     tooltip: { trigger: 'axis', renderMode: 'richText', confine: true, formatter: p => { const g = values[p[0].dataIndex]; return `${format(field, g.value)}\n${number(g.count)} / ${number(known)} znanych (${percent(share(g.count, known))})`; } },
     series: [{ name: 'Liczba', type: 'bar', barMaxWidth: 28, data: values.map(g => g.count), itemStyle: { color: '#a9c67f', borderRadius: horizontal ? [0, 3, 3, 0] : [3, 3, 0, 0] } }]
   });
@@ -99,7 +99,7 @@ function renderComparison() {
     grid: { left: horizontal ? (innerWidth < 500 ? 118 : 250) : 48, right: 20, top: 20, bottom: zoom ? 115 : 90 },
     xAxis: horizontal ? { type: 'value', axisLabel: { formatter: '{value}%' } } : { type: 'category', data: groups.map(g => format(field, g.value)), axisLabel: { rotate: groups.length > 8 ? 40 : 0, hideOverlap: true } },
     yAxis: horizontal ? { type: 'category', inverse: true, data: groups.map(g => format(field, g.value)), axisLabel: { width: innerWidth < 500 ? 105 : 235, overflow: 'truncate', fontSize: 10 } } : { type: 'value', axisLabel: { formatter: '{value}%' } },
-    dataZoom: zoom ? [{ type: 'slider', xAxisIndex: horizontal ? undefined : 0, yAxisIndex: horizontal ? 0 : undefined, start: 0, end: Math.min(100, 16 / groups.length * 100), bottom: 40, height: 18, brushSelect: false }] : [],
+    dataZoom: zoom ? [{ type: 'slider', xAxisIndex: horizontal ? undefined : 0, yAxisIndex: horizontal ? 0 : undefined, start: 0, end: 100, bottom: 40, height: 18, brushSelect: false }] : [],
     tooltip: { trigger: 'axis', renderMode: 'richText', confine: true, formatter: p => { const g = groups[p[0].dataIndex]; return `${format(field, g.value)}\nPortfolio: ${percent(ps(g))} · ${number(g.portfolioCount)} / ${number(d.portfolioKnown)} ujęć\nArchiwum: ${percent(as(g))} · ${number(g.archiveCount)} / ${number(d.archiveKnown)} ujęć${session ? '\nUdziały z równymi wagami sesji' : ''}`; } },
     series: [{ name: 'Portfolio', type: 'bar', barMaxWidth: 22, data: groups.map(g => ps(g) == null ? null : ps(g) * 100) }, { name: 'Archiwum', type: 'bar', barMaxWidth: 22, data: groups.map(g => as(g) == null ? null : as(g) * 100) }]
   });
