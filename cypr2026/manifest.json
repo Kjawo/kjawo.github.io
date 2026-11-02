@@ -1,0 +1,33 @@
+{
+  "name": "Cypr 2026 — plan podróży",
+  "short_name": "Cypr 2026",
+  "description": "Spokojny plan podróży 7–13 listopada 2026: dni, trasy, miejsca, praktyka i checklisty.",
+  "lang": "pl",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F6F1E7",
+  "theme_color": "#0C5C6B",
+  "categories": ["travel", "lifestyle"],
+  "icons": [
+    {
+      "src": "assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icons/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
