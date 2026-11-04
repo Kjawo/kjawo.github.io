@@ -2,7 +2,7 @@
 
 Statyczna, jednotygodniowa podstrona pod adresem:
 
-**https://kjawo.github.io/cypr2026/**
+**https://cypr2026.pages.dev/** (mirror: https://kjawo.github.io/cypr2026/)
 
 To niezależny folder w repo `kjawo/kjawo.github.io`, gałąź `gh-pages`. Nie zmienia motywu, globalnego CSS, `_config.yml`, głównego `index.html` ani nawigacji. Link do strony można dodać później — po akceptacji.
 
@@ -38,6 +38,22 @@ Build:
 - aktualizuje wersję cache i listę precache w `sw.js`.
 
 Dwa uruchomienia dają identyczny wynik (nie ma timestampów w treści).
+
+## Cloudflare Pages
+
+Wersja produkcyjna jest publikowana na **https://cypr2026.pages.dev/**. Build i pakowanie tylko publicznych plików:
+
+```bash
+python3 _src/build_pages.py
+```
+
+Deploy (po jednorazowym `npx wrangler login --device`):
+
+```bash
+npm run deploy
+```
+
+`dist/` zawiera wyłącznie to, co trafia na Pages; `_headers`, `_redirects` i `404.html` są dodawane przez `_src/build_pages.py`. Canonical i linki w `.ics` wskazują na `cypr2026.pages.dev`, a linki „Photo Journal” i „Archiwum v1” pozostają na GitHub Pages. Pełna instrukcja, cache, redirecty i rollback: [`DEPLOY-CLOUDFLARE.md`](DEPLOY-CLOUDFLARE.md).
 
 ## Archiwum wersji 1
 

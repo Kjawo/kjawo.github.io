@@ -1,0 +1,8 @@
+{
+  // Cloudflare Pages: projekt statyczny, bez build step po stronie CF.
+  // `npm run build` tworzy dist/ lokalnie; deploy wysyła gotowe pliki.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "cypr2026",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-11-04"
+}

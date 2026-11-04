@@ -29,7 +29,7 @@ SUMMARY:Dzień 6: Grobowce i spokojny ostatni dzień
 DESCRIPTION:Domyślny dzień lokalny. Paliwo\, pakowanie\, odprawa i sen m
  ają pierwszeństwo przed dodatkową atrakcją.
 LOCATION:Pafos\, Cypr
-URL:https://kjawo.github.io/cypr2026/#day-06
+URL:https://cypr2026.pages.dev/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -40,10 +40,10 @@ DTEND;TZID=Asia/Nicosia:20261112T072000
 SUMMARY:Dzień 6 · Odprawa Ryanair
 DESCRIPTION:Jeżeli nie kupiono miejsca\, zgodnie z audytem otwiera się T
  –24 h. Sprawdzić w aplikacji i zapisać cyfrową kartę offline\; wyko
- nać rano.\nCzas: założenie planu.\nPlan: https://kjawo.github.io/cypr2
- 026/#day-06
+ nać rano.\nCzas: założenie planu.\nPlan: https://cypr2026.pages.dev/#d
+ ay-06
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://kjawo.github.io/cypr2026/#day-06
+URL:https://cypr2026.pages.dev/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -53,9 +53,9 @@ DTSTART;TZID=Asia/Nicosia:20261112T070000
 DTEND;TZID=Asia/Nicosia:20261112T074000
 SUMMARY:Dzień 6 · Śniadanie
 DESCRIPTION:Rano sprawdzić ostateczny plan lotu i zwrotu auta.\nCzas: za
- łożenie planu.\nPlan: https://kjawo.github.io/cypr2026/#day-06
+ łożenie planu.\nPlan: https://cypr2026.pages.dev/#day-06
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://kjawo.github.io/cypr2026/#day-06
+URL:https://cypr2026.pages.dev/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -65,9 +65,9 @@ DTSTART;TZID=Asia/Nicosia:20261112T080000
 DTEND;TZID=Asia/Nicosia:20261112T083000
 SUMMARY:Dzień 6 · Dojście do Grobowców
 DESCRIPTION:15–25 min plus zapas\, wejście od właściwej ulicy.\nCzas:
-  założenie planu.\nPlan: https://kjawo.github.io/cypr2026/#day-06
+  założenie planu.\nPlan: https://cypr2026.pages.dev/#day-06
 LOCATION:Grobowce Królewskie
-URL:https://kjawo.github.io/cypr2026/#day-06
+URL:https://cypr2026.pages.dev/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -78,9 +78,9 @@ DTEND;TZID=Asia/Nicosia:20261112T100000
 SUMMARY:Dzień 6 · Grobowce Królewskie
 DESCRIPTION:Rano dobre światło i niewiele presji czasowej. Schody i kami
  eń ocenić pod kątem wilgoci.\nCzas: założenie planu.\nPlan: https://
- kjawo.github.io/cypr2026/#day-06
+ cypr2026.pages.dev/#day-06
 LOCATION:Grobowce Królewskie
-URL:https://kjawo.github.io/cypr2026/#day-06
+URL:https://cypr2026.pages.dev/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -90,10 +90,10 @@ DTSTART;TZID=Asia/Nicosia:20261112T100000
 DTEND;TZID=Asia/Nicosia:20261112T130000
 SUMMARY:Dzień 6 · Powrót i czas wolny
 DESCRIPTION:Krótki spacer\, odpoczynek lub potwierdzone wellness rano. Lu
- nch odpowiednio wcześnie.\nCzas: założenie planu.\nPlan: https://kjawo
- .github.io/cypr2026/#day-06
+ nch odpowiednio wcześnie.\nCzas: założenie planu.\nPlan: https://cypr2
+ 026.pages.dev/#day-06
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://kjawo.github.io/cypr2026/#day-06
+URL:https://cypr2026.pages.dev/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -105,9 +105,9 @@ SUMMARY:Dzień 6 · Paliwo i przygotowanie
 DESCRIPTION:Zatankować po ostatniej dalszej jeździe\, zachować paragon.
   Kupić śniadanie na drogę\; uzgodnić wcześniejsze rozliczenie i nocn
  y dostęp do auta. Lokalna stacja do wyboru.\nCzas: założenie planu.\nP
- lan: https://kjawo.github.io/cypr2026/#day-06
+ lan: https://cypr2026.pages.dev/#day-06
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://kjawo.github.io/cypr2026/#day-06
+URL:https://cypr2026.pages.dev/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -118,10 +118,10 @@ DTEND;TZID=Asia/Nicosia:20261112T180000
 SUMMARY:Dzień 6 · Pakowanie i wczesna kolacja
 DESCRIPTION:Dokumenty\, telefon\, ładowarki i ubrania na noc pod ręką. 
  Zjeść przed hotelową kolacją publikowaną od 19:00\; własny posiłek
-  lub potwierdzony lokal.\nCzas: założenie planu.\nPlan: https://kjawo.g
- ithub.io/cypr2026/#day-06
+  lub potwierdzony lokal.\nCzas: założenie planu.\nPlan: https://cypr202
+ 6.pages.dev/#day-06
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://kjawo.github.io/cypr2026/#day-06
+URL:https://cypr2026.pages.dev/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -131,9 +131,9 @@ DTSTART;TZID=Asia/Nicosia:20261112T190000
 DTEND;TZID=Asia/Nicosia:20261112T200000
 SUMMARY:Dzień 6 · Sen
 DESCRIPTION:Cel snu około 19:00\; pobudka następnego dnia około 02:15.\
- nCzas: założenie planu.\nPlan: https://kjawo.github.io/cypr2026/#day-06
+ nCzas: założenie planu.\nPlan: https://cypr2026.pages.dev/#day-06
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://kjawo.github.io/cypr2026/#day-06
+URL:https://cypr2026.pages.dev/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 END:VCALENDAR

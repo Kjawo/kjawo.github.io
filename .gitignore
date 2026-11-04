@@ -1,2 +1,6 @@
 _site
 node_modules
+cypr2026/dist/
+cypr2026/cypr2026-pages.zip
+cypr2026/_src/__pycache__/
+.wrangler/

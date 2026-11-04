@@ -29,7 +29,7 @@ SUMMARY:Dzień 7: Nocny zwrot auta i powrót
 DESCRIPTION:Harmonogram obowiązuje po potwierdzeniu zwrotu na terenie PFO
   i zatankowaniu wieczorem.
 LOCATION:Pafos\, Cypr
-URL:https://kjawo.github.io/cypr2026/#day-07
+URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -39,10 +39,10 @@ DTSTART;TZID=Asia/Nicosia:20261113T021500
 DTEND;TZID=Asia/Nicosia:20261113T024000
 SUMMARY:Dzień 7 · Pobudka
 DESCRIPTION:Toaleta\, ubranie\, lodówka\, ładowarki\, ostatnia kontrola 
- pokoju.\nCzas: założenie planu.\nPlan: https://kjawo.github.io/cypr2026
- /#day-07
+ pokoju.\nCzas: założenie planu.\nPlan: https://cypr2026.pages.dev/#day-
+ 07
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://kjawo.github.io/cypr2026/#day-07
+URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -53,9 +53,9 @@ DTEND;TZID=Asia/Nicosia:20261113T025500
 SUMMARY:Dzień 7 · Wyjście i klucze hotelu
 DESCRIPTION:Uzgodniona wcześniej procedura. Breakfast box tylko jeśli po
  twierdzony\, inaczej własne jedzenie.\nCzas: założenie planu.\nPlan: h
- ttps://kjawo.github.io/cypr2026/#day-07
+ ttps://cypr2026.pages.dev/#day-07
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://kjawo.github.io/cypr2026/#day-07
+URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -65,10 +65,10 @@ DTSTART;TZID=Asia/Nicosia:20261113T030000
 DTEND;TZID=Asia/Nicosia:20261113T033500
 SUMMARY:Dzień 7 · Wyjazd na PFO
 DESCRIPTION:To godzina ruszenia z parkingu. Dojazd 25–35 min\, potem wł
- aściwy sektor wypożyczalni.\nCzas: założenie planu.\nPlan: https://kj
- awo.github.io/cypr2026/#day-07
+ aściwy sektor wypożyczalni.\nCzas: założenie planu.\nPlan: https://cy
+ pr2026.pages.dev/#day-07
 LOCATION:Port lotniczy Pafos PFO
-URL:https://kjawo.github.io/cypr2026/#day-07
+URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -80,9 +80,9 @@ SUMMARY:Dzień 7 · Zwrot auta
 DESCRIPTION:Wjazd do sektora zwrotów według instrukcji konkretnej firmy.
   Dokumentacja paliwa\, przebiegu i stanu\, zabranie rzeczy\, oddanie kluc
  zy. Przedział zależy od dojazdu.\nCzas: założenie planu.\nPlan: https
- ://kjawo.github.io/cypr2026/#day-07
+ ://cypr2026.pages.dev/#day-07
 LOCATION:Port lotniczy Pafos PFO
-URL:https://kjawo.github.io/cypr2026/#day-07
+URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -93,10 +93,9 @@ DTEND;TZID=Asia/Nicosia:20261113T041500
 SUMMARY:Dzień 7 · Terminal
 DESCRIPTION:Dojście po zwrocie\; w kolejce do bag drop cel około 04:10
  –04:20. Otwarcie stanowiska według obsługi\, nie gwarantowane o 04:20
- .\nCzas: założenie planu.\nPlan: https://kjawo.github.io/cypr2026/#day-
- 07
+ .\nCzas: założenie planu.\nPlan: https://cypr2026.pages.dev/#day-07
 LOCATION:Port lotniczy Pafos PFO
-URL:https://kjawo.github.io/cypr2026/#day-07
+URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -106,10 +105,10 @@ DTSTART;TZID=Asia/Nicosia:20261113T042000
 DTEND;TZID=Asia/Nicosia:20261113T051500
 SUMMARY:Dzień 7 · Nadanie i kontrole
 DESCRIPTION:Po nadaniu od razu bezpieczeństwo\, ewentualna kontrola dokum
- entów i przejście do bramki.\nCzas: założenie planu.\nPlan: https://k
- jawo.github.io/cypr2026/#day-07
+ entów i przejście do bramki.\nCzas: założenie planu.\nPlan: https://c
+ ypr2026.pages.dev/#day-07
 LOCATION:Port lotniczy Pafos PFO
-URL:https://kjawo.github.io/cypr2026/#day-07
+URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -119,10 +118,10 @@ DTSTART;TZID=Asia/Nicosia:20261113T051500
 DTEND;TZID=Asia/Nicosia:20261113T053000
 SUMMARY:Dzień 7 · Cel obecności przy bramce
 DESCRIPTION:To cel operacyjny\; numer i godzinę zamknięcia sprawdzić na
-  karcie i ekranach.\nCzas: założenie planu.\nPlan: https://kjawo.github
- .io/cypr2026/#day-07
+  karcie i ekranach.\nCzas: założenie planu.\nPlan: https://cypr2026.pag
+ es.dev/#day-07
 LOCATION:Port lotniczy Pafos PFO
-URL:https://kjawo.github.io/cypr2026/#day-07
+URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -132,10 +131,10 @@ DTSTART;TZID=Asia/Nicosia:20261113T062000
 DTEND;TZID=Asia/Nicosia:20261113T072000
 SUMMARY:Dzień 7 · Odlot FR5880
 DESCRIPTION:Planowany odlot z PFO\; sprawdzić aktualną godzinę w aplika
- cji.\nCzas: dane rezerwacji według użytkownika.\nPlan: https://kjawo.gi
- thub.io/cypr2026/#day-07
+ cji.\nCzas: dane rezerwacji według użytkownika.\nPlan: https://cypr2026
+ .pages.dev/#day-07
 LOCATION:Port lotniczy Pafos PFO
-URL:https://kjawo.github.io/cypr2026/#day-07
+URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -146,9 +145,9 @@ DTEND;TZID=Asia/Nicosia:20261113T094500
 SUMMARY:Dzień 7 · Lądowanie WAW
 DESCRIPTION:Godzina polska Europe/Warsaw. Powrót na Chopina\, nie do Modl
  ina.\nCzas: dane rezerwacji według użytkownika\; czas polski.\nPlan: ht
- tps://kjawo.github.io/cypr2026/#day-07
+ tps://cypr2026.pages.dev/#day-07
 LOCATION:Warszawa Chopina WAW
-URL:https://kjawo.github.io/cypr2026/#day-07
+URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -159,9 +158,9 @@ DTEND:20261113T074500Z
 SUMMARY:FR5880 PFO → WAW
 DESCRIPTION:PFO 06:20 → WAW 08:45 (czas lokalny lotnisk). Godziny wedłu
  g danych użytkownika\; potwierdź w aplikacji przewoźnika.\nPlan: https
- ://kjawo.github.io/cypr2026/#day-07
+ ://cypr2026.pages.dev/#day-07
 LOCATION:PFO → WAW
-URL:https://kjawo.github.io/cypr2026/#day-07
+URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -171,9 +170,9 @@ DTSTART;TZID=Asia/Nicosia:20261107T150000
 DTEND;TZID=Asia/Nicosia:20261113T120000
 SUMMARY:Hotel: Princessa Vera Hotel Apartments
 DESCRIPTION:Zameldowanie i wymeldowanie według danych użytkownika. Vouch
- er ma pierwszeństwo.\nPlan: https://kjawo.github.io/cypr2026/#hotel
+ er ma pierwszeństwo.\nPlan: https://cypr2026.pages.dev/#hotel
 LOCATION:17 Tombs of the Kings Road\, 8045 Pafos\, Cyprus
-URL:https://kjawo.github.io/cypr2026/#hotel
+URL:https://cypr2026.pages.dev/#hotel
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -183,9 +182,9 @@ DTSTART:20261107T093000Z
 DTEND:20261107T101500Z
 SUMMARY:Auto: odbiór — cel
 DESCRIPTION:Brak potwierdzonej rezerwacji. To cel planu\, nie gwarancja.\n
- Plan: https://kjawo.github.io/cypr2026/#auto
+ Plan: https://cypr2026.pages.dev/#auto
 LOCATION:PFO
-URL:https://kjawo.github.io/cypr2026/#auto
+URL:https://cypr2026.pages.dev/#auto
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
@@ -195,9 +194,9 @@ DTSTART:20261113T013000Z
 DTEND:20261113T021500Z
 SUMMARY:Auto: nocny zwrot — cel
 DESCRIPTION:Potwierdzić wjazd\, klucze i koniec odpowiedzialności.\nPlan
- : https://kjawo.github.io/cypr2026/#auto
+ : https://cypr2026.pages.dev/#auto
 LOCATION:PFO
-URL:https://kjawo.github.io/cypr2026/#auto
+URL:https://cypr2026.pages.dev/#auto
 STATUS:TENTATIVE
 END:VEVENT
 END:VCALENDAR

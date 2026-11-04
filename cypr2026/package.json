@@ -1,0 +1,15 @@
+{
+  "name": "cypr2026-pages",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Cypr 2026 — statyczny plan podróży wdrażany na Cloudflare Pages",
+  "scripts": {
+    "build": "python3 _src/build_pages.py",
+    "preview": "npm run build && npx wrangler pages dev dist",
+    "project:create": "npx wrangler pages project create cypr2026 --production-branch gh-pages --force",
+    "deploy": "npm run build && npx wrangler pages deploy dist --project-name cypr2026 --branch gh-pages --commit-dirty=true"
+  },
+  "devDependencies": {
+    "wrangler": "^4.157.0"
+  }
+}

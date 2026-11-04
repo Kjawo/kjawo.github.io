@@ -35,6 +35,8 @@ INDEX_FILE = ROOT / "index.html"
 CAL_DIR = ROOT / "cal"
 ASSETS_DIR = ROOT / "assets"
 CANONICAL_URL = "https://kjawo.github.io/cypr2026/"
+JOURNAL_URL = "/"
+ARCHIVE_URL = "/v1/"
 ics_stamp_cached = ""
 
 CY_TZ = "Asia/Nicosia"
@@ -261,6 +263,28 @@ def icon(name: str, cls: str = "") -> str:
         f'fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" '
         f'stroke-linejoin="round" aria-hidden="true" focusable="false">{body}</svg>'
     )
+
+
+def normalize_canonical(value: str) -> str:
+    """Return an absolute http(s) canonical URL with exactly one trailing slash."""
+    value = value.strip()
+    parsed = urlparse(value)
+    if parsed.scheme not in {"http", "https"} or not parsed.netloc:
+        fail("--canonical musi być pełnym adresem http(s), np. https://cypr2026.pages.dev/")
+    if parsed.query or parsed.fragment:
+        fail("--canonical nie może zawierać zapytania ani fragmentu")
+    return value.rstrip("/") + "/"
+
+
+def normalize_link(value: str, label: str) -> str:
+    """Accept a root-relative path or an absolute http(s) URL."""
+    value = value.strip()
+    if value.startswith("/") and not value.startswith("//"):
+        return value
+    parsed = urlparse(value)
+    if parsed.scheme in {"http", "https"} and parsed.netloc:
+        return value
+    fail(f"{label} musi być ścieżką od / albo pełnym adresem http(s)")
 
 
 def esc(value: object) -> str:
@@ -1048,7 +1072,7 @@ def render_hero(plan: Plan) -> str:
     <div class="hero__inner page-width">
       <div class="hero__copy">
         <div class="hero__utility">
-          <a class="back-link" href="/">KJ <span>/</span> Photo Journal</a>
+          <a class="back-link" href="{JOURNAL_URL}">KJ <span>/</span> Photo Journal</a>
           <span class="hero__edition">Wydanie {version}</span>
         </div>
         <p class="eyebrow">PODRÓŻ · CYPR · 2026</p>
@@ -2675,7 +2699,7 @@ def render_print_cover(plan: Plan) -> str:
         <div><dt>Alarmowy</dt><dd>112</dd></div>
       </dl>
       <p class="print-cover__note">Wydruk planu z pliku JSON. Statusy „do potwierdzenia” i „szacunek” pozostają widoczne. Auto nie jest zarezerwowane. Avakas jest poza planem.</p>
-      <p class="print-cover__source">https://kjawo.github.io/cypr2026/ · data/Cypr_2026_zrodlo_prawdy.json</p>
+      <p class="print-cover__source">{esc(CANONICAL_URL)} · data/Cypr_2026_zrodlo_prawdy.json</p>
     </section>
     """
 
@@ -2754,7 +2778,7 @@ def render_footer(plan: Plan) -> str:
       <div>
         <p class="footer-mark">KJ <span>/</span> Photo Journal</p>
         <p class="footer-note">Spokojny plan podróży. Bez analityki, cookies i trackerów. Źródłem prawdy jest plik JSON; strona jest generowanym widokiem.</p>
-        <p class="footer-back"><a href="#top">Do początku {icon("arrow")}</a> · <a href="#zrodla">Źródła</a> · <a href="#zdjecia">Zdjęcia</a> · <a href="/v1/">Archiwum v1</a></p>
+        <p class="footer-back"><a href="#top">Do początku {icon("arrow")}</a> · <a href="#zrodla">Źródła</a> · <a href="#zdjecia">Zdjęcia</a> · <a href="{ARCHIVE_URL}">Archiwum v1</a></p>
       </div>
       <div class="footer-meta">
         <p><span>Wersja</span> <strong>{esc(plan.meta["version"])}</strong></p>
@@ -3091,6 +3115,7 @@ def render_page(plan: Plan, asset_hash: str, data_json: str, *, noindex: bool) -
     template = TEMPLATE_FILE.read_text(encoding="utf-8")
     replacements = {
         "{{NOINDEX}}": '<meta name="robots" content="noindex, nofollow">' if noindex else "",
+        "{{CANONICAL_URL}}": esc(CANONICAL_URL),
         "{{VERSION}}": esc(plan.meta["version"]),
         "{{HASH}}": esc(asset_hash),
         "{{HERO}}": render_hero(plan),
@@ -3160,9 +3185,17 @@ def build_service_worker(plan: Plan, asset_hash: str) -> str:
 
 
 def main() -> int:
+    global CANONICAL_URL, JOURNAL_URL, ARCHIVE_URL
     parser = argparse.ArgumentParser(description="Zbuduj statyczną stronę Cypr 2026 z JSON-a.")
     parser.add_argument("--noindex", action="store_true", help="Dodaj meta robots noindex, nofollow.")
+    parser.add_argument("--canonical", default=CANONICAL_URL, help="Docelowy adres strony (canonical i linki w .ics).")
+    parser.add_argument("--journal-url", default=JOURNAL_URL, help="Link „KJ / Photo Journal” (ścieżka lub URL).")
+    parser.add_argument("--archive-url", default=ARCHIVE_URL, help="Link „Archiwum v1” (ścieżka lub URL).")
     args = parser.parse_args()
+
+    CANONICAL_URL = normalize_canonical(args.canonical)
+    JOURNAL_URL = normalize_link(args.journal_url, "--journal-url")
+    ARCHIVE_URL = normalize_link(args.archive_url, "--archive-url")
 
     try:
         try:
