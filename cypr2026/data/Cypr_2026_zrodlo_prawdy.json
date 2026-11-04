@@ -2,9 +2,9 @@
   "meta": {
     "id": "CYPR-2026",
     "title": "Cypr 7 do 13 listopada 2026",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "schema_version": "1.0.0",
-    "updated_on": "2026-11-02",
+    "updated_on": "2026-11-04",
     "language": "pl-PL",
     "canonical_filename": "Cypr_2026_zrodlo_prawdy.json",
     "document_filename": "Cypr_2026_plan_glowny.docx",
@@ -65,9 +65,10 @@
       "value": null,
       "status": "do_potwierdzenia",
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-WAW-PARKING"
       ],
-      "note": "Wylot WMI Modlin, powrót WAW Chopin. Wybrać dojazd z Łodzi i powrót; parking przy WMI wymaga osobnego odzyskania auta."
+      "note": "Wylot WMI Modlin, powrót WAW Chopin. Wybrać dojazd z Łodzi i powrót; parking przy WMI wymaga osobnego odzyskania auta. Rekomendacja (4 XI 2026): auto na parking WAW (P45/P46: 6 dni ok. 190 PLN, P44 ok. 210 PLN — cennik oficjalny); taxi/Bolt WAW→WMI 45–60 min orientacyjnie 160–230 PLN (do potwierdzenia dostępności o 02:30); alternatywa prywatny transfer Łódź→WMI orientacyjnie 350 PLN (do potwierdzenia). Transport publiczny Łódź→WMI na 03:15 niepotwierdzony — sprawdzić rozkład na 7 XI."
     },
     "baggage": {
       "value": {
@@ -132,7 +133,7 @@
         "source_ids": [],
         "note": "Śniadanie w harmonogramie zakłada posiadaną usługę lub własny posiłek; rodzaj taryfy sprawdzić na voucherze."
       },
-      "night_departure": "13 XI opuszczenie pokoju około 02:40–02:45, wyjazd z parkingu 03:00 po uzgodnieniu; pokój pozostaje opłacony za noc 12/13 XI.",
+      "night_departure": "13 XI opuszczenie pokoju około 02:40–02:45, wyjazd z parkingu 03:00 po uzgodnieniu; pokój pozostaje opłacony za noc 12/13 XI. Recepcja 24 h i bezpłatny parking potwierdzone na stronie hotelu; brama i dostęp do auta przed 03:00 do potwierdzenia.",
       "wellness": {
         "value": "Hotel wymienia dwa baseny zewnętrzne, jacuzzi i saunę. Działanie, temperatura, godziny i opłaty podczas 7–13 XI niepotwierdzone.",
         "status": "do_potwierdzenia",
@@ -145,7 +146,23 @@
         "SRC-HOTEL",
         "SRC-MEALS",
         "SRC-CHECKIN"
-      ]
+      ],
+      "parking": {
+        "value": "Bezpłatny parking kryty i odkryty; recepcja 24 h.",
+        "status": "zweryfikowane",
+        "source_ids": [
+          "SRC-HOTEL",
+          "SRC-CHECKIN"
+        ],
+        "note": "Oficjalna strona potwierdza parking i recepcję 24 h. Procedura bramy, dostęp do auta i oddanie kluczy ok. 03:00 nadal do potwierdzenia."
+      },
+      "restaurant_hours": {
+        "value": "Śniadanie 07:00–09:45; lunch 13:00–14:30; kolacja 19:00–21:15.",
+        "status": "zweryfikowane",
+        "source_ids": [
+          "SRC-MEALS"
+        ]
+      }
     },
     "car": {
       "booking_status": "do_potwierdzenia",
@@ -164,13 +181,18 @@
         "Łączna blokada na karcie najwyżej 500 EUR, łącznie z innymi zabezpieczeniami.",
         "Pisemny zakres ochrony nadwozia, szyb, opon, felg i podwozia; udział własny i wyłączenia.",
         "Bezpłatne anulowanie do wskazanego w ofercie terminu; potwierdzić dla najmu krótszego niż siedem dni.",
-        "Karta akceptowana przez firmę, na nazwisko kierowcy, z wymaganym limitem."
+        "Karta akceptowana przez firmę, na nazwisko kierowcy, z wymaganym limitem.",
+        "Wyjazd na północ (Varosha): pisemna zgoda wypożyczalni, dodatkowe ubezpieczenie na północy (nie w standardzie) i opłata przy przekraczaniu; bez tego wariant nie istnieje (Avis/Enterprise zakazują; Petsas dopuszcza po kontakcie)."
       ],
-      "selection_note": "Brak zatwierdzonej firmy. Według audytu SIXT wyłącza podwozie, a w Petsas trzeba wyjaśnić ochronę przy najmie poniżej siedmiu dni. Avis również nie ma tu potwierdzonej zgodności. Nie traktować żadnej marki jako zarezerwowanej.",
+      "selection_note": "Brak zatwierdzonej firmy. Według audytu SIXT wyłącza podwozie, a w Petsas trzeba wyjaśnić ochronę przy najmie poniżej siedmiu dni. Avis również nie ma tu potwierdzonej zgodności. Nie traktować żadnej marki jako zarezerwowanej. Kontakty PFO pochodzą z oficjalnej strony Hermes Airports (4 XI 2026); to nie rezerwacja i nie potwierdzenie after-hours return. Zweryfikowano 4 XI 2026: Avis ma key drop bezpłatnie, ale dodatkowy kierowca +7 EUR/dzień i zakazuje wjazdu na północ; Petsas ma 24 h i darmowego dodatkowego kierowcę, ale przy <7 dniach CDW z udziałem 700–1000 EUR i możliwą odmową SCDW, plus opłatę lotniskową 20 EUR; SIXT ma 24 h return, ale wyłącza podwozie; Budget i Enterprise nie obsługują nocnego zwrotu 03:30. Decyzja zależy od priorytetu: Petsas (24 h + darmowy 2. kierowca) vs Avis (key drop, ale dopłata za 2. kierowcę).",
       "source_ids": [
         "SRC-AUDIT",
         "SRC-PET",
-        "SRC-SIXT"
+        "SRC-SIXT",
+        "SRC-HERMES",
+        "SRC-AVIS-TERMS",
+        "SRC-BUDGET-PFO",
+        "SRC-ENTERPRISE-PFO"
       ],
       "pickup_check": [
         "Zdjęcia i film szyb, opon, felg, nadwozia i wnętrza; uszkodzenia w protokole.",
@@ -178,7 +200,44 @@
         "Poprosić o pokazanie dziennego wjazdu zwrotów i właściwej skrzynki; zapisać instrukcję offline."
       ],
       "use_rule": "Korzystać z dozwolonych asfaltowych dróg. Nie jechać ku Blue Lagoon ani leśnymi skrótami; SUV nie zmienia umowy. Dokładny korytarz wybrać w bieżącej nawigacji.",
-      "return_rule": "Pisemnie ustalić moment końca odpowiedzialności przy key drop; zdjęcia i film same nie kończą odpowiedzialności."
+      "return_rule": "Pisemnie ustalić moment końca odpowiedzialności przy key drop; zdjęcia i film same nie kończą odpowiedzialności.",
+      "provider_contacts": [
+        {
+          "name": "Avis PFO",
+          "phone": "+35726923664",
+          "hours": "08:00–02:00 (hala przylotów)",
+          "after_hours_return": "Dostępny przez key drop (bezpłatnie); odbiór poza godzinami +60 EUR.",
+          "note": "Dodatkowy kierowca +7 EUR/dzień (sprzeczne z wymaganiem 'drugi bez dopłaty'). Preautoryzacja na karcie kredytowej; zakaz wjazdu na północ (Green Line). Źródła: avis.com PFO i Avis Cyprus terms (4 XI 2026)."
+        },
+        {
+          "name": "Petsas PFO",
+          "phone": "+35726423046",
+          "hours": "24 h",
+          "after_hours_return": "24 h service",
+          "note": "Dodatkowy kierowca bez dopłaty. Najem <7 dni: CDW z udziałem 700–1000 EUR dla grup kompaktowych; SCDW może być odmówione. Opłata lotniskowa 20 EUR. Przekroczenie na północ możliwe tylko po wcześniejszym kontakcie i wykupieniu dodatkowego ubezpieczenia (nie w standardzie). Źródło: petsas.com.cy terms (4 XI 2026)."
+        },
+        {
+          "name": "SIXT PFO",
+          "phone": "+35725257727",
+          "hours": "08:00–21:00",
+          "after_hours_return": "24 h return (flexible returns)",
+          "note": "Audyt: podwozie wyłączone z ochrony. Potwierdzić udział własny i depozyt. Źródło: sixt.com PFO (4 XI 2026)."
+        },
+        {
+          "name": "Budget PFO",
+          "phone": "+35726007318",
+          "hours": "08:00–02:00",
+          "after_hours_return": "NIE dozwolony (after-hours returns: Not allowed).",
+          "note": "Nie spełnia wymogu nocnego zwrotu 03:30. Źródło: budget.com PFO (4 XI 2026)."
+        },
+        {
+          "name": "Enterprise PFO (offsite)",
+          "phone": "+35799777067",
+          "hours": "offsite, shuttle",
+          "after_hours_return": "Niedostępny.",
+          "note": "Nie spełnia nocnego zwrotu. Zakaz wjazdu poza Cypr i na północ (odpowiedzialność kierowcy). Źródło: enterprise.com PFO offsite (4 XI 2026)."
+        }
+      ]
     }
   },
   "decisions": [
@@ -243,25 +302,25 @@
       "id": "SRC-HOTEL",
       "title": "Princessa Vera wyposażenie i kontakt",
       "url": "https://princessaverahotel.com/facilities.html",
-      "scope": "Adres, telefon, wyposażenie i parking jako oferta; bez potwierdzenia sezonowego działania wellness.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "scope": "Adres, telefon, bezpłatny parking kryty i odkryty, recepcja 24 h oraz wyposażenie jako oferta; bez potwierdzenia sezonowego działania wellness i procedury nocnej bramy.",
+      "verification_status": "sprawdzone_2026_11_04",
+      "checked_on": "2026-11-04"
     },
     {
       "id": "SRC-MEALS",
       "title": "Princessa Vera posiłki",
       "url": "https://princessaverahotel.com/bars--restaurants.html",
-      "scope": "Publikowane godziny śniadania i kolacji; nie potwierdza wyżywienia w zakupionej taryfie.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "scope": "Publikowane godziny: śniadanie 07:00–09:45, lunch 13:00–14:30, kolacja 19:00–21:15; nie potwierdza wyżywienia w zakupionej taryfie.",
+      "verification_status": "sprawdzone_2026_11_04",
+      "checked_on": "2026-11-04"
     },
     {
       "id": "SRC-CHECKIN",
       "title": "Princessa Vera polityka hotelowa",
       "url": "https://princessaverahotel.reserve-online.net/about",
-      "scope": "Check-in 15:00, check-out 12:00; voucher ma pierwszeństwo.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "scope": "Check-in 15:00, check-out 12:00, recepcja 24 h; voucher ma pierwszeństwo.",
+      "verification_status": "sprawdzone_2026_11_04",
+      "checked_on": "2026-11-04"
     },
     {
       "id": "SRC-APHRODITE",
@@ -347,9 +406,9 @@
       "id": "SRC-PALAIPAFOS",
       "title": "Department of Antiquities Palaipafos",
       "url": "https://www.culture.gov.cy/dmculture/da/da.nsf/All/d29999253080f9bbc2257199002134bd?Click=&OpenDocument=",
-      "scope": "Odczyt indeksowany: wt.–nd. 08:30–17:00, pon. zamknięte; 4,50 EUR/os. obejmuje stanowisko i muzeum.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "scope": "Bezpośredni odczyt strony Departamentu Starożytności: wt.–nd. 08:30–17:00, pon. zamknięte; 4,50 EUR/os. obejmuje stanowisko i muzeum; tel. 26432155.",
+      "verification_status": "sprawdzone_2026_11_04",
+      "checked_on": "2026-11-04"
     },
     {
       "id": "SRC-MUSEUM",
@@ -414,6 +473,78 @@
       "scope": "Audyt s. 16: wyłączenie podwozia; nie spełnia pełnej specyfikacji użytkownika.",
       "verification_status": "przejete_z_audytu",
       "checked_on": null
+    },
+    {
+      "id": "SRC-HERMES",
+      "title": "Hermes Airports — wypożyczalnie na PFO",
+      "url": "https://www.hermesairports.com/prepare-your-journey/fly-in/car-rentals",
+      "scope": "Oficjalne kontakty wypożyczalni w terminalu PFO; nie potwierdza after-hours return, ceny ani konkretnej oferty.",
+      "verification_status": "sprawdzone_2026_11_04",
+      "checked_on": "2026-11-04"
+    },
+    {
+      "id": "SRC-AVIS-TERMS",
+      "title": "Avis Cyprus — warunki najmu (PFO)",
+      "url": "https://www.avis.com/en/locations/eur/cy/paphos/pfo",
+      "scope": "Godziny 08:00–02:00; after-hours return przez key drop (bezpłatnie); odbiór poza godzinami +60 EUR; dodatkowy kierowca +7 EUR/dzień (sprzeczne z wymaganiem 'drugi bez dopłaty'); preautoryzacja na karcie kredytowej; zakaz wjazdu na północ (Green Line).",
+      "verification_status": "sprawdzone_2026_11_04",
+      "checked_on": "2026-11-04"
+    },
+    {
+      "id": "SRC-BUDGET-PFO",
+      "title": "Budget PFO — lokalizacja",
+      "url": "https://www.budget.com/en/locations/cy/paphos/pfo",
+      "scope": "Godziny 08:00–02:00; after-hours returns: Not allowed — nie spełnia nocnego zwrotu 03:30. Telefon +357 26007318.",
+      "verification_status": "sprawdzone_2026_11_04",
+      "checked_on": "2026-11-04"
+    },
+    {
+      "id": "SRC-ENTERPRISE-PFO",
+      "title": "Enterprise PFO (offsite)",
+      "url": "https://www.enterprise.com/en/car-rental-locations/cy/paphos-airport-offsite-jic6.html",
+      "scope": "Offsite, shuttle; after-hours returns niedostępne; zakaz wjazdu poza Cypr i na północ; depozyty 290/390/1000 EUR; cross border policy: travel not permitted outside Cyprus.",
+      "verification_status": "sprawdzone_2026_11_04",
+      "checked_on": "2026-11-04"
+    },
+    {
+      "id": "SRC-WAW-PARKING",
+      "title": "Warsaw Chopin — cennik parkingów P42/P45/P46",
+      "url": "https://lotnisko-chopina.pl/en/parking/parking-price-lists-and-regulations",
+      "scope": "6 dni: P45/P46 190 PLN, P44 210 PLN (cennik oficjalny, 4 XI 2026).",
+      "verification_status": "sprawdzone_2026_11_04",
+      "checked_on": "2026-11-04"
+    },
+    {
+      "id": "SRC-VAROSHA",
+      "title": "Varosha — informacje dla zwiedzających",
+      "url": "https://salamisbayconti.com/en/blog/varosha-ghost-town-guide",
+      "scope": "Otwarta część Varoshy od 2020 (wyznaczone ulice); wstęp wolny; godziny sezonowe (zwykle godziny dzienne) — do potwierdzenia. Źródło pomocnicze (blog), nie oficjalna strona; brak oficjalnych godzin.",
+      "verification_status": "sprawdzone_2026_11_04",
+      "checked_on": "2026-11-04"
+    },
+    {
+      "id": "SRC-GREENLINE",
+      "title": "Przekraczanie Green Line — dokumenty i ubezpieczenie",
+      "url": "https://www.kiprinform.com/en/articles/cyprus-green-line-crossing-rules/",
+      "scope": "Obywatele UE mogą potrzebować paszportu lub dowodu osobistego; decyzja o wpuszczeniu należy do kompetentnego urzędu. Wymagane: autoryzowane przejście, pisemna zgoda wypożyczalni, dodatkowe ubezpieczenie na północy (nie w standardzie), ograniczenia towarowe (alkohol, tytoń, produkty zwierzęce, rośliny). Źródła oficjalne: Komisja Europejska (rozporządzenie Green Line), Cyprus Customs, Cyprus MFA.",
+      "verification_status": "sprawdzone_2026_11_04",
+      "checked_on": "2026-11-04"
+    },
+    {
+      "id": "SRC-GRECO",
+      "title": "Cape Greco National Forest Park",
+      "url": "https://www.visitcyprus.com/discover-cyprus/nature/excursions/cape-gkreko-national-forest-park/",
+      "scope": "Park narodowy Republiki Cypryjskiej (Natura 2000, 385 ha), wschód od Ayia Napa, południowy wschód od Protaras. Szlaki (w tym Aphrodite 2 km), ścieżki rowerowe, jaskinie morskie, kościół Agioi Anargyroi. Flora: jałowiec fenicki, sosna kalabryjska; 14 gatunków endemicznych.",
+      "verification_status": "sprawdzone_2026_11_04",
+      "checked_on": "2026-11-04"
+    },
+    {
+      "id": "SRC-TREE",
+      "title": "Drzewo Kochanków (Lovers' Tree), Cape Greco",
+      "url": "https://www.thespot.cy/directory-hidden_gems/listing/lovers-tree-cape-greco-ayia-napa/",
+      "scope": "160+ letni samotny jałowiec na skalistym klifie, południowe zbocze cypla Cape Greco, przy 'Monument of Peace'. Dojście: droga główna parku, szutrowa ścieżka do klifu, ostatnie 100 m pieszo po kamieniach. Parking przydrożny. Trainers (nie klapki); ostrożność przy krawędzi klifu. Natura 2000. Nie mylić z Kamara tou Koraka (Most Kochanków).",
+      "verification_status": "sprawdzone_2026_11_04",
+      "checked_on": "2026-11-04"
     }
   ],
   "days": [
@@ -459,7 +590,8 @@
           ],
           "kind": "plan",
           "optional": false,
-          "time_basis": "założenie planu"
+          "time_basis": "założenie planu",
+          "ics_export": false
         },
         {
           "id": "D1-03",
@@ -540,6 +672,30 @@
       "field_readiness": "nie_dotyczy",
       "source_ids": [
         "SRC-AUDIT"
+      ],
+      "contingencies": [
+        {
+          "trigger": "Opóźniony lot lub długa odprawa",
+          "action": "Pominąć Faros; zjeść blisko hotelu i wcześnie spać. Nie przesuwać odbioru auta bez potwierdzenia."
+        },
+        {
+          "trigger": "Brak auta lub odmowa karty",
+          "action": "Taxi do hotelu; odebrać auto następnego dnia rano po pisemnym potwierdzeniu. D3 i D4 wymagają wtedy nowego przeliczenia."
+        },
+        {
+          "trigger": "Deszcz",
+          "action": "Faros tylko w bezpiecznych warunkach; zamienić na posiłek i zakupy w Kings Avenue Mall."
+        }
+      ],
+      "optional_stops": [
+        {
+          "place_id": "POI-MALL",
+          "note": "Krótkie zakupy i woda, jeśli pokój nie jest jeszcze gotowy."
+        },
+        {
+          "place_id": "POI-FAROS",
+          "note": "Tylko jeśli zostaje światło i czas po zameldowaniu."
+        }
       ]
     },
     {
@@ -669,6 +825,30 @@
         "SRC-PARK",
         "SRC-MUSEUM",
         "SRC-HUNT"
+      ],
+      "contingencies": [
+        {
+          "trigger": "Deszcz",
+          "action": "Muzeum dystryktu Pafos (wt.–nd. 09:00–16:30) albo Kings Avenue Mall i hotel; park odkryty odłożyć."
+        },
+        {
+          "trigger": "Park lub muzeum zamknięte",
+          "action": "Nie improwizować wejścia; wybrać drugi obiekt tylko po sprawdzeniu otwarcia, potem wrócić do hotelu."
+        },
+        {
+          "trigger": "Zmęczenie",
+          "action": "Skrócić park, pominąć Agia Solomoni/Fabrica i wrócić taksówką albo pieszo najkrótszą trasą."
+        }
+      ],
+      "optional_stops": [
+        {
+          "place_id": "POI-SOLOMONI",
+          "note": "Krótki dodatek po drodze, jeśli podziemia są dostępne."
+        },
+        {
+          "place_id": "POI-MUSEUM",
+          "note": "Wariant deszczowy albo zamknięty park; wt.–nd. 09:00–16:30."
+        }
       ]
     },
     {
@@ -810,6 +990,34 @@
         "SRC-AUDIT",
         "SRC-APHRODITE",
         "SRC-HUNT"
+      ],
+      "contingencies": [
+        {
+          "trigger": "Deszcz, mokre skały lub silny wiatr",
+          "action": "Odwołać Aphrodite; poniedziałek: muzeum zamknięte, więc hotel, kawiarnie i Kings Avenue Mall. Nie wchodzić w las dla „zaliczenia” dnia."
+        },
+        {
+          "trigger": "Polowanie, zamknięcie lub niepewny przebieg",
+          "action": "Wrócić do auta i wybrać bezpieczny odcinek asfaltowy w Polis/Latchi; bez skracania przez las."
+        },
+        {
+          "trigger": "Późny start lub zmęczenie",
+          "action": "Aphrodite solo bez Edro i bez restauracji; prowiant z plecaka. Nie wydłużać pętli."
+        },
+        {
+          "trigger": "Awaria auta",
+          "action": "Assistance wypożyczalni, taxi do hotelu; nie kontynuować jazdy na uszkodzonym kole. D4 wymaga nowego planu."
+        }
+      ],
+      "optional_stops": [
+        {
+          "place_id": "POI-POLIS",
+          "note": "Lunch tylko przy zapasie czasu; wyjazd do 15:00."
+        },
+        {
+          "place_id": "POI-EDRO",
+          "note": "Zachód tylko z bezpiecznego, suchego miejsca; bez wchodzenia na wrak."
+        }
       ]
     },
     {
@@ -924,6 +1132,34 @@
         "SRC-AUDIT",
         "SRC-ARTEMIS",
         "SRC-ROAD"
+      ],
+      "contingencies": [
+        {
+          "trigger": "Lód, mgła, śnieg lub zamknięcie drogi",
+          "action": "Odwołać Artemis; muzeum dystryktu (wtorek otwarte), Grobowce albo hotel. Nie wjeżdżać próbnie w górę."
+        },
+        {
+          "trigger": "Parking przy Artemis pełny",
+          "action": "Nie parkować na poboczu; sprawdzić legalny parking w rejonie Troodos Square i doliczyć dojście. Bez legalnego miejsca odwołać pełną pętlę."
+        },
+        {
+          "trigger": "Przyjazd po 10:00",
+          "action": "Nie startować w pełną pętlę; krótki odcinek tylko przy dobrych warunkach albo powrót do Pafos."
+        },
+        {
+          "trigger": "Awaria auta",
+          "action": "Assistance i taxi; hol z Troodos jest długi. Nie zostawiać auta bez pisemnej instrukcji."
+        }
+      ],
+      "optional_stops": [
+        {
+          "place_id": "POI-TROODOS",
+          "note": "Krótki postój lub lunch po Artemis, jeśli czas pozwala."
+        },
+        {
+          "place_id": "POI-PSILO",
+          "note": "Tylko jako punkt orientacyjny; nie zmieniać trasy na Pouziaris spontanicznie."
+        }
       ]
     },
     {
@@ -1090,6 +1326,38 @@
         "SRC-AUDIT",
         "SRC-PALAIPAFOS",
         "SRC-HUNT"
+      ],
+      "contingencies": [
+        {
+          "trigger": "Deszcz lub mgła w górach",
+          "action": "Ograniczyć do Palaipafos i Pafos, jeśli przejazdy są bezpieczne; Omodos i Petra odłożyć."
+        },
+        {
+          "trigger": "Palaipafos zamknięte",
+          "action": "Nie forsować wejścia; pojechać wcześniej do Omodos i Petra, albo wrócić do muzeum dystryktu."
+        },
+        {
+          "trigger": "Zmęczenie",
+          "action": "Pominąć Palaipafos, skrócić Omodos i zostawić tylko Petrę na zachód; nie dokładać kolejnych punktów."
+        },
+        {
+          "trigger": "Opóźnienie",
+          "action": "Wyjechać z Omodos do 14:00; później skrócić pobyt, nie wydłużać jazdy po zmierzchu."
+        },
+        {
+          "trigger": "Awaria auta",
+          "action": "Assistance, taxi; Petra i Omodos odwołane. Nie holować auta poza drogę asfaltową."
+        }
+      ],
+      "optional_stops": [
+        {
+          "place_id": "POI-OMODOS",
+          "note": "Uliczki i detale po lunchu, bez wchodzenia na zbocza."
+        },
+        {
+          "place_id": "POI-PETRA",
+          "note": "Fotografia od ok. 15:30; nie przekraczać B6 i nie wchodzić do wody."
+        }
       ]
     },
     {
@@ -1201,7 +1469,7 @@
         {
           "id": "D6-08",
           "start_local": "19:00",
-          "end_local": null,
+          "end_local": "23:59",
           "title": "Sen",
           "description": "Cel snu około 19:00; pobudka następnego dnia około 02:15.",
           "place_ids": [
@@ -1227,6 +1495,34 @@
         "SRC-AUDIT",
         "SRC-TOMBS",
         "SRC-MEALS"
+      ],
+      "contingencies": [
+        {
+          "trigger": "Deszcz",
+          "action": "Hotel, pakowanie i odpoczynek; muzeum tylko jeśli nie zabiera czasu na paliwo i sen."
+        },
+        {
+          "trigger": "Awaria auta lub brak zwrotu",
+          "action": "Nie zostawiać auta bez instrukcji; ustalić taxi na PFO na 03:00 i pisemny plan zwrotu. Paliwo i pakowanie mają pierwszeństwo."
+        },
+        {
+          "trigger": "Opóźnione przygotowania",
+          "action": "Pominąć Grobowce i wellness; zatankować, spakować się i spać. Nie skracać snu poniżej planu."
+        },
+        {
+          "trigger": "Lot odwołany lub opóźniony",
+          "action": "Sprawdzić aplikację przewoźnika; nie jechać na lotnisko bez nowej godziny. Zachować elastyczność zwrotu auta."
+        }
+      ],
+      "optional_stops": [
+        {
+          "place_id": "POI-MUSEUM",
+          "note": "Opcja na deszcz rano, jeśli nie zabiera czasu na pakowanie."
+        },
+        {
+          "place_id": "POI-MALL",
+          "note": "Zakupy i woda; nie wydłużać dnia kosztem snu."
+        }
       ]
     },
     {
@@ -1294,7 +1590,8 @@
           ],
           "kind": "plan",
           "optional": false,
-          "time_basis": "założenie planu"
+          "time_basis": "założenie planu",
+          "ics_export": false
         },
         {
           "id": "D7-05",
@@ -1377,7 +1674,26 @@
       "source_ids": [
         "SRC-AUDIT",
         "SRC-RYANAIR"
-      ]
+      ],
+      "contingencies": [
+        {
+          "trigger": "Brak potwierdzonego after-hours return",
+          "action": "Wyjechać 02:45 lub wcześniej, mieć pisemną instrukcję key drop i numer assistance. Jeśli firma nie pozwala na nocny zwrot, oddać auto poprzedniego dnia i wziąć taxi."
+        },
+        {
+          "trigger": "Opóźnienie zwrotu auta",
+          "action": "Nie zostawiać auta bez instrukcji; jechać taxi na terminal, a zwrot uzgodnić telefonicznie. Bag drop zamyka się 05:20."
+        },
+        {
+          "trigger": "Opóźniony lub odwołany lot",
+          "action": "Zostać w terminalu, nie wracać po auto; śledzić ekrany i aplikację. Nie wychodzić z strefy bezpieczeństwa bez potrzeby."
+        },
+        {
+          "trigger": "Zgubione klucze lub dokumenty",
+          "action": "112 przy zagrożeniu; kontakt z wypożyczalnią i linią lotniczą. Nie opuszczać terminalu bez planu."
+        }
+      ],
+      "optional_stops": []
     }
   ],
   "routes": [
@@ -1810,6 +2126,58 @@
         "Nie dokładać kolejnych długich spacerów; taksówka na jednym odcinku przy zmęczeniu."
       ],
       "fallback": "Jeden obiekt zgodnie z bazą; trzeci trekking można po prostu odpuścić."
+    },
+    {
+      "id": "ALT-NORTH-VAROSHA",
+      "day_id": "DAY-05",
+      "name": "Wschód: Varosha / Famagusta (strona turecka)",
+      "replaces": [
+        "Palaipafos, Omodos i Petra tou Romiou"
+      ],
+      "route_id": null,
+      "schedule": "06:15 wyjazd z Pafos; ok. 09:00–09:30 Famagusta (przekroczenie Green Line 30–60 min); 09:30–12:00 Varosha (wyznaczone ulice, wstęp wolny); 12:00–13:00 obiad; 13:00–15:00 stare miasto (wieża Othello, Lala Mustafa Pasha) lub Salamis; 15:00 powrót; hotel ok. 18:00–19:00. Szacunek: ok. 380–420 km i 4,5–5,5 h jazdy.",
+      "conditions": [
+        "Wczesna pobudka ok. 05:30 i długa jazda po ciemku w obie strony.",
+        "Pisemna zgoda wypożyczalni na przekroczenie Green Line (Avis/Enterprise zakazują; Petsas dopuszcza po wcześniejszym kontakcie).",
+        "Dodatkowe ubezpieczenie na północy (nie w standardzie) i opłata przy przejściu (orientacyjnie 20–40 EUR, do potwierdzenia).",
+        "Dokument: dowód osobisty lub paszport (obywatele UE); decyzja o wpuszczeniu należy do urzędu na przejściu.",
+        "Brak kolejek na przejściu i dobra forma na długi dzień (powrót po zmroku)."
+      ],
+      "fallback": "Bez pisemnej zgody wypożyczalni i ubezpieczenia na północ wariant nie istnieje; wtedy wariant 2 (Cape Greco) albo program bazowy."
+    },
+    {
+      "id": "ALT-EAST-GRECO",
+      "day_id": "DAY-04",
+      "name": "Południowy wschód: Cape Greco i Ayia Napa (Republika Cypryjska)",
+      "replaces": [
+        "Pętla Artemis i dzień Troodos"
+      ],
+      "route_id": null,
+      "schedule": "07:00 wyjazd; ok. 09:15 Cape Greco (parking przy centrum odwiedzających lub przy jaskiniach); 09:15–12:00 szlaki klifowe, Drzewo Kochanków (do potwierdzenia dokładna lokalizacja i parking), Kamara tou Koraka; 12:30 obiad w Ayia Napa; 14:00 powrót; hotel ok. 16:15–16:30, przed zmierzchem. Szacunek: ok. 360 km i 4,5 h jazdy, bez przekraczania granicy.",
+      "conditions": [
+        "Republika Cypryjska — brak przekraczania granicy; standardowe ubezpieczenie auta obowiązuje.",
+        "Zamiast Troodos, gdy góry odpałą (lód, mgła) lub świadomie zamiast dnia górskiego.",
+        "Drzewo Kochanków: parking przydrożny, ostatnie 100 m pieszo po kamieniach; trainers (nie klapki); ostrożność przy krawędzi klifu.",
+        "Powrót przed zmierzchem — nie przedłużać."
+      ],
+      "fallback": "Jeśli parking pełny lub szlaki zamknięte — powrót do Ayia Napy i program plażowy; nie improwizować parkowania na poboczu."
+    },
+    {
+      "id": "ALT-EAST-COMBO",
+      "day_id": "DAY-04",
+      "name": "Wschód: Varosha + Cape Greco w jednym dniu (tylko przy idealnym przebiegu)",
+      "replaces": [
+        "Pętla Artemis i dzień Troodos"
+      ],
+      "route_id": null,
+      "schedule": "06:00 wyjazd; 08:30–09:00 Famagusta (przekroczenie 30–60 min); 09:00–11:30 Varosha; 11:30–12:30 obiad; 13:00–13:45 przejazd do Cape Greco (drugie przekroczenie 30–60 min); 13:45–16:00 Cape Greco + Drzewo Kochanków; 16:00 powrót; hotel ok. 18:30–19:30 (po zmierzchu). Szacunek: ok. 460 km i 6 h jazdy + 1–2 h formalności granicznych.",
+      "conditions": [
+        "Wczesna pobudka ok. 05:15 i powrót po zmroku.",
+        "Dwa przekroczenia Green Line, pisemna zgoda wypożyczalni i ubezpieczenie na północy.",
+        "Brak kolejek na przejściach, dobra forma, bez opóźnień.",
+        "Powrót po zmroku — zmęczenie i jazda po ciemku po lewej stronie."
+      ],
+      "fallback": "Nie zalecane; preferuj wariant 1 lub 2, albo nocleg na wschodzie (wariant 3)."
     }
   ],
   "places": [
@@ -2286,6 +2654,72 @@
       ],
       "published_hours": null,
       "fee_eur_per_adult": null
+    },
+    {
+      "id": "POI-VAROSHA",
+      "name": "Varosha (Famagusta)",
+      "type": "attraction",
+      "address": null,
+      "phone": null,
+      "coordinates": null,
+      "map_url": "https://www.google.com/maps/search/?api=1&query=Varosha+Famagusta+entrance+Palm+Beach",
+      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "notes": "Część otwarta dla zwiedzających od 2020 (wyznaczone ulice); wstęp wolny; godziny sezonowe — do potwierdzenia. Nie wchodzić poza wyznaczone trasy. Nie mylić z Famagustą — stare miasto (POI-FAMAGUSTA).",
+      "source_ids": [
+        "SRC-VAROSHA",
+        "SRC-GREENLINE"
+      ],
+      "published_hours": "Do potwierdzenia; według źródeł otwarte w godzinach dziennych (sezonowo).",
+      "fee_eur_per_adult": 0
+    },
+    {
+      "id": "POI-FAMAGUSTA",
+      "name": "Famagusta — stare miasto",
+      "type": "town",
+      "address": null,
+      "phone": null,
+      "coordinates": null,
+      "map_url": "https://www.google.com/maps/search/?api=1&query=Famagusta+old+town+Lala+Mustafa+Pasha+Othello+tower",
+      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "notes": "Wieże i bramy wenecjańskie, wieża Othello, meczet Lala Mustafa Pasha. Wjazd od południa przez przekroczenie Green Line. Opcjonalnie Salamis (ruiny) — do potwierdzenia godzin.",
+      "source_ids": [
+        "SRC-VAROSHA",
+        "SRC-GREENLINE"
+      ],
+      "published_hours": null,
+      "fee_eur_per_adult": null
+    },
+    {
+      "id": "POI-GRECO",
+      "name": "Cape Greco National Forest Park",
+      "type": "coast",
+      "address": null,
+      "phone": null,
+      "coordinates": null,
+      "map_url": "https://www.google.com/maps/search/?api=1&query=Cape+Greco+National+Forest+Park+visitor+center",
+      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "notes": "Park narodowy Republiki Cypryjskiej (Natura 2000, 385 ha) — NIE strona turecka. Szlaki klifowe, jaskinie morskie, Kamara tou Koraka (Most Kochanków, naturalny łuk skalny), kościół Agioi Anargyroi. Parking przy centrum odwiedzających lub przy jaskiniach; dojścia utwardzone i skaliste.",
+      "source_ids": [
+        "SRC-GRECO"
+      ],
+      "published_hours": null,
+      "fee_eur_per_adult": 0
+    },
+    {
+      "id": "POI-LOVERS-TREE",
+      "name": "Drzewo Kochanków (Lovers' Tree), Cape Greco",
+      "type": "coast",
+      "address": null,
+      "phone": null,
+      "coordinates": null,
+      "map_url": "https://www.google.com/maps/search/?api=1&query=Lovers+Tree+Cape+Greco+juniper",
+      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "notes": "160+ letni samotny jałowiec na skalistym klifie, południowe zbocze cypla Cape Greco, przy 'Monument of Peace'. Dojście: droga główna parku, szutrowa ścieżka do klifu, ostatnie 100 m pieszo po kamieniach. Parking przydrożny. Trainers (nie klapki); ostrożność przy krawędzi klifu. Natura 2000. Nie mylić z Kamara tou Koraka (Most Kochanków). Lokalizacja parkingu i dojścia do potwierdzenia na miejscu.",
+      "source_ids": [
+        "SRC-TREE"
+      ],
+      "published_hours": null,
+      "fee_eur_per_adult": null
     }
   ],
   "transfers": [
@@ -2681,6 +3115,45 @@
         "SRC-AUDIT"
       ],
       "notes": "Zakupy i wariant deszczowy."
+    },
+    {
+      "id": "TF-22",
+      "origin_id": "POI-HOTEL",
+      "destination_id": "POI-FAMAGUSTA",
+      "mode": "auto",
+      "distance_km": [
+        195,
+        215
+      ],
+      "duration_minutes": [
+        150,
+        195
+      ],
+      "status": "szacunek",
+      "source_ids": [
+        "SRC-GREENLINE",
+        "SRC-VAROSHA"
+      ],
+      "notes": "Przez Larnakę i Ayia Napę; przekroczenie Green Line 30–60 min (ubezpieczenie, formalności) nie wliczone w czas jazdy. Szacunek planistyczny."
+    },
+    {
+      "id": "TF-23",
+      "origin_id": "POI-HOTEL",
+      "destination_id": "POI-GRECO",
+      "mode": "auto",
+      "distance_km": [
+        175,
+        195
+      ],
+      "duration_minutes": [
+        135,
+        165
+      ],
+      "status": "szacunek",
+      "source_ids": [
+        "SRC-GRECO"
+      ],
+      "notes": "Bez przekraczania granicy; parking przy centrum odwiedzających."
     }
   ],
   "transfer_method": "Dane planistyczne przejęte z audytu s. 9–11. Nie są pełnym pomiarem od drzwi do drzwi. Czas jazdy nie obejmuje parkowania, dojścia i przygotowania, chyba że wskazano inaczej. Nie sumować wyłącznie optymistycznych minimów. Podane kilometry dni są szacunkami dla wybranego układu; brak pełnego kosztorysu paliwa.",
@@ -2901,8 +3374,8 @@
       "owner": "podróżni",
       "due_on": "2026-11-03",
       "status": "otwarte",
-      "action": "Uzyskać pisemną ofertę dla 7 XI około 11:30 → 13 XI około 03:30, zgodną ze specyfikacją; uzupełnić firmę, cenę, depozyt i kontakt.",
-      "impact": "Cały program samochodowy i nocny zwrot nie mają jeszcze potwierdzonej obsługi.",
+      "action": "Termin 3 XI minął. Dziś wybrać firmę z listy kontaktów PFO (Avis/Budget, Hertz, Europcar, SIXT, Petsas), uzyskać pisemną ofertę 7 XI ok. 11:30 → 13 XI ok. 03:30, zgodną ze specyfikacją; uzupełnić firmę, cenę, depozyt i kontakt.",
+      "impact": "Cały program samochodowy i nocny zwrot nie mają jeszcze potwierdzonej obsługi. Termin 3 XI minął; decyzja jest pilna.",
       "blocking": true
     },
     {
@@ -2912,8 +3385,8 @@
       "owner": "podróżni i wypożyczalnia",
       "due_on": "2026-11-03",
       "status": "otwarte",
-      "action": "Punkt zwrotu, skrzynka, godziny, ewentualne opłaty, odległość do terminalu. Przy bazie poza PFO osobny plan transferu.",
-      "impact": "Harmonogram 13 XI zależy od potwierdzonego zwrotu na lotnisku.",
+      "action": "Punkt zwrotu, skrzynka, godziny, ewentualne opłaty, odległość do terminalu. Nie zakładać, że każda firma pozwala na key drop ok. 03:30; wybrać firmę z potwierdzonym after-hours return. Przy bazie poza PFO osobny plan transferu.",
+      "impact": "Harmonogram 13 XI zależy od potwierdzonego zwrotu na lotnisku. Termin 3 XI minął; bez odpowiedzi D7 jest nieważny.",
       "blocking": true
     },
     {
@@ -2923,8 +3396,8 @@
       "owner": "podróżni i hotel",
       "due_on": "2026-11-03",
       "status": "otwarte",
-      "action": "Potwierdzić wjazd, dostęp do auta i otwarcie bramy około 03:00; uzgodnić oddanie kluczy hotelowych o 02:45.",
-      "impact": "Ryzyko opóźnienia wyjazdu na lotnisko.",
+      "action": "Potwierdzić wjazd, dostęp do auta i otwarcie bramy około 03:00; uzgodnić oddanie kluczy hotelowych o 02:45. Oficjalna strona hotelu potwierdza bezpłatny parking i recepcję 24 h — doprecyzować tylko procedurę bramy i auta.",
+      "impact": "Ryzyko opóźnienia wyjazdu na lotnisko. Parking i recepcja 24 h są potwierdzone; brama nocna nie.",
       "blocking": true
     },
     {
@@ -3014,13 +3487,36 @@
       "action": "Zapisać numer polisy i assistance offline; sprawdzić, czy aktywności objęte są warunkami.",
       "impact": "Numery pozostają puste do uzupełnienia w prywatnej części.",
       "blocking": false
+    },
+    {
+      "id": "TODO-NORTH-CAR",
+      "priority": "wysoki",
+      "title": "Zgoda wypożyczalni na przekroczenie Green Line i ubezpieczenie na północy",
+      "owner": "podróżni i wypożyczalnia",
+      "due_on": "2026-11-05",
+      "status": "otwarte",
+      "action": "Przy wyborze auta (TODO-CAR) zapytać jawnie o przekroczenie Green Line: pisemna zgoda, ubezpieczenie na północy (nie w standardzie), opłata przy przejściu (orientacyjnie 20–40 EUR, do potwierdzenia), procedura powrotu. Bez tego wariant Varosha nie istnieje. Avis/Enterprise zakazują; Petsas dopuszcza po kontakcie.",
+      "impact": "Ogranicza wybór firmy, jeśli chcemy opcję północy. Nie blokuje planu bazowego.",
+      "blocking": false
+    },
+    {
+      "id": "TODO-VAROSHA",
+      "priority": "średni",
+      "title": "Godziny otwarcia Varoshy, wstęp i zasady fotografii",
+      "owner": "podróżni",
+      "due_on": "2026-11-05",
+      "status": "otwarte",
+      "action": "Potwierdzić aktualne godziny otwarcia części Varoshy (wyznaczone ulice), wstęp, zasady fotografii i parking (Palm Beach/Ayios Memnon).",
+      "impact": "Bez potwierdzenia godzin nie planować wjazdu; wariant 1 staje się dniem Famagusty/starego miasta.",
+      "blocking": false
     }
   ],
   "checklists": [
     {
       "id": "CHECK-NOW",
-      "title": "2 i 3 listopada",
+      "title": "4 listopada — domknięcie zaległych blokad",
       "items": [
+        "Terminy auto / nocny zwrot / parking z 3 XI minęły — zamknąć je dziś lub świadomie przełożyć decyzję z nowym terminem.",
         "Auto i nocny zwrot zgodnie z TODO-CAR i TODO-RETURN.",
         "Parking hotelu i nocny checkout.",
         "Potwierdzenie taryfy wyżywienia i zapytanie o wellness.",
@@ -3111,7 +3607,7 @@
   },
   "publication_contract": {
     "purpose": "Jedna baza danych dla strony i późniejszego dokumentu podróżnego.",
-    "canonical": "Edytować JSON; każdy wygenerowany widok pokazuje version i updated_on. DOCX jest czytelnym widokiem wersji 1.0.0. Zmiana tylko w widoku prowadzi do rozbieżności i wymaga przeniesienia do danych nadrzędnych.",
+    "canonical": "Edytować JSON; każdy wygenerowany widok pokazuje version i updated_on. DOCX jest czytelnym widokiem wersji 1.1.0. Zmiana tylko w widoku prowadzi do rozbieżności i wymaga przeniesienia do danych nadrzędnych.",
     "sections": [
       "Start z terminem i tygodniem w skrócie.",
       "Dni DAY-01 do DAY-07, domyślnie z samym planem bazowym.",
@@ -3203,6 +3699,18 @@
       "from": "Pełne Madari i Teisia zawsze co najmniej 15 km; Cape Aspro bez oficjalnego opisu",
       "to": "Krótka kombinacja Madari 10,6–11,1 km istnieje; Cape Aspro ma oficjalną trasę",
       "reason": "Poprawione błędy oryginału; obie trasy nadal nie są domyślną częścią wyjazdu."
+    },
+    {
+      "id": "CHANGE-09",
+      "from": "Wersja 1.0.0 bez planów B dni i bez kontaktów wypożyczalni PFO",
+      "to": "1.0.1: plan B dni, opcjonalne postoje, kontakty PFO, potwierdzony parking/recepcja hotelu, poprawki ICS",
+      "reason": "Audyt 4 XI 2026; bez zmian rezerwacji, lotów, hotelu i dat."
+    },
+    {
+      "id": "CHANGE-10",
+      "from": "A2 + dyrektywa STEERING: brak faktów o aucie w JSON; brak alternatyw wschodnich",
+      "to": "1.1.0: zweryfikowane fakty wypożyczalni (Avis/Petsas/SIXT/Budget/Enterprise), parking WAW, Varosha/Cape Greco/Drzewo Kochanków jako alternatywy, Green Line jako open issue",
+      "reason": "Audyt 4 XI 2026; bez zmian rezerwacji, lotów, hotelu i dat."
     }
   ]
 }

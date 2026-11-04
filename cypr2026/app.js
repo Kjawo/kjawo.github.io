@@ -174,6 +174,10 @@
   });
   var printState = [];
   window.addEventListener("beforeprint", function () {
+    $all(".photo--lead img").forEach(function (img) {
+      img.loading = "eager";
+      if (img.decode) img.decode().catch(function () {});
+    });
     printState = [];
     $all("details").forEach(function (details) {
       printState.push([details, details.open]);
@@ -691,24 +695,147 @@
     });
   }
 
-  // Photo credits filter -----------------------------------------------------
-  var photoFilterButtons = $all("[data-photo-filter]");
-  var photoEntries = $all("[data-photo-kind]");
-  function applyPhotoFilter(kind) {
-    photoFilterButtons.forEach(function (button) {
-      button.setAttribute("aria-pressed", button.getAttribute("data-photo-filter") === kind ? "true" : "false");
-    });
-    photoEntries.forEach(function (entry) {
-      entry.hidden = kind !== "all" && entry.getAttribute("data-photo-kind") !== kind;
-    });
+  // Photo gallery filters + accessible lightbox ------------------------------
+  var galleryButtons = $all("[data-gallery-filter]");
+  var galleryCards = $all(".gallery-card");
+  var galleryStatus = document.getElementById("gallery-status");
+  var galleryStatusText = document.getElementById("gallery-status-text");
+  var galleryClear = document.getElementById("gallery-clear");
+  var galleryState = { kind: "all", target: null };
+  function photoPlural(count) {
+    if (count === 1) return "kadr";
+    if (count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 12 || count % 100 > 14)) return "kadry";
+    return "kadrów";
   }
-  if (photoFilterButtons.length) {
-    photoFilterButtons.forEach(function (button) {
+  function applyGalleryFilter(kind, target) {
+    galleryState.kind = kind || "all";
+    galleryState.target = target || null;
+    var shown = 0;
+    galleryCards.forEach(function (card) {
+      var matchesKind = galleryState.kind === "all" || card.getAttribute("data-photo-kind") === galleryState.kind;
+      var matchesTarget = !galleryState.target || card.getAttribute("data-photo-target") === galleryState.target;
+      var visible = matchesKind && matchesTarget;
+      card.hidden = !visible;
+      if (visible) shown += 1;
+    });
+    galleryButtons.forEach(function (button) {
+      button.setAttribute("aria-pressed", button.getAttribute("data-gallery-filter") === galleryState.kind ? "true" : "false");
+    });
+    if (galleryClear) galleryClear.hidden = !galleryState.target;
+    if (galleryStatusText) {
+      var label = galleryState.target
+        ? "Wybrany cel"
+        : galleryState.kind === "day" ? "Dni"
+        : galleryState.kind === "place" ? "Miejsca"
+        : galleryState.kind === "route" ? "Trasy" : "Wszystkie";
+      galleryStatusText.textContent = label + ": " + shown + " " + photoPlural(shown);
+    }
+  }
+  if (galleryButtons.length) {
+    galleryButtons.forEach(function (button) {
       button.addEventListener("click", function () {
-        applyPhotoFilter(button.getAttribute("data-photo-filter"));
+        applyGalleryFilter(button.getAttribute("data-gallery-filter"), null);
       });
     });
-    if (window.matchMedia("(max-width: 599px)").matches) applyPhotoFilter("day");
+    if (galleryClear) {
+      galleryClear.addEventListener("click", function () {
+        applyGalleryFilter("all", null);
+        var firstButton = galleryButtons[0];
+        if (firstButton) firstButton.focus();
+      });
+    }
+    $all("[data-gallery-target]").forEach(function (link) {
+      link.addEventListener("click", function () {
+        applyGalleryFilter(link.getAttribute("data-gallery-kind"), link.getAttribute("data-gallery-target"));
+      });
+    });
+  }
+
+  var lightbox = document.getElementById("photo-lightbox");
+  var lightboxData = document.getElementById("photo-lightbox-data");
+  if (lightbox && lightboxData && typeof lightbox.showModal === "function") {
+    var lightboxPhotos = [];
+    try { lightboxPhotos = JSON.parse(lightboxData.textContent || "[]"); } catch (error) { lightboxPhotos = []; }
+    var lightboxIndex = 0;
+    var lightboxTrigger = null;
+    var lightboxImg = document.getElementById("photo-lightbox-img");
+    var lightboxAvif = document.getElementById("photo-lightbox-avif");
+    var lightboxWebp = document.getElementById("photo-lightbox-webp");
+    var lightboxTitle = document.getElementById("photo-lightbox-title");
+    var lightboxCaption = document.getElementById("photo-lightbox-caption");
+    var lightboxMeta = document.getElementById("photo-lightbox-meta");
+    var lightboxSource = document.getElementById("photo-lightbox-source");
+    var lightboxCounter = document.getElementById("photo-lightbox-counter");
+    function fillLightbox(index) {
+      var photo = lightboxPhotos[index];
+      if (!photo) return;
+      lightboxIndex = index;
+      if (lightboxAvif) lightboxAvif.srcset = photo.avif || "";
+      if (lightboxWebp) lightboxWebp.srcset = photo.webp || "";
+      lightboxImg.src = photo.jpeg || photo.webp || photo.avif || "";
+      lightboxImg.alt = photo.alt || "";
+      lightboxImg.width = photo.width || 1280;
+      lightboxImg.height = photo.height || 853;
+      lightboxTitle.textContent = photo.title || "";
+      lightboxCaption.textContent = photo.caption || "";
+      lightboxMeta.textContent = (photo.date || "") + " · " + (photo.place || "") + " · " + (photo.author || "") + (photo.license ? " · " + photo.license : "");
+      lightboxSource.href = photo.source || "#";
+      lightboxCounter.textContent = (index + 1) + " / " + lightboxPhotos.length;
+    }
+    function openLightbox(index, trigger) {
+      lightboxTrigger = trigger || null;
+      fillLightbox(index);
+      lightbox.showModal();
+      document.documentElement.classList.add("lightbox-open");
+      var closeButton = lightbox.querySelector("[data-lightbox-close]");
+      if (closeButton) closeButton.focus();
+    }
+    function closeLightbox() {
+      if (lightbox.open) lightbox.close();
+    }
+    function moveLightbox(delta) {
+      if (!lightboxPhotos.length) return;
+      fillLightbox((lightboxIndex + delta + lightboxPhotos.length) % lightboxPhotos.length);
+    }
+    document.addEventListener("click", function (event) {
+      var trigger = event.target.closest ? event.target.closest("[data-lightbox]") : null;
+      if (!trigger) return;
+      var slot = trigger.getAttribute("data-lightbox");
+      var index = lightboxPhotos.findIndex(function (photo) { return photo.slot === slot; });
+      if (index < 0) return;
+      event.preventDefault();
+      openLightbox(index, trigger);
+    });
+    $all("[data-lightbox-close]", lightbox).forEach(function (button) {
+      button.addEventListener("click", closeLightbox);
+    });
+    $all("[data-lightbox-prev]", lightbox).forEach(function (button) {
+      button.addEventListener("click", function () { moveLightbox(-1); });
+    });
+    $all("[data-lightbox-next]", lightbox).forEach(function (button) {
+      button.addEventListener("click", function () { moveLightbox(1); });
+    });
+    lightbox.addEventListener("click", function (event) {
+      if (event.target === lightbox) closeLightbox();
+    });
+    lightbox.addEventListener("close", function () {
+      document.documentElement.classList.remove("lightbox-open");
+      if (lightboxTrigger && typeof lightboxTrigger.focus === "function") lightboxTrigger.focus();
+    });
+    lightbox.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") { event.preventDefault(); moveLightbox(-1); }
+      if (event.key === "ArrowRight") { event.preventDefault(); moveLightbox(1); }
+      if (event.key === "Home") { event.preventDefault(); fillLightbox(0); }
+      if (event.key === "End") { event.preventDefault(); fillLightbox(lightboxPhotos.length - 1); }
+      if (event.key === "Tab") {
+        var focusable = $all("button, a[href]", lightbox).filter(function (el) { return !el.disabled && el.offsetParent !== null; });
+        if (!focusable.length) return;
+        var first = focusable[0];
+        var last = focusable[focusable.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    });
   }
 
   // Lazy Leaflet map ---------------------------------------------------------
@@ -899,7 +1026,7 @@
       if (visible.length) {
         mapInstance.fitBounds(visible.map(function (place) {
           return [place.coordinates.lat, place.coordinates.lon];
-        }), { padding: [34, 34], maxZoom: 12 });
+        }), { padding: [56, 56], maxZoom: 12 });
       } else {
         mapInstance.setView([34.9, 32.75], 8);
       }
@@ -972,7 +1099,7 @@
         marker.bindPopup(members.length > 1 ? popupGroupHtml(members) : popupHtml(members[0]), { maxWidth: 340 });
       });
     }
-    if (bounds.length) map.fitBounds(bounds, { padding: [34, 34], maxZoom: 11 });
+    if (bounds.length) map.fitBounds(bounds, { padding: [56, 56], maxZoom: 11 });
     else map.setView([34.9, 32.75], 8);
     mapRenderMarkers = renderMarkers;
     renderMarkers(places);

@@ -22,7 +22,7 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-day@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Dzień 1: Przylot i Faros
@@ -33,98 +33,81 @@ URL:https://cypr2026.pages.dev/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
-UID:cypr2026-2026-11-07-D1-01@kjawo.github.io
-DTSTAMP:20261102T000000Z
-DTSTART;TZID=Asia/Nicosia:20261107T101000
-DTEND;TZID=Asia/Nicosia:20261107T111000
-SUMMARY:Dzień 1 · Lądowanie w Pafos
-DESCRIPTION:W61417 z Modlina\; przed odbiorem auta bagaż i formalności.\
- nCzas: dane rezerwacji według użytkownika.\nPlan: https://cypr2026.page
- s.dev/#day-01
-LOCATION:Port lotniczy Pafos PFO
-URL:https://cypr2026.pages.dev/#day-01
-STATUS:TENTATIVE
-END:VEVENT
-BEGIN:VEVENT
-UID:cypr2026-2026-11-07-D1-02@kjawo.github.io
-DTSTAMP:20261102T000000Z
-DTSTART;TZID=Asia/Nicosia:20261107T111500
-DTEND;TZID=Asia/Nicosia:20261107T123000
-SUMMARY:Dzień 1 · Odbiór auta
-DESCRIPTION:Cel 11:30\; formalności i dokumentacja mogą przesunąć odbi
- ór. Pokazanie miejsca nocnego zwrotu.\nCzas: założenie planu.\nPlan: h
- ttps://cypr2026.pages.dev/#day-01
-LOCATION:Port lotniczy Pafos PFO
-URL:https://cypr2026.pages.dev/#day-01
-STATUS:TENTATIVE
-END:VEVENT
-BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-03@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;TZID=Asia/Nicosia:20261107T120000
 DTEND;TZID=Asia/Nicosia:20261107T131500
 SUMMARY:Dzień 1 · Dojazd i bagaże
 DESCRIPTION:25–35 min jazdy plus formalności. Przechowanie bagażu prze
- d pokojem uzgodnić.\nCzas: założenie planu.\nPlan: https://cypr2026.pa
- ges.dev/#day-01
+ d pokojem uzgodnić.\nCzas: założenie planu.\nMapa (punkt): https://www
+ .google.com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartment
+ s%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026
+ .pages.dev/#day-01
 LOCATION:Princessa Vera Hotel Apartments
 URL:https://cypr2026.pages.dev/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-04@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;TZID=Asia/Nicosia:20261107T130000
 DTEND;TZID=Asia/Nicosia:20261107T150000
 SUMMARY:Dzień 1 · Lunch i odpoczynek
 DESCRIPTION:Posiłek blisko hotelu\, zakupy wody i prowiantu. Przy wcześn
  iejszym przyjeździe pokój nie jest gwarantowany.\nCzas: założenie pla
- nu.\nPlan: https://cypr2026.pages.dev/#day-01
+ nu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&query=Prince
+ ssa%20Vera%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20
+ Paphos\nPlan: https://cypr2026.pages.dev/#day-01
 LOCATION:Princessa Vera Hotel Apartments\, Kings Avenue Mall
 URL:https://cypr2026.pages.dev/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-05@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;TZID=Asia/Nicosia:20261107T150000
 DTEND;TZID=Asia/Nicosia:20261107T160000
 SUMMARY:Dzień 1 · Zameldowanie
 DESCRIPTION:Publikowana godzina\; wiążące warunki na voucherze.\nCzas: 
- założenie planu.\nPlan: https://cypr2026.pages.dev/#day-01
+ założenie planu.\nMapa (punkt): https://www.google.com/maps/search/?api
+ =1&query=Princessa%20Vera%20Hotel%20Apartments%2017%20Tombs%20of%20the%20
+ Kings%20Road%20Paphos\nPlan: https://cypr2026.pages.dev/#day-01
 LOCATION:Princessa Vera Hotel Apartments
 URL:https://cypr2026.pages.dev/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-06@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;TZID=Asia/Nicosia:20261107T154500
 DTEND;TZID=Asia/Nicosia:20261107T170500
 SUMMARY:Dzień 1 · Faros i zachód
 DESCRIPTION:Wyjście pieszo\; pozostawać na bezpiecznym suchym terenie. Z
- achód około 16:51.\nCzas: założenie planu.\nPlan: https://cypr2026.pa
- ges.dev/#day-01
+ achód około 16:51.\nCzas: założenie planu.\nMapa (punkt): https://www
+ .google.com/maps/search/?api=1&query=Lighthouse%20Beach%20Paphos%20Faros\
+ nPlan: https://cypr2026.pages.dev/#day-01
 LOCATION:Faros Lighthouse Beach
 URL:https://cypr2026.pages.dev/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-07@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;TZID=Asia/Nicosia:20261107T173000
 DTEND;TZID=Asia/Nicosia:20261107T190000
 SUMMARY:Dzień 1 · Kolacja w okolicy hotelu
 DESCRIPTION:Wybrać otwartą kuchnię w pieszym zasięgu. Ficardo wyłącz
  nie po świadomej decyzji o dalszym dojeździe.\nCzas: założenie planu.
- \nPlan: https://cypr2026.pages.dev/#day-01
+ \nMapa (punkt): https://www.google.com/maps/search/?api=1&query=Princessa
+ %20Vera%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20Pap
+ hos\nPlan: https://cypr2026.pages.dev/#day-01
 LOCATION:Princessa Vera Hotel Apartments
 URL:https://cypr2026.pages.dev/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-FL-OUT@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART:20261107T044000Z
 DTEND:20261107T081000Z
 SUMMARY:W61417 WMI → PFO
@@ -137,7 +120,7 @@ STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-hotel@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;TZID=Asia/Nicosia:20261107T150000
 DTEND;TZID=Asia/Nicosia:20261113T120000
 SUMMARY:Hotel: Princessa Vera Hotel Apartments
@@ -149,7 +132,7 @@ STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-car-pickup@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART:20261107T093000Z
 DTEND:20261107T101500Z
 SUMMARY:Auto: odbiór — cel
@@ -161,7 +144,7 @@ STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-car-return@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART:20261113T013000Z
 DTEND:20261113T021500Z
 SUMMARY:Auto: nocny zwrot — cel

@@ -82,6 +82,7 @@ STATUS_LABELS = {
     "nie_dotyczy": "Nie dotyczy",
     "zalacznik_uzytkownika": "Załącznik użytkownika",
     "sprawdzone_2026_11_02": "Sprawdzone 2 listopada 2026",
+    "sprawdzone_2026_11_04": "Sprawdzone 4 listopada 2026",
     "link_kontrolny_z_audytu": "Link kontrolny z audytu",
     "czesciowy_kosztorys": "Częściowy kosztorys",
 }
@@ -101,6 +102,7 @@ STATUS_MEANINGS = {
     "nie_dotyczy": "Dzień nie ma aktywnego trekkingu.",
     "zalacznik_uzytkownika": "Źródło przekazane przez użytkownika; brak publicznego URL.",
     "sprawdzone_2026_11_02": "Źródło sprawdzone 2 listopada 2026.",
+    "sprawdzone_2026_11_04": "Źródło sprawdzone bezpośrednio 4 listopada 2026.",
     "przejete_z_audytu": "Ustalenie przejęte z audytu, bez ponownej kontroli.",
     "link_kontrolny_z_audytu": "Link kontrolny wskazany w audycie; nie sprawdzono treści przy budowie.",
     "czesciowy_kosztorys": "Znane są wyłącznie wskazane bilety. Pozostałe koszty mają brak danych.",
@@ -121,6 +123,7 @@ STATUS_TONE = {
     "nie_dotyczy": "neutral",
     "zalacznik_uzytkownika": "neutral",
     "sprawdzone_2026_11_02": "ok",
+    "sprawdzone_2026_11_04": "ok",
     "przejete_z_audytu": "info",
     "link_kontrolny_z_audytu": "info",
     "czesciowy_kosztorys": "warning",
@@ -159,7 +162,7 @@ PLACE_GROUPS = [
 ]
 
 SOURCE_STATUS_ALLOWED = {
-    "zalacznik_uzytkownika", "sprawdzone_2026_11_02",
+    "zalacznik_uzytkownika", "sprawdzone_2026_11_02", "sprawdzone_2026_11_04",
     "przejete_z_audytu", "link_kontrolny_z_audytu",
 }
 GENERIC_STATUS_ALLOWED = {
@@ -735,6 +738,7 @@ class Plan:
         self.blocking_issues = [i for i in self.open_issues if i.get("blocking")]
         self.total_check_items = sum(len(g.get("items", [])) for g in self.checklists)
         self.photos = PhotoLibrary(ROOT)
+        self.photos.check_plan_targets(set(self.days), set(self.places), set(self.routes))
 
 
 def walk_values(node, key: str):
@@ -818,8 +822,11 @@ def validate(plan: Plan) -> None:
     actual_dates = [parse_iso_date(d["date"], f"{d['id']}.date") for d in plan.day_list]
     if actual_dates != expected_dates:
         fail("Dni muszą następować kolejno po sobie, bez luk i duplikatów dat.")
-    if len(plan.alternative_list) != 2:
-        fail("Oczekiwano dwóch wariantów dnia (ALT-SUNDAY, ALT-THURSDAY).")
+    required_alt_ids = {"ALT-SUNDAY", "ALT-THURSDAY"}
+    if not required_alt_ids.issubset({a.get("id") for a in plan.alternative_list}):
+        fail("Brak wymaganych wariantów ALT-SUNDAY i ALT-THURSDAY.")
+    if len(plan.alternative_list) < 2:
+        fail("Oczekiwano co najmniej dwóch wariantów dnia.")
 
     # Globally unique identifiers make chipless cross-references unambiguous.
     seen: dict[str, str] = {}
@@ -899,6 +906,12 @@ def validate(plan: Plan) -> None:
             validate_time_range(event.get("start_local"), event.get("end_local"), f"{day['id']}.{event.get('id')}")
             event_zone = event.get("timezone", CY_TZ)
             assert_zone(event_zone, f"{day['id']}.{event['id']}.timezone")
+        for item in day.get("contingencies", []):
+            if not item.get("trigger") or not item.get("action"):
+                fail(f"{day['id']}: plan B bez trigger/action")
+        for item in day.get("optional_stops", []):
+            if item.get("place_id") not in valid_places:
+                fail(f"{day['id']}: nieistniejący optional_stop place_id {item.get('place_id')}")
 
     for route in plan.route_list:
         for key in ["planned_duration_minutes", "reserve_duration_minutes"]:
@@ -1007,6 +1020,7 @@ def collect_warnings(plan: Plan) -> list[str]:
         warnings.append(f"Źródła: {len(null_urls)} bez URL — oznaczone jako załączniki użytkownika.")
     if plan.open_issues:
         warnings.append(f"Sprawy otwarte: {len(plan.open_issues)} ({len(plan.blocking_issues)} blokujących).")
+    warnings.extend(plan.photos.warnings())
     return warnings
 
 
@@ -1126,7 +1140,7 @@ def render_nav(plan: Plan) -> str:
         ("#checklisty", "Checklisty"),
         ("#todo", "Zadania"),
         ("#zrodla", "Źródła"),
-        ("#zdjecia", "Zdjęcia"),
+        ("#galeria", "Galeria"),
     ]
     items = "".join(f'<li><a href="{href}">{esc(label)}</a></li>' for href, label in nav)
     menu_items = "".join(f'<a href="{href}">{esc(label)}</a>' for href, label in nav)
@@ -1216,7 +1230,10 @@ def render_week(plan: Plan) -> str:
 def nearest_issue(plan: Plan) -> dict | None:
     if not plan.open_issues:
         return None
-    return sorted(plan.open_issues, key=lambda item: (item.get("due_on") or "9999", PRIORITY_ORDER.get(item.get("priority"), 9)))[0]
+    reference = plan.meta.get("updated_on") or ""
+    key = lambda item: (item.get("due_on") or "9999", PRIORITY_ORDER.get(item.get("priority"), 9))
+    future = [item for item in plan.open_issues if (item.get("due_on") or "9999") >= reference]
+    return sorted(future or plan.open_issues, key=key)[0]
 
 
 def render_today(plan: Plan) -> str:
@@ -1226,8 +1243,10 @@ def render_today(plan: Plan) -> str:
     issue = nearest_issue(plan)
     nearest = ""
     if issue:
+        overdue = bool(plan.meta.get("updated_on")) and issue.get("due_on", "") < plan.meta["updated_on"]
+        label = "Termin miniony" if overdue else "Najbliższy termin"
         nearest = (
-            f'<p>Najbliższy termin: <strong>{esc(format_date_pl(issue["due_on"]))}</strong> — '
+            f'<p>{label}: <strong>{esc(format_date_pl(issue["due_on"]))}</strong> — '
             f'{esc(issue["title"])}.</p>'
         )
     return f"""
@@ -1446,6 +1465,14 @@ def render_day(plan: Plan, day: dict) -> str:
             f'{icon("trail")} Trasa: {esc(primary_route["name"])} {icon("arrow")}</a>'
         )
     cut = "".join(f"<li>{esc(item)}</li>" for item in day.get("cut_order", []))
+    contingencies = "".join(
+        f'<li><strong>{esc(item.get("trigger", ""))}:</strong> {esc(item.get("action", ""))}</li>'
+        for item in day.get("contingencies", [])
+    )
+    optional_stops = "".join(
+        f'<li>{place_links(plan, [item.get("place_id")])} — {esc(item.get("note", ""))}</li>'
+        for item in day.get("optional_stops", [])
+    )
     sources = source_chips(plan, day.get("source_ids", []))
     flight_band = render_flight_band(plan, day)
     timezone_note = "Czasy w Asia/Nicosia (UTC+2)." if day["date"] not in {"2026-11-07", "2026-11-13"} else "Czasy w Asia/Nicosia (UTC+2); loty w czasie lokalnym lotnisk, z obiema strefami."
@@ -1461,11 +1488,33 @@ def render_day(plan: Plan, day: dict) -> str:
         if drive_value is not None
         else f'<span class="chip chip--missing">{icon("car")}Auto: <b>brak danych</b></span>'
     )
-    day_photo = plan.photos.for_day(day["id"])
+    day_photos = plan.photos.for_day(day["id"])
+    day_lead = next((photo for photo in day_photos if photo.lead), None)
+    day_extras = [photo for photo in day_photos if photo is not day_lead]
+    day_inline = day_extras[:2]
+    day_more = len(day_extras) - len(day_inline)
     day_photo_html = (
-        plan.photos.render(day_photo, "lead", sizes="(min-width: 760px) 760px, 100vw")
-        if day_photo else ""
+        plan.photos.render(day_lead, "lead", sizes="(min-width: 760px) 760px, 100vw",
+                           caption="full", extra_class="photo--print-lead")
+        if day_lead else ""
     )
+    day_inline_html = ""
+    if day_inline:
+        day_inline_html = (
+            '<div class="photo-row photo-row--day">'
+            + "".join(plan.photos.render(photo, "inline",
+                                         sizes="(min-width: 760px) 360px, 100vw",
+                                         caption="compact")
+                      for photo in day_inline)
+            + "</div>"
+        )
+    day_more_html = ""
+    if day_more > 0:
+        day_more_html = (
+            f'<p class="photo-more-row"><a class="photo-more" href="#galeria" '
+            f'data-gallery-kind="day" data-gallery-target="{esc(day["id"])}">'
+            f'+{day_more} w galerii {icon("arrow")}</a></p>'
+        )
     return f"""
       <article class="day-card" id="day-{esc(day_no)}" data-day-date="{esc(day['date'])}"{light_attrs} aria-labelledby="day-{esc(day_no)}-title">
         <header class="day-card__head">
@@ -1485,7 +1534,11 @@ def render_day(plan: Plan, day: dict) -> str:
           </div>
           <p class="timezone-note">{icon("clock")} {timezone_note}</p>
         </header>
-        {day_photo_html}
+        <div class="day-photos">
+          {day_photo_html}
+          {day_inline_html}
+          {day_more_html}
+        </div>
         {flight_band}
         {hunt_note}
         {render_day_light(plan, day)}
@@ -1504,6 +1557,14 @@ def render_day(plan: Plan, day: dict) -> str:
               <section class="day-note">
                 <h4>{icon("sun")} Zła pogoda</h4>
                 <p>{esc(day.get("bad_weather", ""))}</p>
+              </section>
+              <section class="day-note">
+                <h4>{icon("shield")} Plan B — warunki i awarie</h4>
+                <ul>{contingencies}</ul>
+              </section>
+              <section class="day-note">
+                <h4>{icon("pin")} Co jeszcze po drodze</h4>
+                <ul>{optional_stops or "<li>Brak dodatków; tego dnia nie dokładamy punktów.</li>"}</ul>
               </section>
               <section class="day-note">
                 <h4>{icon("camera")} Fotografia</h4>
@@ -1686,11 +1747,31 @@ def render_route_card(plan: Plan, route: dict, *, reserve: bool = False) -> str:
             </details>
           </article>
         """
-    route_photo = plan.photos.for_route(route["id"])
-    route_photo_html = (
-        plan.photos.render(route_photo, "route", sizes="(min-width: 760px) 760px, 100vw")
-        if route_photo else ""
-    )
+    route_photos = plan.photos.for_route(route["id"])
+    route_lead = next((photo for photo in route_photos if photo.lead), None)
+    route_extras = [photo for photo in route_photos if photo is not route_lead]
+    route_inline = route_extras[:1]
+    route_more = len(route_extras) - len(route_inline)
+    route_photo_html = ""
+    if route_lead:
+        route_photo_html = (
+            '<div class="photo-row photo-row--route">'
+            + plan.photos.render(route_lead, "route",
+                                 sizes="(min-width: 760px) 360px, 100vw",
+                                 caption="compact")
+            + "".join(plan.photos.render(photo, "route",
+                                         sizes="(min-width: 760px) 360px, 100vw",
+                                         caption="compact")
+                      for photo in route_inline)
+            + "</div>"
+        )
+    route_more_html = ""
+    if route_more > 0:
+        route_more_html = (
+            f'<p class="photo-more-row"><a class="photo-more" href="#galeria" '
+            f'data-gallery-kind="route" data-gallery-target="{esc(route["id"])}">'
+            f'+{route_more} w galerii {icon("arrow")}</a></p>'
+        )
     return f"""
       <article class="route-card" id="{esc(anchor)}" aria-labelledby="{esc(anchor)}-title">
         <header class="route-card__head">
@@ -1701,6 +1782,7 @@ def render_route_card(plan: Plan, route: dict, *, reserve: bool = False) -> str:
           <span class="route-id">{esc(route["id"])}</span>
         </header>
         {route_photo_html}
+        {route_more_html}
         <p class="route-card__summary">{esc(route.get("description", ""))}</p>
         {route_verdict(plan, route)}
         {body}
@@ -1826,17 +1908,35 @@ def render_place(plan: Plan, place: dict) -> str:
             f'<dd>{esc(" i ".join(missing))} — sprawdź w Maps lub u organizatora</dd></div>'
         )
     facts_html = f'<dl class="place-facts">{"".join(facts)}</dl>' if facts else ""
-    place_photo = plan.photos.for_place(place["id"])
-    place_photo_html = (
-        plan.photos.render(
-            place_photo, "thumb",
-            sizes="(min-width: 860px) 320px, (min-width: 560px) 50vw, 100vw",
+    place_photos = plan.photos.for_place(place["id"])
+    place_lead = next((photo for photo in place_photos if photo.lead), None)
+    place_extras = [photo for photo in place_photos if photo is not place_lead]
+    place_inline = place_extras[:1]
+    place_more = len(place_extras) - len(place_inline)
+    place_photo_html = ""
+    if place_lead:
+        place_photo_html = (
+            '<div class="photo-row photo-row--place">'
+            + plan.photos.render(place_lead, "thumb",
+                                 sizes="(min-width: 860px) 260px, (min-width: 560px) 50vw, 100vw",
+                                 caption="compact")
+            + "".join(plan.photos.render(photo, "thumb",
+                                         sizes="(min-width: 860px) 260px, (min-width: 560px) 50vw, 100vw",
+                                         caption="compact")
+                      for photo in place_inline)
+            + "</div>"
         )
-        if place_photo else ""
-    )
+    place_more_html = ""
+    if place_more > 0:
+        place_more_html = (
+            f'<p class="photo-more-row"><a class="photo-more" href="#galeria" '
+            f'data-gallery-kind="place" data-gallery-target="{esc(place["id"])}">'
+            f'+{place_more} w galerii {icon("arrow")}</a></p>'
+        )
     return f"""
       <article class="place-card" id="place-{esc(place["id"])}" data-place-id="{esc(place["id"])}">
         {place_photo_html}
+        {place_more_html}
         <header class="place-card__head">
           <p class="place-type">{esc(PLACE_TYPE_LABELS.get(place.get("type"), place.get("type", "miejsce")))}</p>
           <h4>{esc(place["name"])}</h4>
@@ -2037,6 +2137,8 @@ def render_hotel(plan: Plan) -> str:
     meal = hotel.get("meal_plan", {})
     wellness = hotel.get("wellness", {})
     breakfast = hotel.get("breakfast_hours", {})
+    restaurant = hotel.get("restaurant_hours", {})
+    parking = hotel.get("parking", {})
     return f"""
       <div id="hotel" class="subsection">
         {subsection_head("06.2", "Hotel", "Jedna baza w Pafos. Publikowane godziny obiektu nie są potwierdzeniem warunków Twojej taryfy.", icon_name="bed")}
@@ -2055,6 +2157,8 @@ def render_hotel(plan: Plan) -> str:
             <div><dt>Wymeldowanie</dt><dd>{esc(format_date_pl(hotel["check_out_date"]))}, do {esc(hotel["published_check_out"])}</dd></div>
             <div><dt>Śniadanie</dt><dd>{esc(breakfast.get("value") or "brak danych")} {status_chip(breakfast.get("status"), compact=True)}</dd></div>
             <div><dt>Wyżywienie</dt><dd>{esc(meal.get("value") or "brak danych")} {status_chip(meal.get("status"), compact=True)}</dd></div>
+            <div><dt>Restauracja</dt><dd>{esc(restaurant.get("value") or "brak danych")} {status_chip(restaurant.get("status"), compact=True)}</dd></div>
+            <div><dt>Parking</dt><dd>{esc(parking.get("value") or "brak danych")} {status_chip(parking.get("status"), compact=True)}</dd></div>
           </dl>
           <div class="hotel-warning">
             {icon("alert")}
@@ -2077,6 +2181,13 @@ def render_car(plan: Plan) -> str:
     car = plan.trip["car"]
     reqs = "".join(f"<li>{esc(item)}</li>" for item in car.get("requirements", []))
     checks = "".join(f"<li>{esc(item)}</li>" for item in car.get("pickup_check", []))
+    contacts = "".join(
+        f'<li><strong>{esc(item.get("name", "wypożyczalnia"))}</strong> — '
+        f'<a class="tap-inline" href="tel:{esc(re.sub(r"[^\d+]", "", item.get("phone", "")))}">{esc(format_phone_display(item.get("phone")))}</a>'
+        f'<br><span class="fine-print">Godziny: {esc(item.get("hours", "brak danych"))} · after-hours return: {esc(item.get("after_hours_return", "brak danych"))}</span>'
+        f'<br><span class="fine-print">{esc(item.get("note", ""))}</span></li>'
+        for item in car.get("provider_contacts", [])
+    )
     pickup = datetime.fromisoformat(car["pickup_target_at"])
     return_ = datetime.fromisoformat(car["return_target_at"])
     return f"""
@@ -2121,6 +2232,11 @@ def render_car(plan: Plan) -> str:
         <details class="selection-note" open data-collapse-on-load>
           <summary>Notatka o wyborze firmy (bez rekomendacji rezerwacji) {icon("chevron")}</summary>
           <p>{esc(car.get("selection_note", ""))}</p>
+        </details>
+        <details class="selection-note" open data-collapse-on-load>
+          <summary>Kontakty wypożyczalni na PFO — do potwierdzenia, nie rezerwacja {icon("chevron")}</summary>
+          <ul>{contacts}</ul>
+          <p class="fine-print">Numery z oficjalnej strony Hermes Airports (4 XI 2026). Potwierdzić after-hours return, key drop i koniec odpowiedzialności; nie traktować obecności firmy na lotnisku jako zgody na zwrot o 03:30.</p>
         </details>
         <div class="source-line">{source_chips(plan, car.get("source_ids", []))}</div>
       </div>
@@ -2659,7 +2775,7 @@ def render_sources(plan: Plan) -> str:
             <ol class="decision-list">{decisions}</ol>
           </details>
         </div>
-        {section_next("Dalej", [("#zdjecia", "Zdjęcia i licencje"), ("#top", "Wróć na początek")])}
+        {section_next("Dalej", [("#galeria", "Galeria zdjęć"), ("#top", "Wróć na początek")])}
         {render_print_source_urls(plan)}
       </div>
     </section>
@@ -2778,7 +2894,7 @@ def render_footer(plan: Plan) -> str:
       <div>
         <p class="footer-mark">KJ <span>/</span> Photo Journal</p>
         <p class="footer-note">Spokojny plan podróży. Bez analityki, cookies i trackerów. Źródłem prawdy jest plik JSON; strona jest generowanym widokiem.</p>
-        <p class="footer-back"><a href="#top">Do początku {icon("arrow")}</a> · <a href="#zrodla">Źródła</a> · <a href="#zdjecia">Zdjęcia</a> · <a href="{ARCHIVE_URL}">Archiwum v1</a></p>
+        <p class="footer-back"><a href="#top">Do początku {icon("arrow")}</a> · <a href="#zrodla">Źródła</a> · <a href="#galeria">Galeria</a> · <a href="{ARCHIVE_URL}">Archiwum v1</a></p>
       </div>
       <div class="footer-meta">
         <p><span>Wersja</span> <strong>{esc(plan.meta["version"])}</strong></p>
@@ -2969,6 +3085,9 @@ def ics_day_events(plan: "Plan", day: dict) -> list[str]:
     url = f"{CANONICAL_URL}#day-{day_no:02d}"
     events: list[str] = []
     for event in day.get("timeline", []):
+        # Loty mają osobny, kanoniczny wpis w UTC. Nie duplikujemy ich w osi dnia.
+        if event.get("kind") == "flight" or event.get("ics_export") is False:
+            continue
         end = event.get("end_local")
         if not end:
             end_min = hhmm_minutes(event["start_local"]) + 60
@@ -2981,6 +3100,9 @@ def ics_day_events(plan: "Plan", day: dict) -> list[str]:
         description = event.get("description", "")
         if event.get("time_basis"):
             description += f"\nCzas: {event['time_basis']}."
+        first_place = next((plan.places[pid] for pid in event.get("place_ids", []) if pid in plan.places and plan.places[pid].get("map_url")), None)
+        if first_place:
+            description += f"\nMapa (punkt): {first_place['map_url']}"
         description += f"\nPlan: {url}"
         events += ics_event(
             f"cypr2026-{day['date']}-{event['id']}@kjawo.github.io",
@@ -3131,7 +3253,9 @@ def render_page(plan: Plan, asset_hash: str, data_json: str, *, noindex: bool) -
         "{{CHECKLISTS}}": render_checklists(plan),
         "{{TODO}}": render_todo(plan),
         "{{SOURCES}}": render_sources(plan),
-        "{{PHOTO_CREDITS}}": plan.photos.render_credits(),
+        "{{PHOTO_STRIP}}": plan.photos.render_strip(),
+        "{{PHOTO_GALLERY}}": plan.photos.render_gallery(),
+        "{{PHOTO_LIGHTBOX}}": plan.photos.render_lightbox(),
         "{{PHOTO_PRELOAD}}": plan.photos.render_hero_preload(),
         "{{FOOTER}}": render_footer(plan),
         "{{DATA_JSON}}": data_json,

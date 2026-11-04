@@ -10,10 +10,10 @@ To niezależny folder w repo `kjawo/kjawo.github.io`, gałąź `gh-pages`. Nie z
 
 `data/Cypr_2026_zrodlo_prawdy.json` jest jedynym źródłem prawdy. `index.html` jest generowany i **nie wolno go edytować ręcznie**. Zmiany wprowadzaj do JSON-a, potem uruchom build i sprawdź ostrzeżenia.
 
-Plik źródłowy został skopiowany 1:1. SHA-256:
+Plik źródłowy po audycie 4 XI 2026 (wersja 1.1.0). SHA-256:
 
 ```text
-c33fd05e805ecf3869489aea480d36614ded6ec00dcd7d19e8819fecbc8405be
+c4dd58e33a5feeee95c60fe6284641089d93fa3cb43e62b477c03f4c7f5b05a9
 ```
 
 ## Build

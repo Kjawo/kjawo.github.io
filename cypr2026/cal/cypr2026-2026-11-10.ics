@@ -22,7 +22,7 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-day@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261110
 DTEND;VALUE=DATE:20261111
 SUMMARY:Dzień 4: Troodos i Artemis
@@ -34,77 +34,86 @@ STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-01@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;TZID=Asia/Nicosia:20261110T070000
 DTEND;TZID=Asia/Nicosia:20261110T072000
 SUMMARY:Dzień 4 · Śniadanie
-DESCRIPTION:Lunch awaryjny już w plecaku.\nCzas: założenie planu.\nPlan
- : https://cypr2026.pages.dev/#day-04
+DESCRIPTION:Lunch awaryjny już w plecaku.\nCzas: założenie planu.\nMapa
+  (punkt): https://www.google.com/maps/search/?api=1&query=Princessa%20Ver
+ a%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\nP
+ lan: https://cypr2026.pages.dev/#day-04
 LOCATION:Princessa Vera Hotel Apartments
 URL:https://cypr2026.pages.dev/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-02@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;TZID=Asia/Nicosia:20261110T072500
 DTEND;TZID=Asia/Nicosia:20261110T094500
 SUMMARY:Dzień 4 · Dojazd do Artemis
 DESCRIPTION:105–125 min plus 10–15 min bufora robót\, jeśli nie są 
  uwzględnione w nawigacji. Dojazd może trwać do około 09:45.\nCzas: za
- łożenie planu.\nPlan: https://cypr2026.pages.dev/#day-04
+ łożenie planu.\nMapa (punkt): https://www.google.com/maps/search/?api=1
+ &query=34.933166%2C32.871986\nPlan: https://cypr2026.pages.dev/#day-04
 LOCATION:Artemis początek szlaku
 URL:https://cypr2026.pages.dev/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-03@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;TZID=Asia/Nicosia:20261110T093000
 DTEND;TZID=Asia/Nicosia:20261110T100000
 SUMMARY:Dzień 4 · Parking i kontrola warunków
 DESCRIPTION:To okno zależy od przejazdu. Lód\, mgła\, silny wiatr albo 
  zamknięcie oznaczają zmianę dnia. Mały parking przy oficjalnym starci
- e.\nCzas: założenie planu.\nPlan: https://cypr2026.pages.dev/#day-04
+ e.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/maps/s
+ earch/?api=1&query=34.933166%2C32.871986\nPlan: https://cypr2026.pages.de
+ v/#day-04
 LOCATION:Artemis początek szlaku
 URL:https://cypr2026.pages.dev/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-04@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;TZID=Asia/Nicosia:20261110T100000
 DTEND;TZID=Asia/Nicosia:20261110T133000
 SUMMARY:Dzień 4 · Artemis
 DESCRIPTION:Plan 3–3\,5 h\, rezerwa do 4 h. Zaczynamy najpóźniej 10:00
- \; przy końcu 14:00 pomijamy restaurację.\nCzas: założenie planu.\nPl
- an: https://cypr2026.pages.dev/#day-04
+ \; przy końcu 14:00 pomijamy restaurację.\nCzas: założenie planu.\nMa
+ pa (punkt): https://www.google.com/maps/search/?api=1&query=34.933166%2C3
+ 2.871986\nPlan: https://cypr2026.pages.dev/#day-04
 LOCATION:Artemis początek szlaku
 URL:https://cypr2026.pages.dev/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-05@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;TZID=Asia/Nicosia:20261110T133000
 DTEND;TZID=Asia/Nicosia:20261110T140000
 SUMMARY:Dzień 4 · Jedzenie i przygotowanie powrotu
 DESCRIPTION:Domyślnie prowiant. Plagia przy Troodos Square tylko po potwi
  erdzeniu i gdy wyjazd z okolicy nastąpi najpóźniej 14:15.\nCzas: zało
- żenie planu.\nPlan: https://cypr2026.pages.dev/#day-04
+ żenie planu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&qu
+ ery=34.924239%2C32.880879\nPlan: https://cypr2026.pages.dev/#day-04
 LOCATION:Troodos Square
 URL:https://cypr2026.pages.dev/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-06@kjawo.github.io
-DTSTAMP:20261102T000000Z
+DTSTAMP:20261104T000000Z
 DTSTART;TZID=Asia/Nicosia:20261110T140000
 DTEND;TZID=Asia/Nicosia:20261110T163000
 SUMMARY:Dzień 4 · Powrót do Princessa Vera
 DESCRIPTION:Około 1 h 45–2 h 20 z rezerwą\; hotel zwykle 16:00–16:30
- \, a przy wyjeździe 14:15 do około 16:45.\nCzas: założenie planu.\nPl
- an: https://cypr2026.pages.dev/#day-04
+ \, a przy wyjeździe 14:15 do około 16:45.\nCzas: założenie planu.\nMa
+ pa (punkt): https://www.google.com/maps/search/?api=1&query=Princessa%20V
+ era%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\
+ nPlan: https://cypr2026.pages.dev/#day-04
 LOCATION:Princessa Vera Hotel Apartments
 URL:https://cypr2026.pages.dev/#day-04
 STATUS:TENTATIVE
