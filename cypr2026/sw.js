@@ -2,13 +2,13 @@
 "use strict";
 
 // Updated by cypr2026/_src/build.py on every build.
-const CACHE_VERSION = "cypr-2026-1.0.0-102ebaca44";
+const CACHE_VERSION = "cypr-2026-1.0.0-1f9dfc13a4";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
-  "./styles.css?v=102ebaca44",
-  "./app.js?v=102ebaca44",
-  "./manifest.json?v=102ebaca44",
+  "./styles.min.css?v=1f9dfc13a4",
+  "./app.min.js?v=1f9dfc13a4",
+  "./manifest.json?v=1f9dfc13a4",
   "./data/Cypr_2026_zrodlo_prawdy.json",
   "./assets/fonts/inter-400-ext.woff2",
   "./assets/fonts/inter-400.woff2",
@@ -26,6 +26,15 @@ const PRECACHE_URLS = [
   "./assets/icons/icon-512.png",
   "./assets/vendor/leaflet/leaflet.css",
   "./assets/vendor/leaflet/leaflet.js",
+  "./cal/cypr2026-2026-11-07.ics",
+  "./cal/cypr2026-2026-11-08.ics",
+  "./cal/cypr2026-2026-11-09.ics",
+  "./cal/cypr2026-2026-11-10.ics",
+  "./cal/cypr2026-2026-11-11.ics",
+  "./cal/cypr2026-2026-11-12.ics",
+  "./cal/cypr2026-2026-11-13.ics",
+  "./cal/cypr2026-caly-wyjazd.ics",
+  "./cypr2026-print.pdf",
 ];
 
 const OSM_HOSTS = new Set(["tile.openstreetmap.org", "a.tile.openstreetmap.org", "b.tile.openstreetmap.org", "c.tile.openstreetmap.org"]);
@@ -87,7 +96,7 @@ self.addEventListener("fetch", (event) => {
   }
 
   event.respondWith(
-    caches.match(request)
+    caches.match(request, { ignoreSearch: true })
       .then((cached) => {
         if (cached) return cached;
         return fetch(request).then((response) => {

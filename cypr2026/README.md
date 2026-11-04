@@ -32,6 +32,8 @@ Build:
 - wypisuje ostrzeżenia dla `null` i braków, ale ich nie blokuje,
 - renderuje `index.html` z `_src/template.html`,
 - osadza JSON w `<script type="application/json" id="cypr-data">` do funkcji interaktywnych,
+- tworzy zminifikowane `styles.min.css` i `app.min.js` (źródła pozostają czytelne),
+- generuje `cal/cypr2026-*.ics` — cały wyjazd i osobne dni,
 - wstrzykuje wersję, `updated_on` i hash assetów do `?v=`,
 - aktualizuje wersję cache i listę precache w `sw.js`.
 
@@ -65,8 +67,12 @@ Parametr zmienia tylko datę logiczną widoku i jest ignorowany, jeśli nie jest
 ```text
 cypr2026/
   index.html                  # GENEROWANY
-  styles.css                  # jeden arkusz, mobile-first
-  app.js                      # progresywne ulepszenia, vanilla JS
+  styles.css                  # źródło arkusza, mobile-first
+  styles.min.css              # GENEROWANY, serwowany
+  app.js                      # źródło progresywnych ulepszeń, vanilla JS
+  app.min.js                  # GENEROWANY, serwowany
+  cal/                        # GENEROWANE pliki .ics (cały wyjazd + dni)
+  cypr2026-print.pdf          # statyczny PDF z tego samego builda (52 strony)
   sw.js                       # cache powłoki; build wpisuje wersję i listę plików
   manifest.json
   data/Cypr_2026_zrodlo_prawdy.json
@@ -105,7 +111,8 @@ Sam `noindex` nie zastępuje ochrony dostępu. GitHub Pages jest publiczny; jeś
 ## Offline
 
 - Service worker rejestruje się tylko na HTTPS albo `localhost`/`127.0.0.1`.
-- Cache-first dotyczy powłoki, CSS, JS, JSON, fontów, ikon i vendored Leaflet.
+- Cache-first dotyczy powłoki, CSS, JS, JSON, fontów, ikon, plików `.ics` i vendored Leaflet.
+- Na górze strony jest zwijana instrukcja „Offline w skrócie: 3 kroki”; pełna sekcja jest w Praktyce.
 - Kafelki OpenStreetMap **nie są cache’owane**. Po odcięciu internetu mapa pokaże szare tło, a strona wyświetli uczciwy komunikat.
 - Do nawigacji offline używaj Organic Maps lub Guru Maps i wcześniej pobierz zachodni Cypr oraz Troodos.
 - „Dodaj do ekranu głównego” jest dostępne z menu przeglądarki dzięki `manifest.json` (`start_url: "./"`, `scope: "./"`, `display: "standalone"`).
@@ -116,7 +123,8 @@ Sam `noindex` nie zastępuje ochrony dostępu. GitHub Pages jest publiczny; jeś
 Strona ma arkusz `@media print`:
 
 - okładka z terminem, wersją, strefą czasu i numerem 112,
-- tydzień w skrócie i każdy dzień od nowej strony,
+- jednokartkowa „Karta podręczna” z lotami, hotelem, alarmem, zadaniami blokującymi i tygodniem światła,
+- tydzień w skrócie i dni płynące kolejno, bez osieroconych nagłówków,
 - trasy, praktyka, kontakty, checklisty i źródła,
 - puste checkboxy do użycia ołówkiem,
 - ukryta mapa i interaktywne elementy, ale pełna tekstowa lista miejsc,
@@ -130,7 +138,9 @@ Do PDF: `Ctrl/Cmd + P` → A4 → marginesy domyślne → bez grafiki tła. Stro
 
 Sprawdzone szerokości: **360, 390, 768, 1280 i 1440 px**. Widok „Dziś” sprawdzono dla dat 2026-11-06, 2026-11-09 i 2026-11-14, a zegar dla stref urządzenia: UTC, `Europe/Warsaw` i `Asia/Nicosia`.
 
-Audyt axe-core 4.10 (WCAG 2.2 AA): 0 naruszeń; 0 elementów tekstowych poniżej 12 px i 0 wszystkich elementów interaktywnych poniżej 44 px w tested widths — także linki inline, którym powiększono obszar dotyku paddingiem z kompensacją układu.
+Audyt axe-core 4.10 (WCAG 2.2 AA): 0 naruszeń; 0 elementów tekstowych poniżej 12 px i 0 elementów interaktywnych poniżej 44 px (także pola wyboru mają 44 px; wizualny kwadrat pozostaje 21 px). CLS w testach: 0,0004–0,0074. `html-validate` 0 błędów.
+
+Funkcje zależne od danych: pasek „światła dnia” (start/koniec trekkingu, zachód, zmierzch, zapas), filtr „Dzień na mapie” (markery i lista miejsc), pliki `.ics` oraz jednokartkowa karta do druku.
 
 Na wąskim ekranie oś czasu i notatki dnia są zwinięte w `<details>`, z wyjątkiem bieżącego dnia podróży. Tydzień jest listą na telefonie i siatką 2 / 3 / 4 kolumn na większych ekranach — bez siedmiu ściśniętych kolumn i bez ucinania opisów. Bez JavaScriptu i w druku wszystkie dni są otwarte. Link do `#day-XX` automatycznie otwiera właściwy dzień.
 
@@ -147,9 +157,9 @@ Klucz: `cypr2026.checklist.v1`. Reset czyści wpis w `localStorage` po potwierdz
 
 ## Wydajność
 
-- HTML jest duży, bo zawiera cały plan i osadzony JSON; w transferze na GitHub Pages jest kompresowany.
-- CSS: około 86 KB źródła / **około 16,5 KB gzip**.
-- JS bez Leafleta: około 35,5 KB źródła / **około 10 KB gzip**.
+- HTML jest duży, bo zawiera cały plan i osadzony JSON; w transferze na GitHub Pages jest kompresowany. Transfer: **84,9 KB gzip**.
+- CSS: **17,9 KB gzip** (serwowany `styles.min.css`, źródło `styles.css`).
+- JS bez Leafleta: **11,6 KB gzip** (serwowany `app.min.js`, źródło `app.js`).
 - Fonty: około 152 KB łącznie, lokalne, tylko potrzebne podzbiory. Minimalny rozmiar tekstu na ekranie to 12 px; wszystkie elementy interaktywne mają co najmniej 44 px wysokości i szerokości (także linki inline). Ikony mapy grupują bliskie punkty, żeby pozostały klikalne na telefonie.
 - Leaflet, CSS Leafleta i kafelki są ładowane dopiero przy sekcji mapy; kafelki nigdy nie trafiają do cache offline.
 - Brak zdjęć hero, analityki, cookie bannerów i zewnętrznych trackerów.
@@ -167,7 +177,7 @@ Klucz: `cypr2026.checklist.v1`. Reset czyści wpis w `localStorage` po potwierdz
 - **Mobile:** dni inne niż bieżący są domyślnie zwinięte przez JS; bez JS wszystkie są otwarte. Ważne ostrzeżenia (auto, 112, polowania, bag drop) pozostają poza zwiniętymi blokami.
 - **Statusy współrzędnych:** `zweryfikowane`, `przejete_z_audytu`, `orientacyjne_do_potwierdzenia`.
 - Niektóre serwisy (Ryanair, Wizz Air, timeanddate, SIXT) blokują automatyczne zapytania HTTP 403, choć linki są źródłami z JSON-a. Nie usuwaj ich tylko z powodu błędu bota.
-- Print jest obszerny (około 52 stron A4), bo zawiera wszystkie dni, warianty, trasy, miejsca, checklisty i źródła; każdy dzień zaczyna nową stronę, a tabele źródłowe mają powtarzany nagłówek.
+- Print jest obszerny (**52 strony A4**), bo zawiera wszystkie dni, warianty, trasy, miejsca, checklisty i źródła; dni płyną kolejno, a tabele źródłowe mają powtarzany nagłówek. Druga strona to jednokartkowa „Karta podręczna”, żeby nie trzeba było drukować całego planu do szybkiego użycia. Ten sam PDF jest linkowany w stopce i w banerze no-JS; po zmianie JSON wygeneruj go ponownie z aktualnego builda.
 
 ## Edycja
 

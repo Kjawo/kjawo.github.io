@@ -155,10 +155,10 @@
         text.className = "connection__text";
         el.appendChild(text);
       }
-      text.textContent = online ? "Online" : "Offline";
+      text.textContent = online ? "online" : "offline";
       el.classList.toggle("is-offline", !online);
       el.setAttribute("title", online
-        ? "Połączenie internetowe aktywne"
+        ? "Wskaźnik połączenia z siecią. To nie oznacza świeżości planu; datę aktualizacji podaje stopka."
         : "Brak połączenia. Plan działa offline; kafelki mapy nie.");
     });
     var mapOffline = $("[data-map-offline]");
@@ -215,6 +215,35 @@
     return value || "brak danych";
   }
 
+  function durationText(value) {
+    var total = Math.abs(value);
+    if (total < 60) return total + " min";
+    var hours = Math.floor(total / 60);
+    var mins = total % 60;
+    return hours + " h" + (mins ? " " + pad(mins) + " min" : "");
+  }
+  function dayLight(day) {
+    var card = document.getElementById("day-" + day.id.slice(-2));
+    if (!card) return null;
+    var sunset = card.getAttribute("data-sunset");
+    var twilight = card.getAttribute("data-twilight");
+    if (!sunset) return null;
+    var start = card.getAttribute("data-hike-start");
+    var end = card.getAttribute("data-hike-end");
+    if (!start || !end) return { hike: false, sunset: sunset, twilight: twilight };
+    return {
+      hike: true, start: start, end: end, sunset: sunset, twilight: twilight,
+      buffer: minutes(sunset) - minutes(end)
+    };
+  }
+  function updateOverdueIssues(referenceDate) {
+    $all("[data-issue-due]").forEach(function (card) {
+      var badge = card.querySelector("[data-issue-overdue]");
+      if (!badge) return;
+      var due = card.getAttribute("data-issue-due");
+      badge.hidden = !(due && referenceDate > due);
+    });
+  }
   function issueLink(issue) {
     return '<a class="text-link" href="#issue-' + esc(issue.id) + '">Otwórz zadanie →</a>';
   }
@@ -242,13 +271,14 @@
     if (todayBody) todayBody.innerHTML = html;
     if (todayActions) {
       todayActions.innerHTML = '<a class="text-link" href="#todo">Wszystkie zadania →</a>' +
-        '<a class="text-link" href="#dni">Dni i warianty →</a>';
+        '<a class="text-link" href="#dni">Dni i warianty →</a>' +
+        '<a class="text-link" href="cal/cypr2026-caly-wyjazd.ics" download>Kalendarz (.ics) →</a>';
     }
   }
   function renderInTrip(day) {
     var now = cyprusNow();
     var nowMinutes = now.hour * 60 + now.minute;
-    var events = (day.timeline || []).map(function (event, index, list) {
+    var events = (day.timeline || []).map(function (event, index) {
       var start = eventMinuteInCyprus(day, event);
       var end = null;
       if (event.end_local) {
@@ -265,8 +295,8 @@
     });
     events.forEach(function (item) {
       if (item.end == null) {
-        var next = events[item.index + 1];
-        item.end = next ? next.start : 24 * 60 + 30;
+        var following = events[item.index + 1];
+        item.end = following ? following.start : 24 * 60 + 30;
       }
     });
     var active = null;
@@ -274,16 +304,16 @@
       if (item.start <= nowMinutes && nowMinutes < item.end) active = item;
     });
     var next = null;
-    if (!active) {
-      events.some(function (item) {
-        if (item.start > nowMinutes) { next = item; return true; }
-        return false;
-      });
-    }
+    events.some(function (item) {
+      if (item.start > nowMinutes) { next = item; return true; }
+      return false;
+    });
     var current = active || next;
-    if (todayKicker) todayKicker.textContent = "Dzień " + Number(day.id.slice(-2)) + " z " + allDays.length + " · w trakcie";
+    var upcoming = active ? next : null;
+    var dayNo = Number(day.id.slice(-2));
+    if (todayKicker) todayKicker.textContent = "Dzień " + dayNo + " z " + allDays.length + (active ? " · w trakcie" : current ? " · przed punktem" : " · po planie");
     if (todayTitle) todayTitle.textContent = day.title;
-    var html = '<p class="today-bigline">Dzień ' + Number(day.id.slice(-2)) + " · " + esc(weekdayLabel(day.date)) + " · " + esc(dateLabel(day.date)) + "</p>";
+    var html = '<p class="today-bigline">Dzień ' + dayNo + " · " + esc(weekdayLabel(day.date)) + " · " + esc(dateLabel(day.date)) + "</p>";
     (data.trip.flights || []).filter(function (flight) {
       return flight.departure_at.slice(0, 10) === day.date;
     }).forEach(function (flight) {
@@ -299,11 +329,25 @@
     if (day.date in HUNTING_DATES) {
       html += '<div class="today-hunt">Dzień polowań — bez trekkingu. Trzymaj się programu miejskiego.</div>';
     }
+    var light = dayLight(day);
+    if (light) {
+      html += '<p class="today-light"><strong>Światło dnia:</strong> zachód ' + esc(light.sunset) + ' · zmierzch ' + esc(light.twilight);
+      if (light.hike) {
+        var buffer = light.buffer >= 0 ? "zapas " + durationText(light.buffer) : durationText(light.buffer) + " po zachodzie";
+        html += ' · trekking ' + esc(light.start) + '–' + esc(light.end) + ' (' + esc(buffer) + ')';
+      } else {
+        html += ' · bez trekkingu';
+      }
+      if (light.hike && day.primary_route_id) {
+        html += ' · <strong>trasa do bramki — bez zielonego światła</strong>';
+      }
+      html += '</p>';
+    }
     if (!current) {
       html += "<p>Dzisiejsze punkty osi czasu dobiegły końca. Zachowaj czas na odpoczynek i sprawdź plan na jutro.</p>";
     } else {
       var eventZone = current.event.timezone || day.timezone || CY_TZ;
-      var eventTime = current.event.start_local + " " + zoneCode(eventZone);
+      var eventTime = current.event.start_local + (current.event.end_local ? "–" + current.event.end_local : "") + " " + zoneCode(eventZone);
       if (eventZone !== CY_TZ) {
         var converted = new Intl.DateTimeFormat("en-GB", {
           timeZone: CY_TZ, hour: "2-digit", minute: "2-digit", hourCycle: "h23"
@@ -320,19 +364,24 @@
         "<p>" + esc(current.event.description) + "</p>" +
         (names.length ? '<p class="today-places">' + names.map(esc).join(" · ") + "</p>" : "") +
         "</div>";
+      if (upcoming) {
+        html += '<p class="today-next"><span>Następnie</span> <b>' + esc(upcoming.event.start_local) + '</b> · ' + esc(upcoming.event.title) + '</p>';
+      }
     }
-    var sunset = (data.sunsets || []).filter(function (item) { return item.date === day.date; })[0];
-    html += '<dl class="today-facts">';
-    if (sunset) {
-      html += "<div><dt>Zachód</dt><dd>" + esc(sunset.sunset_local) + "</dd></div>" +
-        "<div><dt>Zmierzch</dt><dd>" + esc(sunset.civil_twilight_end_local) + "</dd></div>";
-    }
-    html += '<div><dt>Hotel</dt><dd><a href="tel:' + esc(hotelTel) + '">' + esc(phoneDisplay(hotelPlace.phone)) + "</a></dd></div>" +
-      '<div><dt>Alarm</dt><dd><a href="tel:112">112</a></dd></div></dl>';
+    html += '<dl class="today-facts">' +
+      '<div><dt>Hotel</dt><dd><a class="tap-inline" href="tel:' + esc(hotelTel) + '">' + esc(phoneDisplay(hotelPlace.phone)) + "</a></dd></div>" +
+      '<div><dt>Alarm</dt><dd><a class="tap-inline" href="tel:112">112</a></dd></div></dl>';
     if (todayBody) todayBody.innerHTML = html;
     if (todayActions) {
-      todayActions.innerHTML = '<a class="text-link" href="#day-' + esc(day.id.slice(-2)) + '">Pełny dzień →</a>' +
-        '<a class="text-link" href="#mapa">Mapa i miejsca →</a>';
+      var actions = '<a class="text-link" href="#day-' + esc(day.id.slice(-2)) + '">Pełny dzień →</a>' +
+        '<a class="text-link" href="#mapa" data-map-day="' + esc(day.id.slice(-2)) + '">Dzień na mapie →</a>';
+      if (day.primary_route_id) {
+        var route = (data.routes || []).filter(function (item) { return item.id === day.primary_route_id; })[0];
+        if (route) {
+          actions += '<a class="text-link" href="#trasa-' + esc(route.id.replace("TR-", "").toLowerCase()) + '">Trasa i bramki →</a>';
+        }
+      }
+      todayActions.innerHTML = actions;
     }
   }
   function renderAfterTrip() {
@@ -351,13 +400,17 @@
     else if (activeDate > endDate) renderAfterTrip();
     else if (dayByDate[activeDate]) renderInTrip(dayByDate[activeDate]);
     if (overrideDate) {
+      if (todayKicker && todayKicker.textContent.indexOf("Widok testowy") !== 0) {
+        todayKicker.textContent = "Widok testowy · " + todayKicker.textContent;
+      }
       if (dateOverrideNote) {
         dateOverrideNote.hidden = false;
-        dateOverrideNote.textContent = "Widok testowy: ?date=" + overrideDate + ". Zegar pokazuje bieżący czas na Cyprze.";
+        dateOverrideNote.textContent = "Widok testowy: " + dateLabel(overrideDate) + ". To nie jest dzisiejsza data; zegar pokazuje bieżący czas na Cyprze.";
       }
     } else if (dateOverrideNote) {
       dateOverrideNote.hidden = true;
     }
+    updateOverdueIssues(activeDate);
   }
   refreshToday();
 
@@ -472,6 +525,12 @@
   function announce(message) {
     if (liveRegion) liveRegion.textContent = message;
   }
+  var checklistSaveNote = $("[data-checklist-save]");
+  function showChecklistSave(message) {
+    if (!checklistSaveNote) return;
+    checklistSaveNote.textContent = message || "";
+    checklistSaveNote.hidden = !message;
+  }
   function saveChecklist() {
     checklistState.planVersion = data.meta.version;
     try {
@@ -479,8 +538,12 @@
         items: checklistState.items,
         planVersion: data.meta.version
       }));
+      showChecklistSave("");
+      return true;
     } catch (error) {
       announce("Nie udało się zapisać checklisty w tej przeglądarce.");
+      showChecklistSave("Nie udało się zapisać checklisty. Zaznaczenia pozostaną tylko do zamknięcia strony.");
+      return false;
     }
   }
   function refreshChecklist() {
@@ -514,9 +577,9 @@
     input.checked = checklistState.items[id] === true;
     input.addEventListener("change", function () {
       checklistState.items[id] = input.checked;
-      saveChecklist();
+      var saved = saveChecklist();
       var totals = refreshChecklist();
-      announce("Zapisano lokalnie: " + totals.checked + " z " + totals.total + ".");
+      if (saved) announce("Zapisano lokalnie: " + totals.checked + " z " + totals.total + ".");
     });
   });
   refreshChecklist();
@@ -525,14 +588,22 @@
     resetButton.addEventListener("click", function () {
       if (!window.confirm("Wyczyścić wszystkie zaznaczenia checklisty? Stan zapisany lokalnie zostanie usunięty.")) return;
       checklistState.items = {};
-      try { window.localStorage.removeItem(CHECK_KEY); } catch (error) {}
+      var removed = true;
+      try { window.localStorage.removeItem(CHECK_KEY); } catch (error) { removed = false; }
+      if (!removed) {
+        announce("Nie udało się usunąć zapisu checklisty.");
+        showChecklistSave("Nie udało się usunąć zapisu checklisty. Zaznaczenia mogą wrócić po odświeżeniu.");
+        return;
+      }
       checklistInputs.forEach(function (input) { input.checked = false; });
       refreshChecklist();
+      showChecklistSave("");
       announce("Checklista wyczyszczona.");
     });
   }
   if (checklistState.storageBlocked) {
     announce("Ta przeglądarka blokuje lokalny zapis checklisty.");
+    showChecklistSave("Ta przeglądarka blokuje lokalny zapis checklisty. Zaznaczenia pozostaną tylko do zamknięcia strony.");
   }
 
   // Source references --------------------------------------------------------
@@ -552,7 +623,7 @@
   });
 
   // Navigation ---------------------------------------------------------------
-  var navLinks = $all(".subnav__list a[href^='#']");
+  var navLinks = $all(".subnav__list a[href^='#'], .subnav__menu a[href^='#']");
   var sections = navLinks.map(function (link) {
     return { link: link, section: document.getElementById(link.getAttribute("href").slice(1)) };
   }).filter(function (item) { return item.section; });
@@ -596,13 +667,29 @@
     navTicking = true;
     window.requestAnimationFrame(updateNavCurrent);
   }, { passive: true });
-  window.addEventListener("resize", updateReadingProgress, { passive: true });
   updateNavCurrent();
+  var navMenu = $(".subnav__more");
+  if (navMenu) {
+    $all("a", navMenu).forEach(function (link) {
+      link.addEventListener("click", function () { navMenu.open = false; });
+    });
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && navMenu.open) {
+        navMenu.open = false;
+        var summary = navMenu.querySelector("summary");
+        if (summary) summary.focus();
+      }
+    });
+  }
 
   // Lazy Leaflet map ---------------------------------------------------------
   var mapCanvas = document.getElementById("map-canvas");
   var mapLoaded = false;
   var mapLoading = false;
+  var mapInstance = null;
+  var mapRenderMarkers = null;
+  var mapAllPlaces = [];
+  var mapFilterDay = null;
   var OSM_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
   function loadScript(src) {
     return new Promise(function (resolve, reject) {
@@ -693,6 +780,107 @@
     }
     return groups;
   }
+  function dayPlaceIds(dayNo) {
+    var day = allDays.filter(function (item) { return item.id.slice(-2) === String(dayNo); })[0];
+    if (!day) return null;
+    var ids = {};
+    (day.timeline || []).forEach(function (event) {
+      (event.place_ids || []).forEach(function (id) { ids[id] = true; });
+    });
+    if (day.primary_route_id) {
+      var route = (data.routes || []).filter(function (item) { return item.id === day.primary_route_id; })[0];
+      if (route && route.start_place_id) ids[route.start_place_id] = true;
+    }
+    return ids;
+  }
+  function mapCurrentPlaces() {
+    if (!mapFilterDay) return mapAllPlaces;
+    var ids = dayPlaceIds(mapFilterDay);
+    if (!ids) return mapAllPlaces;
+    return mapAllPlaces.filter(function (place) { return ids[place.id]; });
+  }
+  function filterPlaceCards(ids) {
+    $all("[data-place-id]").forEach(function (card) {
+      card.hidden = !!(ids && !ids[card.getAttribute("data-place-id")]);
+    });
+    $all("[data-place-group]").forEach(function (group) {
+      var cards = $all("[data-place-id]", group);
+      var shown = cards.filter(function (card) { return !card.hidden; }).length;
+      group.hidden = !!(ids && shown === 0);
+      var count = group.querySelector("[data-place-count]");
+      if (count) {
+        count.textContent = ids
+          ? shown + " z " + cards.length + " " + placesPlural(cards.length)
+          : cards.length + " " + placesPlural(cards.length);
+      }
+      var link = document.querySelector('.map-groups a[href="#' + group.id + '"]');
+      if (link) {
+        link.hidden = !!(ids && shown === 0);
+        var badge = link.querySelector("b");
+        if (badge) badge.textContent = ids ? shown : cards.length;
+      }
+    });
+  }
+  function updateMapEmpty(visible) {
+    var empty = $("[data-map-empty]");
+    if (!empty) return;
+    var show = !!(mapFilterDay && visible.length === 0);
+    empty.hidden = !show;
+    if (!show) return;
+    var day = allDays.filter(function (item) { return item.id.slice(-2) === String(mapFilterDay); })[0];
+    var ids = dayPlaceIds(mapFilterDay) || {};
+    var text = $("[data-map-empty-text]");
+    if (text && day) {
+      text.textContent = "Dzień " + Number(day.id.slice(-2)) + ": 0 z " + Object.keys(ids).length + " miejsc ma współrzędne. To nie błąd mapy — lista poniżej ma adresy i linki Maps.";
+    }
+  }
+  function updateMapStatus() {
+    var status = $("[data-map-status]");
+    if (!status) return;
+    if (!mapFilterDay) {
+      status.textContent = "Cały wyjazd · " + mapAllPlaces.length + " z " + allPlaces.length + " miejsc na mapie. Pozostałe mają linki Maps.";
+      return;
+    }
+    var day = allDays.filter(function (item) { return item.id.slice(-2) === String(mapFilterDay); })[0];
+    var ids = dayPlaceIds(mapFilterDay) || {};
+    var total = Object.keys(ids).length;
+    var shown = mapCurrentPlaces().length;
+    var missing = Object.keys(ids).filter(function (id) {
+      var place = placeById[id];
+      return place && !(place.coordinates && typeof place.coordinates.lat === "number");
+    }).length;
+    var text = day
+      ? "Dzień " + Number(day.id.slice(-2)) + " · " + day.title + ": " + shown + " z " + total + " miejsc na mapie"
+      : "Filtr dnia";
+    if (missing) text += ". Bez współrzędnych: " + missing + " — linki są w liście poniżej.";
+    status.textContent = text;
+  }
+  function applyMapFilter(dayNo, options) {
+    mapFilterDay = dayNo && dayNo !== "all" ? String(dayNo) : null;
+    $all(".map-filter__chip").forEach(function (button) {
+      var active = button.getAttribute("data-map-day") === (mapFilterDay || "all");
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", active ? "true" : "false");
+    });
+    filterPlaceCards(mapFilterDay ? dayPlaceIds(mapFilterDay) : null);
+    updateMapStatus();
+    if (mapInstance && mapRenderMarkers) {
+      var visible = mapCurrentPlaces();
+      mapRenderMarkers(visible);
+      if (visible.length) {
+        mapInstance.fitBounds(visible.map(function (place) {
+          return [place.coordinates.lat, place.coordinates.lon];
+        }), { padding: [34, 34], maxZoom: 12 });
+      } else {
+        mapInstance.setView([34.9, 32.75], 8);
+      }
+    }
+    updateMapEmpty(mapCurrentPlaces());
+    if (!options || options.scroll !== false) {
+      var section = document.getElementById("mapa");
+      if (section) section.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+    }
+  }
   function initMap() {
     if (!mapCanvas || !window.L || mapLoaded) return;
     mapLoaded = true;
@@ -719,9 +907,11 @@
       return [place.coordinates.lat, place.coordinates.lon];
     });
     var markerLayer = window.L.layerGroup().addTo(map);
-    function renderMarkers() {
+    mapInstance = map;
+    mapAllPlaces = places;
+    function renderMarkers(placesToShow) {
       markerLayer.clearLayers();
-      var groups = groupPlaces(places, map);
+      var groups = groupPlaces(placesToShow || [], map);
       groups.forEach(function (group) {
         var members = group.places;
         var lat = members.reduce(function (sum, place) { return sum + place.coordinates.lat; }, 0) / members.length;
@@ -755,8 +945,9 @@
     }
     if (bounds.length) map.fitBounds(bounds, { padding: [34, 34], maxZoom: 11 });
     else map.setView([34.9, 32.75], 8);
-    renderMarkers();
-    map.on("zoomend", renderMarkers);
+    mapRenderMarkers = renderMarkers;
+    renderMarkers(places);
+    map.on("zoomend", function () { mapRenderMarkers(mapCurrentPlaces()); });
     map.on("popupopen", function (event) {
       var closeButton = event.popup.getElement() && event.popup.getElement().querySelector(".leaflet-popup-close-button");
       if (closeButton) closeButton.setAttribute("aria-label", "Zamknij opis miejsca");
@@ -768,6 +959,7 @@
     offline.hidden = navigator.onLine !== false;
     mapCanvas.appendChild(offline);
     mapCanvas.classList.add("is-ready");
+    if (mapFilterDay) applyMapFilter(mapFilterDay, { scroll: false });
     updateConnection();
   }
   function loadMap() {
@@ -801,6 +993,59 @@
       loadMap();
     }
   }
+
+  // Place list disclosure ---------------------------------------------------
+  var placesDisclosure = $("[data-places-disclosure]");
+  var sourceDisclosure = $("[data-source-disclosure]");
+  var placesMobileQuery = window.matchMedia("(max-width: 759px)");
+  function applyPlacesDisclosure() {
+    if (placesDisclosure) placesDisclosure.open = !placesMobileQuery.matches;
+    if (sourceDisclosure) sourceDisclosure.open = !placesMobileQuery.matches;
+  }
+  function openPlacesFromHash() {
+    if (placesDisclosure && /^#place-/.test(window.location.hash)) placesDisclosure.open = true;
+    if (sourceDisclosure && /^#src-/.test(window.location.hash)) sourceDisclosure.open = true;
+  }
+  applyPlacesDisclosure();
+  openPlacesFromHash();
+  window.addEventListener("hashchange", openPlacesFromHash);
+  if (placesMobileQuery.addEventListener) placesMobileQuery.addEventListener("change", applyPlacesDisclosure);
+  else if (placesMobileQuery.addListener) placesMobileQuery.addListener(applyPlacesDisclosure);
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest) return;
+    var openButton = event.target.closest("[data-open-places]");
+    if (openButton && placesDisclosure) {
+      placesDisclosure.open = true;
+      placesDisclosure.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+      return;
+    }
+    var link = event.target.closest('a[href^="#place-"]');
+    if (link && placesDisclosure) placesDisclosure.open = true;
+    var sourceLink = event.target.closest('a[href^="#src-"]');
+    if (sourceLink && sourceDisclosure) sourceDisclosure.open = true;
+  });
+
+  // Map day filter ----------------------------------------------------------
+  document.addEventListener("click", function (event) {
+    if (!event.target.closest) return;
+    var chip = event.target.closest(".map-filter__chip");
+    if (chip) {
+      event.preventDefault();
+      applyMapFilter(chip.getAttribute("data-map-day"), { scroll: false });
+      return;
+    }
+    var link = event.target.closest("[data-map-day]");
+    if (link) {
+      event.preventDefault();
+      var day = link.getAttribute("data-map-day");
+      if (!mapLoaded) loadMap();
+      applyMapFilter(day);
+      window.setTimeout(function () {
+        var chip = document.querySelector('.map-filter__chip[data-map-day="' + day + '"]');
+        if (chip) chip.focus({ preventScroll: true });
+      }, 350);
+    }
+  });
 
   // Offline shell ------------------------------------------------------------
   if ("serviceWorker" in navigator && (window.location.protocol === "https:" ||

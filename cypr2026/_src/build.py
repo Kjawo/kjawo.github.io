@@ -14,7 +14,7 @@ import json
 import re
 import sys
 from collections import Counter, defaultdict
-from datetime import date, datetime, time
+from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
@@ -24,10 +24,15 @@ DATA_FILE = ROOT / "data" / "Cypr_2026_zrodlo_prawdy.json"
 TEMPLATE_FILE = ROOT / "_src" / "template.html"
 STYLES_FILE = ROOT / "styles.css"
 APP_FILE = ROOT / "app.js"
+MIN_STYLES_FILE = ROOT / "styles.min.css"
+MIN_APP_FILE = ROOT / "app.min.js"
 SW_FILE = ROOT / "sw.js"
 MANIFEST_FILE = ROOT / "manifest.json"
 INDEX_FILE = ROOT / "index.html"
+CAL_DIR = ROOT / "cal"
 ASSETS_DIR = ROOT / "assets"
+CANONICAL_URL = "https://kjawo.github.io/cypr2026/"
+ics_stamp_cached = ""
 
 CY_TZ = "Asia/Nicosia"
 PL_TZ = "Europe/Warsaw"
@@ -231,6 +236,7 @@ ICON_PATHS = {
     "camera": '<path d="M4 7h3l2-3h6l2 3h3a1 1 0 0 1 1 1v12H3V8a1 1 0 0 1 1-1Z"/><circle cx="12" cy="13" r="4"/>',
     "food": '<path d="M7 3v8a3 3 0 0 1-3 3V3M4 14v7M11 3v18M17 3c2 2 2 4 2 7s-1 3-3 3V3Z"/>',
     "chevron": '<path d="m6 9 6 6 6-6"/>',
+    "menu": '<path d="M4 6h16M4 12h16M4 18h16"/>',
     "download": '<path d="M12 3v12M7 10l5 5 5-5M4 21h16"/>',
     "wifi": '<path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 19.5h.01"/>',
 }
@@ -436,6 +442,150 @@ def format_time_range(start: str, end: str | None) -> str:
     return f"{start}–{end}"
 
 
+def hhmm_minutes(value: str) -> int:
+    hours, mins = value.split(":")
+    return int(hours) * 60 + int(mins)
+
+
+def day_light(plan: "Plan", day: dict) -> dict | None:
+    """The planned hiking window against the official Pafos sunset.
+
+    The sunset values are for Pafos and are not treated as exact minutes for
+    every point of the island.  This helper never invents light data.
+    """
+    sunset = next((item for item in plan.sunsets if item.get("date") == day.get("date")), None)
+    if not sunset:
+        return None
+    hikes = [event for event in day.get("timeline", []) if event.get("kind") == "hike"]
+    if not hikes:
+        return {
+            "hike": False,
+            "sunset": sunset.get("sunset_local"),
+            "twilight": sunset.get("civil_twilight_end_local"),
+        }
+    start = min(event["start_local"] for event in hikes if event.get("start_local"))
+    end = max((event.get("end_local") or event.get("start_local")) for event in hikes)
+    sunset_min = hhmm_minutes(sunset["sunset_local"])
+    end_min = hhmm_minutes(end)
+    twilight_min = hhmm_minutes(sunset["civil_twilight_end_local"])
+    start_min = hhmm_minutes(start)
+    buffer_min = sunset_min - end_min
+    axis_start = 6 * 60
+    axis_total = 12 * 60
+    route = plan.routes.get(day.get("primary_route_id")) if day.get("primary_route_id") else None
+    reserve_min = route.get("reserve_duration_minutes") if route else None
+    reserve_end = None
+    if reserve_min is not None:
+        reserve_end_min = start_min + int(reserve_min)
+        reserve_end = f"{reserve_end_min // 60:02d}:{reserve_end_min % 60:02d}"
+    start_pct = max(0.0, min(100.0, (start_min - axis_start) / axis_total * 100))
+    hike_pct = max(0.0, min(100.0, (end_min - start_min) / axis_total * 100))
+    buffer_pct = max(0.0, min(100.0, buffer_min / axis_total * 100))
+    sunset_pct = max(0.0, min(100.0, (sunset_min - axis_start) / axis_total * 100))
+    twilight_pct = max(0.0, min(100.0, (twilight_min - sunset_min) / axis_total * 100))
+    return {
+        "hike": True,
+        "start": start,
+        "end": end,
+        "sunset": sunset["sunset_local"],
+        "twilight": sunset["civil_twilight_end_local"],
+        "buffer_min": buffer_min,
+        "reserve_end": reserve_end,
+        "start_pct": round(start_pct, 1),
+        "hike_pct": round(hike_pct, 1),
+        "buffer_pct": round(buffer_pct, 1),
+        "sunset_pct": round(sunset_pct, 1),
+        "twilight_pct": round(twilight_pct, 1),
+    }
+
+
+def render_day_light(plan: "Plan", day: dict) -> str:
+    light = day_light(plan, day)
+    if not light:
+        return ""
+    if not light["hike"]:
+        return (
+            '<p class="day-light day-light--flat">'
+            '<span class="day-light__kicker">Światło dnia</span>'
+            f'<span>Bez trekkingu. Zachód <b>{esc(light["sunset"])}</b> · '
+            f'zmierzch <b>{esc(light["twilight"])}</b>.</span></p>'
+        )
+    buffer = light["buffer_min"]
+    if buffer >= 0:
+        buffer_text = format_minutes_single(buffer)
+        buffer_note = "zapas światła"
+    else:
+        buffer_text = format_minutes_single(abs(buffer))
+        buffer_note = "po zachodzie"
+    aria = (
+        f"Oś 06:00–18:00. Trekking od {light['start']} do {light['end']}. "
+        + (f"Rezerwa planu do {light['reserve_end']}. " if light.get("reserve_end") else "")
+        + f"Zachód {light['sunset']}, zmierzch cywilny {light['twilight']}. "
+        f"{buffer_note}: {buffer_text}."
+    )
+    return f"""
+        <div class="day-light">
+          <div class="day-light__head">
+            <span class="day-light__kicker">Światło dnia</span>
+            <span class="status status--warning status--compact">Do bramki</span>
+          </div>
+          <svg class="day-light__bar" viewBox="0 0 100 13" preserveAspectRatio="none" role="img" aria-label="{esc(aria)}">
+            <rect class="day-light__seg day-light__seg--hike" x="{light['start_pct']}" y="0" width="{light['hike_pct']}" height="13"></rect>
+            <rect class="day-light__seg day-light__seg--buffer" x="{round(light['start_pct'] + light['hike_pct'], 1)}" y="0" width="{light['buffer_pct']}" height="13"></rect>
+            <rect class="day-light__seg day-light__seg--twilight" x="{light['sunset_pct']}" y="0" width="{light['twilight_pct']}" height="13"></rect>
+          </svg>
+          <div class="fine-print day-light__axis" aria-hidden="true"><span>06:00</span><span>18:00</span></div>
+          <p class="day-light__summary">Koniec trekkingu <b>{esc(light['end'])}</b>{f" · rezerwa <b>{esc(light['reserve_end'])}</b>" if light.get("reserve_end") else ""} · Zachód <b>{esc(light['sunset'])}</b> · {esc(buffer_note)} <b>{esc(buffer_text)}</b> · Zmierzch <b>{esc(light['twilight'])}</b></p>
+          <p class="fine-print day-light__note">Wejście po 5 bramkach; decyzja na parkingu. Zachód dla Pafos; w górach wcześniej. <a class="tap-inline" href="#bezpieczenstwo">Bramki przed wyjściem</a>.</p>
+          <details class="safety-details day-gates">
+            <summary>{icon("shield")} 5 bramek przed wyjściem {icon("chevron")}</summary>
+            <ol class="decision-gate">{''.join(f"<li>{esc(item)}</li>" for item in plan.safety.get("route_gate", []))}</ol>
+          </details>
+        </div>
+    """
+
+
+def route_verdict(plan: "Plan", route: dict, *, reserve: bool = False) -> str:
+    if reserve:
+        return (
+            '<p class="route-verdict"><strong>Werdykt: rezerwa.</strong> '
+            'Nie plan bazowy. Wchodzić tylko po pełnej kontroli warunków i światła; '
+            'bez GPX nie ma nawigacji z tej strony. <a class="tap-inline" href="#bezpieczenstwo">Bramki</a>.</p>'
+        )
+    days = plan.primary_days.get(route.get("id"), [])
+    day = days[0] if days else None
+    light = day_light(plan, day) if day else None
+    if light and light.get("hike"):
+        buffer = light["buffer_min"]
+        if buffer >= 0:
+            buffer_text = f"zapas {format_minutes_single(buffer)}"
+        else:
+            buffer_text = f"{format_minutes_single(abs(buffer))} po zachodzie"
+        return (
+            '<p class="route-verdict"><strong>Werdykt: do bramki.</strong> '
+            f'Dzień {int(day["id"].split("-")[-1])}: koniec {esc(light["end"])}, '
+            f'zachód {esc(light["sunset"])}, {esc(buffer_text)}. '
+            'Wejście po 5 bramkach; bez GPX i kontroli polowań nie ma zielonego światła. '
+            '<a class="tap-inline" href="#bezpieczenstwo">Bramki</a>.</p>'
+        )
+    return (
+        '<p class="route-verdict"><strong>Werdykt: do bramki.</strong> '
+        'Sprawdź 5 bramek, aktualne warunki i światło. '
+        '<a class="tap-inline" href="#bezpieczenstwo">Bramki</a>.</p>'
+    )
+
+
+def section_next(label: str, links: list[tuple[str, str]]) -> str:
+    items = "".join(
+        f'<a href="{esc(href)}">{esc(text)} {icon("arrow")}</a>' for href, text in links
+    )
+    return (
+        f'<nav class="section-next" aria-label="Następny krok: {esc(links[0][1])}">'
+        f'<span class="section-index">{esc(label)}</span>{items}</nav>'
+    )
+
+
+
 def status_label(code: str) -> str:
     return STATUS_LABELS.get(code, code.replace("_", " ").capitalize())
 
@@ -472,6 +622,15 @@ def source_chips(plan: "Plan", source_ids: list[str] | None, *, prefix: str = "�
         )
     label = f'<span class="source-chips__label">{esc(prefix)}:</span>' if prefix else ""
     return '<span class="source-chips">' + label + "".join(chips) + "</span>"
+
+
+def link_todo_ids(text: str) -> str:
+    safe = esc(text)
+    return re.sub(
+        r"TODO-[A-Z-]+",
+        lambda match: f'<a class="tap-inline" href="#issue-{match.group(0)}">{match.group(0)}</a>',
+        safe,
+    )
 
 
 def nowrap(text: str) -> str:
@@ -873,7 +1032,9 @@ def render_hero(plan: Plan) -> str:
     version = esc(plan.meta["version"])
     updated = format_date_pl(plan.meta["updated_on"])
     blocking = len(plan.blocking_issues)
-    plan_status = esc(plan.trip.get("plan_status", "Plan bazowy"))
+    hotel = plan.places.get(plan.trip["hotel"]["place_id"], {})
+    hotel_phone_raw = hotel.get("phone")
+    hotel_phone = re.sub(r"[^\d+]", "", hotel_phone_raw or "")
     return f"""
     <div class="hero__inner page-width">
       <div class="hero__copy">
@@ -884,46 +1045,58 @@ def render_hero(plan: Plan) -> str:
         <p class="eyebrow">PODRÓŻ · CYPR · 2026</p>
         <h1 class="hero__title">Cypr <span>bez pośpiechu</span></h1>
         <p class="hero__dates"><span class="hero__date-range">7–13 listopada 2026</span> <span aria-hidden="true">·</span> <span class="hero__date-meta">2 osoby · 6 nocy · Pafos</span></p>
-        <p class="hero__lede">Dwa widokowe trekkings, Pafos, Troodos, Omodos i Petra. Jedna baza, spokojne tempo i miejsce na światło.</p>
+        <p class="hero__lede">Dwa widokowe trekkingi, Pafos, Troodos, Omodos i Petra. Jedna baza, spokojne tempo i miejsce na światło.</p>
         <div class="hero__actions">
           <a class="button button--primary" href="#dzis">Dziś {icon("arrow")}</a>
           <button class="button button--ghost js-print" type="button">{icon("print")} Drukuj</button>
           <a class="button button--text" href="#tydzien">Zobacz plan {icon("chevron")}</a>
         </div>
-        <p class="hero__footnote">Plan bazowy. Rezerwacje lotów i hotelu według użytkownika; auto, wellness i warunki terenowe wymagają potwierdzenia.</p>
+        <p class="hero__footnote">Plan bazowy · aktualizacja {esc(updated)}. Baza: {esc(hotel.get("name", "Pafos"))}, {esc(hotel.get("address", "Pafos"))}. Rezerwacje lotów i hotelu według użytkownika; <a class="tap-inline" href="#todo">{blocking} zadań blokujących</a> przed wyjazdem. Auto, wellness i warunki terenowe — do sprawdzenia. Alarm: <a class="tap-inline hero__alarm" href="tel:112">112</a></p>
       </div>
       {render_cyprus_art()}
     </div>
     <div class="hero__status">
       <div class="page-width">
         <dl class="status-bar">
-          <div><dt>Wersja</dt><dd>{version}</dd></div>
-          <div><dt>Aktualizacja</dt><dd>{esc(updated)}</dd></div>
-          <div class="status-bar__status"><dt>Status</dt><dd>Plan bazowy</dd></div>
+          <div class="status-bar__meta"><dt>Wersja</dt><dd>{version}</dd></div>
+          <div class="status-bar__meta"><dt>Aktualizacja</dt><dd>{esc(updated)}</dd></div>
+          <div class="status-bar__hotel"><dt>Hotel</dt><dd><a href="tel:{esc(hotel_phone)}">{esc(format_phone_display(hotel_phone_raw))}</a></dd></div>
           <div><dt>Auto</dt><dd><a href="#auto">Do potwierdzenia</a></dd></div>
           <div class="status-bar__wide"><dt>Do potwierdzenia</dt><dd><a href="#todo">{blocking} zadań blokujących</a></dd></div>
-          <div class="status-bar__offline"><dt>Tryb</dt><dd><span class="connection connection--hero" data-connection role="status" aria-live="polite">{icon("wifi")}<span class="connection__text">sprawdzam</span></span></dd></div>
+          <div class="status-bar__offline"><dt>Sieć</dt><dd><span class="connection" data-connection role="status" aria-live="polite">{icon("wifi")}<span class="connection__text">sprawdzam</span></span> <a href="#offline" aria-label="Offline — instrukcja">Instrukcja</a></dd></div>
         </dl>
-        <p class="hero__plan-note">{plan_status}</p>
+        <details class="offline-note hero-offline">
+          <summary>{icon("wifi")} Offline w skrócie: 3 kroki {icon("chevron")}</summary>
+          <ol class="offline-steps">
+            <li>Zostaw stronę w pamięci po pierwszym wejściu online.</li>
+            <li>Pobierz zachodni Cypr i Troodos w Organic Maps lub Guru Maps.</li>
+            <li>Zapisz hotel i 112; checklisty są lokalne.</li>
+          </ol>
+          <a class="text-link" href="#offline">Pełna instrukcja offline {icon("arrow")}</a>
+        </details>
       </div>
     </div>
     """
 
 
+
 def render_nav(plan: Plan) -> str:
+    hotel = plan.places.get(plan.trip["hotel"]["place_id"], {})
+    hotel_phone = re.sub(r"[^\d+]", "", hotel.get("phone") or "")
     nav = [
         ("#top", "Start"),
-        ("#tydzien", "Tydzień"),
         ("#dzis", "Dziś"),
+        ("#tydzien", "Tydzień"),
+        ("#mapa", "Mapa"),
         ("#dni", "Dni"),
         ("#trasy", "Trasy"),
-        ("#mapa", "Mapa"),
         ("#praktyka", "Praktyka"),
         ("#checklisty", "Checklisty"),
         ("#todo", "Do potwierdzenia"),
         ("#zrodla", "Źródła"),
     ]
     items = "".join(f'<li><a href="{href}">{esc(label)}</a></li>' for href, label in nav)
+    menu_items = "".join(f'<a href="{href}">{esc(label)}</a>' for href, label in nav)
     return f"""
     <nav class="subnav" aria-label="Sekcje planu">
       <div class="page-width subnav__inner">
@@ -931,7 +1104,13 @@ def render_nav(plan: Plan) -> str:
         <div class="subnav__scroll">
           <ul class="subnav__list">{items}</ul>
         </div>
+        <details class="subnav__more">
+          <summary aria-label="Otwórz menu sekcji">{icon("menu")} Sekcje {icon("chevron")}</summary>
+          <div class="subnav__menu" role="group" aria-label="Wszystkie sekcje planu">{menu_items}</div>
+        </details>
         <div class="subnav__tools">
+          <a class="subnav__tool" href="#mapa" aria-label="Mapa miejsc" title="Mapa miejsc">{icon("map")}</a>
+          <a class="subnav__tool" href="tel:{esc(hotel_phone)}" aria-label="Telefon hotelu" title="Telefon hotelu">{icon("bed")}</a>
           <a class="emergency-mini" href="tel:112" aria-label="Numer alarmowy 112">{icon("phone")}<span>112</span></a>
           <span class="connection connection--nav" data-connection>{icon("wifi")}<span class="connection__text">sprawdzam</span></span>
         </div>
@@ -939,6 +1118,7 @@ def render_nav(plan: Plan) -> str:
       <span class="subnav__progress" aria-hidden="true"><span data-reading-progress></span></span>
     </nav>
     """
+
 
 
 def day_number(day: dict) -> str:
@@ -983,16 +1163,18 @@ def render_week(plan: Plan) -> str:
     <section class="section section--week" id="tydzien" aria-labelledby="tydzien-title">
       <div class="page-width">
         <header class="section-head">
-          <p class="section-index"><span>01</span> / PRZEGLĄD</p>
+          <p class="section-index"><span>02</span> / PRZEGLĄD</p>
           <div class="section-head__body">
             <h2 id="tydzien-title">Tydzień w skrócie</h2>
-            <p class="section-lede">Siedem dni, jedna baza i dwa główne trekkings. Karty są skrótem; pełny plan z godzinami znajduje się <a class="tap-inline" href="#dni">niżej</a>.</p>
+            <p class="section-lede">Siedem dni, jedna baza i dwa główne trekkingi. Karty są skrótem; pełny plan z godzinami znajduje się <a class="tap-inline" href="#dni">niżej</a>.</p>
           </div>
         </header>
         <div class="week-strip" role="group" aria-label="Siedem dni wyjazdu">
           {cards}
         </div>
         <p class="section-footnote">{icon("alert")} <span>8 i 11 listopada to dni polowań — bez trekkingu. Szczegóły w sekcji <a class="tap-inline" href="#bezpieczenstwo">Bezpieczeństwo</a>.</span></p>
+        <p class="calendar-link">{icon("calendar")} <a href="cal/cypr2026-caly-wyjazd.ics" download>Cały wyjazd w kalendarzu (.ics)</a></p>
+        {section_next("Dalej", [("#mapa", "Mapa i miejsca"), ("#dni", "Dni i godziny")])}
       </div>
     </section>
     """
@@ -1019,26 +1201,26 @@ def render_today(plan: Plan) -> str:
     <section class="section section--today" id="dzis" aria-labelledby="dzis-title">
       <div class="page-width">
         <header class="section-head section-head--compact">
-          <p class="section-index"><span>02</span> / TERAZ</p>
+          <p class="section-index"><span>01</span> / TERAZ</p>
           <div class="section-head__body">
             <h2 id="dzis-title">Dziś</h2>
-            <p class="section-lede">Jeden spokojny punkt widzenia: zegar Cypru, bieżący dzień i następny krok. Bez automatycznej pogody i bez przewijania strony.</p>
+            <p class="section-lede">Zegar Cypru, bieżący dzień i następny krok — bez automatycznej pogody.</p>
           </div>
         </header>
         <div class="today-card" data-today>
           <div class="today-card__main">
             <p class="today-kicker"><span class="live-dot" aria-hidden="true"></span> <span data-today-kicker>Widok planu</span></p>
+            <p class="date-override" data-date-override hidden></p>
             <h3 class="today-title" data-today-title>Plan na 7–13 listopada 2026</h3>
             <div class="today-body" data-today-body>
               <p>Ten widok dopasuje się do daty po włączeniu JavaScript. Pełny plan, kontakty i druk działają także bez niego.</p>
               {nearest}
             </div>
             <div class="today-actions" data-today-actions>
-              <a class="text-link" href="#tydzien">Tydzień w skrócie {icon("arrow")}</a>
+              <a class="text-link" href="#dni">Dni i warianty {icon("arrow")}</a>
               <a class="text-link" href="#todo">Zadania do potwierdzenia {icon("arrow")}</a>
+              <a class="text-link" href="cal/cypr2026-caly-wyjazd.ics" download>Kalendarz (.ics) {icon("download")}</a>
             </div>
-            <p class="date-override" data-date-override hidden></p>
-            <noscript><p class="noscript-note">Widok „Dziś” wymaga JavaScript. Cały plan bazowy jest widoczny poniżej, a wydruk obejmuje wszystkie dni.</p></noscript>
           </div>
           <aside class="today-card__aside" aria-label="Szybkie kontakty">
             <div class="clock-block">
@@ -1049,6 +1231,7 @@ def render_today(plan: Plan) -> str:
               <li><a href="tel:{esc(hotel_phone)}">{icon("phone")} <span><small>Hotel</small>{esc(format_phone_display(hotel_phone_raw))}</span></a></li>
               <li><a class="quick-links__emergency" href="tel:112">{icon("phone")} <span><small>Alarmowy</small>112</span></a></li>
               <li><a href="#mapa">{icon("map")} <span><small>Mapa</small>Punkty i Maps</span></a></li>
+              <li><a href="#offline">{icon("wifi")} <span><small>Offline</small>Co działa bez sieci</span></a></li>
             </ul>
           </aside>
         </div>
@@ -1194,7 +1377,7 @@ def render_alternative(plan: Plan, alt: dict) -> str:
             <ul>{conditions}</ul>
           </div>
           <div>
-            <h4>Fallback</h4>
+            <h4>Plan awaryjny</h4>
             <p>{esc(alt["fallback"])}</p>
           </div>
         </div>
@@ -1205,6 +1388,12 @@ def render_alternative(plan: Plan, alt: dict) -> str:
 
 def render_day(plan: Plan, day: dict) -> str:
     day_no = day["id"].split("-")[-1]
+    light = day_light(plan, day)
+    light_attrs = ""
+    if light:
+        light_attrs = f' data-sunset="{esc(light["sunset"])}" data-twilight="{esc(light["twilight"])}"'
+        if light.get("hike"):
+            light_attrs += f' data-hike-start="{esc(light["start"])}" data-hike-end="{esc(light["end"])}"'
     alt_cards = "".join(render_alternative(plan, alt) for alt in plan.alternatives_by_day.get(day["id"], []))
     hunt = day["date"] in HUNTING_DATES
     hunt_note = ""
@@ -1240,7 +1429,7 @@ def render_day(plan: Plan, day: dict) -> str:
         else f'<span class="chip chip--missing">{icon("car")}Auto: <b>brak danych</b></span>'
     )
     return f"""
-      <article class="day-card" id="day-{esc(day_no)}" data-day-date="{esc(day['date'])}" aria-labelledby="day-{esc(day_no)}-title">
+      <article class="day-card" id="day-{esc(day_no)}" data-day-date="{esc(day['date'])}"{light_attrs} aria-labelledby="day-{esc(day_no)}-title">
         <header class="day-card__head">
           <p class="day-label">{esc(day_label(day))} <span>/</span> {esc(format_date_pl(day['date']))}</p>
           <div class="day-card__title-row">
@@ -1260,6 +1449,7 @@ def render_day(plan: Plan, day: dict) -> str:
         </header>
         {flight_band}
         {hunt_note}
+        {render_day_light(plan, day)}
         <details class="day-disclosure" open data-day-disclosure>
           <summary><span>Oś czasu, notatki i źródła</span>{icon("chevron")}</summary>
           <div class="day-card__body">
@@ -1287,6 +1477,8 @@ def render_day(plan: Plan, day: dict) -> str:
             </div>
             <div class="day-card__foot">
               {route_link}
+              <a class="day-map-link" href="#mapa" data-map-day="{day_no}">{icon("map")} Dzień na mapie {icon("arrow")}</a>
+              <a class="ics-link" href="cal/cypr2026-{esc(day['date'])}.ics" download>Dodaj dzień do kalendarza (.ics) {icon("download")}</a>
               <details class="source-note" open data-collapse-on-load>
                 <summary>{icon("source")} Źródła dnia</summary>
                 <div class="source-note__body">{sources}</div>
@@ -1311,13 +1503,14 @@ def render_days(plan: Plan) -> str:
     <section class="section section--days" id="dni" aria-labelledby="dni-title">
       <div class="page-width">
         <header class="section-head">
-          <p class="section-index"><span>03</span> / DZIENNIK</p>
+          <p class="section-index"><span>04</span> / DZIENNIK</p>
           <div class="section-head__body">
             <h2 id="dni-title">Dni</h2>
             <p class="section-lede">Każdy dzień ma własną oś czasu, plan awaryjny, notatkę fotograficzną i źródła. Warianty są osobnymi kartami i nigdy nie mieszają się z planem bazowym.</p>
           </div>
         </header>
         {''.join(blocks)}
+        {section_next("Dalej", [("#dni", "Dni i godziny"), ("#trasy", "Trasy i bezpieczeństwo")])}
       </div>
     </section>
     """
@@ -1442,6 +1635,7 @@ def render_route_card(plan: Plan, route: dict, *, reserve: bool = False) -> str:
               <span class="reserve-stamp">To nie plan bazowy</span>
             </header>
             <p class="route-card__summary">{esc(route.get("description", ""))}</p>
+            {route_verdict(plan, route, reserve=True)}
             <div class="reserve-facts">
               <span>{esc(format_km(route.get("distance_km")))}</span>
               <span>{esc(format_duration(route.get("planned_duration_minutes")))}</span>
@@ -1463,6 +1657,7 @@ def render_route_card(plan: Plan, route: dict, *, reserve: bool = False) -> str:
           <span class="route-id">{esc(route["id"])}</span>
         </header>
         <p class="route-card__summary">{esc(route.get("description", ""))}</p>
+        {route_verdict(plan, route)}
         {body}
       </article>
     """
@@ -1492,7 +1687,7 @@ def render_routes(plan: Plan) -> str:
     <section class="section section--routes" id="trasy" aria-labelledby="trasy-title">
       <div class="page-width">
         <header class="section-head">
-          <p class="section-index"><span>04</span> / TEREN</p>
+          <p class="section-index"><span>05</span> / TEREN</p>
           <div class="section-head__body">
             <h2 id="trasy-title">Trasy</h2>
             <p class="section-lede">Aphrodite i Artemis są aktywne w planie bazowym. Vouni jest warunkową zamianą czwartku. Pozostałe trasy to rezerwy — nie obowiązki.</p>
@@ -1528,6 +1723,7 @@ def render_routes(plan: Plan) -> str:
           </div>
           <div class="excluded-grid">{''.join(excluded)}</div>
         </section>
+        {section_next("Dalej", [("#trasy", "Trasy i bezpieczeństwo"), ("#praktyka", "Praktyka i bramki")])}
       </div>
     </section>
     """
@@ -1567,15 +1763,18 @@ def render_place(plan: Plan, place: dict) -> str:
     if place.get("phone"):
         tel = re.sub(r"[^\d+]", "", place["phone"])
         facts.append(f'<div><dt>Telefon</dt><dd><a href="tel:{esc(tel)}">{esc(format_phone_display(place["phone"]))}</a></dd></div>')
+    show_hours = place.get("type") in {"attraction", "museum", "restaurant"}
+    show_fee = place.get("type") in {"attraction", "museum"}
     if place.get("published_hours"):
         facts.append(f'<div><dt>Godziny</dt><dd>{esc(place["published_hours"])}</dd></div>')
-    else:
+    elif show_hours:
         missing.append("godziny")
-    if place.get("fee_eur_per_adult") is None:
-        missing.append("wstęp")
-    else:
-        fee = "0 €" if place.get("fee_eur_per_adult") == 0 else f'{format_money(place["fee_eur_per_adult"])}/os.'
-        facts.append(f'<div><dt>Wstęp</dt><dd>{esc(fee)}</dd></div>')
+    if show_fee:
+        if place.get("fee_eur_per_adult") is None:
+            missing.append("wstęp")
+        else:
+            fee = "0 €" if place.get("fee_eur_per_adult") == 0 else f'{format_money(place["fee_eur_per_adult"])}/os.'
+            facts.append(f'<div><dt>Wstęp</dt><dd>{esc(fee)}</dd></div>')
     if missing:
         facts.append(
             f'<div class="place-facts__missing"><dt>Brak danych</dt>'
@@ -1583,7 +1782,7 @@ def render_place(plan: Plan, place: dict) -> str:
         )
     facts_html = f'<dl class="place-facts">{"".join(facts)}</dl>' if facts else ""
     return f"""
-      <article class="place-card" id="place-{esc(place["id"])}">
+      <article class="place-card" id="place-{esc(place["id"])}" data-place-id="{esc(place["id"])}">
         <header class="place-card__head">
           <p class="place-type">{esc(PLACE_TYPE_LABELS.get(place.get("type"), place.get("type", "miejsce")))}</p>
           <h4>{esc(place["name"])}</h4>
@@ -1599,27 +1798,51 @@ def render_place(plan: Plan, place: dict) -> str:
 
 def render_map(plan: Plan) -> str:
     groups = []
+    group_links = []
     for group_id, group_name, types in PLACE_GROUPS:
         places = [place for place in plan.place_list if place.get("type") in types]
         if not places:
             continue
         cards = "".join(render_place(plan, place) for place in places)
         groups.append(f"""
-          <section class="place-group" aria-labelledby="place-group-{group_id}">
-            <div class="group-head"><h3 id="place-group-{group_id}">{esc(group_name)}</h3><span>{len(places)} {plural_pl(len(places), "miejsce", "miejsca", "miejsc")}</span></div>
+          <section class="place-group" id="place-group-{group_id}" data-place-group="{group_id}" aria-labelledby="place-group-{group_id}-title">
+            <div class="group-head"><h3 id="place-group-{group_id}-title">{esc(group_name)}</h3><span data-place-count="{group_id}">{len(places)} {plural_pl(len(places), "miejsce", "miejsca", "miejsc")}</span></div>
             <div class="place-grid">{cards}</div>
           </section>
         """)
+        group_links.append(f'<a href="#place-group-{group_id}">{esc(group_name)} <b>{len(places)}</b></a>')
+    day_buttons = "".join(
+        f'<button type="button" class="map-filter__chip" data-map-day="{int(day["id"].split("-")[-1]):02d}" '
+        f'aria-pressed="false" aria-label="Pokaż na mapie dzień {int(day["id"].split("-")[-1])}: {esc(day["title"])}">'
+        f'Dzień {int(day["id"].split("-")[-1])}</button>'
+        for day in plan.day_list
+    )
     return f"""
     <section class="section section--map" id="mapa" aria-labelledby="mapa-title">
       <div class="page-width">
         <header class="section-head">
-          <p class="section-index"><span>05</span> / ORIENTACJA</p>
+          <p class="section-index"><span>03</span> / ORIENTACJA</p>
           <div class="section-head__body">
             <h2 id="mapa-title">Mapa i miejsca</h2>
             <p class="section-lede">Punkty orientacyjne; to nie jest ślad GPS. {plan.coord_count} z {plan.total_places} miejsc ma współrzędne. Pozostałe otwierają wyszukiwanie w Maps — bez zgadywania lokalizacji.</p>
           </div>
         </header>
+        <div class="map-tools">
+          <div class="map-filter" data-map-filter>
+            <span class="map-filter__label">Dzień na mapie</span>
+            <div class="map-filter__buttons" role="group" aria-label="Filtruj mapę według dnia">
+              <button type="button" class="map-filter__chip is-active" data-map-day="all" aria-pressed="true">Cały wyjazd</button>
+              {day_buttons}
+            </div>
+            <p class="map-filter__status" data-map-status role="status" aria-live="polite">Cały wyjazd · {plan.coord_count} z {plan.total_places} miejsc na mapie. Pozostałe mają linki Maps.</p>
+          </div>
+          <nav class="map-groups" aria-label="Grupy miejsc">
+            <span class="map-groups__label">Skocz do grupy</span>
+            {''.join(group_links)}
+          </nav>
+        </div>
+        <noscript><p class="noscript-banner">Filtr dni wymaga JavaScriptu. Poniżej pełna lista miejsc i linki Maps.</p></noscript>
+        <p class="noscript-banner map-empty" data-map-empty hidden><strong data-map-empty-text>Brak współrzędnych dla tego dnia.</strong> <a class="text-link" href="#place-group-baza" data-open-places>Pokaż listę dnia</a></p>
         <div class="map-frame">
           <section class="map-canvas" id="map-canvas" aria-label="Interaktywna mapa miejsc z planu">
             <div class="map-placeholder">
@@ -1639,10 +1862,14 @@ def render_map(plan: Plan) -> str:
         <div class="map-notes">
           <p>{icon("info")} Kafelki OpenStreetMap nie są cache’owane przez service worker. Po pierwszym wejściu plan działa offline, ale mapa może pokazać tylko szare tło. Do nawigacji offline użyj Organic Maps lub Guru Maps.</p>
           <p>{icon("alert")} Markery pokazują miejsca, nie przebieg szlaku. Nie rysujemy linii z punktów orientacyjnych. Bliskie punkty łączą się w jeden marker — kliknij go, aby zobaczyć pełną listę.</p>
+          <p>{icon("info")} Status punktu dotyczy współrzędnych, nie godzin ani dostępności.</p>
         </div>
-        <div class="places">
-          {''.join(groups)}
-        </div>
+        <details class="places-disclosure" open data-places-disclosure>
+          <summary>Pełna lista miejsc <span>{plan.total_places} pozycji</span>{icon("chevron")}</summary>
+          <div class="places">
+            {''.join(groups)}
+          </div>
+        </details>
       </div>
     </section>
     """
@@ -1707,7 +1934,7 @@ def render_flight_card(plan: Plan, flight: dict) -> str:
           </tbody>
         </table>
         <p class="flight-card__date">{icon("calendar")} {esc(format_date_pl(flight["departure_at"][:10]))}</p>
-        <p class="flight-card__recheck"><strong>Recheck:</strong> {esc(flight.get("recheck", ""))}</p>
+        <p class="flight-card__recheck"><strong>Sprawdź ponownie:</strong> {esc(flight.get("recheck", ""))}</p>
         <div class="flight-card__sources">{source_chips(plan, flight.get("source_ids", []))}</div>
       </article>
     """
@@ -2092,12 +2319,32 @@ def render_packing(plan: Plan) -> str:
       <div id="pakowanie" class="subsection">
         {subsection_head("06.9", "Pakowanie", "Trzy zestawy, które warto przygotować osobno. Checklisty poniżej zapisują stan lokalnie.", icon_name="bag")}
         <div class="packing-grid">{''.join(cards)}</div>
-        <details class="offline-note" open data-collapse-on-load>
-          <summary>{icon("wifi")} Offline, mapa i ekran główny {icon("chevron")}</summary>
-          <p>Po pierwszym wejściu service worker zapisuje powłokę strony, CSS, JavaScript, JSON, fonty i ikony. Kafelki OpenStreetMap nie są cache’owane. Mapa offline wymaga osobnej aplikacji.</p>
-          <p>Do nawigacji offline użyj <strong>Organic Maps</strong> lub <strong>Guru Maps</strong> i wcześniej pobierz obszar zachodniego Cypru i Troodos. Strona ma manifest PWA — możesz dodać ją do ekranu głównego z menu przeglądarki.</p>
-          <p>Ustawienia checklist są lokalne (<code>localStorage</code>) i nie zmieniają faktów w planie. Po wyczyszczeniu danych przeglądarki znikną.</p>
-        </details>
+      </div>
+    """
+
+
+def render_offline(plan: Plan) -> str:
+    return f"""
+      <div id="offline" class="subsection offline-guide">
+        {subsection_head("06.0", "Offline", "Po pierwszym wejściu plan, kontakty i checklisty działają bez internetu. Kafelki mapy, prognoza i linki zewnętrzne — nie.", icon_name="wifi")}
+        <div class="offline-guide__grid">
+          <div>
+            <ol class="offline-steps">
+              <li><strong>Zostaw stronę w pamięci.</strong> Service worker zapisuje powłokę, fonty, plan i checklisty. Pierwsze wejście musi być online.</li>
+              <li><strong>Pobierz mapy offline.</strong> W Organic Maps lub Guru Maps zapisz zachodni Cypr i Troodos. Kafelki OpenStreetMap nie są cache’owane.</li>
+              <li><strong>Zapisz kontakty.</strong> Hotel, 112 i plan dnia miej pod ręką; w górach nie polegaj na zasięgu.</li>
+            </ol>
+            <p class="fine-print">Checklisty zapisują się lokalnie w tej przeglądarce. Po wyczyszczeniu danych przeglądarki znikną. Kalendarz .ics też działa offline po pierwszym pobraniu.</p>
+          </div>
+          <aside class="offline-guide__aside" aria-label="Offline — szybkie działania">
+            <p class="offline-status"><span class="connection" data-connection role="status" aria-live="polite">{icon("wifi")}<span class="connection__text">sprawdzam</span></span></p>
+            <a class="button button--primary" href="#checklisty">Checklisty offline {icon("arrow")}</a>
+            <a class="button button--ghost" href="#mapa">Mapa i ograniczenia</a>
+            <a class="button button--ghost" href="cal/cypr2026-caly-wyjazd.ics" download>Kalendarz .ics {icon("download")}</a>
+            <button class="button button--ghost js-print" type="button">{icon("print")} Drukuj plan</button>
+            <noscript><p class="fine-print">Bez JavaScriptu użyj menu przeglądarki, aby wydrukować lub zapisać PDF.</p></noscript>
+          </aside>
+        </div>
       </div>
     """
 
@@ -2113,6 +2360,20 @@ def render_practice(plan: Plan) -> str:
             <p class="section-lede">Loty, hotel, auto, przejazdy, koszty, jedzenie, bezpieczeństwo, światło i pakowanie. Fakty mają swoje statusy; brak danych nie jest zerem.</p>
           </div>
         </header>
+        <nav class="practice-toc" aria-label="Praktyka — na skróty">
+          <span class="practice-toc__label">Na skróty</span>
+          <a href="#offline">Offline</a>
+          <a href="#loty">Loty</a>
+          <a href="#hotel">Hotel</a>
+          <a href="#auto">Auto</a>
+          <a href="#przejazdy">Przejazdy</a>
+          <a href="#koszty">Koszty</a>
+          <a href="#jedzenie">Jedzenie</a>
+          <a href="#bezpieczenstwo">Bezpieczeństwo</a>
+          <a href="#zachody">Zachody</a>
+          <a href="#pakowanie">Pakowanie</a>
+        </nav>
+        {render_offline(plan)}
         {render_flights(plan)}
         {render_hotel(plan)}
         {render_car(plan)}
@@ -2122,6 +2383,7 @@ def render_practice(plan: Plan) -> str:
         {render_safety(plan)}
         {render_sunsets(plan)}
         {render_packing(plan)}
+        {section_next("Dalej", [("#checklisty", "Checklisty"), ("#todo", "Do potwierdzenia")])}
       </div>
     </section>
     """
@@ -2137,7 +2399,7 @@ def render_checklists(plan: Plan) -> str:
               <label class="check-item">
                 <input type="checkbox" id="chk-{esc(check_id.lower())}" data-check-id="{esc(check_id)}">
                 <span class="check-item__box" aria-hidden="true"></span>
-                <span class="check-item__text">{esc(text)}</span>
+                <span class="check-item__text">{link_todo_ids(text)}</span>
               </label>
             """)
         groups.append(f"""
@@ -2157,7 +2419,7 @@ def render_checklists(plan: Plan) -> str:
           <p class="section-index"><span>07</span> / PRZYGOTOWANIE</p>
           <div class="section-head__body">
             <h2 id="checklisty-title">Checklisty</h2>
-            <p class="section-lede">Siedem grup roboczych. Zaznaczenia zapisują się tylko w tej przeglądarce. Druk zostawia puste pola do użycia na papierze.</p>
+            <p class="section-lede">Siedem grup roboczych. Z JavaScriptem zaznaczenia zapisują się tylko w tej przeglądarce. Druk zostawia puste pola do użycia na papierze.</p>
           </div>
         </header>
         <div class="checklist-toolbar">
@@ -2166,11 +2428,13 @@ def render_checklists(plan: Plan) -> str:
             <progress max="{plan.total_check_items}" value="0" aria-label="Postęp wszystkich checklist" data-global-progress>0 / {plan.total_check_items}</progress>
             <strong data-global-count>0 / {plan.total_check_items}</strong>
           </div>
-          <button type="button" class="button button--ghost button--small" data-reset-checklist>Reset checklisty</button>
+          <button type="button" class="button button--ghost button--small js-reset" data-reset-checklist>Reset checklisty</button>
         </div>
-        <p class="local-note">{icon("info")} <span>Stan checklisty jest lokalny i nie zmienia faktów w planie. Klucz zapisu: <code>cypr2026.checklist.v1</code>.</span></p>
+        <p class="local-note">{icon("info")} <span>Stan checklisty jest lokalny i nie zmienia faktów w planie. Po wyczyszczeniu danych przeglądarki zniknie.</span></p>
+        <p class="checklist-save" data-checklist-save role="status" aria-live="polite" hidden></p>
         <noscript><p class="local-note local-note--noscript">{icon("info")} <span>Bez JavaScriptu pola nadal można zaznaczać na ekranie i wydruku, ale stan nie zapisze się w przeglądarce.</span></p></noscript>
         <div class="checklist-grid">{''.join(groups)}</div>
+        {section_next("Dalej", [("#todo", "Do potwierdzenia"), ("#zrodla", "Źródła planu")])}
       </div>
     </section>
     """
@@ -2207,7 +2471,7 @@ def render_todo(plan: Plan) -> str:
         blocking = '<span class="blocking-badge">blokujące</span>' if issue.get("blocking") else ""
         priority = issue.get("priority", "")
         cards.append(f"""
-          <article class="issue-card{' issue-card--blocking' if issue.get("blocking") else ''}" id="issue-{esc(issue["id"])}">
+          <article class="issue-card{' issue-card--blocking' if issue.get("blocking") else ''}" id="issue-{esc(issue["id"])}" data-issue-due="{esc(issue["due_on"])}">
             <header class="issue-card__head">
               <div>
                 <p class="issue-id">{esc(issue["id"])}</p>
@@ -2218,13 +2482,14 @@ def render_todo(plan: Plan) -> str:
             <div class="issue-tags">
               <span class="priority priority--{esc(priority)}">{esc(PRIORITY_LABELS.get(priority, priority))} priorytet</span>
               <span class="issue-due">{icon("calendar")}termin: <time datetime="{esc(issue["due_on"])}">{esc(format_date_pl(issue["due_on"]))}</time></span>
+              <span class="priority priority--wysoki" data-issue-overdue hidden>po terminie</span>
               {status_chip(issue.get("status"), compact=True)}
             </div>
             <div class="issue-body">
               <p><strong>Działanie:</strong> {esc(issue.get("action", ""))}</p>
               <p><strong>Wpływ:</strong> {esc(issue.get("impact", ""))}</p>
             </div>
-            <footer class="issue-card__foot"><span>Odpowiedzialność: {esc(issue.get("owner", ""))}</span><span>bez lokalnego „done”</span></footer>
+            <footer class="issue-card__foot"><span>Odpowiedzialność: {esc(issue.get("owner", ""))}</span><span>status z planu, bez lokalnego odhaczenia</span></footer>
           </article>
         """)
     return f"""
@@ -2234,10 +2499,11 @@ def render_todo(plan: Plan) -> str:
           <p class="section-index"><span>08</span> / OPERACJE</p>
           <div class="section-head__body">
             <h2 id="todo-title">Sprawy do potwierdzenia</h2>
-            <p class="section-lede">{esc(todo_summary(plan))}. To lista operacyjna, nie checklista. Zmiana stanu w planie wymaga zmiany JSON-a i ponownego builda.</p>
+            <p class="section-lede">{esc(todo_summary(plan))}. To lista operacyjna, nie checklista. Strona nie zmienia faktów automatycznie; statusy pochodzą z planu.</p>
           </div>
         </header>
         <div class="issue-grid">{''.join(cards)}</div>
+        {section_next("Dalej", [("#zrodla", "Źródła i wersja"), ("#dzis", "Wróć do dziś")])}
       </div>
     </section>
     """
@@ -2319,13 +2585,16 @@ def render_sources(plan: Plan) -> str:
           </div>
         </header>
         {render_status_legend(plan)}
-        <div class="table-scroll source-table-wrap">
-          <table class="data-table source-table">
-            <caption>Źródła planu Cypr 2026 — {len(plan.sources)} pozycji</caption>
-            <thead><tr><th scope="col">ID</th><th scope="col">Tytuł</th><th scope="col">Zakres</th><th scope="col">Weryfikacja</th><th scope="col">Data kontroli</th><th scope="col">Link / załącznik</th></tr></thead>
-            <tbody>{''.join(rows)}</tbody>
-          </table>
-        </div>
+        <details class="places-disclosure source-table-disclosure" open data-source-disclosure>
+          <summary>Pełna tabela źródeł <span>{len(plan.sources)} pozycji</span>{icon("chevron")}</summary>
+          <div class="table-scroll source-table-wrap">
+            <table class="data-table source-table">
+              <caption>Źródła planu Cypr 2026 — {len(plan.sources)} pozycji</caption>
+              <thead><tr><th scope="col">ID</th><th scope="col">Tytuł</th><th scope="col">Zakres</th><th scope="col">Weryfikacja</th><th scope="col">Data kontroli</th><th scope="col">Link / załącznik</th></tr></thead>
+              <tbody>{''.join(rows)}</tbody>
+            </table>
+          </div>
+        </details>
         <div class="source-details">
           <details class="change-log" open data-collapse-on-load>
             <summary>{icon("source")} Dziennik zmian — {len(plan.revision_log)} wpisów {icon("chevron")}</summary>
@@ -2336,6 +2605,7 @@ def render_sources(plan: Plan) -> str:
             <ol class="decision-list">{decisions}</ol>
           </details>
         </div>
+        {section_next("Na koniec", [("#top", "Wróć na początek"), ("#dzis", "Dziś")])}
         {render_print_source_urls(plan)}
       </div>
     </section>
@@ -2362,7 +2632,7 @@ def render_print_cover(plan: Plan) -> str:
     return f"""
     <section class="print-cover" aria-label="Okładka wydruku">
       <p class="print-cover__kicker">PLAN PODRÓŻY · WYDANIE {esc(plan.meta["version"])}</p>
-      <h1>Cypr 2026</h1>
+      <p class="print-cover__title">Cypr 2026</p>
       <p class="print-cover__subtitle">bez pośpiechu</p>
       <div class="print-cover__rule"></div>
       <dl class="print-cover__facts">
@@ -2380,6 +2650,74 @@ def render_print_cover(plan: Plan) -> str:
     """
 
 
+def render_print_quick(plan: Plan) -> str:
+    hotel = plan.places.get(plan.trip["hotel"]["place_id"], {})
+    flights = []
+    for flight in plan.flights:
+        dep_zone = airport_zone(flight["departure_airport"])
+        arr_zone = airport_zone(flight["arrival_airport"])
+        flights.append(
+            f'<li><b>{esc(flight["flight_no"])}</b> {esc(flight["departure_airport"])} '
+            f'{esc(local_time_in(flight["departure_at"], dep_zone))} → '
+            f'{esc(flight["arrival_airport"])} {esc(local_time_in(flight["arrival_at"], arr_zone))}</li>'
+        )
+    day_rows = []
+    for day in plan.day_list:
+        light = day_light(plan, day)
+        if light and light.get("hike"):
+            window = f'{light["start"]}–{light["end"]}'
+        else:
+            window = "—"
+        day_rows.append(
+            f'<tr><td>{esc(format_date_pl(day["date"]))}</td>'
+            f'<td><b>{esc(day["title"])}</b></td>'
+            f'<td>{esc(day["mode"])}</td>'
+            f'<td>{esc(window)}</td>'
+            f'<td>{esc(light["sunset"] if light else "brak danych")}</td></tr>'
+        )
+    tasks = []
+    for issue in sorted_issues(plan):
+        if not issue.get("blocking"):
+            continue
+        tasks.append(
+            f'<li><b>{esc(issue["title"])}</b> · termin {esc(due_short(issue["due_on"]))}</li>'
+        )
+    car = plan.trip.get("car", {})
+    pickup = (
+        datetime.fromisoformat(car["pickup_target_at"]).astimezone(ZoneInfo(CY_TZ)).strftime("%H:%M")
+        if car.get("pickup_target_at") else "brak danych"
+    )
+    ret = (
+        datetime.fromisoformat(car["return_target_at"]).astimezone(ZoneInfo(CY_TZ)).strftime("%H:%M")
+        if car.get("return_target_at") else "brak danych"
+    )
+    return f"""
+    <section class="print-quick" aria-label="Karta podręczna do wydruku">
+      <p class="print-quick__kicker">KARTA PODRĘCZNA · WYDANIE {esc(plan.meta["version"])}</p>
+      <h2>Cypr 2026 — jedna strona</h2>
+      <p class="print-quick__lede">7–13 listopada 2026 · 2 osoby · 6 nocy w Pafos. Plan bazowy; statusy „do potwierdzenia” pozostają aktualne.</p>
+      <p class="print-quick__note"><strong>112</strong> alarm · Hotel {esc(hotel.get("name", "Pafos"))}, {esc(hotel.get("address", "Pafos"))}, {esc(format_phone_display(hotel.get("phone")))} · Auto odbiór {esc(pickup)} · zwrot {esc(ret)}</p>
+      <p class="print-quick__note"><strong>Polowania:</strong> 8 i 11 XI bez trekkingu; inne dni też sprawdzać.</p>
+      <div>
+        <p class="subheading">Loty</p>
+        <ul>{''.join(flights)}</ul>
+        <p class="print-quick__note">Godziny lokalne lotnisk. Potwierdź w aplikacjach przewoźników.</p>
+      </div>
+      <div>
+        <p class="subheading">Blokujące zadania</p>
+        <ul>{''.join(tasks)}</ul>
+        <p class="print-quick__note">Pełne działania i wpływ: sekcja „Sprawy do potwierdzenia”.</p>
+      </div>
+      <table class="data-table print-quick__table">
+        <caption>Tydzień, trekkingi i światło</caption>
+        <thead><tr><th>Data</th><th>Dzień</th><th>Tryb</th><th>Trekking</th><th>Zachód</th></tr></thead>
+        <tbody>{''.join(day_rows)}</tbody>
+      </table>
+      <p class="print-quick__note">Zachody dla Pafos; w górach użyteczne światło kończy się wcześniej. Mapa interaktywna nie jest drukowana — pełna lista miejsc, współrzędne i źródła w dalszej części.</p>
+    </section>
+    """
+
+
 def render_footer(plan: Plan) -> str:
     return f"""
     <div class="page-width footer-grid">
@@ -2393,6 +2731,8 @@ def render_footer(plan: Plan) -> str:
         <p><span>Aktualizacja</span> <strong>{esc(format_date_pl(plan.meta["updated_on"]))}</strong></p>
         <p><span>Dane</span> <a href="data/Cypr_2026_zrodlo_prawdy.json">Cypr_2026_zrodlo_prawdy.json {icon("download")}</a></p>
         <p><span>Strefa</span> Asia/Nicosia, UTC+2</p>
+        <p class="footer-calendar"><span>Kalendarz</span> <a class="ics-link" href="cal/cypr2026-caly-wyjazd.ics" download>Cały wyjazd .ics {icon("download")}</a></p>
+        <p><span>PDF</span> <a href="cypr2026-print.pdf" download>Plan do druku (52 str.)</a></p>
         <p class="footer-version">Plan bazowy · {len(plan.day_list)} dni / {plan.trip.get("nights")} nocy · Pafos</p>
       </div>
     </div>
@@ -2416,11 +2756,303 @@ def compute_asset_hash(raw_json: bytes, *, noindex: bool) -> str:
     return digest.hexdigest()[:10]
 
 
+def minify_css(text: str) -> str:
+    out: list[str] = []
+    index = 0
+    quote = ""
+    while index < len(text):
+        char = text[index]
+        if quote:
+            out.append(char)
+            if char == "\\" and index + 1 < len(text):
+                out.append(text[index + 1])
+                index += 2
+                continue
+            if char == quote:
+                quote = ""
+            index += 1
+            continue
+        if char in "\"'":
+            quote = char
+            out.append(char)
+            index += 1
+            continue
+        if char == "/" and index + 1 < len(text) and text[index + 1] == "*":
+            end = text.find("*/", index + 2)
+            index = len(text) if end < 0 else end + 2
+            continue
+        if char.isspace():
+            end = index
+            while end < len(text) and text[end].isspace():
+                end += 1
+            if out and out[-1] not in "{};,:" and end < len(text) and text[end] not in "{};,:":
+                out.append(" ")
+            index = end
+            continue
+        out.append(char)
+        index += 1
+    css = "".join(out).strip().replace(";}", "}")
+    css = re.sub(r"(?<![\w.])0\.(\d+)", r".\1", css)
+    return css
+
+
+def minify_js(text: str) -> str:
+    text = re.sub(r"/\*.*?\*/", "", text, flags=re.S)
+    lines = []
+    for line in text.splitlines():
+        stripped = line.strip()
+        if not stripped or stripped.startswith("//"):
+            continue
+        lines.append(stripped)
+    return "\n".join(lines) + "\n"
+
+
 def write_if_changed(path: Path, content: str) -> None:
     encoded = content.encode("utf-8")
     if path.exists() and path.read_bytes() == encoded:
         return
     path.write_bytes(encoded)
+
+
+def write_bytes_if_changed(path: Path, content: bytes) -> None:
+    if path.exists() and path.read_bytes() == content:
+        return
+    path.write_bytes(content)
+
+
+def ics_escape(value: str | None) -> str:
+    text = "" if value is None else str(value)
+    return (
+        text.replace("\\", "\\\\")
+        .replace(";", "\\;")
+        .replace(",", "\\,")
+        .replace("\r\n", "\\n")
+        .replace("\n", "\\n")
+    )
+
+
+def ics_fold(line: str) -> str:
+    """Fold a content line at 75 UTF-8 octets (RFC 5545)."""
+    parts: list[str] = []
+    current = ""
+    for char in line:
+        if len((current + char).encode("utf-8")) > 74:
+            parts.append(current)
+            current = " " + char
+        else:
+            current += char
+    parts.append(current)
+    return "\r\n".join(parts)
+
+
+def ics_local(date_iso: str, hhmm: str) -> str:
+    return f";TZID={CY_TZ}:{date_iso.replace('-', '')}T{hhmm.replace(':', '')}00"
+
+
+def ics_utc(iso_value: str) -> str:
+    return datetime.fromisoformat(iso_value).astimezone(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+
+
+def ics_event(
+    uid: str,
+    start: str,
+    end: str,
+    summary: str,
+    description: str = "",
+    location: str = "",
+    url: str = "",
+) -> list[str]:
+    lines = [
+        "BEGIN:VEVENT",
+        f"UID:{uid}",
+        f"DTSTAMP:{ics_stamp_cached}",
+        f"DTSTART{start}",
+        f"DTEND{end}",
+        f"SUMMARY:{ics_escape(summary)}",
+    ]
+    if description:
+        lines.append(f"DESCRIPTION:{ics_escape(description)}")
+    if location:
+        lines.append(f"LOCATION:{ics_escape(location)}")
+    if url:
+        lines.append(f"URL:{url}")
+    lines.extend(["STATUS:TENTATIVE", "END:VEVENT"])
+    return lines
+
+
+def ics_calendar(name: str, events: list[str]) -> str:
+    lines = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//KJ Photo Journal//Cypr 2026//PL",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        f"X-WR-CALNAME:{ics_escape(name)}",
+        "X-WR-TIMEZONE:Asia/Nicosia",
+        "BEGIN:VTIMEZONE",
+        "TZID:Asia/Nicosia",
+        "BEGIN:STANDARD",
+        "DTSTART:19701025T040000",
+        "TZOFFSETFROM:+0300",
+        "TZOFFSETTO:+0200",
+        "TZNAME:EET",
+        "END:STANDARD",
+        "BEGIN:DAYLIGHT",
+        "DTSTART:19700329T030000",
+        "TZOFFSETFROM:+0200",
+        "TZOFFSETTO:+0300",
+        "TZNAME:EEST",
+        "END:DAYLIGHT",
+        "END:VTIMEZONE",
+        *events,
+        "END:VCALENDAR",
+    ]
+    return "\r\n".join(ics_fold(line) for line in lines) + "\r\n"
+
+
+def ics_day_events(plan: "Plan", day: dict) -> list[str]:
+    day_no = int(day["id"].split("-")[-1])
+    url = f"{CANONICAL_URL}#day-{day_no:02d}"
+    events: list[str] = []
+    for event in day.get("timeline", []):
+        end = event.get("end_local")
+        if not end:
+            end_min = hhmm_minutes(event["start_local"]) + 60
+            end = f"{end_min // 60:02d}:{end_min % 60:02d}"
+        places = [
+            plan.places[place_id]["name"]
+            for place_id in event.get("place_ids", [])
+            if place_id in plan.places
+        ]
+        description = event.get("description", "")
+        if event.get("time_basis"):
+            description += f"\nCzas: {event['time_basis']}."
+        description += f"\nPlan: {url}"
+        events += ics_event(
+            f"cypr2026-{day['date']}-{event['id']}@kjawo.github.io",
+            ics_local(day["date"], event["start_local"]),
+            ics_local(day["date"], end),
+            f"Dzień {day_no} · {event['title']}",
+            description,
+            ", ".join(places),
+            url,
+        )
+    for flight in plan.flights:
+        if flight["departure_at"][:10] == day["date"] or flight["arrival_at"][:10] == day["date"]:
+            events += ics_event(
+                f"cypr2026-{flight['id']}@kjawo.github.io",
+                ":" + ics_utc(flight["departure_at"]),
+                ":" + ics_utc(flight["arrival_at"]),
+                f"{flight['flight_no']} {flight['departure_airport']} → {flight['arrival_airport']}",
+                f"{flight['departure_airport']} {local_time_in(flight['departure_at'], airport_zone(flight['departure_airport']))} → "
+                f"{flight['arrival_airport']} {local_time_in(flight['arrival_at'], airport_zone(flight['arrival_airport']))} "
+                "(czas lokalny lotnisk). Godziny według danych użytkownika; potwierdź w aplikacji przewoźnika.\n"
+                f"Plan: {url}",
+                f"{flight['departure_airport']} → {flight['arrival_airport']}",
+                url,
+            )
+    return events
+
+
+def ics_hotel_events(plan: "Plan") -> list[str]:
+    hotel = plan.trip.get("hotel", {})
+    place = plan.places.get(hotel.get("place_id", ""), {})
+    if not hotel.get("check_in_date") or not hotel.get("check_out_date"):
+        return []
+    return ics_event(
+        "cypr2026-hotel@kjawo.github.io",
+        ics_local(hotel["check_in_date"], hotel.get("published_check_in", "15:00")),
+        ics_local(hotel["check_out_date"], hotel.get("published_check_out", "12:00")),
+        f"Hotel: {hotel.get('name', 'Pafos')}",
+        "Zameldowanie i wymeldowanie według danych użytkownika. Voucher ma pierwszeństwo.\n"
+        f"Plan: {CANONICAL_URL}#hotel",
+        place.get("address", "Pafos, Cypr"),
+        f"{CANONICAL_URL}#hotel",
+    )
+
+
+def ics_car_events(plan: "Plan") -> list[str]:
+    car = plan.trip.get("car", {})
+    events: list[str] = []
+    if car.get("pickup_target_at"):
+        pickup_end = (datetime.fromisoformat(car["pickup_target_at"]) + timedelta(minutes=45)).isoformat()
+        events += ics_event(
+            "cypr2026-car-pickup@kjawo.github.io",
+            ":" + ics_utc(car["pickup_target_at"]),
+            ":" + ics_utc(pickup_end),
+            "Auto: odbiór — cel",
+            "Brak potwierdzonej rezerwacji. To cel planu, nie gwarancja.\n"
+            f"Plan: {CANONICAL_URL}#auto",
+            "PFO",
+            f"{CANONICAL_URL}#auto",
+        )
+    if car.get("return_target_at"):
+        return_end = (datetime.fromisoformat(car["return_target_at"]) + timedelta(minutes=45)).isoformat()
+        events += ics_event(
+            "cypr2026-car-return@kjawo.github.io",
+            ":" + ics_utc(car["return_target_at"]),
+            ":" + ics_utc(return_end),
+            "Auto: nocny zwrot — cel",
+            "Potwierdzić wjazd, klucze i koniec odpowiedzialności.\n"
+            f"Plan: {CANONICAL_URL}#auto",
+            "PFO",
+            f"{CANONICAL_URL}#auto",
+        )
+    return events
+
+
+def write_calendar_files(plan: "Plan") -> list[Path]:
+    global ics_stamp_cached
+    ics_stamp_cached = plan.meta["updated_on"].replace("-", "") + "T000000Z"
+    CAL_DIR.mkdir(parents=True, exist_ok=True)
+    written: list[Path] = []
+    expected: set[Path] = set()
+    for day in plan.day_list:
+        day_no = int(day["id"].split("-")[-1])
+        url = f"{CANONICAL_URL}#day-{day_no:02d}"
+        events = ics_event(
+            f"cypr2026-{day['date']}-day@kjawo.github.io",
+            ";VALUE=DATE:" + day["date"].replace("-", ""),
+            ";VALUE=DATE:" + (date.fromisoformat(day["date"]) + timedelta(days=1)).strftime("%Y%m%d"),
+            f"Dzień {day_no}: {day['title']}",
+            day.get("summary", ""),
+            "Pafos, Cypr",
+            url,
+        )
+        events += ics_day_events(plan, day)
+        if day["date"] == plan.trip["hotel"].get("check_in_date") or day["date"] == plan.trip["hotel"].get("check_out_date"):
+            events += ics_hotel_events(plan)
+        events += ics_car_events(plan) if day["date"] in {
+            plan.trip.get("car", {}).get("pickup_target_at", "")[:10],
+            plan.trip.get("car", {}).get("return_target_at", "")[:10],
+        } else []
+        text = ics_calendar(f"Cypr 2026 — dzień {day_no}", events)
+        path = CAL_DIR / f"cypr2026-{day['date']}.ics"
+        write_bytes_if_changed(path, text.encode("utf-8"))
+        expected.add(path)
+        written.append(path)
+    whole = ics_event(
+        "cypr2026-trip@kjawo.github.io",
+        ";VALUE=DATE:" + plan.trip["start_date"].replace("-", ""),
+        ";VALUE=DATE:" + (date.fromisoformat(plan.trip["end_date"]) + timedelta(days=1)).strftime("%Y%m%d"),
+        "Cypr 2026 — plan podróży",
+        f"7–13 listopada 2026, Pafos. Plan bazowy, wersja {plan.meta['version']}.\n{CANONICAL_URL}",
+        "Pafos, Cypr",
+        CANONICAL_URL,
+    )
+    for day in plan.day_list:
+        whole += ics_day_events(plan, day)
+    whole += ics_hotel_events(plan)
+    whole += ics_car_events(plan)
+    path = CAL_DIR / "cypr2026-caly-wyjazd.ics"
+    write_bytes_if_changed(path, ics_calendar("Cypr 2026 — cały wyjazd", whole).encode("utf-8"))
+    expected.add(path)
+    written.append(path)
+    for stale in CAL_DIR.glob("*.ics"):
+        if stale not in expected:
+            stale.unlink()
+    return written
+
 
 
 def render_page(plan: Plan, asset_hash: str, data_json: str, *, noindex: bool) -> str:
@@ -2434,6 +3066,7 @@ def render_page(plan: Plan, asset_hash: str, data_json: str, *, noindex: bool) -
         "{{HERO}}": render_hero(plan),
         "{{NAV}}": render_nav(plan),
         "{{PRINT_COVER}}": render_print_cover(plan),
+        "{{PRINT_QUICK}}": render_print_quick(plan),
         "{{WEEK}}": render_week(plan),
         "{{TODAY}}": render_today(plan),
         "{{DAYS}}": render_days(plan),
@@ -2462,8 +3095,8 @@ def build_service_worker(plan: Plan, asset_hash: str) -> str:
     precache = [
         "./",
         f"./index.html",
-        f"./styles.css?v={asset_hash}",
-        f"./app.js?v={asset_hash}",
+        f"./styles.min.css?v={asset_hash}",
+        f"./app.min.js?v={asset_hash}",
         f"./manifest.json?v={asset_hash}",
         "./data/Cypr_2026_zrodlo_prawdy.json",
     ]
@@ -2472,6 +3105,11 @@ def build_service_worker(plan: Plan, asset_hash: str) -> str:
             rel = path.relative_to(ROOT).as_posix()
             if rel.endswith(".png") or rel.endswith(".svg") or rel.endswith(".woff2") or rel.endswith(".js") or rel.endswith(".css"):
                 precache.append(f"./{rel}")
+    if CAL_DIR.exists():
+        for path in sorted(CAL_DIR.glob("*.ics")):
+            precache.append(f"./{path.relative_to(ROOT).as_posix()}")
+    if (ROOT / "cypr2026-print.pdf").exists():
+        precache.append("./cypr2026-print.pdf")
     # Keep the list stable and free of duplicates.
     seen = set()
     final = []
@@ -2516,9 +3154,15 @@ def main() -> int:
 
         asset_hash = compute_asset_hash(raw_bytes, noindex=args.noindex)
         version = str(plan.meta["version"])
+        try:
+            calendar_files = write_calendar_files(plan)
+        except OSError as exc:
+            fail(f"Nie można zapisać plików kalendarza: {exc}")
         data_json = json.dumps(data, ensure_ascii=False, separators=(",", ":")).replace("</", "<\\/")
         rendered = render_page(plan, asset_hash, data_json, noindex=args.noindex)
         write_if_changed(INDEX_FILE, rendered)
+        write_if_changed(MIN_STYLES_FILE, minify_css(STYLES_FILE.read_text(encoding="utf-8")))
+        write_if_changed(MIN_APP_FILE, minify_js(APP_FILE.read_text(encoding="utf-8")))
         sw_text = build_service_worker(plan, asset_hash)
         write_if_changed(SW_FILE, sw_text)
 
@@ -2527,6 +3171,7 @@ def main() -> int:
         print(f"    dni: {len(plan.day_list)} · miejsca: {plan.total_places} "
               f"(współrzędne: {plan.coord_count}) · źródła: {len(plan.sources)}")
         print(f"    blokujące zadania: {len(plan.blocking_issues)} · checklisty: {plan.total_check_items} pozycji")
+        print(f"    kalendarz: {len(calendar_files)} plików .ics")
         if warnings:
             print("\nOstrzeżenia danych (nie blokują builda):")
             for item in warnings:

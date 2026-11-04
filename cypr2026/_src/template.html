@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
   <title>Cypr 2026 — plan podróży 7–13 listopada | Konrad Jaworski</title>
-  <meta name="description" content="Spokojny plan podróży na Cypr: 7–13 listopada 2026, 2 osoby, 6 nocy w Pafos. Dni, trekkings, mapy miejsc, loty, auto, praktyka i checklisty.">
+  <meta name="description" content="Spokojny plan podróży na Cypr: 7–13 listopada 2026, 2 osoby, 6 nocy w Pafos. Dni, trekkingi, mapy miejsc, loty, auto, praktyka i checklisty.">
   <meta name="author" content="Konrad Jaworski">
   <meta name="theme-color" content="#0C5C6B">
   <link rel="canonical" href="https://kjawo.github.io/cypr2026/">
@@ -21,8 +21,8 @@
   <link rel="preload" href="assets/fonts/newsreader-500-ext.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-400.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/inter-400-ext.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="styles.css?v={{HASH}}">
-  <noscript><style>.js-print,.connection,.status-bar__offline,.clock-block{display:none!important}@media screen and (max-width:559px){.hero__actions{grid-template-columns:1fr}.hero__actions .button--text{grid-column:auto;justify-self:start}}</style></noscript>
+  <link rel="stylesheet" href="styles.min.css?v={{HASH}}">
+  <noscript><style>.js-print,.connection,.clock-block,.map-filter,.checklist-toolbar{display:none!important}@media screen and (max-width:559px){.hero__actions{grid-template-columns:1fr}.hero__actions .button--text{grid-column:auto;justify-self:start}}</style></noscript>
 </head>
 <body>
   <a class="skip-link" href="#main">Przejdź do planu</a>
@@ -35,12 +35,13 @@
 
     <main id="main" tabindex="-1">
       {{PRINT_COVER}}
-      <noscript><div class="page-width noscript-banner"><strong>JavaScript jest wyłączony.</strong> Widok „Dziś” pozostaje statyczny, a mapa interaktywna się nie wczyta. Pełny plan, lista miejsc i druk działają bez JavaScriptu — wydruk uruchom z menu przeglądarki.</div></noscript>
-      {{WEEK}}
+      {{PRINT_QUICK}}
+      <noscript><div class="page-width noscript-banner"><strong>JavaScript jest wyłączony.</strong> Widok „Dziś” pozostaje statyczny, a mapa interaktywna się nie wczyta. Pełny plan i lista miejsc działają bez JavaScriptu — <a href="cypr2026-print.pdf">pobierz PDF</a> lub wydrukuj z menu przeglądarki.</div></noscript>
       {{TODAY}}
+      {{WEEK}}
+      {{MAP}}
       {{DAYS}}
       {{ROUTES}}
-      {{MAP}}
       {{PRACTICE}}
       {{CHECKLISTS}}
       {{TODO}}
@@ -53,6 +54,6 @@
   </div>
 
   <script type="application/json" id="cypr-data">{{DATA_JSON}}</script>
-  <script src="app.js?v={{HASH}}" defer data-version="{{HASH}}"></script>
+  <script src="app.min.js?v={{HASH}}" defer data-version="{{HASH}}"></script>
 </body>
 </html>

@@ -1,0 +1,125 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//KJ Photo Journal//Cypr 2026//PL
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Cypr 2026 — dzień 2
+X-WR-TIMEZONE:Asia/Nicosia
+BEGIN:VTIMEZONE
+TZID:Asia/Nicosia
+BEGIN:STANDARD
+DTSTART:19701025T040000
+TZOFFSETFROM:+0300
+TZOFFSETTO:+0200
+TZNAME:EET
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700329T030000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0300
+TZNAME:EEST
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:cypr2026-2026-11-08-day@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;VALUE=DATE:20261108
+DTEND;VALUE=DATE:20261109
+SUMMARY:Dzień 2: Pafos pieszo
+DESCRIPTION:Park Archeologiczny\, port i swobodny powrót do hotelu. Grobo
+ wce zostają na czwartek.
+LOCATION:Pafos\, Cypr
+URL:https://kjawo.github.io/cypr2026/#day-02
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-08-D2-01@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261108T073000
+DTEND;TZID=Asia/Nicosia:20261108T082000
+SUMMARY:Dzień 2 · Śniadanie
+DESCRIPTION:Bez pośpiechu\; jeżeli wyżywienie nie jest wykupione\, wła
+ sny posiłek.\nCzas: założenie planu.\nPlan: https://kjawo.github.io/cy
+ pr2026/#day-02
+LOCATION:Princessa Vera Hotel Apartments
+URL:https://kjawo.github.io/cypr2026/#day-02
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-08-D2-02@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261108T082500
+DTEND;TZID=Asia/Nicosia:20261108T090000
+SUMMARY:Dzień 2 · Dojście do parku
+DESCRIPTION:Wejście od portu\; nawigować do wejścia\, nie do latarni we
+ wnątrz ogrodzonego terenu.\nCzas: założenie planu.\nPlan: https://kjaw
+ o.github.io/cypr2026/#day-02
+LOCATION:Park Archeologiczny Kato Pafos
+URL:https://kjawo.github.io/cypr2026/#day-02
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-08-D2-03@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261108T090000
+DTEND;TZID=Asia/Nicosia:20261108T120000
+SUMMARY:Dzień 2 · Park Archeologiczny
+DESCRIPTION:Mozaiki i stanowisko\; trzy godziny z przerwami i fotografią.
+ \nCzas: założenie planu.\nPlan: https://kjawo.github.io/cypr2026/#day-0
+ 2
+LOCATION:Park Archeologiczny Kato Pafos
+URL:https://kjawo.github.io/cypr2026/#day-02
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-08-D2-04@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261108T120000
+DTEND;TZID=Asia/Nicosia:20261108T124000
+SUMMARY:Dzień 2 · Port i zamek z zewnątrz
+DESCRIPTION:Krótki spacer\, bez kolejnego obowiązkowego biletu.\nCzas: z
+ ałożenie planu.\nPlan: https://kjawo.github.io/cypr2026/#day-02
+LOCATION:Port i zamek w Pafos
+URL:https://kjawo.github.io/cypr2026/#day-02
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-08-D2-05@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261108T124500
+DTEND;TZID=Asia/Nicosia:20261108T140000
+SUMMARY:Dzień 2 · Lunch przy porcie
+DESCRIPTION:Hondros po potwierdzeniu pracy kuchni\; alternatywą dowolny o
+ twarty lokal w okolicy.\nCzas: założenie planu.\nPlan: https://kjawo.gi
+ thub.io/cypr2026/#day-02
+LOCATION:Hondros
+URL:https://kjawo.github.io/cypr2026/#day-02
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-08-D2-06@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261108T140000
+DTEND;TZID=Asia/Nicosia:20261108T150000
+SUMMARY:Dzień 2 · Powrót do hotelu
+DESCRIPTION:Agia Solomoni lub Fabrica tylko przy ochocie i bezpiecznym doj
+ ściu.\nCzas: założenie planu.\nPlan: https://kjawo.github.io/cypr2026/
+ #day-02
+LOCATION:Princessa Vera Hotel Apartments\, Agia Solomoni i okolice Fabrica
+URL:https://kjawo.github.io/cypr2026/#day-02
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-08-D2-07@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261108T150000
+DTEND;TZID=Asia/Nicosia:20261108T160000
+SUMMARY:Dzień 2 · Czas wolny
+DESCRIPTION:Odpoczynek\; Faros około 16:15 tylko opcjonalnie. Wellness za
+ leżnie od potwierdzenia.\nCzas: założenie planu.\nPlan: https://kjawo.
+ github.io/cypr2026/#day-02
+LOCATION:Princessa Vera Hotel Apartments
+URL:https://kjawo.github.io/cypr2026/#day-02
+STATUS:TENTATIVE
+END:VEVENT
+END:VCALENDAR

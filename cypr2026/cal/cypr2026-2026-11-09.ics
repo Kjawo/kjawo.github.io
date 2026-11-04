@@ -1,0 +1,140 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//KJ Photo Journal//Cypr 2026//PL
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Cypr 2026 — dzień 3
+X-WR-TIMEZONE:Asia/Nicosia
+BEGIN:VTIMEZONE
+TZID:Asia/Nicosia
+BEGIN:STANDARD
+DTSTART:19701025T040000
+TZOFFSETFROM:+0300
+TZOFFSETTO:+0200
+TZNAME:EET
+END:STANDARD
+BEGIN:DAYLIGHT
+DTSTART:19700329T030000
+TZOFFSETFROM:+0200
+TZOFFSETTO:+0300
+TZNAME:EEST
+END:DAYLIGHT
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:cypr2026-2026-11-09-day@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;VALUE=DATE:20261109
+DTEND;VALUE=DATE:20261110
+SUMMARY:Dzień 3: Akamas i Aphrodite
+DESCRIPTION:Główny dzień nadmorski. Aphrodite solo\; lunch w Polis i Ed
+ ro zależą od czasu zakończenia marszu.
+LOCATION:Pafos\, Cypr
+URL:https://kjawo.github.io/cypr2026/#day-03
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-09-D3-01@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261109T070000
+DTEND;TZID=Asia/Nicosia:20261109T072000
+SUMMARY:Dzień 3 · Śniadanie
+DESCRIPTION:Plecaki i auto przygotowane poprzedniego wieczoru\; własne je
+ dzenie na trasę.\nCzas: założenie planu.\nPlan: https://kjawo.github.i
+ o/cypr2026/#day-03
+LOCATION:Princessa Vera Hotel Apartments
+URL:https://kjawo.github.io/cypr2026/#day-03
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-09-D3-02@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261109T072500
+DTEND;TZID=Asia/Nicosia:20261109T084000
+SUMMARY:Dzień 3 · Dojazd do Baths of Aphrodite
+DESCRIPTION:60–75 min. Polis i Latchi\, asfalt do legalnego parkingu\; n
+ ie jechać dalej ku Blue Lagoon.\nCzas: założenie planu.\nPlan: https:/
+ /kjawo.github.io/cypr2026/#day-03
+LOCATION:Baths of Aphrodite początek szlaku
+URL:https://kjawo.github.io/cypr2026/#day-03
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-09-D3-03@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261109T084000
+DTEND;TZID=Asia/Nicosia:20261109T090000
+SUMMARY:Dzień 3 · Przygotowanie i decyzja
+DESCRIPTION:Tablice\, mapa\, pogoda i stan podłoża. Warunek wcześniejsz
+ ego sprawdzenia konkretnej trasy względem map łowieckich.\nCzas: zało
+ żenie planu.\nPlan: https://kjawo.github.io/cypr2026/#day-03
+LOCATION:Baths of Aphrodite początek szlaku
+URL:https://kjawo.github.io/cypr2026/#day-03
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-09-D3-04@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261109T090000
+DTEND;TZID=Asia/Nicosia:20261109T133000
+SUMMARY:Dzień 3 · Pętla Aphrodite
+DESCRIPTION:Plan 4–4\,5 h z fotografią\; rezerwa do 5 h\, czyli 14:00 p
+ rzy tym starcie. Kończyć marsz bez pośpiechu.\nCzas: założenie planu
+ .\nPlan: https://kjawo.github.io/cypr2026/#day-03
+LOCATION:Baths of Aphrodite początek szlaku
+URL:https://kjawo.github.io/cypr2026/#day-03
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-09-D3-05@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261109T134500
+DTEND;TZID=Asia/Nicosia:20261109T150000
+SUMMARY:Dzień 3 · Polis i lunch warunkowy
+DESCRIPTION:Tylko jeśli przy aucie najpóźniej około 13:30. Baths → P
+ olis 15–20 min plus parking\; z Polis wyjechać do 15:00\, aby zachowa
+ ć Edro.\nCzas: założenie planu.\nPlan: https://kjawo.github.io/cypr202
+ 6/#day-03
+LOCATION:Polis Chrysochous\, Moustakallis
+URL:https://kjawo.github.io/cypr2026/#day-03
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-09-D3-06@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261109T150000
+DTEND;TZID=Asia/Nicosia:20261109T160000
+SUMMARY:Dzień 3 · Przejazd i dojście do Edro
+DESCRIPTION:40–50 min z Polis plus postój i dojście. Wariant zależny 
+ od drogi i opóźnień.\nCzas: założenie planu.\nPlan: https://kjawo.gi
+ thub.io/cypr2026/#day-03
+LOCATION:Edro III
+URL:https://kjawo.github.io/cypr2026/#day-03
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-09-D3-07@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261109T160000
+DTEND;TZID=Asia/Nicosia:20261109T170500
+SUMMARY:Dzień 3 · Edro III
+DESCRIPTION:Zachód około 16:49. Tylko z bezpiecznego suchego miejsca\; b
+ ez wchodzenia na wrak i mokre skały.\nCzas: założenie planu.\nPlan: ht
+ tps://kjawo.github.io/cypr2026/#day-03
+LOCATION:Edro III
+URL:https://kjawo.github.io/cypr2026/#day-03
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-09-D3-08@kjawo.github.io
+DTSTAMP:20261102T000000Z
+DTSTART;TZID=Asia/Nicosia:20261109T170500
+DTEND;TZID=Asia/Nicosia:20261109T180000
+SUMMARY:Dzień 3 · Powrót do hotelu
+DESCRIPTION:25–35 min jazdy z Edro\, z dojściem i marginesem hotel do o
+ koło 18:00.\nCzas: założenie planu.\nPlan: https://kjawo.github.io/cyp
+ r2026/#day-03
+LOCATION:Princessa Vera Hotel Apartments
+URL:https://kjawo.github.io/cypr2026/#day-03
+STATUS:TENTATIVE
+END:VEVENT
+END:VCALENDAR
