@@ -2,12 +2,35 @@
 
 Ten plik jest **nadrzędny** wobec `PLAN-REVIEW.md`. Agent czyta go przed każdą iteracją.
 
+## KOREKTY PO REVIEW (PRIORYTET)
+
+Zachowaj dotychczasowe zmiany, ale **nie używaj planu na wyjeździe**, dopóki C1–C9 z `PLAN-REVIEW.md` (sekcja 11) nie są zamknięte lub świadomie odłożone.
+
+- **C1 (pilne):** rozdziel „lot opóźniony” i „lot odwołany”. Bag drop 05:20 według planowej godziny; nie przesuwać go bez pisemnej informacji przewoźnika.
+- **C2 (pilne):** przelicz Varosha: TF-22 150–195 min + Green Line 30–60 min; obecne 09:00–09:30 jest nierealne. Wskaż przejście, polisę i bufor powrotu.
+- **C3:** Petsas „wymaga kontaktu; zgoda i zakres ochrony do potwierdzenia”, nie „dopuszcza po kontakcie”. Udział własny 700–1000 EUR ≠ blokada karty 500 EUR.
+- **C4:** Avis 60 EUR — nie rozstrzygaj, czy dotyczy odbioru, czy zwrotu; oznacz jako do potwierdzenia dla rezerwacji.
+- **C5:** parking WAW licz na 7 dób: P45/P46 210 PLN, P44 230 PLN — nie 190/210.
+- **C6:** rozdziel Kamara tou Koraka, Love Bridge (Ayia Napa) i Drzewo Kochanków; osobne pinezki; usuń „160+ lat” bez źródła.
+- **C7:** „Sen” 23:59 vs pobudka 02:15 — podziel na dwa zdarzenia lub obsłuż przejście przez północ; spójność ICS.
+- **C8:** `nearest_issue` nie może pomijać zaległych blokad auto/zwrot/parking.
+- **C9:** po poprawkach build, walidacja, ICS/HTML i aktualizacja raportu.
+
+## NOWE POMYSŁY (dodatkowa dyrektywa)
+
+- Zaproponuj **8–10 nowych, realnych, ładnych/ciekawych miejsc**, których nie ma w planie.
+- Kategorie: widoki i klify, plaże/zatoczki, wioski, klasztory, geologia, punkty fotograficzne, jedzenie/wino, zachód słońca, plan B na deszcz.
+- Dla każdego: dlaczego warto, dojazd z Pafos, czas, parking, wstęp, godziny, najlepsze światło, sezon, ryzyka, źródło.
+- Podziel: po drodze / mały objazd / tylko osobny dzień lub nocleg; wskaż **3 najlepsze**.
+- Nie powtarzaj: Varosha, Cape Greco, Drzewo Kochanków, Grobowce, Aphrodite, Artemis, Akamas, Troodos, Pafos.
+- Nie zmieniaj planu bazowego — dodaj jako `alternatives`, `optional_stops` lub `places`; brak twardych danych = `do_potwierdzenia`.
+
 ## Aktywne dyrektywy
 
 - **Nowy cel opcjonalny (nie zmieniaj planu bazowego):** dodaj jako alternatywę wyjazd na stronę turecką (Cypr Północny). Główny cel: **Varosha / Famagusta**.
 - **Cape Greco nie leży na stronie tureckiej** — to Republika Cypryjska, południowo-wschodni kraniec wyspy (Ayia Napa / Protaras). Nie łącz go z „stroną turecką” bez wyjaśnienia; przeanalizuj osobno.
 - **Drzewo Kochanków (Lovers' Tree)** — dodaj jako punkt opcjonalny przy Cape Greco / Ayia Napa, nie na stronie tureckiej. To wiekowe drzewo (jałowiec) w rejonie Cape Greco, popularne do zdjęć; sprawdź dokładną lokalizację, parking, dojście i nie myl go z „Mostem Kochanków” (Kamara tou Koraka).
-- **Rotacja modeli:** runner podaje model tej iteracji. Zapisuj w `PLAN-REVIEW.md`, który model pracował, i zbieraj różne punkty widzenia. Nie uśredniaj rozbieżności bez wyjaśnienia.
+- **Rotacja modeli (tylko w trybie rotate):** runner podaje model tej iteracji. Zapisuj w `PLAN-REVIEW.md`, który model pracował, i zbieraj różne punkty widzenia. Nie uśredniaj rozbieżności bez wyjaśnienia. W trybie DeepSeek-only nie dotyczy — jest tylko `deepseek-flash`.
 - Zbadaj, czy **Varosha + Cape Greco da się zrobić w jednym dniu z Pafos**. Policz realny czas jazdy, przekroczenia granicy, światło, zmęczenie i koszt. Jeśli nie — zaproponuj warianty:
   1. dzień tylko Varosha / Famagusta (Pafos → Nicosia → Famagusta),
   2. dzień tylko Cape Greco / Ayia Napa (południe),

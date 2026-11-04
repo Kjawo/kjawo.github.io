@@ -26,7 +26,7 @@ DTSTAMP:20261104T000000Z
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261114
 SUMMARY:Cypr 2026 — plan podróży
-DESCRIPTION:7–13 listopada 2026\, Pafos. Plan bazowy\, wersja 1.1.0.\nht
+DESCRIPTION:7–13 listopada 2026\, Pafos. Plan bazowy\, wersja 1.2.2.\nht
  tps://cypr2026.pages.dev/
 LOCATION:Pafos\, Cypr
 URL:https://cypr2026.pages.dev/
@@ -84,8 +84,8 @@ DTEND;TZID=Asia/Nicosia:20261107T170500
 SUMMARY:Dzień 1 · Faros i zachód
 DESCRIPTION:Wyjście pieszo\; pozostawać na bezpiecznym suchym terenie. Z
  achód około 16:51.\nCzas: założenie planu.\nMapa (punkt): https://www
- .google.com/maps/search/?api=1&query=Lighthouse%20Beach%20Paphos%20Faros\
- nPlan: https://cypr2026.pages.dev/#day-01
+ .google.com/maps/search/?api=1&query=34.7644485%2C32.4067082\nPlan: https
+ ://cypr2026.pages.dev/#day-01
 LOCATION:Faros Lighthouse Beach
 URL:https://cypr2026.pages.dev/#day-01
 STATUS:TENTATIVE
@@ -682,6 +682,22 @@ URL:https://cypr2026.pages.dev/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
+UID:cypr2026-2026-11-13-D7-00@kjawo.github.io
+DTSTAMP:20261104T000000Z
+DTSTART;TZID=Asia/Nicosia:20261113T000000
+DTEND;TZID=Asia/Nicosia:20261113T021500
+SUMMARY:Dzień 7 · Sen — dokończenie
+DESCRIPTION:Ciąg dalszy snu po północy\; pobudka 02:15. Sen 12 XI zaczy
+ na się o 19:00 i kończy o 23:59\, a ten wpis domyka noc bez sztucznego 
+ skracania do 23:59.\nCzas: założenie planu.\nMapa (punkt): https://www.
+ google.com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartments
+ %2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026.
+ pages.dev/#day-07
+LOCATION:Princessa Vera Hotel Apartments
+URL:https://cypr2026.pages.dev/#day-07
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-01@kjawo.github.io
 DTSTAMP:20261104T000000Z
 DTSTART;TZID=Asia/Nicosia:20261113T021500
@@ -719,8 +735,8 @@ DTEND;TZID=Asia/Nicosia:20261113T033500
 SUMMARY:Dzień 7 · Wyjazd na PFO
 DESCRIPTION:To godzina ruszenia z parkingu. Dojazd 25–35 min\, potem wł
  aściwy sektor wypożyczalni.\nCzas: założenie planu.\nMapa (punkt): ht
- tps://www.google.com/maps/search/?api=1&query=Paphos%20International%20Ai
- rport%20PFO\nPlan: https://cypr2026.pages.dev/#day-07
+ tps://www.google.com/maps/search/?api=1&query=34.7179133%2C32.4890948\nPl
+ an: https://cypr2026.pages.dev/#day-07
 LOCATION:Port lotniczy Pafos PFO
 URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
@@ -734,8 +750,8 @@ SUMMARY:Dzień 7 · Terminal
 DESCRIPTION:Dojście po zwrocie\; w kolejce do bag drop cel około 04:10
  –04:20. Otwarcie stanowiska według obsługi\, nie gwarantowane o 04:20
  .\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/maps/se
- arch/?api=1&query=Paphos%20International%20Airport%20PFO\nPlan: https://c
- ypr2026.pages.dev/#day-07
+ arch/?api=1&query=34.7179133%2C32.4890948\nPlan: https://cypr2026.pages.d
+ ev/#day-07
 LOCATION:Port lotniczy Pafos PFO
 URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
@@ -748,8 +764,8 @@ DTEND;TZID=Asia/Nicosia:20261113T051500
 SUMMARY:Dzień 7 · Nadanie i kontrole
 DESCRIPTION:Po nadaniu od razu bezpieczeństwo\, ewentualna kontrola dokum
  entów i przejście do bramki.\nCzas: założenie planu.\nMapa (punkt): h
- ttps://www.google.com/maps/search/?api=1&query=Paphos%20International%20A
- irport%20PFO\nPlan: https://cypr2026.pages.dev/#day-07
+ ttps://www.google.com/maps/search/?api=1&query=34.7179133%2C32.4890948\nP
+ lan: https://cypr2026.pages.dev/#day-07
 LOCATION:Port lotniczy Pafos PFO
 URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE
@@ -762,8 +778,8 @@ DTEND;TZID=Asia/Nicosia:20261113T053000
 SUMMARY:Dzień 7 · Cel obecności przy bramce
 DESCRIPTION:To cel operacyjny\; numer i godzinę zamknięcia sprawdzić na
   karcie i ekranach.\nCzas: założenie planu.\nMapa (punkt): https://www.
- google.com/maps/search/?api=1&query=Paphos%20International%20Airport%20PF
- O\nPlan: https://cypr2026.pages.dev/#day-07
+ google.com/maps/search/?api=1&query=34.7179133%2C32.4890948\nPlan: https:
+ //cypr2026.pages.dev/#day-07
 LOCATION:Port lotniczy Pafos PFO
 URL:https://cypr2026.pages.dev/#day-07
 STATUS:TENTATIVE

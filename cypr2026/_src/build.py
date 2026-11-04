@@ -1230,10 +1230,11 @@ def render_week(plan: Plan) -> str:
 def nearest_issue(plan: Plan) -> dict | None:
     if not plan.open_issues:
         return None
-    reference = plan.meta.get("updated_on") or ""
+    # Pokazuj najpilniejsze otwarte zadanie, takze po terminie.
+    # Wczesniej filtrowano przeszle terminy, przez co auto/zwrot/parking
+    # z terminem 3 XI znikaly z karty "Dzis".
     key = lambda item: (item.get("due_on") or "9999", PRIORITY_ORDER.get(item.get("priority"), 9))
-    future = [item for item in plan.open_issues if (item.get("due_on") or "9999") >= reference]
-    return sorted(future or plan.open_issues, key=key)[0]
+    return sorted(plan.open_issues, key=key)[0]
 
 
 def render_today(plan: Plan) -> str:

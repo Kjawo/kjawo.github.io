@@ -13,7 +13,7 @@ To niezależny folder w repo `kjawo/kjawo.github.io`, gałąź `gh-pages`. Nie z
 Plik źródłowy po audycie 4 XI 2026 (wersja 1.1.0). SHA-256:
 
 ```text
-c4dd58e33a5feeee95c60fe6284641089d93fa3cb43e62b477c03f4c7f5b05a9
+46247ac35d13647b4b685c4862684f8f7fca7049ee990861a1fae33382bfa28c
 ```
 
 ## Build
