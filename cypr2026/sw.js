@@ -2,13 +2,13 @@
 "use strict";
 
 // Updated by cypr2026/_src/build.py on every build.
-const CACHE_VERSION = "cypr-2026-1.0.0-47c9c68d63";
+const CACHE_VERSION = "cypr-2026-1.0.0-102ebaca44";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
-  "./styles.css?v=47c9c68d63",
-  "./app.js?v=47c9c68d63",
-  "./manifest.json?v=47c9c68d63",
+  "./styles.css?v=102ebaca44",
+  "./app.js?v=102ebaca44",
+  "./manifest.json?v=102ebaca44",
   "./data/Cypr_2026_zrodlo_prawdy.json",
   "./assets/fonts/inter-400-ext.woff2",
   "./assets/fonts/inter-400.woff2",
@@ -48,7 +48,7 @@ self.addEventListener("activate", (event) => {
     caches.keys()
       .then((keys) => Promise.all(
         keys
-          .filter((key) => key.startsWith("cypr-2026-") && key !== CACHE_VERSION)
+          .filter((key) => key.startsWith("cypr-2026-") && !key.startsWith("cypr-2026-v1-") && key !== CACHE_VERSION)
           .map((key) => caches.delete(key))
       ))
       .then(() => self.clients.claim())
@@ -69,11 +69,19 @@ self.addEventListener("fetch", (event) => {
   // above). The page has no trackers or external fonts.
   if (url.origin !== self.location.origin) return;
 
+  // HTML is network-first so a fresh deploy is visible immediately; the
+  // cached document remains the offline fallback.
   if (request.mode === "navigate") {
     event.respondWith(
-      caches.match("./index.html", { ignoreSearch: true })
-        .then((cached) => cached || fetch(request))
-        .catch(() => caches.match("./index.html"))
+      fetch(request)
+        .then((response) => {
+          if (response && response.status === 200) {
+            const copy = response.clone();
+            caches.open(CACHE_VERSION).then((cache) => cache.put("./index.html", copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match("./index.html", { ignoreSearch: true }).then((cached) => cached || caches.match("./")))
     );
     return;
   }
@@ -82,14 +90,11 @@ self.addEventListener("fetch", (event) => {
     caches.match(request)
       .then((cached) => {
         if (cached) return cached;
-        return caches.match(request, { ignoreSearch: true }).then((searchless) => {
-          if (searchless) return searchless;
-          return fetch(request).then((response) => {
-            if (!response || response.status !== 200 || response.type !== "basic") return response;
-            const copy = response.clone();
-            caches.open(CACHE_VERSION).then((cache) => cache.put(request, copy));
-            return response;
-          });
+        return fetch(request).then((response) => {
+          if (!response || response.status !== 200 || response.type !== "basic") return response;
+          const copy = response.clone();
+          caches.open(CACHE_VERSION).then((cache) => cache.put(request, copy));
+          return response;
         });
       })
   );

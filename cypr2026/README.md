@@ -37,6 +37,10 @@ Build:
 
 Dwa uruchomienia dają identyczny wynik (nie ma timestampów w treści).
 
+## Archiwum wersji 1
+
+Stara wersja strony jest zachowana bez zmian funkcjonalnych pod adresem **https://kjawo.github.io/v1/** (lokalnie `http://localhost:8000/v1/`). Katalog `v1/` jest zamrożoną kopią z `noindex`, własnym manifestem, assetami i service workerem o odrębnej nazwie cache. Nowa wersja pozostaje pod `/cypr2026/`; link do archiwum jest też w stopce nowej strony.
+
 ## Podgląd
 
 Z katalogu głównego repo:
@@ -124,9 +128,11 @@ Do PDF: `Ctrl/Cmd + P` → A4 → marginesy domyślne → bez grafiki tła. Stro
 
 ## Testowanie
 
-Sprawdzone szerokości: **360, 390, 768, 1280 px**. Widok „Dziś” sprawdzono dla dat 2026-11-06, 2026-11-09 i 2026-11-14, a zegar dla stref urządzenia: UTC, `Europe/Warsaw` i `Asia/Nicosia`.
+Sprawdzone szerokości: **360, 390, 768, 1280 i 1440 px**. Widok „Dziś” sprawdzono dla dat 2026-11-06, 2026-11-09 i 2026-11-14, a zegar dla stref urządzenia: UTC, `Europe/Warsaw` i `Asia/Nicosia`.
 
-Na wąskim ekranie oś czasu i notatki dnia są zwinięte w `<details>`, z wyjątkiem bieżącego dnia podróży. Bez JavaScriptu i w druku wszystkie dni są otwarte. Link do `#day-XX` automatycznie otwiera właściwy dzień.
+Audyt axe-core 4.10 (WCAG 2.2 AA): 0 naruszeń; 0 elementów tekstowych poniżej 12 px i 0 wszystkich elementów interaktywnych poniżej 44 px w tested widths — także linki inline, którym powiększono obszar dotyku paddingiem z kompensacją układu.
+
+Na wąskim ekranie oś czasu i notatki dnia są zwinięte w `<details>`, z wyjątkiem bieżącego dnia podróży. Tydzień jest listą na telefonie i siatką 2 / 3 / 4 kolumn na większych ekranach — bez siedmiu ściśniętych kolumn i bez ucinania opisów. Bez JavaScriptu i w druku wszystkie dni są otwarte. Link do `#day-XX` automatycznie otwiera właściwy dzień.
 
 Checklisty zapisują się jako:
 
@@ -142,9 +148,9 @@ Klucz: `cypr2026.checklist.v1`. Reset czyści wpis w `localStorage` po potwierdz
 ## Wydajność
 
 - HTML jest duży, bo zawiera cały plan i osadzony JSON; w transferze na GitHub Pages jest kompresowany.
-- CSS: około 78 KB źródła / **około 16 KB gzip**.
-- JS bez Leafleta: około 35 KB źródła / **około 10 KB gzip**.
-- Fonty: około 132 KB łącznie, lokalne, tylko potrzebne podzbiory. Ikony mapy grupują bliskie punkty, żeby pozostały klikalne na telefonie.
+- CSS: około 86 KB źródła / **około 16,5 KB gzip**.
+- JS bez Leafleta: około 35,5 KB źródła / **około 10 KB gzip**.
+- Fonty: około 152 KB łącznie, lokalne, tylko potrzebne podzbiory. Minimalny rozmiar tekstu na ekranie to 12 px; wszystkie elementy interaktywne mają co najmniej 44 px wysokości i szerokości (także linki inline). Ikony mapy grupują bliskie punkty, żeby pozostały klikalne na telefonie.
 - Leaflet, CSS Leafleta i kafelki są ładowane dopiero przy sekcji mapy; kafelki nigdy nie trafiają do cache offline.
 - Brak zdjęć hero, analityki, cookie bannerów i zewnętrznych trackerów.
 
@@ -161,7 +167,7 @@ Klucz: `cypr2026.checklist.v1`. Reset czyści wpis w `localStorage` po potwierdz
 - **Mobile:** dni inne niż bieżący są domyślnie zwinięte przez JS; bez JS wszystkie są otwarte. Ważne ostrzeżenia (auto, 112, polowania, bag drop) pozostają poza zwiniętymi blokami.
 - **Statusy współrzędnych:** `zweryfikowane`, `przejete_z_audytu`, `orientacyjne_do_potwierdzenia`.
 - Niektóre serwisy (Ryanair, Wizz Air, timeanddate, SIXT) blokują automatyczne zapytania HTTP 403, choć linki są źródłami z JSON-a. Nie usuwaj ich tylko z powodu błędu bota.
-- Print jest obszerny (kilkadziesiąt stron A4), bo zawiera wszystkie dni, warianty, trasy, miejsca, checklisty i źródła; każdy dzień zaczyna nową stronę.
+- Print jest obszerny (około 52 stron A4), bo zawiera wszystkie dni, warianty, trasy, miejsca, checklisty i źródła; każdy dzień zaczyna nową stronę, a tabele źródłowe mają powtarzany nagłówek.
 
 ## Edycja
 

@@ -50,6 +50,16 @@
     if (count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 12 || count % 100 > 14)) return "dni";
     return "dni";
   }
+  function pluralTasks(count) {
+    if (count === 1) return "zadanie";
+    if (count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 12 || count % 100 > 14)) return "zadania";
+    return "zadań";
+  }
+  function blockingLabel(count) {
+    var noun = pluralTasks(count);
+    var adjective = count === 1 ? "blokujące" : (noun === "zadania" ? "blokujące" : "blokujących");
+    return count + " " + noun + " " + adjective;
+  }
 
   function cyprusNow() {
     var parts = new Intl.DateTimeFormat("en-GB", {
@@ -220,7 +230,10 @@
     if (todayKicker) todayKicker.textContent = "Przed wyjazdem";
     if (todayTitle) todayTitle.textContent = days === 1 ? "Jutro zaczynamy" : "Za " + days + " " + pluralDays(days);
     var html = '<p class="today-bigline">' + esc(dateLabel(startDate)) + " · " + esc(data.trip.nights) + " nocy w Pafos</p>";
-    html += "<p>Plan bazowy jest gotowy, ale <strong>" + blocking.length + " zadań blokujących</strong> wymaga potwierdzenia. Auto nie jest zarezerwowane.</p>";
+    html += "<p>Plan bazowy jest gotowy. Do potwierdzenia: <strong>" + blockingLabel(blocking.length) + "</strong>. Auto nie jest zarezerwowane.</p>";
+    if (overdue.length && nearest) {
+      html += '<p class="today-overdue">' + esc(overdue.length + " " + pluralTasks(overdue.length) + " z minionym terminem — sprawdź, co udało się potwierdzić.") + "</p>";
+    }
     if (nearest) {
       html += '<div class="today-task"><span class="today-task__label">Najbliższy termin · ' + esc(dateLabel(nearest.due_on)) + "</span><strong>" + esc(nearest.title) + "</strong>" + issueLink(nearest) + "</div>";
     } else if (overdue.length) {
@@ -268,9 +281,9 @@
       });
     }
     var current = active || next;
-    if (todayKicker) todayKicker.textContent = "Dzień " + Number(day.id.slice(-2)) + " z 7 · w trakcie";
+    if (todayKicker) todayKicker.textContent = "Dzień " + Number(day.id.slice(-2)) + " z " + allDays.length + " · w trakcie";
     if (todayTitle) todayTitle.textContent = day.title;
-    var html = '<p class="today-bigline">' + esc(day.id) + " · " + esc(weekdayLabel(day.date)) + " · " + esc(dateLabel(day.date)) + "</p>";
+    var html = '<p class="today-bigline">Dzień ' + Number(day.id.slice(-2)) + " · " + esc(weekdayLabel(day.date)) + " · " + esc(dateLabel(day.date)) + "</p>";
     (data.trip.flights || []).filter(function (flight) {
       return flight.departure_at.slice(0, 10) === day.date;
     }).forEach(function (flight) {
@@ -544,6 +557,13 @@
     return { link: link, section: document.getElementById(link.getAttribute("href").slice(1)) };
   }).filter(function (item) { return item.section; });
   var navTicking = false;
+  var readingProgress = $("[data-reading-progress]");
+  function updateReadingProgress() {
+    if (!readingProgress) return;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var value = max > 0 ? Math.min(100, Math.max(0, (window.scrollY / max) * 100)) : 0;
+    readingProgress.style.width = value.toFixed(2) + "%";
+  }
   function updateNavCurrent() {
     var line = window.scrollY + 220;
     var current = sections[0];
@@ -568,6 +588,7 @@
         }
       }
     });
+    updateReadingProgress();
     navTicking = false;
   }
   window.addEventListener("scroll", function () {
@@ -575,6 +596,7 @@
     navTicking = true;
     window.requestAnimationFrame(updateNavCurrent);
   }, { passive: true });
+  window.addEventListener("resize", updateReadingProgress, { passive: true });
   updateNavCurrent();
 
   // Lazy Leaflet map ---------------------------------------------------------
@@ -607,10 +629,10 @@
     allDays.forEach(function (day) {
       if ((day.timeline || []).some(function (event) {
         return (event.place_ids || []).indexOf(placeId) !== -1;
-      })) usage.push(day.id);
+      })) usage.push("Dzień " + Number(day.id.slice(-2)));
     });
     (data.routes || []).forEach(function (route) {
-      if (route.start_place_id === placeId) usage.push(route.id + " — start");
+      if (route.start_place_id === placeId) usage.push("start trasy " + route.name);
     });
     return usage;
   }
@@ -633,7 +655,7 @@
       '<p class="map-popup__status">' + esc(coordStatusLabels[coord.status] || "brak danych o współrzędnych") + "</p>" +
       (place.published_hours ? "<p><strong>Godziny:</strong> " + esc(place.published_hours) + "</p>" : "") +
       "<p><strong>Wstęp:</strong> " + esc(feeLabel(place.fee_eur_per_adult)) + "</p>" +
-      "<p><strong>W planie:</strong> " + esc(use.length ? use.join(", ") : "brak bezpośredniego użycia w osi czasu") + "</p>" +
+      "<p><strong>Powiązania:</strong> " + esc(use.length ? use.join(", ") : "brak bezpośredniego użycia w osi czasu") + "</p>" +
       '<p><a href="#place-' + esc(place.id) + '">Opis w liście miejsc</a>' +
       (mapUrl ? ' · <a href="' + esc(mapUrl) + '">Otwórz w Maps</a>' : "") + "</p>";
   }
@@ -674,6 +696,7 @@
   function initMap() {
     if (!mapCanvas || !window.L || mapLoaded) return;
     mapLoaded = true;
+    mapCanvas.removeAttribute("aria-busy");
     var places = allPlaces.filter(function (place) {
       return place.coordinates && typeof place.coordinates.lat === "number" && typeof place.coordinates.lon === "number";
     });
@@ -681,9 +704,13 @@
     var map = window.L.map(mapCanvas, {
       scrollWheelZoom: false,
       keyboard: true,
-      zoomControl: true,
-      attributionControl: true
+      zoomControl: false,
+      attributionControl: true,
+      zoomAnimation: !reduceMotion,
+      fadeAnimation: !reduceMotion,
+      markerZoomAnimation: !reduceMotion
     });
+    window.L.control.zoom({ zoomInTitle: "Przybliż mapę", zoomOutTitle: "Oddal mapę" }).addTo(map);
     window.L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution: OSM_ATTRIBUTION
@@ -718,6 +745,11 @@
           alt: label,
           keyboard: true
         }).addTo(markerLayer);
+        var markerEl = marker.getElement();
+        if (markerEl) {
+          markerEl.setAttribute("role", "button");
+          markerEl.setAttribute("aria-label", label);
+        }
         marker.bindPopup(members.length > 1 ? popupGroupHtml(members) : popupHtml(members[0]), { maxWidth: 340 });
       });
     }
@@ -725,6 +757,10 @@
     else map.setView([34.9, 32.75], 8);
     renderMarkers();
     map.on("zoomend", renderMarkers);
+    map.on("popupopen", function (event) {
+      var closeButton = event.popup.getElement() && event.popup.getElement().querySelector(".leaflet-popup-close-button");
+      if (closeButton) closeButton.setAttribute("aria-label", "Zamknij opis miejsca");
+    });
     var offline = document.createElement("p");
     offline.className = "map-offline-overlay";
     offline.setAttribute("data-map-offline", "");
@@ -738,6 +774,7 @@
     if (!mapCanvas || mapLoading || mapLoaded) return;
     mapLoading = true;
     mapCanvas.classList.add("is-loading");
+    mapCanvas.setAttribute("aria-busy", "true");
     var sourceScript = document.querySelector("script[data-version]");
     var version = sourceScript ? sourceScript.getAttribute("data-version") : "";
     var suffix = version ? "?v=" + version : "";
@@ -747,6 +784,7 @@
     ]).then(initMap).catch(function () {
       mapLoading = false;
       mapCanvas.classList.remove("is-loading");
+      mapCanvas.removeAttribute("aria-busy");
       mapCanvas.innerHTML = '<div class="map-placeholder map-placeholder--error"><p>Nie udało się wczytać mapy. Pełna lista miejsc poniżej jest kompletna i działa bez JavaScriptu.</p></div>';
     });
   }

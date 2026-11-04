@@ -468,7 +468,7 @@ def source_chips(plan: "Plan", source_ids: list[str] | None, *, prefix: str = "�
         title = source["title"] if source else source_id
         chips.append(
             f'<a class="source-chip" href="#src-{esc(source_id)}" '
-            f'title="{esc(title)}">{icon("source")}<span>{esc(source_id)}</span></a>'
+            f'title="{esc(title)}" aria-label="Źródło {esc(source_id)}: {esc(title)}">{icon("source")}<span>{esc(source_id)}</span></a>'
         )
     label = f'<span class="source-chips__label">{esc(prefix)}:</span>' if prefix else ""
     return '<span class="source-chips">' + label + "".join(chips) + "</span>"
@@ -883,7 +883,7 @@ def render_hero(plan: Plan) -> str:
         </div>
         <p class="eyebrow">PODRÓŻ · CYPR · 2026</p>
         <h1 class="hero__title">Cypr <span>bez pośpiechu</span></h1>
-        <p class="hero__dates">7–13 listopada 2026 <span aria-hidden="true">·</span> 2 osoby <span aria-hidden="true">·</span> 6 nocy <span aria-hidden="true">·</span> Pafos</p>
+        <p class="hero__dates"><span class="hero__date-range">7–13 listopada 2026</span> <span aria-hidden="true">·</span> <span class="hero__date-meta">2 osoby · 6 nocy · Pafos</span></p>
         <p class="hero__lede">Dwa widokowe trekkings, Pafos, Troodos, Omodos i Petra. Jedna baza, spokojne tempo i miejsce na światło.</p>
         <div class="hero__actions">
           <a class="button button--primary" href="#dzis">Dziś {icon("arrow")}</a>
@@ -896,10 +896,10 @@ def render_hero(plan: Plan) -> str:
     </div>
     <div class="hero__status">
       <div class="page-width">
-        <dl class="status-bar" aria-label="Status planu">
+        <dl class="status-bar">
           <div><dt>Wersja</dt><dd>{version}</dd></div>
           <div><dt>Aktualizacja</dt><dd>{esc(updated)}</dd></div>
-          <div><dt>Status</dt><dd>Plan bazowy</dd></div>
+          <div class="status-bar__status"><dt>Status</dt><dd>Plan bazowy</dd></div>
           <div><dt>Auto</dt><dd><a href="#auto">Do potwierdzenia</a></dd></div>
           <div class="status-bar__wide"><dt>Do potwierdzenia</dt><dd><a href="#todo">{blocking} zadań blokujących</a></dd></div>
           <div class="status-bar__offline"><dt>Tryb</dt><dd><span class="connection connection--hero" data-connection role="status" aria-live="polite">{icon("wifi")}<span class="connection__text">sprawdzam</span></span></dd></div>
@@ -933,33 +933,46 @@ def render_nav(plan: Plan) -> str:
         </div>
         <div class="subnav__tools">
           <a class="emergency-mini" href="tel:112" aria-label="Numer alarmowy 112">{icon("phone")}<span>112</span></a>
-          <span class="connection connection--nav" data-connection role="status" aria-live="polite">{icon("wifi")}<span class="connection__text">sprawdzam</span></span>
+          <span class="connection connection--nav" data-connection>{icon("wifi")}<span class="connection__text">sprawdzam</span></span>
         </div>
       </div>
+      <span class="subnav__progress" aria-hidden="true"><span data-reading-progress></span></span>
     </nav>
     """
 
 
+def day_number(day: dict) -> str:
+    return day["id"].split("-")[-1]
+
+
+def day_label(day: dict) -> str:
+    return f'Dzień {int(day_number(day))}'
+
+
 def render_week_card(plan: Plan, day: dict) -> str:
-    day_no = day["id"].split("-")[-1]
+    day_no = day_number(day)
     walk = format_km(day.get("walk_km_estimate"))
     drive = format_km(day.get("drive_km_estimate"))
     hunt = ' <span class="hunting-micro">bez trekkingu</span>' if day["date"] in HUNTING_DATES else ""
     return f"""
       <a class="week-card" href="#day-{day_no}" data-day-date="{esc(day['date'])}"
-         aria-label="{esc(day['id'])} · {esc(format_date_pl(day['date']))} · {esc(day['title'])}">
-        <span class="week-card__number">{esc(day_no)}</span>
-        <span class="week-card__today">Dziś</span>
-        <time class="week-card__date" datetime="{esc(day['date'])}">{esc(format_date_pl(day['date']))}</time>
-        <span class="week-card__weekday">{esc(day['weekday'])}{hunt}</span>
-        <h3 class="week-card__title">{esc(day['title'])}</h3>
-        <p class="week-card__mode">{esc(day['mode'])}</p>
-        <p class="week-card__summary">{esc(day['summary'])}</p>
-        <span class="week-card__metrics">
-          <span>Pieszo <b>{esc(walk)}</b></span>
-          <span>Auto <b>{esc(drive)}</b></span>
-        </span>
-        <span class="week-card__arrow" aria-hidden="true">{icon("arrow")}</span>
+         aria-label="{esc(day_label(day))} · {esc(format_date_pl(day['date']))} · {esc(day['title'])} · pieszo {esc(walk)}, auto {esc(drive)}">
+        <div class="week-card__rail">
+          <span class="week-card__number" aria-hidden="true">{esc(day_no)}</span>
+          <span class="week-card__today">Dziś</span>
+          <span class="week-card__arrow" aria-hidden="true">{icon("arrow")}</span>
+        </div>
+        <div class="week-card__body">
+          <time class="week-card__date" datetime="{esc(day['date'])}">{esc(format_date_pl(day['date']))}</time>
+          <span class="week-card__weekday">{esc(day['weekday'])}{hunt}</span>
+          <h3 class="week-card__title">{esc(day['title'])}</h3>
+          <span class="week-card__mode">{esc(day['mode'])}</span>
+          <span class="week-card__summary">{esc(day['summary'])}</span>
+          <span class="week-card__metrics">
+            <span>Pieszo <b>{esc(walk)}</b></span>
+            <span>Auto <b>{esc(drive)}</b></span>
+          </span>
+        </div>
       </a>
     """
 
@@ -973,13 +986,13 @@ def render_week(plan: Plan) -> str:
           <p class="section-index"><span>01</span> / PRZEGLĄD</p>
           <div class="section-head__body">
             <h2 id="tydzien-title">Tydzień w skrócie</h2>
-            <p class="section-lede">Siedem dni, jedna baza i dwa główne trekkings. Karty są skrótem; pełny plan z godzinami znajduje się <a href="#dni">niżej</a>.</p>
+            <p class="section-lede">Siedem dni, jedna baza i dwa główne trekkings. Karty są skrótem; pełny plan z godzinami znajduje się <a class="tap-inline" href="#dni">niżej</a>.</p>
           </div>
         </header>
-        <div class="week-strip" aria-label="Siedem dni wyjazdu">
+        <div class="week-strip" role="group" aria-label="Siedem dni wyjazdu">
           {cards}
         </div>
-        <p class="section-footnote">{icon("alert")} <span>8 i 11 listopada to dni polowań — bez trekkingu. Szczegóły w sekcji <a href="#bezpieczenstwo">Bezpieczeństwo</a>.</span></p>
+        <p class="section-footnote">{icon("alert")} <span>8 i 11 listopada to dni polowań — bez trekkingu. Szczegóły w sekcji <a class="tap-inline" href="#bezpieczenstwo">Bezpieczeństwo</a>.</span></p>
       </div>
     </section>
     """
@@ -1075,7 +1088,7 @@ def render_flight_band(plan: Plan, day: dict) -> str:
         """)
     if not flights:
         return ""
-    return f'<div class="flight-band" aria-label="Lot w tym dniu">{"".join(flights)}</div>'
+    return f'<div class="flight-band" role="group" aria-label="Lot w tym dniu">{"".join(flights)}</div>'
 
 
 def render_dual_zone(day: dict, event: dict) -> str:
@@ -1109,17 +1122,21 @@ def place_usage(plan: Plan, place_id: str) -> list[str]:
     usage = []
     for day in plan.day_list:
         if any(place_id in event.get("place_ids", []) for event in day.get("timeline", [])):
-            usage.append(day["id"])
-    for route in plan.route_list:
-        if route.get("start_place_id") == place_id:
-            label = f'{route["id"]} — start'
-            if label not in usage:
-                usage.append(label)
-    for transfer in plan.transfers:
-        if place_id in {transfer.get("origin_id"), transfer.get("destination_id")}:
-            label = f'{transfer["id"]} — przejazd'
-            if label not in usage:
-                usage.append(label)
+            usage.append(day_label(day))
+    route_starts = [route["name"] for route in plan.route_list if route.get("start_place_id") == place_id]
+    if route_starts:
+        usage.append(("start trasy " + route_starts[0]) if len(route_starts) == 1 else ("starty tras: " + ", ".join(route_starts)))
+    transfers = [
+        transfer["id"] for transfer in plan.transfers
+        if place_id in {transfer.get("origin_id"), transfer.get("destination_id")}
+    ]
+    if transfers:
+        if len(transfers) == 1:
+            usage.append("przejazd " + transfers[0])
+        elif len(transfers) <= 3:
+            usage.append("przejazdy: " + ", ".join(transfers))
+        else:
+            usage.append(f"przejazdy: {len(transfers)} {plural_pl(len(transfers), 'relacja', 'relacje', 'relacji')}")
     return usage
 
 
@@ -1152,7 +1169,7 @@ def render_timeline(plan: Plan, day: dict) -> str:
             </div>
           </li>
         """)
-    return f'<ol class="timeline" aria-label="Oś czasu dnia">{"".join(items)}</ol>'
+    return f'<ol class="timeline">{"".join(items)}</ol>'
 
 
 def render_alternative(plan: Plan, alt: dict) -> str:
@@ -1165,7 +1182,7 @@ def render_alternative(plan: Plan, alt: dict) -> str:
         <div class="variant-card__head">
           <p class="variant-kicker">WARIANT · OPCJA · NIE PLAN BAZOWY</p>
           <h3 id="{esc(anchor)}-title">{esc(alt["name"])}</h3>
-          <p>Przy dniu <a href="#day-{day['id'].split('-')[-1]}">{esc(day['id'])} · {esc(day['title'])}</a></p>
+          <p>Przy dniu <a class="tap-inline" href="#day-{day['id'].split('-')[-1]}">{esc(day_label(day))} · {esc(day['title'])}</a></p>
         </div>
         <dl class="variant-facts">
           <div><dt>Co zastępuje</dt><dd>{esc(replaces)}</dd></div>
@@ -1210,10 +1227,22 @@ def render_day(plan: Plan, day: dict) -> str:
     sources = source_chips(plan, day.get("source_ids", []))
     flight_band = render_flight_band(plan, day)
     timezone_note = "Czasy w Asia/Nicosia (UTC+2)." if day["date"] not in {"2026-11-07", "2026-11-13"} else "Czasy w Asia/Nicosia (UTC+2); loty w czasie lokalnym lotnisk, z obiema strefami."
+    walk_value = day.get("walk_km_estimate")
+    drive_value = day.get("drive_km_estimate")
+    walk_chip = (
+        f'<span class="chip">{icon("foot")}Pieszo: <b>{esc(format_km(walk_value))}</b></span>'
+        if walk_value is not None
+        else f'<span class="chip chip--missing">{icon("foot")}Pieszo: <b>brak danych</b></span>'
+    )
+    drive_chip = (
+        f'<span class="chip">{icon("car")}Auto: <b>{esc(format_km(drive_value))}</b></span>'
+        if drive_value is not None
+        else f'<span class="chip chip--missing">{icon("car")}Auto: <b>brak danych</b></span>'
+    )
     return f"""
       <article class="day-card" id="day-{esc(day_no)}" data-day-date="{esc(day['date'])}" aria-labelledby="day-{esc(day_no)}-title">
         <header class="day-card__head">
-          <p class="day-label">DAY-{esc(day_no)} <span>/</span> {esc(format_date_pl(day['date']))}</p>
+          <p class="day-label">{esc(day_label(day))} <span>/</span> {esc(format_date_pl(day['date']))}</p>
           <div class="day-card__title-row">
             <div>
               <p class="day-weekday">{esc(day['weekday'])}</p>
@@ -1223,8 +1252,8 @@ def render_day(plan: Plan, day: dict) -> str:
           </div>
           <div class="chip-row">
             <span class="chip">{icon("calendar")}{esc(day['mode'])}</span>
-            <span class="chip">{icon("foot")}Pieszo: <b>{esc(format_km(day.get("walk_km_estimate")))}</b></span>
-            <span class="chip">{icon("car")}Auto: <b>{esc(format_km(day.get("drive_km_estimate")))}</b></span>
+            {walk_chip}
+            {drive_chip}
             {status_chip(day.get("effort_status"), compact=True)}
           </div>
           <p class="timezone-note">{icon("clock")} {timezone_note}</p>
@@ -1301,13 +1330,13 @@ def route_anchor(route_id: str) -> str:
 def route_day_links(plan: Plan, route: dict) -> str:
     links = []
     for day in plan.primary_days.get(route["id"], []):
-        links.append(f'<a class="day-link" href="#day-{day["id"].split("-")[-1]}">{esc(day["id"])} · {esc(day["title"])}</a>')
+        links.append(f'<a class="day-link" href="#day-{day_number(day)}">{esc(day_label(day))} · {esc(day["title"])}</a>')
     for alt in plan.alternative_list:
         if alt.get("route_id") == route["id"] and alt["day_id"] not in {d["id"] for d in plan.primary_days.get(route["id"], [])}:
             day = plan.days[alt["day_id"]]
             anchor = "alt-" + alt["id"].replace("ALT-", "").lower()
             links.append(
-                f'<a class="day-link" href="#{esc(anchor)}">{esc(day["id"])} · wariant {esc(alt["id"])}</a>'
+                f'<a class="day-link" href="#{esc(anchor)}">{esc(day_label(day))} · wariant {esc(alt["id"])}</a>'
             )
     if not links:
         return '<span class="muted">Brak dnia w planie bazowym; trasa jest wyłącznie opcją rezerwową.</span>'
@@ -1327,19 +1356,35 @@ def render_route_body(plan: Plan, route: dict) -> str:
         if gpx_path else ""
     )
     ascent_value = format_metres(route.get("ascent_m"))
-    if route.get("ascent_m") is None:
-        ascent_value = "brak danych"
     difficulty = route.get("official_difficulty")
     difficulty_text = f"{difficulty} / 3" if difficulty is not None else "brak danych"
+    missing = []
+    if route.get("ascent_m") is None:
+        missing.append("przewyższenie")
+    if difficulty is None:
+        missing.append("trudność oficjalna")
+    difficulty_stat = (
+        f'<div><dt>Trudność oficjalna</dt><dd>{esc(difficulty_text)}<span class="stat-note">skala źródłowa</span></dd></div>'
+        if difficulty is not None else ""
+    )
+    ascent_stat = (
+        f'<div><dt>Przewyższenie</dt><dd>{esc(ascent_value)}<span class="stat-status">{status_chip(route.get("ascent_status"), compact=True)}</span></dd></div>'
+        if route.get("ascent_m") is not None else ""
+    )
+    missing_note = (
+        f'<p class="route-missing">{icon("info")} Brak danych w źródle: {esc(", ".join(missing))}. Nie zgadujemy wartości.</p>'
+        if missing else ""
+    )
     stats = f"""
       <dl class="route-stats">
         <div><dt>Dystans</dt><dd>{esc(format_km(route.get("distance_km")))}<span class="stat-status">{status_chip(route.get("distance_status"), compact=True)}</span></dd></div>
         <div><dt>Czas planowany</dt><dd>{esc(format_duration(route.get("planned_duration_minutes")))}<span class="stat-note">z fotografią i przerwami</span></dd></div>
         <div><dt>Rezerwa</dt><dd>{esc(format_duration(route.get("reserve_duration_minutes")))}<span class="stat-note">maksymalny margines</span></dd></div>
-        <div><dt>Trudność oficjalna</dt><dd>{esc(difficulty_text)}<span class="stat-note">skala źródłowa</span></dd></div>
-        <div><dt>Przewyższenie</dt><dd>{esc(ascent_value)}<span class="stat-status">{status_chip(route.get("ascent_status"), compact=True)}</span></dd></div>
+        {difficulty_stat}
+        {ascent_stat}
         <div><dt>Start</dt><dd><a href="#place-{esc(route['start_place_id'])}">{esc(start.get('name', route['start_place_id']))}</a><span class="stat-note">punkt orientacyjny, nie ślad</span></dd></div>
       </dl>
+      {missing_note}
     """
     return f"""
       <div class="route-chips">
@@ -1495,38 +1540,48 @@ def render_coordinate_status(status: str | None) -> str:
 def render_place(plan: Plan, place: dict) -> str:
     coord = place.get("coordinates") or {}
     usage = place_usage(plan, place["id"])
-    if usage:
-        usage_text = ", ".join(usage)
+    usage_html = (
+        f'<p class="place-usage"><span>Powiązania:</span> {esc(", ".join(usage))}</p>'
+        if usage else
+        '<p class="place-usage place-usage--none">Nie pojawia się w osi dnia</p>'
+    )
+    if coord:
+        coords_text = f'{format_coord(coord.get("lat"))}, {format_coord(coord.get("lon"))}'
+        coords_html = (
+            f'<span class="place-coords">{icon("pin")}<code>{esc(coords_text)}</code>'
+            f'{render_coordinate_status(coord.get("status"))}</span>'
+        )
     else:
-        usage_text = "brak bezpośredniego użycia w osi czasu"
-    coords_text = (
-        f'{format_coord(coord.get("lat"))}, {format_coord(coord.get("lon"))}'
-        if coord else "brak współrzędnych"
-    )
-    coords_html = (
-        f'<span class="place-coords">{icon("pin")}<code>{esc(coords_text)}</code>{render_coordinate_status(coord.get("status"))}</span>'
-        if coord else
-        f'<span class="place-coords place-coords--none">{icon("pin")}brak współrzędnych; otwórz w Maps</span>'
-    )
+        coords_html = (
+            f'<span class="place-coords place-coords--none">{icon("pin")}Punkt orientacyjny — bez współrzędnych</span>'
+        )
     map_url = safe_url(place.get("map_url"))
     map_link = (
         f'<a class="text-link" href="{esc(map_url)}">Otwórz w Maps {icon("arrow")}</a>'
         if map_url else ""
     )
     facts = []
+    missing = []
     if place.get("address"):
         facts.append(f'<div><dt>Adres</dt><dd>{esc(place["address"])}</dd></div>')
     if place.get("phone"):
         tel = re.sub(r"[^\d+]", "", place["phone"])
         facts.append(f'<div><dt>Telefon</dt><dd><a href="tel:{esc(tel)}">{esc(format_phone_display(place["phone"]))}</a></dd></div>')
-    facts.append(f'<div><dt>Godziny</dt><dd>{esc(place.get("published_hours") or "brak danych")}</dd></div>')
-    if place.get("fee_eur_per_adult") is None:
-        fee = "brak danych"
-    elif place.get("fee_eur_per_adult") == 0:
-        fee = "0 €"
+    if place.get("published_hours"):
+        facts.append(f'<div><dt>Godziny</dt><dd>{esc(place["published_hours"])}</dd></div>')
     else:
-        fee = f'{format_money(place["fee_eur_per_adult"])}/os.'
-    facts.append(f'<div><dt>Wstęp</dt><dd>{esc(fee)}</dd></div>')
+        missing.append("godziny")
+    if place.get("fee_eur_per_adult") is None:
+        missing.append("wstęp")
+    else:
+        fee = "0 €" if place.get("fee_eur_per_adult") == 0 else f'{format_money(place["fee_eur_per_adult"])}/os.'
+        facts.append(f'<div><dt>Wstęp</dt><dd>{esc(fee)}</dd></div>')
+    if missing:
+        facts.append(
+            f'<div class="place-facts__missing"><dt>Brak danych</dt>'
+            f'<dd>{esc(" i ".join(missing))} — sprawdź w Maps lub u organizatora</dd></div>'
+        )
+    facts_html = f'<dl class="place-facts">{"".join(facts)}</dl>' if facts else ""
     return f"""
       <article class="place-card" id="place-{esc(place["id"])}">
         <header class="place-card__head">
@@ -1535,8 +1590,8 @@ def render_place(plan: Plan, place: dict) -> str:
           {coords_html}
         </header>
         <p class="place-notes">{esc(place.get("notes", ""))}</p>
-        <dl class="place-facts">{''.join(facts)}</dl>
-        <p class="place-usage"><span>W planie:</span> {esc(usage_text)}</p>
+        {facts_html}
+        {usage_html}
         {map_link}
       </article>
     """
@@ -1551,7 +1606,7 @@ def render_map(plan: Plan) -> str:
         cards = "".join(render_place(plan, place) for place in places)
         groups.append(f"""
           <section class="place-group" aria-labelledby="place-group-{group_id}">
-            <div class="group-head"><h3 id="place-group-{group_id}">{esc(group_name)}</h3><span>{len(places)}</span></div>
+            <div class="group-head"><h3 id="place-group-{group_id}">{esc(group_name)}</h3><span>{len(places)} {plural_pl(len(places), "miejsce", "miejsca", "miejsc")}</span></div>
             <div class="place-grid">{cards}</div>
           </section>
         """)
@@ -1566,13 +1621,14 @@ def render_map(plan: Plan) -> str:
           </div>
         </header>
         <div class="map-frame">
-          <div class="map-canvas" id="map-canvas" role="region" aria-label="Interaktywna mapa miejsc z planu">
+          <section class="map-canvas" id="map-canvas" aria-label="Interaktywna mapa miejsc z planu">
             <div class="map-placeholder">
               {icon("map")}
               <p>Mapa jest ładowana dopiero przy tej sekcji. Pełna lista miejsc znajduje się poniżej i działa bez JavaScriptu.</p>
+              <noscript><p class="map-placeholder__noscript">Bez JavaScriptu mapa interaktywna się nie wczyta. Pełna lista miejsc poniżej pozostaje dostępna, podobnie jak linki do Map.</p></noscript>
             </div>
-          </div>
-          <div class="map-legend" aria-label="Legenda statusu współrzędnych">
+          </section>
+          <div class="map-legend" role="group" aria-label="Legenda statusu współrzędnych">
             <span class="legend-title">Status punktu</span>
             <span class="map-key"><i class="map-dot map-dot--ok"></i>zweryfikowane</span>
             <span class="map-key"><i class="map-dot map-dot--audit"></i>przejęte z audytu</span>
@@ -1640,13 +1696,13 @@ def render_flight_card(plan: Plan, flight: dict) -> str:
           <tbody>
             <tr>
               <th scope="row">Odlot · {esc(flight["departure_airport"])}</th>
-              <td><time datetime="{esc(flight["departure_at"])}">{dep_local.strftime("%H:%M")}</time> <span class="zone-tag">{zone_label(dep_zone)} · {utc_offset_text(dep)}</span></td>
-              <td><span class="secondary-time">{other_dep.strftime("%H:%M")} {zone_label(other_dep_zone)}</span></td>
+              <td data-label="Czas lotniska"><time datetime="{esc(flight["departure_at"])}">{dep_local.strftime("%H:%M")}</time> <span class="zone-tag">{zone_label(dep_zone)} · {utc_offset_text(dep)}</span></td>
+              <td data-label="Ten sam moment"><span class="secondary-time">{other_dep.strftime("%H:%M")} {zone_label(other_dep_zone)}</span></td>
             </tr>
             <tr>
               <th scope="row">Przylot · {esc(flight["arrival_airport"])}</th>
-              <td><time datetime="{esc(flight["arrival_at"])}">{arr_local.strftime("%H:%M")}</time> <span class="zone-tag">{zone_label(arr_zone)} · {utc_offset_text(arr)}</span></td>
-              <td><span class="secondary-time">{other_arr.strftime("%H:%M")} {zone_label(other_arr_zone)}</span></td>
+              <td data-label="Czas lotniska"><time datetime="{esc(flight["arrival_at"])}">{arr_local.strftime("%H:%M")}</time> <span class="zone-tag">{zone_label(arr_zone)} · {utc_offset_text(arr)}</span></td>
+              <td data-label="Ten sam moment"><span class="secondary-time">{other_arr.strftime("%H:%M")} {zone_label(other_arr_zone)}</span></td>
             </tr>
           </tbody>
         </table>
@@ -1827,7 +1883,7 @@ def render_transfers(plan: Plan) -> str:
     between = [t for t in auto if t.get("origin_id") != "POI-HOTEL"]
     return f"""
       <div id="przejazdy" class="subsection">
-        {subsection_head("06.4", "Przejazdy", "21 relacji z audytu. To nie jest pomiar od drzwi do drzwi.", icon_name="trail")}
+        {subsection_head("06.4", "Przejazdy", f"{len(plan.transfers)} {plural_pl(len(plan.transfers), 'relacja', 'relacje', 'relacji')} z audytu. To nie jest pomiar od drzwi do drzwi.", icon_name="trail")}
         <p class="method-note">{icon("info")} {esc(plan.transfer_method)}</p>
         {render_transfer_table(plan, from_hotel, "from-hotel", "Z hotelu")}
         {render_transfer_table(plan, between, "between-places", "Między punktami")}
@@ -1953,7 +2009,7 @@ def render_safety(plan: Plan) -> str:
           <div class="emergency-panel__number"><span>Numer alarmowy</span><strong>112</strong></div>
           <div>
             <p>{esc(emergency.get("procedure", ""))}</p>
-            <p class="fine-print">Numer hotelu: <a href="tel:+35726600100">+357 26 600 100</a> · assistance auta: {esc(emergency.get("car_assistance_phone") or "brak danych")} · assistance polisy: {esc(emergency.get("insurance_assistance_phone") or "brak danych")}</p>
+            <p class="fine-print">Numer hotelu: <a class="tap-inline" href="tel:+35726600100">+357 26 600 100</a> · assistance auta: {esc(emergency.get("car_assistance_phone") or "brak danych")} · assistance polisy: {esc(emergency.get("insurance_assistance_phone") or "brak danych")}</p>
             {source_chips(plan, [emergency.get("source_id")] if emergency.get("source_id") else [])}
           </div>
         </div>
@@ -2078,7 +2134,7 @@ def render_checklists(plan: Plan) -> str:
         for index, text in enumerate(group["items"]):
             check_id = f'{group["id"]}-{index}'
             items.append(f"""
-              <label class="check-item" for="chk-{esc(check_id.lower())}">
+              <label class="check-item">
                 <input type="checkbox" id="chk-{esc(check_id.lower())}" data-check-id="{esc(check_id)}">
                 <span class="check-item__box" aria-hidden="true"></span>
                 <span class="check-item__text">{esc(text)}</span>
@@ -2112,7 +2168,8 @@ def render_checklists(plan: Plan) -> str:
           </div>
           <button type="button" class="button button--ghost button--small" data-reset-checklist>Reset checklisty</button>
         </div>
-        <p class="local-note">{icon("info")} Stan checklisty jest lokalny i nie zmienia faktów w planie. Klucz zapisu: <code>cypr2026.checklist.v1</code>.</p>
+        <p class="local-note">{icon("info")} <span>Stan checklisty jest lokalny i nie zmienia faktów w planie. Klucz zapisu: <code>cypr2026.checklist.v1</code>.</span></p>
+        <noscript><p class="local-note local-note--noscript">{icon("info")} <span>Bez JavaScriptu pola nadal można zaznaczać na ekranie i wydruku, ale stan nie zapisze się w przeglądarce.</span></p></noscript>
         <div class="checklist-grid">{''.join(groups)}</div>
       </div>
     </section>
@@ -2224,7 +2281,7 @@ def render_sources(plan: Plan) -> str:
     for source in plan.raw["sources"]:
         url = safe_url(source.get("url"))
         if url:
-            link = f'<a class="source-open" href="{esc(url)}">Otwórz źródło {icon("arrow")}</a><span class="print-url">{esc(url)}</span>'
+            link = f'<a class="source-open" href="{esc(url)}" aria-label="Otwórz źródło: {esc(source["title"])}">Otwórz źródło {icon("arrow")}</a><span class="print-url">{esc(url)}</span>'
         else:
             filename = source.get("filename") or "brak nazwy pliku"
             link = f'<span class="attachment">Załącznik użytkownika</span><span class="print-url">{esc(filename)}</span>'
@@ -2235,7 +2292,7 @@ def render_sources(plan: Plan) -> str:
         )
         rows.append(f"""
           <tr id="src-{esc(source["id"])}">
-            <th scope="row"><a class="source-id-link" href="#src-{esc(source["id"])}">{esc(source["id"])}</a></th>
+            <th scope="row"><span class="source-id">{esc(source["id"])}</span></th>
             <td data-label="Tytuł"><strong>{esc(source["title"])}</strong></td>
             <td data-label="Zakres">{esc(source.get("scope", ""))}</td>
             <td data-label="Weryfikacja">{status_chip(source.get("verification_status"), compact=True)}</td>
@@ -2258,7 +2315,7 @@ def render_sources(plan: Plan) -> str:
           <p class="section-index"><span>09</span> / ŹRÓDŁA</p>
           <div class="section-head__body">
             <h2 id="zrodla-title">Źródła i wersja</h2>
-            <p class="section-lede">24 źródła, statusy weryfikacji i dziennik zmian. JSON jest dokumentem nadrzędnym; ta strona jest jego widokiem.</p>
+            <p class="section-lede">{len(plan.sources)} {plural_pl(len(plan.sources), "źródło", "źródła", "źródeł")}, statusy weryfikacji i dziennik zmian. JSON jest dokumentem nadrzędnym; ta strona jest jego widokiem.</p>
           </div>
         </header>
         {render_status_legend(plan)}
@@ -2317,7 +2374,7 @@ def render_print_cover(plan: Plan) -> str:
         <div><dt>Strefa</dt><dd>Cypr: Asia/Nicosia UTC+2 · Polska UTC+1</dd></div>
         <div><dt>Alarmowy</dt><dd>112</dd></div>
       </dl>
-      <p class="print-cover__note">Wydruk widoku JSON-a. Statusy „do potwierdzenia” i „szacunek” pozostają widoczne. Auto nie jest zarezerwowane. Avakas jest poza planem.</p>
+      <p class="print-cover__note">Wydruk planu z pliku JSON. Statusy „do potwierdzenia” i „szacunek” pozostają widoczne. Auto nie jest zarezerwowane. Avakas jest poza planem.</p>
       <p class="print-cover__source">https://kjawo.github.io/cypr2026/ · data/Cypr_2026_zrodlo_prawdy.json</p>
     </section>
     """
@@ -2329,14 +2386,14 @@ def render_footer(plan: Plan) -> str:
       <div>
         <p class="footer-mark">KJ <span>/</span> Photo Journal</p>
         <p class="footer-note">Spokojny plan podróży. Bez analityki, cookies i trackerów. Źródłem prawdy jest plik JSON; strona jest generowanym widokiem.</p>
-        <p class="footer-back"><a href="#top">Do początku {icon("arrow")}</a> · <a href="#zrodla">Źródła</a></p>
+        <p class="footer-back"><a href="#top">Do początku {icon("arrow")}</a> · <a href="#zrodla">Źródła</a> · <a href="/v1/">Archiwum v1</a></p>
       </div>
       <div class="footer-meta">
         <p><span>Wersja</span> <strong>{esc(plan.meta["version"])}</strong></p>
         <p><span>Aktualizacja</span> <strong>{esc(format_date_pl(plan.meta["updated_on"]))}</strong></p>
         <p><span>Dane</span> <a href="data/Cypr_2026_zrodlo_prawdy.json">Cypr_2026_zrodlo_prawdy.json {icon("download")}</a></p>
         <p><span>Strefa</span> Asia/Nicosia, UTC+2</p>
-        <p class="footer-version">Plan bazowy · 7 dni / 6 nocy · Pafos</p>
+        <p class="footer-version">Plan bazowy · {len(plan.day_list)} dni / {plan.trip.get("nights")} nocy · Pafos</p>
       </div>
     </div>
     """
@@ -2394,6 +2451,7 @@ def render_page(plan: Plan, asset_hash: str, data_json: str, *, noindex: bool) -
         output = output.replace(token, value)
     if re.search(r"\{\{[A-Z_]+\}\}", output):
         fail("Szablon zawiera niewypełniony placeholder")
+    output = re.sub(r"[ \t]+$", "", output, flags=re.M)
     return output
 
 
