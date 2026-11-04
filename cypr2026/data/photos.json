@@ -1,0 +1,2982 @@
+{
+  "meta": {
+    "schema_version": "1.0.0",
+    "updated_on": "2026-11-04",
+    "note": "Manifest zdjęć Cypr 2026. Wszystkie pliki: Wikimedia Commons, licencje CC BY/CC BY-SA; warianty lokalne."
+  },
+  "photos": [
+    {
+      "id": "hero",
+      "slot": "hero",
+      "kind": "hero",
+      "target": {
+        "type": "hero",
+        "id": "CYPR-2026",
+        "label": "Cypr 2026 — hero"
+      },
+      "title": "Petra tou Romiou o poranku",
+      "location": {
+        "name": "Petra tou Romiou, Kouklia, Pafos",
+        "lat": 34.664119,
+        "lon": 32.627172
+      },
+      "gps": {
+        "lat": 34.664119,
+        "lon": 32.627172,
+        "source": "współrzędne pliku (Commons)"
+      },
+      "author": "Anton Zelenov",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Petra_tou_romiou_2.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Petra_tou_romiou_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Petra_tou_romiou_2.jpg/1920px-Petra_tou_romiou_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2019-07-29",
+      "description": "Petra tou Romiou (Aphrodite's rock). Blue hour before sunrize at long exposure, Cyprus",
+      "caption": "Petra tou Romiou o poranku, widok ogólny; kadr z 29 lipca 2019, nie z listopada 2026.",
+      "alt": "Białe skały Petra tou Romiou w spokojnej, turkusowej zatoce o świcie, z kamienistą plażą na pierwszym planie.",
+      "credit": "Anton Zelenov / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Petra_tou_romiou_2.jpg",
+          "note": "Strona pliku: autor Anton Zelenov, licencja CC BY-SA 4.0, data 2019-07-29; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.664119&mlon=32.627172#map=15/34.66412/32.62717",
+          "note": "współrzędne pliku (Commons): 34.664119, 32.627172; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Petra_Tou_Romiou",
+          "note": "Kategoria Commons / użycie: brak zgłoszonego użycia w innych wiki; kategoria Commons i opis pliku."
+        }
+      ],
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.62
+      },
+      "aspect": "4:5",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Petra_Tou_Romiou",
+      "global_usage": [],
+      "source_title": "File:Petra tou romiou 2.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 600,
+          "avif": "assets/photos/hero/hero-480.avif",
+          "avif_bytes": 21687,
+          "avif_quality": 52,
+          "webp": "assets/photos/hero/hero-480.webp",
+          "webp_bytes": 34428,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/hero/hero-480.jpg",
+          "jpeg_bytes": 30636,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 1000,
+          "avif": "assets/photos/hero/hero-800.avif",
+          "avif_bytes": 62963,
+          "avif_quality": 52,
+          "webp": "assets/photos/hero/hero-800.webp",
+          "webp_bytes": 89868,
+          "webp_quality": 62,
+          "jpeg": "assets/photos/hero/hero-800.jpg",
+          "jpeg_bytes": 88849,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 1600,
+          "avif": "assets/photos/hero/hero-1280.avif",
+          "avif_bytes": 135111,
+          "avif_quality": 52,
+          "webp": "assets/photos/hero/hero-1280.webp",
+          "webp_bytes": 153630,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/hero/hero-1280.jpg",
+          "jpeg_bytes": 146962,
+          "jpeg_quality": 54
+        },
+        {
+          "width": 1920,
+          "height": 2400,
+          "avif": "assets/photos/hero/hero-1920.avif",
+          "avif_bytes": 148895,
+          "avif_quality": 40,
+          "webp": "assets/photos/hero/hero-1920.webp",
+          "webp_bytes": 174896,
+          "webp_quality": 26,
+          "jpeg": "assets/photos/hero/hero-1920.jpg",
+          "jpeg_bytes": 166380,
+          "jpeg_quality": 26
+        }
+      ],
+      "offline": "assets/photos/hero/hero-800.webp",
+      "width": 1920,
+      "height": 2400,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FPetra_tou_romiou_2.jpg",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "commons.wikimedia.org",
+          "cyprusluxuryhomes.cy",
+          "es.dreamstime.com",
+          "gr.dreamstime.com",
+          "img.atlasobscura.com",
+          "mungfali.com",
+          "ru.dreamstime.com",
+          "thumbs.dreamstime.com",
+          "tr.dreamstime.com",
+          "upload.wikimedia.org",
+          "www.atlasobscura.com",
+          "www.dgblooming.com"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Anton Zelenov / CC BY-SA 4.0"
+    },
+    {
+      "id": "day-01",
+      "slot": "day-01",
+      "kind": "day",
+      "target": {
+        "type": "day",
+        "id": "DAY-01",
+        "label": "Dzień 1 — Przylot i Faros"
+      },
+      "title": "Latarnia Pafos i ścieżka parkowa",
+      "location": {
+        "name": "Latarnia Pafos, Kato Pafos",
+        "lat": 34.7606,
+        "lon": 32.4063
+      },
+      "gps": {
+        "lat": 34.7606,
+        "lon": 32.4063,
+        "source": "współrzędne miejsca (OSM), plik bez geotagu"
+      },
+      "author": "Jules Verne Times Two",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Lighthouse_at_the_Paphos_Archaeological_Park,_Cyprus_(PPL1-Corrected)_julesvernex2.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Lighthouse_at_the_Paphos_Archaeological_Park%2C_Cyprus_%28PPL1-Corrected%29_julesvernex2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Lighthouse_at_the_Paphos_Archaeological_Park%2C_Cyprus_%28PPL1-Corrected%29_julesvernex2.jpg/1920px-Lighthouse_at_the_Paphos_Archaeological_Park%2C_Cyprus_%28PPL1-Corrected%29_julesvernex2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2018-03-15",
+      "description": "Lighthouse at the Paphos Archaeological Park, Cyprus (PPL1-Corrected)",
+      "caption": "Latarnia Pafos i ścieżka parkowa, widok ogólny; plaża Faros w pobliżu. Kadr z 15 marca 2018, nie z listopada 2026.",
+      "alt": "Biała latarnia Pafos na skraju parku, żółte kwiaty i ścieżka prowadząca nad morze.",
+      "credit": "Jules Verne Times Two / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Lighthouse_at_the_Paphos_Archaeological_Park,_Cyprus_(PPL1-Corrected)_julesvernex2.jpg",
+          "note": "Strona pliku: autor Jules Verne Times Two, licencja CC BY-SA 4.0, data 2018-03-15; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.760600&mlon=32.406300#map=15/34.76060/32.40630",
+          "note": "współrzędne miejsca (OSM), plik bez geotagu: 34.760600, 32.406300; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Paphos_Lighthouse",
+          "note": "Kategoria Commons / użycie: brak zgłoszonego użycia w innych wiki; kategoria Commons i opis pliku."
+        }
+      ],
+      "focal_point": {
+        "x": 0.58,
+        "y": 0.48
+      },
+      "aspect": "3:2",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Paphos_Lighthouse",
+      "global_usage": [],
+      "source_title": "File:Lighthouse at the Paphos Archaeological Park, Cyprus (PPL1-Corrected) julesvernex2.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 320,
+          "avif": "assets/photos/day-01/day-01-480.avif",
+          "avif_bytes": 10930,
+          "avif_quality": 52,
+          "webp": "assets/photos/day-01/day-01-480.webp",
+          "webp_bytes": 18518,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/day-01/day-01-480.jpg",
+          "jpeg_bytes": 16795,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 533,
+          "avif": "assets/photos/day-01/day-01-800.avif",
+          "avif_bytes": 31912,
+          "avif_quality": 52,
+          "webp": "assets/photos/day-01/day-01-800.webp",
+          "webp_bytes": 56170,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/day-01/day-01-800.jpg",
+          "jpeg_bytes": 47446,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "avif": "assets/photos/day-01/day-01-1280.avif",
+          "avif_bytes": 86396,
+          "avif_quality": 52,
+          "webp": "assets/photos/day-01/day-01-1280.webp",
+          "webp_bytes": 117490,
+          "webp_quality": 50,
+          "jpeg": "assets/photos/day-01/day-01-1280.jpg",
+          "jpeg_bytes": 126300,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "avif": "assets/photos/day-01/day-01-1920.avif",
+          "avif_bytes": 102546,
+          "avif_quality": 40,
+          "webp": "assets/photos/day-01/day-01-1920.webp",
+          "webp_bytes": 205396,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/day-01/day-01-1920.jpg",
+          "jpeg_bytes": 185570,
+          "jpeg_quality": 54
+        }
+      ],
+      "offline": "assets/photos/day-01/day-01-800.webp",
+      "width": 1920,
+      "height": 1280,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FLighthouse_at_the_Paphos_Archaeological_Park%252C_Cyprus_%2528PPL1-Corrected%2529_julesvernex2.jpg",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "commons.wikimedia.org",
+          "hif.advisor.travel",
+          "img1.advisor.travel",
+          "ta.advisor.travel",
+          "upload.wikimedia.org"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Jules Verne Times Two / CC BY-SA 4.0"
+    },
+    {
+      "id": "day-02",
+      "slot": "day-02",
+      "kind": "day",
+      "target": {
+        "type": "day",
+        "id": "DAY-02",
+        "label": "Dzień 2 — Pafos pieszo"
+      },
+      "title": "Park Archeologiczny Kato Pafos",
+      "location": {
+        "name": "Park Archeologiczny Kato Pafos",
+        "lat": 34.756577,
+        "lon": 32.405136
+      },
+      "gps": {
+        "lat": 34.756577,
+        "lon": 32.405136,
+        "source": "współrzędne pliku (Commons)"
+      },
+      "author": "Sergey Galyonkin",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Paphos_panorama_-_Cyprus_-_3_May_2015.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/72/Paphos_panorama_-_Cyprus_-_3_May_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Paphos_panorama_-_Cyprus_-_3_May_2015.jpg/1920px-Paphos_panorama_-_Cyprus_-_3_May_2015.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2015-05-03",
+      "description": "Paphos panorama",
+      "caption": "Park Archeologiczny Kato Pafos, widok ogólny; kadr z 3 maja 2015, nie z listopada 2026.",
+      "alt": "Rozległe ruiny Parku Archeologicznego w Pafos z odsłoniętymi fundamentami i mozaikami, pod błękitnym niebem.",
+      "credit": "Sergey Galyonkin / Wikimedia Commons, CC BY-SA 2.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Paphos_panorama_-_Cyprus_-_3_May_2015.jpg",
+          "note": "Strona pliku: autor Sergey Galyonkin from Kyiv, Ukraine, licencja CC BY-SA 2.0, data 2015-05-03; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.756577&mlon=32.405136#map=15/34.75658/32.40514",
+          "note": "współrzędne pliku (Commons): 34.756577, 32.405136; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Paphos_Archaeological_Park",
+          "note": "Kategoria Commons / użycie: ca.wikipedia.org: Pafos, de.wikipedia.org: Archäologischer_Park_Pafos, de.wikivoyage.org: Paphos."
+        }
+      ],
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.62
+      },
+      "aspect": "3:2",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Paphos_Archaeological_Park",
+      "global_usage": [
+        {
+          "title": "Pafos",
+          "wiki": "ca.wikipedia.org",
+          "url": "https://ca.wikipedia.org/wiki/Pafos",
+          "ns": "0"
+        },
+        {
+          "title": "Archäologischer_Park_Pafos",
+          "wiki": "de.wikipedia.org",
+          "url": "https://de.wikipedia.org/wiki/Arch%C3%A4ologischer_Park_Pafos",
+          "ns": "0"
+        },
+        {
+          "title": "Paphos",
+          "wiki": "de.wikivoyage.org",
+          "url": "https://de.wikivoyage.org/wiki/Paphos",
+          "ns": "0"
+        },
+        {
+          "title": "Paphos",
+          "wiki": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Paphos",
+          "ns": "0"
+        },
+        {
+          "title": "Nea_Paphos_(ancient_city)",
+          "wiki": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Nea_Paphos_(ancient_city)",
+          "ns": "0"
+        }
+      ],
+      "source_title": "File:Paphos panorama - Cyprus - 3 May 2015.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 320,
+          "avif": "assets/photos/day-02/day-02-480.avif",
+          "avif_bytes": 13094,
+          "avif_quality": 42,
+          "webp": "assets/photos/day-02/day-02-480.webp",
+          "webp_bytes": 36006,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/day-02/day-02-480.jpg",
+          "jpeg_bytes": 28385,
+          "jpeg_quality": 68
+        },
+        {
+          "width": 800,
+          "height": 533,
+          "avif": "assets/photos/day-02/day-02-800.avif",
+          "avif_bytes": 37742,
+          "avif_quality": 42,
+          "webp": "assets/photos/day-02/day-02-800.webp",
+          "webp_bytes": 101220,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/day-02/day-02-800.jpg",
+          "jpeg_bytes": 78873,
+          "jpeg_quality": 68
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "avif": "assets/photos/day-02/day-02-1280.avif",
+          "avif_bytes": 84024,
+          "avif_quality": 42,
+          "webp": "assets/photos/day-02/day-02-1280.webp",
+          "webp_bytes": 211214,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/day-02/day-02-1280.jpg",
+          "jpeg_bytes": 179817,
+          "jpeg_quality": 68
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "avif": "assets/photos/day-02/day-02-1920.avif",
+          "avif_bytes": 116697,
+          "avif_quality": 36,
+          "webp": "assets/photos/day-02/day-02-1920.webp",
+          "webp_bytes": 339874,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/day-02/day-02-1920.jpg",
+          "jpeg_bytes": 332706,
+          "jpeg_quality": 68
+        }
+      ],
+      "offline": "assets/photos/day-02/day-02-800.webp",
+      "width": 1920,
+      "height": 1280,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FPaphos_panorama_-_Cyprus_-_3_May_2015.jpg",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "arkeonews.com",
+          "cdn1.img.sputniknews.africa",
+          "chrontime.com",
+          "en.wikipedia.org",
+          "fr.sputniknews.africa",
+          "galeri.uludagsozluk.com",
+          "galeri14.uludagsozluk.com",
+          "i.pinimg.com",
+          "it.pinterest.com",
+          "pl.wikipedia.org",
+          "pt.chped.com",
+          "sb-cyprus.com"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Sergey Galyonkin / CC BY-SA 2.0"
+    },
+    {
+      "id": "day-03",
+      "slot": "day-03",
+      "kind": "day",
+      "target": {
+        "type": "day",
+        "id": "DAY-03",
+        "label": "Dzień 3 — Akamas i Aphrodite"
+      },
+      "title": "Panorama Akamas z Moutti tis Sotiras",
+      "location": {
+        "name": "Moutti tis Sotiras, Akamas",
+        "lat": 35.064333,
+        "lon": 32.324467
+      },
+      "gps": {
+        "lat": 35.064333,
+        "lon": 32.324467,
+        "source": "współrzędne pliku (Commons)"
+      },
+      "author": "Michal Klajban",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:View_from_Moutti_Tis_Sotiras,_Akamas_Paninsula,_Cyprus.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/70/View_from_Moutti_Tis_Sotiras%2C_Akamas_Paninsula%2C_Cyprus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/View_from_Moutti_Tis_Sotiras%2C_Akamas_Paninsula%2C_Cyprus.jpg/1920px-View_from_Moutti_Tis_Sotiras%2C_Akamas_Paninsula%2C_Cyprus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2019-02-09",
+      "description": "View from Moutti Tis Sotiras, Akamas Paninsula, Cyprus",
+      "caption": "Akamas, panorama z Moutti tis Sotiras w kierunku Chrysochou; kadr z 9 lutego 2019, nie z listopada 2026.",
+      "alt": "Panorama półwyspu Akamas z zielonymi wzgórzami, skalistym wybrzeżem i morzem w tle.",
+      "credit": "Michal Klajban / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:View_from_Moutti_Tis_Sotiras,_Akamas_Paninsula,_Cyprus.jpg",
+          "note": "Strona pliku: autor Michal Klajban, licencja CC BY-SA 4.0, data 2019-02-09; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=35.064333&mlon=32.324467#map=15/35.06433/32.32447",
+          "note": "współrzędne pliku (Commons): 35.064333, 32.324467; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Moutti_Tis_Sotiras",
+          "note": "Kategoria Commons / użycie: ar.wikipedia.org: أكاماس, az.wikipedia.org: Akamas_yarımadası, ceb.wikipedia.org: Akámas_(lawis)."
+        }
+      ],
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "aspect": "3:2",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Moutti_Tis_Sotiras",
+      "global_usage": [
+        {
+          "title": "أكاماس",
+          "wiki": "ar.wikipedia.org",
+          "url": "https://ar.wikipedia.org/wiki/%D8%A3%D9%83%D8%A7%D9%85%D8%A7%D8%B3",
+          "ns": "0"
+        },
+        {
+          "title": "Akamas_yarımadası",
+          "wiki": "az.wikipedia.org",
+          "url": "https://az.wikipedia.org/wiki/Akamas_yar%C4%B1madas%C4%B1",
+          "ns": "0"
+        },
+        {
+          "title": "Akámas_(lawis)",
+          "wiki": "ceb.wikipedia.org",
+          "url": "https://ceb.wikipedia.org/wiki/Ak%C3%A1mas_(lawis)",
+          "ns": "0"
+        },
+        {
+          "title": "Liste_der_EU-Vogelschutzgebiete_in_der_Republik_Zypern",
+          "wiki": "de.wikipedia.org",
+          "url": "https://de.wikipedia.org/wiki/Liste_der_EU-Vogelschutzgebiete_in_der_Republik_Zypern",
+          "ns": "0"
+        },
+        {
+          "title": "Chersonisos_Akama",
+          "wiki": "de.wikipedia.org",
+          "url": "https://de.wikipedia.org/wiki/Chersonisos_Akama",
+          "ns": "0"
+        }
+      ],
+      "source_title": "File:View from Moutti Tis Sotiras, Akamas Paninsula, Cyprus.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 320,
+          "avif": "assets/photos/day-03/day-03-480.avif",
+          "avif_bytes": 15282,
+          "avif_quality": 52,
+          "webp": "assets/photos/day-03/day-03-480.webp",
+          "webp_bytes": 25278,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/day-03/day-03-480.jpg",
+          "jpeg_bytes": 21154,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 533,
+          "avif": "assets/photos/day-03/day-03-800.avif",
+          "avif_bytes": 44839,
+          "avif_quality": 52,
+          "webp": "assets/photos/day-03/day-03-800.webp",
+          "webp_bytes": 76616,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/day-03/day-03-800.jpg",
+          "jpeg_bytes": 61499,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "avif": "assets/photos/day-03/day-03-1280.avif",
+          "avif_bytes": 119870,
+          "avif_quality": 52,
+          "webp": "assets/photos/day-03/day-03-1280.webp",
+          "webp_bytes": 139496,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/day-03/day-03-1280.jpg",
+          "jpeg_bytes": 142354,
+          "jpeg_quality": 66
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "avif": "assets/photos/day-03/day-03-1920.avif",
+          "avif_bytes": 107872,
+          "avif_quality": 34,
+          "webp": "assets/photos/day-03/day-03-1920.webp",
+          "webp_bytes": 333878,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/day-03/day-03-1920.jpg",
+          "jpeg_bytes": 210803,
+          "jpeg_quality": 36
+        }
+      ],
+      "offline": "assets/photos/day-03/day-03-800.webp",
+      "width": 1920,
+      "height": 1280,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FView_from_Moutti_Tis_Sotiras%252C_Akamas_Paninsula%252C_Cyprus.jpg",
+        "matched": false,
+        "other_sizes": false,
+        "domains": [],
+        "note": "Reverse search nie zwrócił czytelnych kopii; źródłem pozostaje strona pliku Commons z pełną metryką."
+      },
+      "credit_short": "Michal Klajban / CC BY-SA 4.0"
+    },
+    {
+      "id": "day-04",
+      "slot": "day-04",
+      "kind": "day",
+      "target": {
+        "type": "day",
+        "id": "DAY-04",
+        "label": "Dzień 4 — Troodos i Artemis"
+      },
+      "title": "Szlak Artemis w lasach Troodos",
+      "location": {
+        "name": "Szlak Artemis, Troodos",
+        "lat": 34.933166,
+        "lon": 32.871986
+      },
+      "gps": {
+        "lat": 34.933166,
+        "lon": 32.871986,
+        "source": "współrzędne miejsca (OSM), plik bez geotagu"
+      },
+      "author": "Mboesch",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Troodos-artemis-nature-trail-b.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Troodos-artemis-nature-trail-b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Troodos-artemis-nature-trail-b.jpg/1920px-Troodos-artemis-nature-trail-b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2025-03-16",
+      "description": "Troodos: Artemis Nature Trail",
+      "caption": "Szlak Artemis w lasach Troodos, widok ogólny; kadr z 16 marca 2025, nie z listopada 2026.",
+      "alt": "Wąska ścieżka szlaku Artemis wśród sosen i skał, z widokiem na góry Troodos.",
+      "credit": "Mboesch / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Troodos-artemis-nature-trail-b.jpg",
+          "note": "Strona pliku: autor Mboesch, licencja CC BY-SA 4.0, data 2025-03-16; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.933166&mlon=32.871986#map=15/34.93317/32.87199",
+          "note": "współrzędne miejsca (OSM), plik bez geotagu: 34.933166, 32.871986; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Artemis_Nature_Trail",
+          "note": "Kategoria Commons / użycie: brak zgłoszonego użycia w innych wiki; kategoria Commons i opis pliku."
+        }
+      ],
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.52
+      },
+      "aspect": "3:2",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Artemis_Nature_Trail",
+      "global_usage": [],
+      "source_title": "File:Troodos-artemis-nature-trail-b.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 320,
+          "avif": "assets/photos/day-04/day-04-480.avif",
+          "avif_bytes": 15324,
+          "avif_quality": 52,
+          "webp": "assets/photos/day-04/day-04-480.webp",
+          "webp_bytes": 27156,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/day-04/day-04-480.jpg",
+          "jpeg_bytes": 23383,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 533,
+          "avif": "assets/photos/day-04/day-04-800.avif",
+          "avif_bytes": 47359,
+          "avif_quality": 52,
+          "webp": "assets/photos/day-04/day-04-800.webp",
+          "webp_bytes": 82632,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/day-04/day-04-800.jpg",
+          "jpeg_bytes": 68414,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "avif": "assets/photos/day-04/day-04-1280.avif",
+          "avif_bytes": 105826,
+          "avif_quality": 46,
+          "webp": "assets/photos/day-04/day-04-1280.webp",
+          "webp_bytes": 161280,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/day-04/day-04-1280.jpg",
+          "jpeg_bytes": 142711,
+          "jpeg_quality": 60
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "avif": "assets/photos/day-04/day-04-1920.avif",
+          "avif_bytes": 116334,
+          "avif_quality": 28,
+          "webp": "assets/photos/day-04/day-04-1920.webp",
+          "webp_bytes": 365816,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/day-04/day-04-1920.jpg",
+          "jpeg_bytes": 245136,
+          "jpeg_quality": 36
+        }
+      ],
+      "offline": "assets/photos/day-04/day-04-800.webp",
+      "width": 1920,
+      "height": 1280,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FTroodos-artemis-nature-trail-b.jpg",
+        "matched": true,
+        "other_sizes": false,
+        "domains": [
+          "3.bp.blogspot.com",
+          "almi.su",
+          "archart.sk",
+          "assets.headwater.com",
+          "br.pinterest.com",
+          "c.pxhere.com",
+          "c8.alamy.com",
+          "ca.wikipedia.org",
+          "cdn.tripster.ru",
+          "cdn.wallpaperinhd.net",
+          "commons.wikimedia.org",
+          "crete.wordpress.com"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Mboesch / CC BY-SA 4.0"
+    },
+    {
+      "id": "day-05",
+      "slot": "day-05",
+      "kind": "day",
+      "target": {
+        "type": "day",
+        "id": "DAY-05",
+        "label": "Dzień 5 — Palaipafos, Omodos i Petra"
+      },
+      "title": "Omodos z lotu ptaka",
+      "location": {
+        "name": "Omodos, dystrykt Limassol",
+        "lat": 34.845781,
+        "lon": 32.8098
+      },
+      "gps": {
+        "lat": 34.845781,
+        "lon": 32.8098,
+        "source": "współrzędne pliku (Commons)"
+      },
+      "author": "Hagai Agmon-Snir",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:OmodosMar152023_02.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/34/OmodosMar152023_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/OmodosMar152023_02.jpg/1920px-OmodosMar152023_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2023-03-15",
+      "description": "Omodos",
+      "caption": "Omodos, widok ogólny na wieś; kadr z 15 marca 2023, nie z listopada 2026.",
+      "alt": "Dachy i kamienne domy Omodos w dolinie, otoczone wzgórzami Troodos.",
+      "credit": "Hagai Agmon-Snir / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:OmodosMar152023_02.jpg",
+          "note": "Strona pliku: autor Hagai Agmon-Snir حچاي اچمون-سنير חגי אגמון-שניר, licencja CC BY-SA 4.0, data 2023-03-15; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.845781&mlon=32.809800#map=15/34.84578/32.80980",
+          "note": "współrzędne pliku (Commons): 34.845781, 32.809800; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Omodos",
+          "note": "Kategoria Commons / użycie: ast.wikipedia.org: Omodos, ceb.wikipedia.org: Ómodos_(lungsod), el.wikipedia.org: Όμοδος."
+        }
+      ],
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "aspect": "3:2",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Omodos",
+      "global_usage": [
+        {
+          "title": "Omodos",
+          "wiki": "ast.wikipedia.org",
+          "url": "https://ast.wikipedia.org/wiki/Omodos",
+          "ns": "0"
+        },
+        {
+          "title": "Ómodos_(lungsod)",
+          "wiki": "ceb.wikipedia.org",
+          "url": "https://ceb.wikipedia.org/wiki/%C3%93modos_(lungsod)",
+          "ns": "0"
+        },
+        {
+          "title": "Όμοδος",
+          "wiki": "el.wikipedia.org",
+          "url": "https://el.wikipedia.org/wiki/%CE%8C%CE%BC%CE%BF%CE%B4%CE%BF%CF%82",
+          "ns": "0"
+        },
+        {
+          "title": "Troodos_Mountains",
+          "wiki": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Troodos_Mountains",
+          "ns": "0"
+        },
+        {
+          "title": "Omodos",
+          "wiki": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Omodos",
+          "ns": "0"
+        }
+      ],
+      "source_title": "File:OmodosMar152023 02.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 320,
+          "avif": "assets/photos/day-05/day-05-480.avif",
+          "avif_bytes": 26987,
+          "avif_quality": 52,
+          "webp": "assets/photos/day-05/day-05-480.webp",
+          "webp_bytes": 43360,
+          "webp_quality": 56,
+          "jpeg": "assets/photos/day-05/day-05-480.jpg",
+          "jpeg_bytes": 40420,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 533,
+          "avif": "assets/photos/day-05/day-05-800.avif",
+          "avif_bytes": 73367,
+          "avif_quality": 52,
+          "webp": "assets/photos/day-05/day-05-800.webp",
+          "webp_bytes": 101920,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/day-05/day-05-800.jpg",
+          "jpeg_bytes": 85254,
+          "jpeg_quality": 60
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "avif": "assets/photos/day-05/day-05-1280.avif",
+          "avif_bytes": 106536,
+          "avif_quality": 40,
+          "webp": "assets/photos/day-05/day-05-1280.webp",
+          "webp_bytes": 240170,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/day-05/day-05-1280.jpg",
+          "jpeg_bytes": 155852,
+          "jpeg_quality": 36
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "avif": "assets/photos/day-05/day-05-1920.avif",
+          "avif_bytes": 117937,
+          "avif_quality": 26,
+          "webp": "assets/photos/day-05/day-05-1920.webp",
+          "webp_bytes": 479456,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/day-05/day-05-1920.jpg",
+          "jpeg_bytes": 326261,
+          "jpeg_quality": 36
+        }
+      ],
+      "offline": "assets/photos/day-05/day-05-800.webp",
+      "width": 1920,
+      "height": 1280,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FOmodosMar152023_02.jpg",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "academia-lab.com",
+          "cyprus-faq.com",
+          "el.wikipedia.org",
+          "en.wikipedia.org",
+          "fr.wikipedia.org",
+          "mapcarta.com",
+          "pl.wikipedia.org",
+          "ru.wikipedia.org",
+          "sl.wikipedia.org",
+          "tr.wikipedia.org",
+          "tritincyprus.com",
+          "upload.wikimedia.org"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Hagai Agmon-Snir / CC BY-SA 4.0"
+    },
+    {
+      "id": "day-06",
+      "slot": "day-06",
+      "kind": "day",
+      "target": {
+        "type": "day",
+        "id": "DAY-06",
+        "label": "Dzień 6 — Grobowce i spokojny dzień"
+      },
+      "title": "Grobowiec z perystylem (Tomb 3)",
+      "location": {
+        "name": "Grobowce Królewskie, Kato Pafos",
+        "lat": 34.775947,
+        "lon": 32.404905
+      },
+      "gps": {
+        "lat": 34.775947,
+        "lon": 32.404905,
+        "source": "współrzędne pliku (Commons)"
+      },
+      "author": "Stefan Bellini",
+      "license": "CC0",
+      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Tombs_of_the_Kings_Paphos_Cyprus_Tomb_3_1.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Tombs_of_the_Kings_Paphos_Cyprus_Tomb_3_1.JPG",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fb/Tombs_of_the_Kings_%28Paphos%29.jpg/1920px-Tombs_of_the_Kings_%28Paphos%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2014-04-08",
+      "description": "Grobowiec nr 3 z perystylem w Grobowcach Królewskich w Pafos; zdjęcie z 8 kwietnia 2014.",
+      "caption": "Grobowiec z perystylem w Grobowcach Królewskich, widok ogólny; kadr z 8 kwietnia 2014, nie z listopada 2026.",
+      "alt": "Kamienny dziedziniec z kolumnami i wykutym wejściem w Grobowcach Królewskich w Pafos, w ostrym świetle dnia.",
+      "credit": "Stefan Bellini / Wikimedia Commons, CC0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Tombs_of_the_Kings_Paphos_Cyprus_Tomb_3_1.JPG",
+          "note": "Strona pliku: autor Stefan Bellini, licencja CC0, data 8 kwietnia 2014; opis: Tomb 3, peristyle atrium; GPS 34.775947, 32.404905."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.775947&mlon=32.404905#map=16/34.77595/32.40491",
+          "note": "Współrzędne pliku zgodne z Grobowcami Królewskimi w Pafos."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Tombs_of_the_kings_(Paphos)_-_Tomb_3",
+          "note": "Kategoria Commons: Tombs of the kings (Paphos) - Tomb 3; plik z serii CC0 Stefan Bellini."
+        }
+      ],
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "aspect": "3:2",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Tombs_of_the_kings_(Paphos)",
+      "global_usage": [],
+      "source_title": "File:Tombs of the Kings Paphos Cyprus Tomb 3 1.JPG",
+      "files": [
+        {
+          "width": 480,
+          "height": 320,
+          "avif": "assets/photos/day-06/day-06-480.avif",
+          "avif_bytes": 7466,
+          "avif_quality": 42,
+          "webp": "assets/photos/day-06/day-06-480.webp",
+          "webp_bytes": 15506,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/day-06/day-06-480.jpg",
+          "jpeg_bytes": 16647,
+          "jpeg_quality": 68
+        },
+        {
+          "width": 800,
+          "height": 533,
+          "avif": "assets/photos/day-06/day-06-800.avif",
+          "avif_bytes": 18846,
+          "avif_quality": 42,
+          "webp": "assets/photos/day-06/day-06-800.webp",
+          "webp_bytes": 39464,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/day-06/day-06-800.jpg",
+          "jpeg_bytes": 40391,
+          "jpeg_quality": 68
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "avif": "assets/photos/day-06/day-06-1280.avif",
+          "avif_bytes": 45307,
+          "avif_quality": 42,
+          "webp": "assets/photos/day-06/day-06-1280.webp",
+          "webp_bytes": 96868,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/day-06/day-06-1280.jpg",
+          "jpeg_bytes": 95707,
+          "jpeg_quality": 68
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "avif": "assets/photos/day-06/day-06-1920.avif",
+          "avif_bytes": 101927,
+          "avif_quality": 42,
+          "webp": "assets/photos/day-06/day-06-1920.webp",
+          "webp_bytes": 222110,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/day-06/day-06-1920.jpg",
+          "jpeg_bytes": 209476,
+          "jpeg_quality": 68
+        }
+      ],
+      "offline": "assets/photos/day-06/day-06-800.webp",
+      "width": 1920,
+      "height": 1280,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FTombs_of_the_Kings_Paphos_Cyprus_Tomb_3_1.JPG",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "commons.wikimedia.org",
+          "elot.ru",
+          "eo.wikipedia.org",
+          "fr.pinterest.com",
+          "i.pinimg.com",
+          "img1.advisor.travel",
+          "in.pinterest.com",
+          "jp.pinterest.com",
+          "ksh.advisor.travel",
+          "sun9-28.vkuserphoto.ru"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry; źródłem pozostaje plik Commons z pełną metryką."
+      },
+      "credit_short": "Stefan Bellini / CC0"
+    },
+    {
+      "id": "day-07",
+      "slot": "day-07",
+      "kind": "day",
+      "target": {
+        "type": "day",
+        "id": "DAY-07",
+        "label": "Dzień 7 — Nocny zwrot auta i powrót"
+      },
+      "title": "Ryanair na płycie PFO",
+      "location": {
+        "name": "Lotnisko Pafos (PFO), Timi",
+        "lat": 34.711675,
+        "lon": 32.489331
+      },
+      "gps": {
+        "lat": 34.711675,
+        "lon": 32.489331,
+        "source": "współrzędne miejsca (OSM), plik bez geotagu"
+      },
+      "author": "CAPTAIN RAJU",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Ryanair_(Paphos)_in_2022.03.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Ryanair_%28Paphos%29_in_2022.03.jpg",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Paphos_International_Airport_in_2020.01.jpg/1920px-Paphos_International_Airport_in_2020.01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2022-01-01",
+      "description": "Ryanair 9H-QCO na płycie lotniska Pafos; zdjęcie z 1 stycznia 2022.",
+      "caption": "Ryanair na płycie lotniska Pafos, detal; kadr z 1 stycznia 2022, nie z listopada 2026.",
+      "alt": "Kadłub i silnik samolotu Ryanair na płycie lotniska Pafos, z niebiesko-żółtym malowaniem.",
+      "credit": "CAPTAIN RAJU / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Ryanair_(Paphos)_in_2022.03.jpg",
+          "note": "Strona pliku: autor CAPTAIN RAJU, licencja CC BY-SA 4.0, data 1 stycznia 2022; opis: Ryanair w Pafos; kategoria 2022 at Paphos International Airport."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.711675&mlon=32.489331#map=15/34.71168/32.48933",
+          "note": "Współrzędne miejsca (OSM) dla lotniska Pafos; plik bez geotagu, ale kategoria i opis wskazują PFO."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Boeing_737_of_Ryanair_at_Paphos_International_Airport",
+          "note": "Kategoria Commons: Boeing 737 of Ryanair at Paphos International Airport; samolot 9H-QCO."
+        }
+      ],
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "aspect": "3:2",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Paphos_International_Airport",
+      "global_usage": [],
+      "source_title": "File:Ryanair (Paphos) in 2022.03.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 320,
+          "avif": "assets/photos/day-07/day-07-480.avif",
+          "avif_bytes": 7550,
+          "avif_quality": 42,
+          "webp": "assets/photos/day-07/day-07-480.webp",
+          "webp_bytes": 16206,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/day-07/day-07-480.jpg",
+          "jpeg_bytes": 17874,
+          "jpeg_quality": 68
+        },
+        {
+          "width": 800,
+          "height": 533,
+          "avif": "assets/photos/day-07/day-07-800.avif",
+          "avif_bytes": 17082,
+          "avif_quality": 42,
+          "webp": "assets/photos/day-07/day-07-800.webp",
+          "webp_bytes": 42064,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/day-07/day-07-800.jpg",
+          "jpeg_bytes": 41955,
+          "jpeg_quality": 68
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "avif": "assets/photos/day-07/day-07-1280.avif",
+          "avif_bytes": 42014,
+          "avif_quality": 42,
+          "webp": "assets/photos/day-07/day-07-1280.webp",
+          "webp_bytes": 107348,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/day-07/day-07-1280.jpg",
+          "jpeg_bytes": 101612,
+          "jpeg_quality": 68
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "avif": "assets/photos/day-07/day-07-1920.avif",
+          "avif_bytes": 94851,
+          "avif_quality": 42,
+          "webp": "assets/photos/day-07/day-07-1920.webp",
+          "webp_bytes": 225062,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/day-07/day-07-1920.jpg",
+          "jpeg_bytes": 221048,
+          "jpeg_quality": 68
+        }
+      ],
+      "offline": "assets/photos/day-07/day-07-800.webp",
+      "width": 1920,
+      "height": 1280,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FRyanair_%2528Paphos%2529_in_2022.03.jpg",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "avianews.ge",
+          "c8.alamy.com",
+          "cart.forgame.su",
+          "cdn.travelpulse.com",
+          "commons.wikimedia.org",
+          "dishcuss.com",
+          "emerging-europe.com",
+          "emigrant.by",
+          "eurodeli.online",
+          "fenlin.ru"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry; źródłem pozostaje plik Commons z pełną metryką."
+      },
+      "credit_short": "CAPTAIN RAJU / CC BY-SA 4.0"
+    },
+    {
+      "id": "place-faros",
+      "slot": "place-faros",
+      "kind": "place",
+      "target": {
+        "type": "place",
+        "id": "POI-FAROS",
+        "label": "Faros Lighthouse Beach"
+      },
+      "title": "Latarnia Pafos nad wybrzeżem",
+      "location": {
+        "name": "Latarnia Pafos, Kato Pafos",
+        "lat": 34.7606,
+        "lon": 32.4063
+      },
+      "gps": {
+        "lat": 34.7606,
+        "lon": 32.4063,
+        "source": "współrzędne miejsca (OSM), plik bez geotagu"
+      },
+      "author": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Faro,_parque_arqueol%C3%B3gico_de_Pafos,_Chipre,_2021-12-10,_DD_55.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e7/Faro%2C_parque_arqueol%C3%B3gico_de_Pafos%2C_Chipre%2C_2021-12-10%2C_DD_55.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/Faro%2C_parque_arqueol%C3%B3gico_de_Pafos%2C_Chipre%2C_2021-12-10%2C_DD_55.jpg/1920px-Faro%2C_parque_arqueol%C3%B3gico_de_Pafos%2C_Chipre%2C_2021-12-10%2C_DD_55.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2021-12-10",
+      "description": "Lighthouse‎, Paphos Archaeological Park, Cyprus",
+      "caption": "Latarnia Pafos nad wybrzeżem, widok ogólny; kadr z 10 grudnia 2021, nie z listopada 2026.",
+      "alt": "Latarnia Pafos na wzgórzu nad wybrzeżem, z widokiem na morze i miasto.",
+      "credit": "Diego Delso / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Faro,_parque_arqueol%C3%B3gico_de_Pafos,_Chipre,_2021-12-10,_DD_55.jpg",
+          "note": "Strona pliku: autor Diego Delso, licencja CC BY-SA 4.0, data 2021-12-10; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.760600&mlon=32.406300#map=15/34.76060/32.40630",
+          "note": "współrzędne miejsca (OSM), plik bez geotagu: 34.760600, 32.406300; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Paphos_Lighthouse",
+          "note": "Kategoria Commons / użycie: de.wikipedia.org: Paphos, de.wikipedia.org: Liste_der_Städte_auf_Zypern, et.wikipedia.org: Paphos."
+        }
+      ],
+      "focal_point": {
+        "x": 0.52,
+        "y": 0.45
+      },
+      "aspect": "4:3",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Paphos_Lighthouse",
+      "global_usage": [
+        {
+          "title": "Paphos",
+          "wiki": "de.wikipedia.org",
+          "url": "https://de.wikipedia.org/wiki/Paphos",
+          "ns": "0"
+        },
+        {
+          "title": "Liste_der_Städte_auf_Zypern",
+          "wiki": "de.wikipedia.org",
+          "url": "https://de.wikipedia.org/wiki/Liste_der_St%C3%A4dte_auf_Zypern",
+          "ns": "0"
+        },
+        {
+          "title": "Paphos",
+          "wiki": "et.wikipedia.org",
+          "url": "https://et.wikipedia.org/wiki/Paphos",
+          "ns": "0"
+        },
+        {
+          "title": "Pafos",
+          "wiki": "fy.wikipedia.org",
+          "url": "https://fy.wikipedia.org/wiki/Pafos",
+          "ns": "0"
+        }
+      ],
+      "source_title": "File:Faro, parque arqueológico de Pafos, Chipre, 2021-12-10, DD 55.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 360,
+          "avif": "assets/photos/place-faros/place-faros-480.avif",
+          "avif_bytes": 16495,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-faros/place-faros-480.webp",
+          "webp_bytes": 29110,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-faros/place-faros-480.jpg",
+          "jpeg_bytes": 24973,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "avif": "assets/photos/place-faros/place-faros-800.avif",
+          "avif_bytes": 47437,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-faros/place-faros-800.webp",
+          "webp_bytes": 82354,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-faros/place-faros-800.jpg",
+          "jpeg_bytes": 68571,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 960,
+          "avif": "assets/photos/place-faros/place-faros-1280.avif",
+          "avif_bytes": 127858,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-faros/place-faros-1280.webp",
+          "webp_bytes": 147870,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/place-faros/place-faros-1280.jpg",
+          "jpeg_bytes": 138289,
+          "jpeg_quality": 60
+        },
+        {
+          "width": 1920,
+          "height": 1440,
+          "avif": "assets/photos/place-faros/place-faros-1920.avif",
+          "avif_bytes": 183230,
+          "avif_quality": 46,
+          "webp": "assets/photos/place-faros/place-faros-1920.webp",
+          "webp_bytes": 254476,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/place-faros/place-faros-1920.jpg",
+          "jpeg_bytes": 204288,
+          "jpeg_quality": 36
+        }
+      ],
+      "offline": null,
+      "width": 1920,
+      "height": 1440,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FFaro%252C_parque_arqueol%25C3%25B3gico_de_Pafos%252C_Chipre%252C_2021-12-10%252C_DD_55.jpg",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "commons.wikimedia.org",
+          "de.wikipedia.org",
+          "ru.wikipedia.org",
+          "travelingseason.com",
+          "upload.wikimedia.org"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Diego Delso / CC BY-SA 4.0"
+    },
+    {
+      "id": "place-park",
+      "slot": "place-park",
+      "kind": "place",
+      "target": {
+        "type": "place",
+        "id": "POI-PARK",
+        "label": "Park Archeologiczny Kato Pafos"
+      },
+      "title": "Mozaika w Domu Dionizosa",
+      "location": {
+        "name": "Dom Dionizosa, Park Archeologiczny Pafos",
+        "lat": 34.7565,
+        "lon": 32.4051
+      },
+      "gps": {
+        "lat": 34.7565,
+        "lon": 32.4051,
+        "source": "współrzędne miejsca (OSM), plik bez geotagu"
+      },
+      "author": "Diego Delso",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Casa_de_Dionisio,_parque_arqueol%C3%B3gico_de_Pafos,_Chipre,_2021-12-10,_DD_47.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Casa_de_Dionisio%2C_parque_arqueol%C3%B3gico_de_Pafos%2C_Chipre%2C_2021-12-10%2C_DD_47.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Casa_de_Dionisio%2C_parque_arqueol%C3%B3gico_de_Pafos%2C_Chipre%2C_2021-12-10%2C_DD_47.jpg/1920px-Casa_de_Dionisio%2C_parque_arqueol%C3%B3gico_de_Pafos%2C_Chipre%2C_2021-12-10%2C_DD_47.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2021-12-10",
+      "description": "House of Dionysos, Paphos Archaeological Park, Cyprus",
+      "caption": "Mozaika w Domu Dionizosa, detal; kadr z 10 grudnia 2021, nie z listopada 2026.",
+      "alt": "Kolorowa rzymska mozaika w Domu Dionizosa w Pafos, z postaciami i geometryczną bordiurą.",
+      "credit": "Diego Delso / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Casa_de_Dionisio,_parque_arqueol%C3%B3gico_de_Pafos,_Chipre,_2021-12-10,_DD_47.jpg",
+          "note": "Strona pliku: autor Diego Delso, licencja CC BY-SA 4.0, data 2021-12-10; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.756500&mlon=32.405100#map=15/34.75650/32.40510",
+          "note": "współrzędne miejsca (OSM), plik bez geotagu: 34.756500, 32.405100; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Paphos_Archaeological_Park_-_House_of_Dionysos",
+          "note": "Kategoria Commons / użycie: ca.wikipedia.org: Parc_Arqueològic_de_Pafos, en.wikipedia.org: Peneus, en.wikipedia.org: Daphne."
+        }
+      ],
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "aspect": "4:3",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Paphos_Archaeological_Park_-_House_of_Dionysos",
+      "global_usage": [
+        {
+          "title": "Parc_Arqueològic_de_Pafos",
+          "wiki": "ca.wikipedia.org",
+          "url": "https://ca.wikipedia.org/wiki/Parc_Arqueol%C3%B2gic_de_Pafos",
+          "ns": "0"
+        },
+        {
+          "title": "Peneus",
+          "wiki": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Peneus",
+          "ns": "0"
+        },
+        {
+          "title": "Daphne",
+          "wiki": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Daphne",
+          "ns": "0"
+        },
+        {
+          "title": "Nea_Paphos_(ancient_city)",
+          "wiki": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Nea_Paphos_(ancient_city)",
+          "ns": "0"
+        },
+        {
+          "title": "Parque_Arqueológico_de_Pafos",
+          "wiki": "es.wikipedia.org",
+          "url": "https://es.wikipedia.org/wiki/Parque_Arqueol%C3%B3gico_de_Pafos",
+          "ns": "0"
+        }
+      ],
+      "source_title": "File:Casa de Dionisio, parque arqueológico de Pafos, Chipre, 2021-12-10, DD 47.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 360,
+          "avif": "assets/photos/place-park/place-park-480.avif",
+          "avif_bytes": 17392,
+          "avif_quality": 42,
+          "webp": "assets/photos/place-park/place-park-480.webp",
+          "webp_bytes": 45906,
+          "webp_quality": 52,
+          "jpeg": "assets/photos/place-park/place-park-480.jpg",
+          "jpeg_bytes": 37464,
+          "jpeg_quality": 68
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "avif": "assets/photos/place-park/place-park-800.avif",
+          "avif_bytes": 54138,
+          "avif_quality": 42,
+          "webp": "assets/photos/place-park/place-park-800.webp",
+          "webp_bytes": 159598,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/place-park/place-park-800.jpg",
+          "jpeg_bytes": 111704,
+          "jpeg_quality": 68
+        },
+        {
+          "width": 1280,
+          "height": 960,
+          "avif": "assets/photos/place-park/place-park-1280.avif",
+          "avif_bytes": 135261,
+          "avif_quality": 42,
+          "webp": "assets/photos/place-park/place-park-1280.webp",
+          "webp_bytes": 403688,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/place-park/place-park-1280.jpg",
+          "jpeg_bytes": 283942,
+          "jpeg_quality": 68
+        },
+        {
+          "width": 1920,
+          "height": 1440,
+          "avif": "assets/photos/place-park/place-park-1920.avif",
+          "avif_bytes": 255247,
+          "avif_quality": 42,
+          "webp": "assets/photos/place-park/place-park-1920.webp",
+          "webp_bytes": 699110,
+          "webp_quality": 70,
+          "jpeg": "assets/photos/place-park/place-park-1920.jpg",
+          "jpeg_bytes": 554835,
+          "jpeg_quality": 68
+        }
+      ],
+      "offline": null,
+      "width": 1920,
+      "height": 1440,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FCasa_de_Dionisio%252C_parque_arqueol%25C3%25B3gico_de_Pafos%252C_Chipre%252C_2021-12-10%252C_DD_47.jpg",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "btourism.com",
+          "c8.alamy.com",
+          "commons.wikimedia.org",
+          "en.wikipedia.org",
+          "es.wikipedia.org",
+          "hsedesign.com",
+          "i.ytimg.com",
+          "images.theconversation.com",
+          "live.staticflickr.com",
+          "ru.dreamstime.com",
+          "s1.significados.com",
+          "shtampik.com"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Diego Delso / CC BY-SA 4.0"
+    },
+    {
+      "id": "place-harbour",
+      "slot": "place-harbour",
+      "kind": "place",
+      "target": {
+        "type": "place",
+        "id": "POI-HARBOUR",
+        "label": "Port i zamek w Pafos"
+      },
+      "title": "Port i zamek w Pafos",
+      "location": {
+        "name": "Port i zamek w Pafos",
+        "lat": 34.7537,
+        "lon": 32.4069
+      },
+      "gps": {
+        "lat": 34.7537,
+        "lon": 32.4069,
+        "source": "współrzędne miejsca (OSM), plik bez geotagu"
+      },
+      "author": "Nt Design",
+      "license": "CC BY 3.0",
+      "license_url": "https://creativecommons.org/licenses/by/3.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Paphos_Harbour_(86324997).jpeg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/5a/Paphos_Harbour_%2886324997%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5a/Paphos_Harbour_%2886324997%29.jpeg/1920px-Paphos_Harbour_%2886324997%29.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2014-10-01",
+      "description": "500px provided description: Paphos Harbour [#sea ,#harbour ,#ruins ,#fort ,#paphos]",
+      "caption": "Port i zamek w Pafos, widok ogólny; kadr z 1 października 2014, nie z listopada 2026.",
+      "alt": "Kamienny zamek w Pafos na cyplu, otoczony turkusową wodą i skałami.",
+      "credit": "Nt Design / Wikimedia Commons, CC BY 3.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Paphos_Harbour_(86324997).jpeg",
+          "note": "Strona pliku: autor Nt Design, licencja CC BY 3.0, data 2014-10-01; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.753700&mlon=32.406900#map=15/34.75370/32.40690",
+          "note": "współrzędne miejsca (OSM), plik bez geotagu: 34.753700, 32.406900; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Fort_Paphos",
+          "note": "Kategoria Commons / użycie: brak zgłoszonego użycia w innych wiki; kategoria Commons i opis pliku."
+        }
+      ],
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.5
+      },
+      "aspect": "4:3",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Fort_Paphos",
+      "global_usage": [],
+      "source_title": "File:Paphos Harbour (86324997).jpeg",
+      "files": [
+        {
+          "width": 480,
+          "height": 360,
+          "avif": "assets/photos/place-harbour/place-harbour-480.avif",
+          "avif_bytes": 17505,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-harbour/place-harbour-480.webp",
+          "webp_bytes": 31946,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-harbour/place-harbour-480.jpg",
+          "jpeg_bytes": 28230,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "avif": "assets/photos/place-harbour/place-harbour-800.avif",
+          "avif_bytes": 44198,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-harbour/place-harbour-800.webp",
+          "webp_bytes": 78798,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-harbour/place-harbour-800.jpg",
+          "jpeg_bytes": 71507,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 960,
+          "avif": "assets/photos/place-harbour/place-harbour-1280.avif",
+          "avif_bytes": 99893,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-harbour/place-harbour-1280.webp",
+          "webp_bytes": 134178,
+          "webp_quality": 56,
+          "jpeg": "assets/photos/place-harbour/place-harbour-1280.jpg",
+          "jpeg_bytes": 128466,
+          "jpeg_quality": 60
+        },
+        {
+          "width": 1920,
+          "height": 1440,
+          "avif": "assets/photos/place-harbour/place-harbour-1920.avif",
+          "avif_bytes": 179659,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-harbour/place-harbour-1920.webp",
+          "webp_bytes": 180126,
+          "webp_quality": 44,
+          "jpeg": "assets/photos/place-harbour/place-harbour-1920.jpg",
+          "jpeg_bytes": 181584,
+          "jpeg_quality": 42
+        }
+      ],
+      "offline": null,
+      "width": 1920,
+      "height": 1440,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FPaphos_Harbour_%252886324997%2529.jpeg",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "commons.wikimedia.org",
+          "ru.wikipedia.org",
+          "upload.wikimedia.org"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Nt Design / CC BY 3.0"
+    },
+    {
+      "id": "place-tombs",
+      "slot": "place-tombs",
+      "kind": "place",
+      "target": {
+        "type": "place",
+        "id": "POI-TOMBS",
+        "label": "Grobowce Królewskie"
+      },
+      "title": "Grobowiec z perystylem (wnętrze)",
+      "location": {
+        "name": "Grobowce Królewskie, Kato Pafos",
+        "lat": 34.775104,
+        "lon": 32.408214
+      },
+      "gps": {
+        "lat": 34.775104,
+        "lon": 32.408214,
+        "source": "współrzędne miejsca (OSM), plik bez geotagu"
+      },
+      "author": "Romeparis",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Tombs_of_the_Kings_(Pafo)_by_Paride2.JPG",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Tombs_of_the_Kings_%28Pafo%29_by_Paride2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Tombs_of_the_Kings_%28Pafo%29_by_Paride2.JPG/1920px-Tombs_of_the_Kings_%28Pafo%29_by_Paride2.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2012-05-26",
+      "description": "Tombs of the Kings (Pafo) by Paride.jpg",
+      "caption": "Grobowiec z perystylem, detal architektury; kadr z 26 maja 2012, nie z listopada 2026.",
+      "alt": "Kolumny i kamienne wnętrze grobowca w Grobowcach Królewskich w Pafos.",
+      "credit": "Romeparis / Wikimedia Commons, CC BY-SA 3.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Tombs_of_the_Kings_(Pafo)_by_Paride2.JPG",
+          "note": "Strona pliku: autor Romeparis, licencja CC BY-SA 3.0, data 2012-05-26; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.775104&mlon=32.408214#map=15/34.77510/32.40821",
+          "note": "współrzędne miejsca (OSM), plik bez geotagu: 34.775104, 32.408214; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Tombs_of_the_kings_(Paphos)",
+          "note": "Kategoria Commons / użycie: ar.wikipedia.org: أضرحة_الملوك_(بافوس), cs.wikipedia.org: Královské_hrobky_(Pafos), el.wikipedia.org: Τάφοι_των_Βασιλέων_(Πάφος)."
+        }
+      ],
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.55
+      },
+      "aspect": "4:3",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Tombs_of_the_kings_(Paphos)",
+      "global_usage": [
+        {
+          "title": "أضرحة_الملوك_(بافوس)",
+          "wiki": "ar.wikipedia.org",
+          "url": "https://ar.wikipedia.org/wiki/%D8%A3%D8%B6%D8%B1%D8%AD%D8%A9_%D8%A7%D9%84%D9%85%D9%84%D9%88%D9%83_(%D8%A8%D8%A7%D9%81%D9%88%D8%B3)",
+          "ns": "0"
+        },
+        {
+          "title": "Královské_hrobky_(Pafos)",
+          "wiki": "cs.wikipedia.org",
+          "url": "https://cs.wikipedia.org/wiki/Kr%C3%A1lovsk%C3%A9_hrobky_(Pafos)",
+          "ns": "0"
+        },
+        {
+          "title": "Τάφοι_των_Βασιλέων_(Πάφος)",
+          "wiki": "el.wikipedia.org",
+          "url": "https://el.wikipedia.org/wiki/%CE%A4%CE%AC%CF%86%CE%BF%CE%B9_%CF%84%CF%89%CE%BD_%CE%92%CE%B1%CF%83%CE%B9%CE%BB%CE%AD%CF%89%CE%BD_(%CE%A0%CE%AC%CF%86%CE%BF%CF%82)",
+          "ns": "0"
+        },
+        {
+          "title": "Tombs_of_the_Kings_(Paphos)",
+          "wiki": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Tombs_of_the_Kings_(Paphos)",
+          "ns": "0"
+        },
+        {
+          "title": "Tombe_dei_Re_(Pafo)",
+          "wiki": "it.wikipedia.org",
+          "url": "https://it.wikipedia.org/wiki/Tombe_dei_Re_(Pafo)",
+          "ns": "0"
+        }
+      ],
+      "source_title": "File:Tombs of the Kings (Pafo) by Paride2.JPG",
+      "files": [
+        {
+          "width": 480,
+          "height": 360,
+          "avif": "assets/photos/place-tombs/place-tombs-480.avif",
+          "avif_bytes": 12609,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-tombs/place-tombs-480.webp",
+          "webp_bytes": 18168,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-tombs/place-tombs-480.jpg",
+          "jpeg_bytes": 19648,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "avif": "assets/photos/place-tombs/place-tombs-800.avif",
+          "avif_bytes": 35009,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-tombs/place-tombs-800.webp",
+          "webp_bytes": 49844,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-tombs/place-tombs-800.jpg",
+          "jpeg_bytes": 50353,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 960,
+          "avif": "assets/photos/place-tombs/place-tombs-1280.avif",
+          "avif_bytes": 93463,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-tombs/place-tombs-1280.webp",
+          "webp_bytes": 132888,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-tombs/place-tombs-1280.jpg",
+          "jpeg_bytes": 126482,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1920,
+          "height": 1440,
+          "avif": "assets/photos/place-tombs/place-tombs-1920.avif",
+          "avif_bytes": 161828,
+          "avif_quality": 46,
+          "webp": "assets/photos/place-tombs/place-tombs-1920.webp",
+          "webp_bytes": 190726,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/place-tombs/place-tombs-1920.jpg",
+          "jpeg_bytes": 186349,
+          "jpeg_quality": 54
+        }
+      ],
+      "offline": null,
+      "width": 1920,
+      "height": 1440,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FTombs_of_the_Kings_%2528Pafo%2529_by_Paride2.JPG",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "account.travel",
+          "cdn.theculturetrip.com",
+          "commons.wikimedia.org",
+          "en.wikipedia.org",
+          "img.account.travel",
+          "pl.wikipedia.org",
+          "supertravelr.com",
+          "uk.m.wikipedia.org",
+          "upload.wikimedia.org",
+          "www.tourister.ru"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Romeparis / CC BY-SA 3.0"
+    },
+    {
+      "id": "place-baths",
+      "slot": "place-baths",
+      "kind": "place",
+      "target": {
+        "type": "place",
+        "id": "POI-BATHS",
+        "label": "Baths of Aphrodite"
+      },
+      "title": "Baths of Aphrodite",
+      "location": {
+        "name": "Baths of Aphrodite, Neo Chorio",
+        "lat": 35.056195,
+        "lon": 32.344815
+      },
+      "gps": {
+        "lat": 35.056195,
+        "lon": 32.344815,
+        "source": "współrzędne pliku (Commons)"
+      },
+      "author": "Karel Frydrýšek (Fry72)",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Baths_of_Aphrodite,_State_Forest_of_the_Akamas_Peninsula,_Neo_Chorio_03.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Baths_of_Aphrodite%2C_State_Forest_of_the_Akamas_Peninsula%2C_Neo_Chorio_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Baths_of_Aphrodite%2C_State_Forest_of_the_Akamas_Peninsula%2C_Neo_Chorio_03.jpg/1920px-Baths_of_Aphrodite%2C_State_Forest_of_the_Akamas_Peninsula%2C_Neo_Chorio_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2023-03-07",
+      "description": "Baths of Aphrodite, State Forest of the Akamas Peninsula, Neo Chorio, Cyprus",
+      "caption": "Baths of Aphrodite, źródło i grota; kadr z 7 marca 2023, nie z listopada 2026.",
+      "alt": "Skalna grota z turkusowym źródłem i konarami drzew w Baths of Aphrodite.",
+      "credit": "Karel Frydrýšek (Fry72) / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Baths_of_Aphrodite,_State_Forest_of_the_Akamas_Peninsula,_Neo_Chorio_03.jpg",
+          "note": "Strona pliku: autor Karel Frydrýšek (Fry72), licencja CC BY-SA 4.0, data 2023-03-07; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=35.056195&mlon=32.344815#map=15/35.05620/32.34481",
+          "note": "współrzędne pliku (Commons): 35.056195, 32.344815; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Baths_of_Aphrodite",
+          "note": "Kategoria Commons / użycie: brak zgłoszonego użycia w innych wiki; kategoria Commons i opis pliku."
+        }
+      ],
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "aspect": "4:3",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Baths_of_Aphrodite",
+      "global_usage": [],
+      "source_title": "File:Baths of Aphrodite, State Forest of the Akamas Peninsula, Neo Chorio 03.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 360,
+          "avif": "assets/photos/place-baths/place-baths-480.avif",
+          "avif_bytes": 23591,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-baths/place-baths-480.webp",
+          "webp_bytes": 41162,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-baths/place-baths-480.jpg",
+          "jpeg_bytes": 31824,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "avif": "assets/photos/place-baths/place-baths-800.avif",
+          "avif_bytes": 71794,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-baths/place-baths-800.webp",
+          "webp_bytes": 93056,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/place-baths/place-baths-800.jpg",
+          "jpeg_bytes": 82859,
+          "jpeg_quality": 66
+        },
+        {
+          "width": 1280,
+          "height": 960,
+          "avif": "assets/photos/place-baths/place-baths-1280.avif",
+          "avif_bytes": 116742,
+          "avif_quality": 40,
+          "webp": "assets/photos/place-baths/place-baths-1280.webp",
+          "webp_bytes": 268338,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/place-baths/place-baths-1280.jpg",
+          "jpeg_bytes": 152162,
+          "jpeg_quality": 36
+        },
+        {
+          "width": 1920,
+          "height": 1440,
+          "avif": "assets/photos/place-baths/place-baths-1920.avif",
+          "avif_bytes": 174165,
+          "avif_quality": 28,
+          "webp": "assets/photos/place-baths/place-baths-1920.webp",
+          "webp_bytes": 645802,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/place-baths/place-baths-1920.jpg",
+          "jpeg_bytes": 379825,
+          "jpeg_quality": 36
+        }
+      ],
+      "offline": null,
+      "width": 1920,
+      "height": 1440,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FBaths_of_Aphrodite%252C_State_Forest_of_the_Akamas_Peninsula%252C_Neo_Chorio_03.jpg",
+        "matched": true,
+        "other_sizes": false,
+        "domains": [
+          "a0.muscache.com",
+          "aux3fourchettes.com",
+          "bit.ly",
+          "cdn.kulturenvanteri.com",
+          "cdn.worldota.net",
+          "charispsallo.me",
+          "co.pinterest.com",
+          "commons.wikimedia.org",
+          "f.otzyv.ru",
+          "fenlin.ru",
+          "fi.pinterest.com",
+          "fotoload.ru"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Karel Frydrýšek (Fry72) / CC BY-SA 4.0"
+    },
+    {
+      "id": "place-edro",
+      "slot": "place-edro",
+      "kind": "place",
+      "target": {
+        "type": "place",
+        "id": "POI-EDRO",
+        "label": "Wrak Edro III"
+      },
+      "title": "Wrak Edro III",
+      "location": {
+        "name": "Wrak Edro III, Peyia",
+        "lat": 34.872333,
+        "lon": 32.341769
+      },
+      "gps": {
+        "lat": 34.872333,
+        "lon": 32.341769,
+        "source": "współrzędne pliku (Commons)"
+      },
+      "author": "Anton Zelenov",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Edro_III_Shipwreck_LE.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/81/Edro_III_Shipwreck_LE.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/81/Edro_III_Shipwreck_LE.jpg/1920px-Edro_III_Shipwreck_LE.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2019-07-24",
+      "description": "Abandoned rusty cargo ship Edro III near Pegeia, Paphos, Cyprus at sunrise",
+      "caption": "Wrak Edro III o wschodzie słońca; kadr z 24 lipca 2019, nie z listopada 2026.",
+      "alt": "Rdzewiejący wrak statku Edro III przechylony na skałach, o różowym świcie.",
+      "credit": "Anton Zelenov / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Edro_III_Shipwreck_LE.jpg",
+          "note": "Strona pliku: autor Anton Zelenov, licencja CC BY-SA 4.0, data 2019-07-24; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.872333&mlon=32.341769#map=15/34.87233/32.34177",
+          "note": "współrzędne pliku (Commons): 34.872333, 32.341769; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Edro_III_(ship,_1966)",
+          "note": "Kategoria Commons / użycie: bn.wikiquote.org: জাহাজ, ca.wikipedia.org: Naufragi, csb.wikipedia.org: Cyper."
+        }
+      ],
+      "focal_point": {
+        "x": 0.45,
+        "y": 0.55
+      },
+      "aspect": "4:3",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Edro_III_(ship,_1966)",
+      "global_usage": [
+        {
+          "title": "জাহাজ",
+          "wiki": "bn.wikiquote.org",
+          "url": "https://bn.wikiquote.org/wiki/%E0%A6%9C%E0%A6%BE%E0%A6%B9%E0%A6%BE%E0%A6%9C",
+          "ns": "0"
+        },
+        {
+          "title": "Naufragi",
+          "wiki": "ca.wikipedia.org",
+          "url": "https://ca.wikipedia.org/wiki/Naufragi",
+          "ns": "0"
+        },
+        {
+          "title": "Cyper",
+          "wiki": "csb.wikipedia.org",
+          "url": "https://csb.wikipedia.org/wiki/Cyper",
+          "ns": "0"
+        },
+        {
+          "title": "Edro_III",
+          "wiki": "de.wikipedia.org",
+          "url": "https://de.wikipedia.org/wiki/Edro_III",
+          "ns": "0"
+        },
+        {
+          "title": "Wikipedia:WikiProject_Transport",
+          "wiki": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Transport",
+          "ns": "4"
+        }
+      ],
+      "source_title": "File:Edro III Shipwreck LE.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 360,
+          "avif": "assets/photos/place-edro/place-edro-480.avif",
+          "avif_bytes": 9907,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-edro/place-edro-480.webp",
+          "webp_bytes": 15464,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-edro/place-edro-480.jpg",
+          "jpeg_bytes": 15894,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "avif": "assets/photos/place-edro/place-edro-800.avif",
+          "avif_bytes": 25496,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-edro/place-edro-800.webp",
+          "webp_bytes": 40844,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-edro/place-edro-800.jpg",
+          "jpeg_bytes": 40276,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 960,
+          "avif": "assets/photos/place-edro/place-edro-1280.avif",
+          "avif_bytes": 62200,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-edro/place-edro-1280.webp",
+          "webp_bytes": 103920,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-edro/place-edro-1280.jpg",
+          "jpeg_bytes": 98090,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1920,
+          "height": 1440,
+          "avif": "assets/photos/place-edro/place-edro-1920.avif",
+          "avif_bytes": 123051,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-edro/place-edro-1920.webp",
+          "webp_bytes": 187144,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-edro/place-edro-1920.jpg",
+          "jpeg_bytes": 172433,
+          "jpeg_quality": 66
+        }
+      ],
+      "offline": null,
+      "width": 1920,
+      "height": 1440,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FEdro_III_Shipwreck_LE.jpg",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "commons.wikimedia.org",
+          "en.wikipedia.org",
+          "fr.wikipedia.org",
+          "gte-gcms.images.tshiftcdn.com",
+          "guidetoeurope.eu",
+          "ha.wikipedia.org",
+          "i0.wp.com",
+          "klexikon.zum.de",
+          "mapcarta.com",
+          "photocontest.smithsonianmag.com",
+          "ru.dreamstime.com",
+          "tf-cmsv2-photocontest-smithsonianmag-prod-approved.s3.amazonaws.com"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Anton Zelenov / CC BY-SA 4.0"
+    },
+    {
+      "id": "place-palaipafos",
+      "slot": "place-palaipafos",
+      "kind": "place",
+      "target": {
+        "type": "place",
+        "id": "POI-PALAIPAFOS",
+        "label": "Palaipafos i muzeum w Kouklia"
+      },
+      "title": "Royal Manor w Kouklia",
+      "location": {
+        "name": "Royal Manor, Kouklia",
+        "lat": 34.706454,
+        "lon": 32.573194
+      },
+      "gps": {
+        "lat": 34.706454,
+        "lon": 32.573194,
+        "source": "współrzędne pliku (Commons)"
+      },
+      "author": "Karel Frydrýšek (Fry72)",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Royal_Manor,_Kouklia,_Cyprus.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Royal_Manor%2C_Kouklia%2C_Cyprus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Royal_Manor%2C_Kouklia%2C_Cyprus.jpg/1920px-Royal_Manor%2C_Kouklia%2C_Cyprus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2023-03-10",
+      "description": "Royal Manor, Kouklia, Cyprus",
+      "caption": "Royal Manor w Kouklia, widok ogólny; kadr z 10 marca 2023, nie z listopada 2026.",
+      "alt": "Kamienna brama Royal Manor w Kouklia z łukowym przejściem i cyprysem.",
+      "credit": "Karel Frydrýšek (Fry72) / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Royal_Manor,_Kouklia,_Cyprus.jpg",
+          "note": "Strona pliku: autor Karel Frydrýšek (Fry72), licencja CC BY-SA 4.0, data 2023-03-10; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.706454&mlon=32.573194#map=15/34.70645/32.57319",
+          "note": "współrzędne pliku (Commons): 34.706454, 32.573194; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Royal_Manor,_Kouklia,_Cyprus",
+          "note": "Kategoria Commons / użycie: en.wikipedia.org: Kouklia."
+        }
+      ],
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "aspect": "4:3",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Royal_Manor,_Kouklia,_Cyprus",
+      "global_usage": [
+        {
+          "title": "Kouklia",
+          "wiki": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Kouklia",
+          "ns": "0"
+        }
+      ],
+      "source_title": "File:Royal Manor, Kouklia, Cyprus.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 360,
+          "avif": "assets/photos/place-palaipafos/place-palaipafos-480.avif",
+          "avif_bytes": 19974,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-palaipafos/place-palaipafos-480.webp",
+          "webp_bytes": 33962,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-palaipafos/place-palaipafos-480.jpg",
+          "jpeg_bytes": 28293,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "avif": "assets/photos/place-palaipafos/place-palaipafos-800.avif",
+          "avif_bytes": 60969,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-palaipafos/place-palaipafos-800.webp",
+          "webp_bytes": 84934,
+          "webp_quality": 56,
+          "jpeg": "assets/photos/place-palaipafos/place-palaipafos-800.jpg",
+          "jpeg_bytes": 82118,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 960,
+          "avif": "assets/photos/place-palaipafos/place-palaipafos-1280.avif",
+          "avif_bytes": 134126,
+          "avif_quality": 46,
+          "webp": "assets/photos/place-palaipafos/place-palaipafos-1280.webp",
+          "webp_bytes": 221312,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/place-palaipafos/place-palaipafos-1280.jpg",
+          "jpeg_bytes": 128287,
+          "jpeg_quality": 42
+        },
+        {
+          "width": 1920,
+          "height": 1440,
+          "avif": "assets/photos/place-palaipafos/place-palaipafos-1920.avif",
+          "avif_bytes": 180422,
+          "avif_quality": 34,
+          "webp": "assets/photos/place-palaipafos/place-palaipafos-1920.webp",
+          "webp_bytes": 548418,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/place-palaipafos/place-palaipafos-1920.jpg",
+          "jpeg_bytes": 325378,
+          "jpeg_quality": 36
+        }
+      ],
+      "offline": null,
+      "width": 1920,
+      "height": 1440,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FRoyal_Manor%252C_Kouklia%252C_Cyprus.jpg",
+        "matched": true,
+        "other_sizes": false,
+        "domains": [
+          "7d9e88a8-f178-4098-bea5-48d960920605.selcdn.net",
+          "ateshgahtemple.az",
+          "avatars.dzeninfra.ru",
+          "bh.advisor.travel",
+          "bptrip.ru",
+          "br.pinterest.com",
+          "bukvoed.livejournal.com",
+          "c2.peakpx.com",
+          "c8.alamy.com",
+          "ca.m.wikipedia.org",
+          "capi4ca.livejournal.com",
+          "cdn.karar.com"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Karel Frydrýšek (Fry72) / CC BY-SA 4.0"
+    },
+    {
+      "id": "place-omodos",
+      "slot": "place-omodos",
+      "kind": "place",
+      "target": {
+        "type": "place",
+        "id": "POI-OMODOS",
+        "label": "Omodos"
+      },
+      "title": "Kościół Świętego Krzyża w Omodos",
+      "location": {
+        "name": "Kościół Świętego Krzyża, Omodos",
+        "lat": 34.847722,
+        "lon": 32.808573
+      },
+      "gps": {
+        "lat": 34.847722,
+        "lon": 32.808573,
+        "source": "współrzędne pliku (Commons)"
+      },
+      "author": "Berthold Werner",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Omodos_BW_2023-09-20_16-01-53.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Omodos_BW_2023-09-20_16-01-53.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/66/Omodos_BW_2023-09-20_16-01-53.jpg/1920px-Omodos_BW_2023-09-20_16-01-53.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2023-09-20",
+      "description": "Cyprus, Omodos, Church of the Holy Cross",
+      "caption": "Kościół Świętego Krzyża w Omodos, detal; kadr z 20 września 2023, nie z listopada 2026.",
+      "alt": "Kamienna fasada kościoła Świętego Krzyża w Omodos z fioletowym oknem.",
+      "credit": "Berthold Werner / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Omodos_BW_2023-09-20_16-01-53.jpg",
+          "note": "Strona pliku: autor Berthold Werner, licencja CC BY-SA 4.0, data 2023-09-20; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.847722&mlon=32.808573#map=15/34.84772/32.80857",
+          "note": "współrzędne pliku (Commons): 34.847722, 32.808573; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Monastery_of_Stavros_(Omodos)",
+          "note": "Kategoria Commons / użycie: bg.wikipedia.org: Омодос, en.wikipedia.org: Omodos, he.wikipedia.org: אומודוס."
+        }
+      ],
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.42
+      },
+      "aspect": "4:3",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Monastery_of_Stavros_(Omodos)",
+      "global_usage": [
+        {
+          "title": "Омодос",
+          "wiki": "bg.wikipedia.org",
+          "url": "https://bg.wikipedia.org/wiki/%D0%9E%D0%BC%D0%BE%D0%B4%D0%BE%D1%81",
+          "ns": "0"
+        },
+        {
+          "title": "Omodos",
+          "wiki": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Omodos",
+          "ns": "0"
+        },
+        {
+          "title": "אומודוס",
+          "wiki": "he.wikipedia.org",
+          "url": "https://he.wikipedia.org/wiki/%D7%90%D7%95%D7%9E%D7%95%D7%93%D7%95%D7%A1",
+          "ns": "0"
+        },
+        {
+          "title": "ომოდოსი",
+          "wiki": "ka.wikipedia.org",
+          "url": "https://ka.wikipedia.org/wiki/%E1%83%9D%E1%83%9B%E1%83%9D%E1%83%93%E1%83%9D%E1%83%A1%E1%83%98",
+          "ns": "0"
+        },
+        {
+          "title": "Timios_Stavrosklooster",
+          "wiki": "nl.wikipedia.org",
+          "url": "https://nl.wikipedia.org/wiki/Timios_Stavrosklooster",
+          "ns": "0"
+        }
+      ],
+      "source_title": "File:Omodos BW 2023-09-20 16-01-53.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 360,
+          "avif": "assets/photos/place-omodos/place-omodos-480.avif",
+          "avif_bytes": 11893,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-omodos/place-omodos-480.webp",
+          "webp_bytes": 18924,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-omodos/place-omodos-480.jpg",
+          "jpeg_bytes": 19522,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "avif": "assets/photos/place-omodos/place-omodos-800.avif",
+          "avif_bytes": 33123,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-omodos/place-omodos-800.webp",
+          "webp_bytes": 53120,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-omodos/place-omodos-800.jpg",
+          "jpeg_bytes": 51004,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 960,
+          "avif": "assets/photos/place-omodos/place-omodos-1280.avif",
+          "avif_bytes": 88790,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-omodos/place-omodos-1280.webp",
+          "webp_bytes": 132852,
+          "webp_quality": 68,
+          "jpeg": "assets/photos/place-omodos/place-omodos-1280.jpg",
+          "jpeg_bytes": 134777,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1920,
+          "height": 1440,
+          "avif": "assets/photos/place-omodos/place-omodos-1920.avif",
+          "avif_bytes": 159150,
+          "avif_quality": 46,
+          "webp": "assets/photos/place-omodos/place-omodos-1920.webp",
+          "webp_bytes": 221854,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/place-omodos/place-omodos-1920.jpg",
+          "jpeg_bytes": 189183,
+          "jpeg_quality": 48
+        }
+      ],
+      "offline": null,
+      "width": 1920,
+      "height": 1440,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FOmodos_BW_2023-09-20_16-01-53.jpg",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "ceb.advisor.travel",
+          "commons.wikimedia.org",
+          "en.advisor.travel",
+          "eo.advisor.travel",
+          "hr.advisor.travel",
+          "img1.advisor.travel",
+          "si.advisor.travel",
+          "upload.wikimedia.org"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Berthold Werner / CC BY-SA 4.0"
+    },
+    {
+      "id": "place-petra",
+      "slot": "place-petra",
+      "kind": "place",
+      "target": {
+        "type": "place",
+        "id": "POI-PETRA",
+        "label": "Petra tou Romiou"
+      },
+      "title": "Petra tou Romiou",
+      "location": {
+        "name": "Petra tou Romiou, Kouklia",
+        "lat": 34.66451,
+        "lon": 32.627607
+      },
+      "gps": {
+        "lat": 34.66451,
+        "lon": 32.627607,
+        "source": "współrzędne pliku (Commons)"
+      },
+      "author": "Rüdiger Stehn",
+      "license": "CC BY-SA 2.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:085Zypern_Petra_Tou_Romiou_(16724254513).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/085Zypern_Petra_Tou_Romiou_%2816724254513%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/085Zypern_Petra_Tou_Romiou_%2816724254513%29.jpg/1920px-085Zypern_Petra_Tou_Romiou_%2816724254513%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "1980-07-01",
+      "description": "Petra Tou Romiou - Felsen der Griechen, auch ( Aphrodites Felsen genannt, der mythologisch ihr Geburtsort sein soll ( Paphos , Zypern).",
+      "caption": "Petra tou Romiou, widok ogólny; kadr archiwalny z 1980 r., nie z listopada 2026.",
+      "alt": "Skała Afrodyty i mniejsze skały w ciepłym świetle zachodzącego słońca.",
+      "credit": "Rüdiger Stehn / Wikimedia Commons, CC BY-SA 2.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:085Zypern_Petra_Tou_Romiou_(16724254513).jpg",
+          "note": "Strona pliku: autor Rüdiger Stehn from Kiel, Deutschland, licencja CC BY-SA 2.0, data 1980-07-01; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.664510&mlon=32.627607#map=15/34.66451/32.62761",
+          "note": "współrzędne pliku (Commons): 34.664510, 32.627607; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Petra_Tou_Romiou",
+          "note": "Kategoria Commons / użycie: ca.wikipedia.org: Districte_de_Pafos."
+        }
+      ],
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.52
+      },
+      "aspect": "4:3",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Petra_Tou_Romiou",
+      "global_usage": [
+        {
+          "title": "Districte_de_Pafos",
+          "wiki": "ca.wikipedia.org",
+          "url": "https://ca.wikipedia.org/wiki/Districte_de_Pafos",
+          "ns": "0"
+        }
+      ],
+      "source_title": "File:085Zypern Petra Tou Romiou (16724254513).jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 360,
+          "avif": "assets/photos/place-petra/place-petra-480.avif",
+          "avif_bytes": 10461,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-petra/place-petra-480.webp",
+          "webp_bytes": 14614,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-petra/place-petra-480.jpg",
+          "jpeg_bytes": 15906,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "avif": "assets/photos/place-petra/place-petra-800.avif",
+          "avif_bytes": 24997,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-petra/place-petra-800.webp",
+          "webp_bytes": 36994,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-petra/place-petra-800.jpg",
+          "jpeg_bytes": 38817,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 960,
+          "avif": "assets/photos/place-petra/place-petra-1280.avif",
+          "avif_bytes": 67046,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-petra/place-petra-1280.webp",
+          "webp_bytes": 94286,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-petra/place-petra-1280.jpg",
+          "jpeg_bytes": 93860,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1920,
+          "height": 1440,
+          "avif": "assets/photos/place-petra/place-petra-1920.avif",
+          "avif_bytes": 146745,
+          "avif_quality": 52,
+          "webp": "assets/photos/place-petra/place-petra-1920.webp",
+          "webp_bytes": 174282,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/place-petra/place-petra-1920.jpg",
+          "jpeg_bytes": 171089,
+          "jpeg_quality": 66
+        }
+      ],
+      "offline": null,
+      "width": 1920,
+      "height": 1440,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2F085Zypern_Petra_Tou_Romiou_%252816724254513%2529.jpg",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "commons.wikimedia.org",
+          "farm8.staticflickr.com",
+          "hikersbay.com",
+          "img1.advisor.travel",
+          "live.staticflickr.com",
+          "ml.advisor.travel",
+          "no.advisor.travel",
+          "upload.wikimedia.org",
+          "www.flickr.com",
+          "zea.advisor.travel"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Rüdiger Stehn / CC BY-SA 2.0"
+    },
+    {
+      "id": "route-aphrodite",
+      "slot": "route-aphrodite",
+      "kind": "route",
+      "target": {
+        "type": "route",
+        "id": "TR-APHRODITE",
+        "label": "Aphrodite solo"
+      },
+      "title": "Amphitheatre Bay na Akamas",
+      "location": {
+        "name": "Amphitheatre Bay, Akamas",
+        "lat": 35.076322,
+        "lon": 32.317061
+      },
+      "gps": {
+        "lat": 35.076322,
+        "lon": 32.317061,
+        "source": "współrzędne pliku (Commons)"
+      },
+      "author": "Michal Klajban",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Amphitheatre_Bay_after_a_storm,_Akamas_Peninsula,_Cyprus.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Amphitheatre_Bay_after_a_storm%2C_Akamas_Peninsula%2C_Cyprus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Amphitheatre_Bay_after_a_storm%2C_Akamas_Peninsula%2C_Cyprus.jpg/1920px-Amphitheatre_Bay_after_a_storm%2C_Akamas_Peninsula%2C_Cyprus.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2019-02-08",
+      "description": "Amphitheatre Bay right after a storm. Akamas, Cyprus",
+      "caption": "Amphitheatre Bay na Akamas, widok z trasy; kadr z 8 lutego 2019, nie z listopada 2026.",
+      "alt": "Zatoka Amphitheatre na Akamas z turkusową wodą, skalistym brzegiem i sosną na pierwszym planie.",
+      "credit": "Michal Klajban / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Amphitheatre_Bay_after_a_storm,_Akamas_Peninsula,_Cyprus.jpg",
+          "note": "Strona pliku: autor Michal Klajban, licencja CC BY-SA 4.0, data 2019-02-08; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=35.076322&mlon=32.317061#map=15/35.07632/32.31706",
+          "note": "współrzędne pliku (Commons): 35.076322, 32.317061; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Amphitheatre_Bay",
+          "note": "Kategoria Commons / użycie: crh.wikipedia.org: Şablon:Potd/2019-09, cv.wikipedia.org: Шаблон:Potd/2019-09, en.wikipedia.org: Akamas."
+        }
+      ],
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "aspect": "16:9",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Amphitheatre_Bay",
+      "global_usage": [
+        {
+          "title": "Şablon:Potd/2019-09",
+          "wiki": "crh.wikipedia.org",
+          "url": "https://crh.wikipedia.org/wiki/%C5%9Eablon:Potd/2019-09",
+          "ns": "10"
+        },
+        {
+          "title": "Шаблон:Potd/2019-09",
+          "wiki": "cv.wikipedia.org",
+          "url": "https://cv.wikipedia.org/wiki/%D0%A8%D0%B0%D0%B1%D0%BB%D0%BE%D0%BD:Potd/2019-09",
+          "ns": "10"
+        },
+        {
+          "title": "Akamas",
+          "wiki": "en.wikipedia.org",
+          "url": "https://en.wikipedia.org/wiki/Akamas",
+          "ns": "0"
+        },
+        {
+          "title": "Chypre_(pays)",
+          "wiki": "fr.wikipedia.org",
+          "url": "https://fr.wikipedia.org/wiki/Chypre_(pays)",
+          "ns": "0"
+        },
+        {
+          "title": "Wikipédia:Kezdőlapműhely/A_nap_képe/2019-09",
+          "wiki": "hu.wikipedia.org",
+          "url": "https://hu.wikipedia.org/wiki/Wikip%C3%A9dia:Kezd%C5%91lapm%C5%B1hely/A_nap_k%C3%A9pe/2019-09",
+          "ns": "4"
+        }
+      ],
+      "source_title": "File:Amphitheatre Bay after a storm, Akamas Peninsula, Cyprus.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 270,
+          "avif": "assets/photos/route-aphrodite/route-aphrodite-480.avif",
+          "avif_bytes": 14428,
+          "avif_quality": 52,
+          "webp": "assets/photos/route-aphrodite/route-aphrodite-480.webp",
+          "webp_bytes": 25980,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/route-aphrodite/route-aphrodite-480.jpg",
+          "jpeg_bytes": 21409,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 450,
+          "avif": "assets/photos/route-aphrodite/route-aphrodite-800.avif",
+          "avif_bytes": 43030,
+          "avif_quality": 52,
+          "webp": "assets/photos/route-aphrodite/route-aphrodite-800.webp",
+          "webp_bytes": 76618,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/route-aphrodite/route-aphrodite-800.jpg",
+          "jpeg_bytes": 61911,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "avif": "assets/photos/route-aphrodite/route-aphrodite-1280.avif",
+          "avif_bytes": 90313,
+          "avif_quality": 52,
+          "webp": "assets/photos/route-aphrodite/route-aphrodite-1280.webp",
+          "webp_bytes": 113776,
+          "webp_quality": 44,
+          "jpeg": "assets/photos/route-aphrodite/route-aphrodite-1280.jpg",
+          "jpeg_bytes": 142108,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "avif": "assets/photos/route-aphrodite/route-aphrodite-1920.avif",
+          "avif_bytes": 67989,
+          "avif_quality": 30,
+          "webp": "assets/photos/route-aphrodite/route-aphrodite-1920.webp",
+          "webp_bytes": 186202,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/route-aphrodite/route-aphrodite-1920.jpg",
+          "jpeg_bytes": 193985,
+          "jpeg_quality": 54
+        }
+      ],
+      "offline": null,
+      "width": 1920,
+      "height": 1080,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FAmphitheatre_Bay_after_a_storm%252C_Akamas_Peninsula%252C_Cyprus.jpg",
+        "matched": true,
+        "other_sizes": true,
+        "domains": [
+          "br.pinterest.com",
+          "commons.wikimedia.org",
+          "en.wikipedia.org",
+          "fr.wikipedia.org",
+          "gabriellabrillante.wordpress.com",
+          "i.pinimg.com",
+          "images.squarespace-cdn.com",
+          "kinopoisk.ru",
+          "upload.wikimedia.org",
+          "www.hisour.com",
+          "www.islandsails.eu",
+          "www.pinterest.com"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Michal Klajban / CC BY-SA 4.0"
+    },
+    {
+      "id": "route-artemis",
+      "slot": "route-artemis",
+      "kind": "route",
+      "target": {
+        "type": "route",
+        "id": "TR-ARTEMIS",
+        "label": "Artemis"
+      },
+      "title": "Szlak Artemis",
+      "location": {
+        "name": "Szlak Artemis, Troodos",
+        "lat": 34.933166,
+        "lon": 32.871986
+      },
+      "gps": {
+        "lat": 34.933166,
+        "lon": 32.871986,
+        "source": "współrzędne miejsca (OSM), plik bez geotagu"
+      },
+      "author": "Mboesch",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Troodos-artemis-nature-trail-a.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Troodos-artemis-nature-trail-a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Troodos-artemis-nature-trail-a.jpg/1920px-Troodos-artemis-nature-trail-a.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2025-03-16",
+      "description": "Troodos: Artemis Nature Trail",
+      "caption": "Szlak Artemis, ścieżka i sosny; kadr z 16 marca 2025, nie z listopada 2026.",
+      "alt": "Ścieżka szlaku Artemis prowadząca zboczem wśród sosen i skał, z panoramą gór.",
+      "credit": "Mboesch / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Troodos-artemis-nature-trail-a.jpg",
+          "note": "Strona pliku: autor Mboesch, licencja CC BY-SA 4.0, data 2025-03-16; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.933166&mlon=32.871986#map=15/34.93317/32.87199",
+          "note": "współrzędne miejsca (OSM), plik bez geotagu: 34.933166, 32.871986; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Artemis_Nature_Trail",
+          "note": "Kategoria Commons / użycie: de.wikivoyage.org: Nature_Trails."
+        }
+      ],
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.55
+      },
+      "aspect": "16:9",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Artemis_Nature_Trail",
+      "global_usage": [
+        {
+          "title": "Nature_Trails",
+          "wiki": "de.wikivoyage.org",
+          "url": "https://de.wikivoyage.org/wiki/Nature_Trails",
+          "ns": "0"
+        }
+      ],
+      "source_title": "File:Troodos-artemis-nature-trail-a.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 270,
+          "avif": "assets/photos/route-artemis/route-artemis-480.avif",
+          "avif_bytes": 21275,
+          "avif_quality": 52,
+          "webp": "assets/photos/route-artemis/route-artemis-480.webp",
+          "webp_bytes": 39248,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/route-artemis/route-artemis-480.jpg",
+          "jpeg_bytes": 29916,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 450,
+          "avif": "assets/photos/route-artemis/route-artemis-800.avif",
+          "avif_bytes": 67528,
+          "avif_quality": 52,
+          "webp": "assets/photos/route-artemis/route-artemis-800.webp",
+          "webp_bytes": 90434,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/route-artemis/route-artemis-800.jpg",
+          "jpeg_bytes": 90080,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "avif": "assets/photos/route-artemis/route-artemis-1280.avif",
+          "avif_bytes": 119407,
+          "avif_quality": 40,
+          "webp": "assets/photos/route-artemis/route-artemis-1280.webp",
+          "webp_bytes": 250062,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/route-artemis/route-artemis-1280.jpg",
+          "jpeg_bytes": 144320,
+          "jpeg_quality": 42
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "avif": "assets/photos/route-artemis/route-artemis-1920.avif",
+          "avif_bytes": 118665,
+          "avif_quality": 20,
+          "webp": "assets/photos/route-artemis/route-artemis-1920.webp",
+          "webp_bytes": 583178,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/route-artemis/route-artemis-1920.jpg",
+          "jpeg_bytes": 344792,
+          "jpeg_quality": 36
+        }
+      ],
+      "offline": null,
+      "width": 1920,
+      "height": 1080,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FTroodos-artemis-nature-trail-a.jpg",
+        "matched": true,
+        "other_sizes": false,
+        "domains": [
+          "almi.su",
+          "antalyabisikletrotalari.blogspot.com",
+          "br.pinterest.com",
+          "c0.wallpaperflare.com",
+          "c1.wallpaperflare.com",
+          "c8.alamy.com",
+          "ca.pinterest.com",
+          "cdn.pixabay.com",
+          "cdn.thepropertyagent.casa",
+          "cdn.tripster.ru",
+          "commons.wikimedia.org",
+          "d1yn1kh78jj1rr.cloudfront.net"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Mboesch / CC BY-SA 4.0"
+    },
+    {
+      "id": "route-vouni",
+      "slot": "route-vouni",
+      "kind": "route",
+      "target": {
+        "type": "route",
+        "id": "TR-VOUNI",
+        "label": "Vouni Panagias"
+      },
+      "title": "Punkt widokowy Vouni",
+      "location": {
+        "name": "Vouni, Pano Panagia",
+        "lat": 34.9195,
+        "lon": 32.6316
+      },
+      "gps": {
+        "lat": 34.9195,
+        "lon": 32.6316,
+        "source": "współrzędne miejsca (OSM), plik bez geotagu"
+      },
+      "author": "Mboesch",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Pano-panagia-vouni-fire-lookout.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Pano-panagia-vouni-fire-lookout.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "thumb_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/95/Pano-panagia-vouni-fire-lookout.jpg/1920px-Pano-panagia-vouni-fire-lookout.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "date": "2023-10-26",
+      "description": "Pano Panagia Fire Lookout",
+      "caption": "Droga do punktu widokowego Vouni nad Pano Panagią; kadr z 26 października 2023, nie z listopada 2026.",
+      "alt": "Żwirowa droga do punktu widokowego Vouni z wieżą obserwacyjną i suchymi wzgórzami.",
+      "credit": "Mboesch / Wikimedia Commons, CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Pano-panagia-vouni-fire-lookout.jpg",
+          "note": "Strona pliku: autor Mboesch, licencja CC BY-SA 4.0, data 2023-10-26; opis miejsca zgodny z kadrem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.919500&mlon=32.631600#map=15/34.91950/32.63160",
+          "note": "współrzędne miejsca (OSM), plik bez geotagu: 34.919500, 32.631600; punkt zgodny z nazwanym miejscem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Pano_Panagia",
+          "note": "Kategoria Commons / użycie: de.wikivoyage.org: Pano_Panagia."
+        }
+      ],
+      "focal_point": {
+        "x": 0.55,
+        "y": 0.55
+      },
+      "aspect": "16:9",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Pano_Panagia",
+      "global_usage": [
+        {
+          "title": "Pano_Panagia",
+          "wiki": "de.wikivoyage.org",
+          "url": "https://de.wikivoyage.org/wiki/Pano_Panagia",
+          "ns": "0"
+        }
+      ],
+      "source_title": "File:Pano-panagia-vouni-fire-lookout.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 270,
+          "avif": "assets/photos/route-vouni/route-vouni-480.avif",
+          "avif_bytes": 17399,
+          "avif_quality": 52,
+          "webp": "assets/photos/route-vouni/route-vouni-480.webp",
+          "webp_bytes": 30228,
+          "webp_quality": 74,
+          "jpeg": "assets/photos/route-vouni/route-vouni-480.jpg",
+          "jpeg_bytes": 24030,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 800,
+          "height": 450,
+          "avif": "assets/photos/route-vouni/route-vouni-800.avif",
+          "avif_bytes": 54264,
+          "avif_quality": 52,
+          "webp": "assets/photos/route-vouni/route-vouni-800.webp",
+          "webp_bytes": 82874,
+          "webp_quality": 62,
+          "jpeg": "assets/photos/route-vouni/route-vouni-800.jpg",
+          "jpeg_bytes": 72881,
+          "jpeg_quality": 72
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "avif": "assets/photos/route-vouni/route-vouni-1280.avif",
+          "avif_bytes": 119878,
+          "avif_quality": 46,
+          "webp": "assets/photos/route-vouni/route-vouni-1280.webp",
+          "webp_bytes": 193840,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/route-vouni/route-vouni-1280.jpg",
+          "jpeg_bytes": 141250,
+          "jpeg_quality": 54
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "avif": "assets/photos/route-vouni/route-vouni-1920.avif",
+          "avif_bytes": 113544,
+          "avif_quality": 26,
+          "webp": "assets/photos/route-vouni/route-vouni-1920.webp",
+          "webp_bytes": 447440,
+          "webp_quality": 38,
+          "jpeg": "assets/photos/route-vouni/route-vouni-1920.jpg",
+          "jpeg_bytes": 276693,
+          "jpeg_quality": 36
+        }
+      ],
+      "offline": null,
+      "width": 1920,
+      "height": 1080,
+      "reverse_search": {
+        "engine": "Yandex Images (reverse image search)",
+        "url": "https://yandex.com/images/search?rpt=imageview&url=https%3A%2F%2Fcommons.wikimedia.org%2Fwiki%2FSpecial%3AFilePath%2FPano-panagia-vouni-fire-lookout.jpg",
+        "matched": true,
+        "other_sizes": false,
+        "domains": [
+          "arkeodenemeler.blogspot.com",
+          "bisikletle.blogspot.com",
+          "bisikletlecanakkale.blogspot.com",
+          "bodrumluhayat.blogspot.com",
+          "bukvoed.livejournal.com",
+          "cinaliciftligi.blogspot.com",
+          "commons.wikimedia.org",
+          "control.objektif20.com",
+          "d10fbf87uv1xiy.cloudfront.net",
+          "de.wikipedia.org",
+          "degirmenli.karacadesign.de",
+          "diski.gov.tr"
+        ],
+        "note": "Reverse search zwrócił kopie lub podobne kadry w serwisach zewnętrznych; źródłem pozostaje strona pliku Commons z pełną metryką. Brak dowodu innego pochodzenia."
+      },
+      "credit_short": "Mboesch / CC BY-SA 4.0"
+    }
+  ]
+}

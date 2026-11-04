@@ -19,6 +19,9 @@ from pathlib import Path
 from urllib.parse import urlparse
 from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from photos import PhotoError, PhotoLibrary
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT / "data" / "Cypr_2026_zrodlo_prawdy.json"
 TEMPLATE_FILE = ROOT / "_src" / "template.html"
@@ -386,8 +389,8 @@ def format_phone_display(value: str | None) -> str:
     cleaned = re.sub(r"[^\d+]", "", str(value))
     if cleaned.startswith("+357") and len(cleaned) == 12:
         rest = cleaned[4:]
-        return f"+357 {rest[:2]} {rest[2:5]} {rest[5:]}"
-    return str(value)
+        return f"+357\u00a0{rest[:2]}\u00a0{rest[2:5]}\u00a0{rest[5:]}"
+    return str(value).replace(" ", "\u00a0")
 
 
 def format_minutes_single(minutes: int) -> str:
@@ -707,6 +710,7 @@ class Plan:
         self.coord_count = len(self.coord_places)
         self.blocking_issues = [i for i in self.open_issues if i.get("blocking")]
         self.total_check_items = sum(len(g.get("items", [])) for g in self.checklists)
+        self.photos = PhotoLibrary(ROOT)
 
 
 def walk_values(node, key: str):
@@ -1035,6 +1039,11 @@ def render_hero(plan: Plan) -> str:
     hotel = plan.places.get(plan.trip["hotel"]["place_id"], {})
     hotel_phone_raw = hotel.get("phone")
     hotel_phone = re.sub(r"[^\d+]", "", hotel_phone_raw or "")
+    hero_html = plan.photos.render(
+        plan.photos.hero, "hero",
+        sizes="(min-width: 900px) 44vw, 100vw",
+        loading="eager", fetchpriority="high",
+    )
     return f"""
     <div class="hero__inner page-width">
       <div class="hero__copy">
@@ -1053,7 +1062,7 @@ def render_hero(plan: Plan) -> str:
         </div>
         <p class="hero__footnote">Plan bazowy · aktualizacja {esc(updated)}. Baza: {esc(hotel.get("name", "Pafos"))}, {esc(hotel.get("address", "Pafos"))}. Rezerwacje lotów i hotelu według użytkownika; <a class="tap-inline" href="#todo">{blocking} zadań blokujących</a> przed wyjazdem. Auto, wellness i warunki terenowe — do sprawdzenia. Alarm: <a class="tap-inline hero__alarm" href="tel:112">112</a></p>
       </div>
-      {render_cyprus_art()}
+      <div class="hero__media">{hero_html}</div>
     </div>
     <div class="hero__status">
       <div class="page-width">
@@ -1084,7 +1093,6 @@ def render_nav(plan: Plan) -> str:
     hotel = plan.places.get(plan.trip["hotel"]["place_id"], {})
     hotel_phone = re.sub(r"[^\d+]", "", hotel.get("phone") or "")
     nav = [
-        ("#top", "Start"),
         ("#dzis", "Dziś"),
         ("#tydzien", "Tydzień"),
         ("#mapa", "Mapa"),
@@ -1092,8 +1100,9 @@ def render_nav(plan: Plan) -> str:
         ("#trasy", "Trasy"),
         ("#praktyka", "Praktyka"),
         ("#checklisty", "Checklisty"),
-        ("#todo", "Do potwierdzenia"),
+        ("#todo", "Zadania"),
         ("#zrodla", "Źródła"),
+        ("#zdjecia", "Zdjęcia"),
     ]
     items = "".join(f'<li><a href="{href}">{esc(label)}</a></li>' for href, label in nav)
     menu_items = "".join(f'<a href="{href}">{esc(label)}</a>' for href, label in nav)
@@ -1105,12 +1114,12 @@ def render_nav(plan: Plan) -> str:
           <ul class="subnav__list">{items}</ul>
         </div>
         <details class="subnav__more">
-          <summary aria-label="Otwórz menu sekcji">{icon("menu")} Sekcje {icon("chevron")}</summary>
+          <summary aria-label="Otwórz menu sekcji">{icon("menu")} <span class="subnav__menu-label">Sekcje</span> {icon("chevron")}</summary>
           <div class="subnav__menu" role="group" aria-label="Wszystkie sekcje planu">{menu_items}</div>
         </details>
         <div class="subnav__tools">
-          <a class="subnav__tool" href="#mapa" aria-label="Mapa miejsc" title="Mapa miejsc">{icon("map")}</a>
-          <a class="subnav__tool" href="tel:{esc(hotel_phone)}" aria-label="Telefon hotelu" title="Telefon hotelu">{icon("bed")}</a>
+          <a class="subnav__tool" href="#mapa" aria-label="Mapa miejsc" title="Mapa miejsc">{icon("map")}<span class="subnav__tool-label">Mapa</span></a>
+          <a class="subnav__tool" href="tel:{esc(hotel_phone)}" aria-label="Telefon hotelu" title="Telefon hotelu">{icon("bed")}<span class="subnav__tool-label">Hotel</span></a>
           <a class="emergency-mini" href="tel:112" aria-label="Numer alarmowy 112">{icon("phone")}<span>112</span></a>
           <span class="connection connection--nav" data-connection>{icon("wifi")}<span class="connection__text">sprawdzam</span></span>
         </div>
@@ -1428,6 +1437,11 @@ def render_day(plan: Plan, day: dict) -> str:
         if drive_value is not None
         else f'<span class="chip chip--missing">{icon("car")}Auto: <b>brak danych</b></span>'
     )
+    day_photo = plan.photos.for_day(day["id"])
+    day_photo_html = (
+        plan.photos.render(day_photo, "lead", sizes="(min-width: 760px) 760px, 100vw")
+        if day_photo else ""
+    )
     return f"""
       <article class="day-card" id="day-{esc(day_no)}" data-day-date="{esc(day['date'])}"{light_attrs} aria-labelledby="day-{esc(day_no)}-title">
         <header class="day-card__head">
@@ -1447,6 +1461,7 @@ def render_day(plan: Plan, day: dict) -> str:
           </div>
           <p class="timezone-note">{icon("clock")} {timezone_note}</p>
         </header>
+        {day_photo_html}
         {flight_band}
         {hunt_note}
         {render_day_light(plan, day)}
@@ -1647,6 +1662,11 @@ def render_route_card(plan: Plan, route: dict, *, reserve: bool = False) -> str:
             </details>
           </article>
         """
+    route_photo = plan.photos.for_route(route["id"])
+    route_photo_html = (
+        plan.photos.render(route_photo, "route", sizes="(min-width: 760px) 760px, 100vw")
+        if route_photo else ""
+    )
     return f"""
       <article class="route-card" id="{esc(anchor)}" aria-labelledby="{esc(anchor)}-title">
         <header class="route-card__head">
@@ -1656,6 +1676,7 @@ def render_route_card(plan: Plan, route: dict, *, reserve: bool = False) -> str:
           </div>
           <span class="route-id">{esc(route["id"])}</span>
         </header>
+        {route_photo_html}
         <p class="route-card__summary">{esc(route.get("description", ""))}</p>
         {route_verdict(plan, route)}
         {body}
@@ -1781,8 +1802,17 @@ def render_place(plan: Plan, place: dict) -> str:
             f'<dd>{esc(" i ".join(missing))} — sprawdź w Maps lub u organizatora</dd></div>'
         )
     facts_html = f'<dl class="place-facts">{"".join(facts)}</dl>' if facts else ""
+    place_photo = plan.photos.for_place(place["id"])
+    place_photo_html = (
+        plan.photos.render(
+            place_photo, "thumb",
+            sizes="(min-width: 860px) 320px, (min-width: 560px) 50vw, 100vw",
+        )
+        if place_photo else ""
+    )
     return f"""
       <article class="place-card" id="place-{esc(place["id"])}" data-place-id="{esc(place["id"])}">
+        {place_photo_html}
         <header class="place-card__head">
           <p class="place-type">{esc(PLACE_TYPE_LABELS.get(place.get("type"), place.get("type", "miejsce")))}</p>
           <h4>{esc(place["name"])}</h4>
@@ -2236,7 +2266,7 @@ def render_safety(plan: Plan) -> str:
           <div class="emergency-panel__number"><span>Numer alarmowy</span><strong>112</strong></div>
           <div>
             <p>{esc(emergency.get("procedure", ""))}</p>
-            <p class="fine-print">Numer hotelu: <a class="tap-inline" href="tel:+35726600100">+357 26 600 100</a> · assistance auta: {esc(emergency.get("car_assistance_phone") or "brak danych")} · assistance polisy: {esc(emergency.get("insurance_assistance_phone") or "brak danych")}</p>
+            <p class="fine-print">Numer hotelu: <a class="tap-inline" href="tel:+35726600100">+357\u00a026\u00a0600\u00a0100</a> · assistance auta: {esc(emergency.get("car_assistance_phone") or "brak danych")} · assistance polisy: {esc(emergency.get("insurance_assistance_phone") or "brak danych")}</p>
             {source_chips(plan, [emergency.get("source_id")] if emergency.get("source_id") else [])}
           </div>
         </div>
@@ -2605,7 +2635,7 @@ def render_sources(plan: Plan) -> str:
             <ol class="decision-list">{decisions}</ol>
           </details>
         </div>
-        {section_next("Na koniec", [("#top", "Wróć na początek"), ("#dzis", "Dziś")])}
+        {section_next("Dalej", [("#zdjecia", "Zdjęcia i licencje"), ("#top", "Wróć na początek")])}
         {render_print_source_urls(plan)}
       </div>
     </section>
@@ -2724,7 +2754,7 @@ def render_footer(plan: Plan) -> str:
       <div>
         <p class="footer-mark">KJ <span>/</span> Photo Journal</p>
         <p class="footer-note">Spokojny plan podróży. Bez analityki, cookies i trackerów. Źródłem prawdy jest plik JSON; strona jest generowanym widokiem.</p>
-        <p class="footer-back"><a href="#top">Do początku {icon("arrow")}</a> · <a href="#zrodla">Źródła</a> · <a href="/v1/">Archiwum v1</a></p>
+        <p class="footer-back"><a href="#top">Do początku {icon("arrow")}</a> · <a href="#zrodla">Źródła</a> · <a href="#zdjecia">Zdjęcia</a> · <a href="/v1/">Archiwum v1</a></p>
       </div>
       <div class="footer-meta">
         <p><span>Wersja</span> <strong>{esc(plan.meta["version"])}</strong></p>
@@ -2732,7 +2762,7 @@ def render_footer(plan: Plan) -> str:
         <p><span>Dane</span> <a href="data/Cypr_2026_zrodlo_prawdy.json">Cypr_2026_zrodlo_prawdy.json {icon("download")}</a></p>
         <p><span>Strefa</span> Asia/Nicosia, UTC+2</p>
         <p class="footer-calendar"><span>Kalendarz</span> <a class="ics-link" href="cal/cypr2026-caly-wyjazd.ics" download>Cały wyjazd .ics {icon("download")}</a></p>
-        <p><span>PDF</span> <a href="cypr2026-print.pdf" download>Plan do druku (52 str.)</a></p>
+        <p><span>PDF</span> <a href="cypr2026-print.pdf" download>Plan do druku (54 str.)</a></p>
         <p class="footer-version">Plan bazowy · {len(plan.day_list)} dni / {plan.trip.get("nights")} nocy · Pafos</p>
       </div>
     </div>
@@ -2744,7 +2774,7 @@ def compute_asset_hash(raw_json: bytes, *, noindex: bool) -> str:
     digest.update(b"cypr2026-asset-hash-v1\0")
     digest.update(b"noindex=1\0" if noindex else b"noindex=0\0")
     digest.update(raw_json)
-    paths = [TEMPLATE_FILE, Path(__file__).resolve(), STYLES_FILE, APP_FILE, MANIFEST_FILE]
+    paths = [TEMPLATE_FILE, Path(__file__).resolve(), STYLES_FILE, APP_FILE, MANIFEST_FILE, ROOT / "data" / "photos.json"]
     for path in paths:
         if path.exists():
             digest.update(path.name.encode("utf-8") + b"\0")
@@ -3076,6 +3106,8 @@ def render_page(plan: Plan, asset_hash: str, data_json: str, *, noindex: bool) -
         "{{CHECKLISTS}}": render_checklists(plan),
         "{{TODO}}": render_todo(plan),
         "{{SOURCES}}": render_sources(plan),
+        "{{PHOTO_CREDITS}}": plan.photos.render_credits(),
+        "{{PHOTO_PRELOAD}}": plan.photos.render_hero_preload(),
         "{{FOOTER}}": render_footer(plan),
         "{{DATA_JSON}}": data_json,
     }
@@ -3105,6 +3137,7 @@ def build_service_worker(plan: Plan, asset_hash: str) -> str:
             rel = path.relative_to(ROOT).as_posix()
             if rel.endswith(".png") or rel.endswith(".svg") or rel.endswith(".woff2") or rel.endswith(".js") or rel.endswith(".css"):
                 precache.append(f"./{rel}")
+    precache.extend(plan.photos.offline_files())
     if CAL_DIR.exists():
         for path in sorted(CAL_DIR.glob("*.ics")):
             precache.append(f"./{path.relative_to(ROOT).as_posix()}")
@@ -3144,7 +3177,10 @@ def main() -> int:
             fail(f"JSON nie jest poprawny (UTF-8): {exc}")
         except json.JSONDecodeError as exc:
             fail(f"JSON nie jest poprawny: {exc}")
-        plan = Plan(data)
+        try:
+            plan = Plan(data)
+        except PhotoError as exc:
+            fail(str(exc))
         validate(plan)
         warnings = collect_warnings(plan)
 
@@ -3165,6 +3201,7 @@ def main() -> int:
         write_if_changed(MIN_APP_FILE, minify_js(APP_FILE.read_text(encoding="utf-8")))
         sw_text = build_service_worker(plan, asset_hash)
         write_if_changed(SW_FILE, sw_text)
+        write_if_changed(ROOT / "CREDITS.md", plan.photos.credits_markdown())
 
         print(f"OK  Cypr 2026 {version} · {asset_hash}")
         print(f"    index.html: {INDEX_FILE.stat().st_size:,} B")

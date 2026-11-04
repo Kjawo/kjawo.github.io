@@ -641,8 +641,17 @@
     sections.forEach(function (item) {
       if (item.section.offsetTop <= line) current = item;
     });
+    var currentHref = current ? current.link.getAttribute("href") : "";
+    var menuLabel = $(".subnav__menu-label");
+    if (menuLabel) {
+      menuLabel.textContent = current && window.scrollY > 120
+        ? current.link.textContent.trim()
+        : "Sekcje";
+    }
+    var navMenuEl = $(".subnav__more");
+    if (navMenuEl) navMenuEl.classList.toggle("is-current", !!(current && window.scrollY > 120));
     navLinks.forEach(function (link) {
-      var active = current && link === current.link;
+      var active = current && link.getAttribute("href") === currentHref;
       link.classList.toggle("is-active", active);
       if (active) link.setAttribute("aria-current", "location");
       else link.removeAttribute("aria-current");
@@ -680,6 +689,26 @@
         if (summary) summary.focus();
       }
     });
+  }
+
+  // Photo credits filter -----------------------------------------------------
+  var photoFilterButtons = $all("[data-photo-filter]");
+  var photoEntries = $all("[data-photo-kind]");
+  function applyPhotoFilter(kind) {
+    photoFilterButtons.forEach(function (button) {
+      button.setAttribute("aria-pressed", button.getAttribute("data-photo-filter") === kind ? "true" : "false");
+    });
+    photoEntries.forEach(function (entry) {
+      entry.hidden = kind !== "all" && entry.getAttribute("data-photo-kind") !== kind;
+    });
+  }
+  if (photoFilterButtons.length) {
+    photoFilterButtons.forEach(function (button) {
+      button.addEventListener("click", function () {
+        applyPhotoFilter(button.getAttribute("data-photo-filter"));
+      });
+    });
+    if (window.matchMedia("(max-width: 599px)").matches) applyPhotoFilter("day");
   }
 
   // Lazy Leaflet map ---------------------------------------------------------

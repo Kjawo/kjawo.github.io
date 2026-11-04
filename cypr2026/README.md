@@ -72,13 +72,19 @@ cypr2026/
   app.js                      # źródło progresywnych ulepszeń, vanilla JS
   app.min.js                  # GENEROWANY, serwowany
   cal/                        # GENEROWANE pliki .ics (cały wyjazd + dni)
-  cypr2026-print.pdf          # statyczny PDF z tego samego builda (52 strony)
+  cypr2026-print.pdf          # statyczny PDF z tego samego builda (54 strony)
   sw.js                       # cache powłoki; build wpisuje wersję i listę plików
   manifest.json
   data/Cypr_2026_zrodlo_prawdy.json
+  data/photos.json            # manifest zdjęć: slot, autor, licencja, dowody, pliki
+  data/photo-selection.json   # ślepy wybór 3 modeli: głosy, wybór, dogrywki
+  AUDYT-ZDJECIA.md            # przed/po, 11 kategorii, lista zdjęć i ograniczenia
+  AUDYT-ZDJECIA-PODGLAD.jpg   # kontakt: hero 360/1280, dzień, credits, druk
+  CREDITS.md                  # GENEROWANY tekstowy spis zdjęć i licencji
   assets/
     fonts/                    # Inter + Newsreader, lokalnie, OFL
     icons/                    # SVG + PNG 180/192/512
+    photos/                   # 20 kadrów × 4 szerokości × AVIF/WebP/JPEG
     vendor/leaflet/           # Leaflet 1.9.4, vendored
   _src/
     build.py
@@ -86,7 +92,20 @@ cypr2026/
   README.md
 ```
 
-Zdjęć użytkownika nie było, więc hero jest typograficzne z wektorowym konturem Cypru. Nie użyto stocku. Ikony strony są inline SVG; PNG służą tylko manifestowi/PWA.
+Zdjęć użytkownika nie było, więc warstwa zdjęciowa korzysta wyłącznie z Wikimedia Commons. Hero jest edytorskim splitem z kadrem Petry tou Romiou; każdy dzień ma lead, a 9 miejsc i 3 trasy mają własne kadry. Nie użyto stocku, AI ani podmiany nieba. Ikony strony są inline SVG; PNG służą tylko manifestowi/PWA.
+
+## Zdjęcia i licencje
+
+- **20 kadrów:** 1 hero, 7 leadów dni, 9 miejsc i 3 trasy. Dzień 7 ma kadr Ryanaira na płycie PFO — jest to widok ogólny, nie zdjęcie z listopada 2026.
+- **Manifest:** `data/photos.json` zawiera slot, dzień/miejsce/trasę, pliki, autora, licencję, źródło, datę, GPS, opis, podpis, alt, focal point i dowody. Brak pola albo pliku zatrzymuje build.
+- **Źródła:** Wikimedia Commons, wyłącznie CC0/PD/CC BY/CC BY-SA. Autorzy i linki są w sekcji „Zdjęcia i licencje”, w `CREDITS.md` i w druku.
+- **Uczciwe podpisy:** każdy kadr mówi „widok ogólny” lub „detal” i podaje datę wykonania; żaden nie udaje listopada 2026. Alt jest opisowy, nie zaczyna się od „zdjęcie”.
+- **Warianty:** AVIF + WebP + JPEG w 480/800/1280/1920 px; hero 4:5, dzień 3:2, miejsce 4:3, trasa 16:9. Bez upscalingu — największy wariant nie przekracza 1920 px.
+- **Budżety:** hero ≤180 KB (wszystkie formaty), lead ≤120 KB (AVIF), thumb ≤45 KB (wszystkie formaty). Hero 1920 AVIF to 145 KB, najcięższy lead 1920 AVIF to 116 KB, najcięższy thumb 480 to 42 KB.
+- **Weryfikacja:** strona pliku (autor, licencja, data, opis), geotag/OSM albo współrzędne miejsca, kategoria Commons lub użycie w innych wiki, oraz reverse search w Yandex Images. Linki są przy każdym kadrze w manifeście i w sekcji licencji. Wątpliwy kadr nie wszedł.
+- **Offline:** service worker cache’uje dla hero i 7 leadów warianty 480/800 AVIF oraz WebP i 800 JPEG; po pierwszym wejściu online zdjęcia działają bez sieci.
+- **Druk:** maksymalnie jedno małe zdjęcie na dzień (pas 56 mm, skala szarości), plus spis autorów i licencji na stronie 54. PDF ma 54 strony.
+- **Ograniczenia:** brak zdjęć użytkownika; reverse search może znajdować kopie w serwisach podróżniczych, ale źródłem pozostaje plik Commons z pełną metryką. Kadry są widokami ogólnymi lub detalami, nie dokumentacją konkretnego przejścia szlaku.
 
 ## Prywatność i `noindex`
 
@@ -138,7 +157,7 @@ Do PDF: `Ctrl/Cmd + P` → A4 → marginesy domyślne → bez grafiki tła. Stro
 
 Sprawdzone szerokości: **360, 390, 768, 1280 i 1440 px**. Widok „Dziś” sprawdzono dla dat 2026-11-06, 2026-11-09 i 2026-11-14, a zegar dla stref urządzenia: UTC, `Europe/Warsaw` i `Asia/Nicosia`.
 
-Audyt axe-core 4.10 (WCAG 2.2 AA): 0 naruszeń; 0 elementów tekstowych poniżej 12 px i 0 elementów interaktywnych poniżej 44 px (także pola wyboru mają 44 px; wizualny kwadrat pozostaje 21 px). CLS w testach: 0,0004–0,0074. `html-validate` 0 błędów.
+Audyt axe-core 4.10 (WCAG 2.2 AA): 0 naruszeń; 0 elementów tekstowych interfejsu poniżej 12 px (poza dekoracyjnym 7 px licznikiem klastra mapy) i 0 elementów interaktywnych poniżej 44 px (także linki autorów/licencji mają powiększony obszar klikalny). CLS w testach: 0,0003–0,0018. LCP lokalnie: 0,32–0,75 s. `html-validate` 0 błędów. Build waliduje 20 zdjęć, 240 plików, budżety i dowody; 0 brakujących plików i 0 błędów 404 obrazów.
 
 Funkcje zależne od danych: pasek „światła dnia” (start/koniec trekkingu, zachód, zmierzch, zapas), filtr „Dzień na mapie” (markery i lista miejsc), pliki `.ics` oraz jednokartkowa karta do druku.
 
@@ -157,12 +176,12 @@ Klucz: `cypr2026.checklist.v1`. Reset czyści wpis w `localStorage` po potwierdz
 
 ## Wydajność
 
-- HTML jest duży, bo zawiera cały plan i osadzony JSON; w transferze na GitHub Pages jest kompresowany. Transfer: **84,9 KB gzip**.
-- CSS: **17,9 KB gzip** (serwowany `styles.min.css`, źródło `styles.css`).
-- JS bez Leafleta: **11,6 KB gzip** (serwowany `app.min.js`, źródło `app.js`).
+- HTML jest duży, bo zawiera cały plan i osadzony JSON; w transferze na GitHub Pages jest kompresowany. Transfer: **91,5 KB gzip**.
+- CSS: **19,0 KB gzip** (serwowany `styles.min.css`, źródło `styles.css`).
+- JS bez Leafleta: **12,2 KB gzip** (serwowany `app.min.js`, źródło `app.js`).
 - Fonty: około 152 KB łącznie, lokalne, tylko potrzebne podzbiory. Minimalny rozmiar tekstu na ekranie to 12 px; wszystkie elementy interaktywne mają co najmniej 44 px wysokości i szerokości (także linki inline). Ikony mapy grupują bliskie punkty, żeby pozostały klikalne na telefonie.
 - Leaflet, CSS Leafleta i kafelki są ładowane dopiero przy sekcji mapy; kafelki nigdy nie trafiają do cache offline.
-- Brak zdjęć hero, analityki, cookie bannerów i zewnętrznych trackerów.
+- Zdjęcia: 20 kadrów / 240 plików lokalnych (27 MB w repo). W pierwszym ekranie tylko hero; pozostałe mają `loading="lazy"`. Brak analityki, cookie bannerów i zewnętrznych trackerów.
 
 ## Decyzje i ograniczenia
 
@@ -177,7 +196,7 @@ Klucz: `cypr2026.checklist.v1`. Reset czyści wpis w `localStorage` po potwierdz
 - **Mobile:** dni inne niż bieżący są domyślnie zwinięte przez JS; bez JS wszystkie są otwarte. Ważne ostrzeżenia (auto, 112, polowania, bag drop) pozostają poza zwiniętymi blokami.
 - **Statusy współrzędnych:** `zweryfikowane`, `przejete_z_audytu`, `orientacyjne_do_potwierdzenia`.
 - Niektóre serwisy (Ryanair, Wizz Air, timeanddate, SIXT) blokują automatyczne zapytania HTTP 403, choć linki są źródłami z JSON-a. Nie usuwaj ich tylko z powodu błędu bota.
-- Print jest obszerny (**52 strony A4**), bo zawiera wszystkie dni, warianty, trasy, miejsca, checklisty i źródła; dni płyną kolejno, a tabele źródłowe mają powtarzany nagłówek. Druga strona to jednokartkowa „Karta podręczna”, żeby nie trzeba było drukować całego planu do szybkiego użycia. Ten sam PDF jest linkowany w stopce i w banerze no-JS; po zmianie JSON wygeneruj go ponownie z aktualnego builda.
+- Print jest obszerny (**54 strony A4**), bo zawiera wszystkie dni, warianty, trasy, miejsca, checklisty i źródła; dni płyną kolejno, a tabele źródłowe mają powtarzany nagłówek. Druga strona to jednokartkowa „Karta podręczna”, żeby nie trzeba było drukować całego planu do szybkiego użycia. Ten sam PDF jest linkowany w stopce i w banerze no-JS; po zmianie JSON wygeneruj go ponownie z aktualnego builda.
 
 ## Edycja
 
@@ -186,6 +205,7 @@ Klucz: `cypr2026.checklist.v1`. Reset czyści wpis w `localStorage` po potwierdz
 3. Napraw błędy walidacji albo świadomie zaakceptuj ostrzeżenia o `null`.
 4. Sprawdź widok na 360 px, wydruk i offline.
 5. Nie commituj ręcznie zmodyfikowanego `index.html`; commituj raczej JSON + wynik builda.
+6. Zdjęcia zmieniaj w `data/photos.json`; build sprawdza komplet pól, pliki i budżety. Nowe warianty muszą istnieć w `assets/photos/` w AVIF/WebP/JPEG dla 480/800/1280/1920 px.
 
 ## Licencje i źródła
 
@@ -193,4 +213,5 @@ Klucz: `cypr2026.checklist.v1`. Reset czyści wpis w `localStorage` po potwierdz
 - Inter i Newsreader — SIL Open Font License 1.1; pliki licencji: `assets/fonts/OFL-Inter.txt`, `assets/fonts/OFL-Newsreader.txt`.
 - Kontur Cypru w hero/ikonie: uproszczona geometria z Natural Earth (public domain), wyłącznie dekoracja.
 - Kafelki mapy: © OpenStreetMap contributors, ODbL; atrybucja jest w mapie.
+- Zdjęcia: Wikimedia Commons, CC BY / CC BY-SA / CC0 / PD; pełna lista autorów, licencji i linków w sekcji „Zdjęcia i licencje” oraz w `CREDITS.md`. Warianty CC BY-SA są udostępniane na tej samej licencji.
 - Plan i dane: materiały użytkownika oraz audyt wskazany w JSON-ie.

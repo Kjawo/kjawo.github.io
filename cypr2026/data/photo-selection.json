@@ -1,0 +1,213 @@
+{
+  "method": "3 blind vision reviews per slot; 3 candidates; median; reject relevance<7 or quality<8; spread>1.5 discussed",
+  "models": [
+    "google/gemini-4-argon#high (quota-blocked; opencode-go/gemini-4-argon used)",
+    "opencode-go/kimi-k3.1-pro#high",
+    "opencode-go/gpt-6-luna#high"
+  ],
+  "slots": [
+    {
+      "slot": "hero",
+      "votes": [
+        "B",
+        "C",
+        "B"
+      ],
+      "selected": "B",
+      "source": "Petra tou romiou 2.jpg"
+    },
+    {
+      "slot": "day-01",
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "selected": "B",
+      "source": "Lighthouse at the Paphos Archaeological Park..."
+    },
+    {
+      "slot": "day-02",
+      "votes": [
+        "B",
+        "B",
+        "A"
+      ],
+      "selected": "B",
+      "source": "Paphos panorama - Cyprus - 3 May 2015.jpg"
+    },
+    {
+      "slot": "day-03",
+      "votes": [
+        "A",
+        "B",
+        "A"
+      ],
+      "selected": "A",
+      "source": "View from Moutti Tis Sotiras..."
+    },
+    {
+      "slot": "day-04",
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "selected": "A",
+      "source": "Troodos-artemis-nature-trail-b.jpg"
+    },
+    {
+      "slot": "day-05",
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "selected": "A",
+      "source": "OmodosMar152023 02.jpg"
+    },
+    {
+      "slot": "day-06",
+      "votes": [
+        "C",
+        "C",
+        "A"
+      ],
+      "selected": "C",
+      "source": "Tombs of the Kings Paphos Cyprus Tomb 3 1.JPG"
+    },
+    {
+      "slot": "day-07",
+      "votes": [
+        "B",
+        "A",
+        "B"
+      ],
+      "selected": "B",
+      "source": "Ryanair (Paphos) in 2022.03.jpg"
+    },
+    {
+      "slot": "place-faros",
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "selected": "A"
+    },
+    {
+      "slot": "place-park",
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "selected": "B"
+    },
+    {
+      "slot": "place-harbour",
+      "votes": [
+        "A",
+        "A",
+        "B"
+      ],
+      "selected": "A"
+    },
+    {
+      "slot": "place-tombs",
+      "votes": [
+        "C",
+        "C",
+        "C"
+      ],
+      "selected": "C"
+    },
+    {
+      "slot": "place-baths",
+      "votes": [
+        "A",
+        "A",
+        "C"
+      ],
+      "selected": "A"
+    },
+    {
+      "slot": "place-edro",
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "selected": "A"
+    },
+    {
+      "slot": "place-palaipafos",
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "selected": "A"
+    },
+    {
+      "slot": "place-omodos",
+      "votes": [
+        "C",
+        "C",
+        "C"
+      ],
+      "selected": "C"
+    },
+    {
+      "slot": "place-petra",
+      "votes": [
+        "A",
+        "A",
+        "A"
+      ],
+      "selected": "A"
+    },
+    {
+      "slot": "route-aphrodite",
+      "votes": [
+        "C",
+        "C",
+        "B"
+      ],
+      "selected": "C"
+    },
+    {
+      "slot": "route-artemis",
+      "votes": [
+        "B",
+        "B",
+        "B"
+      ],
+      "selected": "A",
+      "note": "B won blind but duplicates day-04 source; A is the same trail, independent frame, scores 8"
+    },
+    {
+      "slot": "route-vouni",
+      "votes": [
+        "A",
+        "A",
+        "B"
+      ],
+      "selected": "A"
+    }
+  ],
+  "final_review": {
+    "photo_layer": 9.2,
+    "editorial": 9.3,
+    "usability": 9.4,
+    "mobile": 9.4,
+    "accessibility": 9.4,
+    "print": 9.3,
+    "scores": [
+      9.4,
+      9.4,
+      8.7
+    ],
+    "note": "Usability adjudication median 9.4 with verified gates: axe 0, overflow 0, targets 44+, offline 7 leads, print 54 pages. Photo layer median 9.2 from general review."
+  }
+}
