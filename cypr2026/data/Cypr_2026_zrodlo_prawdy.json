@@ -4115,7 +4115,13 @@
         "stops_risks": "Źródło opisuje Geroskipou Tourist Beach, Timi beach i pobliski gaj eukaliptusowy z miejscem piknikowym. Piesze przekroczenie koryta rzeki oraz odcinek gruntowy wymagają oceny bieżących warunków; dostępność i otwarcie niepotwierdzone.",
         "rental": "Do potwierdzenia: MTB, dostępność w wybranym terminie, godziny, cena, kask i zasady dostawy/zwrotu.",
         "source_ids": ["SRC-CYCLE-TIMI-12", "SRC-HUNT", "SRC-HUNT-MAP"],
-        "gpx_url": null
+        "gpx_url": null,
+        "photo_id": "place-harbour",
+        "photo_context": "Kadr przedstawia zamek przy porcie Pafos, lokalizację startową opisaną przez źródło; nie dokumentuje samej jazdy rowerem.",
+        "map": {
+          "status": "unavailable",
+          "note": "Oficjalna strona wariantu 12 km nie publikuje mapy ani GPX. Nie rysujemy przebiegu na podstawie samego opisu tekstowego."
+        }
       },
       {
         "id": "CYCLE-TIMI-166",
@@ -4134,7 +4140,23 @@
         "stops_risks": "Strona wymienia Geroskipou Tourist Beach, Timi beach i pobliski gaj eukaliptusowy z miejscem piknikowym. Godziny dostępności i aktualne ograniczenia przy lotnisku nie są w źródle potwierdzone.",
         "rental": "Do potwierdzenia: rower touringowy/szosowy, dostępność w wybranym terminie, godziny, cena, kask i zasady dostawy/zwrotu.",
         "source_ids": ["SRC-CYCLE-TIMI-166"],
-        "gpx_url": "https://www.visitcyprus.com/wp-content/uploads/2024/09/Pafos_2_GPX.gpx"
+        "gpx_url": "https://www.visitcyprus.com/wp-content/uploads/2024/09/Pafos_2_GPX.gpx",
+        "photo_id": "place-harbour",
+        "photo_context": "Wspólny kadr kontekstowy portu Pafos pokazano przy pierwszym wariancie tego korytarza; nie dokumentuje samej jazdy rowerem.",
+        "map": {
+          "status": "preview",
+          "source_url": "https://www.visitcyprus.com/wp-content/uploads/2024/09/Pafos_2_GPX.gpx",
+          "source_point_count": 579,
+          "simplification_m": 50,
+          "points": [
+            [34.75593, 32.40974], [34.75595, 32.41108], [34.75695, 32.41221],
+            [34.75621, 32.41745], [34.74846, 32.42528], [34.7487, 32.42673],
+            [34.75202, 32.42922], [34.74744, 32.43663], [34.7435, 32.44566],
+            [34.73502, 32.46128], [34.74366, 32.46811], [34.74856, 32.47093],
+            [34.7413, 32.47767], [34.72708, 32.51646], [34.71317, 32.51207],
+            [34.71083, 32.51045], [34.70742, 32.49911], [34.7097, 32.49013]
+          ]
+        }
       },
       {
         "id": "CYCLE-MAIN16",
@@ -4152,7 +4174,45 @@
         "stops_risks": "Źródłowy opis wymienia Coral Bay, Pegeia, Kathikas, Prodromi i Polis oraz widoki zachodniego wybrzeża. Godziny, bieżące zamknięcia, ruch i warunki terenowe do sprawdzenia przed decyzją.",
         "rental": "Do potwierdzenia: odpowiedni rower szosowy z przełożeniami, dostępność w wybranym terminie, godziny, cena i transport roweru.",
         "source_ids": ["SRC-CYCLE-MAIN16"],
-        "gpx_url": "https://www.visitcyprus.com/wp-content/uploads/2024/09/Main_16_GPX.gpx"
+        "gpx_url": "https://www.visitcyprus.com/wp-content/uploads/2024/09/Main_16_GPX.gpx",
+        "photo_id": "place-coral-bay",
+        "photo_context": "Kadr przedstawia Coral Bay, którą źródło wymienia jako punkt na trasie; nie dokumentuje samej jazdy rowerem.",
+        "map": {
+          "status": "preview",
+          "source_url": "https://www.visitcyprus.com/wp-content/uploads/2024/09/Main_16_GPX.gpx",
+          "source_point_count": 1550,
+          "simplification_m": 50,
+          "points": [
+            [34.75708, 32.412], [34.76239, 32.41231], [34.76417, 32.41324],
+            [34.76572, 32.41077], [34.77122, 32.4104], [34.77842, 32.40643],
+            [34.78606, 32.40559], [34.79048, 32.4019], [34.79437, 32.40189],
+            [34.79861, 32.40064], [34.80582, 32.39696], [34.80998, 32.3961],
+            [34.81281, 32.39677], [34.81577, 32.39512], [34.81922, 32.39508],
+            [34.82314, 32.39249], [34.83248, 32.39296], [34.83794, 32.38959],
+            [34.84875, 32.38517], [34.86862, 32.3649], [34.88172, 32.34842],
+            [34.88368, 32.34449], [34.88524, 32.34683], [34.88787, 32.34873],
+            [34.88775, 32.35544], [34.89032, 32.35479], [34.89266, 32.353],
+            [34.89382, 32.35379], [34.89007, 32.35999], [34.88949, 32.3649],
+            [34.89095, 32.36561], [34.89208, 32.363], [34.89364, 32.36309],
+            [34.89827, 32.37059], [34.89816, 32.37243], [34.89503, 32.37864],
+            [34.8947, 32.38096], [34.89728, 32.3862], [34.90149, 32.39141],
+            [34.90259, 32.39562], [34.90465, 32.39663], [34.90278, 32.40318],
+            [34.90307, 32.4079], [34.90396, 32.40807], [34.90481, 32.40587],
+            [34.90597, 32.40976], [34.90645, 32.4174], [34.90957, 32.42157],
+            [34.91459, 32.42127], [34.91684, 32.42023], [34.92005, 32.421],
+            [34.92282, 32.42042], [34.9263, 32.41807], [34.93396, 32.416],
+            [34.93537, 32.41277], [34.94126, 32.41045], [34.94477, 32.41221],
+            [34.94949, 32.41054], [34.95291, 32.41049], [34.9623, 32.41429],
+            [34.96746, 32.41097], [34.9676, 32.40738], [34.9712, 32.40485],
+            [34.97361, 32.40587], [34.97751, 32.40467], [34.98265, 32.40593],
+            [34.99082, 32.40615], [34.99308, 32.40449], [35.00193, 32.40476],
+            [35.00485, 32.40367], [35.01353, 32.40506], [35.01587, 32.40972],
+            [35.01776, 32.41035], [35.01998, 32.41309], [35.02344, 32.41493],
+            [35.03149, 32.41284], [35.03217, 32.41436], [35.02925, 32.41607],
+            [35.02889, 32.4179], [35.03111, 32.42274], [35.03282, 32.42508],
+            [35.03394, 32.42541]
+          ]
+        }
       }
     ],
     "checks_before_choice": [

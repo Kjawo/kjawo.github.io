@@ -842,6 +842,7 @@
   var mapCanvas = document.getElementById("map-canvas");
   var mapLoaded = false;
   var mapLoading = false;
+  var leafletPromise = null;
   var mapInstance = null;
   var mapRenderMarkers = null;
   var mapAllPlaces = [];
@@ -866,6 +867,20 @@
       link.onerror = reject;
       document.head.appendChild(link);
     });
+  }
+  function ensureLeaflet() {
+    if (window.L) return Promise.resolve();
+    if (leafletPromise) return leafletPromise;
+    var sourceScript = document.querySelector("script[data-version]");
+    var version = sourceScript ? sourceScript.getAttribute("data-version") : "";
+    var suffix = version ? "?v=" + version : "";
+    leafletPromise = Promise.all([
+      loadStylesheet("assets/vendor/leaflet/leaflet.css" + suffix),
+      loadScript("assets/vendor/leaflet/leaflet.js" + suffix)
+    ]).then(function () {
+      if (!window.L) throw new Error("Leaflet did not initialize");
+    });
+    return leafletPromise;
   }
   function placeUsage(placeId) {
     var usage = [];
@@ -1118,18 +1133,103 @@
     if (mapFilterDay) applyMapFilter(mapFilterDay, { scroll: false });
     updateConnection();
   }
+  function initCyclingMap(canvas) {
+    if (!canvas || !window.L || canvas.getAttribute("data-map-ready") === "true") return;
+    var routeId = canvas.getAttribute("data-cycling-map");
+    var option = ((data.cycling_options || {}).options || []).filter(function (item) {
+      return item.id === routeId;
+    })[0];
+    var rawPoints = option && option.map && option.map.points;
+    if (!Array.isArray(rawPoints) || rawPoints.length < 2) return;
+    var points = rawPoints.filter(function (point) {
+      return Array.isArray(point) && point.length === 2 &&
+        Number.isFinite(point[0]) && Number.isFinite(point[1]) &&
+        point[0] >= 34 && point[0] <= 36 && point[1] >= 32 && point[1] <= 35.5;
+    });
+    if (points.length < 2) return;
+
+    canvas.textContent = "";
+    var map = window.L.map(canvas, {
+      scrollWheelZoom: false,
+      keyboard: true,
+      zoomControl: true,
+      attributionControl: true,
+      zoomAnimation: !reduceMotion,
+      fadeAnimation: !reduceMotion,
+      markerZoomAnimation: !reduceMotion
+    });
+    window.L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      maxZoom: 19,
+      attribution: OSM_ATTRIBUTION
+    }).addTo(map);
+    var line = window.L.polyline(points, {
+      color: "#0C5C6B",
+      weight: 4,
+      opacity: 0.9,
+      lineCap: "round",
+      lineJoin: "round"
+    }).addTo(map);
+    window.L.circleMarker(points[0], {
+      radius: 6, color: "#fff", weight: 2, fillColor: "#0C5C6B", fillOpacity: 1
+    }).bindTooltip("Start: " + option.start).addTo(map);
+    window.L.circleMarker(points[points.length - 1], {
+      radius: 6, color: "#fff", weight: 2, fillColor: "#B85C3E", fillOpacity: 1
+    }).bindTooltip("Meta: " + option.finish).addTo(map);
+    map.fitBounds(line.getBounds(), { padding: [28, 28], maxZoom: 13 });
+    canvas.setAttribute("data-map-ready", "true");
+    canvas.setAttribute("aria-busy", "false");
+    var offline = document.createElement("p");
+    offline.className = "map-offline-overlay";
+    offline.setAttribute("data-map-offline", "");
+    offline.textContent = "Offline: kafelki mapy są niedostępne; otwórz oficjalny GPX z linku pod kartą.";
+    offline.hidden = navigator.onLine !== false;
+    canvas.appendChild(offline);
+    map.invalidateSize();
+  }
+  function loadCyclingMap(canvas) {
+    if (!canvas || canvas.getAttribute("data-map-loading") === "true" ||
+        canvas.getAttribute("data-map-ready") === "true") return;
+    canvas.setAttribute("data-map-loading", "true");
+    canvas.setAttribute("aria-busy", "true");
+    ensureLeaflet().then(function () {
+      canvas.removeAttribute("data-map-loading");
+      initCyclingMap(canvas);
+    }).catch(function () {
+      canvas.removeAttribute("data-map-loading");
+      canvas.removeAttribute("aria-busy");
+      canvas.classList.add("cycling-map__canvas--error");
+      var fallback = $(".cycling-map__fallback", canvas);
+      if (!fallback) {
+        fallback = document.createElement("p");
+        fallback.className = "cycling-map__fallback";
+        canvas.appendChild(fallback);
+      }
+      fallback.textContent = "Nie udało się wczytać mapy. Oficjalny GPX i źródło pozostają dostępne pod kartą.";
+    });
+  }
+  function observeCyclingMaps() {
+    var canvases = $all("[data-cycling-map]");
+    if (!canvases.length) return;
+    if (!("IntersectionObserver" in window)) {
+      canvases.forEach(loadCyclingMap);
+      return;
+    }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        observer.unobserve(entry.target);
+        loadCyclingMap(entry.target);
+      });
+    }, { rootMargin: "350px 0px" });
+    canvases.forEach(function (canvas) { observer.observe(canvas); });
+  }
+  observeCyclingMaps();
   function loadMap() {
     if (!mapCanvas || mapLoading || mapLoaded) return;
     mapLoading = true;
     mapCanvas.classList.add("is-loading");
     mapCanvas.setAttribute("aria-busy", "true");
-    var sourceScript = document.querySelector("script[data-version]");
-    var version = sourceScript ? sourceScript.getAttribute("data-version") : "";
-    var suffix = version ? "?v=" + version : "";
-    Promise.all([
-      loadStylesheet("assets/vendor/leaflet/leaflet.css" + suffix),
-      loadScript("assets/vendor/leaflet/leaflet.js" + suffix)
-    ]).then(initMap).catch(function () {
+    ensureLeaflet().then(initMap).catch(function () {
       mapLoading = false;
       mapCanvas.classList.remove("is-loading");
       mapCanvas.removeAttribute("aria-busy");

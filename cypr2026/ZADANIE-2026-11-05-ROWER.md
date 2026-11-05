@@ -4,16 +4,17 @@
 
 Rozbuduj publiczną stronę Cypr 2026 o **samodzielną, niedatowaną sekcję „Wycieczki rowerowe”** z maksymalnie trzema propozycjami z rejonu Pafos. Nie przypisuj ich do konkretnego dnia. To opcjonalne pomysły, nie zmiana planu bazowego, rezerwacja ani obietnica, że trasa jest gotowa do przejazdu.
 
-To zadanie dotyczy wyłącznie rowerów: nie wykonuj ponownego audytu pozostałych atrakcji, zdjęć, rezerwacji ani całego planu. Nie zmieniaj planu dni, trekkingów, lotów, hotelu, auta, kalendarzy ani niezwiązanych sekcji strony.
+To zadanie dotyczy wyłącznie rowerów: nie wykonuj ponownego audytu pozostałych atrakcji, zdjęć, rezerwacji ani całego planu. Weryfikuj tylko zdjęcia użyte w kartach rowerowych. Nie zmieniaj planu dni, trekkingów, lotów, hotelu, auta, kalendarzy ani niezwiązanych sekcji strony.
 To zadanie zastępuje wszystkie wcześniejsze cele merytoryczne; nie traktuj ich jako aktywnych punktów `NEXT`, TODO ani kryteriów akceptacji.
 
 ## Dane i implementacja
 
-- Zachowaj `data/Cypr_2026_zrodlo_prawdy.json` jako źródło danych. Dodaj osobną strukturę rowerową (np. `cycling_options`) i źródła potrzebne tylko dla tych propozycji.
-- Pokaż ją jako niezależną sekcję na stronie, bez przypisania do dnia. Użyj tylko powierzchni edycji dozwolonych przez runnera: JSON, `app.js`, `_src/template.html`, `styles.css` oraz krótki zapis dowodów dla tego zadania w `PLAN-REVIEW.md`.
-- Nie dopisuj wycieczek rowerowych do `routes[]`: obecne trasy są piesze i podlegają oddzielnej bramce zdjęć. Nie dodawaj zdjęć ani GPX.
+- Zachowaj `data/Cypr_2026_zrodlo_prawdy.json` jako źródło danych. Utrzymuj osobną strukturę `cycling_options` i źródła potrzebne tylko dla tych propozycji.
+- Pokaż je jako niezależną sekcję na stronie, bez przypisania do dnia. Użyj tylko powierzchni edycji dozwolonych przez runnera: JSON, `app.js`, `_src/template.html`, `styles.css` oraz krótki zapis dowodów dla tego zadania w `PLAN-REVIEW.md`.
+- Nie dopisuj wycieczek rowerowych do `routes[]`: obecne trasy są piesze. Zdjęcia dodawaj wyłącznie przez `photo_id` wskazujący istniejący, zweryfikowany wpis w `data/photos.json`; nie edytuj manifestu ani lokalnych assetów i niczego nie pobieraj/konwertuj. Podpisuj je jako zdjęcia kontekstowych miejsc, nie jako dowód samego przejazdu.
+- Interaktywne podglądy map korzystają wyłącznie z `map.points` pochodzących z podlinkowanego, oficjalnego GPX Visit Cyprus, z jawnym uproszczeniem geometrii i atrybucją OpenStreetMap. Zachowaj link do źródłowego GPX. Jeśli oficjalna strona nie publikuje mapy ani GPX, nie rysuj przebiegu z opisu ani z przybliżonych punktów — pokaż jawny brak mapy.
 - `index.html`, `dist/` i assety generowane są wyłącznie wynikiem builda; nie edytuj ich ręcznie.
-- Zachowaj dostępność klawiaturową, mobilną i druk. Nie osłabiaj istniejącej obsługi bez JavaScriptu. Jeśli sekcji nie da się poprawnie wyrenderować z kanonicznych danych bez edycji chronionego `_src/build.py` albo zmiany polityk runnera, **zatrzymaj się i opisz blocker**. Nie obchodź ochrony i nie duplikuj treści po cichu między JSON-em a szablonem.
+- Przygotowana przed runem obsługa mediów w `_src/build.py` jest częścią bazowego toolchainu i pozostaje chroniona; nie zmieniaj jej, `_src/photos.py`, polityk ani walidatorów runnera. Zachowaj dostępność klawiaturową, mobilną i druk oraz czytelny fallback bez JavaScriptu i offline. Jeśli dane nie przechodzą istniejących bramek, **zatrzymaj się i opisz blocker**. Nie obchodź ochrony i nie duplikuj treści po cichu między JSON-em a szablonem.
 
 ## Zawartość propozycji
 
@@ -44,6 +45,8 @@ Korzystaj z oficjalnych, publicznych stron dostępnych w allowliście źródeł 
 ## Kryteria akceptacji
 
 - Na stronie jest oddzielna sekcja rowerowa z maksymalnie trzema niedatowanymi propozycjami; plan bazowy i pozostała treść nie zmieniają się.
+- Każda propozycja wskazuje istniejące zdjęcie z licencją/źródłem zachowanymi w manifeście; zdjęcia wspólnego korytarza nie są powielane i nie udają dokumentacji przejazdu.
+- Dla tras z oficjalnym GPX jest podgląd mapy zgodny z geometrią źródła, a trasa bez oficjalnego mapowania ma jawny komunikat o braku; nie ma zgadywanych śladów.
 - Każda liczba i twierdzenie o trasie ma źródło lub jest wyraźnie oznaczonym szacunkiem; braki są jawne.
 - Sekcja działa w ramach istniejącego builda, jest dostępna, responsywna i nadaje się do druku. Jeśli wymaga chronionych zmian w Pythonie/politykach lub narusza obsługę bez JavaScriptu, zakończ raportem o blockerze zamiast obchodzić ograniczenia.
 - Nie oznaczaj historycznego audytu jako ponownie zweryfikowanego ani nie ustawiaj `STATUS: DONE`; stan końcowy runnera należy do Cypr Night.

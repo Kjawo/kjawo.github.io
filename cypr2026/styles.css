@@ -382,6 +382,21 @@ main:focus-visible{outline:none}
 .cycling-details p{font-size:.83rem;color:#46514d;margin:0}
 .cycling-card__sources{display:flex;flex-wrap:wrap;gap:.25rem .9rem;margin:.7rem 0 0;padding-top:.45rem;border-top:1px solid var(--line)}
 .cycling-card__sources .text-link{font-size:.8rem;overflow-wrap:anywhere}
+.cycling-media{display:grid;gap:.8rem;margin:.85rem 0;align-items:start}
+.cycling-card__photo{min-width:0}
+.photo--cycling img{aspect-ratio:4/3;object-fit:cover;border-radius:9px}
+.photo--cycling .photo__caption{font-size:.78rem;margin-top:.4rem}
+.photo--cycling .photo__meta{font-size:.72rem;overflow-wrap:anywhere}
+.cycling-media__shared{margin:0;padding:.55rem .65rem;border-left:2px solid var(--gold);background:#FBF8F0;font-size:.78rem;color:var(--muted)}
+.cycling-map{display:grid;gap:.35rem;min-width:0}
+.cycling-map__canvas{position:relative;min-height:230px;height:270px;overflow:hidden;border:1px solid var(--line);border-radius:10px;background:#E7EEE9}
+.cycling-map__canvas[aria-busy="true"]{opacity:.8}
+.cycling-map__fallback{height:100%;display:grid;place-items:center;padding:1rem;text-align:center;font-size:.8rem;color:var(--muted)}
+.cycling-map__canvas--error .cycling-map__fallback{color:var(--terracotta-ink)}
+.cycling-map__note,.cycling-map__print,.cycling-map__unavailable{margin:0;font-size:.76rem;line-height:1.5;color:var(--muted);overflow-wrap:anywhere}
+.cycling-map__unavailable{padding:.65rem .75rem;border-left:2px solid var(--gold);background:#FBF8F0}
+.cycling-map__print{display:none}
+@media (min-width:760px){.cycling-media{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr)}}
 .cycling-assumption,.cycling-caution,.cycling-noscript{margin-top:1rem;padding:.85rem 1rem;border:1px solid var(--line);border-radius:10px;background:#FCF6E7;font-size:.86rem;color:#3F4844}
 .cycling-assumption{border-left:3px solid var(--gold)}
 .cycling-caution{border-left:3px solid var(--terracotta)}
@@ -1056,6 +1071,12 @@ progress::-moz-progress-bar{background:var(--sea);border-radius:999px}
   .cycling-facts{gap:2mm;margin:2mm 0}
   .cycling-facts>div,.cycling-details section{padding:2mm;background:#fff!important}
   .cycling-card__sources .text-link{min-height:0!important;font-size:7pt}
+  .cycling-media{grid-template-columns:1fr!important;gap:2mm;margin:2mm 0}
+  .cycling-map__canvas{display:none!important}
+  .cycling-map__print{display:block!important;font-size:7pt;color:#222}
+  .cycling-map__note,.cycling-map__unavailable,.cycling-media__shared{font-size:7pt;color:#222}
+  .photo--cycling img{aspect-ratio:4/3;max-height:42mm;object-fit:cover;filter:grayscale(1)}
+  .photo--cycling .photo__caption{font-size:7pt;color:#222}
   .cycling-assumption,.cycling-caution,.cycling-noscript,.cycling-variant{background:#fff!important;border:1px solid #777!important;padding:3mm;break-inside:avoid}
   .route-stats{grid-template-columns:repeat(3,1fr)!important}
   .route-stats>div{break-inside:avoid}

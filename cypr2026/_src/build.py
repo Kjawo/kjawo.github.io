@@ -11,6 +11,7 @@ import argparse
 import hashlib
 import html
 import json
+import math
 import re
 import sys
 from collections import Counter, defaultdict
@@ -817,7 +818,8 @@ def validate_cycling(plan: Plan) -> None:
         fail("cycling_options.options: oczekiwano 1–3 propozycji")
     required = ("id", "title", "route", "start", "finish", "route_type", "distance",
                 "ascent", "duration_estimate", "surface_bike", "traffic_safety",
-                "return_logistics", "stops_risks", "rental", "source_ids")
+                "return_logistics", "stops_risks", "rental", "source_ids", "photo_id",
+                "photo_context", "map")
     seen: set[str] = set()
     for index, option in enumerate(options):
         label = f"cycling_options.options[{index}]"
@@ -826,7 +828,7 @@ def validate_cycling(plan: Plan) -> None:
         for key in required:
             if key not in option:
                 fail(f"{label}: brak {key}")
-            if key != "source_ids" and (not isinstance(option[key], str) or not option[key].strip()):
+            if key not in {"source_ids", "map"} and (not isinstance(option[key], str) or not option[key].strip()):
                 fail(f"{label}.{key}: oczekiwano niepustego tekstu")
         if option["id"] in seen:
             fail(f"{label}.id: zduplikowany identyfikator")
@@ -836,6 +838,14 @@ def validate_cycling(plan: Plan) -> None:
         for source_id in option["source_ids"]:
             if not isinstance(source_id, str) or source_id not in plan.sources:
                 fail(f"{label}.source_ids: nieznane źródło {source_id!r}")
+        photo_id = option["photo_id"]
+        if not isinstance(photo_id, str) or photo_id not in plan.photos.by_id:
+            fail(f"{label}.photo_id: zdjęcie nie istnieje w lokalnym, zweryfikowanym manifeście")
+        photo = plan.photos.by_id[photo_id]
+        if photo.kind not in {"place", "route"}:
+            fail(f"{label}.photo_id: zdjęcie musi przedstawiać miejsce albo trasę")
+        if not isinstance(option["photo_context"], str) or not option["photo_context"].strip():
+            fail(f"{label}.photo_context: opisz kontekst zdjęcia bez sugerowania, że dokumentuje przejazd")
         for url_key in ("gpx_url",):
             value = option.get(url_key)
             if value is None:
@@ -844,6 +854,43 @@ def validate_cycling(plan: Plan) -> None:
                 fail(f"{label}.{url_key}: dozwolone są tylko oficjalne adresy Visit Cyprus")
             if not safe_url(value):
                 fail(f"{label}.{url_key}: niepoprawny adres URL")
+        map_info = option["map"]
+        if not isinstance(map_info, dict):
+            fail(f"{label}.map: oczekiwano obiektu")
+        if map_info.get("status") == "preview":
+            map_source = map_info.get("source_url")
+            if map_source != option.get("gpx_url") or not isinstance(map_source, str):
+                fail(f"{label}.map.source_url musi być oficjalnym GPX podlinkowanym w tej karcie")
+            if not map_source.startswith("https://www.visitcyprus.com/") or not safe_url(map_source):
+                fail(f"{label}.map.source_url: dozwolone są tylko oficjalne adresy Visit Cyprus")
+            points = map_info.get("points")
+            if not isinstance(points, list) or not 2 <= len(points) <= 200:
+                fail(f"{label}.map.points: oczekiwano 2–200 punktów uproszczonego podglądu")
+            source_count = map_info.get("source_point_count")
+            tolerance = map_info.get("simplification_m")
+            if (not isinstance(source_count, int) or isinstance(source_count, bool)
+                    or source_count < len(points)):
+                fail(f"{label}.map.source_point_count: niepoprawna liczba punktów GPX")
+            if (not isinstance(tolerance, (int, float)) or isinstance(tolerance, bool)
+                    or not math.isfinite(tolerance) or not 0 < tolerance <= 1000):
+                fail(f"{label}.map.simplification_m: niepoprawna tolerancja")
+            for point_index, point in enumerate(points):
+                if not isinstance(point, list) or len(point) != 2:
+                    fail(f"{label}.map.points[{point_index}]: wymagane [lat, lon]")
+                lat, lon = point
+                if any(not isinstance(value, (int, float)) or isinstance(value, bool)
+                       or not math.isfinite(value) for value in (lat, lon)):
+                    fail(f"{label}.map.points[{point_index}]: współrzędne muszą być skończonymi liczbami")
+                if not (34.0 <= lat <= 36.0 and 32.0 <= lon <= 35.5):
+                    fail(f"{label}.map.points[{point_index}]: punkt poza zakresem Cypru")
+        elif map_info.get("status") == "unavailable":
+            note = map_info.get("note")
+            if not isinstance(note, str) or not note.strip():
+                fail(f"{label}.map.note: wyjaśnij brak opublikowanej mapy/GPX")
+            if "points" in map_info:
+                fail(f"{label}.map: nie dodawaj zgadywanej geometrii dla braku oficjalnego śladu")
+        else:
+            fail(f"{label}.map.status: wymagane 'preview' albo jawne 'unavailable'")
     if not isinstance(cycling["checks_before_choice"], list):
         fail("cycling_options.checks_before_choice: oczekiwano listy")
     for item in cycling["checks_before_choice"]:
@@ -1934,6 +1981,7 @@ def render_cycling(plan: Plan) -> str:
         return ""
 
     cards = []
+    rendered_photo_ids: set[str] = set()
     for option in cycling.get("options", []):
         anchor = "rower-" + re.sub(r"[^a-z0-9]+", "-", str(option["id"]).lower()).strip("-")
         facts = (
@@ -1968,12 +2016,44 @@ def render_cycling(plan: Plan) -> str:
             'To nie niezależna propozycja; parametrów wariantów nie łączymy.</p>'
             if corridor else ""
         )
+        photo_id = option["photo_id"]
+        if photo_id not in rendered_photo_ids:
+            photo = plan.photos.by_id[photo_id]
+            rendered_photo = plan.photos.render(
+                photo, "cycling", sizes="(min-width: 900px) 38vw, 100vw",
+                caption="full", max_width=800, link=False,
+                extra_class="cycling-card__photo",
+            )
+            photo_html = (
+                f'<div class="cycling-photo-wrap">{rendered_photo}'
+                f'<p class="cycling-photo-context">{esc(option["photo_context"])}</p></div>'
+            )
+            rendered_photo_ids.add(photo_id)
+        else:
+            photo_html = f'<p class="cycling-media__shared">{esc(option["photo_context"])}</p>'
+        map_info = option["map"]
+        if map_info["status"] == "preview":
+            map_source = esc(map_info["source_url"])
+            map_html = f"""
+              <div class="cycling-map">
+                <div class="cycling-map__canvas" data-cycling-map="{esc(option['id'])}"
+                     role="group" aria-label="Podgląd mapy trasy: {esc(option['title'])}">
+                  <p class="cycling-map__fallback">Podgląd mapy wymaga JavaScriptu i połączenia z mapą bazową. Otwórz oficjalny GPX z linków pod kartą.</p>
+                </div>
+                <p class="cycling-map__note">Uproszczony podgląd śladu z oficjalnego GPX Visit Cyprus ({map_info['source_point_count']} punktów źródłowych, uproszczenie {map_info['simplification_m']} m); nie jest nawigacją ani oceną bezpieczeństwa. Kafelki: © OpenStreetMap contributors.</p>
+                <p class="cycling-map__print">Oficjalny ślad GPX: <a href="{map_source}">{map_source}</a></p>
+              </div>
+            """
+        else:
+            map_html = f'<p class="cycling-map__unavailable">{esc(map_info["note"])}</p>'
+        media_html = f'<div class="cycling-media">{photo_html}{map_html}</div>'
         cards.append(f"""
           <article class="cycling-card" id="{esc(anchor)}" aria-labelledby="{esc(anchor)}-title">
             <h3 id="{esc(anchor)}-title">{esc(option["title"])}</h3>
             <p class="cycling-card__route">{esc(option["route"])}</p>
             {variant_html}
             <dl class="cycling-facts">{facts_html}</dl>
+            {media_html}
             <div class="cycling-details">
               <section><h4>Nawierzchnia, rower i wysiłek</h4><p>{esc(option["surface_bike"])}</p></section>
               <section><h4>Ruch i bezpieczeństwo</h4><p>{esc(option["traffic_safety"])}</p></section>
