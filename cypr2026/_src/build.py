@@ -1080,11 +1080,7 @@ def render_hero(plan: Plan) -> str:
     hotel = plan.places.get(plan.trip["hotel"]["place_id"], {})
     hotel_phone_raw = hotel.get("phone")
     hotel_phone = re.sub(r"[^\d+]", "", hotel_phone_raw or "")
-    hero_html = plan.photos.render(
-        plan.photos.hero, "hero",
-        sizes="(min-width: 900px) 44vw, 100vw",
-        loading="eager", fetchpriority="high",
-    )
+    hero_html = render_cyprus_art()
     return f"""
     <div class="hero__inner page-width">
       <div class="hero__copy">
@@ -3260,7 +3256,6 @@ def render_page(plan: Plan, asset_hash: str, data_json: str, *, noindex: bool) -
         "{{PHOTO_STRIP}}": plan.photos.render_strip(),
         "{{PHOTO_GALLERY}}": plan.photos.render_gallery(),
         "{{PHOTO_LIGHTBOX}}": plan.photos.render_lightbox(),
-        "{{PHOTO_PRELOAD}}": plan.photos.render_hero_preload(),
         "{{FOOTER}}": render_footer(plan),
         "{{DATA_JSON}}": data_json,
     }

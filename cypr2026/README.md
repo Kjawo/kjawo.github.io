@@ -108,11 +108,11 @@ cypr2026/
   README.md
 ```
 
-Zdjęć użytkownika nie było, więc warstwa zdjęciowa korzysta wyłącznie z Wikimedia Commons. Hero jest edytorskim splitem z kadrem Petry tou Romiou; każdy dzień ma lead, a 25 miejsc i wszystkie 8 tras mają własne kadry. Nie użyto stocku, AI ani podmiany nieba. Ikony strony są inline SVG; PNG służą tylko manifestowi/PWA.
+Zdjęć użytkownika nie było, więc warstwa zdjęciowa korzysta wyłącznie z Wikimedia Commons. Górny hero pokazuje ilustracyjny kontur Cypru z podpisem „Jedna wyspa / jeden tydzień”; fotografie pozostają w pasku i galerii, w tym kadr Petry tou Romiou. Każdy dzień ma lead, a 25 miejsc i wszystkie 8 tras mają własne kadry. Nie użyto stocku, AI ani podmiany nieba. Ikony strony są inline SVG; PNG służą tylko manifestowi/PWA.
 
 ## Zdjęcia i licencje
 
-- **138 kadrów:** 1 hero, 3 kadry paska, 27 kadrów dni, 82 kadry miejsc i 25 kadrów tras. Dzień 7 ma kadr Ryanaira na płycie PFO — jest to widok ogólny, nie zdjęcie z listopada 2026.
+- **138 kadrów:** 1 zdjęcie hero (dostępne w galerii), 3 kadry paska, 27 kadrów dni, 82 kadry miejsc i 25 kadrów tras. Dzień 7 ma kadr Ryanaira na płycie PFO — jest to widok ogólny, nie zdjęcie z listopada 2026.
 - **Manifest:** `data/photos.json` zawiera slot, dzień/miejsce/trasę, pliki, autora, licencję, źródło, datę, GPS, opis, podpis, alt, focal point i dowody. Brak pola albo pliku zatrzymuje build.
 - **Źródła:** Wikimedia Commons, wyłącznie CC0/PD/CC BY/CC BY-SA. Autorzy i linki są w sekcji „Zdjęcia i licencje”, w `CREDITS.md` i w druku.
 - **Uczciwe podpisy:** każdy kadr mówi „widok ogólny” lub „detal” i podaje datę wykonania; żaden nie udaje listopada 2026. Alt jest opisowy, nie zaczyna się od „zdjęcie”.

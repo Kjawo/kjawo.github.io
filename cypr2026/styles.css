@@ -753,9 +753,6 @@ progress::-moz-progress-bar{background:var(--sea);border-radius:999px}
 .footer-version{margin-top:.5rem!important;border-top:1px solid rgba(255,255,255,.13);padding-top:.55rem;font-size:.75rem!important;color:#8FA19A!important}
 
 /* ---------- Responsive ---------- */
-@media screen and (max-width:759px){
-  .hero-art{display:none}
-}
 @media screen and (max-width:559px){
   .status-bar__meta{display:none}
   .map-groups{display:none}
@@ -1243,7 +1240,7 @@ html.lightbox-open{overflow:hidden}
   .photo--lead .photo__meta a{color:#000;text-decoration:none;min-height:0;padding:0;margin:0}
   .photo__source-wrap,.photo__source{display:none!important}
 }
-/* Mobile hero: title and trip context first, then the photograph, then actions. */
+/* Mobile hero: title and trip context first, then the map after the actions. */
 @media screen and (max-width:759px){
   .hero__inner{display:flex;flex-direction:column;gap:0}
   .hero__copy{display:contents}
