@@ -9,7 +9,7 @@
 | `strip-02` | Dolina Livadi | Troodos, Livadi | Mboesch | CC BY-SA 4.0 | 16 marca 2025 | [Commons](https://commons.wikimedia.org/wiki/File:Troodos-livadi-nature-trail-a.jpg) |
 | `strip-03` | Panagia Chrysopolitissa | Panagia Chrysopolitissa, Kato Pafos | Gerda Arendt | CC0 | 8 marca 2026 | [Commons](https://commons.wikimedia.org/wiki/File:Paphos,_Cyprus,_Panagia_Chrysopolitissa_from_southwest.jpg) |
 | `day-01-b` | Latarnia Pafos | Faros, Kato Pafos | August Dominus | CC0 | 20 września 2025 | [Commons](https://commons.wikimedia.org/wiki/File:Svjetionik_na_Cipru.jpg) |
-| `day-01` | Nea Pafos — mozaika Tezeusza | Nea Paphos, Kato Pafos | Punteador | CC BY-SA 4.0 | 15 sierpnia 2025 | [Commons](https://commons.wikimedia.org/wiki/File:Paphos_%E2%80%93_House_of_Theseus,_mosaic_of_Theseus_and_the_Minotaur.jpg) |
+| `day-01` | Nea Pafos — mozaika Tezeusza | Park Archeologiczny Kato Pafos | Punteador | CC BY-SA 4.0 | 15 sierpnia 2025 | [Commons](https://commons.wikimedia.org/wiki/File:Paphos_%E2%80%93_House_of_Theseus,_mosaic_of_Theseus_and_the_Minotaur.jpg) |
 | `day-01-c` | Przylot na PFO | Lotnisko Pafos (PFO), Timi | Captain Galaxy | CC BY 4.0 | 6 lipca 2024 | [Commons](https://commons.wikimedia.org/wiki/File:LY-SLX,_Boeing_737-86J_in_KlasJet_livery_at_Paphos_International_Airport_-_July_2024.jpg) |
 | `day-01-d` | Plaża Kefalos i Lighthouse Beach | Kefalos Beach, Kato Pafos | Fry72, Karel Frydrýšek | CC BY-SA 4.0 | 4 marca 2023 | [Commons](https://commons.wikimedia.org/wiki/File:Kefalos_Beach_and_Lighthouse_Beach,_Paphos,_Cyprus.jpg) |
 | `day-02` | Mozaika Fedry i Hippolita | Park Archeologiczny Kato Pafos | Gerda Arendt | CC0 | 10 marca 2026 | [Commons](https://commons.wikimedia.org/wiki/File:Nea_Paphos,_Cyprus,_mosaic_of_Phaedra_and_Hyppolit.jpg) |

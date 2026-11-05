@@ -142,16 +142,4 @@ LOCATION:PFO
 URL:https://cypr2026.pages.dev/#auto
 STATUS:TENTATIVE
 END:VEVENT
-BEGIN:VEVENT
-UID:cypr2026-car-return@kjawo.github.io
-DTSTAMP:20261105T000000Z
-DTSTART:20261113T013000Z
-DTEND:20261113T021500Z
-SUMMARY:Auto: nocny zwrot — cel
-DESCRIPTION:Potwierdzić wjazd\, klucze i koniec odpowiedzialności.\nPlan
- : https://cypr2026.pages.dev/#auto
-LOCATION:PFO
-URL:https://cypr2026.pages.dev/#auto
-STATUS:TENTATIVE
-END:VEVENT
 END:VCALENDAR

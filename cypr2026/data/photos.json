@@ -572,14 +572,14 @@
       },
       "title": "Nea Pafos — mozaika Tezeusza",
       "location": {
-        "name": "Nea Paphos, Kato Pafos",
-        "lat": 34.7606,
-        "lon": 32.4063
+        "name": "Park Archeologiczny Kato Pafos",
+        "lat": 34.756577,
+        "lon": 32.405136
       },
       "gps": {
-        "lat": 34.7606,
-        "lon": 32.4063,
-        "source": "współrzędne miejsca (OSM); plik bez geotagu"
+        "lat": 34.756577,
+        "lon": 32.405136,
+        "source": "współrzędne Parku Archeologicznego Kato Pafos z istniejącego kadru DAY-02 (OSM); plik bez geotagu"
       },
       "author": "Punteador",
       "license": "CC BY-SA 4.0",
@@ -605,8 +605,8 @@
         },
         {
           "type": "geotag-osm",
-          "url": "https://www.openstreetmap.org/?mlat=34.7606&mlon=32.4063#map=16/34.7606/32.4063",
-          "note": "Plik bez geotagu; współrzędne Kato Pafos (OSM) 34.7606, 32.4063."
+          "url": "https://www.openstreetmap.org/?mlat=34.756577&mlon=32.405136#map=15/34.756577/32.405136",
+          "note": "Plik bez geotagu; współrzędne Parku Archeologicznego Kato Pafos (OSM), zgodne z istniejącym wpisem DAY-02: 34.756577, 32.405136."
         }
       ],
       "source_width": 4032,

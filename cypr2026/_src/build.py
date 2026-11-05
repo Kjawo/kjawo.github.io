@@ -772,6 +772,9 @@ def validate_statuses(plan: Plan) -> None:
                 elif key == "status":
                     if path == "costs":
                         check(value, {"częściowy kosztorys"}, child)
+                    elif re.fullmatch(r"cycling_options\.options\[\d+\]\.map", path):
+                        # Map availability has its own strict schema in validate_cycling().
+                        pass
                     else:
                         check(value, GENERIC_STATUS_ALLOWED, child)
                 elif key == "verification_status":
@@ -1402,6 +1405,9 @@ def render_today(plan: Plan) -> str:
 
 def render_flight_band(plan: Plan, day: dict) -> str:
     flights = []
+    baggage = plan.trip.get("baggage", {})
+    bag_return_note = baggage.get("return_note") or "Potwierdź graniczną godzinę bag drop u przewoźnika."
+    bag_return_summary = bag_return_note.split(". ", 1)[0].rstrip(".") + "."
     for flight in plan.flights:
         dep_date = flight["departure_at"][:10]
         if dep_date != day["date"]:
@@ -1416,7 +1422,10 @@ def render_flight_band(plan: Plan, day: dict) -> str:
         pl_arr = local_time_in(flight["arrival_at"], PL_TZ)
         bagdrop = ""
         if flight["id"] == "FL-IN":
-            bagdrop = '<p class="flight-band__alert">Bag drop zamyka się o <strong>05:20 czasu Cypru</strong>. Bagaż ma być przyjęty; stanie w kolejce nie wystarczy.</p>'
+            bagdrop = (
+                '<p class="flight-band__alert"><strong>Bag drop: warunkowy termin do potwierdzenia.</strong> '
+                f'{esc(bag_return_summary)}</p>'
+            )
         flights.append(f"""
           <div class="flight-band__item">
             <span class="flight-band__icon">{icon("plane")}</span>
@@ -2332,6 +2341,7 @@ def render_flights(plan: Plan) -> str:
     cards = "".join(render_flight_card(plan, flight) for flight in plan.flights)
     baggage = plan.trip.get("baggage", {})
     bag_value = baggage.get("value") or {}
+    bag_return_note = baggage.get("return_note") or "Godzinę graniczną nadania bagażu potwierdzić u przewoźnika."
     transport = plan.trip.get("poland_transport", {})
     transport_note = transport.get("note") or "brak danych"
     transport_status = transport.get("status")
@@ -2342,8 +2352,8 @@ def render_flights(plan: Plan) -> str:
         <div class="lot-alerts">
           <div class="alert alert--urgent">
             {icon("alert")}
-            <div><strong>Powrót: bag drop zamyka się o 05:20 czasu Cypru.</strong>
-            <p>Przy odlocie 06:20 bagaż musi być już przyjęty. To nie jest cel obecności w kolejce.</p></div>
+            <div><strong>Powrót: potwierdź graniczną godzinę bag drop.</strong>
+            <p>{esc(bag_return_note)}</p></div>
           </div>
           <div class="alert alert--warning">
             {icon("bag")}
@@ -2470,7 +2480,7 @@ def render_car(plan: Plan) -> str:
         <details class="selection-note" open data-collapse-on-load>
           <summary>Kontakty wypożyczalni na PFO — do potwierdzenia, nie rezerwacja {icon("chevron")}</summary>
           <ul>{contacts}</ul>
-          <p class="fine-print">Numery z oficjalnej strony Hermes Airports (4 XI 2026). Potwierdzić after-hours return, key drop i koniec odpowiedzialności; nie traktować obecności firmy na lotnisku jako zgody na zwrot o 03:30.</p>
+           <p class="fine-print">Numery z oficjalnej strony Hermes Airports (4 XI 2026). Potwierdzić after-hours return, key drop i koniec odpowiedzialności; nie traktować obecności firmy na lotnisku jako zgody na zwrot planistyczny o {return_.astimezone(ZoneInfo(CY_TZ)).strftime('%H:%M')}.</p>
         </details>
         <div class="source-line">{source_chips(plan, car.get("source_ids", []))}</div>
       </div>
@@ -3136,7 +3146,7 @@ def render_footer(plan: Plan) -> str:
         <p><span>Dane</span> <a href="data/Cypr_2026_zrodlo_prawdy.json">Cypr_2026_zrodlo_prawdy.json {icon("download")}</a></p>
         <p><span>Strefa</span> Asia/Nicosia, UTC+2</p>
         <p class="footer-calendar"><span>Kalendarz</span> <a class="ics-link" href="cal/cypr2026-caly-wyjazd.ics" download>Cały wyjazd .ics {icon("download")}</a></p>
-        <p><span>PDF</span> <a href="cypr2026-print.pdf" download>Plan do druku (76 str.)</a></p>
+        <p><span>PDF</span> <a href="cypr2026-print.pdf" download>Plan do druku (PDF)</a></p>
         <p class="footer-version">Plan bazowy · {len(plan.day_list)} dni / {plan.trip.get("nights")} nocy · Pafos</p>
       </div>
     </div>
@@ -3381,10 +3391,11 @@ def ics_hotel_events(plan: "Plan") -> list[str]:
     )
 
 
-def ics_car_events(plan: "Plan") -> list[str]:
+def ics_car_events(plan: "Plan", day_date: str | None = None) -> list[str]:
     car = plan.trip.get("car", {})
     events: list[str] = []
-    if car.get("pickup_target_at"):
+    if car.get("pickup_target_at") and (
+            day_date is None or car["pickup_target_at"][:10] == day_date):
         pickup_end = (datetime.fromisoformat(car["pickup_target_at"]) + timedelta(minutes=45)).isoformat()
         events += ics_event(
             "cypr2026-car-pickup@kjawo.github.io",
@@ -3396,7 +3407,8 @@ def ics_car_events(plan: "Plan") -> list[str]:
             "PFO",
             f"{CANONICAL_URL}#auto",
         )
-    if car.get("return_target_at"):
+    if car.get("return_target_at") and (
+            day_date is None or car["return_target_at"][:10] == day_date):
         return_end = (datetime.fromisoformat(car["return_target_at"]) + timedelta(minutes=45)).isoformat()
         events += ics_event(
             "cypr2026-car-return@kjawo.github.io",
@@ -3432,7 +3444,7 @@ def write_calendar_files(plan: "Plan") -> list[Path]:
         events += ics_day_events(plan, day)
         if day["date"] == plan.trip["hotel"].get("check_in_date") or day["date"] == plan.trip["hotel"].get("check_out_date"):
             events += ics_hotel_events(plan)
-        events += ics_car_events(plan) if day["date"] in {
+        events += ics_car_events(plan, day["date"]) if day["date"] in {
             plan.trip.get("car", {}).get("pickup_target_at", "")[:10],
             plan.trip.get("car", {}).get("return_target_at", "")[:10],
         } else []

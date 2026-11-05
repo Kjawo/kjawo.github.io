@@ -1223,6 +1223,67 @@
     }, { rootMargin: "350px 0px" });
     canvases.forEach(function (canvas) { observer.observe(canvas); });
   }
+  function prepareCyclingMedia() {
+    var options = ((data.cycling_options || {}).options || []);
+    var mapTemplate = document.getElementById("cycling-map-template");
+    var usedPhotoIds = {};
+    options.forEach(function (option) {
+      var cardId = "rower-" + String(option.id || "").toLowerCase();
+      var card = document.getElementById(cardId);
+      if (!card || card.querySelector(".cycling-media")) return;
+
+      var media = mapTemplate && mapTemplate.content.firstElementChild
+        ? mapTemplate.content.firstElementChild.cloneNode(true)
+        : document.createElement("div");
+      media.classList.add("cycling-media");
+
+      var photoId = option.photo_id;
+      if (photoId && !usedPhotoIds[photoId]) {
+        var galleryCard = $all(".gallery-card").filter(function (item) {
+          return item.getAttribute("data-photo-slot") === photoId;
+        })[0];
+        var sourceFigure = galleryCard && galleryCard.querySelector("figure.photo");
+        if (sourceFigure) {
+          var figure = sourceFigure.cloneNode(true);
+          figure.classList.remove("photo--thumb");
+          figure.classList.add("photo--cycling", "cycling-card__photo");
+          media.insertBefore(figure, media.firstChild);
+          usedPhotoIds[photoId] = true;
+        }
+      }
+      if (photoId && usedPhotoIds[photoId] && option.photo_context) {
+        var context = document.createElement("p");
+        context.className = "cycling-media__shared";
+        context.textContent = option.photo_context;
+        media.insertBefore(context, media.firstChild);
+      }
+
+      var mapCanvas = $("[data-cycling-map]", media);
+      var mapData = option.map || {};
+      if (mapData.status === "preview" && Array.isArray(mapData.points) && mapData.points.length >= 2 && mapCanvas) {
+        mapCanvas.setAttribute("data-cycling-map", option.id);
+        mapCanvas.setAttribute("aria-label", "Uproszczony podgląd trasy " + (option.title || option.id) + "; nie jest nawigacją.");
+        var fallback = $(".cycling-map__fallback", mapCanvas);
+        if (fallback) fallback.textContent = "Podgląd trasy ładuje się po przewinięciu. Nie używaj go jako nawigacji; sprawdź pełny oficjalny GPX przed jazdą.";
+        var note = $(".cycling-map__note", media);
+        if (note) note.textContent = "Uproszczony podgląd oficjalnego GPX; nie jest nawigacją ani potwierdzeniem bezpieczeństwa przebiegu.";
+        var printNote = $(".cycling-map__print", media);
+        if (printNote) printNote.textContent = "Podgląd mapy nie jest drukowany. Użyj oficjalnego GPX wskazanego w karcie i sprawdź pełny przebieg przed jazdą.";
+      } else {
+        if (mapCanvas) mapCanvas.remove();
+        var map = $(".cycling-map", media);
+        if (map) map.remove();
+        var unavailable = document.createElement("p");
+        unavailable.className = "cycling-map__unavailable";
+        unavailable.textContent = mapData.note || "Brak oficjalnej mapy/GPS w źródle; przebiegu nie rysujemy.";
+        media.appendChild(unavailable);
+      }
+
+      var sources = $(".cycling-card__sources", card);
+      card.insertBefore(media, sources || null);
+    });
+  }
+  prepareCyclingMedia();
   observeCyclingMaps();
   function loadMap() {
     if (!mapCanvas || mapLoading || mapLoaded) return;
