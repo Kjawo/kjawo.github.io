@@ -797,6 +797,64 @@ def validate_statuses(plan: Plan) -> None:
             fail(f"status_legend: brak etykiety dla {code!r}")
 
 
+def validate_cycling(plan: Plan) -> None:
+    """Keep the optional cycling block explicit and free of broken references."""
+    cycling = plan.raw.get("cycling_options")
+    if cycling is None:
+        return
+    if not isinstance(cycling, dict):
+        fail("cycling_options: oczekiwano obiektu")
+    for key in ("title", "checked_on", "intro", "duration_assumption",
+                "options", "checks_before_choice"):
+        if key not in cycling:
+            fail(f"cycling_options: brak {key}")
+    for key in ("title", "intro", "duration_assumption"):
+        if not isinstance(cycling[key], str) or not cycling[key].strip():
+            fail(f"cycling_options.{key}: oczekiwano niepustego tekstu")
+    parse_iso_date(str(cycling["checked_on"]), "cycling_options.checked_on")
+    options = cycling["options"]
+    if not isinstance(options, list) or not (1 <= len(options) <= 3):
+        fail("cycling_options.options: oczekiwano 1–3 propozycji")
+    required = ("id", "title", "route", "start", "finish", "route_type", "distance",
+                "ascent", "duration_estimate", "surface_bike", "traffic_safety",
+                "return_logistics", "stops_risks", "rental", "source_ids")
+    seen: set[str] = set()
+    for index, option in enumerate(options):
+        label = f"cycling_options.options[{index}]"
+        if not isinstance(option, dict):
+            fail(f"{label}: oczekiwano obiektu")
+        for key in required:
+            if key not in option:
+                fail(f"{label}: brak {key}")
+            if key != "source_ids" and (not isinstance(option[key], str) or not option[key].strip()):
+                fail(f"{label}.{key}: oczekiwano niepustego tekstu")
+        if option["id"] in seen:
+            fail(f"{label}.id: zduplikowany identyfikator")
+        seen.add(option["id"])
+        if not isinstance(option["source_ids"], list) or not option["source_ids"]:
+            fail(f"{label}.source_ids: oczekiwano niepustej listy")
+        for source_id in option["source_ids"]:
+            if not isinstance(source_id, str) or source_id not in plan.sources:
+                fail(f"{label}.source_ids: nieznane źródło {source_id!r}")
+        for url_key in ("gpx_url",):
+            value = option.get(url_key)
+            if value is None:
+                continue
+            if not isinstance(value, str) or not value.startswith("https://www.visitcyprus.com/"):
+                fail(f"{label}.{url_key}: dozwolone są tylko oficjalne adresy Visit Cyprus")
+            if not safe_url(value):
+                fail(f"{label}.{url_key}: niepoprawny adres URL")
+    if not isinstance(cycling["checks_before_choice"], list):
+        fail("cycling_options.checks_before_choice: oczekiwano listy")
+    for item in cycling["checks_before_choice"]:
+        if not isinstance(item, str) or not item.strip():
+            fail("cycling_options.checks_before_choice: puste lub niepoprawne zalecenie")
+    if "not_selected" in cycling and not isinstance(cycling["not_selected"], str):
+        fail("cycling_options.not_selected: oczekiwano tekstu")
+    if any(str(route.get("id", "")).startswith("CYCLE-") for route in plan.route_list):
+        fail("cycling_options: propozycje rowerowe nie mogą trafiać do routes[]")
+
+
 def validate(plan: Plan) -> None:
     data = plan.raw
     for required in ["meta", "trip", "days", "routes", "places", "sources", "alternatives",
@@ -804,6 +862,8 @@ def validate(plan: Plan) -> None:
                      "checklists", "packing"]:
         if required not in data:
             fail(f"JSON: brak wymaganego klucza {required!r}")
+
+    validate_cycling(plan)
 
     meta = plan.meta
     if not re.fullmatch(r"\d+\.\d+\.\d+", str(meta.get("version", ""))):
@@ -1135,6 +1195,7 @@ def render_nav(plan: Plan) -> str:
         ("#mapa", "Mapa"),
         ("#dni", "Dni"),
         ("#trasy", "Trasy"),
+        ("#cycling", "Rowery"),
         ("#praktyka", "Praktyka"),
         ("#checklisty", "Checklisty"),
         ("#todo", "Zadania"),
@@ -1850,7 +1911,100 @@ def render_routes(plan: Plan) -> str:
           </div>
           <div class="excluded-grid">{''.join(excluded)}</div>
         </section>
-        {section_next("Dalej", [("#trasy", "Trasy i bezpieczeństwo"), ("#praktyka", "Praktyka i bramki")])}
+        {section_next("Dalej", [("#cycling", "Wycieczki rowerowe"), ("#praktyka", "Praktyka i bramki")])}
+      </div>
+    </section>
+    """
+
+
+def render_cycling(plan: Plan) -> str:
+    """Render optional cycling ideas statically from the canonical JSON.
+
+    The section must stay readable without JavaScript and in print. It is built
+    here, not in app.js, so the exported HTML contains the full content.
+    """
+    cycling = plan.raw.get("cycling_options")
+    if not cycling:
+        return ""
+
+    def cycling_url(value: str | None) -> str:
+        url = safe_url(value)
+        if url and url.startswith("https://www.visitcyprus.com/"):
+            return url
+        return ""
+
+    cards = []
+    for option in cycling.get("options", []):
+        anchor = "rower-" + re.sub(r"[^a-z0-9]+", "-", str(option["id"]).lower()).strip("-")
+        facts = (
+            ("Start", option["start"]),
+            ("Meta", option["finish"]),
+            ("Przebieg", option["route_type"]),
+            ("Dystans", option["distance"]),
+            ("Suma podejść", option["ascent"]),
+            ("Czas jazdy", option["duration_estimate"]),
+        )
+        facts_html = "".join(
+            f"<div><dt>{esc(label)}</dt><dd>{esc(value)}</dd></div>"
+            for label, value in facts
+        )
+        links = []
+        for source_id in option.get("source_ids", []):
+            source = plan.sources.get(source_id)
+            url = cycling_url(source.get("url") if source else None)
+            if url and source:
+                links.append(
+                    f'<a class="text-link" href="{esc(url)}" rel="noopener">'
+                    f'Źródło: {esc(source["title"])} ↗</a>'
+                )
+        gpx_url = cycling_url(option.get("gpx_url"))
+        if gpx_url:
+            links.append(
+                f'<a class="text-link" href="{esc(gpx_url)}" rel="noopener">Oficjalny GPX ↗</a>'
+            )
+        corridor = option.get("corridor")
+        variant_html = (
+            f'<p class="cycling-variant"><strong>Wariant tego samego korytarza: {esc(corridor)}.</strong> '
+            'To nie niezależna propozycja; parametrów wariantów nie łączymy.</p>'
+            if corridor else ""
+        )
+        cards.append(f"""
+          <article class="cycling-card" id="{esc(anchor)}" aria-labelledby="{esc(anchor)}-title">
+            <h3 id="{esc(anchor)}-title">{esc(option["title"])}</h3>
+            <p class="cycling-card__route">{esc(option["route"])}</p>
+            {variant_html}
+            <dl class="cycling-facts">{facts_html}</dl>
+            <div class="cycling-details">
+              <section><h4>Nawierzchnia, rower i wysiłek</h4><p>{esc(option["surface_bike"])}</p></section>
+              <section><h4>Ruch i bezpieczeństwo</h4><p>{esc(option["traffic_safety"])}</p></section>
+              <section><h4>Dojazd i powrót</h4><p>{esc(option["return_logistics"])}</p></section>
+              <section><h4>Postoje i ryzyka</h4><p>{esc(option["stops_risks"])}</p></section>
+              <section><h4>Wypożyczenie</h4><p>{esc(option["rental"])}</p></section>
+            </div>
+            <p class="cycling-card__sources">{''.join(links)}</p>
+          </article>
+        """)
+    checks = "".join(f"<li>{esc(item)}</li>" for item in cycling.get("checks_before_choice", []))
+    not_selected = cycling.get("not_selected")
+    not_selected_html = f"<p>{esc(not_selected)}</p>" if not_selected else ""
+    return f"""
+    <section class="section section--cycling" id="cycling" aria-labelledby="cycling-title">
+      <div class="page-width">
+        <header class="section-head">
+          <p class="section-index">OPCJONALNE POMYSŁY · sprawdzone {esc(format_date_pl(cycling["checked_on"]))}</p>
+          <div class="section-head__body">
+            <h2 id="cycling-title">{esc(cycling["title"])}</h2>
+            <p class="section-lede">{esc(cycling["intro"])}</p>
+          </div>
+        </header>
+        <div class="cycling-grid">{''.join(cards)}</div>
+        <p class="cycling-assumption"><strong>Jak czytać czasy:</strong> {esc(cycling["duration_assumption"])}</p>
+        <aside class="cycling-caution">
+          <h3>Przed wyborem</h3>
+          <ul>{checks}</ul>
+          {not_selected_html}
+        </aside>
+        {section_next("Dalej", [("#praktyka", "Praktyka i bramki"), ("#trasy", "Trasy")])}
       </div>
     </section>
     """
@@ -2902,7 +3056,7 @@ def render_footer(plan: Plan) -> str:
         <p><span>Dane</span> <a href="data/Cypr_2026_zrodlo_prawdy.json">Cypr_2026_zrodlo_prawdy.json {icon("download")}</a></p>
         <p><span>Strefa</span> Asia/Nicosia, UTC+2</p>
         <p class="footer-calendar"><span>Kalendarz</span> <a class="ics-link" href="cal/cypr2026-caly-wyjazd.ics" download>Cały wyjazd .ics {icon("download")}</a></p>
-        <p><span>PDF</span> <a href="cypr2026-print.pdf" download>Plan do druku (54 str.)</a></p>
+        <p><span>PDF</span> <a href="cypr2026-print.pdf" download>Plan do druku (76 str.)</a></p>
         <p class="footer-version">Plan bazowy · {len(plan.day_list)} dni / {plan.trip.get("nights")} nocy · Pafos</p>
       </div>
     </div>
@@ -3248,6 +3402,7 @@ def render_page(plan: Plan, asset_hash: str, data_json: str, *, noindex: bool) -
         "{{TODAY}}": render_today(plan),
         "{{DAYS}}": render_days(plan),
         "{{ROUTES}}": render_routes(plan),
+        "{{CYCLING}}": render_cycling(plan),
         "{{MAP}}": render_map(plan),
         "{{PRACTICE}}": render_practice(plan),
         "{{CHECKLISTS}}": render_checklists(plan),

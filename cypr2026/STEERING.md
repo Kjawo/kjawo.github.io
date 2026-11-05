@@ -2,9 +2,18 @@
 
 Ten plik jest **nadrzędny** wobec `PLAN-REVIEW.md`. Agent czyta go przed każdą iteracją.
 
-## KOREKTY PO REVIEW (PRIORYTET)
+## AKTUALNY ZAKRES — tylko rowery
 
-Zachowaj dotychczasowe zmiany, ale **nie używaj planu na wyjeździe**, dopóki C1–C9 z `PLAN-REVIEW.md` (sekcja 11) nie są zamknięte lub świadomie odłożone.
+Jedynym aktywnym celem jest `ZADANIE-2026-11-05-ROWER.md`: dodać publiczną, niedatowaną
+sekcję rowerową z maksymalnie trzema propozycjami. Wszystkie poniższe wcześniejsze cele
+(korekty planu, nowe miejsca, Varosha/Cape Greco, zdjęcia i pełny audyt) są historią,
+nie listą zadań; nie wznawiaj ich. Zachowaj zapisy i decyzje historyczne. Nadal obowiązują
+niekolidujące zasady bezpieczeństwa: nie zmieniaj rezerwacji, lotów, hotelu, planu
+bazowego ani ostrzeżeń; nie commituj, nie pushuj i nie deployuj.
+
+## HISTORIA — korekty po review (nieaktywne)
+
+[HISTORYCZNE — nieaktywne] Zachowaj dotychczasowe zmiany, ale **nie używaj planu na wyjeździe**, dopóki C1–C9 z `PLAN-REVIEW.md` (sekcja 11) nie są zamknięte lub świadomie odłożone.
 
 - **C1 (pilne):** rozdziel „lot opóźniony” i „lot odwołany”. Bag drop 05:20 według planowej godziny; nie przesuwać go bez pisemnej informacji przewoźnika.
 - **C2 (pilne):** przelicz Varosha: TF-22 150–195 min + Green Line 30–60 min; obecne 09:00–09:30 jest nierealne. Wskaż przejście, polisę i bufor powrotu.
@@ -16,7 +25,9 @@ Zachowaj dotychczasowe zmiany, ale **nie używaj planu na wyjeździe**, dopóki 
 - **C8:** `nearest_issue` nie może pomijać zaległych blokad auto/zwrot/parking.
 - **C9:** po poprawkach build, walidacja, ICS/HTML i aktualizacja raportu.
 
-## NOWE POMYSŁY (dodatkowa dyrektywa)
+## HISTORIA — nowe pomysły (nieaktywne)
+
+Poniższe punkty są dawnym backlogiem; nie wykonuj ich w zadaniu rowerowym.
 
 - Zaproponuj **8–10 nowych, realnych, ładnych/ciekawych miejsc**, których nie ma w planie.
 - Kategorie: widoki i klify, plaże/zatoczki, wioski, klasztory, geologia, punkty fotograficzne, jedzenie/wino, zachód słońca, plan B na deszcz.
@@ -25,7 +36,9 @@ Zachowaj dotychczasowe zmiany, ale **nie używaj planu na wyjeździe**, dopóki 
 - Nie powtarzaj: Varosha, Cape Greco, Drzewo Kochanków, Grobowce, Aphrodite, Artemis, Akamas, Troodos, Pafos.
 - Nie zmieniaj planu bazowego — dodaj jako `alternatives`, `optional_stops` lub `places`; brak twardych danych = `do_potwierdzenia`.
 
-## Aktywne dyrektywy
+## HISTORIA — wcześniejsze dyrektywy (nieaktywne)
+
+Poniższe dyrektywy należały do poprzedniego zakresu; nie są aktywnymi zadaniami.
 
 - **Nowy cel opcjonalny (nie zmieniaj planu bazowego):** dodaj jako alternatywę wyjazd na stronę turecką (Cypr Północny). Główny cel: **Varosha / Famagusta**.
 - **Cape Greco nie leży na stronie tureckiej** — to Republika Cypryjska, południowo-wschodni kraniec wyspy (Ayia Napa / Protaras). Nie łącz go z „stroną turecką” bez wyjaśnienia; przeanalizuj osobno.
@@ -41,18 +54,18 @@ Zachowaj dotychczasowe zmiany, ale **nie używaj planu na wyjeździe**, dopóki 
 - Nie zmieniaj rezerwacji ani planu bazowego. Dodaj wpisy do `alternatives` i `open_issues`; każdy fakt ze źródłem i datą sprawdzenia.
 - Priorytet: najpierw wykonalność i bezpieczeństwo, potem propozycje.
 
-## NOWE ZADANIE — 2026-11-05 (priorytet nadrzędny)
+## ZADANIE HISTORYCZNE — 2026-11-05 (zakończone, nieaktywne)
 
-Wykonuj **`cypr2026/ZADANIE-2026-11-05.md`** przed wszystkimi starszymi dyrektywami z tego pliku. Skrót:
+Poniższy skrót dokumentuje poprzedni zakres. Nie wykonuj go ponownie; aktywne jest wyłącznie zadanie rowerowe.
 
-- Zweryfikuj **wszystkie** informacje i źródła w `cypr2026`; każdy fakt z datą sprawdzenia, bez fikcji i cichych `null`.
-- Sprawdź nowe miejsca (Varosha/Famagusta, Cape Greco/Drzewo Kochanków/Love Bridge/Kamara, Kourion/Kolossi/Neofytos/Chrysorrogiatissa/Geroskipou/Pissouri/Lefkara/Larnaka/Choirokoitia/Coral Bay) na oficjalnych stronach.
-- Zaproponuj 5–10 nowych realnych rzeczy, z dojazdem, parkingiem, godzinami, światłem, ryzykiem i źródłem; dodaj jako opcje, nie zmieniaj planu bazowego.
-- Zaudytuj **wszystkie 71 zdjęć** i uzupełnij braki: nowe miejsca i wszystkie trasy po 3–4 zweryfikowane kadry, jeden lead; scenic/praktyczne miejsca w miarę możliwości.
-- Preferuj **najnowsze** zdjęcia (2025–2026, potem 2024); cel ≥75% dat ≥2024; wymień stare kadry, gdzie jest nowszy odpowiednik.
-- Tylko prawdziwe zdjęcia: zero AI, stocku i „podobnych” miejsc; źródło Commons, data, miejsce, 2 dowody, lokalne warianty 480/800/1280/1920 AVIF/WebP/JPEG.
-- Utwórz `cypr2026/ZDJECIA-AUDYT.md` z macierzą pokrycia wszystkich dni, miejsc i tras.
-- `STATUS: DONE` dopiero po odhaczeniu sekcji 16 w `PLAN-REVIEW.md` i przejściu runnera (`photo_check`).
+- [HISTORYCZNE — nieaktywne] Zweryfikuj **wszystkie** informacje i źródła w `cypr2026`; każdy fakt z datą sprawdzenia, bez fikcji i cichych `null`.
+- [HISTORYCZNE — nieaktywne] Sprawdź nowe miejsca (Varosha/Famagusta, Cape Greco/Drzewo Kochanków/Love Bridge/Kamara, Kourion/Kolossi/Neofytos/Chrysorrogiatissa/Geroskipou/Pissouri/Lefkara/Larnaka/Choirokoitia/Coral Bay) na oficjalnych stronach.
+- [HISTORYCZNE — nieaktywne] Zaproponuj 5–10 nowych realnych rzeczy, z dojazdem, parkingiem, godzinami, światłem, ryzykiem i źródłem; dodaj jako opcje, nie zmieniaj planu bazowego.
+- [HISTORYCZNE — nieaktywne] Zaudytuj **wszystkie 71 zdjęć** i uzupełnij braki: nowe miejsca i wszystkie trasy po 3–4 zweryfikowane kadry, jeden lead; scenic/praktyczne miejsca w miarę możliwości.
+- [HISTORYCZNE — nieaktywne] Preferuj **najnowsze** zdjęcia (2025–2026, potem 2024); cel ≥75% dat ≥2024; wymień stare kadry, gdzie jest nowszy odpowiednik.
+- [HISTORYCZNE — nieaktywne] Tylko prawdziwe zdjęcia: zero AI, stocku i „podobnych” miejsc; źródło Commons, data, miejsce, 2 dowody, lokalne warianty 480/800/1280/1920 AVIF/WebP/JPEG.
+- [HISTORYCZNE — nieaktywne] Utwórz `cypr2026/ZDJECIA-AUDYT.md` z macierzą pokrycia wszystkich dni, miejsc i tras.
+- [HISTORYCZNE — nieaktywne] `STATUS: DONE` dopiero po odhaczeniu sekcji 16 w `PLAN-REVIEW.md` i przejściu runnera (`photo_check`).
 
 ## Jak pisać
 

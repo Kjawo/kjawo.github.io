@@ -10,10 +10,10 @@ To niezależny folder w repo `kjawo/kjawo.github.io`, gałąź `gh-pages`. Nie z
 
 `data/Cypr_2026_zrodlo_prawdy.json` jest jedynym źródłem prawdy. `index.html` jest generowany i **nie wolno go edytować ręcznie**. Zmiany wprowadzaj do JSON-a, potem uruchom build i sprawdź ostrzeżenia.
 
-Plik źródłowy po audycie 4 XI 2026 (wersja 1.2.3). SHA-256:
+Plik źródłowy po audycie 5 XI 2026 (wersja 1.2.4). SHA-256:
 
 ```text
-d184c1f32b39908c88fa3e2abc59f11c2c66556e244f6f789541496e2f8e3446
+faed4f7ec8400fc9a34ab9eef98fa6c56c3c4429124dac1e74ee1d92be55e179
 ```
 
 ## Build
@@ -88,7 +88,7 @@ cypr2026/
   app.js                      # źródło progresywnych ulepszeń, vanilla JS
   app.min.js                  # GENEROWANY, serwowany
   cal/                        # GENEROWANE pliki .ics (cały wyjazd + dni)
-  cypr2026-print.pdf          # statyczny PDF z tego samego builda (54 strony)
+  cypr2026-print.pdf          # statyczny PDF z tego samego builda (76 stron)
   sw.js                       # cache powłoki; build wpisuje wersję i listę plików
   manifest.json
   data/Cypr_2026_zrodlo_prawdy.json
@@ -120,7 +120,7 @@ Zdjęć użytkownika nie było, więc warstwa zdjęciowa korzysta wyłącznie z 
 - **Budżety:** hero ≤180 KB (wszystkie formaty), lead ≤120 KB (AVIF), thumb ≤45 KB (wszystkie formaty). Hero 1920 AVIF to 145 KB, najcięższy lead 1920 AVIF to 116 KB, najcięższy thumb 480 to 42 KB.
 - **Weryfikacja:** strona pliku (autor, licencja, data, opis), geotag/OSM albo współrzędne miejsca, kategoria Commons lub użycie w innych wiki, oraz reverse search w Yandex Images. Linki są przy każdym kadrze w manifeście i w sekcji licencji. Wątpliwy kadr nie wszedł.
 - **Offline:** service worker cache’uje dla hero i 7 leadów warianty 480/800 AVIF oraz WebP i 800 JPEG; po pierwszym wejściu online zdjęcia działają bez sieci.
-- **Druk:** maksymalnie jedno małe zdjęcie na dzień (pas 56 mm, skala szarości), plus spis autorów i licencji na stronie 54. PDF ma 54 strony.
+- **Druk:** maksymalnie jedno małe zdjęcie na dzień (pas 56 mm, skala szarości), plus spis autorów i licencji na końcu wydruku. PDF ma 76 stron.
 - **Ograniczenia:** brak zdjęć użytkownika; reverse search może znajdować kopie w serwisach podróżniczych, ale źródłem pozostaje plik Commons z pełną metryką. Kadry są widokami ogólnymi lub detalami, nie dokumentacją konkretnego przejścia szlaku.
 
 ## Prywatność i `noindex`
@@ -212,7 +212,7 @@ Klucz: `cypr2026.checklist.v1`. Reset czyści wpis w `localStorage` po potwierdz
 - **Mobile:** dni inne niż bieżący są domyślnie zwinięte przez JS; bez JS wszystkie są otwarte. Ważne ostrzeżenia (auto, 112, polowania, bag drop) pozostają poza zwiniętymi blokami.
 - **Statusy współrzędnych:** `zweryfikowane`, `przejete_z_audytu`, `orientacyjne_do_potwierdzenia`.
 - Niektóre serwisy (Ryanair, Wizz Air, timeanddate, SIXT) blokują automatyczne zapytania HTTP 403, choć linki są źródłami z JSON-a. Nie usuwaj ich tylko z powodu błędu bota.
-- Print jest obszerny (**54 strony A4**), bo zawiera wszystkie dni, warianty, trasy, miejsca, checklisty i źródła; dni płyną kolejno, a tabele źródłowe mają powtarzany nagłówek. Druga strona to jednokartkowa „Karta podręczna”, żeby nie trzeba było drukować całego planu do szybkiego użycia. Ten sam PDF jest linkowany w stopce i w banerze no-JS; po zmianie JSON wygeneruj go ponownie z aktualnego builda.
+- Print jest obszerny (**76 stron A4**), bo zawiera wszystkie dni, warianty, trasy, miejsca, checklisty, sekcję rowerową i źródła; dni płyną kolejno, a tabele źródłowe mają powtarzany nagłówek. Druga strona to jednokartkowa „Karta podręczna”, żeby nie trzeba było drukować całego planu do szybkiego użycia. Ten sam PDF jest linkowany w stopce i w banerze no-JS; po zmianie JSON wygeneruj go ponownie z aktualnego builda.
 
 ## Edycja
 

@@ -1,12 +1,12 @@
 # Cypr 2026 — nocny audyt planu
 
-STATUS: DONE
-WERYFIKACJA: PASS (2026-11-05, build 1.2.3, 0 otwartych checkboxów, 16/16 nowych miejsc i 8/8 tras z kadrami; świeżość 76/138 = 55,1% — V8-EXCEPTION zaakceptowany przez użytkownika)
+STATUS: WORKING
+WERYFIKACJA: PENDING RUNNER (po poprawkach review; nie deklarować PASS bez kontroli runnera)
 UWAGA: audyt domknięty. Wszystkie targety Tier A mają 3–4 kadry; `TR-POUZIARIS` 3/3 (rejon startu). Próg świeżości 75% nieosiągalny na Commons bez fikcji; użytkownik zaakceptował 55,1% (`V8-EXCEPTION.md`, sekcja 23).
 START: 2026-11-04 19:50 CET
 OSTATNIA AKTUALIZACJA: 2026-11-05 00:10 CET
 MODEL TEJ ITERACJI: deepseek/deepseek-flash (tryb DeepSeek-only; bez subagentów, review własny)
-CEL: Sprawdzić poprawność i wykonalność planu, znaleźć ryzyka, dodać opcje i alternatywy, poprawić tylko rzeczy niskiego ryzyka i udowodnione źródłami.
+CEL: Rozbudować publiczną stronę wyłącznie o samodzielną, niedatowaną sekcję wycieczek rowerowych z maksymalnie trzema zweryfikowanymi propozycjami z rejonu Pafos.
 
 ZAKRES:
 - `data/Cypr_2026_zrodlo_prawdy.json` jest jedynym źródłem prawdy; `index.html` jest generowany.
@@ -507,3 +507,29 @@ Zakres akceptacji:
 - świeżość 55,1% pozostaje jawnie opisana jako ograniczenie danych, nie ukryta.
 
 `STATUS: DONE`, `NEXT: brak`, `WERYFIKACJA: PASS`.
+
+## 24. Wycieczki rowerowe — iteracja 2026-11-05
+
+**Zakres:** wyłącznie osobna, niedatowana sekcja rowerowa; bez zmian planu dni, pieszych `routes[]`, zdjęć, rezerwacji i kalendarzy.
+
+**Dowody publiczne (odczyt 2026-11-05, Visit Cyprus):**
+- Pafos 2: start Pafos Harbour, meta Timi coast, 16,6 km, 76 m podejść, płaska asfaltowa trasa liniowa; rower touringowy/szosowy; oficjalny GPX jest podlinkowany. `SRC-CYCLE-TIMI-166`.
+- Kato Pafos–Timi: wariant 12 km, Pafos Port–Timi coast, łatwy–średni, MTB, nawierzchnia mieszana; ścieżka rowerowa tylko na pierwszym odcinku, potem dirt road i piesze przekroczenie Ezousa. Brak podanej sumy podejść i GPX na stronie. `SRC-CYCLE-TIMI-12`.
+- Main 16: Kato Pafos–Polis, 43,8 km, 775 m podejść, asfalt, liniowa; oficjalna strona określa ją jako dość trudną dla przeciętnego rowerzysty i wspomina dobry rower szosowy z 20 przełożeniami. `SRC-CYCLE-MAIN16`.
+- Pafos 1 celowo pominięta jako propozycja: opis strony podaje trasę i wspomina łatwiejszy powrót oraz link do GPX, ale nie dystans ani sumę podejść; GPX nie pobierano ani nie analizowano.
+
+**Dane i ustalenia:** `cycling_options` i trzy źródła Visit Cyprus są w JSON. Dwie pozycje Timi są różnymi opisami tego samego korytarza i nie wolno łączyć ich parametrów ani liczyć jako dwóch niezależnych wycieczek. Szacunki czasu są wyłącznie dystans ÷ 12 km/h netto; trasy liniowe nie mają potwierdzonego powrotu z rowerem. 12 km: opis czasu doprecyzowany tak, by jawnie wyłączał nieoszacowane piesze przekroczenie Ezousa. Brak doświadczenia, logistyki, wynajmu, cen, dostępności, warunków ruchu, zamknięć i pogody pozostaje do potwierdzenia.
+
+**Wdrożenie statyczne (po decyzji użytkownika):** użytkownik autoryzował zmianę chronionego `_src/build.py`, README i regenerację PDF. `_src/build.py` renderuje teraz `{{CYCLING}}` bezpośrednio z kanonicznego `cycling_options`; `_src/template.html` zawiera token w miejscu sekcji, a nawigacja `#cycling` jest statyczna. Treść nie jest duplikowana w szablonie: jedynym źródłem pozostaje JSON. Sekcja ma pełne karty, parametry, ryzyka, źródła i oznaczenie dwóch wariantów Timi jako tego samego korytarza (`corridor`). Działa bez JavaScriptu i w druku dzięki regułom `.cycling-*` w `styles.css` oraz `@media print`. `app.js` nie tworzy już treści rowerowej.
+
+**Review 1 — rozwiązanie uwag:** `haiku:BIKE-NOJS-PRINT-01` i `luna:CYCLE-NOSCRIPT-01` rozwiązane przez statyczny render w buildzie, nie przez wycofanie sekcji. `haiku:BIKE-DUPLICATE-TIMI-04` rozwiązane przez pole `corridor` i widoczne oznaczenie obu wariantów Timi jako tego samego korytarza; parametry pozostają rozdzielone. `haiku:BIKE-TIMI12-WALK-05` poprawione w opisie czasu. `haiku:PDF-STALE-02` rozwiązane: PDF wygenerowany ponownie z bieżącego builda, 76 stron A4. `haiku:META-HASH-03` rozwiązane: wersja 1.2.4, `updated_on` 2026-11-05, `CHANGE-15` i nowy SHA w README. Sugestia DeepSeek o odsyłaczu czasu poprawiona („poniżej kart”). Uwagi groka o GPX, współrzędnych i parkingu pozostają poza zakresem rowerowym i są już jawnie oznaczone w planie.
+
+**Dowód builda i wydruku:** `python3 -B _src/build.py` zakończony OK dla wersji 1.2.4; `index.html` zawiera trzy statyczne karty `cycling-card` (bez JS), a `cypr2026-print.pdf` ma 76 stron A4 i powstał z tego samego builda. SHA-256 kanonicznego JSON w README: `faed4f7e…be55e179`. Końcowy `python3 -B _src/build_pages.py` i cztery PASS należą do runnera w rundzie 2. `STATUS: WORKING`.
+
+**Review — haiku:CYCLE-HUNT-01 (2026-11-05):** poprawiono `cycling_options.checks_before_choice` w JSON, dodając ostrzeżenie o sezonie polowań, o tym, że pozostałe dni nie są automatycznie wolne od polowań, oraz wymóg sprawdzenia dokładnego przebiegu na mapie Artemis Cy/dekrecie przed wyborem odcinków gruntowych/leśnych lub postoju przy gaju Timi. Zapis jawnie mówi, że dopasowania tras do granic nie wykonano i kieruje do rezygnacji przy niejasności/oznakach polowania. Dowód zakresu: `safety.hunting` i `SRC-HUNT`/`SRC-HUNT-MAP` w JSON (sprawdzenie 2026-11-05); publiczna strona map i dekretów Wildlife Service odczytana 2026-11-05 wymienia mapy sezonu 2026–27 i dekret obszarów zakazu polowań 2026. Ponowny odczyt komunikatu gov.cy zwrócił 403, więc termin sezonu w uwadze pozostaje przypisany do istniejącego `SRC-HUNT`, nie przedstawiany jako niezależnie potwierdzony w tej sesji. Pozostałe findings rundy review są poza zakresem jedynego aktywnego zadania rowerowego; żadne inne dane/sekcje nie zmieniono. Weryfikację builda tej zmiany wykonuje runner; `STATUS: WORKING`.
+
+**Review — haiku:CYCLE-MOBILE-HEADER-01:** dodano `.section--cycling .section-index` z zawijaniem i ograniczeniem szerokości, aby etykieta nagłówka nie poszerzała kolumny na 360 px ani nie nachodziła na tytuł przy 760 px. Dowód: ogólna `.section-index` ma `white-space:nowrap` (`styles.css:78`); poprawka ograniczona do sekcji rowerowej w `styles.css`. Widok po zmianie wymaga kontroli runnera.
+
+**Review — haiku:CYCLE-HUNT-SOURCE-02:** status `SRC-HUNT` zmieniono na `link_kontrolny_z_audytu`, a zakres jawnie notuje odczyt z indeksu wyszukiwarki i HTTP 403 przy bezpośredniej kontroli; ostrzeżenie wymienia gatunki, daty oraz ogranicza wniosek do wskazanych gatunków. Do źródeł karty terenowego wariantu Timi dodano linki `SRC-HUNT` i `SRC-HUNT-MAP`; mapa/dekret pozostają wymaganym sprawdzeniem dokładnego przebiegu. Dowód: JSON `sources[SRC-HUNT]`, `cycling_options.checks_before_choice` oraz źródła `CYCLE-TIMI-12`. Przy okazji doprecyzowano intro (dwie niezależne propozycje plus wariant) i usunięto z przebiegów Timi szczegóły o ogrodzeniu/okolicach lotniska, których karty źródeł nie podają. Build i responsywność po tych poprawkach nadal wymagają kontroli runnera; `STATUS: WORKING`.
+
+**Kontrola runnera (2026-11-05; zakres weryfikacji sekcji rowerowej):** rzeczywisty `python3 -B _src/build_pages.py` zakończył się z kodem 0; `output_sha256=1a61bed95372bcb5b2f0d28625b788cdb5c6a17a4a0be049da1d5575329ccd96`, `photos.total=138`, `photos.recent=76`, `photos.v8_exception=true`. Runner zgłosił `WERYFIKACJA nie jest PASS`. Build bez błędu nie jest dowodem na zaliczenie wymaganych kontroli sekcji rowerowej; nie ustawiam PASS. Pozostaje kontrola runnera, `STATUS: WORKING`.

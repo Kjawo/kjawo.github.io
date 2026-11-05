@@ -364,6 +364,32 @@ main:focus-visible{outline:none}
 .variant-columns li{font-size:.82rem}
 .variant-card__foot{display:flex;gap:.4rem;align-items:flex-start;font-size:.75rem!important;color:var(--muted);border-top:1px solid var(--line);padding-top:.65rem;margin-bottom:0!important}
 
+/* ---------- Cycling options (canonical data rendered progressively) ---------- */
+.section--cycling{background:rgba(255,253,248,.42)}
+.cycling-grid{display:grid;gap:1rem}
+.cycling-card{min-width:0;padding:1.1rem;border:1px solid var(--line);border-top:4px solid var(--sea);border-radius:14px;background:var(--surface);break-inside:auto}
+.cycling-card h3{font-size:clamp(1.45rem,3vw,1.9rem);margin-bottom:.45rem}
+.cycling-card__route{font-size:.88rem;color:var(--muted);overflow-wrap:anywhere}
+.cycling-variant{margin:.55rem 0 0;padding:.5rem .65rem;border-left:3px solid var(--gold);background:#FCF6E7;font-size:.8rem;color:#4d4532}
+.cycling-variant strong{color:var(--ink)}
+.cycling-facts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.45rem;margin:.8rem 0}
+.cycling-facts>div{min-width:0;padding:.55rem .65rem;border:1px solid var(--line);border-radius:8px;background:#FBF8F0}
+.cycling-facts dt{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.cycling-facts dd{margin:.12rem 0 0;font-size:.86rem;font-weight:600;overflow-wrap:anywhere}
+.cycling-details{display:grid;gap:.7rem;align-items:start}
+.cycling-details section{padding:.7rem .8rem;border-left:2px solid var(--gold);background:#FBF8F0}
+.cycling-details h4,.cycling-caution h3{font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.04em;margin:0 0 .25rem}
+.cycling-details p{font-size:.83rem;color:#46514d;margin:0}
+.cycling-card__sources{display:flex;flex-wrap:wrap;gap:.25rem .9rem;margin:.7rem 0 0;padding-top:.45rem;border-top:1px solid var(--line)}
+.cycling-card__sources .text-link{font-size:.8rem;overflow-wrap:anywhere}
+.cycling-assumption,.cycling-caution,.cycling-noscript{margin-top:1rem;padding:.85rem 1rem;border:1px solid var(--line);border-radius:10px;background:#FCF6E7;font-size:.86rem;color:#3F4844}
+.cycling-assumption{border-left:3px solid var(--gold)}
+.cycling-caution{border-left:3px solid var(--terracotta)}
+.cycling-caution h3{font-size:.95rem}
+.cycling-caution li{font-size:.83rem}
+.cycling-caution p:last-child{margin:0;font-size:.8rem;color:var(--muted)}
+.cycling-noscript{margin:0}
+
 /* ---------- Routes ---------- */
 .route-group{margin-top:2.5rem}
 .group-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.4rem 1rem;border-bottom:1px solid var(--line);padding-bottom:.55rem;margin-bottom:1rem}
@@ -1022,6 +1048,15 @@ progress::-moz-progress-bar{background:var(--sea);border-radius:999px}
   .source-note summary,.safety-details summary,.selection-note summary,.offline-note summary,.legend-more summary,.change-log summary{font-size:9pt;min-height:0;border:0;padding:0;margin-bottom:2mm}
   .route-group,.excluded,.status-legend-block,.source-details{break-inside:auto;page-break-inside:auto}
   .route-card{margin-bottom:4mm;padding:5mm;break-inside:auto;page-break-inside:auto}
+  .cycling-card{padding:4mm;background:#fff!important;border:1px solid #777!important;border-top:3px solid #111!important;break-inside:auto;page-break-inside:auto}
+  .cycling-grid{display:grid;grid-template-columns:1fr!important;gap:3mm}
+  .cycling-details{display:grid;grid-template-columns:1fr 1fr!important;gap:3mm}
+  .cycling-card h3{font-size:15pt}
+  .cycling-card__route,.cycling-details p,.cycling-caution li,.cycling-caution p,.cycling-assumption{font-size:8pt;color:#222}
+  .cycling-facts{gap:2mm;margin:2mm 0}
+  .cycling-facts>div,.cycling-details section{padding:2mm;background:#fff!important}
+  .cycling-card__sources .text-link{min-height:0!important;font-size:7pt}
+  .cycling-assumption,.cycling-caution,.cycling-noscript,.cycling-variant{background:#fff!important;border:1px solid #777!important;padding:3mm;break-inside:avoid}
   .route-stats{grid-template-columns:repeat(3,1fr)!important}
   .route-stats>div{break-inside:avoid}
   .route-columns,.car-columns,.variant-columns{grid-template-columns:1fr 1fr!important}
@@ -1259,3 +1294,6 @@ html.lightbox-open{overflow:hidden}
   .section,.day-block,.day-card,.route-card,.place-card,.offline-guide,.subsection,.checklist-card,.issue-card,.source-table tbody tr{scroll-margin-top:0}
 }
 @media screen and (max-width:899px){.subnav__more.is-current summary{background:var(--sea-soft);border-radius:999px;padding-inline:.55rem;color:var(--sea-deep)}}
+
+/* Long section labels must fit the cycling section's narrow header column. */
+.section--cycling .section-index{max-width:100%;white-space:normal;overflow-wrap:anywhere}

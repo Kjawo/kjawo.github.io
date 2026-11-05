@@ -2,9 +2,9 @@
   "meta": {
     "id": "CYPR-2026",
     "title": "Cypr 7 do 13 listopada 2026",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "schema_version": "1.0.0",
-    "updated_on": "2026-11-04",
+    "updated_on": "2026-11-05",
     "language": "pl-PL",
     "canonical_filename": "Cypr_2026_zrodlo_prawdy.json",
     "document_filename": "Cypr_2026_plan_glowny.docx",
@@ -350,8 +350,8 @@
       "id": "SRC-HUNT",
       "title": "Game and Fauna Service sezon polowań",
       "url": "https://www.gov.cy/esoterika-themata/anakoinosi-tis-ypiresias-thiras-kai-panidas-schetika-me-tin-epikeimeni-proti-kynigetiki-exormisi-tou-epidimitikou-thiramatos/",
-      "scope": "Komunikat 29 X 2026, odczyt przez indeks wyszukiwarki: niedziele i środy 1 XI–27 XII dla zająca, kuropatwy i frankolina; granice w dekrecie.",
-      "verification_status": "sprawdzone_2026_11_05",
+      "scope": "Komunikat 29 X 2026, odczyt przez indeks wyszukiwarki: niedziele i środy 1 XI–27 XII dla zająca, kuropatwy i frankolina; granice w dekrecie. Bezpośredni odczyt gov.cy zwrócił HTTP 403 przy kontroli 2026-11-05; nie jest to weryfikacja bezpośrednia.",
+      "verification_status": "link_kontrolny_z_audytu",
       "checked_on": "2026-11-05"
     },
     {
@@ -671,6 +671,30 @@
       "title": "Visit Cyprus — Coral Bay Beach",
       "url": "https://www.visitcyprus.com/discover-cyprus/sun-sea/beaches/coral-bay-beach-blue-flag/",
       "scope": "Pegeia, 500 m plaży; parking, bus, dostęp dla niepełnosprawnych; plaża bezpłatna; GPS 34.854982, 32.368063.",
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
+    },
+    {
+      "id": "SRC-CYCLE-TIMI-12",
+      "title": "Visit Cyprus — Kato Pafos–Timi Forest (wariant 12 km)",
+      "url": "https://www.visitcyprus.com/discover-cyprus/rural/cycling-rural/kato-pafos-paphos-timi-forest-cycling-route-2/",
+      "scope": "Strona oficjalna odczytana 2026-11-05: start Pafos Port, meta Timi coast, 12 km, wariant łatwy–średni, wymagany MTB, nawierzchnie mieszane; nadmorska ścieżka rowerowa do Geroskipou Tourist Beach, dalej dirt road i piesze przekroczenie koryta Ezousa. Nie podaje sumy podejść, godzin, kosztu wypożyczenia ani powrotu z rowerem.",
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
+    },
+    {
+      "id": "SRC-CYCLE-TIMI-166",
+      "title": "Visit Cyprus — Pafos 2 Kato Pafos–Timi Forest (wariant 16,6 km)",
+      "url": "https://www.visitcyprus.com/discover-cyprus/nature/cycling/kato-pafos-paphos-timi-forest-cycling-route/",
+      "scope": "Strona oficjalna odczytana 2026-11-05: start Pafos Harbour, meta Timi coast, 16,6 km, podejście 76 m, płaska i w całości asfaltowa, linearna (Loop: NO), wymaga roweru touringowego lub szosowego; oficjalny GPX jest podlinkowany. Nie podaje godzin, kosztu wypożyczenia ani powrotu z rowerem.",
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
+    },
+    {
+      "id": "SRC-CYCLE-MAIN16",
+      "title": "Visit Cyprus — Main 16 Pafos–Pegeia–Polis",
+      "url": "https://www.visitcyprus.com/discover-cyprus/nature/cycling/main-16-pafos-paphos-polis-cycling-route/",
+      "scope": "Strona oficjalna odczytana 2026-11-05: trasa liniowa Kato Pafos–Polis, 43,8 km, 775 m podejść, asfalt, trudna dla przeciętnego rowerzysty; opis rekomenduje dobry rower szosowy z 20 przełożeniami. Oficjalny GPX jest podlinkowany. Powrót z Polis z rowerem, wypożyczenie, godziny i koszt nie są potwierdzone.",
       "verification_status": "sprawdzone_2026_11_05",
       "checked_on": "2026-11-05"
     }
@@ -4068,6 +4092,78 @@
       "Wszystkie odwołania do miejsc, tras i źródeł istnieją; brakujące parametry mają status, nie zmyśloną wartość."
     ]
   },
+  "cycling_options": {
+    "title": "Wycieczki rowerowe",
+    "checked_on": "2026-11-05",
+    "intro": "Niedatowane, opcjonalne tropy z oficjalnego portalu Visit Cyprus — nie są częścią planu dni ani trasą gotową do przejazdu. Sekcja zawiera dwie odrębne propozycje (Pafos 2 oraz Main 16) i terenowy wariant Timi 12 km. Oba opisy Timi dotyczą zbliżonego korytarza Pafos Port–Timi; nie łącz ich parametrów ani nie traktuj wariantu jako niezależnej wycieczki.",
+    "duration_assumption": "Wyłącznie orientacyjny czas ruchu policzony jako dystans ÷ założone 12 km/h; bez postojów, ruchu, nawierzchni, przewyższeń wpływających na tempo ani problemów technicznych. To ilustracja, nie tempo ani rekomendacja dla nieznanego poziomu doświadczenia.",
+    "options": [
+      {
+        "id": "CYCLE-TIMI-12",
+        "corridor": "Pafos–Timi",
+        "title": "Kato Pafos–Timi Forest — wariant terenowy 12 km",
+        "route": "Pafos Port → nadmorska ścieżka do Geroskipou Tourist Beach → dirt road → Timi coast.",
+        "start": "Pafos Port",
+        "finish": "Timi coast",
+        "route_type": "Liniowa; jeden kierunek.",
+        "distance": "12 km (oficjalna wartość strony).",
+        "ascent": "Brak opublikowanej sumy podejść.",
+        "duration_estimate": "Około 1 h jazdy netto przy założeniu 12 km/h; nie obejmuje pieszego przekroczenia koryta Ezousa, którego czasu nie podano.",
+        "surface_bike": "Nawierzchnie mieszane: nadmorska ścieżka rowerowa, następnie dirt road. Strona wymaga roweru MTB i klasyfikuje trasę jako łatwą–średnią; nie jest to gwarancja łatwości dla początkujących.",
+        "traffic_safety": "Ścieżka rowerowa opisana tylko na odcinku do Geroskipou Tourist Beach. Dalsze drogi, obecność ruchu i bezpieczeństwo nie zostały potwierdzone. Koryto Ezousa przechodzi się pieszo.",
+        "return_logistics": "Start podany przez źródło to Pafos Port; dojazd z hotelu nie został sprawdzony. Powrót z Timi z rowerem nie jest potwierdzony. Nie przedstawiać jako praktycznej wycieczki bez uprzedniego uzgodnienia transportu z rowerem albo sprawdzenia bezpiecznego, legalnego powrotu; nie zakładać autobusu ani taksówki z rowerem.",
+        "stops_risks": "Źródło opisuje Geroskipou Tourist Beach, Timi beach i pobliski gaj eukaliptusowy z miejscem piknikowym. Piesze przekroczenie koryta rzeki oraz odcinek gruntowy wymagają oceny bieżących warunków; dostępność i otwarcie niepotwierdzone.",
+        "rental": "Do potwierdzenia: MTB, dostępność w wybranym terminie, godziny, cena, kask i zasady dostawy/zwrotu.",
+        "source_ids": ["SRC-CYCLE-TIMI-12", "SRC-HUNT", "SRC-HUNT-MAP"],
+        "gpx_url": null
+      },
+      {
+        "id": "CYCLE-TIMI-166",
+        "corridor": "Pafos–Timi",
+        "title": "Pafos 2 Kato Pafos–Timi Forest — wariant asfaltowy 16,6 km",
+        "route": "Pafos Harbour → Geroskipou Tourist Beach → stary odcinek drogi Pafos–Limassol → Timi coast.",
+        "start": "Pafos Harbour",
+        "finish": "Timi coast",
+        "route_type": "Liniowa; oficjalna tabela podaje Loop: NO.",
+        "distance": "16,6 km (oficjalna wartość strony).",
+        "ascent": "76 m (oficjalna suma podejść).",
+        "duration_estimate": "Około 1 h 23 min jazdy netto przy założeniu 12 km/h; założenie wspólne wyjaśniono poniżej kart.",
+        "surface_bike": "Oficjalnie całość po asfalcie, teren opisany jako płaski; wymagany rower touringowy lub szosowy. Brak wskazanego poziomu doświadczenia — nie zakładać, że nadaje się dla początkujących.",
+        "traffic_safety": "Strona potwierdza asfalt, ale nie podaje natężenia ruchu, ciągłości infrastruktury rowerowej ani oceny bezpieczeństwa. Nie traktować samego asfaltu jako gwarancji bezpiecznej jazdy.",
+        "return_logistics": "Start podany przez źródło to Pafos Harbour; dojazd z hotelu nie został sprawdzony. Powrót z Timi z rowerem nie jest potwierdzony. Potrzebne wcześniejsze uzgodnienie transportu roweru lub sprawdzenie legalnego i bezpiecznego powrotu; oficjalna trasa jest jednokierunkowa.",
+        "stops_risks": "Strona wymienia Geroskipou Tourist Beach, Timi beach i pobliski gaj eukaliptusowy z miejscem piknikowym. Godziny dostępności i aktualne ograniczenia przy lotnisku nie są w źródle potwierdzone.",
+        "rental": "Do potwierdzenia: rower touringowy/szosowy, dostępność w wybranym terminie, godziny, cena, kask i zasady dostawy/zwrotu.",
+        "source_ids": ["SRC-CYCLE-TIMI-166"],
+        "gpx_url": "https://www.visitcyprus.com/wp-content/uploads/2024/09/Pafos_2_GPX.gpx"
+      },
+      {
+        "id": "CYCLE-MAIN16",
+        "title": "Main 16 Pafos–Pegeia–Polis — dłuższa, wymagająca trasa liniowa",
+        "route": "Kato Pafos → Coral Bay → Pegeia → Kathikas → Prodromi → Polis Chrysochous.",
+        "start": "Kato Pafos",
+        "finish": "Polis Chrysochous",
+        "route_type": "Liniowa; oficjalna tabela podaje Loop: NO.",
+        "distance": "43,8 km (oficjalna wartość strony).",
+        "ascent": "775 m (oficjalna suma podejść).",
+        "duration_estimate": "Około 3 h 39 min jazdy netto przy założeniu 12 km/h; 775 m podejść może wydłużyć rzeczywisty czas. Nie jest to harmonogram ani ocena wykonalności.",
+        "surface_bike": "Oficjalnie asfalt i dobrej jakości drogi; źródło określa ją jako dość trudną dla przeciętnego rowerzysty i wspomina dobry rower szosowy z 20 przełożeniami. Nie rekomendować bez doświadczenia/oceny kondycji.",
+        "traffic_safety": "Źródło nie podaje natężenia ruchu, wydzielonych dróg rowerowych ani oceny bezpieczeństwa. Jakość nawierzchni nie jest zapewnieniem o bezpieczeństwie ruchu.",
+        "return_logistics": "Start opisany przez źródło to Kato Pafos; dojazd z hotelu nie został sprawdzony. Nie ma potwierdzonego transportu powrotnego Polis–Pafos z rowerem. To tylko trop po uprzednim potwierdzeniu takiego przewozu; bez niego nie przedstawiać jako praktycznej wycieczki ani nie zakładać powrotu rowerem.",
+        "stops_risks": "Źródłowy opis wymienia Coral Bay, Pegeia, Kathikas, Prodromi i Polis oraz widoki zachodniego wybrzeża. Godziny, bieżące zamknięcia, ruch i warunki terenowe do sprawdzenia przed decyzją.",
+        "rental": "Do potwierdzenia: odpowiedni rower szosowy z przełożeniami, dostępność w wybranym terminie, godziny, cena i transport roweru.",
+        "source_ids": ["SRC-CYCLE-MAIN16"],
+        "gpx_url": "https://www.visitcyprus.com/wp-content/uploads/2024/09/Main_16_GPX.gpx"
+      }
+    ],
+    "checks_before_choice": [
+      "Poziom doświadczenia i dobór roweru pozostają nieznane; oficjalne etykiety trudności nie zastępują indywidualnej oceny.",
+      "Wypożyczalnia: typ roweru, terminowa dostępność, godziny, koszt, kask, awarie oraz odbiór i zwrot — do potwierdzenia u usługodawcy; nikt nie kontaktował się ani niczego nie rezerwował.",
+      "Dla tras liniowych potwierdzić wcześniej legalny i bezpieczny powrót wraz z rowerem. Żaden transport powrotny nie został sprawdzony.",
+      "Polowania: komunikat gov.cy z 29 X 2026, odczytany przez indeks wyszukiwarki (bezpośredni odczyt niedostępny; HTTP 403 przy kontroli 5 XI), podaje niedziele i środy 1 XI–27 XII dla zająca, kuropatwy i frankolina; granice określa dekret (SRC-HUNT). Nie przenoś tego terminu automatycznie na inne gatunki ani nie uznawaj innych dni za wolne od polowań. Dla odcinków gruntowych/leśnych i postoju przy gaju Timi sprawdzić aktualną mapę Artemis Cy i dekret (SRC-HUNT-MAP) dla dokładnego przebiegu; dopasowania tras do granic nie wykonano. Przy niejasnym obszarze lub oznakach polowania zrezygnować z odcinka.",
+      "Przed wyborem sprawdzić aktualną pogodę, stan nawierzchni, zamknięcia, ograniczenia przy lotnisku, ruch drogowy i dostęp do punktów. Strony źródłowe nie potwierdzają warunków w terminie wyjazdu."
+    ],
+    "not_selected": "Pafos 1 nie jest wśród propozycji: oficjalna strona odczytana 2026-11-05 opisuje przejazd przez Agia Varvara, Episkopi, Tsada i Armou oraz wspomina łatwiejszą drogę powrotną; podaje link do GPX, ale w tekście nie publikuje dystansu ani sumy podejść. Samej obecności GPX nie analizowano, więc brakujących statystyk nie dopisujemy."
+  },
   "revision_log": [
     {
       "id": "CHANGE-01",
@@ -4152,6 +4248,12 @@
       "from": "V2 otwarte: nowe miejsca bez potwierdzonych godzin/wstępu/współrzędnych",
       "to": "1.2.3: zweryfikowane godziny/wstęp/telefony/współrzędne dla Kourion, Kolossi, Neophytos, Chrysorrogiatissa, Geroskipou, Pissouri, Hala Sultan Tekke, Choirokoitia, Coral Bay, Lefkara",
       "reason": "Domknięcie V2 (sekcja 16); źródła VisitCyprus 5 XI 2026; Varosha/Love Bridge/Kamara/Drzewo blijven do potwierdzenia na miejscu."
+    },
+    {
+      "id": "CHANGE-15",
+      "from": "1.2.3: brak sekcji rowerowej; metadane i odcisk SHA z 4 XI 2026",
+      "to": "1.2.4: statyczna, niedatowana sekcja Wycieczki rowerowe z cycling_options (3 propozycje Visit Cyprus), źródła SRC-CYCLE-*; render bez JavaScriptu i w druku; aktualizacja 5 XI 2026",
+      "reason": "Zadanie 2026-11-05-ROWER: dane i ograniczenia oznaczone do potwierdzenia; bez zmian planu bazowego, rezerwacji, pieszych tras i zdjęć."
     }
   ]
 }
