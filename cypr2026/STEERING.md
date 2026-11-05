@@ -41,6 +41,19 @@ Zachowaj dotychczasowe zmiany, ale **nie używaj planu na wyjeździe**, dopóki 
 - Nie zmieniaj rezerwacji ani planu bazowego. Dodaj wpisy do `alternatives` i `open_issues`; każdy fakt ze źródłem i datą sprawdzenia.
 - Priorytet: najpierw wykonalność i bezpieczeństwo, potem propozycje.
 
+## NOWE ZADANIE — 2026-11-05 (priorytet nadrzędny)
+
+Wykonuj **`cypr2026/ZADANIE-2026-11-05.md`** przed wszystkimi starszymi dyrektywami z tego pliku. Skrót:
+
+- Zweryfikuj **wszystkie** informacje i źródła w `cypr2026`; każdy fakt z datą sprawdzenia, bez fikcji i cichych `null`.
+- Sprawdź nowe miejsca (Varosha/Famagusta, Cape Greco/Drzewo Kochanków/Love Bridge/Kamara, Kourion/Kolossi/Neofytos/Chrysorrogiatissa/Geroskipou/Pissouri/Lefkara/Larnaka/Choirokoitia/Coral Bay) na oficjalnych stronach.
+- Zaproponuj 5–10 nowych realnych rzeczy, z dojazdem, parkingiem, godzinami, światłem, ryzykiem i źródłem; dodaj jako opcje, nie zmieniaj planu bazowego.
+- Zaudytuj **wszystkie 71 zdjęć** i uzupełnij braki: nowe miejsca i wszystkie trasy po 3–4 zweryfikowane kadry, jeden lead; scenic/praktyczne miejsca w miarę możliwości.
+- Preferuj **najnowsze** zdjęcia (2025–2026, potem 2024); cel ≥75% dat ≥2024; wymień stare kadry, gdzie jest nowszy odpowiednik.
+- Tylko prawdziwe zdjęcia: zero AI, stocku i „podobnych” miejsc; źródło Commons, data, miejsce, 2 dowody, lokalne warianty 480/800/1280/1920 AVIF/WebP/JPEG.
+- Utwórz `cypr2026/ZDJECIA-AUDYT.md` z macierzą pokrycia wszystkich dni, miejsc i tras.
+- `STATUS: DONE` dopiero po odhaczeniu sekcji 16 w `PLAN-REVIEW.md` i przejściu runnera (`photo_check`).
+
 ## Jak pisać
 
 - Jedna dyrektywa = jedna linia, konkretnie: „najpierw…”, „nie zmieniaj…”, „dodaj tylko…”.

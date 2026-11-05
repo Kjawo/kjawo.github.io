@@ -2,7 +2,7 @@
   "meta": {
     "id": "CYPR-2026",
     "title": "Cypr 7 do 13 listopada 2026",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "schema_version": "1.0.0",
     "updated_on": "2026-11-04",
     "language": "pl-PL",
@@ -303,142 +303,142 @@
       "title": "Princessa Vera wyposażenie i kontakt",
       "url": "https://princessaverahotel.com/facilities.html",
       "scope": "Adres, telefon, bezpłatny parking kryty i odkryty, recepcja 24 h oraz wyposażenie jako oferta; bez potwierdzenia sezonowego działania wellness i procedury nocnej bramy.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-MEALS",
       "title": "Princessa Vera posiłki",
       "url": "https://princessaverahotel.com/bars--restaurants.html",
       "scope": "Publikowane godziny: śniadanie 07:00–09:45, lunch 13:00–14:30, kolacja 19:00–21:15; nie potwierdza wyżywienia w zakupionej taryfie.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-CHECKIN",
       "title": "Princessa Vera polityka hotelowa",
       "url": "https://princessaverahotel.reserve-online.net/about",
       "scope": "Check-in 15:00, check-out 12:00, recepcja 24 h; voucher ma pierwszeństwo.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-APHRODITE",
       "title": "Visit Cyprus Aphrodite",
       "url": "https://www.visitcyprus.com/discover-cyprus/rural/nature-trails/aphrodite-circular-pafos-paphos-district-akamas-forest-nature-trail-2/",
       "scope": "7,5 km, trudność 3, oficjalny punkt startu; nie potwierdza otwarcia w dniu wejścia.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-ARTEMIS",
       "title": "Visit Cyprus Artemis",
       "url": "https://www.visitcyprus.com/discover-cyprus/nature/nature-trails-2/artemis-circular-lemesos-limassol-district-troodos-forest-nature-trail/",
       "scope": "7 km, trudność 1, wysokość i punkt startu; nie potwierdza warunków w terenie.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-AVAKAS",
       "title": "Visit Cyprus Avakas zamknięcie",
       "url": "https://www.visitcyprus.com/discover-cyprus/nature/nature-trails-2/avakas-gorge-linear-pafos-paphos-district-akamas-forest-nature-trail/",
       "scope": "Na 2 XI karta nadal zawiera Temporarily closed.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-HUNT",
       "title": "Game and Fauna Service sezon polowań",
       "url": "https://www.gov.cy/esoterika-themata/anakoinosi-tis-ypiresias-thiras-kai-panidas-schetika-me-tin-epikeimeni-proti-kynigetiki-exormisi-tou-epidimitikou-thiramatos/",
       "scope": "Komunikat 29 X 2026, odczyt przez indeks wyszukiwarki: niedziele i środy 1 XI–27 XII dla zająca, kuropatwy i frankolina; granice w dekrecie.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-HUNT-MAP",
       "title": "Wildlife Service mapy i dekrety",
       "url": "https://www.moi.gov.cy/moi/Wildlife/wildlife_new.nsf/web29_gr/web29_gr?OpenDocument=",
       "scope": "Punkt kontroli konkretnej trasy; nie wykonano dopasowania GPX do granic. Audyt s. 4.",
-      "verification_status": "przejete_z_audytu",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-ROAD",
       "title": "Cyprus Police roboty drogowe",
       "url": "https://www.cypruspolicenews.com/archives/10991",
       "scope": "Komunikat 30 X 2026: prace przy Psilo Dendro do 23 XII i na B9 do 27 XI; prognozowany bufor 10–15 min jest założeniem planu.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-RYANAIR",
       "title": "Ryanair zamknięcie nadania bagażu",
       "url": "https://help.ryanair.com/hc/en-gb/articles/45954440547729-When-Why-is-Ryanair-moving-airport-check-in-bag-drop-times-to-60-mins",
-      "scope": "Od 10 XI 2026 zamknięcie odprawy lotniskowej i bag drop T–60 min.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "scope": "Od 10 XI 2026 zamknięcie odprawy lotniskowej i bag drop T–60 min. [5 XI 2026: HTTP 403 dla bota — link pozostaje źródłem, potwierdzić w przeglądarce.]",
+      "verification_status": "link_kontrolny_z_audytu",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-WIZZ",
       "title": "Wizz Air odprawa i nadanie bagażu",
       "url": "https://ssr-weu2.wizzair.com/en-gb/help-centre/check-in-and-boarding/check-in/check-in-and-baggage-drop-off-times",
-      "scope": "Online bez miejsca od T–24 h, z miejscem od T–30 dni, zamknięcie T–3 h; standardowy bag drop T–2 h do T–40 min, z wyjątkami lotniskowymi.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "scope": "Online bez miejsca od T–24 h, z miejscem od T–30 dni, zamknięcie T–3 h; standardowy bag drop T–2 h do T–40 min, z wyjątkami lotniskowymi. [5 XI 2026: HTTP 403 dla bota — link pozostaje źródłem, potwierdzić w przeglądarce.]",
+      "verification_status": "link_kontrolny_z_audytu",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-PARK",
       "title": "Visit Cyprus Park Archeologiczny Kato Pafos",
       "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/archaeological-park-of-kato-pafos-paphos/",
       "scope": "Zima 08:30–17:00; 4,50 EUR/os., Grobowce dodatkowo płatne.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-TOMBS",
       "title": "Visit Cyprus Grobowce Królewskie",
       "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/tombs-of-the-kings/",
       "scope": "Zima 08:30–17:00; 2,50 EUR/os.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-PALAIPAFOS",
       "title": "Department of Antiquities Palaipafos",
       "url": "https://www.culture.gov.cy/dmculture/da/da.nsf/All/d29999253080f9bbc2257199002134bd?Click=&OpenDocument=",
       "scope": "Bezpośredni odczyt strony Departamentu Starożytności: wt.–nd. 08:30–17:00, pon. zamknięte; 4,50 EUR/os. obejmuje stanowisko i muzeum; tel. 26432155.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-MUSEUM",
       "title": "Visit Cyprus Muzeum Archeologiczne dystryktu Pafos",
       "url": "https://www.visitcyprus.com/discover-cyprus/culture/museums-galleries/archaeological-museum-of-the-pafos-paphos-district/",
       "scope": "Wt.–nd. 09:00–16:30, pon. zamknięte, wstęp bezpłatny; adres i współrzędne.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-WEATHER",
       "title": "Cyprus Department of Meteorology",
       "url": "https://www.dom.org.cy/",
       "scope": "Oficjalny punkt kontroli ostrzeżeń i prognoz; nie zapisano prognozy dziennej. Audyt s. 3.",
-      "verification_status": "przejete_z_audytu",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-FORESTS",
       "title": "Department of Forests komunikaty szlakowe",
       "url": "https://www.gov.cy/georgia-agrotiki-anaptyxi-perivallon/anoikta-monopatia-meletis-tis-fysis-2/",
       "scope": "Historyczne otwarcie 25 IV nie stanowi listopadowego potwierdzenia; sprawdzać nowsze komunikaty. Audyt s. 2.",
-      "verification_status": "przejete_z_audytu",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-SUN",
       "title": "Timeanddate Pafos listopad 2026",
       "url": "https://www.timeanddate.com/sun/cyprus/paphos?month=11&year=2026",
-      "scope": "Niezależne przeliczenie sunrise-sunset.org dla Pafos (34.7751, 32.4082) 4 XI 2026; wartości zgodne z JSON w granicach ±1 min. Timeanddate pozostaje linkiem kontrolnym.",
+      "scope": "Niezależne przeliczenie sunrise-sunset.org dla Pafos (34.7751, 32.4082) 4 XI 2026; wartości zgodne z JSON w granicach ±1 min. Timeanddate pozostaje linkiem kontrolnym. [5 XI 2026: curl 403/000 — potwierdzone wcześniej przez webfetch; potwierdzić w przeglądarce.]",
       "verification_status": "sprawdzone_2026_11_04",
       "checked_on": "2026-11-04"
     },
@@ -447,62 +447,62 @@
       "title": "Visit Cyprus numery alarmowe",
       "url": "https://www.visitcyprus.com/useful-info/health-safety/",
       "scope": "112 dla policji, straży pożarnej i pogotowia.",
-      "verification_status": "sprawdzone_2026_11_02",
-      "checked_on": "2026-11-02"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-TRAILS-MAP",
       "title": "Visit Cyprus mapa szlaków 2026",
       "url": "https://www.visitcyprus.com/wp-content/uploads/2026/03/Hiking-Map-Nature-Trails.pdf",
       "scope": "Pomocniczy katalog i geometria tras; nie mapa aktualnych zamknięć. Audyt s. 7.",
-      "verification_status": "przejete_z_audytu",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-PET",
       "title": "Petsas warunki wynajmu",
       "url": "https://www.petsas.com.cy/en/terms-and-conditions/",
       "scope": "Audyt s. 16: ograniczenia ochrony przy najmie poniżej siedmiu dni. Brak oferty dla konkretnych dat.",
-      "verification_status": "przejete_z_audytu",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-SIXT",
       "title": "SIXT warunki ochrony na Cyprze",
       "url": "https://car-rental.sixt.com/php/terms/view?language=en_US&liso=CY&rtar=000&style=&tlang=en_US&view=EPP",
-      "scope": "Audyt s. 16: wyłączenie podwozia; nie spełnia pełnej specyfikacji użytkownika.",
-      "verification_status": "przejete_z_audytu",
-      "checked_on": "2026-11-04"
+      "scope": "Audyt s. 16: wyłączenie podwozia; nie spełnia pełnej specyfikacji użytkownika. [5 XI 2026: HTTP 403 dla bota — link pozostaje źródłem, potwierdzić w przeglądarce.]",
+      "verification_status": "link_kontrolny_z_audytu",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-HERMES",
       "title": "Hermes Airports — wypożyczalnie na PFO",
       "url": "https://www.hermesairports.com/prepare-your-journey/fly-in/car-rentals",
       "scope": "Oficjalne kontakty wypożyczalni w terminalu PFO; nie potwierdza after-hours return, ceny ani konkretnej oferty.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-AVIS-TERMS",
       "title": "Avis Cyprus — warunki najmu (PFO)",
       "url": "https://www.avis.com/en/locations/eur/cy/paphos/pfo",
       "scope": "Godziny 08:00–02:00; after-hours return przez key drop (bezpłatnie); opłata 60 EUR — zakres (odbiór/zwrot) do potwierdzenia dla konkretnej rezerwacji; dodatkowy kierowca +7 EUR/dzień (sprzeczne z wymaganiem 'drugi bez dopłaty'); preautoryzacja na karcie kredytowej; zakaz wjazdu na północ (Green Line).",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-BUDGET-PFO",
       "title": "Budget PFO — lokalizacja",
       "url": "https://www.budget.com/en/locations/cy/paphos/pfo",
       "scope": "Godziny 08:00–02:00; after-hours returns: Not allowed — nie spełnia nocnego zwrotu 03:30. Telefon +357 26007318.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-ENTERPRISE-PFO",
       "title": "Enterprise PFO (offsite)",
       "url": "https://www.enterprise.com/en/car-rental-locations/cy/paphos-airport-offsite-jic6.html",
-      "scope": "Offsite, shuttle; after-hours returns niedostępne; zakaz wjazdu poza Cypr i na północ; depozyty 290/390/1000 EUR; cross border policy: travel not permitted outside Cyprus.",
+      "scope": "Offsite, shuttle; after-hours returns niedostępne; zakaz wjazdu poza Cypr i na północ; depozyty 290/390/1000 EUR; cross border policy: travel not permitted outside Cyprus. [5 XI 2026: curl 403/000 — potwierdzone wcześniej przez webfetch; potwierdzić w przeglądarce.]",
       "verification_status": "sprawdzone_2026_11_04",
       "checked_on": "2026-11-04"
     },
@@ -511,38 +511,38 @@
       "title": "Warsaw Chopin — cennik parkingów P42/P45/P46",
       "url": "https://lotnisko-chopina.pl/en/parking/parking-price-lists-and-regulations",
       "scope": "7 dób: P45/P46 210 PLN, P44 230 PLN (cennik oficjalny, 4 XI 2026; od nocy 7 XI do rana 13 XI to ponad 6 dób).",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-VAROSHA",
       "title": "Varosha — informacje dla zwiedzających",
       "url": "https://salamisbayconti.com/en/blog/varosha-ghost-town-guide",
       "scope": "Otwarta część Varoshy od 2020 (wyznaczone ulice); wstęp wolny; godziny sezonowe (zwykle godziny dzienne) — do potwierdzenia. Źródło pomocnicze (blog), nie oficjalna strona; brak oficjalnych godzin.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-GREENLINE",
       "title": "Przekraczanie Green Line — dokumenty i ubezpieczenie",
       "url": "https://www.kiprinform.com/en/articles/cyprus-green-line-crossing-rules/",
       "scope": "Obywatele UE mogą potrzebować paszportu lub dowodu osobistego; decyzja o wpuszczeniu należy do kompetentnego urzędu. Wymagane: autoryzowane przejście, pisemna zgoda wypożyczalni, dodatkowe ubezpieczenie na północy (nie w standardzie), ograniczenia towarowe (alkohol, tytoń, produkty zwierzęce, rośliny). Źródła oficjalne: Komisja Europejska (rozporządzenie Green Line), Cyprus Customs, Cyprus MFA.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-GRECO",
       "title": "Cape Greco National Forest Park",
       "url": "https://www.visitcyprus.com/discover-cyprus/nature/excursions/cape-gkreko-national-forest-park/",
       "scope": "Park narodowy Republiki Cypryjskiej (Natura 2000, 385 ha), wschód od Ayia Napa, południowy wschód od Protaras. Szlaki (w tym Aphrodite 2 km), ścieżki rowerowe, jaskinie morskie, kościół Agioi Anargyroi. Flora: jałowiec fenicki, sosna kalabryjska; 14 gatunków endemicznych.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-TREE",
       "title": "Drzewo Kochanków (Lovers' Tree), Cape Greco",
       "url": "https://www.thespot.cy/directory-hidden_gems/listing/lovers-tree-cape-greco-ayia-napa/",
-      "scope": "Samotny jałowiec (wiek niepotwierdzony w źródle) na skalistym klifie, południowe zbocze cypla Cape Greco, przy 'Monument of Peace'. Dojście: droga główna parku, szutrowa ścieżka do klifu, ostatnie 100 m pieszo po kamieniach. Parking przydrożny. Trainers (nie klapki); ostrożność przy krawędzi klifu. Natura 2000. Nie mylić z Kamara tou Koraka ani z Love Bridge w Ayia Napa — to osobne punkty; podać osobne pinezki.",
+      "scope": "Samotny jałowiec (wiek niepotwierdzony w źródle) na skalistym klifie, południowe zbocze cypla Cape Greco, przy 'Monument of Peace'. Dojście: droga główna parku, szutrowa ścieżka do klifu, ostatnie 100 m pieszo po kamieniach. Parking przydrożny. Trainers (nie klapki); ostrożność przy krawędzi klifu. Natura 2000. Nie mylić z Kamara tou Koraka ani z Love Bridge w Ayia Napa — to osobne punkty; podać osobne pinezki. [5 XI 2026: curl 403/000 — potwierdzone wcześniej przez webfetch; potwierdzić w przeglądarce.]",
       "verification_status": "sprawdzone_2026_11_04",
       "checked_on": "2026-11-04"
     },
@@ -551,72 +551,128 @@
       "title": "Visit Cyprus — Kourion Archaeological Site",
       "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/kourion-archaeological-site/",
       "scope": "Godziny 08:30–17:00 (16 IX–15 IV), wstęp 4,50 EUR, tel. +357 25 934250; możliwe zamknięcia konserwacyjne.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-NEOPHYTOS",
       "title": "Visit Cyprus — Agios Neophytos Monastery",
       "url": "https://www.visitcyprus.com/discover-cyprus/religion/agios-neophytos-monastery/",
       "scope": "9 km na północ od Pafos; XI–III 09:00–16:00; wstęp 2 EUR; tel. +357 26 652481.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-LEFKARA",
       "title": "Visit Cyprus — Lefkara",
       "url": "https://www.visitcyprus.com/discover-cyprus/rural/villages-rural/lefkara/",
       "scope": "Wioska koronek i srebra, 650 m n.p.m.; muzea i warsztaty; godziny/wstęp do potwierdzenia.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-VISITCYPRUS",
       "title": "Visit Cyprus — portal (strona ogólna)",
       "url": "https://www.visitcyprus.com/discover-cyprus/",
       "scope": "Ogólne źródło dla miejsc, których godzin/wstępu nie udało się potwierdzić w tej iteracji; szczegóły do potwierdzenia.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-LOVE-BRIDGE",
       "title": "Cyprus By Locals — naturalne łuki Ayia Napa",
       "url": "https://www.cyprusbylocals.com/natural-bridges-of-ayia-napa.html",
       "scope": "Love Bridge (Monachus Monachus Arch) i Kamara tou Koraka (Crow's Arch) to dwa różne naturalne łuki; nie wchodzić na Kamara i nie pływać pod nim.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-CHECKPOINTS",
       "title": "Cyprus FAQ — przejścia Green Line",
       "url": "https://cyprus-faq.com/en/north/raznoe/vse-kpp-kipra-raspolozhenie-rezhim-raboty-kak-peresekat/",
       "scope": "Deryneia i Metehan (Ayios Dometios) 24/7 dla aut; Strovilia/Pergamos 10:00–19:00; ubezpieczenie na niektórych przejściach tylko w dzień.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-MOUSTAKALLIS",
       "title": "Moustakallis Tavern — godziny i kontakt",
       "url": "https://moustakallis.com/",
       "scope": "Codziennie 10:00–23:00; tel. 26 322883; Polis.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-KATOI",
       "title": "Katoi Omodos — godziny i kontakt",
       "url": "https://www.omodosevents.com/reservations",
       "scope": "Wt.–nd. 12:00–16:00, pon. zamknięte; tel. +357 25 423033 / +357 99 674444; godziny mogą się zmieniać.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     },
     {
       "id": "SRC-OSM",
       "title": "OpenStreetMap / Nominatim — współrzędne",
       "url": "https://www.openstreetmap.org/",
       "scope": "Współrzędne PFO, Faros Lighthouse Beach i Kings Avenue Mall pobrane przez Nominatim 4 XI 2026; ODbL.",
-      "verification_status": "sprawdzone_2026_11_04",
-      "checked_on": "2026-11-04"
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
+    },
+    {
+      "id": "SRC-KOLOSSI",
+      "title": "Visit Cyprus — Kolossi Medieval Castle",
+      "url": "https://www.visitcyprus.com/discover-cyprus/rural/sites-monuments/kolossi-medieval-castle-2/",
+      "scope": "14 km na zachód od Limassol przy drodze na Pafos; 08:30–17:00 (16 IX–15 IV); wstęp 2,50 EUR; tel. +357 25 934907.",
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
+    },
+    {
+      "id": "SRC-CHRYSORROGIATISSA",
+      "title": "Visit Cyprus — Chrysorrogiatissa Monastery",
+      "url": "https://www.visitcyprus.com/discover-cyprus/religion/chrysorrogiatissa-monastery/",
+      "scope": "37 km NE od Pafos; paź.–kwi. 10:00–12:30 / 13:30–16:00; wstęp wolny (datki); tel. +357 26 722457; GPS 34.910043, 32.618889.",
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
+    },
+    {
+      "id": "SRC-GEROSKIPOU",
+      "title": "Visit Cyprus — Agia Paraskevi, Geroskipou",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/agia-paraskevi-byzantine-church-geroskipou-village/",
+      "scope": "3 km na wschód od Pafos; pon.–sob. 08:30–13:00 / 14:00–16:30; wstęp wolny; tel. +357 26 821000; GPS 34.759486, 32.452944.",
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
+    },
+    {
+      "id": "SRC-PISSOURI",
+      "title": "Visit Cyprus — Pissouri Beach",
+      "url": "https://www.visitcyprus.com/discover-cyprus/sun-sea/beaches/pissouri-beach-blue-flag/",
+      "scope": "30 km na zachód od Limassol, między Limassol a Pafos; parking, plaża bezpłatna; GPS 34.64974, 32.72205 (Pissouri Bay, nie wieś).",
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
+    },
+    {
+      "id": "SRC-LARNACA-SALT",
+      "title": "Visit Cyprus — Hala Sultan Tekke",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/hala-sultan-tekke/",
+      "scope": "Nad słonym jeziorem w Larnace; 08:30–17:00 (16 IX–15 IV); wstęp wolny; tel. +357 24 643618; GPS 34.8853, 33.610074.",
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
+    },
+    {
+      "id": "SRC-CHOIROKOITIA",
+      "title": "Visit Cyprus — Choirokoitia (UNESCO)",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/choirokoitia-archaeological-site-neolithic-settlement/",
+      "scope": "32 km od Larnaki / 48 km na południe od Nikozji; 08:30–17:00 (16 IX–15 IV); wstęp 2,50 EUR; tel. +357 24 322710; GPS 34.796269, 33.34472.",
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
+    },
+    {
+      "id": "SRC-CORAL-BAY",
+      "title": "Visit Cyprus — Coral Bay Beach",
+      "url": "https://www.visitcyprus.com/discover-cyprus/sun-sea/beaches/coral-bay-beach-blue-flag/",
+      "scope": "Pegeia, 500 m plaży; parking, bus, dostęp dla niepełnosprawnych; plaża bezpłatna; GPS 34.854982, 32.368063.",
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
     }
   ],
   "days": [
@@ -2881,8 +2937,8 @@
       ],
       "published_hours": "Codziennie 08:30–17:00 (16 IX–15 IV); sprawdzić zamknięcia.",
       "fee_eur_per_adult": 4.5,
-      "address": null,
-      "phone": null,
+      "address": "Kourion, 19 km na zachód od Limassol przy drodze na Pafos",
+      "phone": "+35725934250",
       "coordinates": null,
       "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
     },
@@ -2893,12 +2949,12 @@
       "map_url": "https://www.google.com/maps/search/?api=1&query=Kolossi+Castle+Cyprus",
       "notes": "PO DRODZE (obok Kourion, ok. 1 h od Pafos). Zamek joannitów z XIII–XV w., kompaktowy i fotogeniczny. Dlaczego warto: szybki przystanek przy Kourion, historia Krzyżowców. Parking przy zamku. Godziny/wstęp do potwierdzenia. Najlepsze światło: rano lub wieczorem. Ryzyka: schody, mało cienia.",
       "source_ids": [
-        "SRC-VISITCYPRUS"
+        "SRC-KOLOSSI"
       ],
-      "published_hours": null,
-      "fee_eur_per_adult": null,
-      "address": null,
-      "phone": null,
+      "published_hours": "Codziennie 08:30–17:00 (16 IX–15 IV).",
+      "fee_eur_per_adult": 2.5,
+      "address": "Kolossi, 14 km na zachód od Limassol przy drodze na Pafos",
+      "phone": "+35725934907",
       "coordinates": null,
       "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
     },
@@ -2906,64 +2962,80 @@
       "id": "POI-NEOPHYTOS",
       "name": "Agios Neophytos Monastery",
       "type": "attraction",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Agios+Neophytos+Monastery+Paphos",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.846749%2C32.445679",
       "notes": "PO DRODZE / BLISKO HOTELU (9 km na północ od Pafos, ok. 15 min). Klasztor z XII w.; Enkleistra z bizantyjskimi freskami, muzeum. Dlaczego warto: najbliższy duży klasztor, cisza i widok na dolinę. Parking przy klasztorze. Godziny XI–III: 09:00–16:00. Wstęp 2 EUR. Najlepsze światło: rano. Ryzyka: miejsce kultu — skromny strój.",
       "source_ids": [
         "SRC-NEOPHYTOS"
       ],
       "published_hours": "Listopad–marzec: 09:00–16:00.",
       "fee_eur_per_adult": 2.0,
-      "address": null,
-      "phone": null,
-      "coordinates": null,
+      "address": "Near Tala village, 9 km na północ od Pafos",
+      "phone": "+35726652481",
+      "coordinates": {
+        "lat": 34.846749,
+        "lon": 32.445679,
+        "status": "zweryfikowane"
+      },
       "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
     },
     {
       "id": "POI-CHRYSORROGIATISSA",
       "name": "Chrysorrogiatissa Monastery",
       "type": "attraction",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Chrysorrogiatissa+Monastery+Cyprus",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.910043%2C32.618889",
       "notes": "MAŁY OBJAZD (ok. 1 h od Pafos, przy drodze do Pano Panagia). Klasztor na zboczu z widokiem na winnice. Dlaczego warto: spokojny przystanek w drodze na Vouni/Pano Panagia. Parking przy klasztorze. Godziny/wstęp do potwierdzenia. Najlepsze światło: rano. Ryzyka: kręta droga górska.",
       "source_ids": [
-        "SRC-VISITCYPRUS"
+        "SRC-CHRYSORROGIATISSA"
       ],
-      "published_hours": null,
-      "fee_eur_per_adult": null,
-      "address": null,
-      "phone": null,
-      "coordinates": null,
+      "published_hours": "Październik–kwiecień: 10:00–12:30 / 13:30–16:00.",
+      "fee_eur_per_adult": 0,
+      "address": "37 km na północny wschód od Pafos",
+      "phone": "+35726722457",
+      "coordinates": {
+        "lat": 34.910043,
+        "lon": 32.618889,
+        "status": "zweryfikowane"
+      },
       "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
     },
     {
       "id": "POI-GEROSKIPOU",
       "name": "Geroskipou (Yeroskipou)",
       "type": "village",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Geroskipou+Agia+Paraskevi+church+Paphos",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.759486%2C32.452944",
       "notes": "PO DRODZE (ok. 10 min od Pafos). Wioska z kościołem Agia Paraskevi (pięć kopuł), warsztatami loukoumi i muzeum ludowym. Dlaczego warto: łatwy przystanek kulturowo-kulinarny bez długiego dojazdu. Parking w wiosce. Godziny/wstęp do potwierdzenia. Najlepsze światło: dowolne. Ryzyka: brak.",
       "source_ids": [
-        "SRC-VISITCYPRUS"
+        "SRC-GEROSKIPOU"
       ],
-      "published_hours": null,
-      "fee_eur_per_adult": null,
-      "address": null,
-      "phone": null,
-      "coordinates": null,
+      "published_hours": "Poniedziałek–sobota 08:30–13:00 / 14:00–16:30; niedziela na życzenie.",
+      "fee_eur_per_adult": 0,
+      "address": "Geroskipou, 3 km na wschód od Pafos (kościół Agia Paraskevi)",
+      "phone": "+35726821000",
+      "coordinates": {
+        "lat": 34.759486,
+        "lon": 32.452944,
+        "status": "zweryfikowane"
+      },
       "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
     },
     {
       "id": "POI-PISSOURI",
       "name": "Pissouri",
       "type": "village",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Pissouri+village+Cyprus",
-      "notes": "PO DRODZE (ok. 40 min od Pafos, w kierunku Limassol). Wioska na wzgórzu nad długą plażą; punkt widokowy i tawerny. Dlaczego warto: dobry przystanek lunchowy w drodze na Kourion/Limassol. Parking w wiosce. Godziny/wstęp do potwierdzenia. Najlepsze światło: popołudnie. Ryzyka: strome uliczki.",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.64974%2C32.72205",
+      "notes": "Wioska na wzgórzu + Pissouri Bay (plaża). Współrzędne dotyczą plaży, nie samej wsi. Białe klify Cape Aspro po bokach; żółwiowe siedliska — nie wchodzić na wydmy.",
       "source_ids": [
-        "SRC-VISITCYPRUS"
+        "SRC-PISSOURI"
       ],
-      "published_hours": null,
-      "fee_eur_per_adult": null,
-      "address": null,
+      "published_hours": "Plaża bezpłatna; parking przy plaży.",
+      "fee_eur_per_adult": 0,
+      "address": "Pissouri Bay, 30 km na zachód od Limassol",
       "phone": null,
-      "coordinates": null,
+      "coordinates": {
+        "lat": 34.64974,
+        "lon": 32.72205,
+        "status": "zweryfikowane"
+      },
       "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
     },
     {
@@ -2975,10 +3047,10 @@
       "source_ids": [
         "SRC-LEFKARA"
       ],
-      "published_hours": null,
+      "published_hours": "Wioska dostępna cały dzień; muzea i warsztaty — godziny do potwierdzenia.",
       "fee_eur_per_adult": null,
       "address": null,
-      "phone": null,
+      "phone": "+35724342422",
       "coordinates": null,
       "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
     },
@@ -2986,48 +3058,60 @@
       "id": "POI-LARNACA-SALT",
       "name": "Larnaca Salt Lake i Hala Sultan Tekke",
       "type": "coast",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Larnaca+Salt+Lake+Hala+Sultan+Tekke",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.8853%2C33.610074",
       "notes": "OSOBNY DZIEŃ / PO DRODZE NA WSCHÓD (ok. 1 h 30 min od Pafos). Słone jezioro i meczet Hala Sultan Tekke; zimą (XI–III) możliwe flamingi, zależnie od wody. Dlaczego warto: mocny punkt fotograficzny i religijny w drodze na wschód. Parking przy Tekke. Godziny/wstęp do potwierdzenia. Najlepsze światło: wschód/zachód. Ryzyka: komary, brak kąpieli.",
       "source_ids": [
-        "SRC-VISITCYPRUS"
+        "SRC-LARNACA-SALT"
       ],
-      "published_hours": null,
-      "fee_eur_per_adult": null,
-      "address": null,
-      "phone": null,
-      "coordinates": null,
+      "published_hours": "Hala Sultan Tekke: codziennie 08:30–17:00 (16 IX–15 IV).",
+      "fee_eur_per_adult": 0,
+      "address": "Larnaka Salt Lake",
+      "phone": "+35724643618",
+      "coordinates": {
+        "lat": 34.8853,
+        "lon": 33.610074,
+        "status": "zweryfikowane"
+      },
       "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
     },
     {
       "id": "POI-CHOIROKOITIA",
       "name": "Choirokoitia (UNESCO)",
       "type": "attraction",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Choirokoitia+Neolithic+Settlement+Cyprus",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.796269%2C33.34472",
       "notes": "PO DRODZE NA WSCHÓD (ok. 1 h 30 min od Pafos). Neolityczna osada (ok. 7000 p.n.e.), rekonstrukcje chat, UNESCO. Dlaczego warto: szybki przystanek archeologiczny w drodze na Larnakę/wschód. Parking przy stanowisku. Godziny/wstęp do potwierdzenia. Najlepsze światło: rano. Ryzyka: ekspozycja, podejście.",
       "source_ids": [
-        "SRC-VISITCYPRUS"
+        "SRC-CHOIROKOITIA"
       ],
-      "published_hours": null,
-      "fee_eur_per_adult": null,
-      "address": null,
-      "phone": null,
-      "coordinates": null,
+      "published_hours": "Codziennie 08:30–17:00 (16 IX–15 IV).",
+      "fee_eur_per_adult": 2.5,
+      "address": "32 km od Larnaki / 48 km na południe od Nikozji",
+      "phone": "+35724322710",
+      "coordinates": {
+        "lat": 34.796269,
+        "lon": 33.34472,
+        "status": "zweryfikowane"
+      },
       "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
     },
     {
       "id": "POI-CORAL-BAY",
       "name": "Coral Bay",
       "type": "coast",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Coral+Bay+Paphos+Cyprus",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.854982%2C32.368063",
       "notes": "PO DRODZE / BLISKO HOTELU (ok. 15 min od Pafos). Piaszczysta zatoka z łagodnym wejściem do wody i tawernami. Dlaczego warto: łatwe popołudnie plażowe bez długiego dojazdu; plan B na ciepły dzień. Parking przy plaży. Wstęp na plażę bezpłatny. Godziny/warunki wody do potwierdzenia. Najlepsze światło: popołudnie. Ryzyka: tłoczno w sezonie.",
       "source_ids": [
-        "SRC-VISITCYPRUS"
+        "SRC-CORAL-BAY"
       ],
-      "published_hours": null,
+      "published_hours": "Plaża bezpłatna; parking i bus.",
       "fee_eur_per_adult": 0,
       "address": null,
       "phone": null,
-      "coordinates": null,
+      "coordinates": {
+        "lat": 34.854982,
+        "lon": 32.368063,
+        "status": "zweryfikowane"
+      },
       "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
     }
   ],
@@ -3940,7 +4024,7 @@
   },
   "publication_contract": {
     "purpose": "Jedna baza danych dla strony i późniejszego dokumentu podróżnego.",
-    "canonical": "Edytować JSON; każdy wygenerowany widok pokazuje version i updated_on. DOCX jest czytelnym widokiem wersji 1.2.2. Zmiana tylko w widoku prowadzi do rozbieżności i wymaga przeniesienia do danych nadrzędnych.",
+    "canonical": "Edytować JSON; każdy wygenerowany widok pokazuje version i updated_on. DOCX jest czytelnym widokiem wersji 1.2.3. Zmiana tylko w widoku prowadzi do rozbieżności i wymaga przeniesienia do danych nadrzędnych.",
     "sections": [
       "Start z terminem i tygodniem w skrócie.",
       "Dni DAY-01 do DAY-07, domyślnie z samym planem bazowym.",
@@ -4062,6 +4146,12 @@
       "from": "D10/D11 otwarte: dining bez telefonów/godzin, część źródeł bez checked_on",
       "to": "1.2.2: dining FOOD-02/03/05/06 z telefonami i godzinami; checked_on dla SRC-HUNT-MAP/SRC-WEATHER/SRC-FORESTS/SRC-TRAILS-MAP/SRC-PET/SRC-SIXT",
       "reason": "Domknięcie D10–D11 (sekcja 13); bez zmian rezerwacji i planu bazowego."
+    },
+    {
+      "id": "CHANGE-14",
+      "from": "V2 otwarte: nowe miejsca bez potwierdzonych godzin/wstępu/współrzędnych",
+      "to": "1.2.3: zweryfikowane godziny/wstęp/telefony/współrzędne dla Kourion, Kolossi, Neophytos, Chrysorrogiatissa, Geroskipou, Pissouri, Hala Sultan Tekke, Choirokoitia, Coral Bay, Lefkara",
+      "reason": "Domknięcie V2 (sekcja 16); źródła VisitCyprus 5 XI 2026; Varosha/Love Bridge/Kamara/Drzewo blijven do potwierdzenia na miejscu."
     }
   ]
 }

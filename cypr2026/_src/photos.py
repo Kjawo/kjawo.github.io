@@ -515,7 +515,7 @@ class PhotoLibrary:
         lines = [
             "# Cypr 2026 — zdjęcia, źródła i daty",
             "",
-            "72 kadry z Wikimedia Commons. Każdy wpis ma stronę pliku, prawdziwą datę, miejsce i lokalne warianty. Nie użyto AI, generative fill ani podmiany nieba.",
+            f"{len(self.photos)} zweryfikowanych kadrów z Wikimedia Commons. Każdy wpis ma stronę pliku, prawdziwą datę, miejsce i lokalne warianty. Nie użyto AI, generative fill ani podmiany nieba.",
             "",
             "| Slot | Kadr | Miejsce | Autor | Licencja | Data | Źródło |",
             "| --- | --- | --- | --- | --- | --- | --- |",

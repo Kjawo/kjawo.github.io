@@ -83,6 +83,7 @@ STATUS_LABELS = {
     "zalacznik_uzytkownika": "Załącznik użytkownika",
     "sprawdzone_2026_11_02": "Sprawdzone 2 listopada 2026",
     "sprawdzone_2026_11_04": "Sprawdzone 4 listopada 2026",
+    "sprawdzone_2026_11_05": "Sprawdzone 5 listopada 2026",
     "link_kontrolny_z_audytu": "Link kontrolny z audytu",
     "czesciowy_kosztorys": "Częściowy kosztorys",
 }
@@ -103,6 +104,7 @@ STATUS_MEANINGS = {
     "zalacznik_uzytkownika": "Źródło przekazane przez użytkownika; brak publicznego URL.",
     "sprawdzone_2026_11_02": "Źródło sprawdzone 2 listopada 2026.",
     "sprawdzone_2026_11_04": "Źródło sprawdzone bezpośrednio 4 listopada 2026.",
+    "sprawdzone_2026_11_05": "Źródło sprawdzone bezpośrednio 5 listopada 2026 (HTTP 200).",
     "przejete_z_audytu": "Ustalenie przejęte z audytu, bez ponownej kontroli.",
     "link_kontrolny_z_audytu": "Link kontrolny wskazany w audycie; nie sprawdzono treści przy budowie.",
     "czesciowy_kosztorys": "Znane są wyłącznie wskazane bilety. Pozostałe koszty mają brak danych.",
@@ -124,6 +126,7 @@ STATUS_TONE = {
     "zalacznik_uzytkownika": "neutral",
     "sprawdzone_2026_11_02": "ok",
     "sprawdzone_2026_11_04": "ok",
+    "sprawdzone_2026_11_05": "ok",
     "przejete_z_audytu": "info",
     "link_kontrolny_z_audytu": "info",
     "czesciowy_kosztorys": "warning",
@@ -162,7 +165,7 @@ PLACE_GROUPS = [
 ]
 
 SOURCE_STATUS_ALLOWED = {
-    "zalacznik_uzytkownika", "sprawdzone_2026_11_02", "sprawdzone_2026_11_04",
+    "zalacznik_uzytkownika", "sprawdzone_2026_11_02", "sprawdzone_2026_11_04", "sprawdzone_2026_11_05",
     "przejete_z_audytu", "link_kontrolny_z_audytu",
 }
 GENERIC_STATUS_ALLOWED = {

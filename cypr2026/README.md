@@ -10,10 +10,10 @@ To niezależny folder w repo `kjawo/kjawo.github.io`, gałąź `gh-pages`. Nie z
 
 `data/Cypr_2026_zrodlo_prawdy.json` jest jedynym źródłem prawdy. `index.html` jest generowany i **nie wolno go edytować ręcznie**. Zmiany wprowadzaj do JSON-a, potem uruchom build i sprawdź ostrzeżenia.
 
-Plik źródłowy po audycie 4 XI 2026 (wersja 1.1.0). SHA-256:
+Plik źródłowy po audycie 4 XI 2026 (wersja 1.2.3). SHA-256:
 
 ```text
-46247ac35d13647b4b685c4862684f8f7fca7049ee990861a1fae33382bfa28c
+d184c1f32b39908c88fa3e2abc59f11c2c66556e244f6f789541496e2f8e3446
 ```
 
 ## Build
@@ -100,7 +100,7 @@ cypr2026/
   assets/
     fonts/                    # Inter + Newsreader, lokalnie, OFL
     icons/                    # SVG + PNG 180/192/512
-    photos/                   # 20 kadrów × 4 szerokości × AVIF/WebP/JPEG
+    photos/                   # 138 kadrów × 4 szerokości × AVIF/WebP/JPEG
     vendor/leaflet/           # Leaflet 1.9.4, vendored
   _src/
     build.py
@@ -108,11 +108,11 @@ cypr2026/
   README.md
 ```
 
-Zdjęć użytkownika nie było, więc warstwa zdjęciowa korzysta wyłącznie z Wikimedia Commons. Hero jest edytorskim splitem z kadrem Petry tou Romiou; każdy dzień ma lead, a 9 miejsc i 3 trasy mają własne kadry. Nie użyto stocku, AI ani podmiany nieba. Ikony strony są inline SVG; PNG służą tylko manifestowi/PWA.
+Zdjęć użytkownika nie było, więc warstwa zdjęciowa korzysta wyłącznie z Wikimedia Commons. Hero jest edytorskim splitem z kadrem Petry tou Romiou; każdy dzień ma lead, a 25 miejsc i wszystkie 8 tras mają własne kadry. Nie użyto stocku, AI ani podmiany nieba. Ikony strony są inline SVG; PNG służą tylko manifestowi/PWA.
 
 ## Zdjęcia i licencje
 
-- **20 kadrów:** 1 hero, 7 leadów dni, 9 miejsc i 3 trasy. Dzień 7 ma kadr Ryanaira na płycie PFO — jest to widok ogólny, nie zdjęcie z listopada 2026.
+- **138 kadrów:** 1 hero, 3 kadry paska, 27 kadrów dni, 82 kadry miejsc i 25 kadrów tras. Dzień 7 ma kadr Ryanaira na płycie PFO — jest to widok ogólny, nie zdjęcie z listopada 2026.
 - **Manifest:** `data/photos.json` zawiera slot, dzień/miejsce/trasę, pliki, autora, licencję, źródło, datę, GPS, opis, podpis, alt, focal point i dowody. Brak pola albo pliku zatrzymuje build.
 - **Źródła:** Wikimedia Commons, wyłącznie CC0/PD/CC BY/CC BY-SA. Autorzy i linki są w sekcji „Zdjęcia i licencje”, w `CREDITS.md` i w druku.
 - **Uczciwe podpisy:** każdy kadr mówi „widok ogólny” lub „detal” i podaje datę wykonania; żaden nie udaje listopada 2026. Alt jest opisowy, nie zaczyna się od „zdjęcie”.
@@ -173,7 +173,7 @@ Do PDF: `Ctrl/Cmd + P` → A4 → marginesy domyślne → bez grafiki tła. Stro
 
 Sprawdzone szerokości: **360, 390, 768, 1280 i 1440 px**. Widok „Dziś” sprawdzono dla dat 2026-11-06, 2026-11-09 i 2026-11-14, a zegar dla stref urządzenia: UTC, `Europe/Warsaw` i `Asia/Nicosia`.
 
-Audyt axe-core 4.10 (WCAG 2.2 AA): 0 naruszeń; 0 elementów tekstowych interfejsu poniżej 12 px (poza dekoracyjnym 7 px licznikiem klastra mapy) i 0 elementów interaktywnych poniżej 44 px (także linki autorów/licencji mają powiększony obszar klikalny). CLS w testach: 0,0003–0,0018. LCP lokalnie: 0,32–0,75 s. `html-validate` 0 błędów. Build waliduje 20 zdjęć, 240 plików, budżety i dowody; 0 brakujących plików i 0 błędów 404 obrazów.
+Audyt axe-core 4.10 (WCAG 2.2 AA): 0 naruszeń; 0 elementów tekstowych interfejsu poniżej 12 px (poza dekoracyjnym 7 px licznikiem klastra mapy) i 0 elementów interaktywnych poniżej 44 px (także linki autorów/licencji mają powiększony obszar klikalny). CLS w testach: 0,0003–0,0018. LCP lokalnie: 0,32–0,75 s. `html-validate` 0 błędów. Build waliduje 138 zdjęć, 1431 plików, budżety i dowody; 0 brakujących plików i 0 błędów 404 obrazów.
 
 Funkcje zależne od danych: pasek „światła dnia” (start/koniec trekkingu, zachód, zmierzch, zapas), filtr „Dzień na mapie” (markery i lista miejsc), pliki `.ics` oraz jednokartkowa karta do druku.
 
@@ -197,7 +197,7 @@ Klucz: `cypr2026.checklist.v1`. Reset czyści wpis w `localStorage` po potwierdz
 - JS bez Leafleta: **12,2 KB gzip** (serwowany `app.min.js`, źródło `app.js`).
 - Fonty: około 152 KB łącznie, lokalne, tylko potrzebne podzbiory. Minimalny rozmiar tekstu na ekranie to 12 px; wszystkie elementy interaktywne mają co najmniej 44 px wysokości i szerokości (także linki inline). Ikony mapy grupują bliskie punkty, żeby pozostały klikalne na telefonie.
 - Leaflet, CSS Leafleta i kafelki są ładowane dopiero przy sekcji mapy; kafelki nigdy nie trafiają do cache offline.
-- Zdjęcia: 20 kadrów / 240 plików lokalnych (27 MB w repo). W pierwszym ekranie tylko hero; pozostałe mają `loading="lazy"`. Brak analityki, cookie bannerów i zewnętrznych trackerów.
+- Zdjęcia: 138 kadrów / 1431 plików lokalnych. W pierwszym ekranie tylko hero; pozostałe mają `loading="lazy"`. Brak analityki, cookie bannerów i zewnętrznych trackerów.
 
 ## Decyzje i ograniczenia
 
