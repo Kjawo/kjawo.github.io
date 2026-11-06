@@ -2,13 +2,13 @@
 "use strict";
 
 // Updated by cypr2026/_src/build.py on every build.
-const CACHE_VERSION = "cypr-2026-1.2.14-aa9c795a33";
+const CACHE_VERSION = "cypr-2026-1.2.29-88fb2eed33";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
-  "./styles.min.css?v=aa9c795a33",
-  "./app.min.js?v=aa9c795a33",
-  "./manifest.json?v=aa9c795a33",
+  "./styles.min.css?v=88fb2eed33",
+  "./app.min.js?v=88fb2eed33",
+  "./manifest.json?v=88fb2eed33",
   "./data/Cypr_2026_zrodlo_prawdy.json",
   "./assets/fonts/inter-400-ext.woff2",
   "./assets/fonts/inter-400.woff2",

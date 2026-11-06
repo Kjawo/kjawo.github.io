@@ -2,9 +2,9 @@
   "meta": {
     "id": "CYPR-2026",
     "title": "Cypr 7 do 13 listopada 2026",
-    "version": "1.2.14",
+    "version": "1.2.29",
     "schema_version": "1.0.0",
-    "updated_on": "2026-11-05",
+    "updated_on": "2026-11-06",
     "language": "pl-PL",
     "canonical_filename": "Cypr_2026_zrodlo_prawdy.json",
     "document_filename": "Cypr_2026_plan_glowny.docx",
@@ -17,7 +17,7 @@
     {
       "id": "zarezerwowane_wg_uzytkownika",
       "label": "Zarezerwowane według użytkownika",
-      "meaning": "Loty i hotel zgodnie z przekazanymi materiałami; voucherów nie oglądano."
+      "meaning": "Rezerwacja według materiału użytkownika; potwierdza wyłącznie zakres wskazany w tym materiale, a pozostałe warunki wymagają osobnej weryfikacji."
     },
     {
       "id": "zweryfikowane",
@@ -68,7 +68,7 @@
         "SRC-AUDIT",
         "SRC-WAW-PARKING"
       ],
-      "note": "Wylot WMI Modlin, powrót WAW Chopin. Wybrać dojazd z Łodzi i powrót; parking przy WMI wymaga osobnego odzyskania auta. Rekomendacja (4 XI 2026): auto na parking WAW (P45/P46: 7 dób ok. 210 PLN, P44 ok. 230 PLN — cennik oficjalny; od nocy 7 XI do rana 13 XI to ponad 6 dób, przy rozpoczętych dobach 7); taxi/Bolt WAW→WMI 45–60 min orientacyjnie 160–230 PLN (do potwierdzenia dostępności o 02:30); alternatywa prywatny transfer Łódź→WMI orientacyjnie 350 PLN (do potwierdzenia). Transport publiczny Łódź→WMI na 03:15 niepotwierdzony — sprawdzić rozkład na 7 XI. Dodatkowy wariant do decyzji: samochód pozostawiony przy Siennickiej 27 i Uber do WMI; nie jest to rezerwacja, nie podajemy ceny ani gwarancji dostępności — sprawdzić dokładny punkt odbioru i kurs w aplikacji przed wyborem."
+      "note": "Wylot WMI Modlin, powrót WAW Chopin. Wybrać dojazd z Łodzi i powrót; parking przy WMI wymaga osobnego odzyskania auta. Rekomendacja (4 XI 2026): auto na parking WAW (P45/P46: 7 dób ok. 210 PLN, P44 ok. 230 PLN — cennik oficjalny; od nocy 7 XI do rana 13 XI to ponad 6 dób, przy rozpoczętych dobach 7); taxi/Bolt WAW→WMI 45–60 min orientacyjnie 160–230 PLN (do potwierdzenia dostępności o 02:30); alternatywa prywatny transfer Łódź→WMI orientacyjnie 350 PLN (do potwierdzenia). Transport publiczny Łódź→WMI na 03:15 niepotwierdzony — sprawdzić rozkład na 7 XI. Dodatkowy wariant do decyzji: samochód pozostawiony w prywatnym miejscu parkowania poza publicznym planem i Uber do WMI; nie jest to rezerwacja, nie podajemy lokalizacji, ceny ani gwarancji dostępności — przed wyborem ustalić punkt odbioru i sprawdzić kurs w aplikacji."
     },
     "baggage": {
       "value": {
@@ -166,28 +166,50 @@
       }
     },
     "car": {
-      "booking_status": "do_potwierdzenia",
-      "provider": null,
-      "pickup_target_at": "2026-11-07T11:30:00+02:00",
+      "booking_status": "zarezerwowane_wg_uzytkownika",
+      "provider": "Petsas",
+      "pickup_agreed_at": "2026-11-07T10:30:00+02:00",
+      "return_agreed_at": "2026-11-13T03:30:00+02:00",
+      "pickup_target_at": "2026-11-07T10:30:00+02:00",
+      "pickup_plan_target_at": "2026-11-07T11:30:00+02:00",
       "return_target_at": "2026-11-13T03:25:00+02:00",
-      "return_location": null,
+      "return_plan_target_at": "2026-11-13T03:25:00+02:00",
+       "target_at_semantics": "Pola *_agreed_at są umówionymi slotami potwierdzonymi voucherem; pickup_plan_target_at i return_plan_target_at są celami planistycznymi. pickup_target_at (10:30) i return_target_at (03:25) pozostają nazwami wymaganymi przez chroniony generator obecnych widoków/ICS: pierwsze kopiuje slot odbioru, drugie oznacza planowy przyjazd do sektora i start 45-minutowego okna ICS. To techniczne aliasy zgodności, nie odrębne fakty; generator wymaga uprawnionej zmiany, aby je usunąć. D7 summary w ICS musi wyjaśniać oba czasy.",
+      "pickup_location": "Pafos Airport (PFO)",
+      "return_location": "Pafos Airport (PFO)",
+      "vehicle_class": "C3",
+      "transmission": "automatyczna",
+      "air_conditioning": true,
+      "model_note": "Voucher wymienia Toyota Yaris / Opel Corsa; konkretny model nie jest gwarantowany.",
       "assistance_phone": null,
-      "total_price_eur": null,
+      "total_price_eur": 325.5,
+      "prepaid": true,
+      "payment_note": "Prepaid, płatność online według materiału użytkownika.",
+      "price_breakdown_eur": {
+        "vehicle_before_discount": 270,
+        "discount_percent": 15,
+        "discount_eur": -40.5,
+        "scdw": 60,
+        "tyres_windscreen_underbody": 36,
+        "total": 325.5,
+        "before_discount_total": 366
+      },
       "deposit_eur": null,
       "requirements": [
-        "Economy lub compact, preferowany automat.",
-        "PFO na terenie lotniska, planowany nocny zwrot około 03:25 (wyłącznie termin planistyczny) i dokładna instrukcja oddania kluczy.",
-        "Dwóch wpisanych kierowców; drugi bez dopłaty.",
-        "Pełny bak przy odbiorze i zwrocie; nielimitowane kilometry.",
-        "Łączna blokada na karcie najwyżej 500 EUR, łącznie z innymi zabezpieczeniami.",
-        "Pisemny zakres ochrony nadwozia, szyb, opon, felg i podwozia; udział własny i wyłączenia.",
-        "Bezpłatne anulowanie do wskazanego w ofercie terminu; potwierdzić dla najmu krótszego niż siedem dni.",
-        "Karta akceptowana przez firmę, na nazwisko kierowcy, z wymaganym limitem.",
-        "Wyjazd na północ (Varosha) tylko po pisemnej zgodzie wypożyczalni oraz pisemnym potwierdzeniu przez wypożyczalnię/ubezpieczyciela zakresu terytorialnego, szkód w wynajętym aucie, OC i assistance; samo kupno dodatkowej polisy nie dowodzi ochrony auta. Opłaty i dostępność ubezpieczenia na przejściu do potwierdzenia. Avis/Enterprise zakazują; Petsas wymaga kontaktu, zgoda do potwierdzenia."
+        "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): Economy lub compact, preferowany automat.",
+        "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): PFO na terenie lotniska, planowany nocny zwrot około 03:25 (wyłącznie termin planistyczny) i dokładna instrukcja oddania kluczy.",
+        "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): dwóch wpisanych kierowców; drugi bez dopłaty.",
+        "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): pełny bak przy odbiorze i zwrocie; nielimitowane kilometry.",
+        "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): maksymalna akceptowana łączna blokada na karcie to 500 EUR, w tym inne zabezpieczenia; nie jest to warunek Petsas ani potwierdzona kwota depozytu/preautoryzacji.",
+        "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): pisemny zakres ochrony nadwozia, szyb, opon, felg i podwozia; udział własny i wyłączenia.",
+        "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): bezpłatne anulowanie do wskazanego w ofercie terminu; potwierdzić dla najmu krótszego niż siedem dni.",
+        "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): karta akceptowana przez firmę, na nazwisko kierowcy, z wymaganym limitem.",
+        "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): wyjazd na północ (Varosha) tylko po pisemnej zgodzie wypożyczalni oraz pisemnym potwierdzeniu przez wypożyczalnię/ubezpieczyciela zakresu terytorialnego, szkód w wynajętym aucie, OC i assistance; samo kupno dodatkowej polisy nie dowodzi ochrony auta. Opłaty i dostępność ubezpieczenia na przejściu do potwierdzenia. Avis/Enterprise zakazują; Petsas wymaga kontaktu, zgoda do potwierdzenia."
       ],
-      "selection_note": "Brak zatwierdzonej firmy. Prosić o pisemną ofertę wyłącznie od firm z opisanymi kontaktami PFO: Avis (key drop; opłata 60 EUR oraz opłata za drugiego kierowcę do potwierdzenia), Petsas (24 h; warunek <7 dni/CDW/SCDW i przekroczenie granicy do potwierdzenia dla oferty), SIXT (24 h return; podwozie wyłączone według audytu, udział własny i depozyt do potwierdzenia). Żadna firma nie jest zarezerwowana ani potwierdzona jako spełniająca wszystkie wymagania; decyzję podjąć dopiero po sprawdzeniu pisemnej oferty i umowy. Budget i Enterprise nie spełniają planowanego nocnego zwrotu około 03:25; Hertz i Europcar nie mają w tym źródle zweryfikowanych kontaktów PFO ani warunków — nie rekomendować ich bez odrębnego źródła. Kontakty PFO pochodzą z oficjalnej strony Hermes Airports (4 XI 2026), nie potwierdzają rezerwacji ani after-hours return. Petsas wymaga kontaktu w sprawie przekroczenia, ale zgoda i zakres ochrony nie są automatyczne. Na północ tylko z pisemną zgodą firmy oraz pisemnym potwierdzeniem terytorialnego zakresu szkód auta, OC i assistance; sama polisa graniczna nie dowodzi ochrony auta.",
+      "selection_note": "Rezerwacja Petsas/PFO, klasa C3 automat z klimatyzacją, terminy umówione 7 XI 10:30 i 13 XI 03:30 oraz prepaid 325,50 EUR są potwierdzone wyłącznie w nieosobowym streszczeniu vouchera SRC-PETSAS-VOUCHER. Planowe cele pozostają odrębne: odbiór 11:30, przyjazd do sektora zwrotu około 03:25. Godzina odbioru jest 20 min po planowym przylocie 10:10; podróżni muszą pilnie potwierdzić z Petsas punkt spotkania/transfer, minimalny odstęp po przylocie, karencję i no-show. Dokładny sektor zwrotu, key drop i moment końca odpowiedzialności wymagają pisemnej instrukcji. Depozyt/preautoryzacja, udział własny, kilometry, paliwo, drugi kierowca, assistance oraz szczegółowe limity i wyłączenia SCDW/pakietu opon-szyb-podwozia pozostają nieznane; kupione pozycje nie potwierdzają ochrony na północy. Przed wyjazdem na północ konieczna jest pisemna zgoda Petsas i odrębne potwierdzenie terytorialnego zakresu szkód auta, OC i assistance. Kwota z vouchera nie rozstrzyga warunków najmu; sprawy otwarte opisuje TODO-CAR/TODO-PETSAS-PICKUP/TODO-RETURN/TODO-NORTH-CAR.",
       "source_ids": [
         "SRC-AUDIT",
+        "SRC-PETSAS-VOUCHER",
         "SRC-PET",
         "SRC-SIXT",
         "SRC-HERMES",
@@ -201,7 +223,7 @@
         "Poprosić o pokazanie dziennego wjazdu zwrotów i właściwej skrzynki; zapisać instrukcję offline."
       ],
       "use_rule": "Korzystać z dozwolonych asfaltowych dróg. Nie jechać ku Blue Lagoon ani leśnymi skrótami; SUV nie zmienia umowy. Dokładny korytarz wybrać w bieżącej nawigacji.",
-      "return_rule": "Pisemnie ustalić moment końca odpowiedzialności przy key drop; zdjęcia i film same nie kończą odpowiedzialności.",
+      "return_rule": "Umówiony zwrot Petsas 03:30; planowy dojazd do sektora około 03:25 i planowe okno 03:25–04:10 są osobnymi założeniami. Pisemnie ustalić sektor, key drop i moment końca odpowiedzialności; zdjęcia i film same nie kończą odpowiedzialności.",
       "provider_contacts": [
         {
           "name": "Avis PFO",
@@ -213,9 +235,9 @@
         {
           "name": "Petsas PFO",
           "phone": "+35726423046",
-          "hours": "24 h",
-          "after_hours_return": "24 h service",
-          "note": "Dodatkowy kierowca bez dopłaty. Ogólne warunki Petsas dla najmu <7 dni podają CDW z udziałem własnym 700–1000 EUR dla grup kompaktowych; SCDW może być odmówione. Zastosowanie tych warunków do konkretnej rezerwacji potwierdzić w ofercie/umowie. Opłata lotniskowa 20 EUR. Przekroczenie na północ wymaga wcześniejszego kontaktu; zgoda i zakres ochrony nie są automatyczne. Pisemnie potwierdzić u wypożyczalni/ubezpieczyciela ochronę terytorialną wynajętego auta, OC i assistance — polisa graniczna sama tego nie potwierdza. Źródło: petsas.com.cy terms (4 XI 2026)."
+          "hours": "24 h service (wg listy Petsas; tryb obsługi tej rezerwacji do potwierdzenia)",
+          "after_hours_return": "do_potwierdzenia",
+          "note": "Oficjalna lista Petsas wymienia Pafos Airport Desk w hali przylotów i oznacza usługę PFO jako 24 h; nie gwarantuje to obsługi poza godzinami ani procedury zwrotu w tej rezerwacji. Key drop, opłaty i moment końca odpowiedzialności wymagają pisemnego potwierdzenia. Ogólne warunki SRC-PET dla najmu krótszego niż 7 dni opisują udział własny zależny od grupy i możliwość odmowy SCDW; ich zastosowanie do tej rezerwacji potwierdzić w umowie. Działanie podróżnych: pilnie potwierdzić umówiony zwrot 03:30 i instrukcję nocną w TODO-RETURN; przy odbiorze 10:30 potwierdzić punkt spotkania, karencję i no-show w TODO-PETSAS-PICKUP. Źródła: SRC-PETSAS-LOCATIONS i SRC-PET (sprawdzone 2026-11-05)."
         },
         {
           "name": "SIXT PFO",
@@ -399,25 +421,25 @@
       "id": "SRC-PARK",
       "title": "Visit Cyprus Park Archeologiczny Kato Pafos",
       "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/archaeological-park-of-kato-pafos-paphos/",
-      "scope": "Zima 08:30–17:00; 4,50 EUR/os., Grobowce dodatkowo płatne.",
-      "verification_status": "sprawdzone_2026_11_05",
-      "checked_on": "2026-11-05"
+      "scope": "Oficjalna strona Visit Cyprus, bezpośrednio ponownie odczytana 2026-11-06, podaje, że Nicocles, ostatni król Palaipafos, przeniósł miasto z poprzedniej lokalizacji w pobliże portu pod koniec IV w. p.n.e.; Pafos było stolicą Cypru od II w. p.n.e. do IV w. n.e. Park obejmuje cztery rzymskie wille nazwane domami Dionizosa, Tezeusza, Aiona i Orfeusza; mozaiki przedstawiają sceny mitologii greckiej, nie kronikę wydarzeń. Godziny zimowe: 08:30–17:00; wstęp: 4,50 EUR/os., Grobowce dodatkowo płatne.",
+      "verification_status": null,
+      "checked_on": "2026-11-06"
     },
     {
       "id": "SRC-TOMBS",
       "title": "Visit Cyprus Grobowce Królewskie",
       "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/tombs-of-the-kings/",
-      "scope": "Zima 08:30–17:00; 2,50 EUR/os.",
-      "verification_status": "sprawdzone_2026_11_05",
-      "checked_on": "2026-11-05"
+      "scope": "Monumentalne grobowce wykute w skale pochodzą z okresu hellenistycznego i rzymskiego; chowano tu wysokich urzędników i arystokrację, nie królów. Część grobów naśladuje domy z perystylowym atrium, a niektóre są ozdobione kolumnami doryckimi. Publikowane godziny zimowe i cena: 08:30–17:00, 2,50 EUR/os.",
+      "verification_status": null,
+      "checked_on": "2026-11-06"
     },
     {
       "id": "SRC-PALAIPAFOS",
       "title": "Department of Antiquities Palaipafos",
       "url": "https://www.culture.gov.cy/dmculture/da/da.nsf/All/d29999253080f9bbc2257199002134bd?Click=&OpenDocument=",
-      "scope": "Bezpośredni odczyt strony Departamentu Starożytności: wt.–nd. 08:30–17:00, pon. zamknięte; 4,50 EUR/os. obejmuje stanowisko i muzeum; tel. 26432155.",
-      "verification_status": "sprawdzone_2026_11_05",
-      "checked_on": "2026-11-05"
+      "scope": "Bezpośrednio odczytana 2026-11-06 oficjalna strona Departamentu Starożytności podaje dla stanowiska i muzeum Palaipafos: wtorek–niedziela 08:30–17:00, poniedziałek zamknięte, wstęp 4,50 EUR (obejmuje stanowisko) i telefon 26 432155. Pierwsza sala muzeum w skrzydle dworu Lusignanów ma rzymską mozaikę w posadzce i eksponuje znaleziska z sanktuarium, w tym stożkowy kamień kultowy. Pokazany materiał obejmuje okres od XIII w. p.n.e. po czasy rzymskie; mozaika jest elementem sali, nie datowaniem wszystkich eksponatów. Druga sala opisuje znaleziska z okolicznych cmentarzysk od II tysiąclecia p.n.e. do czasów rzymskich.",
+      "verification_status": null,
+      "checked_on": "2026-11-06"
     },
     {
       "id": "SRC-MUSEUM",
@@ -471,7 +493,15 @@
       "id": "SRC-PET",
       "title": "Petsas warunki wynajmu",
       "url": "https://www.petsas.com.cy/en/terms-and-conditions/",
-      "scope": "Audyt s. 16: ograniczenia ochrony przy najmie poniżej siedmiu dni. Brak oferty dla konkretnych dat.",
+      "scope": "Ogólne warunki Petsas oraz audyt dotyczą m.in. ograniczeń ochrony przy najmie krótszym niż siedem dni; nie rozstrzygają zastosowania tych warunków do bieżącej rezerwacji. Konkretne terminy/cena są osobno udokumentowane nieosobowym streszczeniem vouchera SRC-PETSAS-VOUCHER; depozyt, udział własny i szczegółowa ochrona pozostają do potwierdzenia.",
+      "verification_status": "sprawdzone_2026_11_05",
+      "checked_on": "2026-11-05"
+    },
+    {
+      "id": "SRC-PETSAS-LOCATIONS",
+      "title": "Petsas — rental locations / contact details",
+      "url": "https://www.petsas.com.cy/en/rental-locations",
+      "scope": "Bezpośrednio odczytana oficjalna strona wymienia biuro Petsas w hali przylotów Pafos Airport i oznacza Pafos Airport jako usługę 24 h. Nie potwierdza obsady konkretnego stanowiska, procedury zwrotu po godzinach, key drop ani końca odpowiedzialności dla tej rezerwacji; te warunki wymagają pisemnego potwierdzenia.",
       "verification_status": "sprawdzone_2026_11_05",
       "checked_on": "2026-11-05"
     },
@@ -567,9 +597,9 @@
       "id": "SRC-NEOPHYTOS",
       "title": "Visit Cyprus — Agios Neophytos Monastery",
       "url": "https://www.visitcyprus.com/discover-cyprus/religion/agios-neophytos-monastery/",
-      "scope": "9 km na północ od Pafos; XI–III 09:00–16:00; wstęp 2 EUR; tel. +357 26 652481.",
-      "verification_status": "sprawdzone_2026_11_05",
-      "checked_on": "2026-11-05"
+      "scope": "Klasztor założony przez Neofita w drugiej połowie XII w.; wykuta przez niego Enkleistra ma freski bizantyjskie z XII–XV w. Źródło opisuje też muzeum i XVI-wieczne ikony. Godziny zimowe, wstęp i telefon jak w karcie.",
+      "verification_status": null,
+      "checked_on": "2026-11-06"
     },
     {
       "id": "SRC-LEFKARA",
@@ -647,7 +677,7 @@
       "id": "SRC-GEROSKIPOU",
       "title": "Visit Cyprus — Agia Paraskevi, Geroskipou",
       "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/agia-paraskevi-byzantine-church-geroskipou-village/",
-      "scope": "3 km na wschód od Pafos; pon.–sob. 08:30–13:00 / 14:00–16:30; wstęp wolny; tel. +357 26 821000; GPS 34.759486, 32.452944.",
+      "scope": "Visit Cyprus opisuje Agia Paraskevi jako pięciokopułową bazylikę z IX w., jedną z dwóch tego rodzaju na wyspie; malowidła pochodzą z VIII–XV w. Związek nazwy Geroskipou z ogrodami Afrodyty i dawną drogą pielgrzymią jest podany jako tradycja, a ewentualna świątynia pod kościołem jako możliwość. Karta podaje pon.–sob. 08:30–13:00 i 14:00–16:30 oraz niedzielne wizyty możliwe na życzenie; przed wizytą potwierdzić dostępność. 3 km na wschód od Pafos; telefon i GPS jak w karcie.",
       "verification_status": "sprawdzone_2026_11_05",
       "checked_on": "2026-11-05"
     },
@@ -706,6 +736,55 @@
       "scope": "Strona oficjalna odczytana 2026-11-05: trasa liniowa Kato Pafos–Polis, 43,8 km, 775 m podejść, asfalt, trudna dla przeciętnego rowerzysty; opis rekomenduje dobry rower szosowy z 20 przełożeniami. Oficjalny GPX jest podlinkowany. Powrót z Polis z rowerem, wypożyczenie, godziny i koszt nie są potwierdzone.",
       "verification_status": "sprawdzone_2026_11_05",
       "checked_on": "2026-11-05"
+    },
+    {
+      "id": "SRC-PETSAS-VOUCHER",
+      "title": "Petsas — nieosobowe streszczenie vouchera użytkownika",
+      "url": null,
+      "scope": "Użytkownik przekazał w zadaniu Night nieosobowe streszczenie: rezerwacja Petsas/Pafos Airport, odbiór 2026-11-07 10:30 i zwrot 2026-11-13 03:30 (Asia/Nicosia), C3 automat z klimatyzacją, przykładowe modele Toyota Yaris/Opel Corsa bez gwarancji konkretnego modelu; prepaid online €270 − €40,50 + €60 SCDW + €36 pakiet opon/szyb/podwozia = €325,50. Materiał nie zawiera depozytu, udziału własnego ani innych warunków najmu. Nie zapisano PII ani numeru rezerwacji.",
+      "verification_status": "zalacznik_uzytkownika",
+      "checked_on": "2026-11-05",
+      "filename": "nieosobowe streszczenie vouchera przekazane w zadaniu Night"
+    },
+    {
+      "id": "SRC-HIST-UNESCO-PAPHOS",
+      "title": "UNESCO World Heritage Centre — Paphos",
+      "url": "https://whc.unesco.org/en/list/79/",
+      "scope": "Bezpośrednio sprawdzony wpis UNESCO: obiekt obejmuje Kato Pafos i Kouklia/Palaipafos; opisuje osadnictwo od neolitu, kult Afrodyty i sanktuarium/świątynię Afrodyty w Palaipafos datowaną na XII w. p.n.e., grobowce, architekturę i mozaiki Nea Pafos od okresu hellenistycznego do bizantyjskiego. Sceny mozaik są przedstawieniami mitów, a nie zapisem wydarzeń historycznych; narodziny Afrodyty opisane są jako legenda. Wpis nie ustala miejsca narodzin przy konkretnej skale.",
+      "verification_status": null,
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-HIST-PAPHOS-MOSAICS",
+      "title": "Visit Cyprus — mozaiki Pafos",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/pafos-paphos-mosaics/",
+      "scope": "Bezpośrednio sprawdzona strona oficjalnego portalu turystycznego: wille Domu Dionizosa, Tezeusza, Aiona i Orfeusza datuje na II–V w. n.e. Dom Tezeusza nosi nazwę od mozaiki bohatera z Minotaurem; panele Domu Aiona obejmują m.in. nowo narodzonego Dionizosa. Przedstawienia są scenami mitologicznymi, nie wydarzeniami historycznymi.",
+      "verification_status": null,
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-HIST-HESIOD",
+      "title": "Perseus Digital Library — Hezjod, Teogonia 173–206",
+      "url": "https://www.perseus.tufts.edu/hopper/text?doc=Hes.+Th.+185",
+      "scope": "Bezpośrednio sprawdzony tekst antycznego poematu w przekładzie angielskim Evelyn-White (1914). W tej wersji mitu morska piana daje początek Afrodycie, która dociera najpierw na Cyterę, a następnie na Cypr. To opowieść mitologiczna, nie dowód miejsca historycznego przy Petrze tou Romiou.",
+      "verification_status": null,
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-HIST-APOLLODORUS",
+      "title": "Perseus Digital Library — Apollodoros, Biblioteka, Epitome E.7–10 i E.18–20",
+      "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.01.0022%3Atext%3DEpitome%3Abook%3DE",
+      "scope": "Bezpośrednio sprawdzony tekst mitograficzny w przekładzie angielskim J. G. Frazera (1921). Sekcje E.7–10 opowiadają o Tezeuszu, Minotaurze i nici Ariadny; E.18–20 przedstawiają jedną z wersji mitu o Fedrze i Hippolytosie. To warianty literackie, nie wydarzenia historyczne.",
+      "verification_status": null,
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-HIST-OMODOS",
+      "title": "Visit Cyprus — Worship of the Holy Cross in Cyprus Religious Route",
+      "url": "https://www.visitcyprus.com/discover-cyprus/routes/religious-routes/worship-of-the-holy-cross-in-cyprus-religious-route/",
+      "scope": "Bezpośrednio sprawdzona strona oficjalnego portalu turystycznego: opis trasy religijnej wymienia Omodos i mówi, że zwiedzający zobaczy tam fragment sznura łączonego w przekazie z ukrzyżowaniem Jezusa. Źródło nie weryfikuje autentyczności relikwii; treść modułu oznaczono jako tradycję religijną, nie fakt historyczny.",
+      "verification_status": null,
+      "checked_on": "2026-11-06"
     }
   ],
   "days": [
@@ -714,7 +793,7 @@
       "date": "2026-11-07",
       "weekday": "sobota",
       "title": "Przylot i Faros",
-      "summary": "Odbiór auta, zakwaterowanie i jeden krótki spacer po nocnej podróży.",
+      "summary": "Umówiony odbiór Petsas: 10:30; planowy cel odbioru: 11:30. Okno planu 11:15–12:30 jest założeniem planu, a nie zakresem umówionego slotu 10:30. W61417 ma planowy przylot 10:10, więc punkt spotkania, transfer, karencję i no-show potwierdzić z firmą. Harmonogram planu nie zmienia slotu vouchera.",
       "timezone": "Asia/Nicosia",
       "mode": "samolot, auto, pieszo",
       "walk_km_estimate": [
@@ -744,20 +823,20 @@
           "id": "D1-02",
           "start_local": "11:15",
           "end_local": "12:30",
-          "title": "Odbiór auta",
-          "description": "Cel 11:30; formalności i dokumentacja mogą przesunąć odbiór. Pokazanie miejsca nocnego zwrotu.",
+          "title": "Okno planistyczne po umówionym odbiorze auta",
+          "description": "Odbiór umówiony z Petsas na 10:30 według vouchera; planowy cel 11:30 i okno planu 11:15–12:30 pozostają osobnymi założeniami. Przylot W61417 planowo 10:10 — tylko 20 min przed umówioną godziną. Pilnie potwierdzić punkt spotkania/transfer, minimalny czas po przylocie, karencję przy opóźnieniu i no-show. Dokładny sektor PFO do potwierdzenia.",
           "place_ids": [
             "POI-PFO"
           ],
           "kind": "plan",
           "optional": false,
           "time_basis": "założenie planu",
-          "ics_export": false
+          "ics_export": true
         },
         {
           "id": "D1-03",
-          "start_local": "12:00",
-          "end_local": "13:15",
+          "start_local": "12:30",
+          "end_local": "13:45",
           "title": "Dojazd i bagaże",
           "description": "25–35 min jazdy plus formalności. Przechowanie bagażu przed pokojem uzgodnić.",
           "place_ids": [
@@ -769,7 +848,7 @@
         },
         {
           "id": "D1-04",
-          "start_local": "13:00",
+          "start_local": "13:45",
           "end_local": "15:00",
           "title": "Lunch i odpoczynek",
           "description": "Posiłek blisko hotelu, zakupy wody i prowiantu. Przy wcześniejszym przyjeździe pokój nie jest gwarantowany.",
@@ -792,7 +871,8 @@
           ],
           "kind": "plan",
           "optional": false,
-          "time_basis": "założenie planu"
+          "time_basis": "założenie planu",
+          "ics_export": false
         },
         {
           "id": "D1-06",
@@ -1636,7 +1716,7 @@
           "start_local": "19:00",
           "end_local": "23:59",
           "title": "Sen",
-          "description": "Cel snu około 19:00; pobudka następnego dnia około 02:15.",
+          "description": "Cel snu około 19:00; pobudka następnego dnia około 02:05.",
           "place_ids": [
             "POI-HOTEL"
           ],
@@ -1668,7 +1748,7 @@
         },
         {
           "trigger": "Awaria auta lub brak zwrotu",
-          "action": "Nie zostawiać auta bez instrukcji; ustalić taxi na PFO na 03:00 i pisemny plan zwrotu. Paliwo i pakowanie mają pierwszeństwo."
+          "action": "Nie zostawiać auta bez instrukcji; jeśli zwrotu nie da się wykonać, ustalić taxi na PFO na planowy wyjazd 02:50 lub wcześniej oraz pisemny plan zwrotu. Nie czekać do 03:00; paliwo i pakowanie mają pierwszeństwo."
         },
         {
           "trigger": "Opóźnione przygotowania",
@@ -1676,7 +1756,7 @@
         },
         {
           "trigger": "Lot odwołany lub opóźniony",
-          "action": "Sprawdzić aplikację przewoźnika; nie zakładać, że samo opóźnienie przesuwa zamknięcie bag drop. Planistyczne 05:20 opiera się na SRC-RYANAIR/linku kontrolnym i audycie; źródło zwróciło HTTP 403 przy kontroli 5 XI, więc potwierdzić zasadę i godzinę dla FR5880 w aplikacji lub przeglądarce Ryanair. Przy opóźnieniu jechać na lotnisko o 03:00 i czekać. Przy odwołaniu lotu zmianę lub przedłużenie najmu uzgodnić bezpośrednio z wypożyczalnią i uzyskać jej pisemną instrukcję."
+          "action": "Sprawdzić aplikację przewoźnika; nie zakładać, że samo opóźnienie przesuwa zamknięcie bag drop. Planistyczne 05:20 opiera się na SRC-RYANAIR/linku kontrolnym i audycie; źródło zwróciło HTTP 403 przy kontroli 5 XI, więc potwierdzić zasadę i godzinę dla FR5880 w aplikacji lub przeglądarce Ryanair. Przy opóźnieniu jechać na lotnisko zgodnie z planowym wyjazdem 02:50 lub wcześniej i czekać. Przy odwołaniu lotu zmianę lub przedłużenie najmu uzgodnić bezpośrednio z wypożyczalnią i uzyskać jej pisemną instrukcję."
         }
       ],
       "optional_stops": [
@@ -1699,7 +1779,7 @@
       "date": "2026-11-13",
       "weekday": "piątek",
       "title": "Nocny zwrot auta i powrót",
-      "summary": "Harmonogram obowiązuje po potwierdzeniu zwrotu na terenie PFO i zatankowaniu wieczorem.",
+      "summary": "Petsas potwierdza umówiony zwrot PFO 03:30; planowy przyjazd do sektora 03:25 i okno 03:25–04:10 są założeniami harmonogramu. Sektor, key drop i koniec odpowiedzialności wymagają pisemnego potwierdzenia.",
       "timezone": "Asia/Nicosia",
       "mode": "auto i samolot",
       "walk_km_estimate": null,
@@ -1753,7 +1833,7 @@
           "start_local": "02:50",
           "end_local": "03:25",
           "title": "Wyjazd na PFO",
-          "description": "To planistyczna godzina ruszenia z parkingu. Dojazd szacowany na 25–35 min; odcinek przyjęto do 03:25, potem właściwy sektor wypożyczalni. Hotelowy parking i dokładna procedura wymagają potwierdzenia.",
+          "description": "To planistyczna godzina ruszenia z parkingu. Dojazd szacowany na 25–35 min; planowy przyjazd do sektora około 03:25. Zwrot Petsas jest umówiony na 03:30 według vouchera. Hotelowy parking i dokładny sektor/procedura wymagają potwierdzenia.",
           "place_ids": [
             "POI-PFO"
           ],
@@ -1765,8 +1845,8 @@
           "id": "D7-04",
           "start_local": "03:25",
           "end_local": "04:10",
-          "title": "Zwrot auta",
-          "description": "Planistyczne okno 03:25–04:10 po dojeździe; 45 min to bufor planu, nie potwierdzony czas ani procedura firmy. Wjazd do sektora, dokumentacja, rzeczy i klucze według pisemnej instrukcji konkretnej wypożyczalni; miejsce, sposób key drop i moment końca odpowiedzialności do potwierdzenia.",
+          "title": "Planowy dojazd 03:25 · zwrot umówiony 03:30",
+          "description": "Umówiony zwrot Petsas: 03:30 według vouchera. Planowy przyjazd do sektora około 03:25; w osi czasu zachowano okno 03:25–04:10 (45 min buforu planu), nie warunek firmy. Wjazd do sektora, dokumentacja, rzeczy i klucze według pisemnej instrukcji; dokładny punkt, key drop i moment końca odpowiedzialności do potwierdzenia.",
           "place_ids": [
             "POI-PFO"
           ],
@@ -1786,7 +1866,8 @@
           ],
           "kind": "plan",
           "optional": false,
-          "time_basis": "założenie planu"
+          "time_basis": "założenie planu",
+          "ics_export": false
         },
         {
           "id": "D7-06",
@@ -1844,12 +1925,12 @@
       ],
       "cut_order": [
         "Nie planować nocnego tankowania.",
-        "Nie przesuwać wyjazdu na 03:15 dla kwadransa snu.",
+        "Nie przesuwać planowego wyjazdu z 02:50 na później dla dodatkowego snu.",
         "Jeśli zwrot jest poza lotniskiem, ten rozkład wymaga nowego przeliczenia i pisemnego potwierdzenia nocnego transferu."
       ],
       "bad_weather": "Przy utrudnieniach nocnych rozważyć 02:45 lub wcześniejszy wyjazd po przeliczeniu; sama godzina 02:45 nie gwarantuje sprawnego shuttle.",
       "photography": "Brak programu fotograficznego; film auta służy dokumentacji.",
-      "return_note": "Planistyczny warunek: przy odlocie 06:20 założono zamknięcie bag drop o 05:20 według wskazanego źródła Ryanair/audytu. Link źródłowy zwrócił HTTP 403 przy kontroli 5 XI; potwierdzić godzinę dla FR5880 w aplikacji lub przeglądarce przewoźnika. Jeśli 05:20 się potwierdzi, bagaż musi być już przyjęty — samo stanie w kolejce nie wystarczy.",
+      "return_note": "Zwrot Petsas jest umówiony na 03:30 według vouchera; planowy przyjazd do sektora około 03:25 i okno planu 03:25–04:10 pozostają odrębnymi założeniami. Potwierdzić pisemnie punkt/key drop i koniec odpowiedzialności. Przy odlocie 06:20 założono zamknięcie bag drop o 05:20 warunkowo według wskazanego źródła Ryanair/audytu. Link zwrócił HTTP 403 przy kontroli 5 XI; potwierdzić godzinę dla FR5880 w aplikacji lub przeglądarce. Jeśli 05:20 się potwierdzi, bagaż musi być już przyjęty — samo stanie w kolejce nie wystarczy.",
       "primary_route_id": null,
       "booking_status": "planowane",
       "field_readiness": "nie_dotyczy",
@@ -3682,12 +3763,12 @@
     "base_admissions_for_two_eur": 23,
     "if_palaipafos_omitted_eur": 14,
     "museum_eur": 0,
-    "car_total_eur": null,
+    "car_total_eur": 325.5,
     "fuel_eur": null,
     "hotel_paid_eur": null,
     "flights_paid_eur": null,
     "meals_budget_eur": null,
-    "note": "23 EUR to suma wyłącznie trzech wskazanych biletów dla dwojga, według publikowanych cen, bez zniżek i bez opłat dodatkowych. Nie jest budżetem wyjazdu. Ceny potwierdzić przed wejściem; null oznacza brak danych, a nie brak kosztu."
+    "note": "23 EUR to suma wyłącznie trzech wskazanych biletów dla dwojga, według publikowanych cen, bez zniżek i bez opłat dodatkowych. Auto: 325,50 EUR prepaid według nieosobowego streszczenia vouchera (270 − 40,50 rabatu + 60 SCDW + 36 opony/szyby/podwozie); pozostałe null oznaczają brak danych, a nie brak kosztu. To nie jest pełny budżet wyjazdu."
   },
   "safety": {
     "route_gate": [
@@ -3813,23 +3894,34 @@
     {
       "id": "TODO-CAR",
       "priority": "wysoki",
-      "title": "Rezerwacja auta i pełne warunki",
+      "title": "Otwarte warunki rezerwacji Petsas",
       "owner": "podróżni",
-      "due_on": "2026-11-03",
+      "due_on": "2026-11-06",
       "status": "otwarte",
-      "action": "Termin 3 XI minął. Uzyskać pisemne oferty od Avis, Petsas i SIXT, których kontakty PFO oraz ograniczenia są opisane w trip.car.provider_contacts; żadna oferta nie jest potwierdzona jako spełniająca specyfikację. Budget i Enterprise nie obsługują planowanego zwrotu około 03:25; Hertz i Europcar są tu niezweryfikowane (brak kontaktu/źródła PFO). Zmianę lub przedłużenie najmu przy zmianie/odwołaniu lotu uzgadniać z wypożyczalnią, nie linią lotniczą. Uzupełnić firmę, cenę, depozyt i kontakt wyłącznie z potwierdzenia.",
-      "impact": "Cały program samochodowy i nocny zwrot nie mają jeszcze potwierdzonej obsługi. Termin 3 XI minął; decyzja jest pilna.",
+      "action": "Rezerwacja Petsas/PFO, C3 automat z klimatyzacją oraz prepaid 325,50 EUR są potwierdzone wyłącznie w SRC-PETSAS-VOUCHER. Przed odbiorem uzyskać od Petsas pisemne potwierdzenie: depozyt/preautoryzacja (kwota i typ karty), udział własny i zastosowanie SCDW, limity/wyłączenia pakietu opon-szyb-podwozia, kilometry, polityka paliwa, drugi kierowca oraz numer assistance 24/7. Nie wyprowadzać tych warunków z ceny ani nazwy pakietów.",
+      "impact": "Rezerwacja i kwota są potwierdzone w zakresie streszczenia vouchera; nieznane warunki nadal wpływają na odpowiedzialność i wymagania wobec kierowców.",
+      "blocking": true
+    },
+    {
+      "id": "TODO-PETSAS-PICKUP",
+      "priority": "wysoki",
+      "title": "Pilne: odbiór Petsas 20 min po planowym przylocie",
+      "owner": "podróżni i Petsas",
+      "due_on": "2026-11-06",
+      "status": "otwarte",
+      "action": "Zadzwoń lub napisz do Petsas przed podróżą i poproś o potwierdzenie na piśmie: dokładny punkt spotkania/transfer na PFO, czy umówione 10:30 jest wykonalne po planowym lądowaniu W61417 o 10:10 (różnica tylko 20 min), jaki jest wymagany minimalny odstęp od przylotu, ile wynosi karencja przy opóźnieniu lotu i jaka jest zasada no-show. Nie przesuwaj lotu ani rezerwacji samodzielnie.",
+      "impact": "Bez odpowiedzi podróżni mogą nie dotrzeć do umówionego odbioru 10:30; okno 11:15–12:30 jest tylko planem i nie zastępuje rezerwacji.",
       "blocking": true
     },
     {
       "id": "TODO-RETURN",
       "priority": "wysoki",
-      "title": "Nocny zwrot i moment końca odpowiedzialności",
+      "title": "Zwrot Petsas 03:30: key drop i koniec odpowiedzialności",
       "owner": "podróżni i wypożyczalnia",
-      "due_on": "2026-11-03",
+      "due_on": "2026-11-06",
       "status": "otwarte",
-      "action": "Punkt zwrotu, skrzynka, godziny, ewentualne opłaty, odległość do terminalu. Nie zakładać, że firma pozwala na key drop w planistycznym celu około 03:25; potwierdzić pisemnie after-hours return i moment końca odpowiedzialności. Przy bazie poza PFO osobny plan transferu.",
-      "impact": "Harmonogram 13 XI zależy od potwierdzonego zwrotu na lotnisku. Termin 3 XI minął; bez odpowiedzi D7 jest nieważny.",
+      "action": "Zapisz z Petsas dokładny sektor/punkt PFO, procedurę nocnego zwrotu o umówionej 03:30 (w voucherze wskazano Pafos Airport, nie sektor), dopuszczalny key drop, ewentualną opłatę, odległość/transfer do terminalu oraz dokładny moment końca odpowiedzialności za auto. Zachowaj dokumentację i poproś o pisemną instrukcję. Planowy przyjazd do sektora około 03:25 i okno 03:25–04:10 nie są warunkami Petsas.",
+      "impact": "Wizyta przy sektorze jest umówiona na 03:30, ale dokładna procedura i koniec odpowiedzialności pozostają niepotwierdzone; potwierdzić przed wyjazdem.",
       "blocking": true
     },
     {
@@ -3957,13 +4049,13 @@
   "checklists": [
     {
       "id": "CHECK-NOW",
-      "title": "4 listopada — domknięcie zaległych blokad",
+      "title": "6 listopada — pilne potwierdzenia przed wyjazdem",
       "items": [
-        "Terminy auto / nocny zwrot / parking z 3 XI minęły — zamknąć je dziś lub świadomie przełożyć decyzję z nowym terminem.",
-        "Auto i nocny zwrot zgodnie z TODO-CAR i TODO-RETURN.",
-        "Parking hotelu i nocny checkout.",
-        "Potwierdzenie taryfy wyżywienia i zapytanie o wellness.",
-        "Wybór transportu Łódź–WMI i WAW–Łódź; te lotniska są różne."
+        "Pilnie skontaktować się z Petsas: potwierdzić odbiór 10:30 po planowym lądowaniu 10:10, punkt spotkania/transfer, minimalny odstęp, karencję i no-show (TODO-PETSAS-PICKUP).",
+        "Uzyskać od Petsas pisemną instrukcję zwrotu umówionego 03:30: sektor, key drop i koniec odpowiedzialności (TODO-RETURN).",
+        "Potwierdzić depozyt/preautoryzację, udział własny, pakiety, paliwo, kilometry, drugiego kierowcę i assistance (TODO-CAR); zgody/ochrony Green Line nie zakładać (TODO-NORTH-CAR).",
+        "Uzgodnić z hotelem nocny dostęp do auta i bramy przed planowym wyjazdem 02:50 (TODO-PARKING).",
+        "Sprawdzić otwarte potwierdzenia lotów, bagażu i transportu w Polsce według TODO-FLIGHTS i TODO-POLAND."
       ]
     },
     {
@@ -4226,6 +4318,228 @@
     ],
     "not_selected": "Pafos 1 nie jest wśród propozycji: oficjalna strona odczytana 2026-11-05 opisuje przejazd przez Agia Varvara, Episkopi, Tsada i Armou oraz wspomina łatwiejszą drogę powrotną; podaje link do GPX, ale w tekście nie publikuje dystansu ani sumy podejść. Samej obecności GPX nie analizowano, więc brakujących statystyk nie dopisujemy."
   },
+  "history": {
+    "title": "Historia i mitologia: miejsca z planu",
+    "intro": "Krótka orientacja chronologiczna i osobne opowieści do czytania przy konkretnych miejscach. Węzły ułożono orientacyjnie według najwcześniejszej epoki wskazanej przez źródło; szerokie zakresy mogą się nakładać i nie ustalają dokładnej kolejności zdarzeń. Daty są przybliżone, gdy źródło nie pozwala na dokładniejsze określenie. Mity i przedstawienia mitologiczne nie są zapisem wydarzeń historycznych.",
+    "checked_on": "2026-11-06",
+    "legend": [
+      { "type": "historia_archeologia", "label": "Historia / archeologia" },
+      { "type": "tradycja", "label": "Tradycja" },
+      { "type": "mitologia", "label": "Mitologia" }
+    ],
+    "timeline": [
+      {
+        "id": "HIST-TIME-01",
+        "when": "Od neolitu; źródło nie datuje konkretnych struktur w obecnym parku",
+        "title": "Najstarsze ślady osadnictwa w regionie Pafos",
+        "body": "Wpis UNESCO mówi, że region Pafos był zamieszkany od neolitu. To szeroki kontekst dla okolicy, nie twierdzenie, że widoczne wille lub mozaiki powstały w tej epoce.",
+        "type": "historia_archeologia",
+        "place_id": "POI-PARK",
+        "day_id": "DAY-02",
+        "source_ids": ["SRC-HIST-UNESCO-PAPHOS"],
+        "checked_on": "2026-11-06"
+      },
+      {
+        "id": "HIST-TIME-02",
+        "when": "Od II tysiąclecia p.n.e. do okresu rzymskiego (różne sale i zespoły znalezisk)",
+        "title": "Znaleziska z dawnego Palaipafos",
+        "body": "Muzeum w Kouklia pokazuje przedmioty z sanktuarium oraz znaleziska z okolicznych cmentarzysk. Podane przez Departament Starożytności szerokie zakresy nie znaczą, że każdy eksponat powstał w tej samej epoce.",
+        "type": "historia_archeologia",
+        "place_id": "POI-PALAIPAFOS",
+        "day_id": "DAY-05",
+        "source_ids": ["SRC-PALAIPAFOS"],
+        "checked_on": "2026-11-06"
+      },
+      {
+        "id": "HIST-TIME-03",
+        "when": "Około XII wieku p.n.e.",
+        "title": "Sanktuarium w Palaipafos",
+        "body": "Wpis UNESCO datuje sanktuarium/świątynię Afrodyty w Palaipafos na XII wiek p.n.e. To historia kultu i miejsca; opowieść o narodzinach bogini należy do mitologii.",
+        "type": "historia_archeologia",
+        "place_id": "POI-PALAIPAFOS",
+        "day_id": "DAY-05",
+        "source_ids": ["SRC-HIST-UNESCO-PAPHOS"],
+        "checked_on": "2026-11-06"
+      },
+      {
+        "id": "HIST-TIME-04",
+        "when": "Pod koniec IV wieku p.n.e.",
+        "title": "Nicocles przenosi miasto z Palaipafos",
+        "body": "Visit Cyprus podaje, że Nicocles, ostatni król Palaipafos, przeniósł miasto z poprzedniej lokalizacji w pobliże portu pod koniec IV wieku p.n.e.",
+        "type": "historia_archeologia",
+        "place_id": "POI-HARBOUR",
+        "day_id": "DAY-02",
+        "source_ids": ["SRC-PARK"],
+        "checked_on": "2026-11-06"
+      },
+      {
+        "id": "HIST-TIME-05",
+        "when": "Okres hellenistyczny i rzymski",
+        "title": "Grobowce wykute w skale",
+        "body": "Monumentalne grobowce należały do wysokich urzędników i arystokracji, nie do królów. Dokładniejszych dat poszczególnych grobów wskazane źródło nie podaje.",
+        "type": "historia_archeologia",
+        "place_id": "POI-TOMBS",
+        "day_id": "DAY-06",
+        "source_ids": ["SRC-TOMBS"],
+        "checked_on": "2026-11-06"
+      },
+      {
+        "id": "HIST-TIME-06",
+        "when": "Od II wieku p.n.e. do IV wieku n.e.",
+        "title": "Pafos jako stolica wyspy",
+        "body": "Pafos pełniło wtedy funkcję stolicy Cypru. W parku archeologicznym oglądamy pozostałości miasta i mozaiki rzymskich willi; sceny z bogami i herosami są obrazami mitów, nie kroniką zdarzeń.",
+        "type": "historia_archeologia",
+        "place_id": "POI-PARK",
+        "day_id": "DAY-02",
+        "source_ids": ["SRC-PARK", "SRC-HIST-UNESCO-PAPHOS"],
+        "checked_on": "2026-11-06"
+      },
+      {
+        "id": "HIST-TIME-07",
+        "when": "Około IX wieku n.e.; malowidła z VIII–XV wieku",
+        "title": "Agia Paraskevi w Geroskipou",
+        "body": "Pięciokopułowa bazylika jest przykładem architektury bizantyjskiej; wewnątrz uwagę zwracają malowidła z kilku stuleci.",
+        "type": "historia_archeologia",
+        "place_id": "POI-GEROSKIPOU",
+        "day_id": "DAY-02",
+        "source_ids": ["SRC-GEROSKIPOU"],
+        "checked_on": "2026-11-05"
+      },
+      {
+        "id": "HIST-TIME-08",
+        "when": "Od drugiej połowy XII wieku; freski z XII–XV wieku",
+        "title": "Neofit i Enkleistra",
+        "body": "Neofit założył klasztor, a wykuta w skale Enkleistra zachowała bizantyjskie freski. Na miejscu patrz na malowidła jako dzieła sakralne, nie ilustracje świeckiej kroniki.",
+        "type": "historia_archeologia",
+        "place_id": "POI-NEOPHYTOS",
+        "day_id": "DAY-06",
+        "source_ids": ["SRC-NEOPHYTOS"],
+        "checked_on": "2026-11-06"
+      }
+    ],
+    "stories": [
+      {
+        "id": "HIST-STORY-PALAIPAFOS",
+        "place_id": "POI-PALAIPAFOS",
+        "day_id": "DAY-05",
+        "type": "historia_archeologia",
+        "when": "Od II tysiąclecia p.n.e. do okresu rzymskiego (różne sale i zespoły znalezisk)",
+        "title": "Kouklia: sanktuarium i muzeum znalezisk",
+        "why": "Palaipafos było ważnym ośrodkiem kultu. W muzeum Departament Starożytności opisuje stożkowy kamień jako kultowy obiekt sanktuarium oraz znaleziska z różnych okresów.",
+        "look_for": "W muzeum poszukaj stożkowego kamienia kultowego i zwróć uwagę na rzymską mozaikę w posadzce pierwszej sali; nie traktuj tych elementów jako jednego zespołu ani jednej epoki.",
+        "source_ids": ["SRC-PALAIPAFOS", "SRC-HIST-UNESCO-PAPHOS"],
+        "checked_on": "2026-11-06"
+      },
+      {
+        "id": "HIST-STORY-PARK",
+        "place_id": "POI-PARK",
+        "day_id": "DAY-02",
+        "type": "historia_archeologia",
+        "when": "Wille i mozaiki: II–V wiek n.e.",
+        "title": "Mozaiki jako obrazy, nie kronika",
+        "why": "Wille i mozaiki pokazują antyczną sztukę oraz sceny mitologiczne, między innymi związane z Dionizosem i Tezeuszem. To przedstawienia, nie kronika wydarzeń.",
+        "look_for": "Zestaw sceny z różnych paneli i zwróć uwagę, że mozaiki należą do różnych budynków; Dom Tezeusza i Dom Aiona oferują odmienne opowieści mitologiczne.",
+        "source_ids": ["SRC-HIST-PAPHOS-MOSAICS"],
+        "checked_on": "2026-11-06"
+      },
+      {
+        "id": "HIST-STORY-THESEUS",
+        "place_id": "POI-PARK",
+        "day_id": "DAY-02",
+        "type": "mitologia",
+        "when": "Mit bez daty historycznej; mozaiki willi z II–V wieku n.e.",
+        "title": "Tezeusz i Minotaur: mit na rzymskiej posadzce",
+        "why": "W jednej z antycznych wersji Tezeusz schodzi do labiryntu, pokonuje Minotaura i dzięki nici Ariadny odnajduje drogę powrotną. Mozaika w Domu Tezeusza przedstawia bohatera z Minotaurem; to rzymskie przedstawienie mitu, nie zapis historycznego wydarzenia.",
+        "look_for": "Poszukaj w parku mozaiki z Tezeuszem i Minotaurem. Oddziel antyczne dzieło z II–V wieku n.e. od opowieści, którą przedstawia.",
+        "source_ids": ["SRC-HIST-APOLLODORUS", "SRC-HIST-PAPHOS-MOSAICS"],
+        "checked_on": "2026-11-06"
+      },
+      {
+        "id": "HIST-STORY-HARBOUR",
+        "place_id": "POI-HARBOUR",
+        "day_id": "DAY-02",
+        "type": "historia_archeologia",
+        "when": "Pod koniec IV wieku p.n.e.",
+        "title": "Port jako orientacyjny punkt opowieści o mieście",
+        "why": "Visit Cyprus podaje, że Nicocles przeniósł miasto z poprzedniej lokalizacji w pobliże portu pod koniec IV wieku p.n.e. To opowieść o przeniesieniu ośrodka, nie o nieprzerwanej ciągłości dzisiejszego nabrzeża.",
+        "look_for": "Podczas spaceru zestaw port z pobliskim parkiem jako orientacyjnym kontekstem zmiany lokalizacji miasta; nie utożsamiaj dzisiejszego nabrzeża z zachowanym portem antycznym.",
+        "source_ids": ["SRC-PARK"],
+        "checked_on": "2026-11-06"
+      },
+      {
+        "id": "HIST-STORY-TOMBS",
+        "place_id": "POI-TOMBS",
+        "day_id": "DAY-06",
+        "type": "historia_archeologia",
+        "when": "Okres hellenistyczny i rzymski",
+        "title": "Grobowce Królewskie: nie groby królów",
+        "why": "Źródło turystyczne wyjaśnia, że chowano tu wysokich urzędników i arystokrację, nie królów. Część grobów naśladuje domy z centralnym dziedzińcem.",
+        "look_for": "Z bezpiecznego poziomu obejrzyj wykute w skale atria z dziedzińcem otoczonym kolumnadą (perystylem); nie dopisuj nazwisk ani tytułów zmarłych.",
+        "source_ids": ["SRC-TOMBS"],
+        "checked_on": "2026-11-06"
+      },
+      {
+        "id": "HIST-STORY-PETRA",
+        "place_id": "POI-PETRA",
+        "day_id": "DAY-05",
+        "type": "mitologia",
+        "when": "Opowieść mityczna; bez daty historycznej",
+        "title": "Petra tou Romiou i opowieść o Afrodycie",
+        "why": "W wersji Hezjoda Afrodyta wyłania się z morskiej piany, dociera najpierw na Cyterę, a potem na Cypr. To opowieść literacka; poemat nie wskazuje konkretnej skały Petra tou Romiou jako miejsca jej narodzin.",
+        "look_for": "Potraktuj skałę i morze jako krajobraz do lektury mitu; poemat nie wskazuje tej konkretnej skały jako miejsca narodzin bogini.",
+        "source_ids": ["SRC-HIST-HESIOD"],
+        "checked_on": "2026-11-06"
+      },
+      {
+        "id": "HIST-STORY-GEROSKIPOU",
+        "place_id": "POI-GEROSKIPOU",
+        "day_id": "DAY-02",
+        "type": "historia_archeologia",
+        "when": "Około IX wieku n.e.; malowidła z VIII–XV wieku",
+        "title": "Warstwy malarskie Agia Paraskevi",
+        "why": "Visit Cyprus opisuje Agia Paraskevi jako jedną z dwóch pięciokopułowych bazylik tego rodzaju na wyspie. Malowidła pochodzą z wielu okresów, więc wnętrze nie jest jednorodnym obrazem jednej chwili.",
+        "look_for": "Jeśli wnętrze będzie dostępne, obserwuj różnice między malowidłami. Visit Cyprus podaje, że niedzielne wizyty można uzgodnić na życzenie; przed wyjazdem potwierdź dostępność, a bez potwierdzenia oglądaj kościół z zewnątrz.",
+        "source_ids": ["SRC-GEROSKIPOU"],
+        "checked_on": "2026-11-05"
+      },
+      {
+        "id": "HIST-STORY-GEROSKIPOU-TRADITION",
+        "place_id": "POI-GEROSKIPOU",
+        "day_id": "DAY-02",
+        "type": "tradycja",
+        "when": "Tradycja lokalna; bez daty historycznej",
+        "title": "Geroskipou jako „święty ogród” — opowieść o nazwie",
+        "why": "Visit Cyprus przekazuje tradycję łączącą nazwę wsi z ogrodami Afrodyty i dawną drogą pielgrzymów do Palaipafos. Sam portal zaznacza, że domniemana świątynia pod kościołem jest tylko możliwością.",
+        "look_for": "Potraktuj tę opowieść jako lokalną tradycję o nazwie i krajobrazie, nie jako potwierdzone odkrycie świątyni.",
+        "source_ids": ["SRC-GEROSKIPOU"],
+        "checked_on": "2026-11-05"
+      },
+      {
+        "id": "HIST-STORY-NEOPHYTOS",
+        "place_id": "POI-NEOPHYTOS",
+        "day_id": "DAY-06",
+        "type": "historia_archeologia",
+        "when": "Od drugiej połowy XII wieku; freski z XII–XV wieku",
+        "title": "Enkleistra: wykuta pustelnia i bizantyjskie freski",
+        "why": "Neofit wykonał skalną pustelnię, a jej freski powstawały przez kilka stuleci. Klasztor łączy więc biografię założyciela z późniejszymi warstwami sztuki sakralnej.",
+        "look_for": "Na miejscu warto zwrócić uwagę na freski i wykutą przestrzeń Enkleistry; jak przy zwiedzaniu miejsca kultu, zachowaj ciszę i szacunek.",
+        "source_ids": ["SRC-NEOPHYTOS"],
+        "checked_on": "2026-11-06"
+      },
+      {
+        "id": "HIST-STORY-OMODOS",
+        "place_id": "POI-OMODOS",
+        "day_id": "DAY-05",
+        "type": "tradycja",
+        "when": "Tradycja chrześcijańska; bez daty historycznej",
+        "title": "Omodos i opowieść o relikwii Krzyża",
+        "why": "Visit Cyprus opisuje w Omodos fragment sznura łączonego z ukrzyżowaniem Jezusa. To religijny przekaz i element miejscowej tradycji, a nie niezależnie potwierdzony fakt historyczny o pochodzeniu przedmiotu.",
+        "look_for": "Jeśli ekspozycja będzie dostępna, zwróć uwagę na opowieść o fragmencie sznura; traktuj ją jako tradycję religijną, a nie potwierdzenie autentyczności przedmiotu.",
+        "source_ids": ["SRC-HIST-OMODOS"],
+        "checked_on": "2026-11-06"
+      }
+    ]
+  },
   "revision_log": [
     {
       "id": "CHANGE-01",
@@ -4376,6 +4690,96 @@
       "from": "1.2.13: acceptance, decyzja i notatki hotelu nadal podawały 03:00 mimo przesuniętego planu D7 02:50; POI-LEFKARA miało nieudokumentowany telefon",
       "to": "1.2.14: planistyczny wyjazd 02:50 ujednolicono w kryterium, decyzji i notatkach; telefon Lefkary wycofano do null z jawną informacją o braku źródła",
       "reason": "Szybki self-review po review runnera: zachowano jawne bufory D7 i nie pozostawiono niepotwierdzonego kontaktu jako klikalnego numeru. Nie dodano nowych danych rezerwacyjnych ani godzin usług."
+    },
+    {
+      "id": "CHANGE-26",
+      "from": "1.2.14: auto Petsas nie było zapisane mimo przekazanego streszczenia vouchera; brak historii/mitologii i źródeł historycznych",
+      "to": "1.2.15: zapisano wyłącznie nieosobowe pola voucherowe, rozdzielono terminy umówione od planowych, dodano otwarte pytania, źródłowo przypisany moduł historii i renderowanie progresywne",
+      "reason": "Aktywne zadanie ZADANIE-2026-11-05-REVIEW-HISTORIA. Poprzednie wpisy CHANGE-19/21 zachowują historię ówczesnej wersji 03:35; obecny plan D7 nadal zakładał dojazd do sektora około 03:25, a voucher potwierdza zwrot o 03:30. Nie przepisano dawnych zapisów."
+    },
+    {
+      "id": "CHANGE-27",
+      "from": "1.2.15: daty kontroli źródeł historii wyprzedzały faktyczny czas sprawdzenia; umówiony zwrot 03:30 przesuwał ICS return window na 03:30–04:15 z nakładaniem na terminal 04:10",
+      "to": "1.2.16: daty sprawdzenia ustawiono na 2026-11-05; w ICS return_target_at pozostaje planowym przyjazdem 03:25–04:10, a umówiony slot 03:30 widoczny jest oddzielnie w danych i streszczeniu D7",
+      "reason": "Korekta po self-review runnera WORK_ERROR: unknown; nie przedstawiać przyszłej daty jako wykonanego researchu ani nie powodować nakładania okien. Dodano źródła literackie do krótkich opisów mitów."
+    },
+    {
+      "id": "CHANGE-28",
+      "from": "1.2.16: opowieść Choirokoitia nie była częścią planu, a mit o Afrodycie nie wskazywał pierwotnego tekstu literackiego",
+      "to": "1.2.17: usunięto nieplanowy węzeł Choirokoitii; dodano źródłowe opowieści mitologiczne o Afrodycie i Tezeuszu oraz kartę tradycji Omodos",
+      "reason": "Uzupełnienie częściowego modułu po błędzie kontraktu workera. Nowe twierdzenia mają źródła sprawdzone 2026-11-05 i jawnie odróżniają mit/tradycję od historii."
+    },
+    {
+      "id": "CHANGE-29",
+      "from": "1.2.17: zakresy części źródeł historycznych pomijały szczegóły widoczne w cytowanych stronach; oś czasu i wskazówki wymagały doprecyzowania",
+      "to": "1.2.18: rozszerzono zakresy SRC-PARK, SRC-TOMBS, SRC-HIST-UNESCO-PAPHOS, SRC-HIST-PAPHOS-MOSAICS i SRC-PALAIPAFOS, dodano SRC-PETSAS-LOCATIONS; uporządkowano oś i usunięto niepotwierdzoną nazwę kościoła Omodos",
+      "reason": "Aktywne review planu/Petsas i historii 2026-11-05; poprawki wyłącznie dozwolonych źródeł/danych/rendererów, bez zmian planu bazowego i manifestów zdjęć."
+    },
+    {
+      "id": "CHANGE-30",
+      "from": "1.2.18: notatka transportu zawierała prywatny adres parkowania; część opisów historii mieszała zakresy dat lub pomijała szczegóły potwierdzone w źródłach",
+      "to": "1.2.19: usunięto prywatny adres z notatki; rozdzielono daty mozaik od historii miasta; doprecyzowano zakresy źródeł i opowieści Kouklia/Geroskipou na podstawie bezpośrednich stron instytucjonalnych",
+      "reason": "Poprawki po pełnej rundzie review 2026-11-05; bez zmian lotów, rezerwacji, układu dni ani manifestów zdjęć."
+    },
+    {
+      "id": "CHANGE-31",
+      "from": "1.2.19: limit 500 EUR był sformułowany obok wymagań najmu bez wyraźnego rozróżnienia od warunków Petsas",
+      "to": "1.2.20: limit 500 EUR oznaczony jako maksymalna akceptowana blokada według planu użytkownika, nie warunek ani potwierdzony depozyt Petsas; identyfikatory osi czasu uporządkowane chronologicznie",
+      "reason": "Aktywne review 2026-11-06; bez zmiany warunków umowy, rezerwacji, lotów ani planu bazowego."
+    },
+    {
+      "id": "CHANGE-32",
+      "from": "1.2.20: SRC-HIST-OMODOS i opowieść o tradycji miały datę wcześniejszej kontroli",
+      "to": "1.2.21: data kontroli źródła i opowieści Omodos odpowiada bezpośredniemu ponownemu odczytowi 2026-11-06",
+      "reason": "Odświeżono wyłącznie metadane kontroli po sprawdzeniu źródła Visit Cyprus; nie zmieniono treści ani planu."
+    },
+    {
+      "id": "CHANGE-33",
+      "from": "1.2.21: osiem źródeł sprawdzonych 2026-11-06 miało verification_status spoza zamkniętego słownika chronionego builda",
+      "to": "1.2.22: zachowano rzeczywiste checked_on=2026-11-06, a nierozpoznane verification_status wyzerowano zamiast fałszywie zmieniać datę kontroli",
+      "reason": "Odtworzono niezgodność z SOURCE_STATUS_ALLOWED w _src/build.py; walidator pomija null status. Nie edytowano chronionego generatora."
+    },
+    {
+      "id": "CHANGE-34",
+      "from": "1.2.22: nagłówek modułu i dwa węzły historii miały datę wcześniejszą niż bezpośrednia kontrola cytowanych źródeł",
+      "to": "1.2.23: ujednolicono daty kontroli historii z 2026-11-06; doprecyzowano wyłącznie dozwolony no-JS fallback dla auta",
+      "reason": "Aktywne review Petsas/historii 2026-11-06; bez zmian planu bazowego, danych vouchera, źródeł ani manifestów."
+    },
+    {
+      "id": "CHANGE-35",
+      "from": "1.2.23: D6 pobudka i awaryjna taxi nie zgadzały się z D7; historia zawierała niepotwierdzone brzmienie tytułu i kolejność osi wymagała doprecyzowania; CHECK-NOW była przeterminowana; scope SRC-PALAIPAFOS nie zapisywał opublikowanych godzin i wstępu",
+      "to": "1.2.24: ujednolicono alarm/wyjazd 02:05/02:50, zaktualizowano checklistę, poprawiono chronologię osi i tytuły, a scope źródła Palaipafos zapisuje wartości sprawdzone na stronie urzędowej",
+      "reason": "Potwierdzone poprawki aktywnego review planu/Petsas i historii 2026-11-06; bez zmian lotów, rezerwacji, układu bazowego ani manifestów."
+    },
+    {
+      "id": "CHANGE-36",
+      "from": "1.2.24: HIST-TIME-07 i HIST-STORY-GEROSKIPOU wskazywały checked_on 2026-11-06, później niż faktyczna kontrola ich jedynego źródła SRC-GEROSKIPOU (2026-11-05)",
+      "to": "1.2.25: daty kontroli obu wpisów Geroskipou ujednolicono z SRC-GEROSKIPOU na 2026-11-05",
+      "reason": "Poprawka po odtworzeniu findingu HIST-GEROSKIPOU-CHECKED-ON; nie zmieniono treści historii ani daty źródła."
+    },
+    {
+      "id": "CHANGE-37",
+      "from": "1.2.25: HIST-TIME-01/02 miały datę wcześniejszą niż checked_on źródeł; car.requirements mieszały wymagania użytkownika/planu z warunkami oferty Petsas; wskazówka Neophytosa mogła brzmieć jak oparta na źródle reguła ciszy",
+      "to": "1.2.26: daty HIST-TIME-01/02 wyrównano do 2026-11-06; wymagania samochodowe oznaczono jako wymagania użytkownika/planu, niepotwierdzone jako warunki Petsas; wskazówkę Neophytosa ujęto jako zwykłą poradę dla odwiedzających",
+      "reason": "Poprawki potwierdzonych findingów i istotnej sugestii pełnej rundy review 2026-11-06; bez zmiany danych vouchera, planu bazowego ani manifestów."
+    },
+    {
+      "id": "CHANGE-38",
+      "from": "1.2.26: oś czasu umieszczała koniec IV w. p.n.e. po szerokim określeniu okresu hellenistycznego i rzymskiego; tytuł D7-04 eksponował umówioną godzinę, choć okno osi zaczyna się od planowego dojazdu",
+      "to": "1.2.27: węzeł o końcu IV w. p.n.e. poprzedza szeroki okres hellenistyczny/rzymski; tytuł D7-04 nazywa planowy dojazd 03:25 i umówiony zwrot 03:30 osobno",
+      "reason": "Doprecyzowanie kolejności według najwcześniejszego okresu wskazanego przez źródło oraz tytułu planistycznego wydarzenia po uwadze w pełnej rundzie review 2026-11-06; bez zmian faktów, slotu vouchera ani bazowego układu dni."
+    },
+    {
+      "id": "CHANGE-39",
+      "from": "1.2.27: podsumowanie DAY-01 nazywało planowy cel odbioru celem zakończenia, a okno 11:15–12:30 nie było wprost oddzielone od slotu Petsas 10:30",
+      "to": "1.2.28: summary DAY-01 nazywa 11:30 planowym celem odbioru i wyjaśnia, że okno 11:15–12:30 jest założeniem planu, nie zakresem umówionego slotu 10:30",
+      "reason": "Poprawka potwierdzonego findingu semantycznego review 2026-11-06; slot vouchera, okno planu, lot i bazowy układ dnia bez zmian."
+    },
+    {
+      "id": "CHANGE-40",
+      "from": "1.2.28: ICS automatycznie nadawał 60 minut punktowemu meldunkowi 15:00 i tworzył 15-minutowe nałożenie z Faros o 15:45",
+      "to": "1.2.29: D1-05 pozostaje w osi HTML, ale nie jest eksportowany jako godzinne wydarzenie ICS; rezerwacja hotelu już ma osobny event 15:00, bez zgadywania długości meldunku",
+      "reason": "Ręczna kontrola wygenerowanego ICS wykazała nakładanie wynikające z domyślnej godziny w eksporcie dla braku end_local. Wygaszono wyłącznie redundantny event kalendarza; punkt planu i czasy pozostają bez zmian."
     }
   ]
 }

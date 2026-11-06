@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -34,16 +34,43 @@
     {{PHOTO_STRIP}}
 
     {{NAV}}
+    <noscript><div class="page-width history-nav-fallback"><a href="#historia">Historia i mitologia →</a></div></noscript>
 
     <main id="main" tabindex="-1">
       {{PRINT_COVER}}
       {{PRINT_QUICK}}
+      <noscript><p class="print-quick__note print-quick__note--noscript"><strong>112</strong> alarm · Hotel Princessa Vera Hotel Apartments, 17 Tombs of the Kings Road, 8045 Pafos, Cyprus, +357 26 600100 · Auto Petsas: umówiony odbiór 10:30 (planowy cel 11:30); umówiony zwrot 03:30 (planowy przyjazd do sektora 03:25).</p></noscript>
       <noscript><div class="page-width noscript-banner"><strong>JavaScript jest wyłączony.</strong> Widok „Dziś” pozostaje statyczny, a mapa interaktywna się nie wczyta. Pełny plan, trasy i sekcja rowerowa działają bez JavaScriptu — <a href="cypr2026-print.pdf">pobierz PDF</a> lub wydrukuj z menu przeglądarki.</div></noscript>
       {{TODAY}}
+      <noscript>
+        <aside class="page-width noscript-car-alert" aria-label="Pilne potwierdzenie odbioru auta">
+          <strong>Auto Petsas/PFO — terminy vouchera i lotu</strong>
+          <p>Status: rezerwacja Petsas potwierdzona w zakresie nieosobowego streszczenia vouchera: klasa C3, automat z klimatyzacją, 325,50 EUR prepaid online. W streszczeniu wymieniono Toyota Yaris / Opel Corsa bez gwarancji konkretnego modelu. Umówiony odbiór: 7 XI 2026 o 10:30; planowy cel 11:30. W61417 ma planowy przylot do PFO o 10:10, czyli 20 minut wcześniej. Umówiony zwrot: 13 XI o 03:30; planowy przyjazd do sektora pozostaje osobnym celem 03:25. Pilnie potwierdź z Petsas punkt spotkania/transfer, minimalny czas po przylocie, karencję i no-show; pisemnie potwierdź też sektor zwrotu, key drop i koniec odpowiedzialności. Depozyt i pozostałe warunki poza streszczeniem vouchera nie są potwierdzone.</p>
+          <p>To statyczny skrót awaryjny z bieżących danych; <a href="data/Cypr_2026_zrodlo_prawdy.json">kanoniczny JSON</a> jest źródłem szczegółów.</p>
+        </aside>
+      </noscript>
       {{WEEK}}
       {{MAP}}
-      {{DAYS}}
-      {{ROUTES}}
+       {{DAYS}}
+       <section class="section section--history" id="historia" aria-labelledby="historia-title">
+         <div class="page-width">
+           <header class="section-head">
+              <p class="section-index">/ KONTEKST</p>
+             <div class="section-head__body">
+               <h2 id="historia-title">Historia i mitologia</h2>
+               <p class="section-lede">Krótka oś czasu i opowieści powiązane z miejscami obecnymi w planie.</p>
+             </div>
+           </header>
+           <noscript>
+             <div class="history-fallback">
+               <p>Moduł historii jest tworzony z danych kanonicznych po włączeniu JavaScriptu. Bez JavaScriptu pełne dane, daty, typy i źródła pozostają w <a href="data/Cypr_2026_zrodlo_prawdy.json">kanonicznym pliku JSON</a>; nie są tu powielane.</p>
+               <p><a class="text-link" href="#dni">Przejdź do dni i kart miejsc →</a></p>
+             </div>
+           </noscript>
+           <div id="historia-content" data-history-content hidden></div>
+         </div>
+       </section>
+       {{ROUTES}}
       {{CYCLING}}
       <template id="cycling-map-template">
         <div class="cycling-media">

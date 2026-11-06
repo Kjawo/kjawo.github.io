@@ -22,21 +22,42 @@ END:DAYLIGHT
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-day@kjawo.github.io
-DTSTAMP:20261105T000000Z
+DTSTAMP:20261106T000000Z
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Dzień 1: Przylot i Faros
-DESCRIPTION:Odbiór auta\, zakwaterowanie i jeden krótki spacer po nocnej
-  podróży.
+DESCRIPTION:Umówiony odbiór Petsas: 10:30\; planowy cel odbioru: 11:30. 
+ Okno planu 11:15–12:30 jest założeniem planu\, a nie zakresem umówio
+ nego slotu 10:30. W61417 ma planowy przylot 10:10\, więc punkt spotkania
+ \, transfer\, karencję i no-show potwierdzić z firmą. Harmonogram plan
+ u nie zmienia slotu vouchera.
 LOCATION:Pafos\, Cypr
 URL:https://cypr2026.pages.dev/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
+UID:cypr2026-2026-11-07-D1-02@kjawo.github.io
+DTSTAMP:20261106T000000Z
+DTSTART;TZID=Asia/Nicosia:20261107T111500
+DTEND;TZID=Asia/Nicosia:20261107T123000
+SUMMARY:Dzień 1 · Okno planistyczne po umówionym odbiorze auta
+DESCRIPTION:Odbiór umówiony z Petsas na 10:30 według vouchera\; planowy
+  cel 11:30 i okno planu 11:15–12:30 pozostają osobnymi założeniami. 
+ Przylot W61417 planowo 10:10 — tylko 20 min przed umówioną godziną. 
+ Pilnie potwierdzić punkt spotkania/transfer\, minimalny czas po przyloci
+ e\, karencję przy opóźnieniu i no-show. Dokładny sektor PFO do potwie
+ rdzenia.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/
+ maps/search/?api=1&query=34.7179133%2C32.4890948\nPlan: https://cypr2026.
+ pages.dev/#day-01
+LOCATION:Port lotniczy Pafos PFO
+URL:https://cypr2026.pages.dev/#day-01
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-03@kjawo.github.io
-DTSTAMP:20261105T000000Z
-DTSTART;TZID=Asia/Nicosia:20261107T120000
-DTEND;TZID=Asia/Nicosia:20261107T131500
+DTSTAMP:20261106T000000Z
+DTSTART;TZID=Asia/Nicosia:20261107T123000
+DTEND;TZID=Asia/Nicosia:20261107T134500
 SUMMARY:Dzień 1 · Dojazd i bagaże
 DESCRIPTION:25–35 min jazdy plus formalności. Przechowanie bagażu prze
  d pokojem uzgodnić.\nCzas: założenie planu.\nMapa (punkt): https://www
@@ -49,8 +70,8 @@ STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-04@kjawo.github.io
-DTSTAMP:20261105T000000Z
-DTSTART;TZID=Asia/Nicosia:20261107T130000
+DTSTAMP:20261106T000000Z
+DTSTART;TZID=Asia/Nicosia:20261107T134500
 DTEND;TZID=Asia/Nicosia:20261107T150000
 SUMMARY:Dzień 1 · Lunch i odpoczynek
 DESCRIPTION:Posiłek blisko hotelu\, zakupy wody i prowiantu. Przy wcześn
@@ -63,22 +84,8 @@ URL:https://cypr2026.pages.dev/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
-UID:cypr2026-2026-11-07-D1-05@kjawo.github.io
-DTSTAMP:20261105T000000Z
-DTSTART;TZID=Asia/Nicosia:20261107T150000
-DTEND;TZID=Asia/Nicosia:20261107T160000
-SUMMARY:Dzień 1 · Zameldowanie
-DESCRIPTION:Publikowana godzina\; wiążące warunki na voucherze.\nCzas: 
- założenie planu.\nMapa (punkt): https://www.google.com/maps/search/?api
- =1&query=Princessa%20Vera%20Hotel%20Apartments%2017%20Tombs%20of%20the%20
- Kings%20Road%20Paphos\nPlan: https://cypr2026.pages.dev/#day-01
-LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-01
-STATUS:TENTATIVE
-END:VEVENT
-BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-06@kjawo.github.io
-DTSTAMP:20261105T000000Z
+DTSTAMP:20261106T000000Z
 DTSTART;TZID=Asia/Nicosia:20261107T154500
 DTEND;TZID=Asia/Nicosia:20261107T170500
 SUMMARY:Dzień 1 · Faros i zachód
@@ -92,7 +99,7 @@ STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-07@kjawo.github.io
-DTSTAMP:20261105T000000Z
+DTSTAMP:20261106T000000Z
 DTSTART;TZID=Asia/Nicosia:20261107T173000
 DTEND;TZID=Asia/Nicosia:20261107T190000
 SUMMARY:Dzień 1 · Kolacja w okolicy hotelu
@@ -107,7 +114,7 @@ STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-FL-OUT@kjawo.github.io
-DTSTAMP:20261105T000000Z
+DTSTAMP:20261106T000000Z
 DTSTART:20261107T044000Z
 DTEND:20261107T081000Z
 SUMMARY:W61417 WMI → PFO
@@ -120,7 +127,7 @@ STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-hotel@kjawo.github.io
-DTSTAMP:20261105T000000Z
+DTSTAMP:20261106T000000Z
 DTSTART;TZID=Asia/Nicosia:20261107T150000
 DTEND;TZID=Asia/Nicosia:20261113T120000
 SUMMARY:Hotel: Princessa Vera Hotel Apartments
@@ -132,9 +139,9 @@ STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-car-pickup@kjawo.github.io
-DTSTAMP:20261105T000000Z
-DTSTART:20261107T093000Z
-DTEND:20261107T101500Z
+DTSTAMP:20261106T000000Z
+DTSTART:20261107T083000Z
+DTEND:20261107T091500Z
 SUMMARY:Auto: odbiór — cel
 DESCRIPTION:Brak potwierdzonej rezerwacji. To cel planu\, nie gwarancja.\n
  Plan: https://cypr2026.pages.dev/#auto

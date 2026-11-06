@@ -2,14 +2,21 @@
 
 Ten plik jest **nadrzędny** wobec `PLAN-REVIEW.md`. Agent czyta go przed każdą iteracją.
 
-## AKTUALNY ZAKRES — tylko rowery
+## AKTUALNY ZAKRES — review planu i moduł historia/mitologia
 
-Jedynym aktywnym celem jest `ZADANIE-2026-11-05-ROWER.md`: dodać publiczną, niedatowaną
-sekcję rowerową z maksymalnie trzema propozycjami. Wszystkie poniższe wcześniejsze cele
-(korekty planu, nowe miejsca, Varosha/Cape Greco, zdjęcia i pełny audyt) są historią,
-nie listą zadań; nie wznawiaj ich. Zachowaj zapisy i decyzje historyczne. Nadal obowiązują
-niekolidujące zasady bezpieczeństwa: nie zmieniaj rezerwacji, lotów, hotelu, planu
-bazowego ani ostrzeżeń; nie commituj, nie pushuj i nie deployuj.
+Jedynym aktywnym celem Night jest `ZADANIE-2026-11-05-REVIEW-HISTORIA.md`, w kolejności:
+(1) weryfikacja planu na podstawie aktualnych źródeł i rzeczywistego vouchera Petsas
+przekazanego przez użytkownika; (2) przystępny, źródłowy moduł historii/mitologii
+powiązany z miejscami już obecnymi w planie. Stare zadania, w tym zadanie rowerowe i
+pełny audyt z 5 XI, pozostają historią; zachowaj ich zapisy, ale nie wznawiaj ich poza
+konkretnymi zależnościami nowego zadania.
+
+Voucher jest źródłem potwierdzenia samej rezerwacji, godzin i ceny, nie pozostałych
+warunków ubezpieczenia. Nie zapisuj PII z e-maila. Zachowaj niepewności jako
+`do_potwierdzenia`; nie zmieniaj lotów, hotelu ani bazowego układu dni bez dowodu.
+Runner chroni `_src/*.py`; użyj dozwolonych plików renderujących zamiast obchodzić tę
+blokadę. Night ma działać bez pytań do użytkownika i **nie commitować, nie pushować ani
+nie deployować**.
 
 ## HISTORIA — korekty po review (nieaktywne)
 
