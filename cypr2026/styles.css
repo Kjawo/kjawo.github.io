@@ -276,6 +276,24 @@ main:focus-visible{outline:none}
 .clock-block{flex-wrap:wrap}
 .tap-inline{max-width:100%;white-space:normal;overflow-wrap:anywhere}
 .check-item__text .tap-inline{white-space:normal}
+.start-coordinates{overflow-wrap:anywhere;user-select:all}
+.route-navigation{display:flex;flex-wrap:wrap;align-items:center;gap:.25rem .5rem}
+.route-navigation a{min-height:44px;display:inline-flex;align-items:center}
+.network-required{font-size:.8em;white-space:nowrap}
+.hospital,.day-extension{padding:1rem;border:1px solid var(--line);border-radius:8px;margin:.75rem 0;background:#FBF8F0;min-width:0}
+.hospital h4,.day-extension h4{margin:0 0 .5rem}
+.hospital p,.day-extension p{overflow-wrap:anywhere}
+.hospital a{display:inline-block;min-height:24px}
+.extension-warning{font-weight:600;color:#7f3419}
+.issue-card--resolved{background:#f1f3ef;border-color:#b5bfb3}
+.issue-card--resolved .issue-card__head h3{text-decoration:line-through}
+.issues-disclosure>summary{cursor:pointer;padding:1rem 0;font-weight:600;min-height:44px}
+.issues-disclosure .issue-grid{margin-top:1rem}
+.emergency-top{font-size:1.25rem}
+.emergency-panel__number strong{white-space:normal}
+.connection.is-offline{white-space:normal;max-width:100%}
+.connection__text{min-width:0;overflow-wrap:anywhere}
+@media print{.network-required,[data-copy-coordinates],[data-copy-status]{display:none!important}.day-extension,.hospital{break-inside:avoid}.issue-card--resolved{background:transparent}}
 @media screen and (max-width:899px){
   .subnav__inner{position:relative;flex-wrap:wrap}
   .subnav__more{position:static}

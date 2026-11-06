@@ -1,8 +1,8 @@
 # Cypr 2026 — plan podróży
 
-Wersja **1.3.0**, 6 XI 2026. Implementacja zaakceptowanego audytu projektu. Zakres tych prac jest lokalny: **bez commita, pushowania i publikacji**.
+Wersja **1.4.0**, 6 XI 2026. Techniczne poprawki po audycie: offline/PWA, obsługa GPX, bezpieczeństwo, sprawy do potwierdzenia i uzgodnione godziny dnia 4.
 
-SHA-256 źródłowego planu: `28302c7f09fa3a6f5b450d2cbeaaf43db9b8b3a8497d160dd40fc26fd88a90ea`.
+SHA-256 źródłowego planu (zapis LF, jak w Git): `cf523cdd13f233c8427a8107488eab53d54f92af08c49cecb1f229d650683b83`.
 
 Adres główny materiałów: **https://kjawo.github.io/cypr2026/**. Mirror: https://cypr2026.pages.dev/. Konfigurację zapisano w `publication_contract.primary_url` i `mirror_urls` w danych. Wyrównanie opublikowanych wersji wymaga osobnej publikacji; nie zostało wykonane w tym zadaniu. Paczka lokalna ma wspólny canonical, a odnośniki do dziennika i archiwum są absolutne, więc działają również na mirrorze.
 
@@ -47,9 +47,9 @@ python -m http.server 8000
 
 - `index.html`, `styles.min.css`, `app.min.js`, `sw.js`, `manifest.json` i `assets/` — strona z lokalnymi zasobami;
 - `cal/` — osiem ICS: cały wyjazd i siedem dni;
-- `cypr2026-handbook.pdf` — **14 stron**, skrót podręczny;
+- `cypr2026-handbook.pdf` — **16 stron**, skrót podręczny;
 - `cypr2026-handbook.html` — generowane wejście do skrótu PDF;
-- `cypr2026-print.pdf` — pełna wersja, **108 stron**;
+- `cypr2026-print.pdf` — pełna wersja, **112 stron**;
 - `CREDITS.md` — źródła, autorzy i licencje 142 fotografii;
 - `dist/` i `cypr2026-pages.zip` — lokalny komplet publiczny do późniejszej publikacji.
 
@@ -61,7 +61,7 @@ Powrót: wyjazd hotel 02:40; cel sektora 03:15–03:25; zwrot umówiony 03:30; c
 
 Po instalacji service workera strona sprawdza komplet plików i zgodność wersji z dokumentem. Dopiero wtedy pokazuje **„Plan zapisany offline”**. Niepełny zapis, błąd instalacji lub stara wersja nie otrzymują tego potwierdzenia. Przycisk umożliwia sprawdzenie i ponowienie zapisu.
 
-Zapis obejmuje treść, kontakty, fonty, ICS, oba PDF-y i małe zdjęcia każdej fotografii. Powiększenie wcześniej nieotwartego zdjęcia wybiera dostępny wariant z cache; przy błędzie dużego pliku korzysta z małego JPEG. Pobranie dużych JPEG-ów jest osobną opcją z postępem i komunikatem zakończenia/przerwania.
+Zapis podstawowy obejmuje treść, kontakty, fonty, ICS, podręczny PDF i małe zdjęcia każdej fotografii. Pełny PDF pobiera się osobno przyciskiem „Pobierz pełny PDF offline”. Powiększenie wcześniej nieotwartego zdjęcia wybiera dostępny wariant z cache; przy błędzie dużego pliku korzysta z małego JPEG. Nadmiarowe WebP 800 px pominięto w precache; offline SW zwraca dostępny wariant 480 px w tym samym formacie. Pobranie dużych JPEG-ów jest osobną opcją z postępem i komunikatem zakończenia/przerwania. Rozmiar podstawowy 22,262 MB (545 URL-i) kontroluje `npm run test:data`.
 
 Kafelki OSM, zewnętrzne strony, prognoza i nawigacja nie są pobierane. Mapy zachodniego Cypru i Troodos należy pobrać osobno, np. w Organic Maps. Przeglądarka może usunąć zapis przy braku miejsca.
 
@@ -87,8 +87,10 @@ Historyczne głosy w `photo-selection.json` pozostają zachowane; pole korekt au
 
 ## Kontrole i ograniczenia
 
-`_src/verify_data.py` sprawdza JSON osadzony w HTML, rezerwacje, 67 zdarzeń w ośmiu ICS, unikalność UID, poprawność końców zdarzeń, strefy, zgodność linków, bazową mapę i manifest/cache zdjęć. UID pozostały stabilne; ICS otrzymuje rosnące `SEQUENCE` z wersji planu, również przy zmianach tego samego dnia.
+`_src/test_gpx.py` sprawdza geometrię syntetyczną, a `_src/verify_data.py` sprawdza także GPX/null, SHA eksportów, build hash, rozmiar precache i rozwiązane sprawy. Sprawdza JSON osadzony w HTML, rezerwacje, 67 zdarzeń w ośmiu ICS, unikalność UID, poprawność końców zdarzeń, strefy, zgodność linków, bazową mapę i manifest/cache zdjęć. UID pozostały stabilne; ICS otrzymuje rosnące `SEQUENCE` z wersji planu, również przy zmianach tego samego dnia.
 
 `_src/verify.cjs` sprawdza przejścia wydarzeń i wznowienie w czterech strefach, checklisty/fokus/sekcje, szerokości 360/390/768/1440 i tekst 200%, mapę, galerię, klawiaturę, brak JavaScriptu, druk, axe WCAG 2.2 AA, instalację offline, błąd instalacji, naprawę cache, wcześniej nieotwarte powiększenia, opcjonalne duże zdjęcia i aktualizację service workera. Zrzuty i wyniki JSON zapisuje w katalogu tymczasowym; `CYPR_TEST_OUTPUT` pozwala wskazać inny katalog.
 
 Build nadal uczciwie ostrzega o brakujących GPX, sumach podejść i niepotwierdzonych usługach/kosztach. Brak testów na fizycznym iPhonie i importu do Apple/Google Calendar. Otwarte sprawy Petsas, hotelu i transportu WMI/WAW nie zostały rozwiązane zmianą treści. Szczegóły wykonania i rzeczywiste wyniki: `IMPLEMENTACJA-2026-11-06.md`.
+
+Service worker jest generowany z `_src/sw.template.js`; nie należy ręcznie edytować `sw.js`. Overpass nie odpowiedział w preflight 6 XI; wszystkie 8 tras ma jawne `gpx.path: null` z przyczyną. Obsługę polilinii i MIME offline sprawdzono na syntetycznym pliku wyłącznie w pamięci testu, bez publikacji fikcyjnych tras. Bieżący raport techniczny `IMPLEMENTACJA-2026-11-06-TECH.md` zapisano poza publicznym repozytorium.

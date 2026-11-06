@@ -232,14 +232,13 @@
         text.className = "connection__text";
         el.appendChild(text);
       }
-      text.textContent = online ? "online" : "offline";
+      text.textContent = online ? "online" : "Offline — plan z pamięci";
       el.classList.toggle("is-offline", !online);
       el.setAttribute("title", online
         ? "Wskaźnik połączenia z siecią. To nie oznacza świeżości planu; datę aktualizacji podaje stopka."
         : "Brak połączenia. Plan działa offline; kafelki mapy nie.");
     });
-    var mapOffline = $("[data-map-offline]");
-    if (mapOffline) mapOffline.hidden = online;
+    $all("[data-map-offline]").forEach(function (notice) { notice.hidden = online && notice.dataset.tileError !== "true"; });
   }
   window.addEventListener("online", updateConnection);
   window.addEventListener("offline", updateConnection);
@@ -279,6 +278,62 @@
     details.open = false;
     syncDetails(details);
   });
+  var issuesDisclosure = $("[data-issues-disclosure]");
+  if (issuesDisclosure && window.matchMedia("(max-width: 768px)").matches) {
+    issuesDisclosure.open = false;
+    syncDetails(issuesDisclosure);
+  }
+  document.addEventListener("click", function (event) {
+    var copy = event.target.closest("[data-copy-coordinates]");
+    if (copy) {
+      var target = document.getElementById(copy.dataset.copyCoordinates);
+      if (!target) return;
+      var status = copy.parentElement.querySelector("[data-copy-status]");
+      function selectCoordinates() {
+        target.focus();
+        var selection = window.getSelection();
+        var range = document.createRange();
+        range.selectNodeContents(target);
+        selection.removeAllRanges();
+        selection.addRange(range);
+        if (status) status.textContent = " Zaznaczono — skopiuj tekst.";
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(target.textContent).then(function () {
+          if (status) status.textContent = " Skopiowano.";
+        }).catch(selectCoordinates);
+      } else selectCoordinates();
+    }
+    var issueAnchor = event.target.closest('a[href^="#issue-"]');
+    if (issueAnchor && issuesDisclosure) {
+      issuesDisclosure.open = true;
+      syncDetails(issuesDisclosure);
+    }
+  });
+  if (location.hash.indexOf("#issue-") === 0 && issuesDisclosure) issuesDisclosure.open = true;
+
+  function markNetworkLinks(container) {
+    var links = container.matches && container.matches("a[href]") ? [container] : $all("a[href]", container);
+    links.forEach(function (link) {
+      if (link.dataset.requiresNetwork) return;
+      var url;
+      try { url = new URL(link.href, location.href); } catch (error) { return; }
+      if (!/^https?:$/.test(url.protocol) || url.origin === location.origin || url.hostname === "maps.apple.com") return;
+      link.dataset.requiresNetwork = "true";
+      var hint = document.createElement("span");
+      hint.className = "network-required";
+      hint.title = "wymaga sieci";
+      hint.setAttribute("aria-label", "wymaga sieci");
+      hint.textContent = " ↗";
+      link.appendChild(hint);
+    });
+  }
+  markNetworkLinks(document);
+  new MutationObserver(function (records) {
+    records.forEach(function (record) {
+      record.addedNodes.forEach(function (node) { if (node.nodeType === 1) markNetworkLinks(node); });
+    });
+  }).observe(document.body, {childList:true, subtree:true});
 
   // Today --------------------------------------------------------------------
   var todayKicker = $("[data-today-kicker]");
@@ -311,6 +366,7 @@
       while (parent.childNodes.length > desired.childNodes.length) parent.lastChild.remove();
     }
     sync(target, template.content);
+    markNetworkLinks(target);
   }
   var dateOverrideNote = $("[data-date-override]");
   var hotelPlace = placeById[data.trip.hotel.place_id] || {};
@@ -346,10 +402,10 @@
   }
   function updateOverdueIssues(referenceDate) {
     $all("[data-issue-due]").forEach(function (card) {
-      var badge = card.querySelector("[data-issue-overdue]");
-      if (!badge) return;
+      var label = card.querySelector("[data-issue-due-label]");
+      if (!label) return;
       var due = card.getAttribute("data-issue-due");
-      badge.hidden = !(due && referenceDate > due);
+      label.textContent = card.dataset.issueResolved ? "rozwiązane" : (due && referenceDate > due ? "zaległe" : "termin: " + due);
     });
   }
   function issueLink(issue) {
@@ -357,7 +413,7 @@
   }
   function renderBeforeTrip() {
     var days = dayDiff(activeDate, startDate);
-    var blocking = (data.open_issues || []).filter(function (issue) { return issue.blocking; });
+    var blocking = (data.open_issues || []).filter(function (issue) { return issue.blocking && !issue.resolved_on; });
     var sortedBlocking = blocking.slice().sort(function (a, b) {
       return String(a.due_on).localeCompare(String(b.due_on));
     });
@@ -1216,7 +1272,7 @@
       markerZoomAnimation: !reduceMotion
     });
     window.L.control.zoom({ zoomInTitle: "Przybliż mapę", zoomOutTitle: "Oddal mapę" }).addTo(map);
-    window.L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    var tiles = window.L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
       maxZoom: 19,
       attribution: OSM_ATTRIBUTION
     }).addTo(map);
@@ -1226,6 +1282,29 @@
     var markerLayer = window.L.layerGroup().addTo(map);
     mapInstance = map;
     mapAllPlaces = places;
+    (data.routes || []).filter(function (route) { return route.gpx && route.gpx.path; }).forEach(function (route) {
+      fetch(route.gpx.path).then(function (response) {
+        if (!response.ok) throw new Error("GPX HTTP " + response.status);
+        return response.text();
+      }).then(function (xml) {
+        var doc = new DOMParser().parseFromString(xml, "application/xml");
+        if (doc.querySelector("parsererror")) throw new Error("GPX XML");
+        var segments = Array.from(doc.getElementsByTagNameNS("*", "trkseg"));
+        if (!segments.length) segments = Array.from(doc.getElementsByTagNameNS("*", "rte"));
+        segments.forEach(function (segment) {
+          var points = Array.from(segment.children).filter(function (p) { return p.localName === "trkpt" || p.localName === "rtept"; }).map(function (p) { return [Number(p.getAttribute("lat")), Number(p.getAttribute("lon"))]; });
+          if (points.length < 2 || !points.every(function (p) { return Number.isFinite(p[0]) && Number.isFinite(p[1]); })) throw new Error("GPX coordinates");
+          var line = window.L.polyline(points, {color:"#0c5c6b",weight:4,className:"gpx-route"}).addTo(map);
+          line.bindTooltip(route.name);
+          if (line.getElement()) line.getElement().setAttribute("data-gpx-route", route.id);
+        });
+      }).catch(function () {
+        var warning = document.createElement("p");
+        warning.className = "gpx-load-error";
+        warning.textContent = route.name + ": nie udało się wczytać GPX; nie używaj podglądu jako nawigacji.";
+        mapCanvas.parentElement.appendChild(warning);
+      });
+    });
     function renderMarkers(placesToShow) {
       markerLayer.clearLayers();
       var groups = groupPlaces(placesToShow || [], map);
@@ -1272,9 +1351,11 @@
     var offline = document.createElement("p");
     offline.className = "map-offline-overlay";
     offline.setAttribute("data-map-offline", "");
-    offline.textContent = "Offline: kafelki mapy są niedostępne. Lista miejsc poniżej pozostaje pełna.";
+    offline.textContent = data.route_ui.map_offline_note;
     offline.hidden = navigator.onLine !== false;
     mapCanvas.appendChild(offline);
+    tiles.on("tileerror", function () { offline.dataset.tileError = "true"; offline.hidden = false; });
+    tiles.on("tileload", function () { offline.dataset.tileError = "false"; updateConnection(); });
     mapCanvas.classList.add("is-ready");
     if (mapFilterDay) applyMapFilter(mapFilterDay, { scroll: false });
     updateConnection();
@@ -1515,6 +1596,8 @@
   var offlineRetry = $("[data-offline-retry]");
   var offlinePhotos = $("[data-offline-photos]");
   var offlinePhotosStatus = $("[data-offline-photos-status]");
+  var offlinePdf = $("[data-offline-pdf]");
+  var offlinePdfStatus = $("[data-offline-pdf-status]");
   var offlineCacheName = "";
   var offlineRegistration = null;
   async function checkOfflineReady(repair) {
@@ -1535,9 +1618,10 @@
     var ready = reply && reply.ready && reply.version === expected;
     offlineCacheName = ready ? reply.version : "";
     if (offlineStatus) offlineStatus.textContent = ready
-      ? "Plan zapisany offline — treść, kontakty, checklisty, oba PDF-y, ICS i małe zdjęcia z powiększeniem. Mapy i linki zewnętrzne wymagają osobnego pobrania lub internetu."
+      ? data.offline.ready_message
       : "Zapis bieżącej wersji nie jest potwierdzony. Połącz się z internetem i ponów zapis; po aktualizacji odśwież stronę.";
     if (offlinePhotos) offlinePhotos.hidden = !ready;
+    if (offlinePdf) offlinePdf.hidden = !ready;
   }
   if ("serviceWorker" in navigator && (window.location.protocol === "https:" ||
       window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1")) {
@@ -1576,6 +1660,20 @@
       } catch (error) {
         if (offlineStatus) offlineStatus.textContent = "Nie można ponowić zapisu. Połącz się z internetem i spróbuj ponownie.";
       }
+    });
+    if (offlinePdf) offlinePdf.addEventListener("click", async function () {
+      if (!offlineCacheName) return;
+      offlinePdf.disabled = true;
+      try {
+        var response = await fetch("cypr2026-print.pdf");
+        if (!response.ok || !/application\/pdf/.test(response.headers.get("Content-Type") || "")) throw new Error("PDF");
+        var cache = await caches.open(offlineCacheName);
+        await cache.put("cypr2026-print.pdf", response);
+        offlinePdfStatus.textContent = "Pełny PDF zapisany offline.";
+      } catch (error) {
+        offlinePdfStatus.textContent = "Nie udało się pobrać pełnego PDF. Połącz się z siecią i ponów.";
+      }
+      offlinePdf.disabled = false;
     });
     if (offlinePhotos) offlinePhotos.addEventListener("click", async function () {
       if (!offlineCacheName) return;

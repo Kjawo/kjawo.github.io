@@ -29,7 +29,7 @@ const root = path.resolve(__dirname, '..');
     const data = JSON.parse(fs.readFileSync(path.join(root,'data/Cypr_2026_zrodlo_prawdy.json'),'utf8'));
     const index = fs.readFileSync(path.join(root,'index.html'),'utf8');
     const sha256 = Object.fromEntries(['index.html','cypr2026-handbook.html','cypr2026-print.pdf','cypr2026-handbook.pdf'].map(file=>[file,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,file))).digest('hex')]));
-    fs.writeFileSync(path.join(root,'data/exports.json'),JSON.stringify({version:data.meta.version,canonical:index.match(/<link rel="canonical" href="([^"]+)"/)[1],sha256},null,2)+'\n');
+    fs.writeFileSync(path.join(root,'data/exports.json'),JSON.stringify({version:data.meta.version,build_hash:index.match(/<meta name="cypr-asset-version" content="([^"]+)"/)[1],canonical:index.match(/<link rel="canonical" href="([^"]+)"/)[1],sha256},null,2)+'\n');
   } finally {
     if (browser) await browser.close();
     await new Promise(resolve => server.close(resolve));

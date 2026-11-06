@@ -1,6 +1,7 @@
 """Generate a compact, printable handbook from the same canonical plan."""
 from html import escape as esc
 from pathlib import Path
+from practical import hospitals_html, assistance_html, extensions_html
 
 
 def render_handbook(plan, canonical):
@@ -33,7 +34,7 @@ def render_handbook(plan, canonical):
              f"Odbiór umówiony {int(car['pickup_agreed_at'][8:10])} XI {car['pickup_agreed_at'][11:16]}. {car['pickup_plan_window']['note']}",
              f"Zwrot umówiony {int(car['return_agreed_at'][8:10])} XI {car['return_agreed_at'][11:16]}. {car['return_plan_window']['note']}"])
          + '<h2>Nocny powrót</h2><p class="important">' + esc(return_times) + f'</p><p><b>Granice:</b> bag drop {esc(limits["baggage_closes"])}, zamknięcie bramki {esc(limits["gate_closes"])}. To granice, nie cele przyjścia. Opóźnienie lotu samo ich nie przesuwa.</p>'
-         + '<h2>Kontakty</h2>' + para('Alarm', '112') + para('Hotel', hotel['address'] + ' · ' + hotel['phone'])
+         + '<h2>Kontakty</h2>' + para('Alarm', p['safety']['emergency']['number']) + para('Hotel', hotel['address'] + ' · ' + hotel['phone'])
          + para('Petsas PFO', '+357 26 423046') + para('Petsas — publiczny numer awaryjny', '+357 24 643350 (24 h; warunki assistance do potwierdzenia)')
          + '<p>Dokumenty i numery rezerwacji trzymaj osobno. Statusy „do potwierdzenia” wymagają rzeczywistej odpowiedzi; odhaczenie checklisty nie potwierdza faktu.</p>'
          + f'<p>Pełny plan i źródła: <a href="{esc(canonical)}">{esc(canonical)}</a></p>')
@@ -50,7 +51,7 @@ def render_handbook(plan, canonical):
             times = e['start_local'] + ('–' + e['end_local'] if e.get('end_local') else '')
             if e.get('timezone') == 'Europe/Warsaw': times += ' PL'
             body += f'<tr><td>{esc(times)}</td><td><b>{esc(e["title"])}</b>{" · opcja" if e.get("optional") else ""}<br>{esc(e["description"])}</td></tr>'
-        body += '</tbody></table>' + para('Rezygnujemy kolejno', ' → '.join(d['cut_order']))
+        body += '</tbody></table>' + extensions_html(plan, d) + para('Rezygnujemy kolejno', ' → '.join(d['cut_order']))
         body += '<p><small>*Czas Cypru, oprócz jawnie oznaczonych godzin PL. Przejazdy i okna są szacunkami; loty i umówione terminy z materiału użytkownika. Pełne scenariusze i źródła w planie.</small></p>'
         page(d['date'][8:] + ' XI · ' + d['title'], body)
 
@@ -61,8 +62,16 @@ def render_handbook(plan, canonical):
         body += para('Opis', r['description']) + f'<p><b>Start:</b> <a href="{esc(start["map_url"])}">{esc(start["name"])}</a></p>' + para('Dojazd i punkt', start['notes'])
         body += '<h2>Przed wyjściem</h2>' + listing(r['activation']) + '<h2>Rezygnacja</h2>' + listing(r['cancel'])
         body += '<h2>Na trasie</h2>' + listing(r['risks'] + r['notes'])
-        body += '<p><b>Prowiant, własna woda, warstwa od wiatru i czołówka.</b> Brak załączonego GPX i zweryfikowanej sumy podejść. Sprawdzić konkretny przebieg, otwarcie, pogodę i mapy polowań. 8 i 11 XI bez trekkingu.</p>'
+        body += para('GPX', r['gpx']['note']) + para('Licencja GPX', r['gpx'].get('license') or p['route_ui']['gpx_credits'])
+        body += '<p><b>Prowiant, własna woda, warstwa od wiatru i czołówka.</b> Sprawdzić konkretny przebieg, otwarcie, pogodę i mapy polowań. 8 i 11 XI bez trekkingu.</p>'
         page('Trasa · ' + r['name'], body)
+
+    emergency = p['safety']['emergency']
+    page('Bezpieczeństwo i kontakty', para('Alarm', emergency['number']) + hospitals_html(emergency) + assistance_html(emergency)
+         + para('Nocny zwrot Petsas', car['return_rule']) + para('Pogoda', p['safety']['weather_checks']))
+    page('Pakowanie, auto i offline', '<h2>Trekking</h2>' + listing(p['packing']['hike']) + '<h2>Ogólne</h2>' + listing(p['packing']['general'])
+         + '<h2>Dokumenty</h2>' + listing(p['packing']['documents']) + para('Auto', car['use_rule'])
+         + '<h2>Offline</h2>' + listing(p['offline']['steps']) + '<p>' + esc(p['offline']['limitations']) + '</p>')
 
     # Two short option sheets keep alternatives separate from the base week.
     options = [a for a in plan.alternative_list if a['id'] not in {'ALT-EAST-COMBO','ALT-SUNDAY'}]

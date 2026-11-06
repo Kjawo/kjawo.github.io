@@ -4,6 +4,10 @@ import re
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
+import hashlib
+import copy
+from urllib.parse import urlsplit, unquote
+from gpx import validate_routes
 
 ROOT = Path(__file__).resolve().parent.parent
 p = json.loads((ROOT/'data/Cypr_2026_zrodlo_prawdy.json').read_text(encoding='utf-8'))
@@ -27,6 +31,8 @@ def dt(value):
     return datetime.strptime(value, '%Y%m%dT%H%M%S').replace(tzinfo=ZoneInfo(zone))
 
 all_events = {}
+major,minor,patch = map(int, p['meta']['version'].split('.'))
+sequence = major*1000000 + minor*1000 + patch
 for file in sorted((ROOT/'cal').glob('*.ics')):
     raw = file.read_bytes()
     assert b'\r\n' in raw, file
@@ -40,7 +46,7 @@ for file in sorted((ROOT/'cal').glob('*.ics')):
         uid=next(x[4:] for x in lines if x.startswith('UID:'));ids.append(uid)
         start=next(x for x in lines if x.startswith('DTSTART'))
         end=next(x for x in lines if x.startswith('DTEND'))
-        assert 'SEQUENCE:1003000' in lines, (file,uid)
+        assert f'SEQUENCE:{sequence}' in lines, (file,uid)
         assert dt(start)<dt(end), (file,uid)
         if uid in all_events: assert all_events[uid]==event, (file,uid)
         all_events[uid]=event
@@ -71,4 +77,41 @@ for photo in photos:
         for fmt in ['avif','webp','jpeg']:
             if v.get(fmt): assert (ROOT/v[fmt]).is_file(),v[fmt]
 assert './cypr2026-handbook.pdf' in worker
+assert './cypr2026-print.pdf' not in re.search(r'const PRECACHE_URLS = (\[.*?\]);',worker,re.S).group(1)
+gpx_results = validate_routes(p,ROOT)
+for r in p['routes']:
+    if r['gpx']['path']: assert './'+r['gpx']['path'] in worker
+assert 'assets/vendor/leaflet/leaflet.js' in worker
+assert 'assets/vendor/leaflet/leaflet.css' in worker
+precache = json.loads(re.search(r'const PRECACHE_URLS = (\[.*?\]);',worker,re.S).group(1).replace(',\n]', '\n]'))
+precache_bytes = sum((ROOT/(unquote(urlsplit(url).path).removeprefix('./') or 'index.html')).stat().st_size for url in precache)
+assert precache_bytes < 25_000_000, precache_bytes
+exports = json.loads((ROOT/'data/exports.json').read_text(encoding='utf-8'))
+assert exports['version'] == p['meta']['version']
+asset_hash = re.search(r'<meta name="cypr-asset-version" content="([^"]+)"',html).group(1)
+assert exports['build_hash'] == asset_hash
+assert f'<strong data-build-hash>{asset_hash}</strong>' in html
+for name,digest in exports['sha256'].items():
+    assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest() == digest, name
+for issue in p['open_issues']:
+    assert 'resolved_on' in issue and 'resolution' in issue
+assert p['meta']['version'] == '1.4.0'
+assert p['days'][3]['timeline'][1]['start_local'] == '07:00'
+assert p['days'][3]['timeline'][3]['start_local'] == '09:30'
+for name in ['index.html','cypr2026-handbook.html']:
+    rendered = (ROOT/name).read_text(encoding='utf-8')
+    for text in ['1.4.0','Paphos General Hospital','Polis Chrysochous Hospital','Kyperounta Hospital','WPISZ: sektor, klucze','WPISZ','EKUZ','NRC','typ G']:
+        assert text in rendered,(name,text)
+print(f'PASS: GPX validation ({len(gpx_results)} routes), export SHA-256 / build hash, precache {precache_bytes:,} B / {len(precache)} URLs (< 25 MB).')
+from build import Plan, render_todo, nearest_issue
+resolved_data = copy.deepcopy(p)
+for issue in resolved_data['open_issues']:
+    issue['resolved_on'] = '2026-11-06'
+    issue['resolution'] = 'Synthetic renderer test only'
+resolved_plan = Plan(resolved_data)
+assert not resolved_plan.blocking_issues
+assert nearest_issue(resolved_plan) is None
+assert render_todo(resolved_plan).count('issue-card--resolved') == len(p['open_issues'])
+assert 'Synthetic renderer test only' in render_todo(resolved_plan)
+assert 'status--otwarte' not in render_todo(resolved_plan)
 print(f'PASS: embedded JSON, {len(all_events)} calendar events / 8 ICS, booking times, base map coverage, {len(photos)} photos and precache.')

@@ -23,7 +23,7 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-day@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART;VALUE=DATE:20261113
 DTEND;VALUE=DATE:20261114
 SUMMARY:Dzień 7: Nocny zwrot auta i powrót
@@ -37,7 +37,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-00@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART;TZID=Asia/Nicosia:20261113T000000
 DTEND;TZID=Asia/Nicosia:20261113T020500
 SUMMARY:Dzień 7 · Sen — dokończenie
@@ -52,7 +52,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-01@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART;TZID=Asia/Nicosia:20261113T020500
 DTEND;TZID=Asia/Nicosia:20261113T023000
 SUMMARY:Dzień 7 · Pobudka
@@ -67,7 +67,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART;TZID=Asia/Nicosia:20261113T023000
 DTEND;TZID=Asia/Nicosia:20261113T024000
 SUMMARY:Dzień 7 · Wyjście i klucze hotelu
@@ -83,7 +83,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART;TZID=Asia/Nicosia:20261113T024000
 DTEND;TZID=Asia/Nicosia:20261113T031500
 SUMMARY:Dzień 7 · Wyjazd na PFO
@@ -99,7 +99,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-04@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART;TZID=Asia/Nicosia:20261113T031500
 DTEND;TZID=Asia/Nicosia:20261113T040000
 SUMMARY:Dzień 7 · Zwrot Petsas — okno planu\; termin 03:30
@@ -117,7 +117,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-05@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART;TZID=Asia/Nicosia:20261113T040000
 DTEND;TZID=Asia/Nicosia:20261113T042000
 SUMMARY:Dzień 7 · Dojście / transfer do terminala
@@ -133,7 +133,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART;TZID=Asia/Nicosia:20261113T042000
 DTEND;TZID=Asia/Nicosia:20261113T044500
 SUMMARY:Dzień 7 · Nadanie bagażu — cel planu
@@ -150,7 +150,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-07@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART;TZID=Asia/Nicosia:20261113T044500
 DTEND;TZID=Asia/Nicosia:20261113T053000
 SUMMARY:Dzień 7 · Kontrola i dojście do bramki
@@ -166,7 +166,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-BAG-LIMIT@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART;TZID=Asia/Nicosia:20261113T052000
 DTEND;TZID=Asia/Nicosia:20261113T052100
 SUMMARY:Dzień 7 · Bag drop — granica zamknięcia
@@ -181,7 +181,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-GATE-LIMIT@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART;TZID=Asia/Nicosia:20261113T055000
 DTEND;TZID=Asia/Nicosia:20261113T055100
 SUMMARY:Dzień 7 · Bramka — zamknięcie
@@ -196,7 +196,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-FL-IN@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART:20261113T042000Z
 DTEND:20261113T074500Z
 SUMMARY:FR5880 PFO → WAW
@@ -210,7 +210,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-hotel@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART;TZID=Asia/Nicosia:20261107T150000
 DTEND;TZID=Asia/Nicosia:20261113T120000
 SUMMARY:Hotel: Princessa Vera Hotel Apartments
@@ -223,7 +223,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-car-return@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1003000
+SEQUENCE:1004000
 DTSTART:20261113T013000Z
 DTEND:20261113T013100Z
 SUMMARY:Petsas: zwrot — termin umówiony 03:30
@@ -231,12 +231,10 @@ DESCRIPTION:Rezerwacja według materiału użytkownika: Petsas\, C3 automa
  tyczna\, 325\,50 € prepaid.\nUmówiony termin: 03:30 czasu Cypru. Jedno
  minutowy znacznik terminu\, nie czas obsługi.\nOsobne okno planu: 03:15
  –04:00. Przyjazd 03:15–03:25\, dokumentacja i obsługa\; umówiony zw
- rot 03:30. Czas zależy od instrukcji Petsas.\nZwrot umówiony 03:30. Pla
- n: przyjazd do właściwego sektora 03:15–03:25 i obsługa do około 04
- :00\; cel stanowiska odprawy 04:20. Sektor\, klucze\, ewentualny transfer
-  i koniec odpowiedzialności wymagają pisemnej instrukcji Petsas. Zdjęc
- ia same nie kończą odpowiedzialności.\nPlan: https://kjawo.github.io/c
- ypr2026/#auto
+ rot 03:30. Czas zależy od instrukcji Petsas.\nNocny zwrot 03:30 potwierd
+ zony przez użytkownika 6 XI 2026. WPISZ: sektor\, klucze. Plan dojazdu i
+  obsługi bez zmian\; transfer\, opłaty oraz koniec odpowiedzialności n
+ adal do potwierdzenia.\nPlan: https://kjawo.github.io/cypr2026/#auto
 LOCATION:PFO — dokładny sektor do potwierdzenia
 URL:https://kjawo.github.io/cypr2026/#auto
 STATUS:CONFIRMED

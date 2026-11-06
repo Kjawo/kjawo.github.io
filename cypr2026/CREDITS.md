@@ -154,3 +154,12 @@ Każdy wpis w `data/photos.json` zawiera stronę pliku, geotag/OSM lub kategori�
 ## Modyfikacje
 
 Kadrowanie do formatów 4:5 (hero), 3:2 (dni i pasek), 4:3 (miejsca) i 16:9 (trasy), zmiana rozmiaru do 480/800/1280/1920 px oraz konwersja do AVIF/WebP/JPEG. Bez upscalingu: największy wariant nie przekracza szerokości źródła.
+
+## Ślady GPX
+
+Brak opublikowanych śladów GPX. Nie pozyskano danych z licencją pozwalającą na redystrybucję; nie wyznaczono linii szlaków z pinezek.
+
+
+## Leaflet
+
+Leaflet 1.9.4 — BSD-2-Clause; © 2010–2023 Volodymyr Agafonkin, © 2010–2011 CloudMade. Lokalnie: `assets/vendor/leaflet/`. Pełna licencja: `assets/vendor/leaflet/LICENSE`. Źródło: https://github.com/Leaflet/Leaflet/tree/v1.9.4

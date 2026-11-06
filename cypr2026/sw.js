@@ -2,13 +2,13 @@
 "use strict";
 
 // Updated by cypr2026/_src/build.py on every build.
-const CACHE_VERSION = "cypr-2026-1.3.0-36628e52a2";
+const CACHE_VERSION = "cypr-2026-1.4.0-ef12d807a6";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
-  "./styles.min.css?v=36628e52a2",
-  "./app.min.js?v=36628e52a2",
-  "./manifest.json?v=36628e52a2",
+  "./styles.min.css?v=ef12d807a6",
+  "./app.min.js?v=ef12d807a6",
+  "./manifest.json?v=ef12d807a6",
   "./data/Cypr_2026_zrodlo_prawdy.json",
   "./assets/fonts/inter-400-ext.woff2",
   "./assets/fonts/inter-400.woff2",
@@ -30,7 +30,6 @@ const PRECACHE_URLS = [
   "./assets/photos/hero/hero-480.webp",
   "./assets/photos/hero/hero-480.jpeg",
   "./assets/photos/hero/hero-800.avif",
-  "./assets/photos/hero/hero-800.webp",
   "./assets/photos/hero/hero-800.jpeg",
   "./assets/photos/strip-01/strip-01-480.avif",
   "./assets/photos/strip-01/strip-01-480.webp",
@@ -45,7 +44,6 @@ const PRECACHE_URLS = [
   "./assets/photos/day-01-b/day-01-b-480.webp",
   "./assets/photos/day-01-b/day-01-b-480.jpg",
   "./assets/photos/day-01-b/day-01-b-800.avif",
-  "./assets/photos/day-01-b/day-01-b-800.webp",
   "./assets/photos/day-01-b/day-01-b-800.jpg",
   "./assets/photos/day-01/day-01-480.avif",
   "./assets/photos/day-01/day-01-480.webp",
@@ -60,7 +58,6 @@ const PRECACHE_URLS = [
   "./assets/photos/day-02/day-02-480.webp",
   "./assets/photos/day-02/day-02-480.jpg",
   "./assets/photos/day-02/day-02-800.avif",
-  "./assets/photos/day-02/day-02-800.webp",
   "./assets/photos/day-02/day-02-800.jpg",
   "./assets/photos/day-02-b/day-02-b-480.avif",
   "./assets/photos/day-02-b/day-02-b-480.webp",
@@ -75,7 +72,6 @@ const PRECACHE_URLS = [
   "./assets/photos/day-03/day-03-480.webp",
   "./assets/photos/day-03/day-03-480.jpeg",
   "./assets/photos/day-03/day-03-800.avif",
-  "./assets/photos/day-03/day-03-800.webp",
   "./assets/photos/day-03/day-03-800.jpeg",
   "./assets/photos/day-03-b/day-03-b-480.avif",
   "./assets/photos/day-03-b/day-03-b-480.webp",
@@ -90,7 +86,6 @@ const PRECACHE_URLS = [
   "./assets/photos/day-04/day-04-480.webp",
   "./assets/photos/day-04/day-04-480.jpg",
   "./assets/photos/day-04/day-04-800.avif",
-  "./assets/photos/day-04/day-04-800.webp",
   "./assets/photos/day-04/day-04-800.jpg",
   "./assets/photos/day-04-b/day-04-b-480.avif",
   "./assets/photos/day-04-b/day-04-b-480.webp",
@@ -105,7 +100,6 @@ const PRECACHE_URLS = [
   "./assets/photos/day-05/day-05-480.webp",
   "./assets/photos/day-05/day-05-480.jpg",
   "./assets/photos/day-05/day-05-800.avif",
-  "./assets/photos/day-05/day-05-800.webp",
   "./assets/photos/day-05/day-05-800.jpg",
   "./assets/photos/day-05-b/day-05-b-480.avif",
   "./assets/photos/day-05-b/day-05-b-480.webp",
@@ -120,7 +114,6 @@ const PRECACHE_URLS = [
   "./assets/photos/day-06-b/day-06-b-480.webp",
   "./assets/photos/day-06-b/day-06-b-480.jpg",
   "./assets/photos/day-06-b/day-06-b-800.avif",
-  "./assets/photos/day-06-b/day-06-b-800.webp",
   "./assets/photos/day-06-b/day-06-b-800.jpg",
   "./assets/photos/day-06/day-06-480.avif",
   "./assets/photos/day-06/day-06-480.webp",
@@ -135,7 +128,6 @@ const PRECACHE_URLS = [
   "./assets/photos/day-07/day-07-480.webp",
   "./assets/photos/day-07/day-07-480.jpg",
   "./assets/photos/day-07/day-07-800.avif",
-  "./assets/photos/day-07/day-07-800.webp",
   "./assets/photos/day-07/day-07-800.jpg",
   "./assets/photos/day-07-c/day-07-c-480.avif",
   "./assets/photos/day-07-c/day-07-c-480.webp",
@@ -144,7 +136,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-baths/place-baths-480.webp",
   "./assets/photos/place-baths/place-baths-480.jpg",
   "./assets/photos/place-baths/place-baths-800.avif",
-  "./assets/photos/place-baths/place-baths-800.webp",
   "./assets/photos/place-baths/place-baths-800.jpg",
   "./assets/photos/place-baths-b/place-baths-b-480.avif",
   "./assets/photos/place-baths-b/place-baths-b-480.webp",
@@ -156,7 +147,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-edro/place-edro-480.webp",
   "./assets/photos/place-edro/place-edro-480.jpg",
   "./assets/photos/place-edro/place-edro-800.avif",
-  "./assets/photos/place-edro/place-edro-800.webp",
   "./assets/photos/place-edro/place-edro-800.jpg",
   "./assets/photos/place-edro-b/place-edro-b-480.avif",
   "./assets/photos/place-edro-b/place-edro-b-480.webp",
@@ -168,7 +158,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-faros/place-faros-480.webp",
   "./assets/photos/place-faros/place-faros-480.jpg",
   "./assets/photos/place-faros/place-faros-800.avif",
-  "./assets/photos/place-faros/place-faros-800.webp",
   "./assets/photos/place-faros/place-faros-800.jpg",
   "./assets/photos/place-faros-b/place-faros-b-480.avif",
   "./assets/photos/place-faros-b/place-faros-b-480.webp",
@@ -177,13 +166,11 @@ const PRECACHE_URLS = [
   "./assets/photos/place-faros-c/place-faros-c-480.webp",
   "./assets/photos/place-faros-c/place-faros-c-480.jpg",
   "./assets/photos/place-faros-c/place-faros-c-800.avif",
-  "./assets/photos/place-faros-c/place-faros-c-800.webp",
   "./assets/photos/place-faros-c/place-faros-c-800.jpg",
   "./assets/photos/place-harbour/place-harbour-480.avif",
   "./assets/photos/place-harbour/place-harbour-480.webp",
   "./assets/photos/place-harbour/place-harbour-480.jpg",
   "./assets/photos/place-harbour/place-harbour-800.avif",
-  "./assets/photos/place-harbour/place-harbour-800.webp",
   "./assets/photos/place-harbour/place-harbour-800.jpg",
   "./assets/photos/place-harbour-b/place-harbour-b-480.avif",
   "./assets/photos/place-harbour-b/place-harbour-b-480.webp",
@@ -198,7 +185,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-omodos/place-omodos-480.webp",
   "./assets/photos/place-omodos/place-omodos-480.jpg",
   "./assets/photos/place-omodos/place-omodos-800.avif",
-  "./assets/photos/place-omodos/place-omodos-800.webp",
   "./assets/photos/place-omodos/place-omodos-800.jpg",
   "./assets/photos/place-omodos-b/place-omodos-b-480.avif",
   "./assets/photos/place-omodos-b/place-omodos-b-480.webp",
@@ -213,7 +199,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-palaipafos/place-palaipafos-480.webp",
   "./assets/photos/place-palaipafos/place-palaipafos-480.jpg",
   "./assets/photos/place-palaipafos/place-palaipafos-800.avif",
-  "./assets/photos/place-palaipafos/place-palaipafos-800.webp",
   "./assets/photos/place-palaipafos/place-palaipafos-800.jpg",
   "./assets/photos/place-palaipafos-b/place-palaipafos-b-480.avif",
   "./assets/photos/place-palaipafos-b/place-palaipafos-b-480.webp",
@@ -225,7 +210,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-park/place-park-480.webp",
   "./assets/photos/place-park/place-park-480.jpg",
   "./assets/photos/place-park/place-park-800.avif",
-  "./assets/photos/place-park/place-park-800.webp",
   "./assets/photos/place-park/place-park-800.jpg",
   "./assets/photos/place-park-b/place-park-b-480.avif",
   "./assets/photos/place-park-b/place-park-b-480.webp",
@@ -240,7 +224,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-petra/place-petra-480.webp",
   "./assets/photos/place-petra/place-petra-480.jpg",
   "./assets/photos/place-petra/place-petra-800.avif",
-  "./assets/photos/place-petra/place-petra-800.webp",
   "./assets/photos/place-petra/place-petra-800.jpg",
   "./assets/photos/place-petra-b/place-petra-b-480.avif",
   "./assets/photos/place-petra-b/place-petra-b-480.webp",
@@ -252,7 +235,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-tombs/place-tombs-480.webp",
   "./assets/photos/place-tombs/place-tombs-480.jpg",
   "./assets/photos/place-tombs/place-tombs-800.avif",
-  "./assets/photos/place-tombs/place-tombs-800.webp",
   "./assets/photos/place-tombs/place-tombs-800.jpg",
   "./assets/photos/place-tombs-b/place-tombs-b-480.avif",
   "./assets/photos/place-tombs-b/place-tombs-b-480.webp",
@@ -267,7 +249,6 @@ const PRECACHE_URLS = [
   "./assets/photos/route-aphrodite/route-aphrodite-480.webp",
   "./assets/photos/route-aphrodite/route-aphrodite-480.jpeg",
   "./assets/photos/route-aphrodite/route-aphrodite-800.avif",
-  "./assets/photos/route-aphrodite/route-aphrodite-800.webp",
   "./assets/photos/route-aphrodite/route-aphrodite-800.jpeg",
   "./assets/photos/route-aphrodite-b/route-aphrodite-b-480.avif",
   "./assets/photos/route-aphrodite-b/route-aphrodite-b-480.webp",
@@ -279,7 +260,6 @@ const PRECACHE_URLS = [
   "./assets/photos/route-artemis/route-artemis-480.webp",
   "./assets/photos/route-artemis/route-artemis-480.jpg",
   "./assets/photos/route-artemis/route-artemis-800.avif",
-  "./assets/photos/route-artemis/route-artemis-800.webp",
   "./assets/photos/route-artemis/route-artemis-800.jpg",
   "./assets/photos/route-artemis-b/route-artemis-b-480.avif",
   "./assets/photos/route-artemis-b/route-artemis-b-480.webp",
@@ -291,7 +271,6 @@ const PRECACHE_URLS = [
   "./assets/photos/route-vouni/route-vouni-480.webp",
   "./assets/photos/route-vouni/route-vouni-480.jpg",
   "./assets/photos/route-vouni/route-vouni-800.avif",
-  "./assets/photos/route-vouni/route-vouni-800.webp",
   "./assets/photos/route-vouni/route-vouni-800.jpg",
   "./assets/photos/route-vouni-b/route-vouni-b-480.avif",
   "./assets/photos/route-vouni-b/route-vouni-b-480.webp",
@@ -303,7 +282,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-varosha/place-varosha-480.webp",
   "./assets/photos/place-varosha/place-varosha-480.jpg",
   "./assets/photos/place-varosha/place-varosha-800.avif",
-  "./assets/photos/place-varosha/place-varosha-800.webp",
   "./assets/photos/place-varosha/place-varosha-800.jpg",
   "./assets/photos/place-varosha-b/place-varosha-b-480.avif",
   "./assets/photos/place-varosha-b/place-varosha-b-480.webp",
@@ -318,7 +296,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-coral-bay/place-coral-bay-480.webp",
   "./assets/photos/place-coral-bay/place-coral-bay-480.jpg",
   "./assets/photos/place-coral-bay/place-coral-bay-800.avif",
-  "./assets/photos/place-coral-bay/place-coral-bay-800.webp",
   "./assets/photos/place-coral-bay/place-coral-bay-800.jpg",
   "./assets/photos/place-coral-bay-b/place-coral-bay-b-480.avif",
   "./assets/photos/place-coral-bay-b/place-coral-bay-b-480.webp",
@@ -330,7 +307,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-larnaca-salt/place-larnaca-salt-480.webp",
   "./assets/photos/place-larnaca-salt/place-larnaca-salt-480.jpg",
   "./assets/photos/place-larnaca-salt/place-larnaca-salt-800.avif",
-  "./assets/photos/place-larnaca-salt/place-larnaca-salt-800.webp",
   "./assets/photos/place-larnaca-salt/place-larnaca-salt-800.jpg",
   "./assets/photos/place-larnaca-salt-b/place-larnaca-salt-b-480.avif",
   "./assets/photos/place-larnaca-salt-b/place-larnaca-salt-b-480.webp",
@@ -345,7 +321,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-geroskipou/place-geroskipou-480.webp",
   "./assets/photos/place-geroskipou/place-geroskipou-480.jpg",
   "./assets/photos/place-geroskipou/place-geroskipou-800.avif",
-  "./assets/photos/place-geroskipou/place-geroskipou-800.webp",
   "./assets/photos/place-geroskipou/place-geroskipou-800.jpg",
   "./assets/photos/place-geroskipou-b/place-geroskipou-b-480.avif",
   "./assets/photos/place-geroskipou-b/place-geroskipou-b-480.webp",
@@ -357,7 +332,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-kamara/place-kamara-480.webp",
   "./assets/photos/place-kamara/place-kamara-480.jpg",
   "./assets/photos/place-kamara/place-kamara-800.avif",
-  "./assets/photos/place-kamara/place-kamara-800.webp",
   "./assets/photos/place-kamara/place-kamara-800.jpg",
   "./assets/photos/place-kamara-b/place-kamara-b-480.avif",
   "./assets/photos/place-kamara-b/place-kamara-b-480.webp",
@@ -369,7 +343,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-greco/place-greco-480.webp",
   "./assets/photos/place-greco/place-greco-480.jpg",
   "./assets/photos/place-greco/place-greco-800.avif",
-  "./assets/photos/place-greco/place-greco-800.webp",
   "./assets/photos/place-greco/place-greco-800.jpg",
   "./assets/photos/place-greco-b/place-greco-b-480.avif",
   "./assets/photos/place-greco-b/place-greco-b-480.webp",
@@ -381,7 +354,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-lovers-tree/place-lovers-tree-480.webp",
   "./assets/photos/place-lovers-tree/place-lovers-tree-480.jpg",
   "./assets/photos/place-lovers-tree/place-lovers-tree-800.avif",
-  "./assets/photos/place-lovers-tree/place-lovers-tree-800.webp",
   "./assets/photos/place-lovers-tree/place-lovers-tree-800.jpg",
   "./assets/photos/place-lovers-tree-b/place-lovers-tree-b-480.avif",
   "./assets/photos/place-lovers-tree-b/place-lovers-tree-b-480.webp",
@@ -393,7 +365,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-famagusta/place-famagusta-480.webp",
   "./assets/photos/place-famagusta/place-famagusta-480.jpg",
   "./assets/photos/place-famagusta/place-famagusta-800.avif",
-  "./assets/photos/place-famagusta/place-famagusta-800.webp",
   "./assets/photos/place-famagusta/place-famagusta-800.jpg",
   "./assets/photos/place-famagusta-b/place-famagusta-b-480.avif",
   "./assets/photos/place-famagusta-b/place-famagusta-b-480.webp",
@@ -405,7 +376,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-kolossi/place-kolossi-480.webp",
   "./assets/photos/place-kolossi/place-kolossi-480.jpg",
   "./assets/photos/place-kolossi/place-kolossi-800.avif",
-  "./assets/photos/place-kolossi/place-kolossi-800.webp",
   "./assets/photos/place-kolossi/place-kolossi-800.jpg",
   "./assets/photos/place-kolossi-b/place-kolossi-b-480.avif",
   "./assets/photos/place-kolossi-b/place-kolossi-b-480.webp",
@@ -417,7 +387,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-neophytos/place-neophytos-480.webp",
   "./assets/photos/place-neophytos/place-neophytos-480.jpg",
   "./assets/photos/place-neophytos/place-neophytos-800.avif",
-  "./assets/photos/place-neophytos/place-neophytos-800.webp",
   "./assets/photos/place-neophytos/place-neophytos-800.jpg",
   "./assets/photos/place-neophytos-b/place-neophytos-b-480.avif",
   "./assets/photos/place-neophytos-b/place-neophytos-b-480.webp",
@@ -429,7 +398,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-lefkara/place-lefkara-480.webp",
   "./assets/photos/place-lefkara/place-lefkara-480.jpg",
   "./assets/photos/place-lefkara/place-lefkara-800.avif",
-  "./assets/photos/place-lefkara/place-lefkara-800.webp",
   "./assets/photos/place-lefkara/place-lefkara-800.jpg",
   "./assets/photos/place-lefkara-b/place-lefkara-b-480.avif",
   "./assets/photos/place-lefkara-b/place-lefkara-b-480.webp",
@@ -441,7 +409,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-kourion/place-kourion-480.webp",
   "./assets/photos/place-kourion/place-kourion-480.jpg",
   "./assets/photos/place-kourion/place-kourion-800.avif",
-  "./assets/photos/place-kourion/place-kourion-800.webp",
   "./assets/photos/place-kourion/place-kourion-800.jpg",
   "./assets/photos/place-kourion-b/place-kourion-b-480.avif",
   "./assets/photos/place-kourion-b/place-kourion-b-480.webp",
@@ -453,13 +420,11 @@ const PRECACHE_URLS = [
   "./assets/photos/place-choirokoitia/place-choirokoitia-480.webp",
   "./assets/photos/place-choirokoitia/place-choirokoitia-480.jpg",
   "./assets/photos/place-choirokoitia/place-choirokoitia-800.avif",
-  "./assets/photos/place-choirokoitia/place-choirokoitia-800.webp",
   "./assets/photos/place-choirokoitia/place-choirokoitia-800.jpg",
   "./assets/photos/place-choirokoitia-b/place-choirokoitia-b-480.avif",
   "./assets/photos/place-choirokoitia-b/place-choirokoitia-b-480.webp",
   "./assets/photos/place-choirokoitia-b/place-choirokoitia-b-480.jpg",
   "./assets/photos/place-choirokoitia-b/place-choirokoitia-b-800.avif",
-  "./assets/photos/place-choirokoitia-b/place-choirokoitia-b-800.webp",
   "./assets/photos/place-choirokoitia-b/place-choirokoitia-b-800.jpg",
   "./assets/photos/place-choirokoitia-c/place-choirokoitia-c-480.avif",
   "./assets/photos/place-choirokoitia-c/place-choirokoitia-c-480.webp",
@@ -468,7 +433,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-chrysorrogiatissa/place-chrysorrogiatissa-480.webp",
   "./assets/photos/place-chrysorrogiatissa/place-chrysorrogiatissa-480.jpg",
   "./assets/photos/place-chrysorrogiatissa/place-chrysorrogiatissa-800.avif",
-  "./assets/photos/place-chrysorrogiatissa/place-chrysorrogiatissa-800.webp",
   "./assets/photos/place-chrysorrogiatissa/place-chrysorrogiatissa-800.jpg",
   "./assets/photos/place-chrysorrogiatissa-b/place-chrysorrogiatissa-b-480.avif",
   "./assets/photos/place-chrysorrogiatissa-b/place-chrysorrogiatissa-b-480.webp",
@@ -480,7 +444,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-pissouri/place-pissouri-480.webp",
   "./assets/photos/place-pissouri/place-pissouri-480.jpg",
   "./assets/photos/place-pissouri/place-pissouri-800.avif",
-  "./assets/photos/place-pissouri/place-pissouri-800.webp",
   "./assets/photos/place-pissouri/place-pissouri-800.jpg",
   "./assets/photos/place-pissouri-b/place-pissouri-b-480.avif",
   "./assets/photos/place-pissouri-b/place-pissouri-b-480.webp",
@@ -492,7 +455,6 @@ const PRECACHE_URLS = [
   "./assets/photos/route-madari/route-madari-480.webp",
   "./assets/photos/route-madari/route-madari-480.jpg",
   "./assets/photos/route-madari/route-madari-800.avif",
-  "./assets/photos/route-madari/route-madari-800.webp",
   "./assets/photos/route-madari/route-madari-800.jpg",
   "./assets/photos/route-madari-b/route-madari-b-480.avif",
   "./assets/photos/route-madari-b/route-madari-b-480.webp",
@@ -504,7 +466,6 @@ const PRECACHE_URLS = [
   "./assets/photos/route-smigies/route-smigies-480.webp",
   "./assets/photos/route-smigies/route-smigies-480.jpg",
   "./assets/photos/route-smigies/route-smigies-800.avif",
-  "./assets/photos/route-smigies/route-smigies-800.webp",
   "./assets/photos/route-smigies/route-smigies-800.jpg",
   "./assets/photos/route-smigies-b/route-smigies-b-480.avif",
   "./assets/photos/route-smigies-b/route-smigies-b-480.webp",
@@ -516,7 +477,6 @@ const PRECACHE_URLS = [
   "./assets/photos/route-adonis-combo/route-adonis-combo-480.webp",
   "./assets/photos/route-adonis-combo/route-adonis-combo-480.jpg",
   "./assets/photos/route-adonis-combo/route-adonis-combo-800.avif",
-  "./assets/photos/route-adonis-combo/route-adonis-combo-800.webp",
   "./assets/photos/route-adonis-combo/route-adonis-combo-800.jpg",
   "./assets/photos/route-adonis-combo-b/route-adonis-combo-b-480.avif",
   "./assets/photos/route-adonis-combo-b/route-adonis-combo-b-480.webp",
@@ -528,7 +488,6 @@ const PRECACHE_URLS = [
   "./assets/photos/place-love-bridge/place-love-bridge-480.webp",
   "./assets/photos/place-love-bridge/place-love-bridge-480.jpg",
   "./assets/photos/place-love-bridge/place-love-bridge-800.avif",
-  "./assets/photos/place-love-bridge/place-love-bridge-800.webp",
   "./assets/photos/place-love-bridge/place-love-bridge-800.jpg",
   "./assets/photos/place-love-bridge-b/place-love-bridge-b-480.avif",
   "./assets/photos/place-love-bridge-b/place-love-bridge-b-480.webp",
@@ -540,7 +499,6 @@ const PRECACHE_URLS = [
   "./assets/photos/route-atalanti/route-atalanti-480.webp",
   "./assets/photos/route-atalanti/route-atalanti-480.jpg",
   "./assets/photos/route-atalanti/route-atalanti-800.avif",
-  "./assets/photos/route-atalanti/route-atalanti-800.webp",
   "./assets/photos/route-atalanti/route-atalanti-800.jpg",
   "./assets/photos/route-atalanti-b/route-atalanti-b-480.avif",
   "./assets/photos/route-atalanti-b/route-atalanti-b-480.webp",
@@ -558,7 +516,6 @@ const PRECACHE_URLS = [
   "./assets/photos/route-pouziaris/route-pouziaris-480.webp",
   "./assets/photos/route-pouziaris/route-pouziaris-480.jpg",
   "./assets/photos/route-pouziaris/route-pouziaris-800.avif",
-  "./assets/photos/route-pouziaris/route-pouziaris-800.webp",
   "./assets/photos/route-pouziaris/route-pouziaris-800.jpg",
   "./assets/photos/route-pouziaris-b/route-pouziaris-b-480.avif",
   "./assets/photos/route-pouziaris-b/route-pouziaris-b-480.webp",
@@ -590,7 +547,6 @@ const PRECACHE_URLS = [
   "./cal/cypr2026-2026-11-12.ics",
   "./cal/cypr2026-2026-11-13.ics",
   "./cal/cypr2026-caly-wyjazd.ics",
-  "./cypr2026-print.pdf",
   "./cypr2026-handbook.html",
   "./cypr2026-handbook.pdf",
 ];
@@ -602,10 +558,24 @@ function isMapTile(url) {
   return url.hostname.endsWith(".openstreetmap.org") && url.pathname.includes("/tiles/");
 }
 
+async function withGpxType(response, url) {
+  if (!response || !new URL(url, self.location).pathname.endsWith('.gpx')) return response;
+  const headers = new Headers(response.headers);
+  headers.set('Content-Type', 'application/gpx+xml');
+  return new Response(await response.blob(), {status:response.status, statusText:response.statusText, headers});
+}
+
+async function savePlan(cache) {
+  await cache.addAll(PRECACHE_URLS);
+  for (const url of PRECACHE_URLS.filter(url => url.endsWith('.gpx'))) {
+    await cache.put(url, await withGpxType(await cache.match(url), url));
+  }
+}
+
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_VERSION)
-      .then((cache) => cache.addAll(PRECACHE_URLS))
+      .then(savePlan)
       .then(() => self.skipWaiting())
   );
 });
@@ -627,7 +597,7 @@ self.addEventListener("message", (event) => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_VERSION);
     if (event.data.type === "SAVE_PLAN") {
-      try { await cache.addAll(PRECACHE_URLS); } catch (error) { /* Report actual completeness below. */ }
+      try { await savePlan(cache); } catch (error) { /* Report actual completeness below. */ }
     }
     const present = await Promise.all(PRECACHE_URLS.map((url) => cache.match(url)));
     event.ports[0].postMessage({
@@ -655,7 +625,7 @@ self.addEventListener("fetch", (event) => {
 
   // HTML is network-first so a fresh deploy is visible immediately; the
   // cached document remains the offline fallback.
-  if (request.mode === "navigate") {
+  if (request.mode === "navigate" && !/\.(gpx|pdf)$/.test(url.pathname)) {
     event.respondWith(
       fetch(request)
         .then((response) => {
@@ -665,7 +635,7 @@ self.addEventListener("fetch", (event) => {
           }
           return response;
         })
-        .catch(() => caches.open(CACHE_VERSION).then((cache) => cache.match("./index.html", { ignoreSearch: true })))
+        .catch(() => caches.open(CACHE_VERSION).then(async (cache) => await cache.match(request, {ignoreSearch:true}) || cache.match("./index.html", {ignoreSearch:true})))
     );
     return;
   }
@@ -673,12 +643,20 @@ self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.open(CACHE_VERSION).then((cache) => cache.match(request, { ignoreSearch: true }))
       .then((cached) => {
-        if (cached) return cached;
-        return fetch(request).then((response) => {
-          if (!response || response.status !== 200 || response.type !== "basic") return response;
+        if (cached) return withGpxType(cached, url.href);
+        return fetch(request).then(response => withGpxType(response, url.href)).then((response) => {
+          if (!response || response.status !== 200 || !['basic','default'].includes(response.type)) return response;
           const copy = response.clone();
           caches.open(CACHE_VERSION).then((cache) => cache.put(request, copy));
           return response;
+        }).catch(async (error) => {
+          if (url.pathname.includes('/assets/photos/') && /-\d+\.(avif|webp|jpe?g)$/.test(url.pathname)) {
+            const small = new URL(url);
+            small.pathname = small.pathname.replace(/-\d+\.(avif|webp|jpe?g)$/, '-480.$1');
+            const fallback = await caches.open(CACHE_VERSION).then(cache => cache.match(small.href));
+            if (fallback) return fallback;
+          }
+          throw error;
         });
       })
   );

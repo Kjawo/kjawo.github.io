@@ -2,7 +2,7 @@
   "meta": {
     "id": "CYPR-2026",
     "title": "Cypr 7 do 13 listopada 2026",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "schema_version": "1.0.0",
     "updated_on": "2026-11-06",
     "language": "pl-PL",
@@ -219,15 +219,15 @@
         "Sprawdzić paliwo, przebieg i wyposażenie; zapisać numer assistance.",
         "Poprosić o pokazanie dziennego wjazdu zwrotów i właściwej skrzynki; zapisać instrukcję offline."
       ],
-      "use_rule": "Korzystać z dozwolonych asfaltowych dróg. Nie jechać ku Blue Lagoon ani leśnymi skrótami; SUV nie zmienia umowy. Dokładny korytarz wybrać w bieżącej nawigacji.",
-      "return_rule": "Zwrot umówiony 03:30. Plan: przyjazd do właściwego sektora 03:15–03:25 i obsługa do około 04:00; cel stanowiska odprawy 04:20. Sektor, klucze, ewentualny transfer i koniec odpowiedzialności wymagają pisemnej instrukcji Petsas. Zdjęcia same nie kończą odpowiedzialności.",
+      "use_rule": "Korzystać z dozwolonych asfaltowych dróg. Nie jechać ku Blue Lagoon ani leśnymi skrótami; SUV nie zmienia umowy. Dokładny korytarz wybrać w bieżącej nawigacji. Tankowanie przed 18:00 albo na automacie (karta/banknoty); paragon zachować do rozliczenia. Pierwsze 10 min po odbiorze bez nawigacji — spokojne oswojenie ruchu lewostronnego.",
+      "return_rule": "Nocny zwrot 03:30 potwierdzony przez użytkownika 6 XI 2026. WPISZ: sektor, klucze. Plan dojazdu i obsługi bez zmian; transfer, opłaty oraz koniec odpowiedzialności nadal do potwierdzenia.",
       "provider_contacts": [
         {
           "name": "Petsas PFO",
           "phone": "+35726423046",
           "hours": "24 h service (wg listy Petsas; tryb obsługi tej rezerwacji do potwierdzenia)",
-          "after_hours_return": "do_potwierdzenia",
-          "note": "Oficjalna lista Petsas wymienia Pafos Airport Desk w hali przylotów i oznacza usługę PFO jako 24 h; nie gwarantuje to obsługi poza godzinami ani procedury zwrotu w tej rezerwacji. Key drop, opłaty i moment końca odpowiedzialności wymagają pisemnego potwierdzenia. Ogólne warunki SRC-PET dla najmu krótszego niż 7 dni opisują udział własny zależny od grupy i możliwość odmowy SCDW; ich zastosowanie do tej rezerwacji potwierdzić w umowie. Działanie podróżnych: pilnie potwierdzić umówiony zwrot 03:30 i instrukcję nocną z Petsas; przy odbiorze 10:30 potwierdzić punkt spotkania, karencję i no-show z Petsas. Źródła: SRC-PETSAS-LOCATIONS i SRC-PET (sprawdzone 2026-11-05)."
+          "after_hours_return": "Nocny zwrot 03:30 potwierdzony przez użytkownika; WPISZ: sektor, klucze",
+          "note": "Oficjalna lista Petsas wymienia Pafos Airport Desk w hali przylotów i oznacza usługę PFO jako 24 h; nie gwarantuje to obsługi poza godzinami ani procedury zwrotu w tej rezerwacji. Key drop, opłaty i moment końca odpowiedzialności wymagają pisemnego potwierdzenia. Ogólne warunki SRC-PET dla najmu krótszego niż 7 dni opisują udział własny zależny od grupy i możliwość odmowy SCDW; ich zastosowanie do tej rezerwacji potwierdzić w umowie. Działanie podróżnych: uzupełnić pisemną instrukcję sektora i oddania kluczy; nocny zwrot 03:30 potwierdzony przez użytkownika 6 XI 2026; przy odbiorze 10:30 potwierdzić punkt spotkania, karencję i no-show z Petsas. Źródła: SRC-PETSAS-LOCATIONS i SRC-PET (sprawdzone 2026-11-05)."
         },
         {
           "name": "Petsas — publiczny numer awaryjny",
@@ -246,7 +246,16 @@
         "start_at": "2026-11-13T03:15:00+02:00",
         "end_at": "2026-11-13T04:00:00+02:00",
         "note": "Przyjazd 03:15–03:25, dokumentacja i obsługa; umówiony zwrot 03:30. Czas zależy od instrukcji Petsas."
-      }
+      },
+      "return_confirmation": {
+        "time": "03:30",
+        "status": "zweryfikowane",
+        "checked_on": "2026-11-06",
+        "source": "Decyzja użytkownika: nocny zwrot 03:30 potwierdzony"
+      },
+      "return_instruction": "WPISZ: sektor, klucze",
+      "return_instruction_status": "do_potwierdzenia",
+      "confirmation_note": "Nocny zwrot 03:30 potwierdzony; obsługa po przylocie i instrukcja zwrotu do potwierdzenia."
     },
     "return_deadlines": {
       "baggage_target_start": "04:20",
@@ -1456,14 +1465,26 @@
           "Jeżeli prognozowany dojazd do Edro wypada po 16:00, pomijamy Edro lub fotografujemy bliżej.",
           "Opóźniony start oznacza Aphrodite solo, nigdy spontaniczne wydłużenie."
         ]
-      }
+      },
+      "extensions": [
+        {
+          "route_id": "TR-ADONIS-COMBO",
+          "start_limit": "08:30",
+          "conditions": [
+            "Start ≤ 08:30 (Akamas, 9 XI).",
+            "Sprawdzony GPX w telefonie.",
+            "Sucho.",
+            "Wiatr < 50 km/h."
+          ]
+        }
+      ]
     },
     {
       "id": "DAY-04",
       "date": "2026-11-10",
       "weekday": "wtorek",
       "title": "Troodos i Artemis",
-      "summary": "Krótka pętla wysokogórska zamiast drugiego ciężkiego dnia. Najlepsza widzialność ma pierwszeństwo przed przypisaniem do daty.",
+      "summary": "Wyjazd 07:00, dojazd do 09:15, start 09:30; Artemis 09:30–13:00, rezerwa do 13:30. Wyjazd z parkingu najpóźniej 13:45, hotel 15:45–16:15.",
       "timezone": "Asia/Nicosia",
       "mode": "auto i trekking",
       "walk_km_estimate": [
@@ -1478,10 +1499,10 @@
       "timeline": [
         {
           "id": "D4-01",
-          "start_local": "07:00",
-          "end_local": "07:20",
+          "start_local": "06:40",
+          "end_local": "07:00",
           "title": "Śniadanie",
-          "description": "Lunch awaryjny już w plecaku.",
+          "description": "Lunch awaryjny już w plecaku; wyjazd 07:00.",
           "place_ids": [
             "POI-HOTEL"
           ],
@@ -1491,10 +1512,10 @@
         },
         {
           "id": "D4-02",
-          "start_local": "07:25",
-          "end_local": "09:40",
+          "start_local": "07:00",
+          "end_local": "09:15",
           "title": "Dojazd do Artemis",
-          "description": "Szacunkowo 1 h 50–2 h 20 przez rejon Platres i Troodos po asfalcie. Rezerwa na roboty przy Psilo Dendro/B9. Nawigacja do oficjalnego początku Artemis 34.933166, 32.871986; nie do Troodos Square. Przy późniejszym przyjeździe przesunąć przygotowanie, start najpóźniej około 10:00.",
+          "description": "Planowy dojazd do 09:15 po asfalcie, z rezerwą na roboty przy Psilo Dendro/B9. Nawigacja do początku Artemis 34.933166, 32.871986; nie do Troodos Square.",
           "place_ids": [
             "POI-ARTEMIS"
           ],
@@ -1504,10 +1525,10 @@
         },
         {
           "id": "D4-03",
-          "start_local": "09:40",
-          "end_local": "10:00",
+          "start_local": "09:15",
+          "end_local": "09:30",
           "title": "Parking i kontrola warunków",
-          "description": "Około 15–20 min przygotowania przy oznaczonym początku. Start cel 09:45–10:00 zależnie od dojazdu. Lód, mgła, silny wiatr lub zamknięcie oznaczają rezygnację. Troodos Square dodaje 2,4 km dojścia w jedną stronę, 4,8 km łącznie — wymaga nowego przeliczenia czasu.",
+          "description": "Start 09:30 po kontroli tablic, dróg, wiatru, lodu i widzialności. Wydłużenie wyłącznie po spełnieniu wszystkich warunków; domyślnie Artemis solo.",
           "place_ids": [
             "POI-ARTEMIS"
           ],
@@ -1517,10 +1538,10 @@
         },
         {
           "id": "D4-04",
-          "start_local": "10:00",
-          "end_local": "13:30",
+          "start_local": "09:30",
+          "end_local": "13:00",
           "title": "Artemis",
-          "description": "Plan 3–3,5 h, rezerwa do 4 h. Zaczynamy najpóźniej 10:00; przy końcu 14:00 pomijamy restaurację.",
+          "description": "Artemis 09:30–13:00, rezerwa do 13:30. Bezpieczne podłoże i widzialność wymagane; wyjazd z parkingu najpóźniej 13:45.",
           "place_ids": [
             "POI-ARTEMIS"
           ],
@@ -1530,12 +1551,12 @@
         },
         {
           "id": "D4-05",
-          "start_local": "13:30",
-          "end_local": "14:00",
+          "start_local": "13:00",
+          "end_local": "13:45",
           "title": "Jedzenie i przygotowanie powrotu",
-          "description": "Domyślnie własny prowiant i wyjazd około 14:00. Krótki Troodos Square lub restauracja tylko gdy nie opóźnia powrotu; po końcu marszu o 14:00 rezygnujemy z postojów.",
+          "description": "Własny prowiant; przy wykorzystaniu rezerwy marszu do 13:30 skrócić postój. Limit wyjazdu z parkingu 13:45; pominąć restaurację i dodatkowe postoje, jeżeli opóźniają powrót.",
           "place_ids": [
-            "POI-TROODOS"
+            "POI-ARTEMIS"
           ],
           "kind": "plan",
           "optional": false,
@@ -1543,10 +1564,10 @@
         },
         {
           "id": "D4-06",
-          "start_local": "14:00",
-          "end_local": "16:30",
+          "start_local": "13:45",
+          "end_local": "16:15",
           "title": "Powrót do Princessa Vera",
-          "description": "Około 1 h 45–2 h 20 z rezerwą; hotel zwykle 16:00–16:30, a przy wyjeździe 14:15 do około 16:45.",
+          "description": "Hotel 15:45–16:15; planowy wyjazd z parkingu najpóźniej 13:45. Czas przejazdu jest szacunkiem.",
           "place_ids": [
             "POI-HOTEL"
           ],
@@ -1556,13 +1577,14 @@
         }
       ],
       "cut_order": [
-        "Najpierw skreślić lunch w restauracji i dodatkowe postoje.",
-        "Po przyjeździe po 10:00 ponownie sprawdzić 4 h marszu i margines; domyślnie zrezygnować z pełnej pętli.",
+        "Najpierw skreślić restaurację i dodatkowe postoje.",
+        "Wydłużenie tylko przy starcie ≤ 09:30, sprawdzonym GPX, sucho i wietrze < 50 km/h; bez śladu nie zalecane.",
+        "Przy opóźnieniu ponownie przeliczyć pełną pętlę z rezerwą; wyjazd z parkingu najpóźniej 13:45.",
         "Nie dodawać Atalanti ani objazdu przez kolejne wioski."
       ],
       "bad_weather": "Mgła, oblodzenie, silny wiatr lub zamknięcie: niższa Ezousa, Agios Neophytos albo muzeum, zależnie od pogody niżej. Zamiana 9/10 XI tylko po porównaniu warunków obu tras; bez dobrego okna na góry rezygnujemy z Artemis.",
       "photography": "Stare czarne sosny, skały i panoramy. Dobra widzialność daje większą wartość niż sam bezdeszczowy dzień.",
-      "return_note": "Wieczór wolny. Długi dojazd pozostaje kosztem nawet łatwej technicznie trasy.",
+      "return_note": "Wyjazd z parkingu najpóźniej 13:45, hotel 15:45–16:15.",
       "primary_route_id": "TR-ARTEMIS",
       "booking_status": "planowane",
       "field_readiness": "do_sprawdzenia_przed_wyjsciem",
@@ -1578,11 +1600,11 @@
         },
         {
           "trigger": "Parking przy Artemis pełny",
-          "action": "Nie parkować na poboczu. Troodos Square nie jest równoważnym parkingiem przy starcie: przy legalnym i wolnym miejscu (oba warunki do potwierdzenia) dojście do początku Artemis to ok. 2,4 km w jedną stronę, czyli ok. 4,8 km dodatkowo i 11,8–12 km marszu łącznie zamiast 7 km. Założenie 4 km/h netto daje ok. 72 min dodatkowego marszu; wraz z oficjalnym czasem Artemis 2,5–3 h daje 3 h 42 min–4 h 12 min przed przerwami. Przy starcie ok. 10:00 koniec marszu wypada orientacyjnie 13:42–14:12; po powrocie autem 105–140 min hotel ok. 15:27–16:32, bez dodatkowych postojów i opóźnień, przy zachodzie 16:48. Wariant jest niewskazany: margines jest zbyt mały, a przy przerwach powrót może przypaść po zmroku. Nie zakładać dostępności parkingu ani rysować dojścia jako zweryfikowanej trasy. Jeśli legalny parking przy starcie jest niedostępny, odwołać pełną pętlę i użyć istniejącego planu B (Pafos/muzeum/hotel), bez wymyślania innego parkingu lub szlaku."
+          "action": "Nie parkować na poboczu. Troodos Square nie jest równoważnym parkingiem przy starcie: legalność i dostępność miejsca do potwierdzenia; dojście do początku Artemis to około 2,4 km w jedną stronę, 4,8 km dodatkowo i około 11,8–12 km marszu zamiast 7 km. Dodatkowe dojście nie jest uwzględnione w oknie Artemis 09:30–13:00 ani rezerwie do 13:30. Wariant jest niewskazany przy limicie wyjazdu 13:45. Jeśli legalny parking przy starcie jest niedostępny, odwołać pełną pętlę i użyć istniejącego planu B (Pafos/muzeum/hotel), bez wymyślania innego parkingu lub szlaku."
         },
         {
-          "trigger": "Przyjazd po 10:00",
-          "action": "Nie startować w pełną pętlę; krótki odcinek tylko przy dobrych warunkach albo powrót do Pafos."
+          "trigger": "Dojazd po 09:15 lub start po 09:30",
+          "action": "Odwołać wydłużenie. Przed pełną pętlą ponownie przeliczyć marsz z rezerwą do 13:30 i limit wyjazdu 13:45; bez odpowiedniego marginesu użyć planu B."
         },
         {
           "trigger": "Awaria auta",
@@ -1592,7 +1614,7 @@
       "optional_stops": [
         {
           "place_id": "POI-TROODOS",
-          "note": "Troodos Square to lunch/postój, nie równoważny parking przy Artemis. Awaryjne parkowanie wymaga potwierdzenia legalności i miejsca; dojście do startu 2,4 km w jedną stronę (4,8 km dodatkowo) sprawia, że pełna pętla jest niewskazana przy starcie około 10:00."
+          "note": "Troodos Square to lunch/postój, nie równoważny parking przy Artemis. Awaryjne parkowanie wymaga potwierdzenia legalności i miejsca; dojście do startu 2,4 km w jedną stronę (4,8 km dodatkowo) sprawia, że pełna pętla jest niewskazana przy limicie wyjazdu z parkingu 13:45."
         },
         {
           "place_id": "POI-PSILO",
@@ -1600,15 +1622,28 @@
         }
       ],
       "morning_brief": {
-        "program": "Wyjazd 07:25; Artemis, prowiant, powrót",
+        "program": "Wyjazd 07:00, dojazd do 09:15, start 09:30; Artemis 09:30–13:00, rezerwa do 13:30. Wyjazd z parkingu najpóźniej 13:45, hotel 15:45–16:15.",
         "next_place_id": "POI-ARTEMIS",
         "weather_decision": "Widzialność, wiatr, lód, drogi i otwarcie trasy; w razie rezygnacji niższa Ezousa, Neophytos lub muzeum.",
         "cut_order": [
-          "Najpierw skreślić lunch w restauracji i dodatkowe postoje.",
-          "Po przyjeździe po 10:00 ponownie sprawdzić 4 h marszu i margines; domyślnie zrezygnować z pełnej pętli.",
+          "Najpierw skreślić restaurację i dodatkowe postoje.",
+          "Wydłużenie tylko przy starcie ≤ 09:30, sprawdzonym GPX, sucho i wietrze < 50 km/h; bez śladu nie zalecane.",
+          "Przy opóźnieniu ponownie przeliczyć pełną pętlę z rezerwą; wyjazd z parkingu najpóźniej 13:45.",
           "Nie dodawać Atalanti ani objazdu przez kolejne wioski."
         ]
-      }
+      },
+      "extensions": [
+        {
+          "alternative_id": "ALT-ARTEMIS-PERSEPHONE",
+          "start_limit": "09:30",
+          "conditions": [
+            "Start ≤ 09:30 (Troodos, 10 XI).",
+            "Sprawdzony GPX w telefonie.",
+            "Sucho.",
+            "Wiatr < 50 km/h."
+          ]
+        }
+      ]
     },
     {
       "id": "DAY-05",
@@ -1750,7 +1785,7 @@
           "start_local": "17:00",
           "end_local": "18:00",
           "title": "Powrót",
-          "description": "30–45 min plus dojście do auta. Po powrocie potwierdzić zwrot auta i przygotować większość bagażu.",
+          "description": "30–45 min plus dojście do auta. Po powrocie uzupełnić instrukcję zwrotu auta i przygotować większość bagażu.",
           "place_ids": [
             "POI-HOTEL"
           ],
@@ -2252,7 +2287,12 @@
       "gpx": {
         "status": "do_przygotowania_i_weryfikacji",
         "path": null,
-        "note": "Brak załączonego śladu; przed użyciem pobrać konkretny przebieg, sprawdzić jego odgałęzienia i zapisać offline. Nie rysować gotowej trasy z samych punktów startu."
+        "source": null,
+        "license": null,
+        "checked_on": "2026-11-06",
+        "length_km": null,
+        "ascent_m": null,
+        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
       },
       "source_ids": [
         "SRC-APHRODITE",
@@ -2291,7 +2331,7 @@
       ],
       "activation": [
         "Sucha bezpieczna trasa, widzialność, otwarte drogi i kontrola polowań.",
-        "Start docelowo do 10:00, prowiant na cały dzień."
+        "Start docelowo do 09:30, prowiant na cały dzień."
       ],
       "cancel": [
         "Lód bez odpowiedniego wyposażenia, zimowe ograniczenia dróg, burze, porywy utrudniające chód lub niewidoczny bezpieczny przebieg."
@@ -2299,7 +2339,12 @@
       "gpx": {
         "status": "do_przygotowania_i_weryfikacji",
         "path": null,
-        "note": "Brak załączonego śladu; przed użyciem pobrać konkretny przebieg, sprawdzić jego odgałęzienia i zapisać offline. Nie rysować gotowej trasy z samych punktów startu."
+        "source": null,
+        "license": null,
+        "checked_on": "2026-11-06",
+        "length_km": null,
+        "ascent_m": null,
+        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
       },
       "source_ids": [
         "SRC-ARTEMIS",
@@ -2348,7 +2393,12 @@
       "gpx": {
         "status": "do_przygotowania_i_weryfikacji",
         "path": null,
-        "note": "Brak załączonego śladu; przed użyciem pobrać konkretny przebieg, sprawdzić jego odgałęzienia i zapisać offline. Nie rysować gotowej trasy z samych punktów startu."
+        "source": null,
+        "license": null,
+        "checked_on": "2026-11-06",
+        "length_km": null,
+        "ascent_m": null,
+        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
       },
       "source_ids": [
         "SRC-AUDIT",
@@ -2395,7 +2445,12 @@
       "gpx": {
         "status": "do_przygotowania_i_weryfikacji",
         "path": null,
-        "note": "Brak załączonego śladu; przed użyciem pobrać konkretny przebieg, sprawdzić jego odgałęzienia i zapisać offline. Nie rysować gotowej trasy z samych punktów startu."
+        "source": null,
+        "license": null,
+        "checked_on": "2026-11-06",
+        "length_km": null,
+        "ascent_m": null,
+        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
       },
       "source_ids": [
         "SRC-AUDIT"
@@ -2442,7 +2497,12 @@
       "gpx": {
         "status": "do_przygotowania_i_weryfikacji",
         "path": null,
-        "note": "Brak załączonego śladu; przed użyciem pobrać konkretny przebieg, sprawdzić jego odgałęzienia i zapisać offline. Nie rysować gotowej trasy z samych punktów startu."
+        "source": null,
+        "license": null,
+        "checked_on": "2026-11-06",
+        "length_km": null,
+        "ascent_m": null,
+        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
       },
       "source_ids": [
         "SRC-AUDIT"
@@ -2490,7 +2550,12 @@
       "gpx": {
         "status": "do_przygotowania_i_weryfikacji",
         "path": null,
-        "note": "Brak załączonego śladu; przed użyciem pobrać konkretny przebieg, sprawdzić jego odgałęzienia i zapisać offline. Nie rysować gotowej trasy z samych punktów startu."
+        "source": null,
+        "license": null,
+        "checked_on": "2026-11-06",
+        "length_km": null,
+        "ascent_m": null,
+        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
       },
       "source_ids": [
         "SRC-AUDIT",
@@ -2535,7 +2600,12 @@
       "gpx": {
         "status": "do_przygotowania_i_weryfikacji",
         "path": null,
-        "note": "Brak załączonego śladu; przed użyciem pobrać konkretny przebieg, sprawdzić jego odgałęzienia i zapisać offline. Nie rysować gotowej trasy z samych punktów startu."
+        "source": null,
+        "license": null,
+        "checked_on": "2026-11-06",
+        "length_km": null,
+        "ascent_m": null,
+        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
       },
       "source_ids": [
         "SRC-AUDIT"
@@ -2581,7 +2651,12 @@
       "gpx": {
         "status": "do_przygotowania_i_weryfikacji",
         "path": null,
-        "note": "Brak załączonego śladu; przed użyciem pobrać konkretny przebieg, sprawdzić jego odgałęzienia i zapisać offline. Nie rysować gotowej trasy z samych punktów startu."
+        "source": null,
+        "license": null,
+        "checked_on": "2026-11-06",
+        "length_km": null,
+        "ascent_m": null,
+        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
       },
       "source_ids": [
         "SRC-AUDIT",
@@ -2943,6 +3018,34 @@
       "source_ids": [
         "SRC-OPTION-NICOSIA"
       ]
+    },
+    {
+      "id": "ALT-ARTEMIS-PERSEPHONE",
+      "day_id": "DAY-04",
+      "name": "Artemis + Persephone — wydłużenie 10 XI przy starcie do 09:30",
+      "status": "do_potwierdzenia",
+      "route_id": null,
+      "distance_km": [
+        13,
+        13
+      ],
+      "distance_status": "szacunek",
+      "replaces": [
+        "Artemis solo i dodatkowe postoje"
+      ],
+      "schedule": "Artemis 7 km + Persephone liniowo 3 km od Troodos Square w jedną stronę i powrót tą samą drogą: około 13 km. Brak zwalidowanego śladu Persephone; wariant pozostaje do potwierdzenia. Połączenie z początkiem Artemis, pełny dystans dojść i czas wymagają sprawdzenia; nie zmieniać domyślnej pętli ani limitu wyjazdu z parkingu 13:45.",
+      "conditions": [
+        "Start ≤ 09:30 (Troodos, 10 XI).",
+        "Sprawdzony GPX w telefonie.",
+        "Sucho.",
+        "Wiatr < 50 km/h."
+      ],
+      "fallback": "Brak śladu GPX — nie zalecane. Obowiązuje Artemis solo; bez wystarczającego czasu z rezerwą odwołać wydłużenie.",
+      "gpx": {
+        "status": "do_przygotowania_i_weryfikacji",
+        "path": null,
+        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
+      }
     }
   ],
   "places": [
@@ -4464,7 +4567,7 @@
       "Obie osoby akceptują wysiłek i samopoczucie; decyzję można zmienić na parkingu."
     ],
     "hunting": "8 i 11 XI są ostrożnościowymi dniami bez trekkingu w planie, na podstawie wskazanego komunikatu o sezonie polowań dla określonych gatunków; bezpośredni odczyt gov.cy zwrócił HTTP 403 przy kontroli 5 XI. To nie oznacza, że cały region jest objęty polowaniami: obszary określa dekret i mapa Artemis Cy, a dopasowania konkretnych tras do granic nie wykonano. Inne dni również nie są automatycznie wolne od polowań. Jaskrawa odzież nie zastępuje kontroli obszaru. Myśliwi, strzały przy planowanym odcinku lub inne istotne wątpliwości oznaczają wycofanie do bezpiecznego miejsca.",
-    "weather_checks": "Sprawdzać oddzielnie Pafos/Edro, Polis/Akamas, Platres, Troodos około 1850 m i Panagię. 5 XI porównać co najmniej dwie aktualne prognozy i czas ich wydania. Wieczorem i rano przed trasą kontrolować ostrzeżenia, opad poprzednich 24–48 h, temperaturę, mróz, porywy i widzialność. Wysokość prognozy ma znaczenie. Nie zapisano prognozy na cały tydzień jako stałej treści.",
+    "weather_checks": "Sprawdzać oddzielnie Pafos/Edro, Polis/Akamas, Platres, Troodos około 1850 m i Panagię. Porównać co najmniej dwie aktualne prognozy i czas ich wydania. Wieczorem i rano przed trasą kontrolować ostrzeżenia, opad poprzednich 24–48 h, temperaturę, mróz, porywy i widzialność. Wysokość prognozy ma znaczenie. Nie zapisano prognozy na cały tydzień jako stałej treści. Olimp 1952 m — prognoza punktowa (Windy / Meteoblue / dom.org.cy), wieczorem 9 XI; orientacyjnie −1 °C na 150 m plus wiatr.",
     "no_go": [
       "Zamknięcie szlaku lub drogi, burza na trasie, lód bez odpowiedniego sprzętu albo niepewny bezpieczny przebieg.",
       "Porywy około 50 km/h lub silniejsze: dla tego wyjazdu rezygnacja z odsłoniętych grzbietów. To ostrożna zasada planu, nie oficjalna granica bezpieczeństwa; niższe porywy nie gwarantują bezpieczeństwa.",
@@ -4480,11 +4583,42 @@
       "Przy dwóch dobrych oknach priorytet: Akamas i jeden dzień górski. Przy jednym wybór według rzeczywistych warunków. Nie odrabiamy odwołanej trasy za wszelką cenę."
     ],
     "emergency": {
-      "number": "112",
+      "number": "112 / 199",
       "source_id": "SRC-EMERGENCY",
       "procedure": "Podać współrzędne, nazwę i odcinek szlaku, opis zdarzenia, liczbę osób i numer zwrotny. Nie opierać planu na pewnym zasięgu telefonu. Numer hotelu i wypożyczalni mieć zapisany offline.",
       "car_assistance_phone": null,
-      "insurance_assistance_phone": null
+      "insurance_assistance_phone": null,
+      "hospitals": [
+        {
+          "name": "Paphos General Hospital",
+          "address": "Anavargos Street, Anavargos, Pafos",
+          "phone": "+35726803100",
+          "coordinates": {
+            "lat": 34.7889,
+            "lon": 32.446
+          },
+          "note": "SOR (A&E) był tymczasowo przeniesiony od 14 VII 2025 — kierować się oznakowaniem A&E",
+          "status": "zweryfikowane_wtórnie",
+          "checked_on": "2026-11-06",
+          "source_url": "https://www.gov.uk/government/publications/cyprus-hospitals/list-of-hospitals-in-cyprus"
+        },
+        {
+          "name": "Polis Chrysochous Hospital",
+          "address": null,
+          "phone": null,
+          "coordinates": null,
+          "note": "Najbliżej Akamas; telefon i współrzędne do_potwierdzenia.",
+          "status": "do_potwierdzenia"
+        },
+        {
+          "name": "Kyperounta Hospital",
+          "address": null,
+          "phone": null,
+          "coordinates": null,
+          "note": "Troodos; telefon i współrzędne do_potwierdzenia.",
+          "status": "do_potwierdzenia"
+        }
+      ]
     },
     "navigation": "Mapa na obu telefonach, offline obszar zachodniego Cypru i Troodos, sprawdzony ślad wybranego wariantu, naładowane telefony i powerbank. Link mapowy wskazuje punkt; nie stanowi zweryfikowanego dojazdu ani GPX. W ruchu kierować się znakami i dozwoloną drogą; po odbiorze spokojnie oswoić się z ruchem lewostronnym. Bez leśnych skrótów."
   },
@@ -4585,7 +4719,9 @@
       "status": "otwarte",
       "action": "Pytania do Petsas: jaka jest końcowa kwota do zapłaty po prepaid 325,50 EUR; łączny depozyt wraz z paliwem i typ karty; udział własny; czy wykupione SCDW działa dla najmu krótszego niż siedem dni; limity i wyłączenia szyb/opon/podwozia; drugi kierowca i assistance? Poprosić o pisemne warunki.",
       "impact": "Rezerwacja i kwota są potwierdzone w zakresie streszczenia vouchera; nieznane warunki nadal wpływają na odpowiedzialność i wymagania wobec kierowców.",
-      "blocking": true
+      "blocking": true,
+      "resolved_on": null,
+      "resolution": null
     },
     {
       "id": "TODO-PETSAS-PICKUP",
@@ -4596,7 +4732,9 @@
       "status": "otwarte",
       "action": "Zadzwoń lub napisz do Petsas przed podróżą i poproś o potwierdzenie na piśmie: dokładny punkt spotkania/transfer na PFO, czy umówione 10:30 jest wykonalne po planowym lądowaniu W61417 o 10:10 (różnica tylko 20 min), jaki jest wymagany minimalny odstęp od przylotu, ile wynosi karencja przy opóźnieniu lotu i jaka jest zasada no-show. Nie przesuwaj lotu ani rezerwacji samodzielnie.",
       "impact": "Umówione 10:30 jest 20 min po planowym przylocie 10:10. Okno obsługi do 12:30 i cel około 11:30 nie zmieniają rezerwacji.",
-      "blocking": true
+      "blocking": true,
+      "resolved_on": null,
+      "resolution": null
     },
     {
       "id": "TODO-RETURN",
@@ -4605,9 +4743,11 @@
       "owner": "podróżni i wypożyczalnia",
       "due_on": "2026-11-06",
       "status": "otwarte",
-      "action": "Pytania do Petsas: dokładny sektor zwrotu 03:30, klucze/key drop, opłata nocna, moment zakończenia odpowiedzialności i transfer do terminala? Plan: przyjazd 03:15–03:25, cel stanowiska odprawy 04:20. Po odpowiedzi ponownie przeliczyć czas.",
+      "action": "WPISZ: sektor, klucze. Potwierdzić transfer, opłatę i moment zakończenia odpowiedzialności. Plan dojazdu 03:15–03:25 i cel stanowiska odprawy 04:20 bez zmian.",
       "impact": "Wizyta przy sektorze jest umówiona na 03:30, ale dokładna procedura i koniec odpowiedzialności pozostają niepotwierdzone; potwierdzić przed wyjazdem.",
-      "blocking": true
+      "blocking": true,
+      "resolved_on": null,
+      "resolution": "Zwrot 03:30 potwierdzony; instrukcja zwrotu do wpisania"
     },
     {
       "id": "TODO-PARKING",
@@ -4618,7 +4758,9 @@
       "status": "otwarte",
       "action": "Pytania do hotelu: jak wyjść z pokoju około 02:30, oddać klucze i uzyskać dostęp do auta/bramy przed wyjazdem 02:40? Czy można przechować bagaż 7 XI przed 15:00? Recepcja 24 h nie rozstrzyga procedury parkingu.",
       "impact": "Ryzyko opóźnienia wyjazdu na lotnisko. Parking i recepcja 24 h są potwierdzone; brama nocna nie.",
-      "blocking": true
+      "blocking": true,
+      "resolved_on": null,
+      "resolution": null
     },
     {
       "id": "TODO-TRAILS",
@@ -4629,7 +4771,9 @@
       "status": "otwarte",
       "action": "Wybrać przebiegi Aphrodite i Artemis, sprawdzić aktualne mapy/dekret, dojazdy i tablice. Strony opisujące istnienie tras ani komunikat o otwarciu z kwietnia nie potwierdzają dostępności w listopadzie; sprawdzić bieżący komunikat leśników przed wejściem. Dla rezerw wykonać to samo dopiero przed ich aktywacją.",
       "impact": "Bez rozstrzygnięcia istotnego ryzyka trasa pozostaje niedopuszczona.",
-      "blocking": true
+      "blocking": true,
+      "resolved_on": null,
+      "resolution": null
     },
     {
       "id": "TODO-WEATHER",
@@ -4640,7 +4784,9 @@
       "status": "otwarte",
       "action": "Wstępna kontrola 5 XI, następnie wieczorem i rano przed każdą trasą.",
       "impact": "Kontrola powtarzalna; pojedyncze odhaczenie nie potwierdza całego tygodnia.",
-      "blocking": true
+      "blocking": true,
+      "resolved_on": null,
+      "resolution": null
     },
     {
       "id": "TODO-POLAND",
@@ -4651,7 +4797,9 @@
       "status": "otwarte",
       "action": "Wybrać transport, czasy i ewentualne odzyskanie auta spod Modlina; cel w WMI 03:15–03:30 czasu PL 7 XI.",
       "impact": "Loty korzystają z dwóch różnych lotnisk w Warszawie.",
-      "blocking": true
+      "blocking": true,
+      "resolved_on": null,
+      "resolution": null
     },
     {
       "id": "TODO-FLIGHTS",
@@ -4662,7 +4810,9 @@
       "status": "otwarte",
       "action": "Sprawdzić numery, godziny, lotniska, po 2 małe przedmioty osobiste i 1 bagaż 20 kg na każdy kierunek; zobaczyć dostępność odpraw.",
       "impact": "Dane lotów przyjęto z przekazanego planu, bez odczytu voucherów.",
-      "blocking": true
+      "blocking": true,
+      "resolved_on": null,
+      "resolution": null
     },
     {
       "id": "TODO-HOTEL-MEALS",
@@ -4673,7 +4823,9 @@
       "status": "otwarte",
       "action": "Pytania do hotelu / kontrola vouchera: jakie wyżywienie obejmuje taryfa; czy można przygotować jedzenie na wyjazd 13 XI? Wellness: godziny, temperatura i opłaty, jeśli chcemy korzystać. Bez odpowiedzi własne jedzenie i odpoczynek.",
       "impact": "Brak boxu nie blokuje lotu; wymaga własnego posiłku.",
-      "blocking": false
+      "blocking": false,
+      "resolved_on": null,
+      "resolution": null
     },
     {
       "id": "TODO-WELLNESS",
@@ -4684,7 +4836,9 @@
       "status": "otwarte",
       "action": "Zapytać o działanie 7–13 XI, temperaturę, godziny, opłaty i rezerwacje.",
       "impact": "Bez odpowiedzi wellness pozostaje opcją, bez przydzielonych obowiązkowych bloków.",
-      "blocking": false
+      "blocking": false,
+      "resolved_on": null,
+      "resolution": null
     },
     {
       "id": "TODO-FOOD",
@@ -4695,7 +4849,9 @@
       "status": "otwarte",
       "action": "Potwierdzić Katoi i ewentualnie pozostałe kuchnie oraz jednorazowe zmiany godzin obiektów.",
       "impact": "Nieczynna restauracja ma zastępstwo; posiłek awaryjny zawsze dostępny.",
-      "blocking": false
+      "blocking": false,
+      "resolved_on": null,
+      "resolution": null
     },
     {
       "id": "TODO-INSURANCE",
@@ -4706,7 +4862,9 @@
       "status": "otwarte",
       "action": "Zapisać numer polisy i assistance offline; sprawdzić, czy aktywności objęte są warunkami.",
       "impact": "Numery pozostają puste do uzupełnienia w prywatnej części.",
-      "blocking": false
+      "blocking": false,
+      "resolved_on": null,
+      "resolution": null
     },
     {
       "id": "TODO-NORTH-CAR",
@@ -4717,7 +4875,9 @@
       "status": "otwarte",
       "action": "Przy wyborze auta pytać o pisemną zgodę na przekroczenie Green Line oraz osobne pisemne potwierdzenie terytorialnego zakresu ochrony wynajętego auta (szkody), OC i assistance od wypożyczalni/ubezpieczyciela. Sama polisa kupiona na przejściu nie potwierdza ochrony auta ani zgody firmy. Godziny przejścia, możliwość i godziny sprzedaży ubezpieczenia oraz opłaty na 11 XI 2026 do_potwierdzenia w urzędowym źródle i u ubezpieczyciela. Bez kompletu potwierdzeń nie jechać na północ. Avis/Enterprise zakazują; Petsas wymaga kontaktu, zgoda do potwierdzenia.",
       "impact": "Ogranicza wybór firmy, jeśli chcemy opcję północy. Nie blokuje planu bazowego.",
-      "blocking": false
+      "blocking": false,
+      "resolved_on": null,
+      "resolution": null
     },
     {
       "id": "TODO-VAROSHA",
@@ -4728,7 +4888,9 @@
       "status": "otwarte",
       "action": "Potwierdzić aktualne godziny otwarcia części Varoshy (wyznaczone ulice), wstęp, zasady fotografii i parking (Palm Beach/Ayios Memnon).",
       "impact": "Bez potwierdzenia godzin nie planować wjazdu; wariant 1 staje się dniem Famagusty/starego miasta.",
-      "blocking": false
+      "blocking": false,
+      "resolved_on": null,
+      "resolution": null
     }
   ],
   "checklists": [
@@ -4780,7 +4942,7 @@
       "id": "CHECK-11",
       "title": "11 listopada",
       "items": [
-        "Potwierdzić lot FR5880, nocny zwrot, dokładny wjazd i ewentualne opłaty.",
+        "Potwierdzić lot FR5880, dokładny wjazd, klucze i ewentualne opłaty; nocny zwrot 03:30 potwierdzony.",
         "Uzgodnić nocne oddanie kluczy hotelowych i breakfast box lub własny posiłek.",
         "Spakować większość rzeczy, zwłaszcza przy planowaniu Vouni w czwartek.",
         "Decyzję o Vouni podjąć po kontroli wszystkich warunków; nie dopisywać go spontanicznie."
@@ -4813,7 +4975,10 @@
       "Buty z przyczepną podeszwą.",
       "Kurtka przeciwdeszczowa i od wiatru, warstwy na chłód; w góry czapka i rękawiczki.",
       "Dwie czołówki, telefony z mapą offline, powerbank i przewody.",
-      "Woda, jedzenie i podstawowa apteczka; kijki opcjonalnie."
+      "Woda, jedzenie i podstawowa apteczka; kijki opcjonalnie.",
+      "Czapka, rękawiczki i warstwa ciepła (5–10 °C w Troodos).",
+      "Buff, folia NRC i zapasowe skarpety.",
+      "Kijki."
     ],
     "documents": [
       "Dokument podróży, prawo jazdy, karta wymagana przez wypożyczalnię.",
@@ -4823,6 +4988,12 @@
       "Lekki zestaw na trekking; ciężar obiektywów ocenić przed wyjściem.",
       "Naładowane baterie, karta pamięci i ochrona sprzętu od deszczu.",
       "Statyw i dłuższa fotografia oznaczają więcej czasu na trasie."
+    ],
+    "general": [
+      "Wtyczka UK typ G.",
+      "Gotówka 50–100 EUR.",
+      "EKUZ + polisa.",
+      "Kopie dokumentów w telefonie."
     ]
   },
   "publication_contract": {
@@ -4868,13 +5039,14 @@
       "Domyślnie Aphrodite i Artemis; czwartek lokalny, trzeci trekking wyłącznie warunkowo.",
       "Brak Avakas jako aktywności, brak potwierdzonego wellness i fikcyjnej rezerwacji auta.",
       "FR5880: wyjazd 02:40, zwrot umówiony 03:30, cel nadania 04:20–04:45; granica nadania 05:20, zamknięcie bramki 05:50. Procedura auta do potwierdzenia.",
-      "Wszystkie odwołania do miejsc, tras i źródeł istnieją; brakujące parametry mają status, nie zmyśloną wartość."
+      "Wszystkie odwołania do miejsc, tras i źródeł istnieją; brakujące parametry mają status, nie zmyśloną wartość.",
+      "Po publikacji otworzyć stronę i porównać hash w stopce z exports.json."
     ],
     "primary_url": "https://kjawo.github.io/cypr2026/",
     "mirror_urls": [
       "https://cypr2026.pages.dev/"
     ],
-    "publication_status": "Wersja 1.3.0 przygotowana lokalnie. Wyrównanie GitHub Pages i Cloudflare wymaga publikacji; nie wykonano commita, push ani deployu."
+    "publication_status": "Wersja 1.4.0 przygotowana lokalnie; publikacja wymaga osobnego działania użytkownika."
   },
   "cycling_options": {
     "title": "Wycieczki rowerowe",
@@ -5655,7 +5827,7 @@
   "revision_log": [
     {
       "id": "CHANGE-01",
-      "from": "Aquamare i rozważanie Athena Beach",
+      "from": "poprzedni hotel i rozważanie Athena Beach",
       "to": "Zarezerwowany Princessa Vera",
       "reason": "Poprawny hotel z późniejszego audytu i ustalenia użytkownika."
     },
@@ -5679,7 +5851,7 @@
     },
     {
       "id": "CHANGE-05",
-      "from": "Wyjazd na lotnisko 03:15 z Aquamare",
+      "from": "Wyjazd na lotnisko 03:15 z poprzedni hotel",
       "to": "03:00 z Princessa Vera po potwierdzeniu zwrotu na PFO",
       "reason": "Nowa baza i zachowanie marginesu na zwrot."
     },
@@ -5898,6 +6070,29 @@
       "from": "1.2.29",
       "to": "1.3.0 — wdrożenie zaakceptowanego audytu 6 XI",
       "reason": "Implementacja zaakceptowanego audytu: harmonogram, terminy Petsas i odprawy, mapa, galeria, Dziś, offline i eksporty. Odpowiedzi usługodawców nadal do potwierdzenia; publikacja poza zakresem."
+    },
+    {
+      "id": "CHANGE-42",
+      "from": "1.3.0",
+      "to": "1.4.0 — techniczne poprawki po audycie 6 XI 2026",
+      "reason": "Offline/PWA, obsługa i walidacja GPX (brak sieci Overpass, jawne null), kontakty szpitali i assistance, pakowanie, mechanizm zamykania spraw i terminów, wydłużenia warunkowe, wyjazd DAY-04 07:00; nocny zwrot 03:30 potwierdzony przez użytkownika, instrukcja do wpisania. Nazwę poprzedniego hotelu w historii zastąpiono neutralnym określeniem za zgodą użytkownika. Bez publikacji."
     }
-  ]
+  ],
+  "route_ui": {
+    "import_instruction": "iPhone: Pobierz GPX → Udostępnij → Organic Maps. Android: Pobierz GPX → otwórz plik → Organic Maps.",
+    "map_offline_note": "Podkład mapy wymaga sieci; trasy i pinezki są z pamięci offline",
+    "gpx_credits": "Brak opublikowanych śladów GPX. Nie pozyskano danych z licencją pozwalającą na redystrybucję; nie wyznaczono linii szlaków z pinezek.",
+    "unavailable_extension": "brak śladu GPX — nie zalecane"
+  },
+  "offline": {
+    "steps": [
+      "Dodaj do ekranu głównego: iOS — Udostępnij → Dodaj do ekranu początkowego; Android — menu → Zainstaluj.",
+      "Na Wi-Fi poczekaj na komunikat „Plan zapisany offline”. Zapis podstawowy obejmuje plan, kontakty, handbook PDF, ICS i małe zdjęcia. Pełny PDF i duże zdjęcia pobierz opcjonalnie.",
+      "Organic Maps → pobierz mapę „Cyprus”. Szlaki OSM widać offline nawet bez GPX.",
+      "Google Maps → obszary offline Pafos–Polis–Akamas i Platres–Troodos.",
+      "Wgraj dostępne, sprawdzone GPX do Organic Maps. Jeśli plan nie zawiera GPX, przygotuj przebieg i sprawdź go przed wyjściem."
+    ],
+    "limitations": "Podkład mapy na stronie nie działa offline. Kafelki nie są pobierane do cache. Safari może usunąć dane po 7 dniach nieużywania; aplikacja z ekranu głównego jest odporniejsza. Po wyczyszczeniu danych przeglądarki zapis i checklisty znikną; przeglądarka może również usunąć zapis przy braku miejsca.",
+    "ready_message": "Plan zapisany offline — treść, kontakty, checklisty, podręczny PDF, ICS i małe zdjęcia z powiększeniem. Podkład mapy na stronie nie działa offline. Pełny PDF i duże zdjęcia są opcjonalne."
+  }
 }

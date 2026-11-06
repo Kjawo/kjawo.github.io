@@ -44,7 +44,7 @@ PUBLIC_FILES = [
     "cypr2026-handbook.html",
     "CREDITS.md",
 ]
-PUBLIC_DIRS = ["assets", "cal", "data"]
+PUBLIC_DIRS = ["assets", "cal", "data", "gpx"]
 
 HEADERS = """\
 /*
@@ -72,6 +72,10 @@ HEADERS = """\
   Cache-Control: public, max-age=604800
 
 /cal/*
+  Cache-Control: public, max-age=86400
+
+/gpx/*
+  Content-Type: application/gpx+xml
   Cache-Control: public, max-age=86400
 """
 
@@ -221,6 +225,15 @@ def validate_dist(canonical: str) -> None:
     if not export_file.is_file():
         fail("brak metryki PDF; uruchom npm run pdf przed pakowaniem")
     exports = json.loads(export_file.read_text(encoding="utf-8"))
+    plan = json.loads((DIST / 'data' / 'Cypr_2026_zrodlo_prawdy.json').read_text(encoding='utf-8'))
+    if exports.get('version') != plan['meta']['version']:
+        fail('wersja eksportów różni się od JSON; uruchom build i npm run pdf')
+    if f'<meta name="cypr-asset-version" content="{exports.get("build_hash", "")}">' not in html:
+        fail('build hash eksportów różni się od HTML; uruchom npm run pdf')
+    for route in plan['routes']:
+        gpx = route.get('gpx', {})
+        if gpx.get('path') and not (DIST/gpx['path']).is_file():
+            fail(f"brak GPX w dist: {gpx['path']}")
     for filename, digest in exports["sha256"].items():
         if hashlib.sha256((DIST / filename).read_bytes()).hexdigest() != digest:
             fail(f"nieaktualny eksport PDF lub HTML: {filename}; uruchom npm run pdf")

@@ -12,7 +12,7 @@ module.exports = async function startServer(root, overrides = new Map()) {
     const types = {'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.json':'application/json','.woff2':'font/woff2','.avif':'image/avif','.webp':'image/webp','.jpg':'image/jpeg','.jpeg':'image/jpeg','.pdf':'application/pdf'};
     fs.readFile(file, (error, bytes) => {
       if (error) { res.writeHead(404).end(); return; }
-      res.setHeader('Content-Type', types[path.extname(file)] || 'application/octet-stream');
+      res.setHeader('Content-Type', path.extname(file)==='.gpx' ? 'application/gpx+xml' : types[path.extname(file)] || 'application/octet-stream');
       res.setHeader('Cache-Control', 'no-store');
       res.end(bytes);
     });

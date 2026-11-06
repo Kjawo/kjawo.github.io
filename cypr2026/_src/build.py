@@ -23,6 +23,9 @@ from zoneinfo import ZoneInfo, ZoneInfoNotFoundError
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from photos import PhotoError, PhotoLibrary
 from handbook import render_handbook
+from gpx import validate_routes
+from practical import hospitals_html, assistance_html, extensions_html
+from urllib.parse import urlencode
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT / "data" / "Cypr_2026_zrodlo_prawdy.json"
@@ -32,6 +35,7 @@ APP_FILE = ROOT / "app.js"
 MIN_STYLES_FILE = ROOT / "styles.min.css"
 MIN_APP_FILE = ROOT / "app.min.js"
 SW_FILE = ROOT / "sw.js"
+SW_TEMPLATE_FILE = ROOT / "_src" / "sw.template.js"
 MANIFEST_FILE = ROOT / "manifest.json"
 INDEX_FILE = ROOT / "index.html"
 CAL_DIR = ROOT / "cal"
@@ -71,6 +75,10 @@ WEEKDAYS = {
 # Human labels and tones for every status or readiness code used by the plan.
 # They are deliberately explicit: unknown codes stop the build.
 STATUS_LABELS = {
+    "sprawdzony_automatycznie": "Sprawdzony automatycznie",
+    "zweryfikowany": "Zweryfikowany przez użytkownika",
+    "zweryfikowane_wtórnie": "Zweryfikowane wtórnie",
+    "ze_sladu_gpx": "Ze śladu GPX",
     "zarezerwowane_wg_uzytkownika": "Zarezerwowane według użytkownika",
     "zweryfikowane": "Zweryfikowane",
     "przejete_z_audytu": "Przejęte z audytu",
@@ -176,6 +184,7 @@ SOURCE_STATUS_ALLOWED = {
     "przejete_z_audytu", "link_kontrolny_z_audytu",
 }
 GENERIC_STATUS_ALLOWED = {
+    "sprawdzony_automatycznie", "zweryfikowany", "zweryfikowane_wtórnie",
     "zarezerwowane_wg_uzytkownika", "zweryfikowane", "przejete_z_audytu",
     "szacunek", "do_potwierdzenia", "decyzja_planu", "planowane", "otwarte",
     "do_przygotowania_i_weryfikacji", "orientacyjne_do_potwierdzenia",
@@ -184,7 +193,7 @@ READINESS_ALLOWED = {"nie_dotyczy", "do_sprawdzenia_przed_wyjsciem"}
 BOOKING_ALLOWED = {"planowane", "zarezerwowane_wg_uzytkownika", "do_potwierdzenia"}
 EFFORT_ALLOWED = {"szacunek"}
 DISTANCE_STATUS_ALLOWED = {"zweryfikowane", "przejete_z_audytu", "szacunek", "do_potwierdzenia"}
-ASCENT_STATUS_ALLOWED = {"do_potwierdzenia", "szacunek", "przejete_z_audytu", "zweryfikowane"}
+ASCENT_STATUS_ALLOWED = {"do_potwierdzenia", "szacunek", "przejete_z_audytu", "zweryfikowane", "ze_sladu_gpx"}
 
 # A decorative, simplified outline generated from Natural Earth public-domain
 # geometry.  It is not used as a map, route or navigation aid.
@@ -745,7 +754,7 @@ class Plan:
         self.coord_places = [p for p in self.place_list if p.get("coordinates")]
         self.total_places = len(self.place_list)
         self.coord_count = len(self.coord_places)
-        self.blocking_issues = [i for i in self.open_issues if i.get("blocking")]
+        self.blocking_issues = [i for i in self.open_issues if i.get("blocking") and not i.get("resolved_on")]
         self.total_check_items = sum(len(g.get("items", [])) for g in self.checklists)
         self.photos = PhotoLibrary(ROOT)
         self.photos.check_plan_targets(set(self.days), set(self.places), set(self.routes))
@@ -1096,6 +1105,10 @@ def validate(plan: Plan) -> None:
         if issue.get("priority") not in PRIORITY_ORDER:
             fail(f"{issue['id']}: nieznany priorytet {issue.get('priority')!r}")
         parse_iso_date(issue.get("due_on", ""), f"{issue['id']}.due_on")
+        if issue.get('resolved_on'):
+            parse_iso_date(issue['resolved_on'], f"{issue['id']}.resolved_on")
+            if not issue.get('resolution'):
+                fail(f"{issue['id']}: rozwiązana sprawa wymaga resolution")
 
     validate_statuses(plan)
 
@@ -1343,13 +1356,14 @@ def render_week(plan: Plan) -> str:
 
 
 def nearest_issue(plan: Plan) -> dict | None:
-    if not plan.open_issues:
+    active = [i for i in plan.open_issues if not i.get('resolved_on')]
+    if not active:
         return None
     # Pokazuj najpilniejsze otwarte zadanie, takze po terminie.
     # Wczesniej filtrowano przeszle terminy, przez co auto/zwrot/parking
     # z terminem 3 XI znikaly z karty "Dzis".
     key = lambda item: (item.get("due_on") or "9999", PRIORITY_ORDER.get(item.get("priority"), 9))
-    return sorted(plan.open_issues, key=key)[0]
+    return sorted(active, key=key)[0]
 
 
 def render_today(plan: Plan) -> str:
@@ -1579,6 +1593,7 @@ def render_day(plan: Plan, day: dict) -> str:
       <p><strong>Następny punkt:</strong> <a href="{esc(next_place.get("map_url", "#mapa"))}">Nawiguj: {esc(next_place.get("name", "Mapa"))} ↗</a></p>
       <p><strong>Decyzja rano:</strong> {esc(brief.get("weather_decision", ""))}</p>
       <p><strong>Rezygnujemy kolejno:</strong> {esc(" → ".join(day.get("cut_order", [])))}</p>
+      {extensions_html(plan, day)}
     </div>'''
     hunt = day["date"] in HUNTING_DATES
     hunt_note = ""
@@ -1777,9 +1792,9 @@ def render_route_body(plan: Plan, route: dict) -> str:
     risks = "".join(f"<li>{esc(item)}</li>" for item in route.get("risks", []))
     notes = "".join(f"<li>{esc(item)}</li>" for item in route.get("notes", []))
     gpx = route.get("gpx", {})
-    gpx_path = safe_url(gpx.get("path"))
+    gpx_path = gpx.get("path")
     gpx_link = (
-        f'<a class="button button--small button--ghost" href="{esc(gpx_path)}">Otwórz GPX {icon("download")}</a>'
+        f'<a class="button button--small button--ghost" href="{esc(gpx_path)}" download>Pobierz GPX {icon("download")}</a>'
         if gpx_path else ""
     )
     ascent_value = format_metres(route.get("ascent_m"))
@@ -1846,13 +1861,33 @@ def render_route_body(plan: Plan, route: dict) -> str:
         </div>
         <p>{esc(gpx.get("note", ""))}</p>
         {gpx_link}
-        <p class="gpx-box__warning">To nie jest gotowy ślad. Nie rysujemy linii trasy z punktów orientacyjnych.</p>
+        {route_navigation(start, route['id'])}
+        <p>{esc(plan.raw['route_ui']['import_instruction'])}</p>
+        <p class="gpx-credits">{esc(gpx.get('license') or plan.raw['route_ui']['gpx_credits'])}</p>
       </div>
       <div class="route-footer">
         {route_day_links(plan, route)}
         {source_chips(plan, route.get("source_ids", []))}
       </div>
     """
+
+
+def route_navigation(start: dict, route_id: str) -> str:
+    coord = start.get('coordinates')
+    if not coord:
+        return f'<p>Współrzędne startu: do_potwierdzenia. <a href="{esc(start.get("map_url", "#mapa"))}">szukaj w Maps</a></p>'
+    latlon = f"{coord['lat']}, {coord['lon']}"
+    query_coord = f"{coord['lat']},{coord['lon']}"
+    target = 'start-' + route_id.lower()
+    links = [
+        ('Google Maps', 'https://www.google.com/maps/search/?' + urlencode({'api': 1, 'query': query_coord})),
+        ('Apple Maps', 'https://maps.apple.com/?' + urlencode({'ll': query_coord, 'q': start['name']})),
+        ('Organic Maps', 'om://map?' + urlencode({'ll': query_coord, 'n': start['name']})),
+        ('Android', 'geo:' + query_coord),
+    ]
+    return (f'<p>Współrzędne startu: <span id="{esc(target)}" class="start-coordinates" tabindex="-1">{esc(latlon)}</span> '
+            f'<button type="button" class="button button--small button--ghost" data-copy-coordinates="{esc(target)}">Kopiuj</button><span data-copy-status role="status"></span></p>'
+            '<p class="route-navigation">' + ' · '.join(f'<a href="{esc(url)}">{label}</a>' for label, url in links) + '</p>')
 
 
 def render_route_card(plan: Plan, route: dict, *, reserve: bool = False) -> str:
@@ -2140,7 +2175,7 @@ def render_place(plan: Plan, place: dict) -> str:
         )
     map_url = safe_url(place.get("map_url"))
     map_link = (
-        f'<a class="text-link" href="{esc(map_url)}">Otwórz w Maps {icon("arrow")}</a>'
+        f'<a class="text-link" href="{esc(map_url)}">{"Otwórz w Maps" if place.get("coordinates") else "szukaj w Maps"} {icon("arrow")}</a>'
         if map_url else ""
     )
     facts = []
@@ -2276,6 +2311,7 @@ def render_map(plan: Plan) -> str:
           </div>
         </div>
         <div class="map-notes">
+          <p class="gpx-credits">{esc('; '.join(r['gpx']['source'] + ' — ' + r['gpx']['license'] for r in plan.route_list if r.get('gpx', {}).get('path')) or plan.raw['route_ui']['gpx_credits'])}</p>
           <p>{icon("info")} Kafelki OpenStreetMap nie są cache’owane przez service worker. Po pierwszym wejściu plan działa offline, ale mapa może pokazać tylko szare tło. Do nawigacji offline użyj Organic Maps lub Guru Maps.</p>
           <p>{icon("alert")} Markery pokazują miejsca, nie przebieg szlaku. Nie rysujemy linii z punktów orientacyjnych. Bliskie punkty łączą się w jeden marker — kliknij go, aby zobaczyć pełną listę.</p>
           <p>{icon("info")} Status punktu dotyczy współrzędnych, nie godzin ani dostępności.</p>
@@ -2458,7 +2494,7 @@ def render_car(plan: Plan) -> str:
         {subsection_head("06.3", "Auto", f'{car["provider"]} · {car["vehicle_class"]} {car["transmission"]} · rezerwacja według materiału użytkownika.', icon_name="car")}
         <div class="alert alert--urgent alert--large">
           {icon("alert")}
-          <div><strong>Do potwierdzenia: obsługa po przylocie i nocny zwrot.</strong>
+          <div><strong>{esc(car.get('confirmation_note', ''))}</strong>
           <p>Potwierdź karencję po przylocie i no-show, sektor zwrotu, klucze oraz koniec odpowiedzialności. Opłacona rezerwacja nie rozstrzyga depozytu ani zakresu ochrony.</p></div>
           {status_chip(car.get("booking_status"), compact=True)}
         </div>
@@ -2469,7 +2505,8 @@ def render_car(plan: Plan) -> str:
           <div><dt>Cena łączna</dt><dd>{esc(format_money(car.get("total_price_eur")))} · prepaid</dd></div>
           <div><dt>Depozyt</dt><dd>{esc(format_money(car.get("deposit_eur")))}</dd></div>
           <div><dt>Miejsce zwrotu</dt><dd>{esc(car.get("return_location") or "brak danych")}</dd></div>
-          <div><dt>Assistance</dt><dd>{esc(car.get("assistance_phone") or "brak danych")}</dd></div>
+          <div><dt>Assistance</dt><dd>{esc(car.get("assistance_phone") or "WPISZ")}</dd></div>
+          <div><dt>Nocny zwrot {esc(car.get('return_confirmation', {}).get('time', ''))}</dt><dd>{status_chip(car.get('return_confirmation', {}).get('status'))} · {esc(car.get('return_confirmation', {}).get('checked_on', ''))}</dd></div>
         </dl>
         <details class="selection-note" open data-collapse-on-load><summary>Warunki umowy i kontrola auta {icon("chevron")}</summary><div class="car-columns">
           <section>
@@ -2647,6 +2684,9 @@ def render_safety(plan: Plan) -> str:
     return f"""
       <div id="bezpieczenstwo" class="subsection">
         {subsection_head("06.7", "Bezpieczeństwo", "Trzy zasady widoczne od razu. Reszta to brama decyzyjna, a nie formalność.", icon_name="shield")}
+        <p class="emergency-top"><strong>Numer alarmowy: <a href="tel:112">112</a> / <a href="tel:199">199</a></strong></p>
+        {hospitals_html(emergency)}
+        {assistance_html(emergency)}
         <div class="safety-rules">
           <article class="safety-rule safety-rule--alert">
             <span class="safety-rule__number">01</span>
@@ -2666,10 +2706,10 @@ def render_safety(plan: Plan) -> str:
           </article>
         </div>
         <div class="emergency-panel">
-          <div class="emergency-panel__number"><span>Numer alarmowy</span><strong>112</strong></div>
+          <div class="emergency-panel__number"><span>Numer alarmowy</span><strong>{esc(emergency.get('number'))}</strong></div>
           <div>
             <p>{esc(emergency.get("procedure", ""))}</p>
-            <p class="fine-print">Numer hotelu: <a class="tap-inline" href="tel:+35726600100">+357\u00a026\u00a0600\u00a0100</a> · assistance auta: {esc(emergency.get("car_assistance_phone") or "brak danych")} · assistance polisy: {esc(emergency.get("insurance_assistance_phone") or "brak danych")}</p>
+            <p class="fine-print">Numer hotelu: <a class="tap-inline" href="tel:+35726600100">+357\u00a026\u00a0600\u00a0100</a> · assistance auta: {esc(emergency.get("car_assistance_phone") or "WPISZ")} · assistance polisy: {esc(emergency.get("insurance_assistance_phone") or "WPISZ")}</p>
             {source_chips(plan, [emergency.get("source_id")] if emergency.get("source_id") else [])}
           </div>
         </div>
@@ -2737,10 +2777,10 @@ def render_sunsets(plan: Plan) -> str:
 
 
 def render_packing(plan: Plan) -> str:
-    icons = {"hike": "foot", "documents": "source", "photography": "camera"}
-    labels = {"hike": "Trekking", "documents": "Dokumenty", "photography": "Fotografia"}
+    icons = {"hike": "foot", "documents": "source", "photography": "camera", "general": "bag"}
+    labels = {"hike": "Trekking", "documents": "Dokumenty", "photography": "Fotografia", "general": "Ogólne"}
     cards = []
-    for key in ["hike", "documents", "photography"]:
+    for key in ["hike", "general", "documents", "photography"]:
         items = "".join(f"<li>{esc(item)}</li>" for item in plan.packing.get(key, []))
         cards.append(f"""
           <article class="packing-card">
@@ -2757,23 +2797,24 @@ def render_packing(plan: Plan) -> str:
 
 
 def render_offline(plan: Plan) -> str:
+    steps = ''.join(f'<li>{esc(step)}</li>' for step in plan.raw['offline']['steps'])
     return f"""
       <div id="offline" class="subsection offline-guide">
         {subsection_head("06.0", "Offline", "Po pierwszym wejściu plan, kontakty i checklisty działają bez internetu. Kafelki mapy, prognoza i linki zewnętrzne — nie.", icon_name="wifi")}
         <div class="offline-guide__grid">
           <div>
             <ol class="offline-steps">
-              <li><strong>Poczekaj na „Plan zapisany offline”.</strong> Pierwszy zapis wymaga internetu. Obejmuje plan, kontakty, oba PDF-y, kalendarze i małe zdjęcia, także do powiększania. Checklisty zapisują się osobno w tej przeglądarce.</li>
-              <li><strong>Pobierz mapy offline.</strong> W Organic Maps lub Guru Maps zapisz zachodni Cypr i Troodos. Kafelki OpenStreetMap nie są cache’owane.</li>
-              <li><strong>Zapisz kontakty.</strong> Hotel, 112 i plan dnia miej pod ręką; w górach nie polegaj na zasięgu.</li>
+              {steps}
             </ol>
-            <p class="fine-print">Po wyczyszczeniu danych przeglądarki zapis i checklisty znikną. Mapa podkładowa, nawigacja zewnętrzna, prognoza i strony źródeł wymagają internetu lub osobno pobranych map. Przeglądarka może usunąć zapis przy braku miejsca.</p>
+            <p class="fine-print">{esc(plan.raw['offline']['limitations'])}</p>
           </div>
           <aside class="offline-guide__aside" aria-label="Offline — szybkie działania">
             <p class="offline-status"><span class="connection" data-connection role="status" aria-live="polite">{icon("wifi")}<span class="connection__text">sprawdzam</span></span></p>
             <p data-offline-status role="status" aria-live="polite">Zapis offline wymaga JavaScriptu i bezpiecznego połączenia.</p>
             <button class="button button--ghost" type="button" data-offline-retry hidden>Sprawdź / ponów zapis offline</button>
             <button class="button button--ghost" type="button" data-offline-photos hidden>Pobierz duże zdjęcia (opcjonalnie)</button>
+            <button class="button button--ghost" type="button" data-offline-pdf hidden>Pobierz pełny PDF offline</button>
+            <p class="fine-print" data-offline-pdf-status role="status" aria-live="polite"></p>
             <p class="fine-print" data-offline-photos-status role="status" aria-live="polite"></p>
             <a class="button button--primary" href="#checklisty">Checklisty offline {icon("arrow")}</a>
             <a class="button button--ghost" href="#mapa">Mapa i ograniczenia</a>
@@ -2882,6 +2923,7 @@ def sorted_issues(plan: Plan) -> list[dict]:
     return sorted(
         plan.open_issues,
         key=lambda item: (
+            bool(item.get('resolved_on')),
             0 if item.get("blocking") else 1,
             item.get("due_on") or "9999-99-99",
             PRIORITY_ORDER.get(item.get("priority"), 9),
@@ -2895,6 +2937,9 @@ def todo_summary(plan: Plan) -> str:
     parts = []
     for index, due in enumerate(sorted(due_counts)):
         count = due_counts[due]
+        if due < plan.meta['updated_on']:
+            parts.append(f'{count} zaległe')
+            continue
         if index == 0:
             parts.append(f'{count} {plural_pl(count, "blokujące", "blokujące", "blokujących")} do {due_short(due)}')
         else:
@@ -2906,10 +2951,13 @@ def render_todo(plan: Plan) -> str:
     issues = sorted_issues(plan)
     cards = []
     for issue in issues:
-        blocking = '<span class="blocking-badge">blokujące</span>' if issue.get("blocking") else ""
+        resolved = bool(issue.get('resolved_on'))
+        overdue = not resolved and issue['due_on'] < plan.meta['updated_on']
+        due_label = 'rozwiązane' if resolved else ('zaległe' if overdue else 'termin: ' + format_date_pl(issue['due_on']))
+        blocking = '<span class="blocking-badge">blokujące</span>' if issue.get("blocking") and not resolved else ""
         priority = issue.get("priority", "")
         cards.append(f"""
-          <article class="issue-card{' issue-card--blocking' if issue.get("blocking") else ''}" id="issue-{esc(issue["id"])}" data-issue-due="{esc(issue["due_on"])}">
+          <article class="issue-card{' issue-card--resolved' if resolved else ''}{' issue-card--blocking' if issue.get("blocking") and not resolved else ''}" id="issue-{esc(issue["id"])}" data-issue-due="{esc(issue["due_on"])}" data-issue-resolved="{esc(issue.get('resolved_on') or '')}">
             <header class="issue-card__head">
               <div>
                 <h3>{esc(issue["title"])}</h3>
@@ -2918,15 +2966,16 @@ def render_todo(plan: Plan) -> str:
             </header>
             <div class="issue-tags">
               <span class="priority priority--{esc(priority)}">{esc(PRIORITY_LABELS.get(priority, priority))} priorytet</span>
-              <span class="issue-due">{icon("calendar")}termin: <time datetime="{esc(issue["due_on"])}">{esc(format_date_pl(issue["due_on"]))}</time></span>
-              <span class="priority priority--wysoki" data-issue-overdue hidden>po terminie</span>
-              {status_chip(issue.get("status"), compact=True)}
+              <span class="issue-due" data-issue-due-label>{esc(due_label)}</span>
+              {'<span class="status status--ok">Rozwiązane</span>' if resolved else status_chip(issue.get("status"), compact=True)}
             </div>
             <div class="issue-body">
               <p><strong>Działanie:</strong> {esc(issue.get("action", ""))}</p>
               <p><strong>Wpływ:</strong> {esc(issue.get("impact", ""))}</p>
+              {('<p><strong>Rozstrzygnięcie:</strong> ' + esc(issue['resolution']) + '</p>') if issue.get('resolution') else ''}
+              {('<p>Rozwiązano: ' + esc(issue['resolved_on']) + '</p>') if resolved else ''}
             </div>
-            <footer class="issue-card__foot"><span>Odpowiedzialność: {esc(issue.get("owner", ""))}</span><span>Wymaga odpowiedzi lub sprawdzenia</span></footer>
+            <footer class="issue-card__foot"><span>Odpowiedzialność: {esc(issue.get("owner", ""))}</span><span>{'Rozwiązane' if resolved else 'Wymaga odpowiedzi lub sprawdzenia'}</span></footer>
           </article>
         """)
     return f"""
@@ -2939,7 +2988,7 @@ def render_todo(plan: Plan) -> str:
             <p class="section-lede">{esc(todo_summary(plan))}. To lista operacyjna, nie checklista. Strona nie zmienia faktów automatycznie; statusy pochodzą z planu.</p>
           </div>
         </header>
-        <div class="issue-grid">{''.join(cards)}</div>
+        <details class="issues-disclosure" open data-issues-disclosure><summary>Sprawy do potwierdzenia i rozwiązane ({len(issues)})</summary><div class="issue-grid">{''.join(cards)}</div></details>
         {section_next("Dalej", [("#zrodla", "Źródła i wersja"), ("#dzis", "Wróć do dziś")])}
       </div>
     </section>
@@ -3118,7 +3167,7 @@ def render_print_quick(plan: Plan) -> str:
         if not issue.get("blocking"):
             continue
         tasks.append(
-            f'<li><b>{esc(issue["title"])}</b> · termin {esc(due_short(issue["due_on"]))}</li>'
+            f'<li><b>{esc(issue["title"])}</b> · {esc("zaległe" if issue["due_on"] < plan.meta["updated_on"] else "termin " + due_short(issue["due_on"]))}</li>'
         )
     car = plan.trip.get("car", {})
     pickup = (
@@ -3157,7 +3206,7 @@ def render_print_quick(plan: Plan) -> str:
     """
 
 
-def render_footer(plan: Plan) -> str:
+def render_footer(plan: Plan, asset_hash: str) -> str:
     return f"""
     <div class="page-width footer-grid">
       <div>
@@ -3167,6 +3216,7 @@ def render_footer(plan: Plan) -> str:
       </div>
       <div class="footer-meta">
         <p><span>Wersja</span> <strong>{esc(plan.meta["version"])}</strong></p>
+        <p><span>Build hash</span> <strong data-build-hash>{esc(asset_hash)}</strong></p>
         <p><span>Aktualizacja</span> <strong>{esc(format_date_pl(plan.meta["updated_on"]))}</strong></p>
         <p><span>Dane</span> <a href="data/Cypr_2026_zrodlo_prawdy.json">Cypr_2026_zrodlo_prawdy.json {icon("download")}</a></p>
         <p><span>Strefa</span> Asia/Nicosia, UTC+2</p>
@@ -3185,8 +3235,9 @@ def compute_asset_hash(raw_json: bytes, *, noindex: bool) -> str:
     digest.update(b"noindex=1\0" if noindex else b"noindex=0\0")
     digest.update(raw_json)
     digest.update((CANONICAL_URL + "\0" + JOURNAL_URL + "\0" + ARCHIVE_URL).encode("utf-8"))
-    paths = [TEMPLATE_FILE, Path(__file__).resolve(), ROOT / "_src" / "photos.py", ROOT / "_src" / "handbook.py", STYLES_FILE, APP_FILE, MANIFEST_FILE, ROOT / "data" / "photos.json"]
-    sw_runtime = SW_FILE.read_text(encoding="utf-8")
+    paths = [TEMPLATE_FILE, Path(__file__).resolve(), ROOT / "_src" / "photos.py", ROOT / "_src" / "handbook.py", ROOT / "_src" / "practical.py", ROOT / "_src" / "gpx.py", STYLES_FILE, APP_FILE, MANIFEST_FILE, ROOT / "data" / "photos.json"]
+    paths.extend(sorted((ROOT/'gpx').glob('*.gpx')))
+    sw_runtime = SW_TEMPLATE_FILE.read_text(encoding="utf-8")
     sw_runtime = re.sub(r'const CACHE_VERSION = "[^"]*";', '', sw_runtime, count=1)
     sw_runtime = re.sub(r'const PRECACHE_URLS = \[.*?\];', '', sw_runtime, count=1, flags=re.S)
     digest.update(sw_runtime.encode("utf-8"))
@@ -3532,7 +3583,7 @@ def render_page(plan: Plan, asset_hash: str, data_json: str, *, noindex: bool) -
         "{{PHOTO_STRIP}}": plan.photos.render_strip(),
         "{{PHOTO_GALLERY}}": plan.photos.render_gallery(),
         "{{PHOTO_LIGHTBOX}}": plan.photos.render_lightbox(),
-        "{{FOOTER}}": render_footer(plan),
+        "{{FOOTER}}": render_footer(plan, asset_hash),
         "{{DATA_JSON}}": data_json,
     }
     output = template
@@ -3545,7 +3596,7 @@ def render_page(plan: Plan, asset_hash: str, data_json: str, *, noindex: bool) -
 
 
 def build_service_worker(plan: Plan, asset_hash: str) -> str:
-    sw = SW_FILE.read_text(encoding="utf-8")
+    sw = SW_TEMPLATE_FILE.read_text(encoding="utf-8")
     version = plan.meta["version"]
     cache_name = f"cypr-2026-{version}-{asset_hash}"
     precache = [
@@ -3561,11 +3612,13 @@ def build_service_worker(plan: Plan, asset_hash: str) -> str:
             rel = path.relative_to(ROOT).as_posix()
             if rel.endswith(".png") or rel.endswith(".svg") or rel.endswith(".woff2") or rel.endswith(".js") or rel.endswith(".css"):
                 precache.append(f"./{rel}")
-    precache.extend(plan.photos.offline_files())
+    # Keep all small formats. Redundant 800px WebP variants fall back to the
+    # cached 480px WebP offline, keeping the base download below 25 MB.
+    precache.extend(path for path in plan.photos.offline_files() if not re.search(r'-800\.webp$', path))
     if CAL_DIR.exists():
         for path in sorted(CAL_DIR.glob("*.ics")):
             precache.append(f"./{path.relative_to(ROOT).as_posix()}")
-    precache.append("./cypr2026-print.pdf")
+    precache.extend('./' + r['gpx']['path'] for r in plan.route_list if r.get('gpx', {}).get('path'))
     precache.append("./cypr2026-handbook.html")
     precache.append("./cypr2026-handbook.pdf")
     # Keep the list stable and free of duplicates.
@@ -3615,6 +3668,10 @@ def main() -> int:
         except PhotoError as exc:
             fail(str(exc))
         validate(plan)
+        try:
+            validate_routes(data, ROOT)
+        except (ValueError, OSError) as exc:
+            fail(str(exc))
         warnings = collect_warnings(plan)
 
         for path in [TEMPLATE_FILE, STYLES_FILE, APP_FILE, MANIFEST_FILE, SW_FILE]:
@@ -3635,7 +3692,14 @@ def main() -> int:
         write_if_changed(MIN_APP_FILE, minify_js(APP_FILE.read_text(encoding="utf-8")))
         sw_text = build_service_worker(plan, asset_hash)
         write_if_changed(SW_FILE, sw_text)
-        write_if_changed(ROOT / "CREDITS.md", plan.photos.credits_markdown())
+        credits = plan.photos.credits_markdown() + '\n## Ślady GPX\n\n'
+        credits += plan.raw['route_ui']['gpx_credits'] + '\n\n'
+        for route in plan.route_list:
+            gpx = route.get('gpx', {})
+            if gpx.get('path'):
+                credits += f"- {route['name']}: {gpx['source']}; {gpx.get('source_url', '')}; {gpx['checked_on']}; {gpx['license']}.\n"
+        credits += '\n## Leaflet\n\nLeaflet 1.9.4 — BSD-2-Clause; © 2010–2023 Volodymyr Agafonkin, © 2010–2011 CloudMade. Lokalnie: `assets/vendor/leaflet/`. Pełna licencja: `assets/vendor/leaflet/LICENSE`. Źródło: https://github.com/Leaflet/Leaflet/tree/v1.9.4\n'
+        write_if_changed(ROOT / "CREDITS.md", credits)
 
         print(f"OK  Cypr 2026 {version} · {asset_hash}")
         print(f"    index.html: {INDEX_FILE.stat().st_size:,} B")
