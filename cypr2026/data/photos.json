@@ -1,8 +1,8 @@
 {
   "meta": {
     "schema_version": "2.0.0",
-    "updated_on": "2026-11-05",
-    "note": "Manifest zdjęć Cypr 2026 — 138 zweryfikowanych kadrów z Wikimedia Commons (źródło, data, miejsce, pliki). Bez AI, bez stocku z innego miejsca."
+    "updated_on": "2026-11-06",
+    "note": "Manifest 142 fotografii; korekty audytu 6 XI 2026. Kadry okolicy są opisane osobno od stanowisk i szlaków; bez AI i z pełnymi licencjami."
   },
   "photos": [
     {
@@ -3274,115 +3274,6 @@
       "height": 853
     },
     {
-      "id": "day-07-b",
-      "slot": "day-07-b",
-      "kind": "day",
-      "role": "extra",
-      "order": 2,
-      "lead": false,
-      "target": {
-        "type": "day",
-        "id": "DAY-07",
-        "label": "Dzień 7 — Nocny zwrot auta i powrót"
-      },
-      "title": "Terminal PFO",
-      "location": {
-        "name": "Lotnisko Pafos (PFO), Timi",
-        "lat": 34.711675,
-        "lon": 32.489331
-      },
-      "gps": {
-        "lat": 34.711675,
-        "lon": 32.489331,
-        "source": "współrzędne miejsca (OSM); plik bez geotagu"
-      },
-      "author": "ThePlaneWikiGuy",
-      "license": "CC0",
-      "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
-      "source_url": "https://commons.wikimedia.org/wiki/File:PaphosAirportPTFS.jpg",
-      "original_url": "https://upload.wikimedia.org/wikipedia/commons/6/6b/PaphosAirportPTFS.jpg",
-      "date": "2026-08-10",
-      "description": "PaphosAirport",
-      "caption": "Terminal lotniska Pafos, widok; kadr z 10 sierpnia 2026.",
-      "alt": "Terminal lotniska Pafos z płytą postojową i samolotami w tle.",
-      "credit": "ThePlaneWikiGuy / Wikimedia Commons, CC0",
-      "credit_short": "ThePlaneWikiGuy / CC0",
-      "verification": [
-        {
-          "type": "commons-file-page",
-          "url": "https://commons.wikimedia.org/wiki/File:PaphosAirportPTFS.jpg",
-          "note": "Strona pliku: autor ThePlaneWikiGuy, licencja CC0, data 2026-08-10."
-        },
-        {
-          "type": "geotag-osm",
-          "url": "https://www.openstreetmap.org/?mlat=34.711675&mlon=32.489331#map=15/34.711675/32.489331",
-          "note": "Plik bez geotagu; współrzędne lotniska Pafos (OSM) 34.711675, 32.489331."
-        },
-        {
-          "type": "commons-category-or-usage",
-          "url": "https://commons.wikimedia.org/wiki/Category:Paphos_International_Airport",
-          "note": "Kategoria Commons: Paphos International Airport."
-        }
-      ],
-      "source_width": 3244,
-      "source_height": 1672,
-      "focal_point": {
-        "x": 0.5,
-        "y": 0.5
-      },
-      "aspect": "3:2",
-      "category_url": "https://commons.wikimedia.org/wiki/Category:Paphos_International_Airport",
-      "source_title": "File:PaphosAirportPTFS.jpg",
-      "files": [
-        {
-          "width": 480,
-          "height": 320,
-          "avif": "assets/photos/day-07-b/day-07-b-480.avif",
-          "avif_bytes": 3613,
-          "avif_quality": 46,
-          "webp": "assets/photos/day-07-b/day-07-b-480.webp",
-          "webp_bytes": 3740,
-          "webp_quality": 70,
-          "jpeg": "assets/photos/day-07-b/day-07-b-480.jpg",
-          "jpeg_bytes": 7564,
-          "jpeg_quality": 74
-        },
-        {
-          "width": 800,
-          "height": 533,
-          "avif": "assets/photos/day-07-b/day-07-b-800.avif",
-          "avif_bytes": 6591,
-          "avif_quality": 46,
-          "webp": "assets/photos/day-07-b/day-07-b-800.webp",
-          "webp_bytes": 7106,
-          "webp_quality": 70,
-          "jpeg": "assets/photos/day-07-b/day-07-b-800.jpg",
-          "jpeg_bytes": 14448,
-          "jpeg_quality": 74
-        },
-        {
-          "width": 1280,
-          "height": 853,
-          "avif": "assets/photos/day-07-b/day-07-b-1280.avif",
-          "avif_bytes": 10945,
-          "avif_quality": 46,
-          "webp": "assets/photos/day-07-b/day-07-b-1280.webp",
-          "webp_bytes": 129958,
-          "webp_quality": 70
-        },
-        {
-          "width": 1920,
-          "height": 1280,
-          "avif": "assets/photos/day-07-b/day-07-b-1920.avif",
-          "avif_bytes": 17034,
-          "avif_quality": 46
-        }
-      ],
-      "offline": "assets/photos/day-07-b/day-07-b-480.webp",
-      "width": 1920,
-      "height": 1280
-    },
-    {
       "id": "day-07-c",
       "slot": "day-07-c",
       "kind": "day",
@@ -4385,24 +4276,24 @@
       "id": "place-faros-c",
       "slot": "place-faros-c",
       "kind": "place",
-      "role": "extra",
-      "order": 3,
-      "lead": false,
+      "role": "lead",
+      "order": 1,
+      "lead": true,
       "target": {
         "type": "place",
-        "id": "POI-FAROS",
-        "label": "Faros Lighthouse Beach"
+        "id": "POI-ALYKES",
+        "label": "Alykes Beach — osobna plaża"
       },
-      "title": "Plaża Alykes",
+      "title": "Alykes Beach — nie Faros",
       "location": {
         "name": "Alykes Beach, Kato Pafos",
-        "lat": 34.7658,
-        "lon": 32.405
+        "lat": 34.753477,
+        "lon": 32.418951
       },
       "gps": {
-        "lat": 34.7658,
-        "lon": 32.405,
-        "source": "współrzędne miejsca (OSM); plik bez geotagu"
+        "lat": 34.753477,
+        "lon": 32.418951,
+        "source": "geotag Commons odnotowany w audycie 6 XI 2026"
       },
       "author": "Fry72, Karel Frydrýšek",
       "license": "CC BY-SA 4.0",
@@ -4410,9 +4301,9 @@
       "source_url": "https://commons.wikimedia.org/wiki/File:Alykes_Beach,_Paphos,_Cyprus_01.jpg",
       "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9a/Alykes_Beach%2C_Paphos%2C_Cyprus_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "date": "2023-03-05",
-      "description": "Alykes Beach, Paphos, Cyprus",
-      "caption": "Plaża Alykes obok Faros, widok ogólny; kadr z 5 marca 2023.",
-      "alt": "Piaszczysto-kamienista plaża z palmami i pomostem, morze w tle.",
+      "description": "Alykes Beach w Kato Pafos, osobna plaża na południe od portu, widok ogólny; kadr z 5 marca 2023.",
+      "caption": "Alykes Beach w Kato Pafos, osobna plaża na południe od portu, widok ogólny; kadr z 5 marca 2023.",
+      "alt": "Plaża Alykes w Kato Pafos z palmami i pomostem; inne miejsce niż Faros.",
       "credit": "Fry72, Karel Frydrýšek / Wikimedia Commons, CC BY-SA 4.0",
       "credit_short": "Fry72, Karel Frydrýšek / CC BY-SA 4.0",
       "verification": [
@@ -4423,8 +4314,8 @@
         },
         {
           "type": "geotag-osm",
-          "url": "https://www.openstreetmap.org/?mlat=34.7658&mlon=32.405#map=15/34.7658/32.405",
-          "note": "Współrzędne pliku (Commons): 34.753477, 32.418951; punkt zgodny z nazwanym miejscem."
+          "url": "https://www.openstreetmap.org/?mlat=34.753477&mlon=32.418951#map=17/34.753477/32.418951",
+          "note": "Geotag Commons: 34.753477, 32.418951; Alykes, nie Faros."
         },
         {
           "type": "commons-category-or-usage",
@@ -8176,7 +8067,7 @@
         "id": "POI-VAROSHA",
         "label": "Varosha (Famagusta)"
       },
-      "title": "Wnętrze opuszczonego lokalu w Varosha",
+      "title": "Varosha — fasada i szyld lokalu",
       "location": {
         "name": "Varosha, Famagusta",
         "lat": 35.113,
@@ -8193,9 +8084,9 @@
       "source_url": "https://commons.wikimedia.org/wiki/File:A_Workplace_in_Varosha,_Cyprus.jpg",
       "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/9d/A_Workplace_in_Varosha%2C_Cyprus.jpg",
       "date": "2024-07-06",
-      "description": "A workplace in Cyprus, Varosha, whose brand shop sign has been worn down over time.",
-      "caption": "Opuszczony lokal w Varosha, widok ogólny; kadr z 6 lipca 2024.",
-      "alt": "Wnętrze opuszczonego lokalu w Varoshy z resztkami wyposażenia i odrapanymi ścianami.",
+      "description": "Varosha, fasada i zewnętrzny szyld opuszczonego lokalu, detal; kadr z 6 lipca 2024.",
+      "caption": "Varosha, fasada i zewnętrzny szyld opuszczonego lokalu, detal; kadr z 6 lipca 2024.",
+      "alt": "Zewnętrzna fasada opuszczonego lokalu w Varoshy z zachowanym szyldem.",
       "credit": "Çınar Civan / Wikimedia Commons, CC BY-SA 4.0",
       "credit_short": "Çınar Civan / CC BY-SA 4.0",
       "verification": [
@@ -10780,7 +10671,7 @@
         "id": "POI-FAMAGUSTA",
         "label": "Famagusta — stare miasto"
       },
-      "title": "Famagusta — zamek od portu",
+      "title": "Famagusta — widok na port",
       "location": {
         "name": "Famagusta, old town",
         "lat": 35.126027,
@@ -10797,9 +10688,9 @@
       "source_url": "https://commons.wikimedia.org/wiki/File:The_view_of_Famagusta_castle.jpg",
       "original_url": "https://upload.wikimedia.org/wikipedia/commons/2/28/The_view_of_Famagusta_castle.jpg",
       "date": "2024-05-01",
-      "description": "The view of Famagusta castle",
-      "caption": "Zamek w Famaguście widziany od portu, widok; kadr z 1 maja 2024.",
-      "alt": "Zamek w Famaguście i port, widziane z nabrzeża w słoneczny dzień.",
+      "description": "Famagusta, widok w kierunku portu, panorama; kadr z 1 maja 2024.",
+      "caption": "Famagusta, widok w kierunku portu, panorama; kadr z 1 maja 2024.",
+      "alt": "Port w Famaguście, nabrzeża i zabudowa nad wodą widziane z góry.",
       "credit": "Berayseray / Wikimedia Commons, CC BY-SA 4.0",
       "credit_short": "Berayseray / CC BY-SA 4.0",
       "verification": [
@@ -12369,33 +12260,29 @@
       "id": "place-choirokoitia-b",
       "slot": "place-choirokoitia-b",
       "kind": "place",
-      "role": "extra",
-      "order": 2,
-      "lead": false,
+      "role": "lead",
+      "order": 1,
+      "lead": true,
       "target": {
         "type": "place",
-        "id": "POI-CHOIROKOITIA",
-        "label": "Choirokoitia (UNESCO)"
+        "id": "POI-CHOIROKOITIA-VILLAGE",
+        "label": "Choirokoitia — wieś i okolice"
       },
       "title": "Choirokoitia — ruiny komandorii",
       "location": {
-        "name": "Choirokoitia",
-        "lat": 34.796,
-        "lon": 33.344
+        "name": "Choirokoitia — wieś i okolice, nie stanowisko UNESCO",
+        "lat": null,
+        "lon": null
       },
-      "gps": {
-        "lat": 34.796,
-        "lon": 33.344,
-        "source": "współrzędne orientacyjne (OSM)"
-      },
+      "gps": null,
       "author": "Chris06",
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
       "source_url": "https://commons.wikimedia.org/wiki/File:Choirokoitia_Knights_Templar_Commandery_ruins_%2809%29.jpg",
       "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Choirokoitia_Knights_Templar_Commandery_ruins_%2809%29.jpg",
       "date": "2018-05-26",
-      "description": "Choirokoitia Knights Templar Commandery ruins",
-      "caption": "Choirokoitia, ruiny komandorii templariuszy, widok ogólny; zdjęcie z 26 maja 2018 (wyjątek wiekowy).",
+      "description": "Choirokoitia — wieś i okolice (poza neolitycznym stanowiskiem), ruiny komandorii templariuszy, widok ogólny; zdjęcie z 26 maja 2018 (wyjątek wiekowy).",
+      "caption": "Choirokoitia — wieś i okolice (poza neolitycznym stanowiskiem), ruiny komandorii templariuszy, widok ogólny; zdjęcie z 26 maja 2018 (wyjątek wiekowy).",
       "alt": "Kamienne ruiny komandorii templariuszy w Choirokoitia wśród trawy.",
       "credit": "Chris06 / Wikimedia Commons, CC BY-SA 4.0",
       "credit_short": "Chris06 / CC BY-SA 4.0",
@@ -12409,6 +12296,11 @@
           "type": "commons-category-or-usage",
           "url": "https://commons.wikimedia.org/wiki/Category:Choirokoitia",
           "note": "Kategoria Commons: Choirokoitia; plik zgodny z nazwą i opisem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/File:Choirokoitia_Knights_Templar_Commandery_ruins_%2809%29.jpg",
+          "note": "Brak dokładnego GPS stanowiska aparatu; położenie ogólne potwierdzone opisem/kategorią. Nie przypisano współrzędnych stanowiska UNESCO ani początku szlaku."
         }
       ],
       "source_width": 1920,
@@ -12483,32 +12375,28 @@
       "slot": "place-choirokoitia-c",
       "kind": "place",
       "role": "extra",
-      "order": 3,
+      "order": 2,
       "lead": false,
       "target": {
         "type": "place",
-        "id": "POI-CHOIROKOITIA",
-        "label": "Choirokoitia (UNESCO)"
+        "id": "POI-CHOIROKOITIA-VILLAGE",
+        "label": "Choirokoitia — wieś i okolice"
       },
       "title": "Choirokoitia — kościół Panagia tou Kampou",
       "location": {
-        "name": "Choirokoitia",
-        "lat": 34.796,
-        "lon": 33.344
+        "name": "Choirokoitia — wieś i okolice, nie stanowisko UNESCO",
+        "lat": null,
+        "lon": null
       },
-      "gps": {
-        "lat": 34.796,
-        "lon": 33.344,
-        "source": "współrzędne orientacyjne (OSM)"
-      },
+      "gps": null,
       "author": "Chris06",
       "license": "CC BY-SA 4.0",
       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
       "source_url": "https://commons.wikimedia.org/wiki/File:Panagia_tou_Kampou%2C_Choirokoitia_%2814%29.jpg",
       "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Panagia_tou_Kampou%2C_Choirokoitia_%2814%29.jpg",
       "date": "2018-05-26",
-      "description": "Panagia tou Kampou, Choirokoitia",
-      "caption": "Choirokoitia, kościół Panagia tou Kampou, widok ogólny; zdjęcie z 26 maja 2018 (wyjątek wiekowy).",
+      "description": "Choirokoitia — wieś i okolice (poza neolitycznym stanowiskiem), kościół Panagia tou Kampou, widok ogólny; zdjęcie z 26 maja 2018 (wyjątek wiekowy).",
+      "caption": "Choirokoitia — wieś i okolice (poza neolitycznym stanowiskiem), kościół Panagia tou Kampou, widok ogólny; zdjęcie z 26 maja 2018 (wyjątek wiekowy).",
       "alt": "Kamienny kościół Panagia tou Kampou w Choirokoitia z dachem i dziedzińcem.",
       "credit": "Chris06 / Wikimedia Commons, CC BY-SA 4.0",
       "credit_short": "Chris06 / CC BY-SA 4.0",
@@ -12522,6 +12410,11 @@
           "type": "commons-category-or-usage",
           "url": "https://commons.wikimedia.org/wiki/Category:Choirokoitia",
           "note": "Kategoria Commons: Choirokoitia; plik zgodny z nazwą i opisem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/File:Panagia_tou_Kampou%2C_Choirokoitia_%2814%29.jpg",
+          "note": "Brak dokładnego GPS stanowiska aparatu; położenie ogólne potwierdzone opisem/kategorią. Nie przypisano współrzędnych stanowiska UNESCO ani początku szlaku."
         }
       ],
       "source_width": 1920,
@@ -13055,16 +12948,16 @@
         "id": "POI-PISSOURI",
         "label": "Pissouri"
       },
-      "title": "Pissouri — plaża",
+      "title": "Pissouri — ulica",
       "location": {
-        "name": "Pissouri",
-        "lat": 34.64974,
-        "lon": 32.72205
+        "name": "Pissouri — ulica we wsi",
+        "lat": 34.66588,
+        "lon": 32.698015
       },
       "gps": {
-        "lat": 34.64974,
-        "lon": 32.72205,
-        "source": "współrzędne Pissouri Bay (VisitCyprus); plik bez geotagu"
+        "lat": 34.66588,
+        "lon": 32.698015,
+        "source": "geotag pliku Commons, odczyt metadanych audytu"
       },
       "author": "greglaskiewicz",
       "license": "CC BY 3.0",
@@ -13072,9 +12965,9 @@
       "source_url": "https://commons.wikimedia.org/wiki/File:Pissouri,_Cyprus_-_panoramio_(2).jpg",
       "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7c/Pissouri%2C_Cyprus_-_panoramio_%282%29.jpg",
       "date": "2014-01-05",
-      "description": "Pissouri, Cyprus - panoramio 2",
-      "caption": "Pissouri, plaża, widok ogólny; zdjęcie z 5 stycznia 2014 (wyjątek wiekowy).",
-      "alt": "Piaszczysta plaża Pissouri Bay z jasnym wybrzeżem i klifami w tle.",
+      "description": "Pissouri, ulica i zabudowa, widok ogólny; zdjęcie z 5 stycznia 2014 (kadr historyczny, nie plaża).",
+      "caption": "Pissouri, ulica i zabudowa, widok ogólny; zdjęcie z 5 stycznia 2014 (kadr historyczny, nie plaża).",
+      "alt": "Ulica w Pissouri z zabudową po obu stronach; nie przedstawia plaży ani zatoki.",
       "credit": "greglaskiewicz / Wikimedia Commons, CC BY 3.0",
       "credit_short": "greglaskiewicz / CC BY 3.0",
       "verification": [
@@ -13087,6 +12980,11 @@
           "type": "commons-category-or-usage",
           "url": "https://commons.wikimedia.org/wiki/Category:Pissouri",
           "note": "Kategoria Commons: Pissouri; plik zgodny z nazwą i opisem."
+        },
+        {
+          "type": "geotag-osm",
+          "url": "https://www.openstreetmap.org/?mlat=34.665880&mlon=32.698015#map=17/34.665880/32.698015",
+          "note": "Geotag pliku Commons; ulica we wsi, nie Pissouri Bay."
         }
       ],
       "source_width": 1920,
@@ -15538,6 +15436,559 @@
       "offline": "assets/photos/route-pouziaris-c/route-pouziaris-c-480.webp",
       "width": 1920,
       "height": 1440
+    },
+    {
+      "id": "day-07-b",
+      "slot": "day-07-b",
+      "kind": "day",
+      "role": "extra",
+      "order": 2,
+      "lead": false,
+      "target": {
+        "type": "day",
+        "id": "DAY-07",
+        "label": "Dzień 7 — Nocny zwrot auta i powrót"
+      },
+      "title": "PFO — wnętrze terminala",
+      "location": {
+        "name": "Terminal PFO",
+        "lat": 34.712482,
+        "lon": 32.488235
+      },
+      "gps": {
+        "lat": 34.712482,
+        "lon": 32.488235,
+        "source": "geotag Commons"
+      },
+      "author": "Little Savage",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Paphos_International_Airport,_November_2017_(3).jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Paphos_International_Airport%2C_November_2017_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "date": "2017-11-18",
+      "description": "Lotnisko Pafos, wnętrze terminala i miejsca oczekiwania, widok historyczny",
+      "caption": "Lotnisko Pafos, wnętrze terminala i miejsca oczekiwania, widok historyczny; kadr z 18 listopada 2017.",
+      "alt": "Miejsca siedzące i pasażerowie we wnętrzu terminala lotniska Pafos.",
+      "credit": "Little Savage / CC BY-SA 4.0",
+      "credit_short": "Little Savage / CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Paphos_International_Airport,_November_2017_(3).jpg",
+          "note": "Strona pliku: Little Savage, CC BY-SA 4.0, 2017-11-18; oględziny przed przypisaniem 6 XI 2026."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Paphos_International_Airport",
+          "note": "Opis pliku i kategoria potwierdzają miejsce; treść fotografii obejrzana przed przypisaniem."
+        }
+      ],
+      "source_width": 5312,
+      "source_height": 2988,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "aspect": "3:2",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Paphos_International_Airport",
+      "source_title": "File:Paphos International Airport, November 2017 (3).jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 320,
+          "avif": "assets/photos/day-07-b/day-07-b-480.avif",
+          "avif_bytes": 13523,
+          "avif_quality": 55,
+          "webp": "assets/photos/day-07-b/day-07-b-480.webp",
+          "webp_bytes": 18720,
+          "webp_quality": 72,
+          "jpeg": "assets/photos/day-07-b/day-07-b-480.jpg",
+          "jpeg_bytes": 30411,
+          "jpeg_quality": 78
+        },
+        {
+          "width": 800,
+          "height": 533,
+          "avif": "assets/photos/day-07-b/day-07-b-800.avif",
+          "avif_bytes": 30534,
+          "avif_quality": 55,
+          "webp": "assets/photos/day-07-b/day-07-b-800.webp",
+          "webp_bytes": 39830,
+          "webp_quality": 72,
+          "jpeg": "assets/photos/day-07-b/day-07-b-800.jpg",
+          "jpeg_bytes": 72118,
+          "jpeg_quality": 78
+        },
+        {
+          "width": 1280,
+          "height": 853,
+          "avif": "assets/photos/day-07-b/day-07-b-1280.avif",
+          "avif_bytes": 62162,
+          "avif_quality": 55,
+          "webp": "assets/photos/day-07-b/day-07-b-1280.webp",
+          "webp_bytes": 74916,
+          "webp_quality": 72,
+          "jpeg": "assets/photos/day-07-b/day-07-b-1280.jpg",
+          "jpeg_bytes": 118600,
+          "jpeg_quality": 66
+        },
+        {
+          "width": 1920,
+          "height": 1280,
+          "avif": "assets/photos/day-07-b/day-07-b-1920.avif",
+          "avif_bytes": 118059,
+          "avif_quality": 55,
+          "webp": "assets/photos/day-07-b/day-07-b-1920.webp",
+          "webp_bytes": 129402,
+          "webp_quality": 72,
+          "jpeg": "assets/photos/day-07-b/day-07-b-1920.jpg",
+          "jpeg_bytes": 178361,
+          "jpeg_quality": 50
+        }
+      ],
+      "offline": "assets/photos/day-07-b/day-07-b-480.jpg",
+      "width": 1920,
+      "height": 1280
+    },
+    {
+      "id": "PHOTO-AUDIT-PLACE-PISSOURI-D",
+      "slot": "place-pissouri-d",
+      "kind": "place",
+      "role": "extra",
+      "order": 4,
+      "lead": false,
+      "target": {
+        "type": "place",
+        "id": "POI-PISSOURI",
+        "label": "Pissouri"
+      },
+      "title": "Pissouri Bay — plaża i klify",
+      "location": {
+        "name": "Pissouri Bay",
+        "lat": 34.646629,
+        "lon": 32.743877
+      },
+      "gps": {
+        "lat": 34.646629,
+        "lon": 32.743877,
+        "source": "geotag Commons"
+      },
+      "author": "Mutzy",
+      "license": "CC BY-SA 3.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Beach_looking_towards_Pissouri_bay_-_panoramio.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Beach_looking_towards_Pissouri_bay_-_panoramio.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "date": "2002-10-08",
+      "description": "Pissouri Bay, rzeczywisty widok plaży, morza i klifów; historyczny wygląd wybrzeża",
+      "caption": "Pissouri Bay, rzeczywisty widok plaży, morza i klifów; historyczny wygląd wybrzeża; kadr z 8 października 2002.",
+      "alt": "Żwirowa plaża przy Pissouri Bay, morze i jasne klify wzdłuż brzegu.",
+      "credit": "Mutzy / CC BY-SA 3.0",
+      "credit_short": "Mutzy / CC BY-SA 3.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Beach_looking_towards_Pissouri_bay_-_panoramio.jpg",
+          "note": "Strona pliku: Mutzy, CC BY-SA 3.0, 2002-10-08; oględziny przed przypisaniem 6 XI 2026."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Pissouri",
+          "note": "Opis pliku i kategoria potwierdzają miejsce; treść fotografii obejrzana przed przypisaniem."
+        }
+      ],
+      "source_width": 1280,
+      "source_height": 960,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "aspect": "16:9",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Pissouri",
+      "source_title": "File:Beach looking towards Pissouri bay - panoramio.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 270,
+          "avif": "assets/photos/place-pissouri-d/place-pissouri-d-480.avif",
+          "avif_bytes": 16052,
+          "avif_quality": 55,
+          "webp": "assets/photos/place-pissouri-d/place-pissouri-d-480.webp",
+          "webp_bytes": 21774,
+          "webp_quality": 72,
+          "jpeg": "assets/photos/place-pissouri-d/place-pissouri-d-480.jpg",
+          "jpeg_bytes": 28537,
+          "jpeg_quality": 78
+        },
+        {
+          "width": 800,
+          "height": 450,
+          "avif": "assets/photos/place-pissouri-d/place-pissouri-d-800.avif",
+          "avif_bytes": 43353,
+          "avif_quality": 55,
+          "webp": "assets/photos/place-pissouri-d/place-pissouri-d-800.webp",
+          "webp_bytes": 60838,
+          "webp_quality": 72,
+          "jpeg": "assets/photos/place-pissouri-d/place-pissouri-d-800.jpg",
+          "jpeg_bytes": 79192,
+          "jpeg_quality": 78
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "avif": "assets/photos/place-pissouri-d/place-pissouri-d-1280.avif",
+          "avif_bytes": 105313,
+          "avif_quality": 55,
+          "webp": "assets/photos/place-pissouri-d/place-pissouri-d-1280.webp",
+          "webp_bytes": 117594,
+          "webp_quality": 60,
+          "jpeg": "assets/photos/place-pissouri-d/place-pissouri-d-1280.jpg",
+          "jpeg_bytes": 120969,
+          "jpeg_quality": 58
+        }
+      ],
+      "offline": "assets/photos/place-pissouri-d/place-pissouri-d-480.jpg",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "id": "PHOTO-AUDIT-PLACE-CHOIROKOITIA-D",
+      "slot": "place-choirokoitia-d",
+      "kind": "place",
+      "role": "extra",
+      "order": 2,
+      "lead": false,
+      "target": {
+        "type": "place",
+        "id": "POI-CHOIROKOITIA",
+        "label": "Choirokoitia (UNESCO)"
+      },
+      "title": "Choirokoitia — rekonstrukcje domów",
+      "location": {
+        "name": "Choirokoitia — stanowisko",
+        "lat": 34.796948,
+        "lon": 33.345083
+      },
+      "gps": {
+        "lat": 34.796948,
+        "lon": 33.345083,
+        "source": "geotag Commons"
+      },
+      "author": "Berthold Werner",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Chirokitia_BW_2023-09-21_08-13-32.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/82/Chirokitia_BW_2023-09-21_08-13-32.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "date": "2023-09-21",
+      "description": "Stanowisko Choirokoitia, rekonstrukcje okrągłych domów, widok",
+      "caption": "Stanowisko Choirokoitia, rekonstrukcje okrągłych domów, widok; kadr z 21 września 2023.",
+      "alt": "Okrągłe domy rekonstrukcyjne na stanowisku archeologicznym Choirokoitia.",
+      "credit": "Berthold Werner / CC BY-SA 4.0",
+      "credit_short": "Berthold Werner / CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Chirokitia_BW_2023-09-21_08-13-32.jpg",
+          "note": "Strona pliku: Berthold Werner, CC BY-SA 4.0, 2023-09-21; oględziny przed przypisaniem 6 XI 2026."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Khirokitia",
+          "note": "Opis pliku i kategoria potwierdzają miejsce; treść fotografii obejrzana przed przypisaniem."
+        }
+      ],
+      "source_width": 6016,
+      "source_height": 4000,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "aspect": "4:3",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Khirokitia",
+      "source_title": "File:Chirokitia BW 2023-09-21 08-13-32.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 360,
+          "avif": "assets/photos/place-choirokoitia-d/place-choirokoitia-d-480.avif",
+          "avif_bytes": 12254,
+          "avif_quality": 55,
+          "webp": "assets/photos/place-choirokoitia-d/place-choirokoitia-d-480.webp",
+          "webp_bytes": 13304,
+          "webp_quality": 72,
+          "jpeg": "assets/photos/place-choirokoitia-d/place-choirokoitia-d-480.jpg",
+          "jpeg_bytes": 23677,
+          "jpeg_quality": 78
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "avif": "assets/photos/place-choirokoitia-d/place-choirokoitia-d-800.avif",
+          "avif_bytes": 30942,
+          "avif_quality": 55,
+          "webp": "assets/photos/place-choirokoitia-d/place-choirokoitia-d-800.webp",
+          "webp_bytes": 34200,
+          "webp_quality": 72,
+          "jpeg": "assets/photos/place-choirokoitia-d/place-choirokoitia-d-800.jpg",
+          "jpeg_bytes": 60662,
+          "jpeg_quality": 78
+        },
+        {
+          "width": 1280,
+          "height": 960,
+          "avif": "assets/photos/place-choirokoitia-d/place-choirokoitia-d-1280.avif",
+          "avif_bytes": 74406,
+          "avif_quality": 55,
+          "webp": "assets/photos/place-choirokoitia-d/place-choirokoitia-d-1280.webp",
+          "webp_bytes": 81838,
+          "webp_quality": 72,
+          "jpeg": "assets/photos/place-choirokoitia-d/place-choirokoitia-d-1280.jpg",
+          "jpeg_bytes": 122731,
+          "jpeg_quality": 70
+        },
+        {
+          "width": 1920,
+          "height": 1440,
+          "avif": "assets/photos/place-choirokoitia-d/place-choirokoitia-d-1920.avif",
+          "avif_bytes": 159616,
+          "avif_quality": 55,
+          "webp": "assets/photos/place-choirokoitia-d/place-choirokoitia-d-1920.webp",
+          "webp_bytes": 172278,
+          "webp_quality": 72,
+          "jpeg": "assets/photos/place-choirokoitia-d/place-choirokoitia-d-1920.jpg",
+          "jpeg_bytes": 178142,
+          "jpeg_quality": 46
+        }
+      ],
+      "offline": "assets/photos/place-choirokoitia-d/place-choirokoitia-d-480.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "id": "PHOTO-AUDIT-PLACE-CHOIROKOITIA-E",
+      "slot": "place-choirokoitia-e",
+      "kind": "place",
+      "role": "extra",
+      "order": 3,
+      "lead": false,
+      "target": {
+        "type": "place",
+        "id": "POI-CHOIROKOITIA",
+        "label": "Choirokoitia (UNESCO)"
+      },
+      "title": "Choirokoitia — schody i podejście",
+      "location": {
+        "name": "Choirokoitia — stanowisko",
+        "lat": 34.796732,
+        "lon": 33.34371
+      },
+      "gps": {
+        "lat": 34.796732,
+        "lon": 33.34371,
+        "source": "geotag Commons"
+      },
+      "author": "Berthold Werner",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Chirokitia_BW_2023-09-21_08-43-00.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/84/Chirokitia_BW_2023-09-21_08-43-00.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "date": "2023-09-21",
+      "description": "Stanowisko Choirokoitia, schody z poręczami na zboczu i ruiny, widok dojścia",
+      "caption": "Stanowisko Choirokoitia, schody z poręczami na zboczu i ruiny, widok dojścia; kadr z 21 września 2023.",
+      "alt": "Schody z metalowymi poręczami na zboczu stanowiska Choirokoitia; ruiny domów i turyści.",
+      "credit": "Berthold Werner / CC BY-SA 4.0",
+      "credit_short": "Berthold Werner / CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Chirokitia_BW_2023-09-21_08-43-00.jpg",
+          "note": "Strona pliku: Berthold Werner, CC BY-SA 4.0, 2023-09-21; oględziny przed przypisaniem 6 XI 2026."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Khirokitia",
+          "note": "Opis pliku i kategoria potwierdzają miejsce; treść fotografii obejrzana przed przypisaniem."
+        }
+      ],
+      "source_width": 6016,
+      "source_height": 4000,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "aspect": "4:3",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Khirokitia",
+      "source_title": "File:Chirokitia BW 2023-09-21 08-43-00.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 360,
+          "avif": "assets/photos/place-choirokoitia-e/place-choirokoitia-e-480.avif",
+          "avif_bytes": 33524,
+          "avif_quality": 55,
+          "webp": "assets/photos/place-choirokoitia-e/place-choirokoitia-e-480.webp",
+          "webp_bytes": 46016,
+          "webp_quality": 52,
+          "jpeg": "assets/photos/place-choirokoitia-e/place-choirokoitia-e-480.jpg",
+          "jpeg_bytes": 45697,
+          "jpeg_quality": 62
+        },
+        {
+          "width": 800,
+          "height": 600,
+          "avif": "assets/photos/place-choirokoitia-e/place-choirokoitia-e-800.avif",
+          "avif_bytes": 67957,
+          "avif_quality": 47,
+          "webp": "assets/photos/place-choirokoitia-e/place-choirokoitia-e-800.webp",
+          "webp_bytes": 121036,
+          "webp_quality": 48,
+          "jpeg": "assets/photos/place-choirokoitia-e/place-choirokoitia-e-800.jpg",
+          "jpeg_bytes": 117975,
+          "jpeg_quality": 58
+        },
+        {
+          "width": 1280,
+          "height": 960,
+          "avif": "assets/photos/place-choirokoitia-e/place-choirokoitia-e-1280.avif",
+          "avif_bytes": 112474,
+          "avif_quality": 39,
+          "webp": "assets/photos/place-choirokoitia-e/place-choirokoitia-e-1280.webp",
+          "webp_bytes": 211574,
+          "webp_quality": 24,
+          "jpeg": "assets/photos/place-choirokoitia-e/place-choirokoitia-e-1280.jpg",
+          "jpeg_bytes": 158080,
+          "jpeg_quality": 22
+        },
+        {
+          "width": 1920,
+          "height": 1440,
+          "avif": "assets/photos/place-choirokoitia-e/place-choirokoitia-e-1920.avif",
+          "avif_bytes": 170058,
+          "avif_quality": 31,
+          "webp": "assets/photos/place-choirokoitia-e/place-choirokoitia-e-1920.webp",
+          "webp_bytes": 453684,
+          "webp_quality": 24,
+          "jpeg": "assets/photos/place-choirokoitia-e/place-choirokoitia-e-1920.jpg",
+          "jpeg_bytes": 350910,
+          "jpeg_quality": 22
+        }
+      ],
+      "offline": "assets/photos/place-choirokoitia-e/place-choirokoitia-e-480.jpg",
+      "width": 1920,
+      "height": 1440
+    },
+    {
+      "id": "PHOTO-AUDIT-ROUTE-VOUNI-D",
+      "slot": "route-vouni-d",
+      "kind": "route",
+      "role": "extra",
+      "order": 4,
+      "lead": false,
+      "target": {
+        "type": "route",
+        "id": "TR-VOUNI",
+        "label": "Vouni Panagias"
+      },
+      "title": "Vouni — droga przy punkcie obserwacyjnym",
+      "location": {
+        "name": "Vouni koło Pano Panagia",
+        "lat": null,
+        "lon": null
+      },
+      "gps": null,
+      "author": "Mboesch",
+      "license": "CC BY-SA 4.0",
+      "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Pano-panagia-vouni-fire-lookout.jpg",
+      "original_url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Pano-panagia-vouni-fire-lookout.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "date": "2023-10-26",
+      "description": "Vouni koło Pano Panagia, gruntowa droga przy punkcie obserwacyjnym, widok nawierzchni; to fragment okolicy, nie dokumentacja całej pętli",
+      "caption": "Vouni koło Pano Panagia, gruntowa droga przy punkcie obserwacyjnym, widok nawierzchni; to fragment okolicy, nie dokumentacja całej pętli; kadr z 26 października 2023.",
+      "alt": "Gruntowa droga z kamienistym poboczem przy wieży obserwacyjnej Vouni koło Pano Panagia.",
+      "credit": "Mboesch / CC BY-SA 4.0",
+      "credit_short": "Mboesch / CC BY-SA 4.0",
+      "verification": [
+        {
+          "type": "commons-file-page",
+          "url": "https://commons.wikimedia.org/wiki/File:Pano-panagia-vouni-fire-lookout.jpg",
+          "note": "Strona pliku: Mboesch, CC BY-SA 4.0, 2023-10-26; oględziny przed przypisaniem 6 XI 2026."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/Category:Pano_Panagia",
+          "note": "Opis pliku i kategoria potwierdzają miejsce; treść fotografii obejrzana przed przypisaniem."
+        },
+        {
+          "type": "commons-category-or-usage",
+          "url": "https://commons.wikimedia.org/wiki/File:Pano-panagia-vouni-fire-lookout.jpg",
+          "note": "Brak dokładnego GPS stanowiska aparatu; położenie ogólne potwierdzone opisem/kategorią. Nie przypisano współrzędnych stanowiska UNESCO ani początku szlaku."
+        }
+      ],
+      "source_width": 3200,
+      "source_height": 2133,
+      "focal_point": {
+        "x": 0.5,
+        "y": 0.5
+      },
+      "aspect": "16:9",
+      "category_url": "https://commons.wikimedia.org/wiki/Category:Pano_Panagia",
+      "source_title": "File:Pano-panagia-vouni-fire-lookout.jpg",
+      "files": [
+        {
+          "width": 480,
+          "height": 270,
+          "avif": "assets/photos/route-vouni-d/route-vouni-d-480.avif",
+          "avif_bytes": 18089,
+          "avif_quality": 55,
+          "webp": "assets/photos/route-vouni-d/route-vouni-d-480.webp",
+          "webp_bytes": 25570,
+          "webp_quality": 72,
+          "jpeg": "assets/photos/route-vouni-d/route-vouni-d-480.jpg",
+          "jpeg_bytes": 33747,
+          "jpeg_quality": 78
+        },
+        {
+          "width": 800,
+          "height": 450,
+          "avif": "assets/photos/route-vouni-d/route-vouni-d-800.avif",
+          "avif_bytes": 50832,
+          "avif_quality": 55,
+          "webp": "assets/photos/route-vouni-d/route-vouni-d-800.webp",
+          "webp_bytes": 72850,
+          "webp_quality": 72,
+          "jpeg": "assets/photos/route-vouni-d/route-vouni-d-800.jpg",
+          "jpeg_bytes": 95373,
+          "jpeg_quality": 78
+        },
+        {
+          "width": 1280,
+          "height": 720,
+          "avif": "assets/photos/route-vouni-d/route-vouni-d-1280.avif",
+          "avif_bytes": 109030,
+          "avif_quality": 51,
+          "webp": "assets/photos/route-vouni-d/route-vouni-d-1280.webp",
+          "webp_bytes": 121792,
+          "webp_quality": 36,
+          "jpeg": "assets/photos/route-vouni-d/route-vouni-d-1280.jpg",
+          "jpeg_bytes": 116200,
+          "jpeg_quality": 34
+        },
+        {
+          "width": 1920,
+          "height": 1080,
+          "avif": "assets/photos/route-vouni-d/route-vouni-d-1920.avif",
+          "avif_bytes": 160562,
+          "avif_quality": 43,
+          "webp": "assets/photos/route-vouni-d/route-vouni-d-1920.webp",
+          "webp_bytes": 206014,
+          "webp_quality": 24,
+          "jpeg": "assets/photos/route-vouni-d/route-vouni-d-1920.jpg",
+          "jpeg_bytes": 198454,
+          "jpeg_quality": 22
+        }
+      ],
+      "offline": "assets/photos/route-vouni-d/route-vouni-d-480.jpg",
+      "width": 1920,
+      "height": 1080
     }
   ]
 }

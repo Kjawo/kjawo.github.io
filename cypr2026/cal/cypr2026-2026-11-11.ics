@@ -23,155 +23,166 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-day@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;VALUE=DATE:20261111
 DTEND;VALUE=DATE:20261112
 SUMMARY:Dzień 5: Palaipafos Omodos i Petra
 DESCRIPTION:Kultura rano\, kamienne uliczki i zachód przy Skale Afrodyty.
   Bez górskich i polnych spacerów.
 LOCATION:Pafos\, Cypr
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-01@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T070000
 DTEND;TZID=Asia/Nicosia:20261111T074000
 SUMMARY:Dzień 5 · Śniadanie
 DESCRIPTION:Przygotować dokumenty i część rzeczy do pakowania jeszcze 
  przed wyjazdem.\nCzas: założenie planu.\nMapa (punkt): https://www.goog
- le.com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartments%201
- 7%20Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026.page
- s.dev/#day-05
+ le.com/maps/search/?api=1&query=34.767031\,32.410418\nPlan: https://kjawo
+ .github.io/cypr2026/#day-05
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T080000
 DTEND;TZID=Asia/Nicosia:20261111T084500
 SUMMARY:Dzień 5 · Dojazd do Palaipafos
 DESCRIPTION:25–40 min plus parking i dojście. Kolejność chroni czas z
  wiedzania muzeum.\nCzas: założenie planu.\nMapa (punkt): https://www.go
- ogle.com/maps/search/?api=1&query=34.70756%2C32.57447\nPlan: https://cypr
- 2026.pages.dev/#day-05
+ ogle.com/maps/search/?api=1&query=34.70756%2C32.57447\nPlan: https://kjaw
+ o.github.io/cypr2026/#day-05
 LOCATION:Palaipafos i muzeum w Kouklia
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T084500
 DTEND;TZID=Asia/Nicosia:20261111T100000
 SUMMARY:Dzień 5 · Palaipafos i muzeum
 DESCRIPTION:Środa pasuje do publikowanych godzin. Jeżeli chcecie spokojn
  iejszego dnia\, ten punkt jest pierwszym do usunięcia.\nCzas: założeni
  e planu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&query=3
- 4.70756%2C32.57447\nPlan: https://cypr2026.pages.dev/#day-05
+ 4.70756%2C32.57447\nPlan: https://kjawo.github.io/cypr2026/#day-05
 LOCATION:Palaipafos i muzeum w Kouklia
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-04@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T100000
 DTEND;TZID=Asia/Nicosia:20261111T111000
 SUMMARY:Dzień 5 · Przejazd do Omodos
-DESCRIPTION:45–60 min plus legalny parking przed centrum i 5–10 min do
- jścia.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/m
- aps/search/?api=1&query=34.8502%2C32.8072\nPlan: https://cypr2026.pages.d
- ev/#day-05
+DESCRIPTION:45–65 min jazdy plus parking poza centrum i 5–10 min dojś
+ cia.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/maps
+ /search/?api=1&query=34.8502%2C32.8072\nPlan: https://kjawo.github.io/cyp
+ r2026/#day-05
 LOCATION:Omodos
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-05@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T111000
 DTEND;TZID=Asia/Nicosia:20261111T121500
 SUMMARY:Dzień 5 · Omodos
 DESCRIPTION:Plac i kamienne ulice\; wnętrza według bieżących godzin.\n
  Czas: założenie planu.\nMapa (punkt): https://www.google.com/maps/searc
- h/?api=1&query=34.8502%2C32.8072\nPlan: https://cypr2026.pages.dev/#day-0
- 5
+ h/?api=1&query=34.8502%2C32.8072\nPlan: https://kjawo.github.io/cypr2026/
+ #day-05
 LOCATION:Omodos
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T121500
 DTEND;TZID=Asia/Nicosia:20261111T131500
 SUMMARY:Dzień 5 · Lunch
 DESCRIPTION:Katoi po potwierdzeniu\; kierowca pomija alkohol\, degustacje 
  nie są częścią planu.\nCzas: założenie planu.\nMapa (punkt): https:
- //www.google.com/maps/search/?api=1&query=Katoi%20Omodos\nPlan: https://c
- ypr2026.pages.dev/#day-05
+ //www.google.com/maps/search/?api=1&query=34.8488584\,32.8093576\nPlan: h
+ ttps://kjawo.github.io/cypr2026/#day-05
 LOCATION:Katoi
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-07@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T131500
-DTEND;TZID=Asia/Nicosia:20261111T140000
+DTEND;TZID=Asia/Nicosia:20261111T134500
 SUMMARY:Dzień 5 · Krótki czas wolny
 DESCRIPTION:Uliczki i zdjęcia\, bez spacerów na zbocza poza wsią.\nCzas
  : założenie planu.\nMapa (punkt): https://www.google.com/maps/search/?a
- pi=1&query=34.8502%2C32.8072\nPlan: https://cypr2026.pages.dev/#day-05
+ pi=1&query=34.8502%2C32.8072\nPlan: https://kjawo.github.io/cypr2026/#day
+ -05
 LOCATION:Omodos
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-08@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261111T140000
-DTEND;TZID=Asia/Nicosia:20261111T152000
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261111T134500
+DTEND;TZID=Asia/Nicosia:20261111T151500
 SUMMARY:Dzień 5 · Dojazd do Petra
-DESCRIPTION:45–60 min z Omodos plus parking i dojście tunelem. Zakłada
- ny przyjazd 15:00–15:20.\nCzas: założenie planu.\nMapa (punkt): https
- ://www.google.com/maps/search/?api=1&query=34.66475%2C32.62819\nPlan: htt
- ps://cypr2026.pages.dev/#day-05
+DESCRIPTION:Wyjazd cel 13:45–14:00\; 45–65 min jazdy\, osobno parking 
+ po stronie lądu i przejście tunelem. Nie przekraczać pieszo B6.\nCzas:
+  założenie planu.\nMapa (punkt): https://www.google.com/maps/search/?ap
+ i=1&query=34.66475%2C32.62819\nPlan: https://kjawo.github.io/cypr2026/#da
+ y-05
 LOCATION:Petra tou Romiou parking
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-09@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261111T152000
-DTEND;TZID=Asia/Nicosia:20261111T170500
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261111T151500
+DTEND;TZID=Asia/Nicosia:20261111T170000
 SUMMARY:Dzień 5 · Petra tou Romiou
 DESCRIPTION:Zdjęcia przy świetle\; zachód około 16:48. Parking po stro
  nie lądu\, przejście tunelem\, bez przekraczania B6 i bez kąpieli w pl
  anie.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/map
- s/search/?api=1&query=34.66475%2C32.62819\nPlan: https://cypr2026.pages.d
- ev/#day-05
+ s/search/?api=1&query=34.66475%2C32.62819\nPlan: https://kjawo.github.io/
+ cypr2026/#day-05
 LOCATION:Petra tou Romiou parking
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-10@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261111T170500
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261111T170000
 DTEND;TZID=Asia/Nicosia:20261111T180000
 SUMMARY:Dzień 5 · Powrót
 DESCRIPTION:30–45 min plus dojście do auta. Po powrocie potwierdzić zw
  rot auta i przygotować większość bagażu.\nCzas: założenie planu.\n
- Mapa (punkt): https://www.google.com/maps/search/?api=1&query=Princessa%2
- 0Vera%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20Papho
- s\nPlan: https://cypr2026.pages.dev/#day-05
+ Mapa (punkt): https://www.google.com/maps/search/?api=1&query=34.767031\,
+ 32.410418\nPlan: https://kjawo.github.io/cypr2026/#day-05
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 END:VCALENDAR

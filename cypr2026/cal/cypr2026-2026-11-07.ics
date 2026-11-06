@@ -23,6 +23,7 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-day@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Dzień 1: Przylot i Faros
@@ -32,121 +33,129 @@ DESCRIPTION:Umówiony odbiór Petsas: 10:30\; planowy cel odbioru: 11:30.
  \, transfer\, karencję i no-show potwierdzić z firmą. Harmonogram plan
  u nie zmienia slotu vouchera.
 LOCATION:Pafos\, Cypr
-URL:https://cypr2026.pages.dev/#day-01
+URL:https://kjawo.github.io/cypr2026/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261107T111500
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261107T101000
 DTEND;TZID=Asia/Nicosia:20261107T123000
-SUMMARY:Dzień 1 · Okno planistyczne po umówionym odbiorze auta
-DESCRIPTION:Odbiór umówiony z Petsas na 10:30 według vouchera\; planowy
-  cel 11:30 i okno planu 11:15–12:30 pozostają osobnymi założeniami. 
- Przylot W61417 planowo 10:10 — tylko 20 min przed umówioną godziną. 
- Pilnie potwierdzić punkt spotkania/transfer\, minimalny czas po przyloci
- e\, karencję przy opóźnieniu i no-show. Dokładny sektor PFO do potwie
- rdzenia.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/
- maps/search/?api=1&query=34.7179133%2C32.4890948\nPlan: https://cypr2026.
- pages.dev/#day-01
+SUMMARY:Dzień 1 · Bagaż i obsługa Petsas — okno planu
+DESCRIPTION:Odbiór umówiony 10:30\; cel obsługi około 11:30 i rezerwa 
+ do 12:00–12:30. Lądowanie 10:10 zostawia tylko 20 min do terminu umów
+ ionego. Potwierdzić z Petsas karencję\, numer lotu i no-show\; późnie
+ jszy cel planu nie zmienia rezerwacji.\nCzas: założenie planu.\nMapa (p
+ unkt): https://www.google.com/maps/search/?api=1&query=34.7179133%2C32.48
+ 90948\nPlan: https://kjawo.github.io/cypr2026/#day-01
 LOCATION:Port lotniczy Pafos PFO
-URL:https://cypr2026.pages.dev/#day-01
+URL:https://kjawo.github.io/cypr2026/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261107T123000
 DTEND;TZID=Asia/Nicosia:20261107T134500
 SUMMARY:Dzień 1 · Dojazd i bagaże
 DESCRIPTION:25–35 min jazdy plus formalności. Przechowanie bagażu prze
  d pokojem uzgodnić.\nCzas: założenie planu.\nMapa (punkt): https://www
- .google.com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartment
- s%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026
- .pages.dev/#day-01
+ .google.com/maps/search/?api=1&query=34.767031\,32.410418\nPlan: https://
+ kjawo.github.io/cypr2026/#day-01
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-01
+URL:https://kjawo.github.io/cypr2026/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-04@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261107T134500
 DTEND;TZID=Asia/Nicosia:20261107T150000
 SUMMARY:Dzień 1 · Lunch i odpoczynek
 DESCRIPTION:Posiłek blisko hotelu\, zakupy wody i prowiantu. Przy wcześn
  iejszym przyjeździe pokój nie jest gwarantowany.\nCzas: założenie pla
- nu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&query=Prince
- ssa%20Vera%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20
- Paphos\nPlan: https://cypr2026.pages.dev/#day-01
+ nu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&query=34.767
+ 031\,32.410418\nPlan: https://kjawo.github.io/cypr2026/#day-01
 LOCATION:Princessa Vera Hotel Apartments\, Kings Avenue Mall
-URL:https://cypr2026.pages.dev/#day-01
+URL:https://kjawo.github.io/cypr2026/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261107T154500
 DTEND;TZID=Asia/Nicosia:20261107T170500
 SUMMARY:Dzień 1 · Faros i zachód
 DESCRIPTION:Wyjście pieszo\; pozostawać na bezpiecznym suchym terenie. Z
  achód około 16:51.\nCzas: założenie planu.\nMapa (punkt): https://www
  .google.com/maps/search/?api=1&query=34.7644485%2C32.4067082\nPlan: https
- ://cypr2026.pages.dev/#day-01
+ ://kjawo.github.io/cypr2026/#day-01
 LOCATION:Faros Lighthouse Beach
-URL:https://cypr2026.pages.dev/#day-01
+URL:https://kjawo.github.io/cypr2026/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-07@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261107T173000
 DTEND;TZID=Asia/Nicosia:20261107T190000
 SUMMARY:Dzień 1 · Kolacja w okolicy hotelu
 DESCRIPTION:Wybrać otwartą kuchnię w pieszym zasięgu. Ficardo wyłącz
  nie po świadomej decyzji o dalszym dojeździe.\nCzas: założenie planu.
- \nMapa (punkt): https://www.google.com/maps/search/?api=1&query=Princessa
- %20Vera%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20Pap
- hos\nPlan: https://cypr2026.pages.dev/#day-01
+ \nMapa (punkt): https://www.google.com/maps/search/?api=1&query=34.767031
+ \,32.410418\nPlan: https://kjawo.github.io/cypr2026/#day-01
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-01
+URL:https://kjawo.github.io/cypr2026/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-FL-OUT@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART:20261107T044000Z
 DTEND:20261107T081000Z
 SUMMARY:W61417 WMI → PFO
 DESCRIPTION:WMI 05:40 → PFO 10:10 (czas lokalny lotnisk). Godziny wedłu
  g danych użytkownika\; potwierdź w aplikacji przewoźnika.\nPlan: https
- ://cypr2026.pages.dev/#day-01
+ ://kjawo.github.io/cypr2026/#day-01
 LOCATION:WMI → PFO
-URL:https://cypr2026.pages.dev/#day-01
-STATUS:TENTATIVE
+URL:https://kjawo.github.io/cypr2026/#day-01
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-hotel@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261107T150000
 DTEND;TZID=Asia/Nicosia:20261113T120000
 SUMMARY:Hotel: Princessa Vera Hotel Apartments
 DESCRIPTION:Zameldowanie i wymeldowanie według danych użytkownika. Vouch
- er ma pierwszeństwo.\nPlan: https://cypr2026.pages.dev/#hotel
+ er ma pierwszeństwo.\nPlan: https://kjawo.github.io/cypr2026/#hotel
 LOCATION:17 Tombs of the Kings Road\, 8045 Pafos\, Cyprus
-URL:https://cypr2026.pages.dev/#hotel
-STATUS:TENTATIVE
+URL:https://kjawo.github.io/cypr2026/#hotel
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-car-pickup@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART:20261107T083000Z
-DTEND:20261107T091500Z
-SUMMARY:Auto: odbiór — cel
-DESCRIPTION:Brak potwierdzonej rezerwacji. To cel planu\, nie gwarancja.\n
- Plan: https://cypr2026.pages.dev/#auto
-LOCATION:PFO
-URL:https://cypr2026.pages.dev/#auto
-STATUS:TENTATIVE
+DTEND:20261107T083100Z
+SUMMARY:Petsas: odbiór — termin umówiony 10:30
+DESCRIPTION:Rezerwacja według materiału użytkownika: Petsas\, C3 automa
+ tyczna\, 325\,50 € prepaid.\nUmówiony termin: 10:30 czasu Cypru. Jedno
+ minutowy znacznik terminu\, nie czas obsługi.\nOsobne okno planu: 10:10
+ –12:30. Bagaż i obsługa auta\; cel obsługi około 11:30 nie zmienia 
+ umówionego odbioru 10:30.\nPotwierdzić karencję po przylocie W61417 10
+ :10\, punkt spotkania i no-show.\nPlan: https://kjawo.github.io/cypr2026/
+ #auto
+LOCATION:PFO — dokładny sektor do potwierdzenia
+URL:https://kjawo.github.io/cypr2026/#auto
+STATUS:CONFIRMED
 END:VEVENT
 END:VCALENDAR

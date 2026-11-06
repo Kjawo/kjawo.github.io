@@ -1,0 +1,45 @@
+{
+  "results": [
+    {
+      "name": "Today transitions and resume · UTC",
+      "pass": true
+    },
+    {
+      "name": "Today transitions and resume · Europe/Warsaw",
+      "pass": true
+    },
+    {
+      "name": "Today transitions and resume · Asia/Nicosia",
+      "pass": true
+    },
+    {
+      "name": "Today transitions and resume · America/Los_Angeles",
+      "pass": true
+    },
+    {
+      "name": "Responsive layouts and text 200% · 360 / 390 / 768 / 1440",
+      "pass": true
+    },
+    {
+      "name": "Map coverage, navigation, gallery and keyboard",
+      "pass": true
+    },
+    {
+      "name": "No JavaScript and print state restoration",
+      "pass": true
+    },
+    {
+      "name": "Accessibility · axe WCAG 2.2 AA · 390 / 1440",
+      "pass": true
+    },
+    {
+      "name": "Failed initial offline install cannot claim readiness; retry completes",
+      "pass": true
+    },
+    {
+      "name": "Fresh offline save, unopened photos, repair and SW update",
+      "pass": true
+    }
+  ],
+  "errors": []
+}

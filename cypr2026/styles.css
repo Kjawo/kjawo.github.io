@@ -25,6 +25,7 @@
   color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
+[hidden]{display:none!important}
 html{scroll-behavior:auto;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.62;font-weight:400;text-rendering:optimizeLegibility}
 body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:10000;opacity:.16;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.18'/%3E%3C/svg%3E")}
@@ -267,6 +268,36 @@ main:focus-visible{outline:none}
 .quick-links .icon{width:16px;height:16px;color:#E9D7AD}
 .quick-links small{display:block;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:#B9D3D0;font-weight:500}
 .quick-links__emergency{border-color:rgba(217,164,65,.55)!important;background:rgba(217,164,65,.1)}
+
+/* Text enlargement: grid items must be allowed to shrink and wrap. */
+.page-shell :where(div,section,article,aside,header,footer,dl,dd,p,li){min-inline-size:0}
+.page-shell{overflow-wrap:anywhere}
+.today-card__main,.today-card__aside,.section-head__body,.day-card__head,.day-card__body{min-width:0}
+.clock-block{flex-wrap:wrap}
+.tap-inline{max-width:100%;white-space:normal;overflow-wrap:anywhere}
+.check-item__text .tap-inline{white-space:normal}
+@media screen and (max-width:899px){
+  .subnav__inner{position:relative;flex-wrap:wrap}
+  .subnav__more{position:static}
+  .subnav__menu{width:min(calc(100vw - 2*var(--gutter)),430px)}
+}
+.today-facts a{margin-inline:0;padding-inline:0}
+.section-index{white-space:normal;overflow-wrap:anywhere}
+.hero__edition{white-space:normal;text-align:right}
+.hero__utility{flex-wrap:wrap;align-items:flex-start}
+.today-facts{grid-template-columns:repeat(auto-fit,minmax(min(100%,9rem),1fr))}
+.day-brief{padding:1rem 1.25rem;border-bottom:1px solid var(--line);background:#F3F8F7}
+.day-brief p{margin:.3rem 0;font-size:.9rem}
+.day-brief a{display:inline-block;min-height:44px;padding-block:.4rem}
+.day-options{margin-block:1rem}
+.day-options>summary{min-height:44px;padding:.75rem;cursor:pointer;font-weight:600;color:var(--sea)}
+@media screen and (max-width:759px){
+  .timeline__item{grid-template-columns:minmax(0,1fr);gap:.35rem;padding-left:1rem}
+  .timeline__time{text-align:left}
+  .timeline__dot{position:absolute;left:0;top:.15rem}
+  .timeline::before{left:8px}
+  .event-tz{justify-content:flex-start}
+}
 
 /* ---------- Days ---------- */
 .day-block{margin-bottom:clamp(2.5rem,5vw,4.5rem);scroll-margin-top:76px}
@@ -1355,8 +1386,5 @@ html.lightbox-open{overflow:hidden}
 .car-booking-summary__facts dt,.car-booking-summary__times dt{font-size:.72rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
 .car-booking-summary__facts dd,.car-booking-summary__times dd{margin:.12rem 0 0;font-size:.84rem;font-weight:600;overflow-wrap:anywhere}
 .car-booking-summary__times{margin-top:.65rem}
-.no-js #auto .alert--urgent,.no-js #auto .subsection-lede,.no-js #auto .car-facts{display:none}
-.no-js .print-cover__note{display:none}
-html.no-js .print-quick>p.print-quick__note:nth-of-type(3){display:none}
-html.no-js .status-bar>div:nth-child(4){display:none}
 @media (min-width:760px){.history-stories{grid-template-columns:repeat(2,minmax(0,1fr))}.car-booking-summary__facts,.car-booking-summary__times{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.check-item__text .tap-inline{white-space:normal}

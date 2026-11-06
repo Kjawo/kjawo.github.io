@@ -1,6 +1,6 @@
 # Cypr 2026 — zdjęcia, źródła i daty
 
-138 zweryfikowanych kadrów z Wikimedia Commons. Każdy wpis ma stronę pliku, prawdziwą datę, miejsce i lokalne warianty. Nie użyto AI, generative fill ani podmiany nieba.
+142 zweryfikowanych kadrów z Wikimedia Commons. Każdy wpis ma stronę pliku, prawdziwą datę, miejsce i lokalne warianty. Nie użyto AI, generative fill ani podmiany nieba.
 
 | Slot | Kadr | Miejsce | Autor | Licencja | Data | Źródło |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -33,7 +33,6 @@
 | `day-06-c` | Wejście do Grobowców | Grobowce Królewskie, Kato Pafos | Arjuno3 | CC BY 4.0 | 7 listopada 2025 | [Commons](https://commons.wikimedia.org/wiki/File:Entrance_Tombs_of_the_Kings_Site,_Paphos,_Cyprus-DSC07148.jpg) |
 | `day-06-d` | Pafos rano | Pafos, Ktima | August Dominus | CC0 | 21 września 2025 | [Commons](https://commons.wikimedia.org/wiki/File:Pafos_rano_ujutro.jpg) |
 | `day-07` | Ryanair na płycie PFO | Lotnisko Pafos (PFO), Timi | Z thomas | CC BY 4.0 | 12 września 2026 | [Commons](https://commons.wikimedia.org/wiki/File:SP-RNB_paphos_20260912.jpg) |
-| `day-07-b` | Terminal PFO | Lotnisko Pafos (PFO), Timi | ThePlaneWikiGuy | CC0 | 10 sierpnia 2026 | [Commons](https://commons.wikimedia.org/wiki/File:PaphosAirportPTFS.jpg) |
 | `day-07-c` | Odprawa w PFO | Lotnisko Pafos (PFO), Timi | Little Savage | CC BY-SA 4.0 | 18 listopada 2017 | [Commons](https://commons.wikimedia.org/wiki/File:Paphos_International_Airport,_November_2017_(3).jpg) |
 | `place-baths` | Wejście do Baths of Aphrodite | Baths of Aphrodite, Akamas | Gerda Arendt | CC0 | 6 marca 2026 | [Commons](https://commons.wikimedia.org/wiki/File:Aphrodite_Nature_Trail,_Cyprus,_Bath_of_Aphrodite_park_entrance.jpg) |
 | `place-baths-b` | Cyklameny w ogrodzie | Baths of Aphrodite, Akamas | Gerda Arendt | CC0 | 6 marca 2026 | [Commons](https://commons.wikimedia.org/wiki/File:Aphrodite_Nature_Trail,_Cyprus,_Baths_of_Aphrodite_park,_cyclamen.jpg) |
@@ -43,7 +42,7 @@
 | `place-edro-c` | Wrak od strony morza | Wrak Edro III, Peyia | George M. Groutas | CC BY 2.0 | 25 czerwca 2022 | [Commons](https://commons.wikimedia.org/wiki/File:%CE%9D%CE%B1%CF%85%CE%AC%CE%B3%CE%B9%CE%BF_Edro_III_%CF%83%CF%84%CE%B7%CE%BD_%CE%A0%CE%AD%CE%B3%CE%B5%CE%B9%CE%B1_-_52460675063.jpg) |
 | `place-faros` | Latarnia Pafos i wybrzeże | Faros, Kato Pafos | August Dominus | CC0 | 20 września 2025 | [Commons](https://commons.wikimedia.org/wiki/File:Svjetionik_u_Pafosu.jpg) |
 | `place-faros-b` | Taras widokowy | Faros, Kato Pafos | Fry72, Karel Frydrýšek | CC BY-SA 4.0 | 4 marca 2023 | [Commons](https://commons.wikimedia.org/wiki/File:Vyhl%C3%ADdka_ji%C5%BEn%C4%9B_od_maj%C3%A1ku_Pafos,_Archaeological_Park_Paphos,_Cyprus_01.jpg) |
-| `place-faros-c` | Plaża Alykes | Alykes Beach, Kato Pafos | Fry72, Karel Frydrýšek | CC BY-SA 4.0 | 5 marca 2023 | [Commons](https://commons.wikimedia.org/wiki/File:Alykes_Beach,_Paphos,_Cyprus_01.jpg) |
+| `place-faros-c` | Alykes Beach — nie Faros | Alykes Beach, Kato Pafos | Fry72, Karel Frydrýšek | CC BY-SA 4.0 | 5 marca 2023 | [Commons](https://commons.wikimedia.org/wiki/File:Alykes_Beach,_Paphos,_Cyprus_01.jpg) |
 | `place-harbour` | Zamek w Pafos | Port i zamek w Pafos | August Dominus | CC0 | 20 września 2025 | [Commons](https://commons.wikimedia.org/wiki/File:Dvorac_u_ciparskom_gradu_Pafosu.jpg) |
 | `place-harbour-b` | Zamek po zmroku | Port i zamek w Pafos | Punteador | CC BY-SA 4.0 | 14 sierpnia 2025 | [Commons](https://commons.wikimedia.org/wiki/File:Paphos_Castle_%E2%80%93_floodlit_at_night_from_the_harbour.jpg) |
 | `place-harbour-c` | Jachty w porcie | Port i zamek w Pafos | Captain Galaxy | CC BY 4.0 | 12 lipca 2024 | [Commons](https://commons.wikimedia.org/wiki/File:Yachts_docked_at_Paphos_Harbour_-_July_2024.jpg) |
@@ -77,7 +76,7 @@
 | `route-vouni-c` | Droga do punktu widokowego | Pano Panagia, Pafos | Mboesch | CC BY-SA 4.0 | 26 października 2023 | [Commons](https://commons.wikimedia.org/wiki/File:Pano-panagia-vouni-fire-lookout.jpg) |
 | `place-varosha` | Toyota Center w Varosha | Varosha, Famagusta | Çınar Civan | CC BY-SA 4.0 | 6 lipca 2024 | [Commons](https://commons.wikimedia.org/wiki/File:Toyota_Center_in_Varosha,_Cyprus_(Ghost_Town).jpg) |
 | `place-varosha-b` | Opuszczony budynek w Varosha | Varosha, Famagusta | ToprakM | CC BY-SA 4.0 | 1 maja 2024 | [Commons](https://commons.wikimedia.org/wiki/File:Abandoned_building_in_Varosha_3_-_Magusa_Photowalk.jpg) |
-| `place-varosha-c` | Wnętrze opuszczonego lokalu w Varosha | Varosha, Famagusta | Çınar Civan | CC BY-SA 4.0 | 6 lipca 2024 | [Commons](https://commons.wikimedia.org/wiki/File:A_Workplace_in_Varosha,_Cyprus.jpg) |
+| `place-varosha-c` | Varosha — fasada i szyld lokalu | Varosha, Famagusta | Çınar Civan | CC BY-SA 4.0 | 6 lipca 2024 | [Commons](https://commons.wikimedia.org/wiki/File:A_Workplace_in_Varosha,_Cyprus.jpg) |
 | `place-varosha-d` | Kościół w Varosha | Varosha, Famagusta | Verybiqsmile | CC BY 4.0 | 1 maja 2024 | [Commons](https://commons.wikimedia.org/wiki/File:A_church_in_Varosha.jpg) |
 | `place-coral-bay` | Coral Bay — plaża | Coral Bay, Pegeia | Gerda Arendt | CC0 | 5 marca 2026 | [Commons](https://commons.wikimedia.org/wiki/File:Paphos,_Cyprus,_Coral_Bay.jpg) |
 | `place-coral-bay-b` | Coral Bay — zachód słońca | Coral Bay, Pegeia | Gerda Arendt | CC0 | 5 marca 2026 | [Commons](https://commons.wikimedia.org/wiki/File:Paphos,_Cyprus,_Coral_Bay,_sunset.jpg) |
@@ -100,7 +99,7 @@
 | `place-lovers-tree-c` | Drzewo Kochanków na tle klifu | Cape Greco, Lovers Tree | Fry72, Karel Frydrýšek | CC BY-SA 4.0 | 9 marca 2023 | [Commons](https://commons.wikimedia.org/wiki/File:Tree_of_Cape_Greco_(Juniper_Tree,_The_Tree_of_Life),_Cyprus_01.jpg) |
 | `place-famagusta` | Famagusta — meczet Lala Mustafa Pasha | Famagusta, old town | YamanB | CC BY-SA 4.0 | 9 lutego 2025 | [Commons](https://commons.wikimedia.org/wiki/File:Lala_Mustafa_Pa%C5%9Fa_Camii_Gazima%C4%9Fusa.jpg) |
 | `place-famagusta-b` | Famagusta — opuszczona księgarnia | Famagusta, old town | İsnaaa | CC BY-SA 4.0 | 1 maja 2024 | [Commons](https://commons.wikimedia.org/wiki/File:Ruined_old_bookstore%2C_famagusta.jpg) |
-| `place-famagusta-c` | Famagusta — zamek od portu | Famagusta, old town | Berayseray | CC BY-SA 4.0 | 1 maja 2024 | [Commons](https://commons.wikimedia.org/wiki/File:The_view_of_Famagusta_castle.jpg) |
+| `place-famagusta-c` | Famagusta — widok na port | Famagusta, old town | Berayseray | CC BY-SA 4.0 | 1 maja 2024 | [Commons](https://commons.wikimedia.org/wiki/File:The_view_of_Famagusta_castle.jpg) |
 | `place-kolossi` | Kolossi — zamek | Kolossi | Acediscovery | CC BY 4.0 | 19 czerwca 2025 | [Commons](https://commons.wikimedia.org/wiki/File:Kolossi-Castle-Cyprus-June-2025.jpg) |
 | `place-kolossi-b` | Kolossi — zamek od drogi | Kolossi | Diego Delso | CC BY-SA 4.0 | 14 grudnia 2021 | [Commons](https://commons.wikimedia.org/wiki/File:Castillo_de_Kolossi,_Chipre,_2021-12-14,_DD_01.jpg) |
 | `place-kolossi-c` | Kolossi — dziedziniec | Kolossi | Cypkipras55 | CC0 | 22 maja 2021 | [Commons](https://commons.wikimedia.org/wiki/File:Kolossi_Castle_4.jpg) |
@@ -114,13 +113,13 @@
 | `place-kourion-b` | Kourion — kolumny Domu Eustoliosa | Kourion, Episkopi | Berthold Werner | CC BY-SA 4.0 | 22 września 2023 | [Commons](https://commons.wikimedia.org/wiki/File:Kourion_BW_2023-09-22_08-44-04.jpg) |
 | `place-kourion-c` | Kourion — mozaika | Kourion, Episkopi | Berthold Werner | CC BY-SA 4.0 | 22 września 2023 | [Commons](https://commons.wikimedia.org/wiki/File:Kourion_BW_2023-09-22_08-49-04.jpg) |
 | `place-choirokoitia` | Choirokoitia — osada neolityczna | Choirokoitia | RSchreg | CC BY-SA 4.0 | 25 marca 2025 | [Commons](https://commons.wikimedia.org/wiki/File:Khirokitia.jpeg) |
-| `place-choirokoitia-b` | Choirokoitia — ruiny komandorii | Choirokoitia | Chris06 | CC BY-SA 4.0 | 26 maja 2018 | [Commons](https://commons.wikimedia.org/wiki/File:Choirokoitia_Knights_Templar_Commandery_ruins_%2809%29.jpg) |
-| `place-choirokoitia-c` | Choirokoitia — kościół Panagia tou Kampou | Choirokoitia | Chris06 | CC BY-SA 4.0 | 26 maja 2018 | [Commons](https://commons.wikimedia.org/wiki/File:Panagia_tou_Kampou%2C_Choirokoitia_%2814%29.jpg) |
+| `place-choirokoitia-b` | Choirokoitia — ruiny komandorii | Choirokoitia — wieś i okolice, nie stanowisko UNESCO | Chris06 | CC BY-SA 4.0 | 26 maja 2018 | [Commons](https://commons.wikimedia.org/wiki/File:Choirokoitia_Knights_Templar_Commandery_ruins_%2809%29.jpg) |
+| `place-choirokoitia-c` | Choirokoitia — kościół Panagia tou Kampou | Choirokoitia — wieś i okolice, nie stanowisko UNESCO | Chris06 | CC BY-SA 4.0 | 26 maja 2018 | [Commons](https://commons.wikimedia.org/wiki/File:Panagia_tou_Kampou%2C_Choirokoitia_%2814%29.jpg) |
 | `place-chrysorrogiatissa` | Chrysorrogiatissa — klasztor | Chrysorrogiatissa, Pano Panagia | Alan Samuel | CC BY 2.0 | 13 marca 2013 | [Commons](https://commons.wikimedia.org/wiki/File:Paphos_March_2013_536_%2810127289663%29.jpg) |
 | `place-chrysorrogiatissa-b` | Chrysorrogiatissa — dziedziniec | Chrysorrogiatissa, Pano Panagia | Alan Samuel | CC BY 2.0 | 13 marca 2013 | [Commons](https://commons.wikimedia.org/wiki/File:Paphos_March_2013_538_%2810127209825%29.jpg) |
 | `place-chrysorrogiatissa-c` | Chrysorrogiatissa — brama | Chrysorrogiatissa, Pano Panagia | Alan Samuel | CC BY 2.0 | 13 marca 2013 | [Commons](https://commons.wikimedia.org/wiki/File:Paphos_March_2013_541_%2810127247335%29.jpg) |
 | `place-pissouri` | Pissouri — wieś i zatoka | Pissouri | greglaskiewicz | CC BY 3.0 | 5 stycznia 2014 | [Commons](https://commons.wikimedia.org/wiki/File:Pissouri,_Cyprus_-_panoramio_(34).jpg) |
-| `place-pissouri-b` | Pissouri — plaża | Pissouri | greglaskiewicz | CC BY 3.0 | 5 stycznia 2014 | [Commons](https://commons.wikimedia.org/wiki/File:Pissouri,_Cyprus_-_panoramio_(2).jpg) |
+| `place-pissouri-b` | Pissouri — ulica | Pissouri — ulica we wsi | greglaskiewicz | CC BY 3.0 | 5 stycznia 2014 | [Commons](https://commons.wikimedia.org/wiki/File:Pissouri,_Cyprus_-_panoramio_(2).jpg) |
 | `place-pissouri-c` | Pissouri — wybrzeże | Pissouri | greglaskiewicz | CC BY 3.0 | 5 stycznia 2014 | [Commons](https://commons.wikimedia.org/wiki/File:Pissouri,_Cyprus_-_panoramio_(13).jpg) |
 | `route-madari` | Madari — szczyt i grań | Madari, Troodos | Mboesch | CC BY-SA 4.0 | 15 marca 2025 | [Commons](https://commons.wikimedia.org/wiki/File:Lagoudera-madari-peak.jpg) |
 | `route-madari-b` | Madari — wieża obserwacyjna | Madari, Troodos | Deensel | CC BY 2.0 | 18 stycznia 2019 | [Commons](https://commons.wikimedia.org/wiki/File:Madaris_Fire_Lookout_Station%2C_Cyprus_%2846232674115%29.jpg) |
@@ -142,6 +141,11 @@
 | `route-pouziaris` | Pouziaris — tablica przy starcie | Psilo Dendro — rejon startu | Héctor Ochoa 'Robot8A' | CC BY-SA 4.0 | 4 kwietnia 2018 | [Commons](https://commons.wikimedia.org/wiki/File:Troodos_Mountains_april_2018_img_13.jpg) |
 | `route-pouziaris-b` | Pouziaris — ścieżka przy starcie | Psilo Dendro — rejon startu | Héctor Ochoa 'Robot8A' | CC BY-SA 4.0 | 4 kwietnia 2018 | [Commons](https://commons.wikimedia.org/wiki/File:Troodos_Mountains_april_2018_img_14.jpg) |
 | `route-pouziaris-c` | Pouziaris — leśna ścieżka przy starcie | Psilo Dendro — rejon startu | Héctor Ochoa 'Robot8A' | CC BY-SA 4.0 | 4 kwietnia 2018 | [Commons](https://commons.wikimedia.org/wiki/File:Troodos_Mountains_april_2018_img_16.jpg) |
+| `day-07-b` | PFO — wnętrze terminala | Terminal PFO | Little Savage | CC BY-SA 4.0 | 18 listopada 2017 | [Commons](https://commons.wikimedia.org/wiki/File:Paphos_International_Airport,_November_2017_(3).jpg) |
+| `place-pissouri-d` | Pissouri Bay — plaża i klify | Pissouri Bay | Mutzy | CC BY-SA 3.0 | 8 października 2002 | [Commons](https://commons.wikimedia.org/wiki/File:Beach_looking_towards_Pissouri_bay_-_panoramio.jpg) |
+| `place-choirokoitia-d` | Choirokoitia — rekonstrukcje domów | Choirokoitia — stanowisko | Berthold Werner | CC BY-SA 4.0 | 21 września 2023 | [Commons](https://commons.wikimedia.org/wiki/File:Chirokitia_BW_2023-09-21_08-13-32.jpg) |
+| `place-choirokoitia-e` | Choirokoitia — schody i podejście | Choirokoitia — stanowisko | Berthold Werner | CC BY-SA 4.0 | 21 września 2023 | [Commons](https://commons.wikimedia.org/wiki/File:Chirokitia_BW_2023-09-21_08-43-00.jpg) |
+| `route-vouni-d` | Vouni — droga przy punkcie obserwacyjnym | Vouni koło Pano Panagia | Mboesch | CC BY-SA 4.0 | 26 października 2023 | [Commons](https://commons.wikimedia.org/wiki/File:Pano-panagia-vouni-fire-lookout.jpg) |
 
 ## Weryfikacja
 

@@ -23,815 +23,933 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:cypr2026-trip@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261114
 SUMMARY:Cypr 2026 — plan podróży
-DESCRIPTION:7–13 listopada 2026\, Pafos. Plan bazowy\, wersja 1.2.29.\nh
- ttps://cypr2026.pages.dev/
+DESCRIPTION:7–13 listopada 2026\, Pafos. Plan bazowy\, wersja 1.3.0.\nht
+ tps://kjawo.github.io/cypr2026/
 LOCATION:Pafos\, Cypr
-URL:https://cypr2026.pages.dev/
+URL:https://kjawo.github.io/cypr2026/
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261107T111500
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261107T101000
 DTEND;TZID=Asia/Nicosia:20261107T123000
-SUMMARY:Dzień 1 · Okno planistyczne po umówionym odbiorze auta
-DESCRIPTION:Odbiór umówiony z Petsas na 10:30 według vouchera\; planowy
-  cel 11:30 i okno planu 11:15–12:30 pozostają osobnymi założeniami. 
- Przylot W61417 planowo 10:10 — tylko 20 min przed umówioną godziną. 
- Pilnie potwierdzić punkt spotkania/transfer\, minimalny czas po przyloci
- e\, karencję przy opóźnieniu i no-show. Dokładny sektor PFO do potwie
- rdzenia.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/
- maps/search/?api=1&query=34.7179133%2C32.4890948\nPlan: https://cypr2026.
- pages.dev/#day-01
+SUMMARY:Dzień 1 · Bagaż i obsługa Petsas — okno planu
+DESCRIPTION:Odbiór umówiony 10:30\; cel obsługi około 11:30 i rezerwa 
+ do 12:00–12:30. Lądowanie 10:10 zostawia tylko 20 min do terminu umów
+ ionego. Potwierdzić z Petsas karencję\, numer lotu i no-show\; późnie
+ jszy cel planu nie zmienia rezerwacji.\nCzas: założenie planu.\nMapa (p
+ unkt): https://www.google.com/maps/search/?api=1&query=34.7179133%2C32.48
+ 90948\nPlan: https://kjawo.github.io/cypr2026/#day-01
 LOCATION:Port lotniczy Pafos PFO
-URL:https://cypr2026.pages.dev/#day-01
+URL:https://kjawo.github.io/cypr2026/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261107T123000
 DTEND;TZID=Asia/Nicosia:20261107T134500
 SUMMARY:Dzień 1 · Dojazd i bagaże
 DESCRIPTION:25–35 min jazdy plus formalności. Przechowanie bagażu prze
  d pokojem uzgodnić.\nCzas: założenie planu.\nMapa (punkt): https://www
- .google.com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartment
- s%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026
- .pages.dev/#day-01
+ .google.com/maps/search/?api=1&query=34.767031\,32.410418\nPlan: https://
+ kjawo.github.io/cypr2026/#day-01
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-01
+URL:https://kjawo.github.io/cypr2026/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-04@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261107T134500
 DTEND;TZID=Asia/Nicosia:20261107T150000
 SUMMARY:Dzień 1 · Lunch i odpoczynek
 DESCRIPTION:Posiłek blisko hotelu\, zakupy wody i prowiantu. Przy wcześn
  iejszym przyjeździe pokój nie jest gwarantowany.\nCzas: założenie pla
- nu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&query=Prince
- ssa%20Vera%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20
- Paphos\nPlan: https://cypr2026.pages.dev/#day-01
+ nu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&query=34.767
+ 031\,32.410418\nPlan: https://kjawo.github.io/cypr2026/#day-01
 LOCATION:Princessa Vera Hotel Apartments\, Kings Avenue Mall
-URL:https://cypr2026.pages.dev/#day-01
+URL:https://kjawo.github.io/cypr2026/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261107T154500
 DTEND;TZID=Asia/Nicosia:20261107T170500
 SUMMARY:Dzień 1 · Faros i zachód
 DESCRIPTION:Wyjście pieszo\; pozostawać na bezpiecznym suchym terenie. Z
  achód około 16:51.\nCzas: założenie planu.\nMapa (punkt): https://www
  .google.com/maps/search/?api=1&query=34.7644485%2C32.4067082\nPlan: https
- ://cypr2026.pages.dev/#day-01
+ ://kjawo.github.io/cypr2026/#day-01
 LOCATION:Faros Lighthouse Beach
-URL:https://cypr2026.pages.dev/#day-01
+URL:https://kjawo.github.io/cypr2026/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-07@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261107T173000
 DTEND;TZID=Asia/Nicosia:20261107T190000
 SUMMARY:Dzień 1 · Kolacja w okolicy hotelu
 DESCRIPTION:Wybrać otwartą kuchnię w pieszym zasięgu. Ficardo wyłącz
  nie po świadomej decyzji o dalszym dojeździe.\nCzas: założenie planu.
- \nMapa (punkt): https://www.google.com/maps/search/?api=1&query=Princessa
- %20Vera%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20Pap
- hos\nPlan: https://cypr2026.pages.dev/#day-01
+ \nMapa (punkt): https://www.google.com/maps/search/?api=1&query=34.767031
+ \,32.410418\nPlan: https://kjawo.github.io/cypr2026/#day-01
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-01
+URL:https://kjawo.github.io/cypr2026/#day-01
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-FL-OUT@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART:20261107T044000Z
 DTEND:20261107T081000Z
 SUMMARY:W61417 WMI → PFO
 DESCRIPTION:WMI 05:40 → PFO 10:10 (czas lokalny lotnisk). Godziny wedłu
  g danych użytkownika\; potwierdź w aplikacji przewoźnika.\nPlan: https
- ://cypr2026.pages.dev/#day-01
+ ://kjawo.github.io/cypr2026/#day-01
 LOCATION:WMI → PFO
-URL:https://cypr2026.pages.dev/#day-01
-STATUS:TENTATIVE
+URL:https://kjawo.github.io/cypr2026/#day-01
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-08-D2-01@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261108T073000
 DTEND;TZID=Asia/Nicosia:20261108T082000
 SUMMARY:Dzień 2 · Śniadanie
 DESCRIPTION:Bez pośpiechu\; jeżeli wyżywienie nie jest wykupione\, wła
  sny posiłek.\nCzas: założenie planu.\nMapa (punkt): https://www.google
- .com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartments%2017%
- 20Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026.pages.
- dev/#day-02
+ .com/maps/search/?api=1&query=34.767031\,32.410418\nPlan: https://kjawo.g
+ ithub.io/cypr2026/#day-02
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-02
+URL:https://kjawo.github.io/cypr2026/#day-02
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-08-D2-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261108T082500
 DTEND;TZID=Asia/Nicosia:20261108T090000
 SUMMARY:Dzień 2 · Dojście do parku
 DESCRIPTION:Wejście od portu\; nawigować do wejścia\, nie do latarni we
  wnątrz ogrodzonego terenu.\nCzas: założenie planu.\nMapa (punkt): http
- s://www.google.com/maps/search/?api=1&query=Kato%20Paphos%20Archaeologica
- l%20Park%20main%20entrance%20harbour\nPlan: https://cypr2026.pages.dev/#d
- ay-02
+ s://www.google.com/maps/search/?api=1&query=34.756018\,32.4085205\nPlan: 
+ https://kjawo.github.io/cypr2026/#day-02
 LOCATION:Park Archeologiczny Kato Pafos
-URL:https://cypr2026.pages.dev/#day-02
+URL:https://kjawo.github.io/cypr2026/#day-02
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-08-D2-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261108T090000
 DTEND;TZID=Asia/Nicosia:20261108T120000
 SUMMARY:Dzień 2 · Park Archeologiczny
 DESCRIPTION:Mozaiki i stanowisko\; trzy godziny z przerwami i fotografią.
  \nCzas: założenie planu.\nMapa (punkt): https://www.google.com/maps/sea
- rch/?api=1&query=Kato%20Paphos%20Archaeological%20Park%20main%20entrance%
- 20harbour\nPlan: https://cypr2026.pages.dev/#day-02
+ rch/?api=1&query=34.756018\,32.4085205\nPlan: https://kjawo.github.io/cyp
+ r2026/#day-02
 LOCATION:Park Archeologiczny Kato Pafos
-URL:https://cypr2026.pages.dev/#day-02
+URL:https://kjawo.github.io/cypr2026/#day-02
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-08-D2-04@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261108T120000
 DTEND;TZID=Asia/Nicosia:20261108T124000
 SUMMARY:Dzień 2 · Port i zamek z zewnątrz
 DESCRIPTION:Krótki spacer\, bez kolejnego obowiązkowego biletu.\nCzas: z
  ałożenie planu.\nMapa (punkt): https://www.google.com/maps/search/?api=
- 1&query=Paphos%20Harbour%20Castle\nPlan: https://cypr2026.pages.dev/#day-
- 02
+ 1&query=34.7536108\,32.4070057\nPlan: https://kjawo.github.io/cypr2026/#d
+ ay-02
 LOCATION:Port i zamek w Pafos
-URL:https://cypr2026.pages.dev/#day-02
+URL:https://kjawo.github.io/cypr2026/#day-02
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-08-D2-05@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261108T124500
 DTEND;TZID=Asia/Nicosia:20261108T140000
 SUMMARY:Dzień 2 · Lunch przy porcie
 DESCRIPTION:Hondros po potwierdzeniu pracy kuchni\; alternatywą dowolny o
  twarty lokal w okolicy.\nCzas: założenie planu.\nMapa (punkt): https://
- www.google.com/maps/search/?api=1&query=Hondros%20restaurant%20Paphos\nPl
- an: https://cypr2026.pages.dev/#day-02
+ www.google.com/maps/search/?api=1&query=34.7578585\,32.4118879\nPlan: htt
+ ps://kjawo.github.io/cypr2026/#day-02
 LOCATION:Hondros
-URL:https://cypr2026.pages.dev/#day-02
+URL:https://kjawo.github.io/cypr2026/#day-02
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-08-D2-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261108T140000
 DTEND;TZID=Asia/Nicosia:20261108T150000
 SUMMARY:Dzień 2 · Powrót do hotelu
-DESCRIPTION:Agia Solomoni lub Fabrica tylko przy ochocie i bezpiecznym doj
- ściu.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/ma
- ps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartments%2017%20Tombs
- %20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026.pages.dev/#da
- y-02
+DESCRIPTION:Powrót około 14:30–15:00. Chrysopolitissa albo Agia Solomo
+ ni jako jeden dodatek 30–45 min\; nie dokładać obu ani Fabrica.\nCzas
+ : założenie planu.\nMapa (punkt): https://www.google.com/maps/search/?a
+ pi=1&query=34.767031\,32.410418\nPlan: https://kjawo.github.io/cypr2026/#
+ day-02
 LOCATION:Princessa Vera Hotel Apartments\, Agia Solomoni i okolice Fabrica
-URL:https://cypr2026.pages.dev/#day-02
+URL:https://kjawo.github.io/cypr2026/#day-02
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-08-D2-07@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261108T150000
 DTEND;TZID=Asia/Nicosia:20261108T160000
 SUMMARY:Dzień 2 · Czas wolny
 DESCRIPTION:Odpoczynek\; Faros około 16:15 tylko opcjonalnie. Wellness za
  leżnie od potwierdzenia.\nCzas: założenie planu.\nMapa (punkt): https:
- //www.google.com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apar
- tments%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cyp
- r2026.pages.dev/#day-02
+ //www.google.com/maps/search/?api=1&query=34.767031\,32.410418\nPlan: htt
+ ps://kjawo.github.io/cypr2026/#day-02
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-02
+URL:https://kjawo.github.io/cypr2026/#day-02
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-01@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261109T070000
 DTEND;TZID=Asia/Nicosia:20261109T072000
 SUMMARY:Dzień 3 · Śniadanie
 DESCRIPTION:Plecaki i auto przygotowane poprzedniego wieczoru\; własne je
  dzenie na trasę.\nCzas: założenie planu.\nMapa (punkt): https://www.go
- ogle.com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartments%2
- 017%20Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026.pa
- ges.dev/#day-03
+ ogle.com/maps/search/?api=1&query=34.767031\,32.410418\nPlan: https://kja
+ wo.github.io/cypr2026/#day-03
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-03
+URL:https://kjawo.github.io/cypr2026/#day-03
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261109T072500
-DTEND;TZID=Asia/Nicosia:20261109T084000
+DTEND;TZID=Asia/Nicosia:20261109T084500
 SUMMARY:Dzień 3 · Dojazd do Baths of Aphrodite
-DESCRIPTION:60–75 min. Polis i Latchi\, asfalt do legalnego parkingu\; n
- ie jechać dalej ku Blue Lagoon.\nCzas: założenie planu.\nMapa (punkt):
-  https://www.google.com/maps/search/?api=1&query=35.056063%2C32.345565\nP
- lan: https://cypr2026.pages.dev/#day-03
+DESCRIPTION:60–80 min przez Polis i Latchi\; asfalt do legalnego parking
+ u Baths. Parking i około 20 min przygotowania liczone osobno. Nie jecha
+ ć autem ku Blue Lagoon.\nCzas: założenie planu.\nMapa (punkt): https:/
+ /www.google.com/maps/search/?api=1&query=35.056063%2C32.345565\nPlan: htt
+ ps://kjawo.github.io/cypr2026/#day-03
 LOCATION:Baths of Aphrodite początek szlaku
-URL:https://cypr2026.pages.dev/#day-03
+URL:https://kjawo.github.io/cypr2026/#day-03
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261109T084000
-DTEND;TZID=Asia/Nicosia:20261109T090000
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261109T084500
+DTEND;TZID=Asia/Nicosia:20261109T090500
 SUMMARY:Dzień 3 · Przygotowanie i decyzja
 DESCRIPTION:Tablice\, mapa\, pogoda i stan podłoża. Warunek wcześniejsz
  ego sprawdzenia konkretnej trasy względem map łowieckich.\nCzas: zało
  żenie planu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&qu
- ery=35.056063%2C32.345565\nPlan: https://cypr2026.pages.dev/#day-03
+ ery=35.056063%2C32.345565\nPlan: https://kjawo.github.io/cypr2026/#day-03
 LOCATION:Baths of Aphrodite początek szlaku
-URL:https://cypr2026.pages.dev/#day-03
+URL:https://kjawo.github.io/cypr2026/#day-03
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-04@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261109T090000
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261109T090500
 DTEND;TZID=Asia/Nicosia:20261109T133000
 SUMMARY:Dzień 3 · Pętla Aphrodite
-DESCRIPTION:Plan 4–4\,5 h z fotografią\; rezerwa do 5 h\, czyli 14:00 p
- rzy tym starcie. Kończyć marsz bez pośpiechu.\nCzas: założenie planu
- .\nMapa (punkt): https://www.google.com/maps/search/?api=1&query=35.05606
- 3%2C32.345565\nPlan: https://cypr2026.pages.dev/#day-03
+DESCRIPTION:Cel około 09:00–13:30\, rezerwa do 14:00 (start zależny od
+  dojazdu). Oficjalna pętla 7\,5 km\, trudność 3/3. Prowiant i własna 
+ woda\; źródła na trasie niezdatne do picia. Moutti tis Sotiras to świ
+ adomy dodatek po sprawdzeniu śladu: około 20–30 min na odgałęzienie
+  i zdjęcia\, kosztem restauracji\; nie wliczać automatycznie do 7\,5 km
+ .\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/maps/se
+ arch/?api=1&query=35.056063%2C32.345565\nPlan: https://kjawo.github.io/cy
+ pr2026/#day-03
 LOCATION:Baths of Aphrodite początek szlaku
-URL:https://cypr2026.pages.dev/#day-03
+URL:https://kjawo.github.io/cypr2026/#day-03
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-05@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261109T134500
 DTEND;TZID=Asia/Nicosia:20261109T150000
 SUMMARY:Dzień 3 · Polis i lunch warunkowy
 DESCRIPTION:Tylko jeśli przy aucie najpóźniej około 13:30. Baths → P
  olis 15–20 min plus parking\; z Polis wyjechać do 15:00\, aby zachowa
  ć Edro.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/
- maps/search/?api=1&query=Polis%20Chrysochous%20centre\nPlan: https://cypr
- 2026.pages.dev/#day-03
+ maps/search/?api=1&query=35.0348806\,32.4236532\nPlan: https://kjawo.gith
+ ub.io/cypr2026/#day-03
 LOCATION:Polis Chrysochous\, Moustakallis
-URL:https://cypr2026.pages.dev/#day-03
+URL:https://kjawo.github.io/cypr2026/#day-03
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261109T150000
 DTEND;TZID=Asia/Nicosia:20261109T160000
 SUMMARY:Dzień 3 · Przejazd i dojście do Edro
 DESCRIPTION:40–50 min z Polis plus postój i dojście. Wariant zależny 
  od drogi i opóźnień.\nCzas: założenie planu.\nMapa (punkt): https://
  www.google.com/maps/search/?api=1&query=34.873407%2C32.341214\nPlan: http
- s://cypr2026.pages.dev/#day-03
+ s://kjawo.github.io/cypr2026/#day-03
 LOCATION:Edro III
-URL:https://cypr2026.pages.dev/#day-03
+URL:https://kjawo.github.io/cypr2026/#day-03
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-07@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261109T160000
-DTEND;TZID=Asia/Nicosia:20261109T170500
+DTEND;TZID=Asia/Nicosia:20261109T170000
 SUMMARY:Dzień 3 · Edro III
 DESCRIPTION:Zachód około 16:49. Tylko z bezpiecznego suchego miejsca\; b
  ez wchodzenia na wrak i mokre skały.\nCzas: założenie planu.\nMapa (pu
  nkt): https://www.google.com/maps/search/?api=1&query=34.873407%2C32.3412
- 14\nPlan: https://cypr2026.pages.dev/#day-03
+ 14\nPlan: https://kjawo.github.io/cypr2026/#day-03
 LOCATION:Edro III
-URL:https://cypr2026.pages.dev/#day-03
+URL:https://kjawo.github.io/cypr2026/#day-03
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-08@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261109T170500
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261109T170000
 DTEND;TZID=Asia/Nicosia:20261109T180000
 SUMMARY:Dzień 3 · Powrót do hotelu
 DESCRIPTION:25–35 min jazdy z Edro\, z dojściem i marginesem hotel do o
  koło 18:00.\nCzas: założenie planu.\nMapa (punkt): https://www.google.
- com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartments%2017%2
- 0Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026.pages.d
- ev/#day-03
+ com/maps/search/?api=1&query=34.767031\,32.410418\nPlan: https://kjawo.gi
+ thub.io/cypr2026/#day-03
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-03
+URL:https://kjawo.github.io/cypr2026/#day-03
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-01@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261110T070000
 DTEND;TZID=Asia/Nicosia:20261110T072000
 SUMMARY:Dzień 4 · Śniadanie
 DESCRIPTION:Lunch awaryjny już w plecaku.\nCzas: założenie planu.\nMapa
-  (punkt): https://www.google.com/maps/search/?api=1&query=Princessa%20Ver
- a%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\nP
- lan: https://cypr2026.pages.dev/#day-04
+  (punkt): https://www.google.com/maps/search/?api=1&query=34.767031\,32.4
+ 10418\nPlan: https://kjawo.github.io/cypr2026/#day-04
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-04
+URL:https://kjawo.github.io/cypr2026/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261110T072500
-DTEND;TZID=Asia/Nicosia:20261110T094500
+DTEND;TZID=Asia/Nicosia:20261110T094000
 SUMMARY:Dzień 4 · Dojazd do Artemis
-DESCRIPTION:105–125 min plus 10–15 min bufora robót\, jeśli nie są 
- uwzględnione w nawigacji. Dojazd może trwać do około 09:45.\nCzas: za
- łożenie planu.\nMapa (punkt): https://www.google.com/maps/search/?api=1
- &query=Artemis+Nature+Trail+trailhead+Troodos+Cyprus\nPlan: https://cypr2
- 026.pages.dev/#day-04
+DESCRIPTION:Szacunkowo 1 h 50–2 h 20 przez rejon Platres i Troodos po as
+ falcie. Rezerwa na roboty przy Psilo Dendro/B9. Nawigacja do oficjalnego 
+ początku Artemis 34.933166\, 32.871986\; nie do Troodos Square. Przy pó
+ źniejszym przyjeździe przesunąć przygotowanie\, start najpóźniej ok
+ oło 10:00.\nCzas: założenie planu.\nMapa (punkt): https://www.google.c
+ om/maps/search/?api=1&query=34.933166\,32.871986\nPlan: https://kjawo.git
+ hub.io/cypr2026/#day-04
 LOCATION:Artemis początek szlaku
-URL:https://cypr2026.pages.dev/#day-04
+URL:https://kjawo.github.io/cypr2026/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261110T093000
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261110T094000
 DTEND;TZID=Asia/Nicosia:20261110T100000
 SUMMARY:Dzień 4 · Parking i kontrola warunków
-DESCRIPTION:To okno zależy od przejazdu. Lód\, mgła\, silny wiatr albo 
- zamknięcie oznaczają zmianę dnia. Mały parking przy oficjalnym starci
- e.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/maps/s
- earch/?api=1&query=Artemis+Nature+Trail+trailhead+Troodos+Cyprus\nPlan: h
- ttps://cypr2026.pages.dev/#day-04
+DESCRIPTION:Około 15–20 min przygotowania przy oznaczonym początku. St
+ art cel 09:45–10:00 zależnie od dojazdu. Lód\, mgła\, silny wiatr lu
+ b zamknięcie oznaczają rezygnację. Troodos Square dodaje 2\,4 km dojś
+ cia w jedną stronę\, 4\,8 km łącznie — wymaga nowego przeliczenia c
+ zasu.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/map
+ s/search/?api=1&query=34.933166\,32.871986\nPlan: https://kjawo.github.io
+ /cypr2026/#day-04
 LOCATION:Artemis początek szlaku
-URL:https://cypr2026.pages.dev/#day-04
+URL:https://kjawo.github.io/cypr2026/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-04@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261110T100000
 DTEND;TZID=Asia/Nicosia:20261110T133000
 SUMMARY:Dzień 4 · Artemis
 DESCRIPTION:Plan 3–3\,5 h\, rezerwa do 4 h. Zaczynamy najpóźniej 10:00
  \; przy końcu 14:00 pomijamy restaurację.\nCzas: założenie planu.\nMa
- pa (punkt): https://www.google.com/maps/search/?api=1&query=Artemis+Natur
- e+Trail+trailhead+Troodos+Cyprus\nPlan: https://cypr2026.pages.dev/#day-0
- 4
+ pa (punkt): https://www.google.com/maps/search/?api=1&query=34.933166\,32
+ .871986\nPlan: https://kjawo.github.io/cypr2026/#day-04
 LOCATION:Artemis początek szlaku
-URL:https://cypr2026.pages.dev/#day-04
+URL:https://kjawo.github.io/cypr2026/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-05@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261110T133000
 DTEND;TZID=Asia/Nicosia:20261110T140000
 SUMMARY:Dzień 4 · Jedzenie i przygotowanie powrotu
-DESCRIPTION:Domyślnie prowiant. Plagia przy Troodos Square tylko po potwi
- erdzeniu i gdy wyjazd z okolicy nastąpi najpóźniej 14:15.\nCzas: zało
- żenie planu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&qu
- ery=34.924239%2C32.880879\nPlan: https://cypr2026.pages.dev/#day-04
+DESCRIPTION:Domyślnie własny prowiant i wyjazd około 14:00. Krótki Tro
+ odos Square lub restauracja tylko gdy nie opóźnia powrotu\; po końcu m
+ arszu o 14:00 rezygnujemy z postojów.\nCzas: założenie planu.\nMapa (p
+ unkt): https://www.google.com/maps/search/?api=1&query=34.924239%2C32.880
+ 879\nPlan: https://kjawo.github.io/cypr2026/#day-04
 LOCATION:Troodos Square
-URL:https://cypr2026.pages.dev/#day-04
+URL:https://kjawo.github.io/cypr2026/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261110T140000
 DTEND;TZID=Asia/Nicosia:20261110T163000
 SUMMARY:Dzień 4 · Powrót do Princessa Vera
 DESCRIPTION:Około 1 h 45–2 h 20 z rezerwą\; hotel zwykle 16:00–16:30
  \, a przy wyjeździe 14:15 do około 16:45.\nCzas: założenie planu.\nMa
- pa (punkt): https://www.google.com/maps/search/?api=1&query=Princessa%20V
- era%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\
- nPlan: https://cypr2026.pages.dev/#day-04
+ pa (punkt): https://www.google.com/maps/search/?api=1&query=34.767031\,32
+ .410418\nPlan: https://kjawo.github.io/cypr2026/#day-04
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-04
+URL:https://kjawo.github.io/cypr2026/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-01@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T070000
 DTEND;TZID=Asia/Nicosia:20261111T074000
 SUMMARY:Dzień 5 · Śniadanie
 DESCRIPTION:Przygotować dokumenty i część rzeczy do pakowania jeszcze 
  przed wyjazdem.\nCzas: założenie planu.\nMapa (punkt): https://www.goog
- le.com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartments%201
- 7%20Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026.page
- s.dev/#day-05
+ le.com/maps/search/?api=1&query=34.767031\,32.410418\nPlan: https://kjawo
+ .github.io/cypr2026/#day-05
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T080000
 DTEND;TZID=Asia/Nicosia:20261111T084500
 SUMMARY:Dzień 5 · Dojazd do Palaipafos
 DESCRIPTION:25–40 min plus parking i dojście. Kolejność chroni czas z
  wiedzania muzeum.\nCzas: założenie planu.\nMapa (punkt): https://www.go
- ogle.com/maps/search/?api=1&query=34.70756%2C32.57447\nPlan: https://cypr
- 2026.pages.dev/#day-05
+ ogle.com/maps/search/?api=1&query=34.70756%2C32.57447\nPlan: https://kjaw
+ o.github.io/cypr2026/#day-05
 LOCATION:Palaipafos i muzeum w Kouklia
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T084500
 DTEND;TZID=Asia/Nicosia:20261111T100000
 SUMMARY:Dzień 5 · Palaipafos i muzeum
 DESCRIPTION:Środa pasuje do publikowanych godzin. Jeżeli chcecie spokojn
  iejszego dnia\, ten punkt jest pierwszym do usunięcia.\nCzas: założeni
  e planu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&query=3
- 4.70756%2C32.57447\nPlan: https://cypr2026.pages.dev/#day-05
+ 4.70756%2C32.57447\nPlan: https://kjawo.github.io/cypr2026/#day-05
 LOCATION:Palaipafos i muzeum w Kouklia
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-04@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T100000
 DTEND;TZID=Asia/Nicosia:20261111T111000
 SUMMARY:Dzień 5 · Przejazd do Omodos
-DESCRIPTION:45–60 min plus legalny parking przed centrum i 5–10 min do
- jścia.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/m
- aps/search/?api=1&query=34.8502%2C32.8072\nPlan: https://cypr2026.pages.d
- ev/#day-05
+DESCRIPTION:45–65 min jazdy plus parking poza centrum i 5–10 min dojś
+ cia.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/maps
+ /search/?api=1&query=34.8502%2C32.8072\nPlan: https://kjawo.github.io/cyp
+ r2026/#day-05
 LOCATION:Omodos
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-05@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T111000
 DTEND;TZID=Asia/Nicosia:20261111T121500
 SUMMARY:Dzień 5 · Omodos
 DESCRIPTION:Plac i kamienne ulice\; wnętrza według bieżących godzin.\n
  Czas: założenie planu.\nMapa (punkt): https://www.google.com/maps/searc
- h/?api=1&query=34.8502%2C32.8072\nPlan: https://cypr2026.pages.dev/#day-0
- 5
+ h/?api=1&query=34.8502%2C32.8072\nPlan: https://kjawo.github.io/cypr2026/
+ #day-05
 LOCATION:Omodos
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T121500
 DTEND;TZID=Asia/Nicosia:20261111T131500
 SUMMARY:Dzień 5 · Lunch
 DESCRIPTION:Katoi po potwierdzeniu\; kierowca pomija alkohol\, degustacje 
  nie są częścią planu.\nCzas: założenie planu.\nMapa (punkt): https:
- //www.google.com/maps/search/?api=1&query=Katoi%20Omodos\nPlan: https://c
- ypr2026.pages.dev/#day-05
+ //www.google.com/maps/search/?api=1&query=34.8488584\,32.8093576\nPlan: h
+ ttps://kjawo.github.io/cypr2026/#day-05
 LOCATION:Katoi
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-07@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261111T131500
-DTEND;TZID=Asia/Nicosia:20261111T140000
+DTEND;TZID=Asia/Nicosia:20261111T134500
 SUMMARY:Dzień 5 · Krótki czas wolny
 DESCRIPTION:Uliczki i zdjęcia\, bez spacerów na zbocza poza wsią.\nCzas
  : założenie planu.\nMapa (punkt): https://www.google.com/maps/search/?a
- pi=1&query=34.8502%2C32.8072\nPlan: https://cypr2026.pages.dev/#day-05
+ pi=1&query=34.8502%2C32.8072\nPlan: https://kjawo.github.io/cypr2026/#day
+ -05
 LOCATION:Omodos
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-08@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261111T140000
-DTEND;TZID=Asia/Nicosia:20261111T152000
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261111T134500
+DTEND;TZID=Asia/Nicosia:20261111T151500
 SUMMARY:Dzień 5 · Dojazd do Petra
-DESCRIPTION:45–60 min z Omodos plus parking i dojście tunelem. Zakłada
- ny przyjazd 15:00–15:20.\nCzas: założenie planu.\nMapa (punkt): https
- ://www.google.com/maps/search/?api=1&query=34.66475%2C32.62819\nPlan: htt
- ps://cypr2026.pages.dev/#day-05
+DESCRIPTION:Wyjazd cel 13:45–14:00\; 45–65 min jazdy\, osobno parking 
+ po stronie lądu i przejście tunelem. Nie przekraczać pieszo B6.\nCzas:
+  założenie planu.\nMapa (punkt): https://www.google.com/maps/search/?ap
+ i=1&query=34.66475%2C32.62819\nPlan: https://kjawo.github.io/cypr2026/#da
+ y-05
 LOCATION:Petra tou Romiou parking
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-09@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261111T152000
-DTEND;TZID=Asia/Nicosia:20261111T170500
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261111T151500
+DTEND;TZID=Asia/Nicosia:20261111T170000
 SUMMARY:Dzień 5 · Petra tou Romiou
 DESCRIPTION:Zdjęcia przy świetle\; zachód około 16:48. Parking po stro
  nie lądu\, przejście tunelem\, bez przekraczania B6 i bez kąpieli w pl
  anie.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/map
- s/search/?api=1&query=34.66475%2C32.62819\nPlan: https://cypr2026.pages.d
- ev/#day-05
+ s/search/?api=1&query=34.66475%2C32.62819\nPlan: https://kjawo.github.io/
+ cypr2026/#day-05
 LOCATION:Petra tou Romiou parking
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-11-D5-10@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261111T170500
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261111T170000
 DTEND;TZID=Asia/Nicosia:20261111T180000
 SUMMARY:Dzień 5 · Powrót
 DESCRIPTION:30–45 min plus dojście do auta. Po powrocie potwierdzić zw
  rot auta i przygotować większość bagażu.\nCzas: założenie planu.\n
- Mapa (punkt): https://www.google.com/maps/search/?api=1&query=Princessa%2
- 0Vera%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20Papho
- s\nPlan: https://cypr2026.pages.dev/#day-05
+ Mapa (punkt): https://www.google.com/maps/search/?api=1&query=34.767031\,
+ 32.410418\nPlan: https://kjawo.github.io/cypr2026/#day-05
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-05
+URL:https://kjawo.github.io/cypr2026/#day-05
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-01@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261112T062000
 DTEND;TZID=Asia/Nicosia:20261112T072000
 SUMMARY:Dzień 6 · Odprawa Ryanair
 DESCRIPTION:Jeżeli nie kupiono miejsca\, zgodnie z audytem otwiera się T
  –24 h. Sprawdzić w aplikacji i zapisać cyfrową kartę offline\; wyko
  nać rano.\nCzas: założenie planu.\nMapa (punkt): https://www.google.co
- m/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartments%2017%20T
- ombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026.pages.dev
- /#day-06
+ m/maps/search/?api=1&query=34.767031\,32.410418\nPlan: https://kjawo.gith
+ ub.io/cypr2026/#day-06
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-06
+URL:https://kjawo.github.io/cypr2026/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261112T070000
 DTEND;TZID=Asia/Nicosia:20261112T074000
 SUMMARY:Dzień 6 · Śniadanie
 DESCRIPTION:Rano sprawdzić ostateczny plan lotu i zwrotu auta.\nCzas: za
  łożenie planu.\nMapa (punkt): https://www.google.com/maps/search/?api=1
- &query=Princessa%20Vera%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Ki
- ngs%20Road%20Paphos\nPlan: https://cypr2026.pages.dev/#day-06
+ &query=34.767031\,32.410418\nPlan: https://kjawo.github.io/cypr2026/#day-
+ 06
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-06
+URL:https://kjawo.github.io/cypr2026/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261112T080000
 DTEND;TZID=Asia/Nicosia:20261112T083000
 SUMMARY:Dzień 6 · Dojście do Grobowców
 DESCRIPTION:15–25 min plus zapas\, wejście od właściwej ulicy.\nCzas:
   założenie planu.\nMapa (punkt): https://www.google.com/maps/search/?ap
- i=1&query=34.775104%2C32.408214\nPlan: https://cypr2026.pages.dev/#day-06
+ i=1&query=34.775104%2C32.408214\nPlan: https://kjawo.github.io/cypr2026/#
+ day-06
 LOCATION:Grobowce Królewskie
-URL:https://cypr2026.pages.dev/#day-06
+URL:https://kjawo.github.io/cypr2026/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-04@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261112T083000
 DTEND;TZID=Asia/Nicosia:20261112T100000
 SUMMARY:Dzień 6 · Grobowce Królewskie
 DESCRIPTION:Rano dobre światło i niewiele presji czasowej. Schody i kami
  eń ocenić pod kątem wilgoci.\nCzas: założenie planu.\nMapa (punkt): 
  https://www.google.com/maps/search/?api=1&query=34.775104%2C32.408214\nPl
- an: https://cypr2026.pages.dev/#day-06
+ an: https://kjawo.github.io/cypr2026/#day-06
 LOCATION:Grobowce Królewskie
-URL:https://cypr2026.pages.dev/#day-06
+URL:https://kjawo.github.io/cypr2026/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-05@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261112T100000
 DTEND;TZID=Asia/Nicosia:20261112T130000
 SUMMARY:Dzień 6 · Powrót i czas wolny
 DESCRIPTION:Krótki spacer\, odpoczynek lub potwierdzone wellness rano. Lu
  nch odpowiednio wcześnie.\nCzas: założenie planu.\nMapa (punkt): https
- ://www.google.com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apa
- rtments%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cy
- pr2026.pages.dev/#day-06
+ ://www.google.com/maps/search/?api=1&query=34.767031\,32.410418\nPlan: ht
+ tps://kjawo.github.io/cypr2026/#day-06
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-06
+URL:https://kjawo.github.io/cypr2026/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261112T130000
 DTEND;TZID=Asia/Nicosia:20261112T160000
 SUMMARY:Dzień 6 · Paliwo i przygotowanie
 DESCRIPTION:Zatankować po ostatniej dalszej jeździe\, zachować paragon.
   Kupić śniadanie na drogę\; uzgodnić wcześniejsze rozliczenie i nocn
  y dostęp do auta. Lokalna stacja do wyboru.\nCzas: założenie planu.\nM
- apa (punkt): https://www.google.com/maps/search/?api=1&query=Princessa%20
- Vera%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos
- \nPlan: https://cypr2026.pages.dev/#day-06
+ apa (punkt): https://www.google.com/maps/search/?api=1&query=34.767031\,3
+ 2.410418\nPlan: https://kjawo.github.io/cypr2026/#day-06
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-06
+URL:https://kjawo.github.io/cypr2026/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-07@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261112T160000
 DTEND;TZID=Asia/Nicosia:20261112T180000
 SUMMARY:Dzień 6 · Pakowanie i wczesna kolacja
-DESCRIPTION:Dokumenty\, telefon\, ładowarki i ubrania na noc pod ręką. 
- Zjeść przed hotelową kolacją publikowaną od 19:00\; własny posiłek
-  lub potwierdzony lokal.\nCzas: założenie planu.\nMapa (punkt): https:/
- /www.google.com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apart
- ments%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr
- 2026.pages.dev/#day-06
+DESCRIPTION:Pakowanie zakończyć przed wieczorem\; kolacja około 17:00
+ –18:00. Hotelowa kolacja od 19:00 nie pasuje do snu od 19:00 — własn
+ y posiłek lub lokal blisko hotelu.\nCzas: założenie planu.\nMapa (punk
+ t): https://www.google.com/maps/search/?api=1&query=34.767031\,32.410418\
+ nPlan: https://kjawo.github.io/cypr2026/#day-06
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-06
+URL:https://kjawo.github.io/cypr2026/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-08@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261112T190000
 DTEND;TZID=Asia/Nicosia:20261112T235900
 SUMMARY:Dzień 6 · Sen
 DESCRIPTION:Cel snu około 19:00\; pobudka następnego dnia około 02:05.\
  nCzas: założenie planu.\nMapa (punkt): https://www.google.com/maps/sear
- ch/?api=1&query=Princessa%20Vera%20Hotel%20Apartments%2017%20Tombs%20of%2
- 0the%20Kings%20Road%20Paphos\nPlan: https://cypr2026.pages.dev/#day-06
+ ch/?api=1&query=34.767031\,32.410418\nPlan: https://kjawo.github.io/cypr2
+ 026/#day-06
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-06
+URL:https://kjawo.github.io/cypr2026/#day-06
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-00@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261113T000000
 DTEND;TZID=Asia/Nicosia:20261113T020500
 SUMMARY:Dzień 7 · Sen — dokończenie
-DESCRIPTION:Ciąg dalszy snu po północy\; pobudka 02:05. Sen 12 XI zaczy
- na się o 19:00 i kończy o 23:59\, a ten wpis domyka noc bez sztucznego 
- skracania do 23:59.\nCzas: założenie planu.\nMapa (punkt): https://www.
- google.com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartments
- %2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026.
- pages.dev/#day-07
+DESCRIPTION:Dokończenie snu rozpoczętego 12 XI o 19:00\; pobudka 02:05.\
+ nCzas: założenie planu.\nMapa (punkt): https://www.google.com/maps/sear
+ ch/?api=1&query=34.767031\,32.410418\nPlan: https://kjawo.github.io/cypr2
+ 026/#day-07
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-07
+URL:https://kjawo.github.io/cypr2026/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-01@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261113T020500
 DTEND;TZID=Asia/Nicosia:20261113T023000
 SUMMARY:Dzień 7 · Pobudka
 DESCRIPTION:Toaleta\, ubranie\, lodówka\, ładowarki\, ostatnia kontrola 
  pokoju.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/m
- aps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartments%2017%20Tomb
- s%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026.pages.dev/#d
- ay-07
+ aps/search/?api=1&query=34.767031\,32.410418\nPlan: https://kjawo.github.
+ io/cypr2026/#day-07
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-07
+URL:https://kjawo.github.io/cypr2026/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261113T023000
-DTEND;TZID=Asia/Nicosia:20261113T024500
+DTEND;TZID=Asia/Nicosia:20261113T024000
 SUMMARY:Dzień 7 · Wyjście i klucze hotelu
-DESCRIPTION:Uzgodniona wcześniej procedura. Planistyczne wyjście z hotel
- u 02:30–02:45\; breakfast box tylko jeśli potwierdzony\, inaczej włas
- ne jedzenie.\nCzas: założenie planu.\nMapa (punkt): https://www.google.
- com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartments%2017%2
- 0Tombs%20of%20the%20Kings%20Road%20Paphos\nPlan: https://cypr2026.pages.d
- ev/#day-07
+DESCRIPTION:Wyjście z pokoju około 02:30 według uzgodnionej procedury\;
+  dostęp do parkingu przed 02:40 do potwierdzenia. Własne jedzenie\, je
+ śli box nie jest potwierdzony.\nCzas: założenie planu.\nMapa (punkt): 
+ https://www.google.com/maps/search/?api=1&query=34.767031\,32.410418\nPla
+ n: https://kjawo.github.io/cypr2026/#day-07
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-07
+URL:https://kjawo.github.io/cypr2026/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261113T025000
-DTEND;TZID=Asia/Nicosia:20261113T032500
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261113T024000
+DTEND;TZID=Asia/Nicosia:20261113T031500
 SUMMARY:Dzień 7 · Wyjazd na PFO
-DESCRIPTION:To planistyczna godzina ruszenia z parkingu. Dojazd szacowany 
- na 25–35 min\; planowy przyjazd do sektora około 03:25. Zwrot Petsas j
- est umówiony na 03:30 według vouchera. Hotelowy parking i dokładny sek
- tor/procedura wymagają potwierdzenia.\nCzas: założenie planu.\nMapa (p
- unkt): https://www.google.com/maps/search/?api=1&query=34.7179133%2C32.48
- 90948\nPlan: https://cypr2026.pages.dev/#day-07
+DESCRIPTION:Wyjazd z hotelu 02:40. Szacunkowo 25–35 min jazdy\; cel przy
+ jazdu do właściwego sektora 03:15–03:25. Zwrot umówiony 03:30. Dokł
+ adny sektor i nocna procedura wymagają instrukcji Petsas.\nCzas: założ
+ enie planu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&quer
+ y=34.7179133%2C32.4890948\nPlan: https://kjawo.github.io/cypr2026/#day-07
 LOCATION:Port lotniczy Pafos PFO
-URL:https://cypr2026.pages.dev/#day-07
+URL:https://kjawo.github.io/cypr2026/#day-07
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-13-D7-04@kjawo.github.io
+DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261113T031500
+DTEND;TZID=Asia/Nicosia:20261113T040000
+SUMMARY:Dzień 7 · Zwrot Petsas — okno planu\; termin 03:30
+DESCRIPTION:Zwrot umówiony 03:30. Plan: przyjazd do właściwego sektora 
+ 03:15–03:25 i obsługa do około 04:00\; cel stanowiska odprawy 04:20. 
+ Sektor\, klucze\, ewentualny transfer i koniec odpowiedzialności wymagaj
+ ą pisemnej instrukcji Petsas. Zdjęcia same nie kończą odpowiedzialno
+ ści.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/map
+ s/search/?api=1&query=34.7179133%2C32.4890948\nPlan: https://kjawo.github
+ .io/cypr2026/#day-07
+LOCATION:Port lotniczy Pafos PFO
+URL:https://kjawo.github.io/cypr2026/#day-07
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-13-D7-05@kjawo.github.io
+DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261113T040000
+DTEND;TZID=Asia/Nicosia:20261113T042000
+SUMMARY:Dzień 7 · Dojście / transfer do terminala
+DESCRIPTION:Cel stanowiska odprawy około 04:20. To założenie zależne o
+ d sektora i instrukcji Petsas\; czas i ewentualny shuttle do potwierdzeni
+ a.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/maps/s
+ earch/?api=1&query=34.7179133%2C32.4890948\nPlan: https://kjawo.github.io
+ /cypr2026/#day-07
+LOCATION:Port lotniczy Pafos PFO
+URL:https://kjawo.github.io/cypr2026/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261113T043500
-DTEND;TZID=Asia/Nicosia:20261113T052000
-SUMMARY:Dzień 7 · Odprawa i nadanie bagażu
-DESCRIPTION:45 min to planistyczne okno\, bez potwierdzenia godziny otwarc
- ia stanowiska. Plan przyjmuje zamknięcie bag drop o 05:20 według wskaza
- nego źródła Ryanair i audytu\; źródło było niedostępne dla bota (
- HTTP 403)\, więc potwierdzić godzinę dla FR5880 w aplikacji/przegląda
- rce przewoźnika. Jeśli 05:20 zostanie potwierdzone\, bagaż musi być p
- rzyjęty przed zamknięciem\; stanie w kolejce nie wystarczy. Wcześniejs
- zy wyjazd utrzymuje 45 min zwrotu\, 25 min dojścia i 45 min na nadanie b
- agażu\; procedury operatora nie potwierdzono.\nCzas: założenie planu.\
- nMapa (punkt): https://www.google.com/maps/search/?api=1&query=34.7179133
- %2C32.4890948\nPlan: https://cypr2026.pages.dev/#day-07
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261113T042000
+DTEND;TZID=Asia/Nicosia:20261113T044500
+SUMMARY:Dzień 7 · Nadanie bagażu — cel planu
+DESCRIPTION:FR5880 13 XI: cel nadania 04:20–04:45\; granica bag drop 05:
+ 20 (T–60\, zmiana Ryanair od 10 XI 2026 według audytu)\; zamknięcie b
+ ramki 05:50 (T–30). Stanie w kolejce nie wystarczy. Sprawdzić bieżąc
+ e komunikaty i kartę pokładową.\nCzas: założenie planu.\nMapa (punkt
+ ): https://www.google.com/maps/search/?api=1&query=34.7179133%2C32.489094
+ 8\nPlan: https://kjawo.github.io/cypr2026/#day-07
 LOCATION:Port lotniczy Pafos PFO
-URL:https://cypr2026.pages.dev/#day-07
+URL:https://kjawo.github.io/cypr2026/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-13-D7-07@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261113T052000
-DTEND;TZID=Asia/Nicosia:20261113T055000
-SUMMARY:Dzień 7 · Cel obecności przy bramce
-DESCRIPTION:Cel planistyczny\, nie godzina zamknięcia\; uwzględnić kont
- rolę bezpieczeństwa i przejście do bramki. Numer oraz rzeczywistą god
- zinę zamknięcia sprawdzić na karcie i ekranach.\nCzas: założenie pla
- nu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&query=34.717
- 9133%2C32.4890948\nPlan: https://cypr2026.pages.dev/#day-07
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261113T044500
+DTEND;TZID=Asia/Nicosia:20261113T053000
+SUMMARY:Dzień 7 · Kontrola i dojście do bramki
+DESCRIPTION:Cel obecności przy bramce 05:15–05:30. Granica zamknięcia 
+ bramki 05:50\, nie cel przyjścia\; numer i bieżące komunikaty na karci
+ e oraz ekranach.\nCzas: założenie planu.\nMapa (punkt): https://www.goo
+ gle.com/maps/search/?api=1&query=34.7179133%2C32.4890948\nPlan: https://k
+ jawo.github.io/cypr2026/#day-07
 LOCATION:Port lotniczy Pafos PFO
-URL:https://cypr2026.pages.dev/#day-07
+URL:https://kjawo.github.io/cypr2026/#day-07
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-13-D7-BAG-LIMIT@kjawo.github.io
+DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261113T052000
+DTEND;TZID=Asia/Nicosia:20261113T052100
+SUMMARY:Dzień 7 · Bag drop — granica zamknięcia
+DESCRIPTION:Bagaż musi zostać przyjęty przed 05:20. To granica T–60\,
+  a cel nadania to 04:20–04:45.\nCzas: granica odprawy według audytu 6 
+ XI.\nMapa (punkt): https://www.google.com/maps/search/?api=1&query=34.717
+ 9133%2C32.4890948\nPlan: https://kjawo.github.io/cypr2026/#day-07
+LOCATION:Port lotniczy Pafos PFO
+URL:https://kjawo.github.io/cypr2026/#day-07
+STATUS:TENTATIVE
+END:VEVENT
+BEGIN:VEVENT
+UID:cypr2026-2026-11-13-D7-GATE-LIMIT@kjawo.github.io
+DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261113T055000
+DTEND;TZID=Asia/Nicosia:20261113T055100
+SUMMARY:Dzień 7 · Bramka — zamknięcie
+DESCRIPTION:Granica T–30 przed planowym odlotem 06:20\; cel obecności 0
+ 5:15–05:30.\nCzas: granica odprawy według audytu 6 XI.\nMapa (punkt): 
+ https://www.google.com/maps/search/?api=1&query=34.7179133%2C32.4890948\n
+ Plan: https://kjawo.github.io/cypr2026/#day-07
+LOCATION:Port lotniczy Pafos PFO
+URL:https://kjawo.github.io/cypr2026/#day-07
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-FL-IN@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART:20261113T042000Z
 DTEND:20261113T074500Z
 SUMMARY:FR5880 PFO → WAW
 DESCRIPTION:PFO 06:20 → WAW 08:45 (czas lokalny lotnisk). Godziny wedłu
  g danych użytkownika\; potwierdź w aplikacji przewoźnika.\nPlan: https
- ://cypr2026.pages.dev/#day-07
+ ://kjawo.github.io/cypr2026/#day-07
 LOCATION:PFO → WAW
-URL:https://cypr2026.pages.dev/#day-07
-STATUS:TENTATIVE
+URL:https://kjawo.github.io/cypr2026/#day-07
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-hotel@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261107T150000
 DTEND;TZID=Asia/Nicosia:20261113T120000
 SUMMARY:Hotel: Princessa Vera Hotel Apartments
 DESCRIPTION:Zameldowanie i wymeldowanie według danych użytkownika. Vouch
- er ma pierwszeństwo.\nPlan: https://cypr2026.pages.dev/#hotel
+ er ma pierwszeństwo.\nPlan: https://kjawo.github.io/cypr2026/#hotel
 LOCATION:17 Tombs of the Kings Road\, 8045 Pafos\, Cyprus
-URL:https://cypr2026.pages.dev/#hotel
-STATUS:TENTATIVE
+URL:https://kjawo.github.io/cypr2026/#hotel
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-car-pickup@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART:20261107T083000Z
-DTEND:20261107T091500Z
-SUMMARY:Auto: odbiór — cel
-DESCRIPTION:Brak potwierdzonej rezerwacji. To cel planu\, nie gwarancja.\n
- Plan: https://cypr2026.pages.dev/#auto
-LOCATION:PFO
-URL:https://cypr2026.pages.dev/#auto
-STATUS:TENTATIVE
+DTEND:20261107T083100Z
+SUMMARY:Petsas: odbiór — termin umówiony 10:30
+DESCRIPTION:Rezerwacja według materiału użytkownika: Petsas\, C3 automa
+ tyczna\, 325\,50 € prepaid.\nUmówiony termin: 10:30 czasu Cypru. Jedno
+ minutowy znacznik terminu\, nie czas obsługi.\nOsobne okno planu: 10:10
+ –12:30. Bagaż i obsługa auta\; cel obsługi około 11:30 nie zmienia 
+ umówionego odbioru 10:30.\nPotwierdzić karencję po przylocie W61417 10
+ :10\, punkt spotkania i no-show.\nPlan: https://kjawo.github.io/cypr2026/
+ #auto
+LOCATION:PFO — dokładny sektor do potwierdzenia
+URL:https://kjawo.github.io/cypr2026/#auto
+STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-car-return@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART:20261113T012500Z
-DTEND:20261113T021000Z
-SUMMARY:Auto: nocny zwrot — cel
-DESCRIPTION:Potwierdzić wjazd\, klucze i koniec odpowiedzialności.\nPlan
- : https://cypr2026.pages.dev/#auto
-LOCATION:PFO
-URL:https://cypr2026.pages.dev/#auto
-STATUS:TENTATIVE
+SEQUENCE:1003000
+DTSTART:20261113T013000Z
+DTEND:20261113T013100Z
+SUMMARY:Petsas: zwrot — termin umówiony 03:30
+DESCRIPTION:Rezerwacja według materiału użytkownika: Petsas\, C3 automa
+ tyczna\, 325\,50 € prepaid.\nUmówiony termin: 03:30 czasu Cypru. Jedno
+ minutowy znacznik terminu\, nie czas obsługi.\nOsobne okno planu: 03:15
+ –04:00. Przyjazd 03:15–03:25\, dokumentacja i obsługa\; umówiony zw
+ rot 03:30. Czas zależy od instrukcji Petsas.\nZwrot umówiony 03:30. Pla
+ n: przyjazd do właściwego sektora 03:15–03:25 i obsługa do około 04
+ :00\; cel stanowiska odprawy 04:20. Sektor\, klucze\, ewentualny transfer
+  i koniec odpowiedzialności wymagają pisemnej instrukcji Petsas. Zdjęc
+ ia same nie kończą odpowiedzialności.\nPlan: https://kjawo.github.io/c
+ ypr2026/#auto
+LOCATION:PFO — dokładny sektor do potwierdzenia
+URL:https://kjawo.github.io/cypr2026/#auto
+STATUS:CONFIRMED
 END:VEVENT
 END:VCALENDAR

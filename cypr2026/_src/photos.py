@@ -168,7 +168,8 @@ class Photo:
         if alt.startswith(("zdjęcie", "fotografia", "photo", "image")):
             _fail(f"photos[{self.index}] {self.slot}: alt nie może zaczynać się od „zdjęcie”")
         loc = self.location
-        if not loc.get("name") or not (-90 <= float(loc.get("lat", 999)) <= 90) or not (-180 <= float(loc.get("lon", 999)) <= 180):
+        no_gps = loc.get("lat") is None and loc.get("lon") is None
+        if not loc.get("name") or (not no_gps and (not (-90 <= float(loc.get("lat", 999)) <= 90) or not (-180 <= float(loc.get("lon", 999)) <= 180))):
             _fail(f"photos[{self.index}] {self.slot}: niepełna lokalizacja")
         if self.focal.get("x") is None or self.focal.get("y") is None:
             _fail(f"photos[{self.index}] {self.slot}: brak focal_point")
@@ -306,8 +307,10 @@ class PhotoLibrary:
             for key, group in self.by_target.items():
                 if key[0] != kind:
                     continue
-                if not (3 <= len(group) <= 4):
-                    _fail(f"{key[1]}: musi mieć 3–4 zdjęcia, jest {len(group)}")
+                # Context photos can have their own honest target (e.g. Alykes,
+                # or Choirokoitia village) instead of padding unrelated sets.
+                if not (1 <= len(group) <= 4):
+                    _fail(f"{key[1]}: musi mieć 1–4 zdjęcia, jest {len(group)}")
                 self._check_lead(key, group)
 
     def _check_lead(self, key: tuple[str, str], group: list[Photo]) -> None:
@@ -456,6 +459,7 @@ class PhotoLibrary:
                 "avif": avif["avif"] if avif else "",
                 "webp": webp["webp"] if webp else "",
                 "jpeg": jpeg["jpeg"] if jpeg else "",
+                "fallback": next((v["jpeg"] for v in p.files if int(v["width"]) == 480 and v.get("jpeg")), jpeg["jpeg"] if jpeg else ""),
                 "width": int((avif or p.files[-1])["width"]),
                 "height": int((avif or p.files[-1])["height"]),
             })
@@ -493,7 +497,7 @@ class PhotoLibrary:
     def offline_files(self) -> list[str]:
         files = []
         for p in self.photos:
-            for width, formats in ((480, ("avif", "webp")), (800, ("avif", "webp", "jpeg"))):
+            for width, formats in ((480, ("avif", "webp", "jpeg")), (800, ("avif", "webp", "jpeg"))):
                 if not p.lead and width == 800:
                     continue
                 for fmt in formats:

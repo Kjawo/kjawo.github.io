@@ -209,5 +209,22 @@
       8.7
     ],
     "note": "Usability adjudication median 9.4 with verified gates: axe 0, overflow 0, targets 44+, offline 7 leads, print 54 pages. Photo layer median 9.2 from general review."
+  },
+  "audit_corrections_2026_11_06": {
+    "basis": "Zaakceptowany audyt i oględziny nowych fotografii; dawne głosy pozostają zapisem historycznym. Aktualne przypisania i metryki są w photos.json.",
+    "slots": [
+      "day-07-b",
+      "place-faros-c",
+      "place-pissouri-b",
+      "place-pissouri-d",
+      "place-choirokoitia-b",
+      "place-choirokoitia-c",
+      "place-choirokoitia-d",
+      "place-choirokoitia-e",
+      "place-varosha-c",
+      "place-famagusta-c",
+      "route-vouni-d"
+    ],
+    "pouziaris": "W wyszukiwaniu Commons Pouziaris / Pouziari / Pouziaris trail nie znaleziono dodatkowej wiarygodnej fotografii trasy; zachowano opisy rejonu startu bez udawania nawierzchni całej pętli."
   }
 }

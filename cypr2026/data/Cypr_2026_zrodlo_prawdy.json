@@ -2,14 +2,14 @@
   "meta": {
     "id": "CYPR-2026",
     "title": "Cypr 7 do 13 listopada 2026",
-    "version": "1.2.29",
+    "version": "1.3.0",
     "schema_version": "1.0.0",
     "updated_on": "2026-11-06",
     "language": "pl-PL",
     "canonical_filename": "Cypr_2026_zrodlo_prawdy.json",
     "document_filename": "Cypr_2026_plan_glowny.docx",
     "canonical_rule": "JSON jest dokumentem nadrzędnym. DOCX, strona i późniejszy wydruk są widokami tej samej wersji danych. Zmiany wprowadzać do JSON, potem ponownie wygenerować widoki.",
-    "plan_status": "Plan bazowy ustalony redakcyjnie; auto, warunki terenowe i część usług wymagają potwierdzenia.",
+    "plan_status": "Plan bazowy gotowy; procedury Petsas, część usług hotelu i warunki terenowe do potwierdzenia.",
     "time_rule": "Godziny na Cyprze w strefie Asia/Nicosia UTC+02:00; Polska Europe/Warsaw UTC+01:00. Cypr jest w tych datach godzinę do przodu. Loty zapisano w czasie lokalnym każdego lotniska.",
     "scope": "Plan do realizacji i podstawa treści strony oraz dokumentu podróżnego. Nie zawiera potwierdzeń rezerwacji ani gotowych plików GPX."
   },
@@ -81,7 +81,7 @@
         "SRC-AUDIT"
       ],
       "note": "Potwierdzić oddzielnie w Wizz Air i Ryanair; brak danych o dodatkowym bagażu kabinowym.",
-      "return_note": "Planistyczne założenie dla FR5880: jeśli reguła Ryanair T–60 min obowiązuje 13 XI, bag drop zamyka się o 05:20 czasu Cypru. Link Ryanair zwrócił HTTP 403 przy kontroli 5 XI; potwierdź regułę i godzinę w aplikacji lub przeglądarce. Jeśli 05:20 się potwierdzi, bagaż musi być nadany przed zamknięciem — stanie w kolejce nie wystarczy."
+      "return_note": "FR5880 13 XI: cel nadania 04:20–04:45; granica bag drop 05:20 (T–60, zmiana Ryanair od 10 XI 2026 według audytu); zamknięcie bramki 05:50 (T–30). Stanie w kolejce nie wystarczy. Sprawdzić bieżące komunikaty i kartę pokładową."
     },
     "flights": [
       {
@@ -134,7 +134,7 @@
         "source_ids": [],
         "note": "Śniadanie w harmonogramie zakłada posiadaną usługę lub własny posiłek; rodzaj taryfy sprawdzić na voucherze."
       },
-      "night_departure": "13 XI planistyczne opuszczenie pokoju około 02:30–02:45 i wyjazd z parkingu około 02:50 po uzgodnieniu; pokój pozostaje opłacony za noc 12/13 XI. Recepcja 24 h i bezpłatny parking potwierdzone na stronie hotelu; brama i dostęp do auta przed 02:50 do potwierdzenia.",
+      "night_departure": "13 XI pobudka 02:05, wyjście z pokoju około 02:30, wyjazd z parkingu 02:40. Pokój opłacony za noc 12/13 XI. Recepcja 24 h i parking nie potwierdzają nocnej procedury bramy; uzgodnić ją z hotelem.",
       "wellness": {
         "value": "Hotel wymienia dwa baseny zewnętrzne, jacuzzi i saunę. Działanie, temperatura, godziny i opłaty podczas 7–13 XI niepotwierdzone.",
         "status": "do_potwierdzenia",
@@ -155,7 +155,7 @@
           "SRC-HOTEL",
           "SRC-CHECKIN"
         ],
-        "note": "Oficjalna strona potwierdza parking i recepcję 24 h. Procedura bramy, dostęp do auta przed planistycznym wyjazdem około 02:50 i oddanie kluczy nadal do potwierdzenia."
+        "note": "Procedura bramy, dostęp do auta przed wyjazdem 02:40 i oddanie kluczy wymagają potwierdzenia."
       },
       "restaurant_hours": {
         "value": "Śniadanie 07:00–09:45; lunch 13:00–14:30; kolacja 19:00–21:15.",
@@ -170,11 +170,8 @@
       "provider": "Petsas",
       "pickup_agreed_at": "2026-11-07T10:30:00+02:00",
       "return_agreed_at": "2026-11-13T03:30:00+02:00",
-      "pickup_target_at": "2026-11-07T10:30:00+02:00",
       "pickup_plan_target_at": "2026-11-07T11:30:00+02:00",
-      "return_target_at": "2026-11-13T03:25:00+02:00",
-      "return_plan_target_at": "2026-11-13T03:25:00+02:00",
-       "target_at_semantics": "Pola *_agreed_at są umówionymi slotami potwierdzonymi voucherem; pickup_plan_target_at i return_plan_target_at są celami planistycznymi. pickup_target_at (10:30) i return_target_at (03:25) pozostają nazwami wymaganymi przez chroniony generator obecnych widoków/ICS: pierwsze kopiuje slot odbioru, drugie oznacza planowy przyjazd do sektora i start 45-minutowego okna ICS. To techniczne aliasy zgodności, nie odrębne fakty; generator wymaga uprawnionej zmiany, aby je usunąć. D7 summary w ICS musi wyjaśniać oba czasy.",
+      "return_plan_target_at": "2026-11-13T03:15:00+02:00",
       "pickup_location": "Pafos Airport (PFO)",
       "return_location": "Pafos Airport (PFO)",
       "vehicle_class": "C3",
@@ -197,7 +194,7 @@
       "deposit_eur": null,
       "requirements": [
         "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): Economy lub compact, preferowany automat.",
-        "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): PFO na terenie lotniska, planowany nocny zwrot około 03:25 (wyłącznie termin planistyczny) i dokładna instrukcja oddania kluczy.",
+        "Potwierdzić dokładny sektor PFO i nocną procedurę zwrotu umówionego na 03:30, oddanie kluczy i koniec odpowiedzialności.",
         "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): dwóch wpisanych kierowców; drugi bez dopłaty.",
         "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): pełny bak przy odbiorze i zwrocie; nielimitowane kilometry.",
         "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): maksymalna akceptowana łączna blokada na karcie to 500 EUR, w tym inne zabezpieczenia; nie jest to warunek Petsas ani potwierdzona kwota depozytu/preautoryzacji.",
@@ -206,7 +203,7 @@
         "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): karta akceptowana przez firmę, na nazwisko kierowcy, z wymaganym limitem.",
         "Wymaganie użytkownika/planu (niepotwierdzone jako warunek Petsas): wyjazd na północ (Varosha) tylko po pisemnej zgodzie wypożyczalni oraz pisemnym potwierdzeniu przez wypożyczalnię/ubezpieczyciela zakresu terytorialnego, szkód w wynajętym aucie, OC i assistance; samo kupno dodatkowej polisy nie dowodzi ochrony auta. Opłaty i dostępność ubezpieczenia na przejściu do potwierdzenia. Avis/Enterprise zakazują; Petsas wymaga kontaktu, zgoda do potwierdzenia."
       ],
-      "selection_note": "Rezerwacja Petsas/PFO, klasa C3 automat z klimatyzacją, terminy umówione 7 XI 10:30 i 13 XI 03:30 oraz prepaid 325,50 EUR są potwierdzone wyłącznie w nieosobowym streszczeniu vouchera SRC-PETSAS-VOUCHER. Planowe cele pozostają odrębne: odbiór 11:30, przyjazd do sektora zwrotu około 03:25. Godzina odbioru jest 20 min po planowym przylocie 10:10; podróżni muszą pilnie potwierdzić z Petsas punkt spotkania/transfer, minimalny odstęp po przylocie, karencję i no-show. Dokładny sektor zwrotu, key drop i moment końca odpowiedzialności wymagają pisemnej instrukcji. Depozyt/preautoryzacja, udział własny, kilometry, paliwo, drugi kierowca, assistance oraz szczegółowe limity i wyłączenia SCDW/pakietu opon-szyb-podwozia pozostają nieznane; kupione pozycje nie potwierdzają ochrony na północy. Przed wyjazdem na północ konieczna jest pisemna zgoda Petsas i odrębne potwierdzenie terytorialnego zakresu szkód auta, OC i assistance. Kwota z vouchera nie rozstrzyga warunków najmu; sprawy otwarte opisuje TODO-CAR/TODO-PETSAS-PICKUP/TODO-RETURN/TODO-NORTH-CAR.",
+      "selection_note": "Petsas, C3 automat z klimatyzacją, 7 XI 10:30 – 13 XI 03:30, prepaid 325,50 EUR według materiału użytkownika. Model niegwarantowany. Do potwierdzenia: karencja po przylocie, procedura nocnego zwrotu, końcowa kwota, depozyt, udział własny, SCDW przy najmie krótszym niż siedem dni, pakiet szyb/opon/podwozia, drugi kierowca i assistance. Północ wyłącznie po osobnym pisemnym uzgodnieniu.",
       "source_ids": [
         "SRC-AUDIT",
         "SRC-PETSAS-VOUCHER",
@@ -223,43 +220,45 @@
         "Poprosić o pokazanie dziennego wjazdu zwrotów i właściwej skrzynki; zapisać instrukcję offline."
       ],
       "use_rule": "Korzystać z dozwolonych asfaltowych dróg. Nie jechać ku Blue Lagoon ani leśnymi skrótami; SUV nie zmienia umowy. Dokładny korytarz wybrać w bieżącej nawigacji.",
-      "return_rule": "Umówiony zwrot Petsas 03:30; planowy dojazd do sektora około 03:25 i planowe okno 03:25–04:10 są osobnymi założeniami. Pisemnie ustalić sektor, key drop i moment końca odpowiedzialności; zdjęcia i film same nie kończą odpowiedzialności.",
+      "return_rule": "Zwrot umówiony 03:30. Plan: przyjazd do właściwego sektora 03:15–03:25 i obsługa do około 04:00; cel stanowiska odprawy 04:20. Sektor, klucze, ewentualny transfer i koniec odpowiedzialności wymagają pisemnej instrukcji Petsas. Zdjęcia same nie kończą odpowiedzialności.",
       "provider_contacts": [
-        {
-          "name": "Avis PFO",
-          "phone": "+35726923664",
-          "hours": "08:00–02:00 (hala przylotów)",
-          "after_hours_return": "Key drop dostępny; opłata za odbiór/zwrot poza godzinami (60 EUR) wymaga potwierdzenia dla konkretnej rezerwacji — warunki zawierają zarówno bezpłatny odbiór poza godzinami na lotniskach, jak i ogólną opłatę 60 EUR.",
-          "note": "Dodatkowy kierowca +7 EUR/dzień (sprzeczne z wymaganiem 'drugi bez dopłaty'). Preautoryzacja na karcie kredytowej; zakaz wjazdu na północ (Green Line). Źródła: avis.com PFO i Avis Cyprus terms (4 XI 2026)."
-        },
         {
           "name": "Petsas PFO",
           "phone": "+35726423046",
           "hours": "24 h service (wg listy Petsas; tryb obsługi tej rezerwacji do potwierdzenia)",
           "after_hours_return": "do_potwierdzenia",
-          "note": "Oficjalna lista Petsas wymienia Pafos Airport Desk w hali przylotów i oznacza usługę PFO jako 24 h; nie gwarantuje to obsługi poza godzinami ani procedury zwrotu w tej rezerwacji. Key drop, opłaty i moment końca odpowiedzialności wymagają pisemnego potwierdzenia. Ogólne warunki SRC-PET dla najmu krótszego niż 7 dni opisują udział własny zależny od grupy i możliwość odmowy SCDW; ich zastosowanie do tej rezerwacji potwierdzić w umowie. Działanie podróżnych: pilnie potwierdzić umówiony zwrot 03:30 i instrukcję nocną w TODO-RETURN; przy odbiorze 10:30 potwierdzić punkt spotkania, karencję i no-show w TODO-PETSAS-PICKUP. Źródła: SRC-PETSAS-LOCATIONS i SRC-PET (sprawdzone 2026-11-05)."
+          "note": "Oficjalna lista Petsas wymienia Pafos Airport Desk w hali przylotów i oznacza usługę PFO jako 24 h; nie gwarantuje to obsługi poza godzinami ani procedury zwrotu w tej rezerwacji. Key drop, opłaty i moment końca odpowiedzialności wymagają pisemnego potwierdzenia. Ogólne warunki SRC-PET dla najmu krótszego niż 7 dni opisują udział własny zależny od grupy i możliwość odmowy SCDW; ich zastosowanie do tej rezerwacji potwierdzić w umowie. Działanie podróżnych: pilnie potwierdzić umówiony zwrot 03:30 i instrukcję nocną z Petsas; przy odbiorze 10:30 potwierdzić punkt spotkania, karencję i no-show z Petsas. Źródła: SRC-PETSAS-LOCATIONS i SRC-PET (sprawdzone 2026-11-05)."
         },
         {
-          "name": "SIXT PFO",
-          "phone": "+35725257727",
-          "hours": "08:00–21:00",
-          "after_hours_return": "24 h return (flexible returns)",
-          "note": "Audyt: podwozie wyłączone z ochrony. Potwierdzić udział własny i depozyt. Źródło: sixt.com PFO (4 XI 2026)."
-        },
-        {
-          "name": "Budget PFO",
-          "phone": "+35726007318",
-          "hours": "08:00–02:00",
-          "after_hours_return": "NIE dozwolony (after-hours returns: Not allowed).",
-          "note": "Nie spełnia wymogu nocnego zwrotu około 03:25. Źródło: budget.com PFO (4 XI 2026)."
-        },
-        {
-          "name": "Enterprise PFO (offsite)",
-          "phone": "+35799777067",
-          "hours": "offsite, shuttle",
-          "after_hours_return": "Niedostępny.",
-          "note": "Nie spełnia nocnego zwrotu. Zakaz wjazdu poza Cypr i na północ (odpowiedzialność kierowcy). Źródło: enterprise.com PFO offsite (4 XI 2026)."
+          "name": "Petsas — publiczny numer awaryjny",
+          "phone": "+35724643350",
+          "hours": "24 h według listy firmy",
+          "after_hours_return": "Procedura tej rezerwacji do potwierdzenia",
+          "note": "Kontakt publiczny z audytu 6 XI; nie jest potwierdzeniem warunków assistance ani zwrotu."
         }
+      ],
+      "pickup_plan_window": {
+        "start_at": "2026-11-07T10:10:00+02:00",
+        "end_at": "2026-11-07T12:30:00+02:00",
+        "note": "Bagaż i obsługa auta; cel obsługi około 11:30 nie zmienia umówionego odbioru 10:30."
+      },
+      "return_plan_window": {
+        "start_at": "2026-11-13T03:15:00+02:00",
+        "end_at": "2026-11-13T04:00:00+02:00",
+        "note": "Przyjazd 03:15–03:25, dokumentacja i obsługa; umówiony zwrot 03:30. Czas zależy od instrukcji Petsas."
+      }
+    },
+    "return_deadlines": {
+      "baggage_target_start": "04:20",
+      "baggage_target_end": "04:45",
+      "baggage_closes": "05:20",
+      "gate_closes": "05:50",
+      "gate_target": "05:15–05:30",
+      "timezone": "Asia/Nicosia",
+      "source_ids": [
+        "SRC-AUDIT-20261106",
+        "SRC-RYANAIR-60",
+        "SRC-RYANAIR-GATE"
       ]
     }
   },
@@ -291,8 +290,8 @@
     },
     {
       "id": "DEC-06",
-      "decision": "Planistyczny wyjazd na lot powrotny około 02:50.",
-      "reason": "Godzinę przyjęto, aby zachować planowe 45 min na zwrot auta, 25 min dojścia do terminalu i 45 min na nadanie bagażu przed warunkowym terminem 05:20; dojazd, brama hotelu i procedura zwrotu wymagają potwierdzenia."
+      "decision": "Planowany wyjazd na lot powrotny 13 XI o 02:40.",
+      "reason": "Cel przyjazdu do sektora 03:15–03:25 przed zwrotem umówionym 03:30. Cel stanowiska 04:20 i nadania 04:20–04:45; granica 05:20. Procedura bramy, zwrotu i transferu nadal do potwierdzenia."
     },
     {
       "id": "DEC-07",
@@ -785,6 +784,167 @@
       "scope": "Bezpośrednio sprawdzona strona oficjalnego portalu turystycznego: opis trasy religijnej wymienia Omodos i mówi, że zwiedzający zobaczy tam fragment sznura łączonego w przekazie z ukrzyżowaniem Jezusa. Źródło nie weryfikuje autentyczności relikwii; treść modułu oznaczono jako tradycję religijną, nie fakt historyczny.",
       "verification_status": null,
       "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-AUDIT-20261106",
+      "title": "Zaakceptowany audyt projektu — 6 XI 2026",
+      "url": null,
+      "checked_on": "2026-11-06",
+      "verification_status": "zalacznik_uzytkownika",
+      "scope": "Specyfikacja przekazana przez użytkownika; ustalenia organizacyjne nie oznaczają odpowiedzi usługodawców.",
+      "filename": "Zaakceptowany audyt Cypr2026 — 6 XI 2026"
+    },
+    {
+      "id": "SRC-RYANAIR-60",
+      "title": "Ryanair — bag drop 60 min od 10 XI 2026",
+      "url": "https://help.ryanair.com/hc/en-ie/articles/45954440547729-When-Why-is-Ryanair-moving-airport-check-in-bag-drop-times-to-60-mins",
+      "checked_on": "2026-11-06",
+      "verification_status": "przejete_z_audytu",
+      "scope": "Datowana zmiana przyjęta z zaakceptowanego audytu."
+    },
+    {
+      "id": "SRC-RYANAIR-GATE",
+      "title": "Ryanair — zamknięcie bramki",
+      "url": "https://help.ryanair.com/hc/en-gb/articles/12890675763089-When-will-the-boarding-gate-for-my-flight-close",
+      "checked_on": "2026-11-06",
+      "verification_status": "przejete_z_audytu",
+      "scope": "T–30 według audytu."
+    },
+    {
+      "id": "SRC-HOTEL-MAP",
+      "title": "Mapa obiektu Princessa Vera",
+      "url": "https://princessaverahotel.com/LOCATION.html",
+      "checked_on": "2026-11-06",
+      "verification_status": "sprawdzone_2026_11_06",
+      "scope": "Odczyt 6 XI: punkt obiektu w osadzonej mapie 34.767031, 32.410418. Nie określa bramy parkingowej."
+    },
+    {
+      "id": "SRC-ARTEMIS-FLYER",
+      "title": "Artemis — ulotka zarządcy",
+      "url": "https://www.moa.gov.cy/moa/fd/fd.nsf/0/4dca0bbdff72749fc225812900264f88/%24FILE/Artemis%20Trail%20-%20Three%20fold%20flyer.pdf",
+      "checked_on": "2026-11-06",
+      "verification_status": "przejete_z_audytu",
+      "scope": "Dojście z Troodos Square około 2,4 km w jedną stronę według audytu."
+    },
+    {
+      "id": "SRC-OSM-POINTS",
+      "title": "OpenStreetMap — punkty nawigacyjne",
+      "url": "https://www.openstreetmap.org/copyright",
+      "scope": "Odczyt OSM API 6 XI; konkretne węzły i kontekst przypisano przy miejscach. Środek obiektu nie jest wejściem ani parkingiem.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-CHRYSOPOLITISSA",
+      "title": "Chrysopolitissa / Agia Kyriaki",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/early-christian-basilica-st-paul-s-pillar-chrysopolitissa-agia-kyriaki-church/",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-GEROSKIPOU",
+      "title": "Geroskipou i Agia Paraskevi",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/agia-paraskevi-byzantine-church-geroskipou-village/",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-CORAL",
+      "title": "Coral Bay — odpoczynek",
+      "url": "https://www.visitcyprus.com/discover-cyprus/sun-sea/beaches/coral-bay-beach-blue-flag/",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-SEA-CAVES",
+      "title": "Sea Caves w Pegeia",
+      "url": "https://www.visitpafos.org.cy/off-the-beaten-track/nature/",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-PISSOURI",
+      "title": "Pissouri Bay albo wieś",
+      "url": "https://www.visitcyprus.com/discover-cyprus/sun-sea/beaches/pissouri-beach-blue-flag/",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-NEOPHYTOS",
+      "title": "Agios Neophytos",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/agios-neophytos-monastery/",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-CHRYSORROGIATISSA",
+      "title": "Chrysorrogiatissa",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/chrysorrogiatissa-monastery/",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-LOFOU",
+      "title": "Lofou",
+      "url": "https://www.visitcyprus.com/fr/christmas-fr/lofouvillage/",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-KOURION",
+      "title": "Kourion, opcjonalnie Kolossi",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/kourion-archaeological-site/",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-EZOUSA",
+      "title": "Ezousa z Episkopi",
+      "url": "https://www.visitcyprus.com/discover-cyprus/nature/nature-trails-2/ezousa-walking-trail-circular-pafos-paphos-district-nature-trail/",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-KALOPANAGIOTIS",
+      "title": "Kalopanagiotis i Lampadistis",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/agios-ioannis-lampadistis-church/",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-LEFKARA",
+      "title": "Lefkara i Choirokoitia",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/choirokoitia-archaeological-site-neolithic-settlement/",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-LARNACA",
+      "title": "Larnaka: jezioro, Hala Sultan Tekke i miasto",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/hala-sultan-tekke/",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-OPTION-NICOSIA",
+      "title": "Nikozja — pieszo przez Ledra Street",
+      "url": "https://www.mof.gov.cy/mof/customs/customs.nsf/All/05AEEF243C9BFC8BC22572BF002D0A28",
+      "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
+      "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
     }
   ],
   "days": [
@@ -821,10 +981,10 @@
         },
         {
           "id": "D1-02",
-          "start_local": "11:15",
+          "start_local": "10:10",
           "end_local": "12:30",
-          "title": "Okno planistyczne po umówionym odbiorze auta",
-          "description": "Odbiór umówiony z Petsas na 10:30 według vouchera; planowy cel 11:30 i okno planu 11:15–12:30 pozostają osobnymi założeniami. Przylot W61417 planowo 10:10 — tylko 20 min przed umówioną godziną. Pilnie potwierdzić punkt spotkania/transfer, minimalny czas po przylocie, karencję przy opóźnieniu i no-show. Dokładny sektor PFO do potwierdzenia.",
+          "title": "Bagaż i obsługa Petsas — okno planu",
+          "description": "Odbiór umówiony 10:30; cel obsługi około 11:30 i rezerwa do 12:00–12:30. Lądowanie 10:10 zostawia tylko 20 min do terminu umówionego. Potwierdzić z Petsas karencję, numer lotu i no-show; późniejszy cel planu nie zmienia rezerwacji.",
           "place_ids": [
             "POI-PFO"
           ],
@@ -884,7 +1044,7 @@
             "POI-FAROS"
           ],
           "kind": "plan",
-          "optional": false,
+          "optional": true,
           "time_basis": "założenie planu"
         },
         {
@@ -902,8 +1062,8 @@
         }
       ],
       "cut_order": [
-        "Port i daleka restauracja nie są elementem obowiązkowym.",
-        "Przy opóźnionym locie lub zmęczeniu pominąć spacer Faros."
+        "Przy opóźnieniu lub niewyspaniu pominąć Faros.",
+        "Następnie odpuścić port i dalszą restaurację; zjeść blisko hotelu."
       ],
       "bad_weather": "Hotel, posiłek i zakupy; spacer tylko w bezpiecznych warunkach.",
       "photography": "Faros: boczne światło i morze; cel obecności 16:00, bez podchodzenia do fal.",
@@ -937,7 +1097,16 @@
           "place_id": "POI-FAROS",
           "note": "Tylko jeśli zostaje światło i czas po zameldowaniu."
         }
-      ]
+      ],
+      "morning_brief": {
+        "program": "Po przylocie 10:10; Faros opcjonalnie 15:45",
+        "next_place_id": "POI-PFO",
+        "weather_decision": "Deszcz, wiatr lub niewyspanie: hotel i posiłek; spacer tylko jeśli warunki pozwolą.",
+        "cut_order": [
+          "Przy opóźnieniu lub niewyspaniu pominąć Faros.",
+          "Następnie odpuścić port i dalszą restaurację; zjeść blisko hotelu."
+        ]
+      }
     },
     {
       "id": "DAY-02",
@@ -1027,7 +1196,7 @@
           "start_local": "14:00",
           "end_local": "15:00",
           "title": "Powrót do hotelu",
-          "description": "Agia Solomoni lub Fabrica tylko przy ochocie i bezpiecznym dojściu.",
+          "description": "Powrót około 14:30–15:00. Chrysopolitissa albo Agia Solomoni jako jeden dodatek 30–45 min; nie dokładać obu ani Fabrica.",
           "place_ids": [
             "POI-HOTEL",
             "POI-SOLOMONI"
@@ -1051,9 +1220,9 @@
         }
       ],
       "cut_order": [
-        "Najpierw zrezygnować z Agia Solomoni i Fabrica.",
-        "Przy zmęczeniu skrócić park albo wrócić taksówką.",
-        "Nie dodawać spontanicznego trekkingu poza zabudową."
+        "Najpierw dodatkowe podziemia i Fabrica.",
+        "Potem ponowny zachód; wybrać najwyżej jeden krótki dodatek.",
+        "Przy zmęczeniu skrócić park lub wrócić taksówką."
       ],
       "bad_weather": "Muzeum Archeologiczne dystryktu Pafos 09:00–16:30, jeśli otwarte; potem lunch i hotel. Park oraz Grobowce są w większości odkryte.",
       "photography": "Rano mozaiki i detale kamienia, potem port; zachód 16:50 tylko jako dodatek.",
@@ -1093,8 +1262,22 @@
         {
           "place_id": "POI-GEROSKIPOU",
           "note": "Około 10 min od Pafos; 8 XI to niedziela. Bez wcześniejszego uzgodnienia wejście do wnętrza Agia Paraskevi nie jest planem — oglądanie z zewnątrz; Visit Cyprus podaje niedzielne wizyty na życzenie."
+        },
+        {
+          "place_id": "POI-CHRYSOPOLITISSA",
+          "note": "Zamiast Agia Solomoni; razem 30–55 min z dojściem. Wybrać jeden dodatek."
         }
-      ]
+      ],
+      "morning_brief": {
+        "program": "Wyjście 08:25; park, port i lunch",
+        "next_place_id": "POI-PARK",
+        "weather_decision": "Deszcz: muzeum dystryktu 09:00–16:30, lunch i hotel.",
+        "cut_order": [
+          "Najpierw dodatkowe podziemia i Fabrica.",
+          "Potem ponowny zachód; wybrać najwyżej jeden krótki dodatek.",
+          "Przy zmęczeniu skrócić park lub wrócić taksówką."
+        ]
+      }
     },
     {
       "id": "DAY-03",
@@ -1130,9 +1313,9 @@
         {
           "id": "D3-02",
           "start_local": "07:25",
-          "end_local": "08:40",
+          "end_local": "08:45",
           "title": "Dojazd do Baths of Aphrodite",
-          "description": "60–75 min. Polis i Latchi, asfalt do legalnego parkingu; nie jechać dalej ku Blue Lagoon.",
+          "description": "60–80 min przez Polis i Latchi; asfalt do legalnego parkingu Baths. Parking i około 20 min przygotowania liczone osobno. Nie jechać autem ku Blue Lagoon.",
           "place_ids": [
             "POI-BATHS"
           ],
@@ -1142,8 +1325,8 @@
         },
         {
           "id": "D3-03",
-          "start_local": "08:40",
-          "end_local": "09:00",
+          "start_local": "08:45",
+          "end_local": "09:05",
           "title": "Przygotowanie i decyzja",
           "description": "Tablice, mapa, pogoda i stan podłoża. Warunek wcześniejszego sprawdzenia konkretnej trasy względem map łowieckich.",
           "place_ids": [
@@ -1155,10 +1338,10 @@
         },
         {
           "id": "D3-04",
-          "start_local": "09:00",
+          "start_local": "09:05",
           "end_local": "13:30",
           "title": "Pętla Aphrodite",
-          "description": "Plan 4–4,5 h z fotografią; rezerwa do 5 h, czyli 14:00 przy tym starcie. Kończyć marsz bez pośpiechu.",
+          "description": "Cel około 09:00–13:30, rezerwa do 14:00 (start zależny od dojazdu). Oficjalna pętla 7,5 km, trudność 3/3. Prowiant i własna woda; źródła na trasie niezdatne do picia. Moutti tis Sotiras to świadomy dodatek po sprawdzeniu śladu: około 20–30 min na odgałęzienie i zdjęcia, kosztem restauracji; nie wliczać automatycznie do 7,5 km.",
           "place_ids": [
             "POI-BATHS"
           ],
@@ -1196,7 +1379,7 @@
         {
           "id": "D3-07",
           "start_local": "16:00",
-          "end_local": "17:05",
+          "end_local": "17:00",
           "title": "Edro III",
           "description": "Zachód około 16:49. Tylko z bezpiecznego suchego miejsca; bez wchodzenia na wrak i mokre skały.",
           "place_ids": [
@@ -1208,7 +1391,7 @@
         },
         {
           "id": "D3-08",
-          "start_local": "17:05",
+          "start_local": "17:00",
           "end_local": "18:00",
           "title": "Powrót do hotelu",
           "description": "25–35 min jazdy z Edro, z dojściem i marginesem hotel do około 18:00.",
@@ -1263,7 +1446,17 @@
           "place_id": "POI-EDRO",
           "note": "Zachód tylko z bezpiecznego, suchego miejsca; bez wchodzenia na wrak."
         }
-      ]
+      ],
+      "morning_brief": {
+        "program": "Wyjazd 07:25; Aphrodite, Edro opcjonalnie",
+        "next_place_id": "POI-BATHS",
+        "weather_decision": "Sprawdzić deszcz, wiatr, śliskość i komunikaty szlaku; w złych warunkach lokalne Pafos. Prowiant i woda w plecaku.",
+        "cut_order": [
+          "Gdy marsz kończy się po 13:30, rezygnujemy ze sztywnego lunchu w restauracji; jemy zapas.",
+          "Jeżeli prognozowany dojazd do Edro wypada po 16:00, pomijamy Edro lub fotografujemy bliżej.",
+          "Opóźniony start oznacza Aphrodite solo, nigdy spontaniczne wydłużenie."
+        ]
+      }
     },
     {
       "id": "DAY-04",
@@ -1299,9 +1492,9 @@
         {
           "id": "D4-02",
           "start_local": "07:25",
-          "end_local": "09:45",
+          "end_local": "09:40",
           "title": "Dojazd do Artemis",
-          "description": "105–125 min plus 10–15 min bufora robót, jeśli nie są uwzględnione w nawigacji. Dojazd może trwać do około 09:45.",
+          "description": "Szacunkowo 1 h 50–2 h 20 przez rejon Platres i Troodos po asfalcie. Rezerwa na roboty przy Psilo Dendro/B9. Nawigacja do oficjalnego początku Artemis 34.933166, 32.871986; nie do Troodos Square. Przy późniejszym przyjeździe przesunąć przygotowanie, start najpóźniej około 10:00.",
           "place_ids": [
             "POI-ARTEMIS"
           ],
@@ -1311,10 +1504,10 @@
         },
         {
           "id": "D4-03",
-          "start_local": "09:30",
+          "start_local": "09:40",
           "end_local": "10:00",
           "title": "Parking i kontrola warunków",
-          "description": "To okno zależy od przejazdu. Lód, mgła, silny wiatr albo zamknięcie oznaczają zmianę dnia. Mały parking przy oficjalnym starcie.",
+          "description": "Około 15–20 min przygotowania przy oznaczonym początku. Start cel 09:45–10:00 zależnie od dojazdu. Lód, mgła, silny wiatr lub zamknięcie oznaczają rezygnację. Troodos Square dodaje 2,4 km dojścia w jedną stronę, 4,8 km łącznie — wymaga nowego przeliczenia czasu.",
           "place_ids": [
             "POI-ARTEMIS"
           ],
@@ -1340,12 +1533,12 @@
           "start_local": "13:30",
           "end_local": "14:00",
           "title": "Jedzenie i przygotowanie powrotu",
-          "description": "Domyślnie prowiant. Plagia przy Troodos Square tylko po potwierdzeniu i gdy wyjazd z okolicy nastąpi najpóźniej 14:15.",
+          "description": "Domyślnie własny prowiant i wyjazd około 14:00. Krótki Troodos Square lub restauracja tylko gdy nie opóźnia powrotu; po końcu marszu o 14:00 rezygnujemy z postojów.",
           "place_ids": [
             "POI-TROODOS"
           ],
           "kind": "plan",
-          "optional": true,
+          "optional": false,
           "time_basis": "założenie planu"
         },
         {
@@ -1367,7 +1560,7 @@
         "Po przyjeździe po 10:00 ponownie sprawdzić 4 h marszu i margines; domyślnie zrezygnować z pełnej pętli.",
         "Nie dodawać Atalanti ani objazdu przez kolejne wioski."
       ],
-      "bad_weather": "Jeśli Akamas jest suchy i dopuszczony, można zamienić dni 9/10 XI. W przeciwnym razie muzeum, Pafos i odpoczynek. Lód i ograniczenia drogowe wykluczają próbny wjazd.",
+      "bad_weather": "Mgła, oblodzenie, silny wiatr lub zamknięcie: niższa Ezousa, Agios Neophytos albo muzeum, zależnie od pogody niżej. Zamiana 9/10 XI tylko po porównaniu warunków obu tras; bez dobrego okna na góry rezygnujemy z Artemis.",
       "photography": "Stare czarne sosny, skały i panoramy. Dobra widzialność daje większą wartość niż sam bezdeszczowy dzień.",
       "return_note": "Wieczór wolny. Długi dojazd pozostaje kosztem nawet łatwej technicznie trasy.",
       "primary_route_id": "TR-ARTEMIS",
@@ -1405,7 +1598,17 @@
           "place_id": "POI-PSILO",
           "note": "Tylko jako punkt orientacyjny; nie zmieniać trasy na Pouziaris spontanicznie."
         }
-      ]
+      ],
+      "morning_brief": {
+        "program": "Wyjazd 07:25; Artemis, prowiant, powrót",
+        "next_place_id": "POI-ARTEMIS",
+        "weather_decision": "Widzialność, wiatr, lód, drogi i otwarcie trasy; w razie rezygnacji niższa Ezousa, Neophytos lub muzeum.",
+        "cut_order": [
+          "Najpierw skreślić lunch w restauracji i dodatkowe postoje.",
+          "Po przyjeździe po 10:00 ponownie sprawdzić 4 h marszu i margines; domyślnie zrezygnować z pełnej pętli.",
+          "Nie dodawać Atalanti ani objazdu przez kolejne wioski."
+        ]
+      }
     },
     {
       "id": "DAY-05",
@@ -1469,7 +1672,7 @@
           "start_local": "10:00",
           "end_local": "11:10",
           "title": "Przejazd do Omodos",
-          "description": "45–60 min plus legalny parking przed centrum i 5–10 min dojścia.",
+          "description": "45–65 min jazdy plus parking poza centrum i 5–10 min dojścia.",
           "place_ids": [
             "POI-OMODOS"
           ],
@@ -1506,7 +1709,7 @@
         {
           "id": "D5-07",
           "start_local": "13:15",
-          "end_local": "14:00",
+          "end_local": "13:45",
           "title": "Krótki czas wolny",
           "description": "Uliczki i zdjęcia, bez spacerów na zbocza poza wsią.",
           "place_ids": [
@@ -1518,10 +1721,10 @@
         },
         {
           "id": "D5-08",
-          "start_local": "14:00",
-          "end_local": "15:20",
+          "start_local": "13:45",
+          "end_local": "15:15",
           "title": "Dojazd do Petra",
-          "description": "45–60 min z Omodos plus parking i dojście tunelem. Zakładany przyjazd 15:00–15:20.",
+          "description": "Wyjazd cel 13:45–14:00; 45–65 min jazdy, osobno parking po stronie lądu i przejście tunelem. Nie przekraczać pieszo B6.",
           "place_ids": [
             "POI-PETRA"
           ],
@@ -1531,8 +1734,8 @@
         },
         {
           "id": "D5-09",
-          "start_local": "15:20",
-          "end_local": "17:05",
+          "start_local": "15:15",
+          "end_local": "17:00",
           "title": "Petra tou Romiou",
           "description": "Zdjęcia przy świetle; zachód około 16:48. Parking po stronie lądu, przejście tunelem, bez przekraczania B6 i bez kąpieli w planie.",
           "place_ids": [
@@ -1544,7 +1747,7 @@
         },
         {
           "id": "D5-10",
-          "start_local": "17:05",
+          "start_local": "17:00",
           "end_local": "18:00",
           "title": "Powrót",
           "description": "30–45 min plus dojście do auta. Po powrocie potwierdzić zwrot auta i przygotować większość bagażu.",
@@ -1558,7 +1761,7 @@
       ],
       "cut_order": [
         "Usunąć Palaipafos przy potrzebie spokojniejszego poranka.",
-        "Skrócić Omodos po lunchu; wyjazd docelowo 14:00, granicznie 14:30.",
+        "Potem skrócić czas wolny po lunchu; wyjazd z Omodos cel 13:45–14:00.",
         "Petra odpada przy niebezpiecznych falach, burzy lub silnym wietrze."
       ],
       "bad_weather": "Przy złej pogodzie w górach ograniczyć do Palaipafos i Pafos, o ile przejazdy są bezpieczne. Muzeum dystryktu Pafos stanowi osobną alternatywę.",
@@ -1603,7 +1806,17 @@
           "place_id": "POI-PETRA",
           "note": "Fotografia od ok. 15:30; nie przekraczać B6 i nie wchodzić do wody."
         }
-      ]
+      ],
+      "morning_brief": {
+        "program": "Wyjazd 08:00; Palaipafos, Omodos, Petra",
+        "next_place_id": "POI-PALAIPAFOS",
+        "weather_decision": "Deszcz w górach: Palaipafos i Pafos; silny wiatr lub fale: pominąć Petrę.",
+        "cut_order": [
+          "Usunąć Palaipafos przy potrzebie spokojniejszego poranka.",
+          "Potem skrócić czas wolny po lunchu; wyjazd z Omodos cel 13:45–14:00.",
+          "Petra odpada przy niebezpiecznych falach, burzy lub silnym wietrze."
+        ]
+      }
     },
     {
       "id": "DAY-06",
@@ -1703,7 +1916,7 @@
           "start_local": "16:00",
           "end_local": "18:00",
           "title": "Pakowanie i wczesna kolacja",
-          "description": "Dokumenty, telefon, ładowarki i ubrania na noc pod ręką. Zjeść przed hotelową kolacją publikowaną od 19:00; własny posiłek lub potwierdzony lokal.",
+          "description": "Pakowanie zakończyć przed wieczorem; kolacja około 17:00–18:00. Hotelowa kolacja od 19:00 nie pasuje do snu od 19:00 — własny posiłek lub lokal blisko hotelu.",
           "place_ids": [
             "POI-HOTEL"
           ],
@@ -1748,7 +1961,7 @@
         },
         {
           "trigger": "Awaria auta lub brak zwrotu",
-          "action": "Nie zostawiać auta bez instrukcji; jeśli zwrotu nie da się wykonać, ustalić taxi na PFO na planowy wyjazd 02:50 lub wcześniej oraz pisemny plan zwrotu. Nie czekać do 03:00; paliwo i pakowanie mają pierwszeństwo."
+          "action": "Nie zostawiać auta bez instrukcji; jeśli zwrotu nie da się wykonać, ustalić taxi na PFO na planowy wyjazd 02:40 lub wcześniej oraz pisemny plan zwrotu. Nie czekać do 03:00; paliwo i pakowanie mają pierwszeństwo."
         },
         {
           "trigger": "Opóźnione przygotowania",
@@ -1756,7 +1969,7 @@
         },
         {
           "trigger": "Lot odwołany lub opóźniony",
-          "action": "Sprawdzić aplikację przewoźnika; nie zakładać, że samo opóźnienie przesuwa zamknięcie bag drop. Planistyczne 05:20 opiera się na SRC-RYANAIR/linku kontrolnym i audycie; źródło zwróciło HTTP 403 przy kontroli 5 XI, więc potwierdzić zasadę i godzinę dla FR5880 w aplikacji lub przeglądarce Ryanair. Przy opóźnieniu jechać na lotnisko zgodnie z planowym wyjazdem 02:50 lub wcześniej i czekać. Przy odwołaniu lotu zmianę lub przedłużenie najmu uzgodnić bezpośrednio z wypożyczalnią i uzyskać jej pisemną instrukcję."
+          "action": "Sprawdzić aplikację przewoźnika; nie zakładać, że samo opóźnienie przesuwa zamknięcie bag drop. Planistyczne 05:20 opiera się na SRC-RYANAIR/linku kontrolnym i audycie; źródło zwróciło HTTP 403 przy kontroli 5 XI, więc potwierdzić zasadę i godzinę dla FR5880 w aplikacji lub przeglądarce Ryanair. Przy opóźnieniu jechać na lotnisko zgodnie z planowym wyjazdem 02:40 lub wcześniej i czekać. Przy odwołaniu lotu zmianę lub przedłużenie najmu uzgodnić bezpośrednio z wypożyczalnią i uzyskać jej pisemną instrukcję."
         }
       ],
       "optional_stops": [
@@ -1770,16 +1983,26 @@
         },
         {
           "place_id": "POI-NEOPHYTOS",
-          "note": "15 min od hotelu; klasztor 09:00–16:00, wstęp 2 EUR — tylko rano, bez wpływu na pakowanie."
+          "note": "Z hotelu 25–35 min w jedną stronę, 5–10 min parking/dojście, wizyta 60–90 min; razem 2–3 h. Zamiana Grobowców lub wolnego poranka, nie obowiązek. Muzeum/Enkleistra 09:00–16:00, 2 EUR/os."
         }
-      ]
+      ],
+      "morning_brief": {
+        "program": "Wyjście 08:00; Grobowce i przygotowanie",
+        "next_place_id": "POI-TOMBS",
+        "weather_decision": "Deszcz lub zmęczenie: odpuścić Grobowce; paliwo, pakowanie, kolacja 17:00–18:00, sen 19:00.",
+        "cut_order": [
+          "Bez długiej wycieczki do Troodos.",
+          "Wellness i spacer odpadają, jeśli opóźniają paliwo, pakowanie lub sen.",
+          "Wariant Vouni jest zamianą całego poranka, nie dodatkiem do Grobowców."
+        ]
+      }
     },
     {
       "id": "DAY-07",
       "date": "2026-11-13",
       "weekday": "piątek",
       "title": "Nocny zwrot auta i powrót",
-      "summary": "Petsas potwierdza umówiony zwrot PFO 03:30; planowy przyjazd do sektora 03:25 i okno 03:25–04:10 są założeniami harmonogramu. Sektor, key drop i koniec odpowiedzialności wymagają pisemnego potwierdzenia.",
+      "summary": "Wyjazd z hotelu 02:40; Petsas umówione 03:30; cel bag drop 04:20–04:45, granica 05:20; bramka zamyka się 05:50. FR5880 06:20 → WAW 08:45 czasu polskiego.",
       "timezone": "Asia/Nicosia",
       "mode": "auto i samolot",
       "walk_km_estimate": null,
@@ -1794,7 +2017,7 @@
           "start_local": "00:00",
           "end_local": "02:05",
           "title": "Sen — dokończenie",
-          "description": "Ciąg dalszy snu po północy; pobudka 02:05. Sen 12 XI zaczyna się o 19:00 i kończy o 23:59, a ten wpis domyka noc bez sztucznego skracania do 23:59.",
+          "description": "Dokończenie snu rozpoczętego 12 XI o 19:00; pobudka 02:05.",
           "place_ids": [
             "POI-HOTEL"
           ],
@@ -1818,9 +2041,9 @@
         {
           "id": "D7-02",
           "start_local": "02:30",
-          "end_local": "02:45",
+          "end_local": "02:40",
           "title": "Wyjście i klucze hotelu",
-          "description": "Uzgodniona wcześniej procedura. Planistyczne wyjście z hotelu 02:30–02:45; breakfast box tylko jeśli potwierdzony, inaczej własne jedzenie.",
+          "description": "Wyjście z pokoju około 02:30 według uzgodnionej procedury; dostęp do parkingu przed 02:40 do potwierdzenia. Własne jedzenie, jeśli box nie jest potwierdzony.",
           "place_ids": [
             "POI-HOTEL"
           ],
@@ -1830,10 +2053,10 @@
         },
         {
           "id": "D7-03",
-          "start_local": "02:50",
-          "end_local": "03:25",
+          "start_local": "02:40",
+          "end_local": "03:15",
           "title": "Wyjazd na PFO",
-          "description": "To planistyczna godzina ruszenia z parkingu. Dojazd szacowany na 25–35 min; planowy przyjazd do sektora około 03:25. Zwrot Petsas jest umówiony na 03:30 według vouchera. Hotelowy parking i dokładny sektor/procedura wymagają potwierdzenia.",
+          "description": "Wyjazd z hotelu 02:40. Szacunkowo 25–35 min jazdy; cel przyjazdu do właściwego sektora 03:15–03:25. Zwrot umówiony 03:30. Dokładny sektor i nocna procedura wymagają instrukcji Petsas.",
           "place_ids": [
             "POI-PFO"
           ],
@@ -1843,38 +2066,38 @@
         },
         {
           "id": "D7-04",
-          "start_local": "03:25",
-          "end_local": "04:10",
-          "title": "Planowy dojazd 03:25 · zwrot umówiony 03:30",
-          "description": "Umówiony zwrot Petsas: 03:30 według vouchera. Planowy przyjazd do sektora około 03:25; w osi czasu zachowano okno 03:25–04:10 (45 min buforu planu), nie warunek firmy. Wjazd do sektora, dokumentacja, rzeczy i klucze według pisemnej instrukcji; dokładny punkt, key drop i moment końca odpowiedzialności do potwierdzenia.",
+          "start_local": "03:15",
+          "end_local": "04:00",
+          "title": "Zwrot Petsas — okno planu; termin 03:30",
+          "description": "Zwrot umówiony 03:30. Plan: przyjazd do właściwego sektora 03:15–03:25 i obsługa do około 04:00; cel stanowiska odprawy 04:20. Sektor, klucze, ewentualny transfer i koniec odpowiedzialności wymagają pisemnej instrukcji Petsas. Zdjęcia same nie kończą odpowiedzialności.",
           "place_ids": [
             "POI-PFO"
           ],
           "kind": "plan",
           "optional": false,
           "time_basis": "założenie planu",
-          "ics_export": false
+          "ics_export": true
         },
         {
           "id": "D7-05",
-          "start_local": "04:10",
-          "end_local": "04:35",
-          "title": "Terminal",
-          "description": "25 min to orientacyjne okno dojścia, nie pomiar; potwierdzić odległość od konkretnego sektora zwrotu i czy jest shuttle. Stanowisko może nie być otwarte.",
+          "start_local": "04:00",
+          "end_local": "04:20",
+          "title": "Dojście / transfer do terminala",
+          "description": "Cel stanowiska odprawy około 04:20. To założenie zależne od sektora i instrukcji Petsas; czas i ewentualny shuttle do potwierdzenia.",
           "place_ids": [
             "POI-PFO"
           ],
           "kind": "plan",
           "optional": false,
           "time_basis": "założenie planu",
-          "ics_export": false
+          "ics_export": true
         },
         {
           "id": "D7-06",
-          "start_local": "04:35",
-          "end_local": "05:20",
-          "title": "Odprawa i nadanie bagażu",
-          "description": "45 min to planistyczne okno, bez potwierdzenia godziny otwarcia stanowiska. Plan przyjmuje zamknięcie bag drop o 05:20 według wskazanego źródła Ryanair i audytu; źródło było niedostępne dla bota (HTTP 403), więc potwierdzić godzinę dla FR5880 w aplikacji/przeglądarce przewoźnika. Jeśli 05:20 zostanie potwierdzone, bagaż musi być przyjęty przed zamknięciem; stanie w kolejce nie wystarczy. Wcześniejszy wyjazd utrzymuje 45 min zwrotu, 25 min dojścia i 45 min na nadanie bagażu; procedury operatora nie potwierdzono.",
+          "start_local": "04:20",
+          "end_local": "04:45",
+          "title": "Nadanie bagażu — cel planu",
+          "description": "FR5880 13 XI: cel nadania 04:20–04:45; granica bag drop 05:20 (T–60, zmiana Ryanair od 10 XI 2026 według audytu); zamknięcie bramki 05:50 (T–30). Stanie w kolejce nie wystarczy. Sprawdzić bieżące komunikaty i kartę pokładową.",
           "place_ids": [
             "POI-PFO"
           ],
@@ -1884,16 +2107,42 @@
         },
         {
           "id": "D7-07",
-          "start_local": "05:20",
-          "end_local": "05:50",
-          "title": "Cel obecności przy bramce",
-          "description": "Cel planistyczny, nie godzina zamknięcia; uwzględnić kontrolę bezpieczeństwa i przejście do bramki. Numer oraz rzeczywistą godzinę zamknięcia sprawdzić na karcie i ekranach.",
+          "start_local": "04:45",
+          "end_local": "05:30",
+          "title": "Kontrola i dojście do bramki",
+          "description": "Cel obecności przy bramce 05:15–05:30. Granica zamknięcia bramki 05:50, nie cel przyjścia; numer i bieżące komunikaty na karcie oraz ekranach.",
           "place_ids": [
             "POI-PFO"
           ],
           "kind": "plan",
           "optional": false,
           "time_basis": "założenie planu"
+        },
+        {
+          "id": "D7-BAG-LIMIT",
+          "start_local": "05:20",
+          "end_local": "05:21",
+          "title": "Bag drop — granica zamknięcia",
+          "description": "Bagaż musi zostać przyjęty przed 05:20. To granica T–60, a cel nadania to 04:20–04:45.",
+          "place_ids": [
+            "POI-PFO"
+          ],
+          "kind": "plan",
+          "optional": false,
+          "time_basis": "granica odprawy według audytu 6 XI"
+        },
+        {
+          "id": "D7-GATE-LIMIT",
+          "start_local": "05:50",
+          "end_local": "05:51",
+          "title": "Bramka — zamknięcie",
+          "description": "Granica T–30 przed planowym odlotem 06:20; cel obecności 05:15–05:30.",
+          "place_ids": [
+            "POI-PFO"
+          ],
+          "kind": "plan",
+          "optional": false,
+          "time_basis": "granica odprawy według audytu 6 XI"
         },
         {
           "id": "D7-08",
@@ -1925,12 +2174,12 @@
       ],
       "cut_order": [
         "Nie planować nocnego tankowania.",
-        "Nie przesuwać planowego wyjazdu z 02:50 na później dla dodatkowego snu.",
-        "Jeśli zwrot jest poza lotniskiem, ten rozkład wymaga nowego przeliczenia i pisemnego potwierdzenia nocnego transferu."
+        "Nie przesuwać wyjazdu 02:40 dla dodatkowego snu.",
+        "Jeżeli zwrot wymaga długiej obsługi lub shuttle, ponownie przeliczyć odcinek od 03:30 i wyjazd z hotelu."
       ],
-      "bad_weather": "Przy utrudnieniach nocnych rozważyć 02:45 lub wcześniejszy wyjazd po przeliczeniu; sama godzina 02:45 nie gwarantuje sprawnego shuttle.",
+      "bad_weather": "Przy nocnych utrudnieniach ruszyć odpowiednio wcześniej po sprawdzeniu drogi i procedury zwrotu; 02:40 jest celem planu, nie gwarancją czasu transferu.",
       "photography": "Brak programu fotograficznego; film auta służy dokumentacji.",
-      "return_note": "Zwrot Petsas jest umówiony na 03:30 według vouchera; planowy przyjazd do sektora około 03:25 i okno planu 03:25–04:10 pozostają odrębnymi założeniami. Potwierdzić pisemnie punkt/key drop i koniec odpowiedzialności. Przy odlocie 06:20 założono zamknięcie bag drop o 05:20 warunkowo według wskazanego źródła Ryanair/audytu. Link zwrócił HTTP 403 przy kontroli 5 XI; potwierdzić godzinę dla FR5880 w aplikacji lub przeglądarce. Jeśli 05:20 się potwierdzi, bagaż musi być już przyjęty — samo stanie w kolejce nie wystarczy.",
+      "return_note": "Zwrot umówiony 03:30. Plan: przyjazd do właściwego sektora 03:15–03:25 i obsługa do około 04:00; cel stanowiska odprawy 04:20. Sektor, klucze, ewentualny transfer i koniec odpowiedzialności wymagają pisemnej instrukcji Petsas. Zdjęcia same nie kończą odpowiedzialności. FR5880 13 XI: cel nadania 04:20–04:45; granica bag drop 05:20 (T–60, zmiana Ryanair od 10 XI 2026 według audytu); zamknięcie bramki 05:50 (T–30). Stanie w kolejce nie wystarczy. Sprawdzić bieżące komunikaty i kartę pokładową.",
       "primary_route_id": null,
       "booking_status": "planowane",
       "field_readiness": "nie_dotyczy",
@@ -1941,11 +2190,11 @@
       "contingencies": [
         {
           "trigger": "Brak potwierdzonego after-hours return",
-          "action": "Wyjechać 02:45 lub wcześniej, mieć pisemną instrukcję key drop i numer assistance. Jeśli firma nie pozwala na nocny zwrot, oddać auto poprzedniego dnia i wziąć taxi."
+          "action": "Wyjechać 02:40 lub wcześniej, mieć pisemną instrukcję key drop i numer assistance. Jeśli firma nie pozwala na nocny zwrot, oddać auto poprzedniego dnia i wziąć taxi."
         },
         {
           "trigger": "Opóźnienie zwrotu auta",
-          "action": "Nie zostawiać auta bez instrukcji; jechać taxi na terminal, a zwrot uzgodnić telefonicznie. Planistyczne 05:20 dla bag drop wymaga potwierdzenia w aplikacji/przeglądarce Ryanair (SRC-RYANAIR, HTTP 403 dla bota 5 XI)."
+          "action": "Jechać zgodnie z planem (wyjazd 02:40 lub wcześniej przy utrudnieniach). Cel nadania 04:20–04:45; bag drop zamyka się 05:20, bramka 05:50. Opóźnienie lotu samo nie przesuwa tych granic. Śledzić komunikaty przewoźnika; zmiany najmu uzgodnić z Petsas."
         },
         {
           "trigger": "Opóźniony lub odwołany lot",
@@ -1956,7 +2205,17 @@
           "action": "112 przy zagrożeniu; kontakt z wypożyczalnią i linią lotniczą. Nie opuszczać terminalu bez planu."
         }
       ],
-      "optional_stops": []
+      "optional_stops": [],
+      "morning_brief": {
+        "program": "Pobudka 02:05; wyjazd 02:40 na PFO",
+        "next_place_id": "POI-PFO",
+        "weather_decision": "Sprawdzić lot, drogę, nocny dostęp do auta i instrukcję Petsas. Paliwo załatwione poprzedniego dnia.",
+        "cut_order": [
+          "Nie planować nocnego tankowania.",
+          "Nie przesuwać wyjazdu 02:40 dla dodatkowego snu.",
+          "Jeżeli zwrot wymaga długiej obsługi lub shuttle, ponownie przeliczyć odcinek od 03:30 i wyjazd z hotelu."
+        ]
+      }
     }
   ],
   "routes": [
@@ -2002,7 +2261,8 @@
       "notes": [
         "Oficjalny czas 3–4 h jest krótszy od planu uwzględniającego fotografię.",
         "Wysokości 35–333 m nie są sumą podejść. Nie publikować +480–540 m jako parametru tej pętli.",
-        "Moutti tis Sotiras traktować jako osobno sprawdzane odgałęzienie, jeżeli wybrany przebieg go nie obejmuje."
+        "Moutti tis Sotiras traktować jako osobno sprawdzane odgałęzienie, jeżeli wybrany przebieg go nie obejmuje.",
+        "Moutti tis Sotiras: świadomy dodatek po sprawdzeniu przebiegu; około 20–30 min na odgałęzienie i zdjęcia, kosztem restauracji. Nie doliczać go automatycznie do oficjalnych 7,5 km. Własna woda; źródła przy szlaku niezdatne do picia."
       ],
       "field_readiness": "do_sprawdzenia_przed_wyjsciem"
     },
@@ -2043,12 +2303,14 @@
       },
       "source_ids": [
         "SRC-ARTEMIS",
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-ARTEMIS-FLYER"
       ],
       "notes": [
         "Oficjalny czas 2,5–3 h; plan wydłużony dla zdjęć.",
         "Nie wpisywać dokładnego przewyższenia +70 m bez zweryfikowanego śladu.",
-        "Nie jest rezerwą na mgłę ani zimowe warunki."
+        "Nie jest rezerwą na mgłę ani zimowe warunki.",
+        "Nawiguj do 34.933166, 32.871986. Z Troodos Square jest około 2,4 km dojścia w jedną stronę (4,8 km ekstra). Start przy drodze na Chionistrę; wolny parking niegwarantowany."
       ],
       "field_readiness": "do_sprawdzenia_przed_wyjsciem"
     },
@@ -2368,7 +2630,7 @@
         "Grobowce Królewskie i wolny poranek"
       ],
       "route_id": "TR-VOUNI",
-      "schedule": "07:00 szybkie śniadanie; 07:25 wyjazd; około 08:40 start; planowy koniec 12:40–13:10, rezerwa do 13:40; krótki posiłek; hotel cel 14:30–15:00, margines do 15:30.",
+      "schedule": "Świadoma zamiana całego poranka: 55–75 min jazdy w jedną stronę, 15 min przygotowania, marsz fotograficzny 4–5 h; razem około 7–8 h. Większość pakowania gotowa wcześniej. Bliższa Ezousa zostawia większy zapas na przygotowanie i sen; domyślnie czwartek lokalny.",
       "conditions": [
         "Kontrola trasy i polowań zakończona, sucho i dobra forma.",
         "Grobowce zrealizowane 8 XI albo świadomie pominięte.",
@@ -2398,7 +2660,7 @@
         "Palaipafos, Omodos i Petra tou Romiou"
       ],
       "route_id": null,
-      "schedule": "Plan orientacyjny, nie rozkład usług: wyjazd 06:00; główny dojazd do przejścia 150–195 min (przyjazd ok. 08:30–09:15); formalności 30–60 min, więc przejście wypada ok. 09:00–10:15. Te rachunki nie obejmują nieznanego dojazdu lokalnego do Famagusty ani parkowania. Zwiedzanie Varoshy planować dopiero po rzeczywistym dojeździe i potwierdzeniu dostępu; około 2 h to założenie planu, nie godziny otwarcia. Następnie posiłek/stare miasto zależnie od czasu, z wczesnym rozpoczęciem powrotu. Drugi główny odcinek do Pafos to kolejne 150–195 min plus 30–60 min formalności przy powrocie i nieznany dojazd lokalny do przejścia. Szacunek całej trasy: ok. 390–430 km (TF-22, 195–215 km w jedną stronę) i 5–6,5 h dla dwóch głównych odcinków jazdy; lokalna jazda, parkowanie i łącznie 1–2 h formalności są osobno. Hotelu i godzin zwiedzania nie da się wiarygodnie zaplanować bez potwierdzenia lokalnych odcinków, przejścia i godzin dostępu; nie nadrabiać opóźnień ani nie zakładać powrotu przed zmrokiem.",
+      "schedule": "Zamiana całej środy: 5–6,5 h głównej jazdy, lokalne dojazdy i parking, planistycznie 30–60 min na każde przekroczenie oraz 3–4 h wizyty; razem 10–13 h, zwykle powrót po zmroku. Godziny i cena Varoshy na 11 XI 2026 do potwierdzenia; 08:00–17:00 pochodzi z komunikatu z 2021 r. Nie łączyć z Cape Greco.",
       "conditions": [
         "Wczesna pobudka ok. 05:30 i długa jazda po ciemku w obie strony.",
         "Pisemna zgoda wypożyczalni na przekroczenie Green Line oraz osobne pisemne potwierdzenie terytorialnej ochrony wynajętego auta (szkody), OC i assistance od wypożyczalni/ubezpieczyciela (Avis/Enterprise zakazują; Petsas wymaga wcześniejszego kontaktu, zgoda do potwierdzenia). Sama polisa kupiona na przejściu nie wystarcza.",
@@ -2419,9 +2681,9 @@
         "Pętla Artemis i dzień Troodos"
       ],
       "route_id": null,
-      "schedule": "07:00 wyjazd; ok. 09:15 Cape Greco (parking przy centrum odwiedzających lub przy jaskiniach); 09:15–12:00 szlaki klifowe, Love Bridge (Ayia Napa), Kamara tou Koraka (Crow's Arch), Drzewo Kochanków (do potwierdzenia dokładna lokalizacja i parking); 12:30 obiad w Ayia Napa; 14:00 powrót; hotel ok. 16:15–16:30, przed zmierzchem. Szacunek: ok. 360 km i 4,5 h jazdy, bez przekraczania granicy.",
+      "schedule": "Wyjazd 07:00, start spaceru bliżej 10:00. Łącznie 5,5–6,5 h jazdy plus parkingi i lokalne przejazdy. Wybrać jeden spacer 2–4 km i 1–2 punkty. Powrót przed końcem dnia skraca pobyt; pozostanie na zachód oznacza hotel około 19:30–20:30. Zamiana Artemis, bez łączenia z Varoshą.",
       "conditions": [
-        "Republika Cypryjska — brak przekraczania granicy; standardowe ubezpieczenie auta obowiązuje.",
+        "Bez przekraczania Green Line; jechać wyłącznie drogami dopuszczonymi w umowie najmu.",
         "Zamiast Troodos, gdy góry odpałą (lód, mgła) lub świadomie zamiast dnia górskiego.",
         "Drzewo Kochanków: parking przydrożny, ostatnie 100 m pieszo po kamieniach; trainers (nie klapki); ostrożność przy krawędzi klifu.",
         "Powrót przed zmierzchem — nie przedłużać.",
@@ -2433,19 +2695,254 @@
     {
       "id": "ALT-EAST-COMBO",
       "day_id": "DAY-04",
-      "name": "Wschód: Varosha + Cape Greco w jednym dniu (tylko przy idealnym przebiegu)",
+      "name": "Varosha + Cape Greco — wariant odradzany",
       "replaces": [
         "Pętla Artemis i dzień Troodos"
       ],
       "route_id": null,
       "schedule": "Wariant niezalecany. Dwa główne odcinki Pafos–wschód to 150–195 min każdy (łącznie 5–6,5 h jazdy), plus 30–60 min formalności przy każdym przekroczeniu oraz nieznana jazda lokalna, parking i dojścia. Nie ustawiamy godziny Famagusty, Varoshy ani hotelu bez potwierdzenia przejścia i lokalnych czasów. Około 460 km pozostaje szacunkiem audytu, nie trasą zweryfikowaną; powrót po zmroku i ryzyko zmęczenia. Nie traktować rozkładu jako możliwego do rezerwacji.",
       "conditions": [
-        "Wczesna pobudka ok. 05:15 i powrót po zmroku.",
-        "Dwa przekroczenia Green Line, pisemna zgoda wypożyczalni i ubezpieczenie na północy.",
-        "Brak kolejek na przejściach, dobra forma, bez opóźnień.",
-        "Powrót po zmroku — zmęczenie i jazda po ciemku po lewej stronie."
+        "Nie wybierać w tym tygodniu: jazda, dwa przekroczenia i krótkie światło zostawiają zbyt mały zapas."
       ],
       "fallback": "Nie zalecane; preferuj wariant 1 lub 2, albo nocleg na wschodzie (wariant 3)."
+    },
+    {
+      "id": "ALT-CHRYSOPOLITISSA",
+      "day_id": "DAY-02",
+      "name": "Chrysopolitissa / Agia Kyriaki",
+      "replaces": [
+        "Dodatek zamiast Agia Solomoni i Fabrica"
+      ],
+      "route_id": null,
+      "schedule": "10–20 min dodatkowego dojścia, 20–35 min oglądania; razem 30–55 min. Bez auta.",
+      "conditions": [
+        "Wybrać jeden krótki dodatek. Wnętrze zależy od nabożeństw i dostępności."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-CHRYSOPOLITISSA"
+      ]
+    },
+    {
+      "id": "ALT-GEROSKIPOU",
+      "day_id": "DAY-05",
+      "name": "Geroskipou i Agia Paraskevi",
+      "replaces": [
+        "Część dłuższego postoju w środę"
+      ],
+      "route_id": null,
+      "schedule": "10–20 min dodatkowej jazdy, 5–10 min parking/dojście, 30–45 min wizyty; wpływ 45–75 min.",
+      "conditions": [
+        "Nie dokładać automatycznie do pełnej środy. Bezpłatnie; pon.–sob. 08:30–13:00 i 14:00–16:30, niedziela po uzgodnieniu."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-GEROSKIPOU"
+      ]
+    },
+    {
+      "id": "ALT-CORAL",
+      "day_id": "DAY-03",
+      "name": "Coral Bay — odpoczynek",
+      "replaces": [
+        "Edro lub część postoju na wybrzeżu"
+      ],
+      "route_id": null,
+      "schedule": "10–20 min dodatkowej jazdy, 5–10 min dojścia, spacer 30–60 min; razem 45–90 min.",
+      "conditions": [
+        "Spacer bez planowanego biletu. Listopad poza publikowanym sezonem ratowników; bez założenia kąpieli."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-CORAL"
+      ]
+    },
+    {
+      "id": "ALT-SEA-CAVES",
+      "day_id": "DAY-03",
+      "name": "Sea Caves w Pegeia",
+      "replaces": [
+        "Postój Edro; nie dodatkowy obowiązkowy zachód"
+      ],
+      "route_id": null,
+      "schedule": "10–25 min dodatkowej jazdy, 45–75 min oglądania i dojść; razem około 1–1,5 h.",
+      "conditions": [
+        "Legalne miejsce przy dozwolonej drodze; bez gruntowych odnóg wynajętym autem. Miękka skała i nieogrodzone krawędzie; przy silnym wietrze odpuścić. Brak planowanego biletu."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-SEA-CAVES"
+      ]
+    },
+    {
+      "id": "ALT-PISSOURI",
+      "day_id": "DAY-05",
+      "name": "Pissouri Bay albo wieś",
+      "replaces": [
+        "Część pobytu w Omodos"
+      ],
+      "route_id": null,
+      "schedule": "15–30 min objazdu, wizyta 45–75 min, dojście 10 min; wpływ 1–2 h.",
+      "conditions": [
+        "Wybrać zatokę albo wieś. Spacer przy zatoce nie oznacza pełnej trasy Cape Aspro. Bez planowanego biletu; ratownicy publikowani do października."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-PISSOURI"
+      ]
+    },
+    {
+      "id": "ALT-NEOPHYTOS",
+      "day_id": "DAY-04",
+      "name": "Agios Neophytos",
+      "replaces": [
+        "Odwołany trekking lub wolny poranek / Grobowce"
+      ],
+      "route_id": null,
+      "schedule": "25–35 min jazdy z hotelu w jedną stronę, 5–10 min parking/dojście, 60–90 min wizyty; razem 2–3 h.",
+      "conditions": [
+        "Muzeum i Enkleistra 09:00–16:00, 2 EUR/os. Preferować rano; ocenić pogodę niżej."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-NEOPHYTOS"
+      ]
+    },
+    {
+      "id": "ALT-CHRYSORROGIATISSA",
+      "day_id": "DAY-06",
+      "name": "Chrysorrogiatissa",
+      "replaces": [
+        "Dodatek do świadomie wybranego Panagia/Vouni; kosztem innych postojów"
+      ],
+      "route_id": null,
+      "schedule": "W rejonie Panagii 15–30 min dodatkowej jazdy, 45–60 min wizyty i dojść; 1–1,5 h. Osobno z Pafos około 3 h.",
+      "conditions": [
+        "10:00–12:30 i 13:30–16:00; skarbiec na życzenie, datki. Nie zabierać czasu na pakowanie i sen; czwartek domyślnie lokalny."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-CHRYSORROGIATISSA"
+      ]
+    },
+    {
+      "id": "ALT-LOFOU",
+      "day_id": "DAY-05",
+      "name": "Lofou",
+      "replaces": [
+        "Omodos"
+      ],
+      "route_id": null,
+      "schedule": "Z Pafos 1 h 15–1 h 35; względem Omodos dodatkowe kilkadziesiąt min jazdy. Parking poza centrum, 5–15 min dojścia, 1–1,5 h spaceru plus lunch.",
+      "conditions": [
+        "Wieś bez biletu; wnętrza i kuchnie mają własne godziny. Świąteczna wioska dopiero od 21 XI, po wyjeździe."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-LOFOU"
+      ]
+    },
+    {
+      "id": "ALT-KOURION",
+      "day_id": "DAY-05",
+      "name": "Kourion, opcjonalnie Kolossi",
+      "replaces": [
+        "Cały dzień Palaipafos/Omodos lub odwołany trekking"
+      ],
+      "route_id": null,
+      "schedule": "Pafos–Kourion 55–75 min, parking/dojście 10–15 min, zwiedzanie 2–3 h. Kolossi: dodatkowo 15–25 min jazdy/dojść i 45–60 min wizyty. Z lunchem 6–8 h.",
+      "conditions": [
+        "Oba 08:30–17:00; Kourion 4,50 EUR/os., Kolossi 2,50 EUR/os. Kourion odsłonięte na wiatr. Nie dodawać do pełnej środy."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-KOURION"
+      ]
+    },
+    {
+      "id": "ALT-EZOUSA",
+      "day_id": "DAY-04",
+      "name": "Ezousa z Episkopi",
+      "replaces": [
+        "Artemis przy lepszych warunkach niżej; ewentualnie poranek zamiast Vouni"
+      ],
+      "route_id": null,
+      "schedule": "25–35 min jazdy w jedną stronę, 15 min przygotowania, marsz 3,5–4,5 h ze zdjęciami; razem 5–6 h. Oficjalnie 7,6 km, 3 h, trudność 2/3.",
+      "conditions": [
+        "Sprawdzić parking przy centrum informacji i początek. Błoto, mokre przejścia i polowania wymagają oceny; nie jest automatycznym planem na deszcz. Suma podejść niepodana. Bez planowanego biletu."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-EZOUSA"
+      ]
+    },
+    {
+      "id": "ALT-KALOPANAGIOTIS",
+      "day_id": "DAY-04",
+      "name": "Kalopanagiotis i Lampadistis",
+      "replaces": [
+        "Cały dzień wysokiego trekkingu"
+      ],
+      "route_id": null,
+      "schedule": "1 h 45–2 h 15 jazdy w jedną stronę, 10–20 min dojść z parkingu we wsi; 3–4 h wieś, kościół i lunch. Razem 7–9 h.",
+      "conditions": [
+        "Tylko gdy niżej pogoda i dojazd są dobre. Aktualna karta: wt.–sob. 10:00–16:30, niedz. 11:00–16:30; starsza karta ma inny rozkład, potwierdzić wnętrze."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-KALOPANAGIOTIS"
+      ]
+    },
+    {
+      "id": "ALT-LEFKARA",
+      "day_id": "DAY-05",
+      "name": "Lefkara i Choirokoitia",
+      "replaces": [
+        "Cały dzień 10 lub 11 XI; zachować lekki czwartek"
+      ],
+      "route_id": null,
+      "schedule": "3,5–4,5 h jazdy łącznie; Choirokoitia 1–1,5 h, Lefkara 1,5–2 h, lunch i bufory; razem 8–10 h.",
+      "conditions": [
+        "Parkingi poza centrum Lefkary i przy stanowisku. Choirokoitia 08:30–17:00, 2,50 EUR/os.; schody i nachylenie. Wieś bez biletu, warsztaty osobno."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-LEFKARA"
+      ]
+    },
+    {
+      "id": "ALT-LARNACA",
+      "day_id": "DAY-05",
+      "name": "Larnaka: jezioro, Hala Sultan Tekke i miasto",
+      "replaces": [
+        "Cały dzień zamiast środy bazowej"
+      ],
+      "route_id": null,
+      "schedule": "2–2,5 h jazdy w jedną stronę, 3–4 h wizyt i lunch; razem 8–10 h. Parking przy Tekke, centrum jako osobny postój.",
+      "conditions": [
+        "Tekke 08:30–17:00, bezpłatnie. Flamingi sezonowe od listopada, obecność zależy od wody; niegwarantowana."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-LARNACA"
+      ]
+    },
+    {
+      "id": "ALT-NICOSIA",
+      "day_id": "DAY-05",
+      "name": "Nikozja — pieszo przez Ledra Street",
+      "replaces": [
+        "Cały dzień zamiast dalszej wyprawy Varosha"
+      ],
+      "route_id": null,
+      "schedule": "4,5–5,5 h jazdy łącznie, około 4 h spaceru, lunch i zapas na przejście; razem 9–11 h.",
+      "conditions": [
+        "Auto pozostaje po stronie Republiki Cypryjskiej. Sprawdzić dokumenty i zasady przejścia; parking i wnętrza płatne osobno."
+      ],
+      "fallback": "Jeśli czas, dostęp lub pogoda nie pasują, wracamy do programu bazowego.",
+      "source_ids": [
+        "SRC-OPTION-NICOSIA"
+      ]
     }
   ],
   "places": [
@@ -2455,16 +2952,22 @@
       "type": "hotel",
       "address": "17 Tombs of the Kings Road, 8045 Pafos, Cyprus",
       "phone": "+35726600100",
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Princessa%20Vera%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
-      "notes": "Oficjalny kontakt hotelu podaje adres 17 Tombs of the Kings Road, ale nie współrzędne. Zapytanie adresowe OpenStreetMap/Nominatim z 2026-11-05 nie zwróciło jednoznacznego obiektu; współrzędne pozostają null, nie wstawiać pinezki na oko. Poprosić hotel o link lub współrzędne dokładnego wejścia. Dostęp do auta i planistyczny wyjazd około 02:50 wymagają potwierdzenia.",
+      "coordinates": {
+        "lat": 34.767031,
+        "lon": 32.410418,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.767031,32.410418",
+      "map_kind": "obiekt hotelowy — nie brama parkingu",
+      "notes": "Punkt obiektu z osadzonej mapy hotelu, odczyt 6 XI 2026. Brama parkingowa i nocny dostęp przed wyjazdem 02:40 do potwierdzenia.",
       "source_ids": [
         "SRC-HOTEL",
-        "SRC-HOTEL-CONTACT"
+        "SRC-HOTEL-CONTACT",
+        "SRC-HOTEL-MAP"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://princessaverahotel.com/LOCATION.html"
     },
     {
       "id": "POI-PFO",
@@ -2546,15 +3049,21 @@
       "type": "attraction",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Kato%20Paphos%20Archaeological%20Park%20main%20entrance%20harbour",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
-      "notes": "Wejście przy porcie. Bilet do Grobowców płatny osobno.",
+      "coordinates": {
+        "lat": 34.756018,
+        "lon": 32.4085205,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.756018,32.4085205",
+      "map_kind": "główne wejście przy porcie — nie środek stanowiska",
+      "notes": "OSM: wejście główne przy porcie; kasa node/10044222587 obok. Bilet do Grobowców osobno. Oficjalna karta Visit Cyprus potwierdza atrakcję, godziny i cenę.",
       "source_ids": [
-        "SRC-PARK"
+        "SRC-PARK",
+        "SRC-OSM-POINTS"
       ],
       "published_hours": "Codziennie 08:30–17:00 w listopadzie; kontrola jednorazowych zmian przed wizytą.",
-      "fee_eur_per_adult": 4.5
+      "fee_eur_per_adult": 4.5,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/2267766063"
     },
     {
       "id": "POI-TOMBS",
@@ -2583,15 +3092,21 @@
       "type": "town",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Paphos%20Harbour%20Castle",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
-      "notes": "W programie spacer i zamek z zewnątrz, bez założonego wejścia biletowanego.",
+      "coordinates": {
+        "lat": 34.7536108,
+        "lon": 32.4070057,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.7536108,32.4070057",
+      "map_kind": "obiekt — zamek przy porcie, oglądany z zewnątrz",
+      "notes": "Środek obrysu zamku OSM; nawigacja piesza do otoczenia obiektu, nie parking. Program bez obowiązkowego wejścia.",
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-OSM-POINTS"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/8052789"
     },
     {
       "id": "POI-SOLOMONI",
@@ -2599,15 +3114,21 @@
       "type": "town",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Agia%20Solomoni%20Catacombs%20Paphos",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
-      "notes": "Krótki opcjonalny dodatek po drodze; nie zakładać dostępności wszystkich podziemnych części.",
+      "coordinates": {
+        "lat": 34.7613234,
+        "lon": 32.4124774,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.7613234,32.4124774",
+      "map_kind": "atrakcja — katakumby, nie Fabrica",
+      "notes": "OSM: Agia Solomoni. Krótki opcjonalny postój; dostęp do podziemi ocenić na miejscu. Fabrica jest osobnym obszarem.",
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-OSM-POINTS"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/4580824096"
     },
     {
       "id": "POI-MALL",
@@ -2656,15 +3177,21 @@
       "type": "trailhead",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Artemis+Nature+Trail+trailhead+Troodos+Cyprus",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
-      "notes": "Visit Cyprus opisuje punkt startu, ale nie podaje jego współrzędnych. Wcześniejsze współrzędne pokrywały się z punktem z manifestu zdjęcia Doliny Livadi i nie są dowodem lokalizacji startu. Link Maps jest wyszukiwaniem nazwy, nie pinezką zweryfikowaną; potwierdzić właściwy start i parking przed wyjazdem. Wolne miejsce niegwarantowane.",
+      "coordinates": {
+        "lat": 34.933166,
+        "lon": 32.871986,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.933166,32.871986",
+      "map_kind": "początek szlaku — parking przy starcie, wolne miejsce niegwarantowane",
+      "notes": "Oficjalny GPS początku Artemis, odczyt 6 XI 2026. Dojazd drogą na Chionistrę. Troodos Square dodaje około 2,4 km w jedną stronę i nie jest równoważnym startem.",
       "source_ids": [
-        "SRC-ARTEMIS"
+        "SRC-ARTEMIS",
+        "SRC-ARTEMIS-FLYER"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.visitcyprus.com/discover-cyprus/nature/nature-trails-2/artemis-circular-lemesos-limassol-district-troodos-forest-nature-trail/"
     },
     {
       "id": "POI-TROODOS",
@@ -2773,15 +3300,22 @@
       "type": "town",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Polis%20Chrysochous%20centre",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
-      "notes": "Lunch po Akamas; parkować legalnie w pobliżu centrum.",
+      "coordinates": {
+        "lat": 35.0348806,
+        "lon": 32.4236532,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=35.0348806,32.4236532",
+      "map_kind": "piesze centrum — ulica 9th Iouliou, nie parking",
+      "notes": "Punkt węzła ulicy pieszej 9th Iouliou w centrum Polis według OSM, odczyt 6 XI. Parking wybrać osobno w dozwolonym miejscu. Lunch tylko przy zapasie czasu.",
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-OSM-POINTS",
+        "SRC-OSM-POINTS"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/27295818"
     },
     {
       "id": "POI-EDRO",
@@ -2893,15 +3427,21 @@
       "type": "restaurant",
       "address": null,
       "phone": "+35726934256",
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Hondros%20restaurant%20Paphos",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
-      "notes": "Pasuje po parku; godziny kuchni do potwierdzenia.",
+      "coordinates": {
+        "lat": 34.7578585,
+        "lon": 32.4118879,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.7578585,32.4118879",
+      "map_kind": "obiekt restauracji — dojście pieszo, nie parking",
+      "notes": "Środek obrysu restauracji OSM; godziny kuchni potwierdzić.",
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-OSM-POINTS"
       ],
       "published_hours": "Do potwierdzenia; według audytu 4 XI 2026 ok. 12:00–22:30.",
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/1287051929"
     },
     {
       "id": "POI-MOUSTAKALLIS",
@@ -2909,16 +3449,22 @@
       "type": "restaurant",
       "address": null,
       "phone": "+35726322883",
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Moustakallis%20Polis",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
-      "notes": "Lunch po Aphrodite wyłącznie przy zapasie czasu.",
+      "coordinates": {
+        "lat": 35.0348437,
+        "lon": 32.4234276,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=35.0348437,32.4234276",
+      "map_kind": "restauracja — nie parking",
+      "notes": "Punkt restauracji OSM; lunch tylko po odpowiednio wczesnym końcu trekkingu.",
       "source_ids": [
         "SRC-AUDIT",
-        "SRC-MOUSTAKALLIS"
+        "SRC-MOUSTAKALLIS",
+        "SRC-OSM-POINTS"
       ],
       "published_hours": "Codziennie 10:00–23:00 (strona oficjalna, 4 XI 2026).",
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/1722295639"
     },
     {
       "id": "POI-KATOI",
@@ -2926,16 +3472,22 @@
       "type": "restaurant",
       "address": null,
       "phone": "+35725423033",
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Katoi%20Omodos",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
-      "notes": "Lunch 11 XI po potwierdzeniu kuchni i rezerwacji.",
+      "coordinates": {
+        "lat": 34.8488584,
+        "lon": 32.8093576,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.8488584,32.8093576",
+      "map_kind": "restauracja — nie parking",
+      "notes": "Punkt Katoi OSM. Auto zostawić legalnie poza ciasnym centrum; lunch po potwierdzeniu telefonicznym.",
       "source_ids": [
         "SRC-AUDIT",
-        "SRC-KATOI"
+        "SRC-KATOI",
+        "SRC-OSM-POINTS"
       ],
       "published_hours": "Wtorek–niedziela 12:00–16:00; poniedziałek zamknięte (strona oficjalna, 4 XI 2026; godziny mogą się zmieniać — potwierdzić telefonicznie).",
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/315204859"
     },
     {
       "id": "POI-VAROSHA",
@@ -2946,13 +3498,13 @@
       "coordinates": null,
       "map_url": "https://www.google.com/maps/search/?api=1&query=Varosha+Famagusta+entrance+Palm+Beach",
       "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
-        "notes": "Dostęp do wyznaczonych ulic, godziny, wstęp, fotografia i parking na 11 XI 2026 do bezpośredniego potwierdzenia; źródło jest wtórnym blogiem, nie urzędowym komunikatem. Nie zakładać, że przejścia Deryneia lub Metehan/Ayios Dometios są otwarte 24/7 ani że polisa będzie dostępna. Nie wchodzić poza wyznaczone trasy. Nie mylić z Famagustą — stare miasto (POI-FAMAGUSTA).",
+      "notes": "Dostęp do wyznaczonych ulic, godziny, wstęp, fotografia i parking na 11 XI 2026 do bezpośredniego potwierdzenia; źródło jest wtórnym blogiem, nie urzędowym komunikatem. Nie zakładać, że przejścia Deryneia lub Metehan/Ayios Dometios są otwarte 24/7 ani że polisa będzie dostępna. Nie wchodzić poza wyznaczone trasy. Nie mylić z Famagustą — stare miasto (POI-FAMAGUSTA).",
       "source_ids": [
         "SRC-VAROSHA",
         "SRC-GREENLINE"
       ],
-        "published_hours": "Do potwierdzenia bezpośrednio przed wizytą; brak wiarygodnego, urzędowego potwierdzenia godzin dla 11 XI 2026.",
-        "fee_eur_per_adult": null
+      "published_hours": "Do potwierdzenia bezpośrednio przed wizytą; brak wiarygodnego, urzędowego potwierdzenia godzin dla 11 XI 2026.",
+      "fee_eur_per_adult": null
     },
     {
       "id": "POI-FAMAGUSTA",
@@ -2963,7 +3515,7 @@
       "coordinates": null,
       "map_url": "https://www.google.com/maps/search/?api=1&query=Famagusta+old+town+Lala+Mustafa+Pasha+Othello+tower",
       "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
-        "notes": "Wieże i bramy wenecjańskie, wieża Othello, meczet Lala Mustafa Pasha. Wjazd od południa rozważać przez Deryneia albo Metehan/Ayios Dometios w Nicosi; godziny, warunki przejazdu i ubezpieczenie na konkretny dzień do potwierdzenia urzędowo. Opcjonalnie Salamis (ruiny) — do potwierdzenia godzin.",
+      "notes": "Wieże i bramy wenecjańskie, wieża Othello, meczet Lala Mustafa Pasha. Wjazd od południa rozważać przez Deryneia albo Metehan/Ayios Dometios w Nicosi; godziny, warunki przejazdu i ubezpieczenie na konkretny dzień do potwierdzenia urzędowo. Opcjonalnie Salamis (ruiny) — do potwierdzenia godzin.",
       "source_ids": [
         "SRC-VAROSHA",
         "SRC-GREENLINE"
@@ -3220,6 +3772,139 @@
         "status": "zweryfikowane"
       },
       "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
+    },
+    {
+      "id": "POI-CHRYSOPOLITISSA",
+      "name": "Chrysopolitissa / Agia Kyriaki",
+      "type": "attraction",
+      "address": null,
+      "phone": null,
+      "coordinates": null,
+      "map_url": "https://www.google.com/maps/search/?api=1&query=Chrysopolitissa%20/%20Agia%20Kyriaki%20Cyprus",
+      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "notes": "Dodatek pieszy 8 XI, alternatywnie do Agia Solomoni; wnętrze zależy od nabożeństw.",
+      "source_ids": [
+        "SRC-AUDIT-20261106"
+      ],
+      "published_hours": null,
+      "fee_eur_per_adult": null
+    },
+    {
+      "id": "POI-SEA-CAVES",
+      "name": "Sea Caves w Pegeia",
+      "type": "coast",
+      "address": null,
+      "phone": null,
+      "coordinates": null,
+      "map_url": "https://www.google.com/maps/search/?api=1&query=Sea%20Caves%20w%20Pegeia%20Cyprus",
+      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "notes": "Zamiennik postoju przy Edro; legalny postój przy dozwolonej drodze, bez gruntowych odnóg i bez podchodzenia do krawędzi.",
+      "source_ids": [
+        "SRC-AUDIT-20261106"
+      ],
+      "published_hours": null,
+      "fee_eur_per_adult": null
+    },
+    {
+      "id": "POI-LOFOU",
+      "name": "Lofou",
+      "type": "village",
+      "address": null,
+      "phone": null,
+      "coordinates": null,
+      "map_url": "https://www.google.com/maps/search/?api=1&query=Lofou%20Cyprus",
+      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "notes": "Zamiana Omodos, nie kolejna wieś tego samego dnia.",
+      "source_ids": [
+        "SRC-AUDIT-20261106"
+      ],
+      "published_hours": null,
+      "fee_eur_per_adult": null
+    },
+    {
+      "id": "POI-EZOUSA",
+      "name": "Ezousa — Episkopi",
+      "type": "trailhead",
+      "address": null,
+      "phone": null,
+      "coordinates": null,
+      "map_url": "https://www.google.com/maps/search/?api=1&query=Ezousa%20%E2%80%94%20Episkopi%20Cyprus",
+      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "notes": "Niższa alternatywa trekkingowa; początek przy centrum informacji po sprawdzeniu dostępu. Dokładny start i parking do potwierdzenia; to wyszukiwanie, nie GPS trasy.",
+      "source_ids": [
+        "SRC-AUDIT-20261106"
+      ],
+      "published_hours": null,
+      "fee_eur_per_adult": null
+    },
+    {
+      "id": "POI-KALOPANAGIOTIS",
+      "name": "Kalopanagiotis i Agios Ioannis Lampadistis",
+      "type": "village",
+      "address": null,
+      "phone": null,
+      "coordinates": null,
+      "map_url": "https://www.google.com/maps/search/?api=1&query=Kalopanagiotis%20i%20Agios%20Ioannis%20Lampadistis%20Cyprus",
+      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "notes": "Zamiana dnia górskiego; godziny kościoła potwierdzić, parking we wsi i dojście osobno.",
+      "source_ids": [
+        "SRC-AUDIT-20261106"
+      ],
+      "published_hours": null,
+      "fee_eur_per_adult": null
+    },
+    {
+      "id": "POI-NICOSIA",
+      "name": "Nikozja — pieszo przez Ledra Street",
+      "type": "town",
+      "address": null,
+      "phone": null,
+      "coordinates": null,
+      "map_url": "https://www.google.com/maps/search/?api=1&query=Nikozja%20%E2%80%94%20pieszo%20przez%20Ledra%20Street%20Cyprus",
+      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "notes": "Auto po stronie Republiki Cypryjskiej; dokumenty i zasady przejścia do sprawdzenia.",
+      "source_ids": [
+        "SRC-AUDIT-20261106"
+      ],
+      "published_hours": null,
+      "fee_eur_per_adult": null
+    },
+    {
+      "id": "POI-ALYKES",
+      "name": "Alykes Beach, Kato Pafos",
+      "type": "coast",
+      "address": null,
+      "phone": null,
+      "coordinates": {
+        "lat": 34.753477,
+        "lon": 32.418951,
+        "status": "przejete_z_audytu"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.753477,32.418951",
+      "map_kind": "plaża — punkt fotografii, nie parking",
+      "notes": "Geotag Commons przejęty z audytu; Alykes na południe od portu, nie obok Faros.",
+      "source_ids": [
+        "SRC-AUDIT-20261106"
+      ],
+      "published_hours": null,
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://commons.wikimedia.org/wiki/File:Alykes_Beach,_Paphos,_Cyprus_01.jpg"
+    },
+    {
+      "id": "POI-CHOIROKOITIA-VILLAGE",
+      "name": "Choirokoitia — wieś i okolice",
+      "type": "village",
+      "address": null,
+      "phone": null,
+      "coordinates": null,
+      "map_url": "https://www.google.com/maps/search/?api=1&query=Choirokoitia%20%E2%80%94%20wie%C5%9B%20i%20okolice%20Cyprus",
+      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "notes": "Komandoria i kościół Panagia tou Kampou nie są neolitycznym stanowiskiem UNESCO.",
+      "source_ids": [
+        "SRC-AUDIT-20261106"
+      ],
+      "published_hours": null,
+      "fee_eur_per_adult": null
     }
   ],
   "transfers": [
@@ -3778,7 +4463,7 @@
       "Warunki pogodowe i podłoże pozwalają przejść całość w przyjętym czasie; odpowiedni zapas światła i sprzęt.",
       "Obie osoby akceptują wysiłek i samopoczucie; decyzję można zmienić na parkingu."
     ],
-      "hunting": "8 i 11 XI są ostrożnościowymi dniami bez trekkingu w planie, na podstawie wskazanego komunikatu o sezonie polowań dla określonych gatunków; bezpośredni odczyt gov.cy zwrócił HTTP 403 przy kontroli 5 XI. To nie oznacza, że cały region jest objęty polowaniami: obszary określa dekret i mapa Artemis Cy, a dopasowania konkretnych tras do granic nie wykonano. Inne dni również nie są automatycznie wolne od polowań. Jaskrawa odzież nie zastępuje kontroli obszaru. Myśliwi, strzały przy planowanym odcinku lub inne istotne wątpliwości oznaczają wycofanie do bezpiecznego miejsca.",
+    "hunting": "8 i 11 XI są ostrożnościowymi dniami bez trekkingu w planie, na podstawie wskazanego komunikatu o sezonie polowań dla określonych gatunków; bezpośredni odczyt gov.cy zwrócił HTTP 403 przy kontroli 5 XI. To nie oznacza, że cały region jest objęty polowaniami: obszary określa dekret i mapa Artemis Cy, a dopasowania konkretnych tras do granic nie wykonano. Inne dni również nie są automatycznie wolne od polowań. Jaskrawa odzież nie zastępuje kontroli obszaru. Myśliwi, strzały przy planowanym odcinku lub inne istotne wątpliwości oznaczają wycofanie do bezpiecznego miejsca.",
     "weather_checks": "Sprawdzać oddzielnie Pafos/Edro, Polis/Akamas, Platres, Troodos około 1850 m i Panagię. 5 XI porównać co najmniej dwie aktualne prognozy i czas ich wydania. Wieczorem i rano przed trasą kontrolować ostrzeżenia, opad poprzednich 24–48 h, temperaturę, mróz, porywy i widzialność. Wysokość prognozy ma znaczenie. Nie zapisano prognozy na cały tydzień jako stałej treści.",
     "no_go": [
       "Zamknięcie szlaku lub drogi, burza na trasie, lód bez odpowiedniego sprzętu albo niepewny bezpieczny przebieg.",
@@ -3898,7 +4583,7 @@
       "owner": "podróżni",
       "due_on": "2026-11-06",
       "status": "otwarte",
-      "action": "Rezerwacja Petsas/PFO, C3 automat z klimatyzacją oraz prepaid 325,50 EUR są potwierdzone wyłącznie w SRC-PETSAS-VOUCHER. Przed odbiorem uzyskać od Petsas pisemne potwierdzenie: depozyt/preautoryzacja (kwota i typ karty), udział własny i zastosowanie SCDW, limity/wyłączenia pakietu opon-szyb-podwozia, kilometry, polityka paliwa, drugi kierowca oraz numer assistance 24/7. Nie wyprowadzać tych warunków z ceny ani nazwy pakietów.",
+      "action": "Pytania do Petsas: jaka jest końcowa kwota do zapłaty po prepaid 325,50 EUR; łączny depozyt wraz z paliwem i typ karty; udział własny; czy wykupione SCDW działa dla najmu krótszego niż siedem dni; limity i wyłączenia szyb/opon/podwozia; drugi kierowca i assistance? Poprosić o pisemne warunki.",
       "impact": "Rezerwacja i kwota są potwierdzone w zakresie streszczenia vouchera; nieznane warunki nadal wpływają na odpowiedzialność i wymagania wobec kierowców.",
       "blocking": true
     },
@@ -3910,7 +4595,7 @@
       "due_on": "2026-11-06",
       "status": "otwarte",
       "action": "Zadzwoń lub napisz do Petsas przed podróżą i poproś o potwierdzenie na piśmie: dokładny punkt spotkania/transfer na PFO, czy umówione 10:30 jest wykonalne po planowym lądowaniu W61417 o 10:10 (różnica tylko 20 min), jaki jest wymagany minimalny odstęp od przylotu, ile wynosi karencja przy opóźnieniu lotu i jaka jest zasada no-show. Nie przesuwaj lotu ani rezerwacji samodzielnie.",
-      "impact": "Bez odpowiedzi podróżni mogą nie dotrzeć do umówionego odbioru 10:30; okno 11:15–12:30 jest tylko planem i nie zastępuje rezerwacji.",
+      "impact": "Umówione 10:30 jest 20 min po planowym przylocie 10:10. Okno obsługi do 12:30 i cel około 11:30 nie zmieniają rezerwacji.",
       "blocking": true
     },
     {
@@ -3920,7 +4605,7 @@
       "owner": "podróżni i wypożyczalnia",
       "due_on": "2026-11-06",
       "status": "otwarte",
-      "action": "Zapisz z Petsas dokładny sektor/punkt PFO, procedurę nocnego zwrotu o umówionej 03:30 (w voucherze wskazano Pafos Airport, nie sektor), dopuszczalny key drop, ewentualną opłatę, odległość/transfer do terminalu oraz dokładny moment końca odpowiedzialności za auto. Zachowaj dokumentację i poproś o pisemną instrukcję. Planowy przyjazd do sektora około 03:25 i okno 03:25–04:10 nie są warunkami Petsas.",
+      "action": "Pytania do Petsas: dokładny sektor zwrotu 03:30, klucze/key drop, opłata nocna, moment zakończenia odpowiedzialności i transfer do terminala? Plan: przyjazd 03:15–03:25, cel stanowiska odprawy 04:20. Po odpowiedzi ponownie przeliczyć czas.",
       "impact": "Wizyta przy sektorze jest umówiona na 03:30, ale dokładna procedura i koniec odpowiedzialności pozostają niepotwierdzone; potwierdzić przed wyjazdem.",
       "blocking": true
     },
@@ -3931,7 +4616,7 @@
       "owner": "podróżni i hotel",
       "due_on": "2026-11-03",
       "status": "otwarte",
-      "action": "Potwierdzić wjazd, dostęp do auta i otwarcie bramy około 02:50; uzgodnić planistyczne oddanie kluczy hotelowych 02:30–02:45. Oficjalna strona hotelu potwierdza bezpłatny parking i recepcję 24 h — doprecyzować procedurę bramy i auta.",
+      "action": "Pytania do hotelu: jak wyjść z pokoju około 02:30, oddać klucze i uzyskać dostęp do auta/bramy przed wyjazdem 02:40? Czy można przechować bagaż 7 XI przed 15:00? Recepcja 24 h nie rozstrzyga procedury parkingu.",
       "impact": "Ryzyko opóźnienia wyjazdu na lotnisko. Parking i recepcja 24 h są potwierdzone; brama nocna nie.",
       "blocking": true
     },
@@ -3986,7 +4671,7 @@
       "owner": "podróżni i hotel",
       "due_on": "2026-11-05",
       "status": "otwarte",
-      "action": "Sprawdzić, czy śniadanie jest wykupione. Uzyskać breakfast box na 13 XI albo kupić własne jedzenie.",
+      "action": "Pytania do hotelu / kontrola vouchera: jakie wyżywienie obejmuje taryfa; czy można przygotować jedzenie na wyjazd 13 XI? Wellness: godziny, temperatura i opłaty, jeśli chcemy korzystać. Bez odpowiedzi własne jedzenie i odpoczynek.",
       "impact": "Brak boxu nie blokuje lotu; wymaga własnego posiłku.",
       "blocking": false
     },
@@ -4030,7 +4715,7 @@
       "owner": "podróżni i wypożyczalnia",
       "due_on": "2026-11-05",
       "status": "otwarte",
-      "action": "Przy wyborze auta (TODO-CAR) pytać o pisemną zgodę na przekroczenie Green Line oraz osobne pisemne potwierdzenie terytorialnego zakresu ochrony wynajętego auta (szkody), OC i assistance od wypożyczalni/ubezpieczyciela. Sama polisa kupiona na przejściu nie potwierdza ochrony auta ani zgody firmy. Godziny przejścia, możliwość i godziny sprzedaży ubezpieczenia oraz opłaty na 11 XI 2026 do_potwierdzenia w urzędowym źródle i u ubezpieczyciela. Bez kompletu potwierdzeń nie jechać na północ. Avis/Enterprise zakazują; Petsas wymaga kontaktu, zgoda do potwierdzenia.",
+      "action": "Przy wyborze auta pytać o pisemną zgodę na przekroczenie Green Line oraz osobne pisemne potwierdzenie terytorialnego zakresu ochrony wynajętego auta (szkody), OC i assistance od wypożyczalni/ubezpieczyciela. Sama polisa kupiona na przejściu nie potwierdza ochrony auta ani zgody firmy. Godziny przejścia, możliwość i godziny sprzedaży ubezpieczenia oraz opłaty na 11 XI 2026 do_potwierdzenia w urzędowym źródle i u ubezpieczyciela. Bez kompletu potwierdzeń nie jechać na północ. Avis/Enterprise zakazują; Petsas wymaga kontaktu, zgoda do potwierdzenia.",
       "impact": "Ogranicza wybór firmy, jeśli chcemy opcję północy. Nie blokuje planu bazowego.",
       "blocking": false
     },
@@ -4051,11 +4736,11 @@
       "id": "CHECK-NOW",
       "title": "6 listopada — pilne potwierdzenia przed wyjazdem",
       "items": [
-        "Pilnie skontaktować się z Petsas: potwierdzić odbiór 10:30 po planowym lądowaniu 10:10, punkt spotkania/transfer, minimalny odstęp, karencję i no-show (TODO-PETSAS-PICKUP).",
-        "Uzyskać od Petsas pisemną instrukcję zwrotu umówionego 03:30: sektor, key drop i koniec odpowiedzialności (TODO-RETURN).",
-        "Potwierdzić depozyt/preautoryzację, udział własny, pakiety, paliwo, kilometry, drugiego kierowcę i assistance (TODO-CAR); zgody/ochrony Green Line nie zakładać (TODO-NORTH-CAR).",
-        "Uzgodnić z hotelem nocny dostęp do auta i bramy przed planowym wyjazdem 02:50 (TODO-PARKING).",
-        "Sprawdzić otwarte potwierdzenia lotów, bagażu i transportu w Polsce według TODO-FLIGHTS i TODO-POLAND."
+        "Pilnie skontaktować się z Petsas: potwierdzić odbiór 10:30 po planowym lądowaniu 10:10, punkt spotkania/transfer, minimalny odstęp, karencję i no-show.",
+        "Uzyskać od Petsas pisemną instrukcję zwrotu umówionego 03:30: sektor, key drop i koniec odpowiedzialności.",
+        "Potwierdzić depozyt/preautoryzację, udział własny, pakiety, paliwo, kilometry, drugiego kierowcę i assistance; zgody/ochrony Green Line nie zakładać.",
+        "Uzgodnić z hotelem nocny dostęp do auta i bramy przed planowym wyjazdem 02:40.",
+        "Sprawdzić otwarte potwierdzenia lotów, bagażu i transportu w Polsce w aplikacjach przewoźników i własnych ustaleniach transportu."
       ]
     },
     {
@@ -4119,7 +4804,7 @@
         "Właściwy sektor konkretnej wypożyczalni, właściwe stanowisko i skrzynka.",
         "Zdjęcia i film stanu, paliwa, przebiegu oraz miejsca parkowania; zabrać wszystkie rzeczy.",
         "Zamknąć auto, oddać klucze zgodnie z instrukcją, zachować dokumentację; koniec odpowiedzialności określa umowa.",
-        "Do terminalu i bagażu bez dodatkowych postojów. 05:20 jest wyłącznie założeniem T–60 dla FR5880: potwierdź jego zastosowanie w aplikacji/przeglądarce Ryanair (bezpośredni link zwrócił HTTP 403 dla bota); jeśli się potwierdzi, bagaż musi być nadany przed tą godziną. To nie jest cel przyjazdu ani godzina pewna."
+        "Do terminalu bez dodatkowych postojów. Cel nadania 04:20–04:45; granica 05:20. Bramka: cel 05:15–05:30, zamknięcie 05:50. Sprawdzić kartę i komunikaty przewoźnika."
       ]
     }
   ],
@@ -4142,7 +4827,7 @@
   },
   "publication_contract": {
     "purpose": "Jedna baza danych dla strony i późniejszego dokumentu podróżnego.",
-      "canonical": "Edytować JSON; każdy wygenerowany widok pokazuje version i updated_on. Wskazanie DOCX wersji 1.2.3 jest historyczne i nie opisuje aktualnego widoku. Zmiana tylko w widoku prowadzi do rozbieżności i wymaga przeniesienia do danych nadrzędnych.",
+    "canonical": "Edytować JSON; każdy wygenerowany widok pokazuje version i updated_on. Wskazanie DOCX wersji 1.2.3 jest historyczne i nie opisuje aktualnego widoku. Zmiana tylko w widoku prowadzi do rozbieżności i wymaga przeniesienia do danych nadrzędnych.",
     "sections": [
       "Start z terminem i tygodniem w skrócie.",
       "Dni DAY-01 do DAY-07, domyślnie z samym planem bazowym.",
@@ -4182,9 +4867,14 @@
       "Wylot WMI i powrót WAW, z prawidłowymi strefami.",
       "Domyślnie Aphrodite i Artemis; czwartek lokalny, trzeci trekking wyłącznie warunkowo.",
       "Brak Avakas jako aktywności, brak potwierdzonego wellness i fikcyjnej rezerwacji auta.",
-      "Przy locie 06:20 planistyczne 05:20 dla bag drop obowiązuje wyłącznie, jeśli reguła Ryanair T–60 potwierdzi się dla FR5880 13 XI; źródło zwróciło HTTP 403, więc sprawdzić regułę w aplikacji/przeglądarce. Planistyczny wyjazd z hotelu około 02:50 zależy od potwierdzonego dostępu do auta i procedury zwrotu na PFO.",
+      "FR5880: wyjazd 02:40, zwrot umówiony 03:30, cel nadania 04:20–04:45; granica nadania 05:20, zamknięcie bramki 05:50. Procedura auta do potwierdzenia.",
       "Wszystkie odwołania do miejsc, tras i źródeł istnieją; brakujące parametry mają status, nie zmyśloną wartość."
-    ]
+    ],
+    "primary_url": "https://kjawo.github.io/cypr2026/",
+    "mirror_urls": [
+      "https://cypr2026.pages.dev/"
+    ],
+    "publication_status": "Wersja 1.3.0 przygotowana lokalnie. Wyrównanie GitHub Pages i Cloudflare wymaga publikacji; nie wykonano commita, push ani deployu."
   },
   "cycling_options": {
     "title": "Wycieczki rowerowe",
@@ -4208,7 +4898,11 @@
         "return_logistics": "Start podany przez źródło to Pafos Port; dojazd z hotelu nie został sprawdzony. Powrót z Timi z rowerem nie jest potwierdzony. Nie przedstawiać jako praktycznej wycieczki bez uprzedniego uzgodnienia transportu z rowerem albo sprawdzenia bezpiecznego, legalnego powrotu; nie zakładać autobusu ani taksówki z rowerem.",
         "stops_risks": "Źródło opisuje Geroskipou Tourist Beach, Timi beach i pobliski gaj eukaliptusowy z miejscem piknikowym. Piesze przekroczenie koryta rzeki oraz odcinek gruntowy wymagają oceny bieżących warunków; dostępność i otwarcie niepotwierdzone.",
         "rental": "Do potwierdzenia: MTB, dostępność w wybranym terminie, godziny, cena, kask i zasady dostawy/zwrotu.",
-        "source_ids": ["SRC-CYCLE-TIMI-12", "SRC-HUNT", "SRC-HUNT-MAP"],
+        "source_ids": [
+          "SRC-CYCLE-TIMI-12",
+          "SRC-HUNT",
+          "SRC-HUNT-MAP"
+        ],
         "gpx_url": null,
         "photo_id": "place-harbour",
         "photo_context": "Kadr przedstawia zamek przy porcie Pafos, lokalizację startową opisaną przez źródło; nie dokumentuje samej jazdy rowerem.",
@@ -4233,7 +4927,9 @@
         "return_logistics": "Start podany przez źródło to Pafos Harbour; dojazd z hotelu nie został sprawdzony. Powrót z Timi z rowerem nie jest potwierdzony. Potrzebne wcześniejsze uzgodnienie transportu roweru lub sprawdzenie legalnego i bezpiecznego powrotu; oficjalna trasa jest jednokierunkowa.",
         "stops_risks": "Strona wymienia Geroskipou Tourist Beach, Timi beach i pobliski gaj eukaliptusowy z miejscem piknikowym. Godziny dostępności i aktualne ograniczenia przy lotnisku nie są w źródle potwierdzone.",
         "rental": "Do potwierdzenia: rower touringowy/szosowy, dostępność w wybranym terminie, godziny, cena, kask i zasady dostawy/zwrotu.",
-        "source_ids": ["SRC-CYCLE-TIMI-166"],
+        "source_ids": [
+          "SRC-CYCLE-TIMI-166"
+        ],
         "gpx_url": "https://www.visitcyprus.com/wp-content/uploads/2024/09/Pafos_2_GPX.gpx",
         "photo_id": "place-harbour",
         "photo_context": "Wspólny kadr kontekstowy portu Pafos pokazano przy pierwszym wariancie tego korytarza; nie dokumentuje samej jazdy rowerem.",
@@ -4243,12 +4939,78 @@
           "source_point_count": 579,
           "simplification_m": 50,
           "points": [
-            [34.75593, 32.40974], [34.75595, 32.41108], [34.75695, 32.41221],
-            [34.75621, 32.41745], [34.74846, 32.42528], [34.7487, 32.42673],
-            [34.75202, 32.42922], [34.74744, 32.43663], [34.7435, 32.44566],
-            [34.73502, 32.46128], [34.74366, 32.46811], [34.74856, 32.47093],
-            [34.7413, 32.47767], [34.72708, 32.51646], [34.71317, 32.51207],
-            [34.71083, 32.51045], [34.70742, 32.49911], [34.7097, 32.49013]
+            [
+              34.75593,
+              32.40974
+            ],
+            [
+              34.75595,
+              32.41108
+            ],
+            [
+              34.75695,
+              32.41221
+            ],
+            [
+              34.75621,
+              32.41745
+            ],
+            [
+              34.74846,
+              32.42528
+            ],
+            [
+              34.7487,
+              32.42673
+            ],
+            [
+              34.75202,
+              32.42922
+            ],
+            [
+              34.74744,
+              32.43663
+            ],
+            [
+              34.7435,
+              32.44566
+            ],
+            [
+              34.73502,
+              32.46128
+            ],
+            [
+              34.74366,
+              32.46811
+            ],
+            [
+              34.74856,
+              32.47093
+            ],
+            [
+              34.7413,
+              32.47767
+            ],
+            [
+              34.72708,
+              32.51646
+            ],
+            [
+              34.71317,
+              32.51207
+            ],
+            [
+              34.71083,
+              32.51045
+            ],
+            [
+              34.70742,
+              32.49911
+            ],
+            [
+              34.7097,
+              32.49013
+            ]
           ]
         }
       },
@@ -4267,7 +5029,9 @@
         "return_logistics": "Start opisany przez źródło to Kato Pafos; dojazd z hotelu nie został sprawdzony. Nie ma potwierdzonego transportu powrotnego Polis–Pafos z rowerem. To tylko trop po uprzednim potwierdzeniu takiego przewozu; bez niego nie przedstawiać jako praktycznej wycieczki ani nie zakładać powrotu rowerem.",
         "stops_risks": "Źródłowy opis wymienia Coral Bay, Pegeia, Kathikas, Prodromi i Polis oraz widoki zachodniego wybrzeża. Godziny, bieżące zamknięcia, ruch i warunki terenowe do sprawdzenia przed decyzją.",
         "rental": "Do potwierdzenia: odpowiedni rower szosowy z przełożeniami, dostępność w wybranym terminie, godziny, cena i transport roweru.",
-        "source_ids": ["SRC-CYCLE-MAIN16"],
+        "source_ids": [
+          "SRC-CYCLE-MAIN16"
+        ],
         "gpx_url": "https://www.visitcyprus.com/wp-content/uploads/2024/09/Main_16_GPX.gpx",
         "photo_id": "place-coral-bay",
         "photo_context": "Kadr przedstawia Coral Bay, którą źródło wymienia jako punkt na trasie; nie dokumentuje samej jazdy rowerem.",
@@ -4277,34 +5041,334 @@
           "source_point_count": 1550,
           "simplification_m": 50,
           "points": [
-            [34.75708, 32.412], [34.76239, 32.41231], [34.76417, 32.41324],
-            [34.76572, 32.41077], [34.77122, 32.4104], [34.77842, 32.40643],
-            [34.78606, 32.40559], [34.79048, 32.4019], [34.79437, 32.40189],
-            [34.79861, 32.40064], [34.80582, 32.39696], [34.80998, 32.3961],
-            [34.81281, 32.39677], [34.81577, 32.39512], [34.81922, 32.39508],
-            [34.82314, 32.39249], [34.83248, 32.39296], [34.83794, 32.38959],
-            [34.84875, 32.38517], [34.86862, 32.3649], [34.88172, 32.34842],
-            [34.88368, 32.34449], [34.88524, 32.34683], [34.88787, 32.34873],
-            [34.88775, 32.35544], [34.89032, 32.35479], [34.89266, 32.353],
-            [34.89382, 32.35379], [34.89007, 32.35999], [34.88949, 32.3649],
-            [34.89095, 32.36561], [34.89208, 32.363], [34.89364, 32.36309],
-            [34.89827, 32.37059], [34.89816, 32.37243], [34.89503, 32.37864],
-            [34.8947, 32.38096], [34.89728, 32.3862], [34.90149, 32.39141],
-            [34.90259, 32.39562], [34.90465, 32.39663], [34.90278, 32.40318],
-            [34.90307, 32.4079], [34.90396, 32.40807], [34.90481, 32.40587],
-            [34.90597, 32.40976], [34.90645, 32.4174], [34.90957, 32.42157],
-            [34.91459, 32.42127], [34.91684, 32.42023], [34.92005, 32.421],
-            [34.92282, 32.42042], [34.9263, 32.41807], [34.93396, 32.416],
-            [34.93537, 32.41277], [34.94126, 32.41045], [34.94477, 32.41221],
-            [34.94949, 32.41054], [34.95291, 32.41049], [34.9623, 32.41429],
-            [34.96746, 32.41097], [34.9676, 32.40738], [34.9712, 32.40485],
-            [34.97361, 32.40587], [34.97751, 32.40467], [34.98265, 32.40593],
-            [34.99082, 32.40615], [34.99308, 32.40449], [35.00193, 32.40476],
-            [35.00485, 32.40367], [35.01353, 32.40506], [35.01587, 32.40972],
-            [35.01776, 32.41035], [35.01998, 32.41309], [35.02344, 32.41493],
-            [35.03149, 32.41284], [35.03217, 32.41436], [35.02925, 32.41607],
-            [35.02889, 32.4179], [35.03111, 32.42274], [35.03282, 32.42508],
-            [35.03394, 32.42541]
+            [
+              34.75708,
+              32.412
+            ],
+            [
+              34.76239,
+              32.41231
+            ],
+            [
+              34.76417,
+              32.41324
+            ],
+            [
+              34.76572,
+              32.41077
+            ],
+            [
+              34.77122,
+              32.4104
+            ],
+            [
+              34.77842,
+              32.40643
+            ],
+            [
+              34.78606,
+              32.40559
+            ],
+            [
+              34.79048,
+              32.4019
+            ],
+            [
+              34.79437,
+              32.40189
+            ],
+            [
+              34.79861,
+              32.40064
+            ],
+            [
+              34.80582,
+              32.39696
+            ],
+            [
+              34.80998,
+              32.3961
+            ],
+            [
+              34.81281,
+              32.39677
+            ],
+            [
+              34.81577,
+              32.39512
+            ],
+            [
+              34.81922,
+              32.39508
+            ],
+            [
+              34.82314,
+              32.39249
+            ],
+            [
+              34.83248,
+              32.39296
+            ],
+            [
+              34.83794,
+              32.38959
+            ],
+            [
+              34.84875,
+              32.38517
+            ],
+            [
+              34.86862,
+              32.3649
+            ],
+            [
+              34.88172,
+              32.34842
+            ],
+            [
+              34.88368,
+              32.34449
+            ],
+            [
+              34.88524,
+              32.34683
+            ],
+            [
+              34.88787,
+              32.34873
+            ],
+            [
+              34.88775,
+              32.35544
+            ],
+            [
+              34.89032,
+              32.35479
+            ],
+            [
+              34.89266,
+              32.353
+            ],
+            [
+              34.89382,
+              32.35379
+            ],
+            [
+              34.89007,
+              32.35999
+            ],
+            [
+              34.88949,
+              32.3649
+            ],
+            [
+              34.89095,
+              32.36561
+            ],
+            [
+              34.89208,
+              32.363
+            ],
+            [
+              34.89364,
+              32.36309
+            ],
+            [
+              34.89827,
+              32.37059
+            ],
+            [
+              34.89816,
+              32.37243
+            ],
+            [
+              34.89503,
+              32.37864
+            ],
+            [
+              34.8947,
+              32.38096
+            ],
+            [
+              34.89728,
+              32.3862
+            ],
+            [
+              34.90149,
+              32.39141
+            ],
+            [
+              34.90259,
+              32.39562
+            ],
+            [
+              34.90465,
+              32.39663
+            ],
+            [
+              34.90278,
+              32.40318
+            ],
+            [
+              34.90307,
+              32.4079
+            ],
+            [
+              34.90396,
+              32.40807
+            ],
+            [
+              34.90481,
+              32.40587
+            ],
+            [
+              34.90597,
+              32.40976
+            ],
+            [
+              34.90645,
+              32.4174
+            ],
+            [
+              34.90957,
+              32.42157
+            ],
+            [
+              34.91459,
+              32.42127
+            ],
+            [
+              34.91684,
+              32.42023
+            ],
+            [
+              34.92005,
+              32.421
+            ],
+            [
+              34.92282,
+              32.42042
+            ],
+            [
+              34.9263,
+              32.41807
+            ],
+            [
+              34.93396,
+              32.416
+            ],
+            [
+              34.93537,
+              32.41277
+            ],
+            [
+              34.94126,
+              32.41045
+            ],
+            [
+              34.94477,
+              32.41221
+            ],
+            [
+              34.94949,
+              32.41054
+            ],
+            [
+              34.95291,
+              32.41049
+            ],
+            [
+              34.9623,
+              32.41429
+            ],
+            [
+              34.96746,
+              32.41097
+            ],
+            [
+              34.9676,
+              32.40738
+            ],
+            [
+              34.9712,
+              32.40485
+            ],
+            [
+              34.97361,
+              32.40587
+            ],
+            [
+              34.97751,
+              32.40467
+            ],
+            [
+              34.98265,
+              32.40593
+            ],
+            [
+              34.99082,
+              32.40615
+            ],
+            [
+              34.99308,
+              32.40449
+            ],
+            [
+              35.00193,
+              32.40476
+            ],
+            [
+              35.00485,
+              32.40367
+            ],
+            [
+              35.01353,
+              32.40506
+            ],
+            [
+              35.01587,
+              32.40972
+            ],
+            [
+              35.01776,
+              32.41035
+            ],
+            [
+              35.01998,
+              32.41309
+            ],
+            [
+              35.02344,
+              32.41493
+            ],
+            [
+              35.03149,
+              32.41284
+            ],
+            [
+              35.03217,
+              32.41436
+            ],
+            [
+              35.02925,
+              32.41607
+            ],
+            [
+              35.02889,
+              32.4179
+            ],
+            [
+              35.03111,
+              32.42274
+            ],
+            [
+              35.03282,
+              32.42508
+            ],
+            [
+              35.03394,
+              32.42541
+            ]
           ]
         }
       }
@@ -4323,9 +5387,18 @@
     "intro": "Krótka orientacja chronologiczna i osobne opowieści do czytania przy konkretnych miejscach. Węzły ułożono orientacyjnie według najwcześniejszej epoki wskazanej przez źródło; szerokie zakresy mogą się nakładać i nie ustalają dokładnej kolejności zdarzeń. Daty są przybliżone, gdy źródło nie pozwala na dokładniejsze określenie. Mity i przedstawienia mitologiczne nie są zapisem wydarzeń historycznych.",
     "checked_on": "2026-11-06",
     "legend": [
-      { "type": "historia_archeologia", "label": "Historia / archeologia" },
-      { "type": "tradycja", "label": "Tradycja" },
-      { "type": "mitologia", "label": "Mitologia" }
+      {
+        "type": "historia_archeologia",
+        "label": "Historia / archeologia"
+      },
+      {
+        "type": "tradycja",
+        "label": "Tradycja"
+      },
+      {
+        "type": "mitologia",
+        "label": "Mitologia"
+      }
     ],
     "timeline": [
       {
@@ -4336,7 +5409,9 @@
         "type": "historia_archeologia",
         "place_id": "POI-PARK",
         "day_id": "DAY-02",
-        "source_ids": ["SRC-HIST-UNESCO-PAPHOS"],
+        "source_ids": [
+          "SRC-HIST-UNESCO-PAPHOS"
+        ],
         "checked_on": "2026-11-06"
       },
       {
@@ -4347,7 +5422,9 @@
         "type": "historia_archeologia",
         "place_id": "POI-PALAIPAFOS",
         "day_id": "DAY-05",
-        "source_ids": ["SRC-PALAIPAFOS"],
+        "source_ids": [
+          "SRC-PALAIPAFOS"
+        ],
         "checked_on": "2026-11-06"
       },
       {
@@ -4358,7 +5435,9 @@
         "type": "historia_archeologia",
         "place_id": "POI-PALAIPAFOS",
         "day_id": "DAY-05",
-        "source_ids": ["SRC-HIST-UNESCO-PAPHOS"],
+        "source_ids": [
+          "SRC-HIST-UNESCO-PAPHOS"
+        ],
         "checked_on": "2026-11-06"
       },
       {
@@ -4369,7 +5448,9 @@
         "type": "historia_archeologia",
         "place_id": "POI-HARBOUR",
         "day_id": "DAY-02",
-        "source_ids": ["SRC-PARK"],
+        "source_ids": [
+          "SRC-PARK"
+        ],
         "checked_on": "2026-11-06"
       },
       {
@@ -4380,7 +5461,9 @@
         "type": "historia_archeologia",
         "place_id": "POI-TOMBS",
         "day_id": "DAY-06",
-        "source_ids": ["SRC-TOMBS"],
+        "source_ids": [
+          "SRC-TOMBS"
+        ],
         "checked_on": "2026-11-06"
       },
       {
@@ -4391,7 +5474,10 @@
         "type": "historia_archeologia",
         "place_id": "POI-PARK",
         "day_id": "DAY-02",
-        "source_ids": ["SRC-PARK", "SRC-HIST-UNESCO-PAPHOS"],
+        "source_ids": [
+          "SRC-PARK",
+          "SRC-HIST-UNESCO-PAPHOS"
+        ],
         "checked_on": "2026-11-06"
       },
       {
@@ -4402,7 +5488,9 @@
         "type": "historia_archeologia",
         "place_id": "POI-GEROSKIPOU",
         "day_id": "DAY-02",
-        "source_ids": ["SRC-GEROSKIPOU"],
+        "source_ids": [
+          "SRC-GEROSKIPOU"
+        ],
         "checked_on": "2026-11-05"
       },
       {
@@ -4413,7 +5501,9 @@
         "type": "historia_archeologia",
         "place_id": "POI-NEOPHYTOS",
         "day_id": "DAY-06",
-        "source_ids": ["SRC-NEOPHYTOS"],
+        "source_ids": [
+          "SRC-NEOPHYTOS"
+        ],
         "checked_on": "2026-11-06"
       }
     ],
@@ -4427,7 +5517,10 @@
         "title": "Kouklia: sanktuarium i muzeum znalezisk",
         "why": "Palaipafos było ważnym ośrodkiem kultu. W muzeum Departament Starożytności opisuje stożkowy kamień jako kultowy obiekt sanktuarium oraz znaleziska z różnych okresów.",
         "look_for": "W muzeum poszukaj stożkowego kamienia kultowego i zwróć uwagę na rzymską mozaikę w posadzce pierwszej sali; nie traktuj tych elementów jako jednego zespołu ani jednej epoki.",
-        "source_ids": ["SRC-PALAIPAFOS", "SRC-HIST-UNESCO-PAPHOS"],
+        "source_ids": [
+          "SRC-PALAIPAFOS",
+          "SRC-HIST-UNESCO-PAPHOS"
+        ],
         "checked_on": "2026-11-06"
       },
       {
@@ -4439,7 +5532,9 @@
         "title": "Mozaiki jako obrazy, nie kronika",
         "why": "Wille i mozaiki pokazują antyczną sztukę oraz sceny mitologiczne, między innymi związane z Dionizosem i Tezeuszem. To przedstawienia, nie kronika wydarzeń.",
         "look_for": "Zestaw sceny z różnych paneli i zwróć uwagę, że mozaiki należą do różnych budynków; Dom Tezeusza i Dom Aiona oferują odmienne opowieści mitologiczne.",
-        "source_ids": ["SRC-HIST-PAPHOS-MOSAICS"],
+        "source_ids": [
+          "SRC-HIST-PAPHOS-MOSAICS"
+        ],
         "checked_on": "2026-11-06"
       },
       {
@@ -4451,7 +5546,10 @@
         "title": "Tezeusz i Minotaur: mit na rzymskiej posadzce",
         "why": "W jednej z antycznych wersji Tezeusz schodzi do labiryntu, pokonuje Minotaura i dzięki nici Ariadny odnajduje drogę powrotną. Mozaika w Domu Tezeusza przedstawia bohatera z Minotaurem; to rzymskie przedstawienie mitu, nie zapis historycznego wydarzenia.",
         "look_for": "Poszukaj w parku mozaiki z Tezeuszem i Minotaurem. Oddziel antyczne dzieło z II–V wieku n.e. od opowieści, którą przedstawia.",
-        "source_ids": ["SRC-HIST-APOLLODORUS", "SRC-HIST-PAPHOS-MOSAICS"],
+        "source_ids": [
+          "SRC-HIST-APOLLODORUS",
+          "SRC-HIST-PAPHOS-MOSAICS"
+        ],
         "checked_on": "2026-11-06"
       },
       {
@@ -4463,7 +5561,9 @@
         "title": "Port jako orientacyjny punkt opowieści o mieście",
         "why": "Visit Cyprus podaje, że Nicocles przeniósł miasto z poprzedniej lokalizacji w pobliże portu pod koniec IV wieku p.n.e. To opowieść o przeniesieniu ośrodka, nie o nieprzerwanej ciągłości dzisiejszego nabrzeża.",
         "look_for": "Podczas spaceru zestaw port z pobliskim parkiem jako orientacyjnym kontekstem zmiany lokalizacji miasta; nie utożsamiaj dzisiejszego nabrzeża z zachowanym portem antycznym.",
-        "source_ids": ["SRC-PARK"],
+        "source_ids": [
+          "SRC-PARK"
+        ],
         "checked_on": "2026-11-06"
       },
       {
@@ -4475,7 +5575,9 @@
         "title": "Grobowce Królewskie: nie groby królów",
         "why": "Źródło turystyczne wyjaśnia, że chowano tu wysokich urzędników i arystokrację, nie królów. Część grobów naśladuje domy z centralnym dziedzińcem.",
         "look_for": "Z bezpiecznego poziomu obejrzyj wykute w skale atria z dziedzińcem otoczonym kolumnadą (perystylem); nie dopisuj nazwisk ani tytułów zmarłych.",
-        "source_ids": ["SRC-TOMBS"],
+        "source_ids": [
+          "SRC-TOMBS"
+        ],
         "checked_on": "2026-11-06"
       },
       {
@@ -4487,7 +5589,9 @@
         "title": "Petra tou Romiou i opowieść o Afrodycie",
         "why": "W wersji Hezjoda Afrodyta wyłania się z morskiej piany, dociera najpierw na Cyterę, a potem na Cypr. To opowieść literacka; poemat nie wskazuje konkretnej skały Petra tou Romiou jako miejsca jej narodzin.",
         "look_for": "Potraktuj skałę i morze jako krajobraz do lektury mitu; poemat nie wskazuje tej konkretnej skały jako miejsca narodzin bogini.",
-        "source_ids": ["SRC-HIST-HESIOD"],
+        "source_ids": [
+          "SRC-HIST-HESIOD"
+        ],
         "checked_on": "2026-11-06"
       },
       {
@@ -4499,7 +5603,9 @@
         "title": "Warstwy malarskie Agia Paraskevi",
         "why": "Visit Cyprus opisuje Agia Paraskevi jako jedną z dwóch pięciokopułowych bazylik tego rodzaju na wyspie. Malowidła pochodzą z wielu okresów, więc wnętrze nie jest jednorodnym obrazem jednej chwili.",
         "look_for": "Jeśli wnętrze będzie dostępne, obserwuj różnice między malowidłami. Visit Cyprus podaje, że niedzielne wizyty można uzgodnić na życzenie; przed wyjazdem potwierdź dostępność, a bez potwierdzenia oglądaj kościół z zewnątrz.",
-        "source_ids": ["SRC-GEROSKIPOU"],
+        "source_ids": [
+          "SRC-GEROSKIPOU"
+        ],
         "checked_on": "2026-11-05"
       },
       {
@@ -4511,7 +5617,9 @@
         "title": "Geroskipou jako „święty ogród” — opowieść o nazwie",
         "why": "Visit Cyprus przekazuje tradycję łączącą nazwę wsi z ogrodami Afrodyty i dawną drogą pielgrzymów do Palaipafos. Sam portal zaznacza, że domniemana świątynia pod kościołem jest tylko możliwością.",
         "look_for": "Potraktuj tę opowieść jako lokalną tradycję o nazwie i krajobrazie, nie jako potwierdzone odkrycie świątyni.",
-        "source_ids": ["SRC-GEROSKIPOU"],
+        "source_ids": [
+          "SRC-GEROSKIPOU"
+        ],
         "checked_on": "2026-11-05"
       },
       {
@@ -4523,7 +5631,9 @@
         "title": "Enkleistra: wykuta pustelnia i bizantyjskie freski",
         "why": "Neofit wykonał skalną pustelnię, a jej freski powstawały przez kilka stuleci. Klasztor łączy więc biografię założyciela z późniejszymi warstwami sztuki sakralnej.",
         "look_for": "Na miejscu warto zwrócić uwagę na freski i wykutą przestrzeń Enkleistry; jak przy zwiedzaniu miejsca kultu, zachowaj ciszę i szacunek.",
-        "source_ids": ["SRC-NEOPHYTOS"],
+        "source_ids": [
+          "SRC-NEOPHYTOS"
+        ],
         "checked_on": "2026-11-06"
       },
       {
@@ -4535,7 +5645,9 @@
         "title": "Omodos i opowieść o relikwii Krzyża",
         "why": "Visit Cyprus opisuje w Omodos fragment sznura łączonego z ukrzyżowaniem Jezusa. To religijny przekaz i element miejscowej tradycji, a nie niezależnie potwierdzony fakt historyczny o pochodzeniu przedmiotu.",
         "look_for": "Jeśli ekspozycja będzie dostępna, zwróć uwagę na opowieść o fragmencie sznura; traktuj ją jako tradycję religijną, a nie potwierdzenie autentyczności przedmiotu.",
-        "source_ids": ["SRC-HIST-OMODOS"],
+        "source_ids": [
+          "SRC-HIST-OMODOS"
+        ],
         "checked_on": "2026-11-06"
       }
     ]
@@ -4780,6 +5892,12 @@
       "from": "1.2.28: ICS automatycznie nadawał 60 minut punktowemu meldunkowi 15:00 i tworzył 15-minutowe nałożenie z Faros o 15:45",
       "to": "1.2.29: D1-05 pozostaje w osi HTML, ale nie jest eksportowany jako godzinne wydarzenie ICS; rezerwacja hotelu już ma osobny event 15:00, bez zgadywania długości meldunku",
       "reason": "Ręczna kontrola wygenerowanego ICS wykazała nakładanie wynikające z domyślnej godziny w eksporcie dla braku end_local. Wygaszono wyłącznie redundantny event kalendarza; punkt planu i czasy pozostają bez zmian."
+    },
+    {
+      "id": "CHANGE-41",
+      "from": "1.2.29",
+      "to": "1.3.0 — wdrożenie zaakceptowanego audytu 6 XI",
+      "reason": "Implementacja zaakceptowanego audytu: harmonogram, terminy Petsas i odprawy, mapa, galeria, Dziś, offline i eksporty. Odpowiedzi usługodawców nadal do potwierdzenia; publikacja poza zakresem."
     }
   ]
 }

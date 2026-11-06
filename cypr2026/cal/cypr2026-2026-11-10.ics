@@ -23,101 +23,110 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-day@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;VALUE=DATE:20261110
 DTEND;VALUE=DATE:20261111
 SUMMARY:Dzień 4: Troodos i Artemis
 DESCRIPTION:Krótka pętla wysokogórska zamiast drugiego ciężkiego dnia
  . Najlepsza widzialność ma pierwszeństwo przed przypisaniem do daty.
 LOCATION:Pafos\, Cypr
-URL:https://cypr2026.pages.dev/#day-04
+URL:https://kjawo.github.io/cypr2026/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-01@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261110T070000
 DTEND;TZID=Asia/Nicosia:20261110T072000
 SUMMARY:Dzień 4 · Śniadanie
 DESCRIPTION:Lunch awaryjny już w plecaku.\nCzas: założenie planu.\nMapa
-  (punkt): https://www.google.com/maps/search/?api=1&query=Princessa%20Ver
- a%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\nP
- lan: https://cypr2026.pages.dev/#day-04
+  (punkt): https://www.google.com/maps/search/?api=1&query=34.767031\,32.4
+ 10418\nPlan: https://kjawo.github.io/cypr2026/#day-04
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-04
+URL:https://kjawo.github.io/cypr2026/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261110T072500
-DTEND;TZID=Asia/Nicosia:20261110T094500
+DTEND;TZID=Asia/Nicosia:20261110T094000
 SUMMARY:Dzień 4 · Dojazd do Artemis
-DESCRIPTION:105–125 min plus 10–15 min bufora robót\, jeśli nie są 
- uwzględnione w nawigacji. Dojazd może trwać do około 09:45.\nCzas: za
- łożenie planu.\nMapa (punkt): https://www.google.com/maps/search/?api=1
- &query=Artemis+Nature+Trail+trailhead+Troodos+Cyprus\nPlan: https://cypr2
- 026.pages.dev/#day-04
+DESCRIPTION:Szacunkowo 1 h 50–2 h 20 przez rejon Platres i Troodos po as
+ falcie. Rezerwa na roboty przy Psilo Dendro/B9. Nawigacja do oficjalnego 
+ początku Artemis 34.933166\, 32.871986\; nie do Troodos Square. Przy pó
+ źniejszym przyjeździe przesunąć przygotowanie\, start najpóźniej ok
+ oło 10:00.\nCzas: założenie planu.\nMapa (punkt): https://www.google.c
+ om/maps/search/?api=1&query=34.933166\,32.871986\nPlan: https://kjawo.git
+ hub.io/cypr2026/#day-04
 LOCATION:Artemis początek szlaku
-URL:https://cypr2026.pages.dev/#day-04
+URL:https://kjawo.github.io/cypr2026/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
-DTSTART;TZID=Asia/Nicosia:20261110T093000
+SEQUENCE:1003000
+DTSTART;TZID=Asia/Nicosia:20261110T094000
 DTEND;TZID=Asia/Nicosia:20261110T100000
 SUMMARY:Dzień 4 · Parking i kontrola warunków
-DESCRIPTION:To okno zależy od przejazdu. Lód\, mgła\, silny wiatr albo 
- zamknięcie oznaczają zmianę dnia. Mały parking przy oficjalnym starci
- e.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/maps/s
- earch/?api=1&query=Artemis+Nature+Trail+trailhead+Troodos+Cyprus\nPlan: h
- ttps://cypr2026.pages.dev/#day-04
+DESCRIPTION:Około 15–20 min przygotowania przy oznaczonym początku. St
+ art cel 09:45–10:00 zależnie od dojazdu. Lód\, mgła\, silny wiatr lu
+ b zamknięcie oznaczają rezygnację. Troodos Square dodaje 2\,4 km dojś
+ cia w jedną stronę\, 4\,8 km łącznie — wymaga nowego przeliczenia c
+ zasu.\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/map
+ s/search/?api=1&query=34.933166\,32.871986\nPlan: https://kjawo.github.io
+ /cypr2026/#day-04
 LOCATION:Artemis początek szlaku
-URL:https://cypr2026.pages.dev/#day-04
+URL:https://kjawo.github.io/cypr2026/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-04@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261110T100000
 DTEND;TZID=Asia/Nicosia:20261110T133000
 SUMMARY:Dzień 4 · Artemis
 DESCRIPTION:Plan 3–3\,5 h\, rezerwa do 4 h. Zaczynamy najpóźniej 10:00
  \; przy końcu 14:00 pomijamy restaurację.\nCzas: założenie planu.\nMa
- pa (punkt): https://www.google.com/maps/search/?api=1&query=Artemis+Natur
- e+Trail+trailhead+Troodos+Cyprus\nPlan: https://cypr2026.pages.dev/#day-0
- 4
+ pa (punkt): https://www.google.com/maps/search/?api=1&query=34.933166\,32
+ .871986\nPlan: https://kjawo.github.io/cypr2026/#day-04
 LOCATION:Artemis początek szlaku
-URL:https://cypr2026.pages.dev/#day-04
+URL:https://kjawo.github.io/cypr2026/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-05@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261110T133000
 DTEND;TZID=Asia/Nicosia:20261110T140000
 SUMMARY:Dzień 4 · Jedzenie i przygotowanie powrotu
-DESCRIPTION:Domyślnie prowiant. Plagia przy Troodos Square tylko po potwi
- erdzeniu i gdy wyjazd z okolicy nastąpi najpóźniej 14:15.\nCzas: zało
- żenie planu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&qu
- ery=34.924239%2C32.880879\nPlan: https://cypr2026.pages.dev/#day-04
+DESCRIPTION:Domyślnie własny prowiant i wyjazd około 14:00. Krótki Tro
+ odos Square lub restauracja tylko gdy nie opóźnia powrotu\; po końcu m
+ arszu o 14:00 rezygnujemy z postojów.\nCzas: założenie planu.\nMapa (p
+ unkt): https://www.google.com/maps/search/?api=1&query=34.924239%2C32.880
+ 879\nPlan: https://kjawo.github.io/cypr2026/#day-04
 LOCATION:Troodos Square
-URL:https://cypr2026.pages.dev/#day-04
+URL:https://kjawo.github.io/cypr2026/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-10-D4-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
+SEQUENCE:1003000
 DTSTART;TZID=Asia/Nicosia:20261110T140000
 DTEND;TZID=Asia/Nicosia:20261110T163000
 SUMMARY:Dzień 4 · Powrót do Princessa Vera
 DESCRIPTION:Około 1 h 45–2 h 20 z rezerwą\; hotel zwykle 16:00–16:30
  \, a przy wyjeździe 14:15 do około 16:45.\nCzas: założenie planu.\nMa
- pa (punkt): https://www.google.com/maps/search/?api=1&query=Princessa%20V
- era%20Hotel%20Apartments%2017%20Tombs%20of%20the%20Kings%20Road%20Paphos\
- nPlan: https://cypr2026.pages.dev/#day-04
+ pa (punkt): https://www.google.com/maps/search/?api=1&query=34.767031\,32
+ .410418\nPlan: https://kjawo.github.io/cypr2026/#day-04
 LOCATION:Princessa Vera Hotel Apartments
-URL:https://cypr2026.pages.dev/#day-04
+URL:https://kjawo.github.io/cypr2026/#day-04
 STATUS:TENTATIVE
 END:VEVENT
 END:VCALENDAR

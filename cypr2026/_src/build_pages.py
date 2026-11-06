@@ -14,6 +14,8 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import hashlib
+import json
 import shutil
 import subprocess
 import sys
@@ -27,7 +29,7 @@ REPO_ROOT = ROOT.parent
 DIST = ROOT / "dist"
 ZIP_FILE = ROOT / "cypr2026-pages.zip"
 
-DEFAULT_CANONICAL = "https://cypr2026.pages.dev/"
+DEFAULT_CANONICAL = json.loads((ROOT / "data" / "Cypr_2026_zrodlo_prawdy.json").read_text(encoding="utf-8")).get("publication_contract", {}).get("primary_url", "https://kjawo.github.io/cypr2026/")
 DEFAULT_JOURNAL = "https://kjawo.github.io/"
 DEFAULT_ARCHIVE = "https://kjawo.github.io/v1/"
 
@@ -38,6 +40,8 @@ PUBLIC_FILES = [
     "sw.js",
     "manifest.json",
     "cypr2026-print.pdf",
+    "cypr2026-handbook.pdf",
+    "cypr2026-handbook.html",
     "CREDITS.md",
 ]
 PUBLIC_DIRS = ["assets", "cal", "data"]
@@ -147,6 +151,9 @@ def run_build(canonical: str, journal: str, archive: str, noindex: bool) -> None
 
 
 def copy_public_files() -> None:
+    # Resolve and constrain the only recursive removal to this project's dist.
+    if DIST.resolve() != (ROOT.resolve() / "dist") or DIST.is_symlink():
+        fail("dist musi być zwykłym katalogiem wewnątrz projektu")
     if DIST.exists():
         shutil.rmtree(DIST)
     DIST.mkdir(parents=True)
@@ -204,10 +211,21 @@ def validate_dist(canonical: str) -> None:
     if missing:
         fail("linki prowadzą do brakujących plików: " + ", ".join(sorted(set(missing))))
 
-    stale = "https://kjawo.github.io/cypr2026"
-    for path in [index, *sorted((DIST / "cal").glob("*.ics"))]:
-        if stale in path.read_text(encoding="utf-8"):
-            fail(f"stary adres GitHub Pages pozostał w {path.relative_to(DIST)}")
+    for path in sorted((DIST / "cal").glob("*.ics")):
+        text = path.read_text(encoding="utf-8").replace("\n ", "")
+        urls = [line[4:] for line in text.splitlines() if line.startswith("URL:")]
+        if any(not value.startswith(canonical) for value in urls):
+            fail(f"adres kalendarza nie zgadza się z canonical: {path.name}")
+
+    export_file = DIST / "data" / "exports.json"
+    if not export_file.is_file():
+        fail("brak metryki PDF; uruchom npm run pdf przed pakowaniem")
+    exports = json.loads(export_file.read_text(encoding="utf-8"))
+    for filename, digest in exports["sha256"].items():
+        if hashlib.sha256((DIST / filename).read_bytes()).hexdigest() != digest:
+            fail(f"nieaktualny eksport PDF lub HTML: {filename}; uruchom npm run pdf")
+    if exports["canonical"] != canonical:
+        fail("PDF ma inny adres główny; wygeneruj PDF dla bieżącego canonical")
 
     required = [
         "_headers",
@@ -219,6 +237,8 @@ def validate_dist(canonical: str) -> None:
         "sw.js",
         "manifest.json",
         "cypr2026-print.pdf",
+        "cypr2026-handbook.pdf",
+        "cypr2026-handbook.html",
         "CREDITS.md",
         "data/Cypr_2026_zrodlo_prawdy.json",
     ]

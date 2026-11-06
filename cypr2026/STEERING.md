@@ -2,9 +2,13 @@
 
 Ten plik jest **nadrzędny** wobec `PLAN-REVIEW.md`. Agent czyta go przed każdą iteracją.
 
-## AKTUALNY ZAKRES — review planu i moduł historia/mitologia
+## Bieżące wykonanie — zaakceptowany audyt 6 XI 2026
 
-Jedynym aktywnym celem Night jest `ZADANIE-2026-11-05-REVIEW-HISTORIA.md`, w kolejności:
+Wersja 1.3.0 wdraża poprawki z audytu przekazanego przez użytkownika. Bieżące polecenie obejmuje dane, generatory, szablony i eksporty lokalne. Bez commita, pushowania i wdrażania; sprawy usługodawców pozostają do potwierdzenia. Szczegóły: `IMPLEMENTACJA-2026-11-06.md`.
+
+## HISTORIA — review planu i moduł historia/mitologia (Night)
+
+W poprzedniej iteracji celem Night był `ZADANIE-2026-11-05-REVIEW-HISTORIA.md`, w kolejności:
 (1) weryfikacja planu na podstawie aktualnych źródeł i rzeczywistego vouchera Petsas
 przekazanego przez użytkownika; (2) przystępny, źródłowy moduł historii/mitologii
 powiązany z miejscami już obecnymi w planie. Stare zadania, w tym zadanie rowerowe i
