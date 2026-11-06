@@ -75,7 +75,6 @@ HEADERS = """\
   Cache-Control: public, max-age=86400
 
 /gpx/*
-  Content-Type: application/gpx+xml
   Cache-Control: public, max-age=86400
 """
 
@@ -178,7 +177,11 @@ def copy_public_files() -> None:
             ignore=shutil.ignore_patterns("__pycache__", "*.pyc", ".DS_Store"),
         )
 
-    (DIST / "_headers").write_text(HEADERS, encoding="utf-8")
+    plan = json.loads((ROOT/'data/Cypr_2026_zrodlo_prawdy.json').read_text(encoding='utf-8'))
+    # Apply GPX MIME only to GPX files, leaving the ODbL text and JSON readable.
+    gpx_headers = ''.join(f"\n/{r['gpx']['path']}\n  Content-Type: application/gpx+xml\n"
+                          for r in plan['routes'] if r.get('gpx', {}).get('path'))
+    (DIST / "_headers").write_text(HEADERS + gpx_headers, encoding="utf-8")
     (DIST / "_redirects").write_text(REDIRECTS, encoding="utf-8")
     (DIST / "404.html").write_text(NOT_FOUND, encoding="utf-8")
 

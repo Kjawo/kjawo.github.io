@@ -1,6 +1,6 @@
 # Cypr 2026 — pakowanie i późniejsza publikacja
 
-Stan 6 XI 2026, wersja **1.3.0**: komplet przygotowany lokalnie. Nie wykonano commita, pushowania ani wdrożenia. Wyrównanie działających wersji GitHub Pages i Cloudflare pozostaje do publikacji.
+Stan 6 XI 2026, wersja **1.5.0**: komplet przygotowany lokalnie, z 50 pinezkami i 7 GPX pieszymi oraz ich bazą ODbL. Vouni i Timi terenowe nadal nie mają potwierdzonego śladu; pełne GPX rowerowe nie należą do paczki z powodu braku zgody na redystrybucję. Nie wykonano commita, pushowania ani wdrożenia. **Mirror Cloudflare wymaga osobnej publikacji**; lokalna poprawka nie aktualizuje mirrora ani GitHub Pages.
 
 ## Adresy
 

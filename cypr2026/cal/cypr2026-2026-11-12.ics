@@ -23,7 +23,7 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-day@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;VALUE=DATE:20261112
 DTEND;VALUE=DATE:20261113
 SUMMARY:Dzień 6: Grobowce i spokojny ostatni dzień
@@ -36,7 +36,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-01@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261112T062000
 DTEND;TZID=Asia/Nicosia:20261112T072000
 SUMMARY:Dzień 6 · Odprawa Ryanair
@@ -52,7 +52,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261112T070000
 DTEND;TZID=Asia/Nicosia:20261112T074000
 SUMMARY:Dzień 6 · Śniadanie
@@ -67,14 +67,14 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261112T080000
 DTEND;TZID=Asia/Nicosia:20261112T083000
 SUMMARY:Dzień 6 · Dojście do Grobowców
 DESCRIPTION:15–25 min plus zapas\, wejście od właściwej ulicy.\nCzas:
   założenie planu.\nMapa (punkt): https://www.google.com/maps/search/?ap
- i=1&query=34.775104%2C32.408214\nPlan: https://kjawo.github.io/cypr2026/#
- day-06
+ i=1&query=34.7754863\,32.4077376\nPlan: https://kjawo.github.io/cypr2026/
+ #day-06
 LOCATION:Grobowce Królewskie
 URL:https://kjawo.github.io/cypr2026/#day-06
 STATUS:TENTATIVE
@@ -82,14 +82,14 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-04@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261112T083000
 DTEND;TZID=Asia/Nicosia:20261112T100000
 SUMMARY:Dzień 6 · Grobowce Królewskie
 DESCRIPTION:Rano dobre światło i niewiele presji czasowej. Schody i kami
  eń ocenić pod kątem wilgoci.\nCzas: założenie planu.\nMapa (punkt): 
- https://www.google.com/maps/search/?api=1&query=34.775104%2C32.408214\nPl
- an: https://kjawo.github.io/cypr2026/#day-06
+ https://www.google.com/maps/search/?api=1&query=34.7754863\,32.4077376\nP
+ lan: https://kjawo.github.io/cypr2026/#day-06
 LOCATION:Grobowce Królewskie
 URL:https://kjawo.github.io/cypr2026/#day-06
 STATUS:TENTATIVE
@@ -97,7 +97,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-05@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261112T100000
 DTEND;TZID=Asia/Nicosia:20261112T130000
 SUMMARY:Dzień 6 · Powrót i czas wolny
@@ -112,7 +112,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261112T130000
 DTEND;TZID=Asia/Nicosia:20261112T160000
 SUMMARY:Dzień 6 · Paliwo i przygotowanie
@@ -128,7 +128,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-07@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261112T160000
 DTEND;TZID=Asia/Nicosia:20261112T180000
 SUMMARY:Dzień 6 · Pakowanie i wczesna kolacja
@@ -144,7 +144,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-12-D6-08@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261112T190000
 DTEND;TZID=Asia/Nicosia:20261112T235900
 SUMMARY:Dzień 6 · Sen

@@ -23,7 +23,7 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-day@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;VALUE=DATE:20261107
 DTEND;VALUE=DATE:20261108
 SUMMARY:Dzień 1: Przylot i Faros
@@ -39,7 +39,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261107T101000
 DTEND;TZID=Asia/Nicosia:20261107T123000
 SUMMARY:Dzień 1 · Bagaż i obsługa Petsas — okno planu
@@ -47,8 +47,8 @@ DESCRIPTION:Odbiór umówiony 10:30\; cel obsługi około 11:30 i rezerwa
  do 12:00–12:30. Lądowanie 10:10 zostawia tylko 20 min do terminu umów
  ionego. Potwierdzić z Petsas karencję\, numer lotu i no-show\; późnie
  jszy cel planu nie zmienia rezerwacji.\nCzas: założenie planu.\nMapa (p
- unkt): https://www.google.com/maps/search/?api=1&query=34.7179133%2C32.48
- 90948\nPlan: https://kjawo.github.io/cypr2026/#day-01
+ unkt): https://www.google.com/maps/search/?api=1&query=34.7122708\,32.488
+ 6806\nPlan: https://kjawo.github.io/cypr2026/#day-01
 LOCATION:Port lotniczy Pafos PFO
 URL:https://kjawo.github.io/cypr2026/#day-01
 STATUS:TENTATIVE
@@ -56,7 +56,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261107T123000
 DTEND;TZID=Asia/Nicosia:20261107T134500
 SUMMARY:Dzień 1 · Dojazd i bagaże
@@ -71,7 +71,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-04@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261107T134500
 DTEND;TZID=Asia/Nicosia:20261107T150000
 SUMMARY:Dzień 1 · Lunch i odpoczynek
@@ -86,14 +86,14 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261107T154500
 DTEND;TZID=Asia/Nicosia:20261107T170500
 SUMMARY:Dzień 1 · Faros i zachód
 DESCRIPTION:Wyjście pieszo\; pozostawać na bezpiecznym suchym terenie. Z
  achód około 16:51.\nCzas: założenie planu.\nMapa (punkt): https://www
- .google.com/maps/search/?api=1&query=34.7644485%2C32.4067082\nPlan: https
- ://kjawo.github.io/cypr2026/#day-01
+ .google.com/maps/search/?api=1&query=34.7644485\,32.4067082\nPlan: https:
+ //kjawo.github.io/cypr2026/#day-01
 LOCATION:Faros Lighthouse Beach
 URL:https://kjawo.github.io/cypr2026/#day-01
 STATUS:TENTATIVE
@@ -101,7 +101,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-07-D1-07@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261107T173000
 DTEND;TZID=Asia/Nicosia:20261107T190000
 SUMMARY:Dzień 1 · Kolacja w okolicy hotelu
@@ -116,7 +116,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-FL-OUT@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART:20261107T044000Z
 DTEND:20261107T081000Z
 SUMMARY:W61417 WMI → PFO
@@ -130,7 +130,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-hotel@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261107T150000
 DTEND;TZID=Asia/Nicosia:20261113T120000
 SUMMARY:Hotel: Princessa Vera Hotel Apartments
@@ -143,7 +143,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-car-pickup@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART:20261107T083000Z
 DTEND:20261107T083100Z
 SUMMARY:Petsas: odbiór — termin umówiony 10:30

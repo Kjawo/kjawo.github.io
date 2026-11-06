@@ -1049,6 +1049,11 @@
   var mapRenderMarkers = null;
   var mapAllPlaces = [];
   var mapFilterDay = null;
+  var mapRouteLayers = {};
+  var mapRouteStates = {};
+  var mapFocusedRoute = null;
+  var mapPendingRouteFit = false;
+  var mapOverviewAll = false;
   var OSM_ATTRIBUTION = '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
   function loadScript(src) {
     return new Promise(function (resolve, reject) {
@@ -1110,7 +1115,10 @@
     var coord = place.coordinates || {};
     var use = placeUsage(place.id);
     var mapUrl = place.map_url || "";
+    var role = mapFilterDay && (dayPlaceIds(mapFilterDay) || {})[place.id];
     return "<h3>" + esc(place.name) + "</h3>" +
+      (role ? '<p class="map-place-role">' + (role === "optional" ? "Opcja dnia" : "Plan bazowy dnia") + '</p>' : '') +
+      '<p>' + esc(place.map_kind || "") + '</p>' +
       '<p class="map-popup__type">' + esc(typeLabels[place.type] || place.type) + "</p>" +
       '<p class="map-popup__status">' + esc(coordStatusLabels[coord.status] || "brak danych o współrzędnych") + "</p>" +
       (place.published_hours ? "<p><strong>Godziny:</strong> " + esc(place.published_hours) + "</p>" : "") +
@@ -1158,12 +1166,17 @@
     if (!day) return null;
     var ids = {};
     (day.timeline || []).forEach(function (event) {
-      (event.place_ids || []).forEach(function (id) { ids[id] = true; });
+      (event.place_ids || []).forEach(function (id) {
+        if (!ids[id] || !event.optional) ids[id] = event.optional ? "optional" : "base";
+      });
     });
     if (day.primary_route_id) {
       var route = (data.routes || []).filter(function (item) { return item.id === day.primary_route_id; })[0];
-      if (route && route.start_place_id) ids[route.start_place_id] = true;
+      if (route && route.start_place_id) ids[route.start_place_id] = "base";
     }
+    (day.optional_stops || []).forEach(function (stop) {
+      if (!ids[stop.place_id]) ids[stop.place_id] = "optional";
+    });
     return ids;
   }
   function mapCurrentPlaces() {
@@ -1174,7 +1187,13 @@
   }
   function filterPlaceCards(ids) {
     $all("[data-place-id]").forEach(function (card) {
-      card.hidden = !!(ids && !ids[card.getAttribute("data-place-id")]);
+      var role = ids && ids[card.getAttribute("data-place-id")];
+      card.hidden = !!(ids && !role);
+      card.classList.toggle("place-card--optional", role === "optional");
+      var badge = card.querySelector("[data-day-place-role]");
+      if (!badge) { badge = document.createElement("p"); badge.setAttribute("data-day-place-role", ""); card.prepend(badge); }
+      badge.hidden = !role;
+      badge.textContent = role === "optional" ? "Opcja dnia" : "Plan bazowy dnia";
     });
     $all("[data-place-group]").forEach(function (group) {
       var cards = $all("[data-place-id]", group);
@@ -1218,6 +1237,7 @@
     var ids = dayPlaceIds(mapFilterDay) || {};
     var total = Object.keys(ids).length;
     var shown = mapCurrentPlaces().length;
+    var optional = Object.keys(ids).filter(function (id) { return ids[id] === "optional"; }).length;
     var missing = Object.keys(ids).filter(function (id) {
       var place = placeById[id];
       return place && !(place.coordinates && typeof place.coordinates.lat === "number");
@@ -1226,22 +1246,52 @@
       ? "Dzień " + Number(day.id.slice(-2)) + " · " + day.title + ": " + shown + " z " + total + " miejsc na mapie"
       : "Filtr dnia";
     if (missing) text += ". Bez współrzędnych: " + missing + " — linki są w liście poniżej.";
+    text += ". W zestawie: " + (total - optional) + " bazowych, " + optional + " opcjonalnych.";
     status.textContent = text;
   }
+  function routeVisible(route) {
+    if (mapFocusedRoute) return route.id === mapFocusedRoute;
+    return !mapFilterDay || !!(dayPlaceIds(mapFilterDay) || {})[route.start_place_id];
+  }
+  function filterMapRoutes() {
+    var descriptions = [];
+    (data.routes || []).forEach(function (route) {
+      var visible = routeVisible(route);
+      (mapRouteLayers[route.id] || []).forEach(function (line) {
+        if (visible && !mapInstance.hasLayer(line)) line.addTo(mapInstance);
+        else if (!visible && mapInstance.hasLayer(line)) mapInstance.removeLayer(line);
+        if (line.getElement()) line.getElement().setAttribute("data-gpx-route", route.id);
+      });
+      if (visible) descriptions.push(route.name + ": " + (mapRouteStates[route.id] || "brak potwierdzonego GPX"));
+    });
+    var status = $("[data-map-routes-status]");
+    if (status) status.textContent = descriptions.length ? descriptions.join(" · ") : "Ten dzień nie ma trasy pieszej.";
+    if (mapPendingRouteFit && mapRouteLayers[mapFocusedRoute]) {
+      mapPendingRouteFit = false;
+      var bounds = window.L.latLngBounds([]);
+      mapRouteLayers[mapFocusedRoute].forEach(function (line) { bounds.extend(line.getBounds()); });
+      mapInstance.fitBounds(bounds, { padding: [36, 36] });
+    }
+  }
   function applyMapFilter(dayNo, options) {
+    mapFocusedRoute = null;
+    mapPendingRouteFit = false;
     mapFilterDay = dayNo && dayNo !== "all" ? String(dayNo) : null;
+    mapOverviewAll = !!(options && options.extent === "all");
     $all(".map-filter__chip").forEach(function (button) {
       var active = button.getAttribute("data-map-day") === (mapFilterDay || "all");
       button.classList.toggle("is-active", active);
       button.setAttribute("aria-pressed", active ? "true" : "false");
     });
     filterPlaceCards(mapFilterDay ? dayPlaceIds(mapFilterDay) : null);
+    if (mapInstance) filterMapRoutes();
     updateMapStatus();
     if (mapInstance && mapRenderMarkers) {
       var visible = mapCurrentPlaces();
       mapRenderMarkers(visible);
       if (visible.length) {
-        mapInstance.fitBounds(visible.map(function (place) {
+        var fitPlaces = !mapFilterDay && !mapOverviewAll ? visible.filter(function (p) { return p.coordinates.lat >= 34 && p.coordinates.lat <= 36; }) : visible;
+        mapInstance.fitBounds((fitPlaces.length ? fitPlaces : visible).map(function (place) {
           return [place.coordinates.lat, place.coordinates.lon];
         }), { padding: [56, 56], maxZoom: 12 });
       } else {
@@ -1276,13 +1326,14 @@
       maxZoom: 19,
       attribution: OSM_ATTRIBUTION
     }).addTo(map);
-    var bounds = places.map(function (place) {
+    var bounds = places.filter(function (p) { return mapOverviewAll || (p.coordinates.lat >= 34 && p.coordinates.lat <= 36); }).map(function (place) {
       return [place.coordinates.lat, place.coordinates.lon];
     });
     var markerLayer = window.L.layerGroup().addTo(map);
     mapInstance = map;
     mapAllPlaces = places;
-    (data.routes || []).filter(function (route) { return route.gpx && route.gpx.path; }).forEach(function (route) {
+    (data.routes || []).filter(function (route) { return route.gpx && route.gpx.path; }).forEach(function (route, index) {
+      mapRouteStates[route.id] = "wczytywanie GPX";
       fetch(route.gpx.path).then(function (response) {
         if (!response.ok) throw new Error("GPX HTTP " + response.status);
         return response.text();
@@ -1291,18 +1342,20 @@
         if (doc.querySelector("parsererror")) throw new Error("GPX XML");
         var segments = Array.from(doc.getElementsByTagNameNS("*", "trkseg"));
         if (!segments.length) segments = Array.from(doc.getElementsByTagNameNS("*", "rte"));
-        segments.forEach(function (segment) {
+        if (!segments.length) throw new Error("GPX empty");
+        var lines = segments.map(function (segment) {
           var points = Array.from(segment.children).filter(function (p) { return p.localName === "trkpt" || p.localName === "rtept"; }).map(function (p) { return [Number(p.getAttribute("lat")), Number(p.getAttribute("lon"))]; });
-          if (points.length < 2 || !points.every(function (p) { return Number.isFinite(p[0]) && Number.isFinite(p[1]); })) throw new Error("GPX coordinates");
-          var line = window.L.polyline(points, {color:"#0c5c6b",weight:4,className:"gpx-route"}).addTo(map);
+          if (points.length < 2 || !points.every(function (p) { return Number.isFinite(p[0]) && Number.isFinite(p[1]) && Math.abs(p[0]) <= 90 && Math.abs(p[1]) <= 180; })) throw new Error("GPX coordinates");
+          var line = window.L.polyline(points, {color:["#0c5c6b","#8d3b23","#533e7c","#236330","#974116","#244b96","#734d05"][index % 7],weight:4,className:"gpx-route"});
           line.bindTooltip(route.name);
-          if (line.getElement()) line.getElement().setAttribute("data-gpx-route", route.id);
+          return line;
         });
+        mapRouteLayers[route.id] = lines;
+        mapRouteStates[route.id] = "przebieg wczytany; GPX dostępny offline po zapisie planu";
+        filterMapRoutes();
       }).catch(function () {
-        var warning = document.createElement("p");
-        warning.className = "gpx-load-error";
-        warning.textContent = route.name + ": nie udało się wczytać GPX; nie używaj podglądu jako nawigacji.";
-        mapCanvas.parentElement.appendChild(warning);
+        mapRouteStates[route.id] = "błąd wczytania GPX — podgląd niedostępny; spróbuj ponownie po odświeżeniu strony";
+        filterMapRoutes();
       });
     });
     function renderMarkers(placesToShow) {
@@ -1315,9 +1368,13 @@
         var status = members[0].coordinates.status || "orientacyjne_do_potwierdzenia";
         var symbol = status === "zweryfikowane" ? "✓" : status === "przejete_z_audytu" ? "A" : "?";
         var className = members.length > 1 ? "poi-marker poi-marker--cluster" : "poi-marker poi-marker--" + status.replace(/_/g, "-");
+        var roles = mapFilterDay && dayPlaceIds(mapFilterDay);
+        var optionalCount = roles ? members.filter(function (p) { return roles[p.id] === "optional"; }).length : 0;
+        if (optionalCount) className += optionalCount === members.length ? " poi-marker--optional" : " poi-marker--mixed";
         var label = members.length > 1
           ? members.length + " " + placesPlural(members.length) + " w pobliżu: " + members.map(function (place) { return place.name; }).join(", ")
           : members[0].name;
+        if (roles) label += optionalCount === members.length ? " · opcjonalne" : optionalCount ? " · bazowe i opcjonalne" : " · bazowe";
         var markerIcon = window.L.divIcon({
           className: "poi-marker-wrap",
           html: '<span class="' + className + '" aria-hidden="true">' + (members.length > 1 ? members.length : symbol) + "</span>",
@@ -1343,6 +1400,7 @@
     else map.setView([34.9, 32.75], 8);
     mapRenderMarkers = renderMarkers;
     renderMarkers(places);
+    filterMapRoutes();
     map.on("zoomend", function () { mapRenderMarkers(mapCurrentPlaces()); });
     map.on("popupopen", function (event) {
       var closeButton = event.popup.getElement() && event.popup.getElement().querySelector(".leaflet-popup-close-button");
@@ -1357,7 +1415,7 @@
     tiles.on("tileerror", function () { offline.dataset.tileError = "true"; offline.hidden = false; });
     tiles.on("tileload", function () { offline.dataset.tileError = "false"; updateConnection(); });
     mapCanvas.classList.add("is-ready");
-    if (mapFilterDay) applyMapFilter(mapFilterDay, { scroll: false });
+    if (mapFilterDay || mapOverviewAll) applyMapFilter(mapFilterDay, { scroll: false, extent: mapOverviewAll ? "all" : "cyprus" });
     updateConnection();
   }
   function initCyclingMap(canvas) {
@@ -1572,6 +1630,22 @@
   // Map day filter ----------------------------------------------------------
   document.addEventListener("click", function (event) {
     if (!event.target.closest) return;
+    var extentButton = event.target.closest("[data-map-extent]");
+    if (extentButton) {
+      applyMapFilter("all", {scroll:false, extent:extentButton.getAttribute("data-map-extent")});
+      loadMap();
+      return;
+    }
+    var routeButton = event.target.closest("[data-map-route]");
+    if (routeButton) {
+      event.preventDefault();
+      applyMapFilter("all");
+      mapFocusedRoute = routeButton.getAttribute("data-map-route");
+      mapPendingRouteFit = true;
+      loadMap();
+      if (mapInstance) filterMapRoutes();
+      return;
+    }
     var chip = event.target.closest(".map-filter__chip");
     if (chip) {
       event.preventDefault();

@@ -1,5 +1,6 @@
 """Validate local hiking tracks using only XML and geodesic distances."""
 import math
+import hashlib
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
@@ -39,7 +40,7 @@ def read_track(path):
     return points, elevations
 
 
-def validate_track(path, distance_km, start, loop=True):
+def validate_track(path, distance_km, start, loop=True, *, max_gap_m=100, allowed_retrace_m=200, trusted_elevation=False):
     points, elevations = read_track(path)
     steps = [haversine(a, b) for a, b in zip(points, points[1:])]
     length = sum(steps)
@@ -54,11 +55,11 @@ def validate_track(path, distance_km, start, loop=True):
         'length': low*850 <= length <= high*1150,
         'start': haversine(points[0], start) <= 300,
         'loop': not loop or haversine(points[0], points[-1]) <= 300,
-        'gaps': max(steps) <= 100,
-        'repeated_section': not loop or longest <= 200,
+        'gaps': max(steps) <= max_gap_m,
+        'repeated_section': not loop or longest <= allowed_retrace_m,
     }
     ascent = None
-    if all(e is not None for e in elevations):
+    if trusted_elevation and all(e is not None for e in elevations):
         ascent, anchor = 0, elevations[0]
         for elevation in elevations[1:]:
             if abs(elevation-anchor) >= 5:
@@ -91,10 +92,24 @@ def validate_routes(data, root):
             raise ValueError(f"{route['id']}: brak automatycznej walidacji GPX")
         if not all(gpx.get(k) for k in ['source', 'license', 'checked_on']):
             raise ValueError(f"{route['id']}: brak źródła, licencji lub daty GPX")
+        if gpx.get('sha256') and hashlib.sha256(path.read_bytes()).hexdigest() != gpx['sha256']:
+            raise ValueError(f"{route['id']}: plik GPX różni się od sprawdzonej wersji SHA-256")
         coord = places[route['start_place_id']].get('coordinates')
         if not coord:
             raise ValueError(f"{route['id']}: brak współrzędnych startu")
-        result = validate_track(path, route['distance_km'], (coord['lat'], coord['lon']), route.get('shape', 'loop') == 'loop')
+        options = {}
+        if gpx.get('provenance'):
+            from route_sources import reviewed_points
+            expected, review = reviewed_points(route['id'], root)
+            points, _ = read_track(path)
+            if points != expected:
+                raise ValueError(f"{route['id']}: GPX różni się od sprawdzonych węzłów OSM")
+            if not review.get('review'):
+                raise ValueError(f"{route['id']}: brak oceny wariantu i ciągłości")
+            options = {'max_gap_m': review.get('max_gap_m', 100), 'allowed_retrace_m': review.get('allowed_retrace_m', 200)}
+        if gpx.get('elevation_source'):
+            options['trusted_elevation'] = True
+        result = validate_track(path, route['distance_km'], (coord['lat'], coord['lon']), route.get('shape', 'loop') == 'loop', **options)
         if not result['passed']:
             raise ValueError(f"{route['id']}: GPX odrzucony: {result}")
         if gpx.get('length_km') is None or abs(gpx['length_km']-result['length_km']) > .02:

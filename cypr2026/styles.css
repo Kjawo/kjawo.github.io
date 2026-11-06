@@ -554,6 +554,11 @@ main:focus-visible{outline:none}
 .poi-marker--przejete-z-audytu{background:var(--olive)}
 .poi-marker--orientacyjne-do-potwierdzenia{background:var(--gold);color:#3f2f0c}
 .poi-marker--cluster{background:var(--ink);color:var(--gold);border-color:var(--gold);font-size:.8rem}
+.poi-marker--optional{border:3px dashed #fff;border-radius:5px;outline:2px solid var(--sea)}
+.poi-marker--mixed{border-style:dashed;outline:2px solid var(--sea)}
+.place-card--optional{border:2px dashed var(--sea)}
+[data-day-place-role]{font-weight:700;color:var(--sea);font-size:.85rem;margin:0 0 .5rem}
+[data-map-routes-status]{overflow-wrap:anywhere;font-size:.85rem}
 .map-popup{font-family:var(--sans);font-size:.8rem;line-height:1.45;color:var(--ink);max-width:300px}
 .map-popup h3{font-family:var(--serif);font-size:1.2rem;margin:.1rem 0 .3rem}
 .map-popup p{margin:.25rem 0}

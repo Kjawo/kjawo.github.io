@@ -24,6 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from photos import PhotoError, PhotoLibrary
 from handbook import render_handbook
 from gpx import validate_routes
+from route_sources import write_gpx
 from practical import hospitals_html, assistance_html, extensions_html
 from urllib.parse import urlencode
 
@@ -1047,12 +1048,12 @@ def validate(plan: Plan) -> None:
                 fail(f"{route['id']}: brak {key}")
         if route["reserve_duration_minutes"] < max(route["planned_duration_minutes"]):
             fail(f"{route['id']}: rezerwa krótsza niż planowany czas")
-        if route.get("gpx", {}).get("status") not in {"do_przygotowania_i_weryfikacji", "zweryfikowane"}:
+        if route.get("gpx", {}).get("status") not in {"do_przygotowania_i_weryfikacji", "zweryfikowane", "sprawdzony_automatycznie"}:
             fail(f"{route['id']}: nieznany gpx.status")
         if route.get("gpx", {}).get("path"):
-            url = safe_url(route["gpx"]["path"])
-            if not url:
-                fail(f"{route['id']}: nieprawidłowy URL GPX")
+            # validate_routes() checks the local path, license and geometry.
+            if not route['gpx']['path'].startswith('gpx/'):
+                fail(f"{route['id']}: GPX musi być lokalnym plikiem w gpx/")
 
     for transfer in plan.transfers:
         if transfer.get("duration_minutes") is not None:
@@ -1794,7 +1795,8 @@ def render_route_body(plan: Plan, route: dict) -> str:
     gpx = route.get("gpx", {})
     gpx_path = gpx.get("path")
     gpx_link = (
-        f'<a class="button button--small button--ghost" href="{esc(gpx_path)}" download>Pobierz GPX {icon("download")}</a>'
+        f'<a class="button button--small button--ghost" href="{esc(gpx_path)}" download>Pobierz GPX — {esc(route["name"])} {icon("download")}</a> '
+        f'<a class="button button--small button--ghost" href="#mapa" data-map-route="{esc(route["id"])}">Pokaż przebieg — {esc(route["name"])}</a>'
         if gpx_path else ""
     )
     ascent_value = format_metres(route.get("ascent_m"))
@@ -2071,6 +2073,14 @@ def render_cycling(plan: Plan) -> str:
             links.append(
                 f'<a class="text-link" href="{esc(gpx_url)}" rel="noopener">Oficjalny GPX ↗</a>'
             )
+        geometry_note = option.get('geometry_verification', {})
+        readiness_html = (f'<p><strong>Geometria podglądu sprawdzona {esc(cycling["checked_on"])}:</strong> '
+                          f'{geometry_note["point_count"]} punktów pełnego GPX; {geometry_note["length_km"]} km pomiaru. '
+                          'Wypożyczenie i powrót z rowerem nadal niepotwierdzone.</p>') if geometry_note else ''
+        local_note = option.get('gpx_local', {})
+        local_html = f'<p class="cycling-map__note">{esc(local_note.get("note", ""))}</p>'
+        if local_note.get('terms_url'):
+            local_html += f'<p><a href="{esc(local_note["terms_url"])}">Warunki udostępniania GPX u źródła ↗</a></p>'
         corridor = option.get("corridor")
         variant_html = (
             f'<p class="cycling-variant"><strong>Wariant tego samego korytarza: {esc(corridor)}.</strong> '
@@ -2114,6 +2124,7 @@ def render_cycling(plan: Plan) -> str:
             <p class="cycling-card__route">{esc(option["route"])}</p>
             {variant_html}
             <dl class="cycling-facts">{facts_html}</dl>
+            {readiness_html}{local_html}
             {media_html}
             <div class="cycling-details">
               <section><h4>Nawierzchnia, rower i wysiłek</h4><p>{esc(option["surface_bike"])}</p></section>
@@ -2239,7 +2250,7 @@ def render_place(plan: Plan, place: dict) -> str:
         </header>
         <p class="place-notes">{esc(place.get("notes", ""))}</p>
         <p class="fine-print"><strong>Rodzaj punktu:</strong> {esc(place.get("map_kind", "punkt miejsca"))}</p>
-        {('<details class="source-note"><summary>Źródło współrzędnych</summary><p><a href="' + esc(safe_url(place['coordinate_source_url'])) + '">Otwórz źródło lokalizacji ↗</a></p></details>') if place.get('coordinate_source_url') else ''}
+        {('<details class="source-note"><summary>Źródło współrzędnych</summary><p>Sprawdzono: ' + esc(place.get('coordinate_verification', {}).get('checked_on', 'brak daty')) + '. ' + esc(place.get('coordinate_verification', {}).get('scope', '')) + '</p><p><a href="' + esc(safe_url(place['coordinate_source_url'])) + '">Otwórz źródło lokalizacji ↗</a></p></details>') if place.get('coordinate_source_url') else ''}
         {facts_html}
         {usage_html}
         {map_link}
@@ -2286,6 +2297,11 @@ def render_map(plan: Plan) -> str:
               {day_buttons}
             </div>
             <p class="map-filter__status" data-map-status role="status" aria-live="polite">Cały wyjazd · {plan.coord_count} z {plan.total_places} miejsc na mapie. Pozostałe mają linki Maps.</p>
+            <p>Widok początkowy: Cypr. Wszystkie pinezki pozostają dostępne; polskie lotniska zobaczysz także w filtrach dni 1 i 7.</p>
+            <div class="map-filter__buttons" role="group" aria-label="Zasięg widoku mapy">
+              <button type="button" class="button button--small button--ghost" data-map-extent="cyprus">Widok Cypru</button>
+              <button type="button" class="button button--small button--ghost" data-map-extent="all">Wszystkie punkty, także lotniska</button>
+            </div>
           </div>
           <nav class="map-groups" aria-label="Grupy miejsc">
             <span class="map-groups__label">Skocz do grupy</span>
@@ -2305,15 +2321,15 @@ def render_map(plan: Plan) -> str:
           <div class="map-legend" role="group" aria-label="Legenda statusu współrzędnych">
             <span class="legend-title">Status punktu</span>
             <span class="map-key"><i class="map-dot map-dot--ok"></i>zweryfikowane</span>
-            <span class="map-key"><i class="map-dot map-dot--audit"></i>przejęte z audytu</span>
-            <span class="map-key"><i class="map-dot map-dot--approx"></i>orientacyjne, do potwierdzenia</span>
             <span class="map-key"><i class="map-dot map-dot--cluster">3</i>grupa bliskich miejsc</span>
+            <span class="map-key">✓ koło: punkt bazowy dnia · przerywany kwadrat: opcja dnia · przerywana grupa: zawiera opcje</span>
           </div>
         </div>
         <div class="map-notes">
+          <p data-map-routes-status role="status" aria-live="polite">Przebiegi GPX wczytują się wraz z mapą. Filtr dnia obejmuje trasę zaczynającą się w zestawie miejsc tego dnia.</p>
           <p class="gpx-credits">{esc('; '.join(r['gpx']['source'] + ' — ' + r['gpx']['license'] for r in plan.route_list if r.get('gpx', {}).get('path')) or plan.raw['route_ui']['gpx_credits'])}</p>
           <p>{icon("info")} Kafelki OpenStreetMap nie są cache’owane przez service worker. Po pierwszym wejściu plan działa offline, ale mapa może pokazać tylko szare tło. Do nawigacji offline użyj Organic Maps lub Guru Maps.</p>
-          <p>{icon("alert")} Markery pokazują miejsca, nie przebieg szlaku. Nie rysujemy linii z punktów orientacyjnych. Bliskie punkty łączą się w jeden marker — kliknij go, aby zobaczyć pełną listę.</p>
+          <p>{icon("info")} Markery pokazują miejsca, kolorowe linie — zwalidowane przebiegi GPX. Przyciski „Pokaż przebieg” na kartach tras przybliżają wybrany szlak. Bliskie punkty łączą się w jeden marker — kliknij go, aby zobaczyć pełną listę.</p>
           <p>{icon("info")} Status punktu dotyczy współrzędnych, nie godzin ani dostępności.</p>
         </div>
         <details class="places-disclosure" open data-places-disclosure>
@@ -3236,7 +3252,8 @@ def compute_asset_hash(raw_json: bytes, *, noindex: bool) -> str:
     digest.update(raw_json)
     digest.update((CANONICAL_URL + "\0" + JOURNAL_URL + "\0" + ARCHIVE_URL).encode("utf-8"))
     paths = [TEMPLATE_FILE, Path(__file__).resolve(), ROOT / "_src" / "photos.py", ROOT / "_src" / "handbook.py", ROOT / "_src" / "practical.py", ROOT / "_src" / "gpx.py", STYLES_FILE, APP_FILE, MANIFEST_FILE, ROOT / "data" / "photos.json"]
-    paths.extend(sorted((ROOT/'gpx').glob('*.gpx')))
+    paths.extend(sorted(p for p in (ROOT/'gpx').rglob('*') if p.is_file()))
+    paths.append(ROOT/'_src/route_sources.py')
     sw_runtime = SW_TEMPLATE_FILE.read_text(encoding="utf-8")
     sw_runtime = re.sub(r'const CACHE_VERSION = "[^"]*";', '', sw_runtime, count=1)
     sw_runtime = re.sub(r'const PRECACHE_URLS = \[.*?\];', '', sw_runtime, count=1, flags=re.S)
@@ -3619,6 +3636,7 @@ def build_service_worker(plan: Plan, asset_hash: str) -> str:
         for path in sorted(CAL_DIR.glob("*.ics")):
             precache.append(f"./{path.relative_to(ROOT).as_posix()}")
     precache.extend('./' + r['gpx']['path'] for r in plan.route_list if r.get('gpx', {}).get('path'))
+    precache.extend(['./gpx/README.md', './gpx/sources/osm-network.json', './gpx/sources/ODbL-1.0.txt'])
     precache.append("./cypr2026-handbook.html")
     precache.append("./cypr2026-handbook.pdf")
     # Keep the list stable and free of duplicates.
@@ -3664,6 +3682,9 @@ def main() -> int:
         except json.JSONDecodeError as exc:
             fail(f"JSON nie jest poprawny: {exc}")
         try:
+            for route in data['routes']:
+                if route.get('gpx', {}).get('provenance') == 'gpx/sources/osm-network.json':
+                    write_gpx(route)
             plan = Plan(data)
         except PhotoError as exc:
             fail(str(exc))

@@ -116,7 +116,9 @@ const output = process.env.CYPR_TEST_OUTPUT || fs.mkdtempSync(path.join(os.tmpdi
         await page.locator('[data-issues-disclosure]').evaluate(el=>el.open=true);
         assert.match(await page.locator('[data-issue-due-label]').first().innerText(),/zaległe/);
         const route=page.locator('#trasa-aphrodite');
-        assert.match(await route.innerText(),/35\.056063/);
+        const plan=JSON.parse(fs.readFileSync(path.join(root,'data/Cypr_2026_zrodlo_prawdy.json'),'utf8'));
+        const start=plan.places.find(p=>p.id==='POI-BATHS').coordinates;
+        assert((await route.innerText()).includes(String(start.lat)));
         for(const href of ['https://maps.apple.com/','om://map','geo:']) {
           const link=route.locator(`a[href^="${href}"]`);
           assert.equal(await link.count(),1);
@@ -126,7 +128,7 @@ const output = process.env.CYPR_TEST_OUTPUT || fs.mkdtempSync(path.join(os.tmpdi
         assert.equal(await google.getAttribute('data-requires-network'),'true');
         await page.evaluate(()=>Object.defineProperty(navigator,'clipboard',{configurable:true,value:undefined}));
         await route.locator('[data-copy-coordinates]').click();
-        assert.match(await page.evaluate(()=>getSelection().toString()),/35\.056063/);
+        assert((await page.evaluate(()=>getSelection().toString())).includes(String(start.lat)));
         assert.match(await page.locator('#bezpieczenstwo').innerText(),/Paphos General Hospital[\s\S]*WPISZ/);
         assert.match(await page.locator('#auto').innerText(),/WPISZ: sektor, klucze/);
         const day4=page.locator('#day-04');
@@ -211,6 +213,9 @@ const output = process.env.CYPR_TEST_OUTPUT || fs.mkdtempSync(path.join(os.tmpdi
         const plan=JSON.parse(fs.readFileSync(path.join(root,'data/Cypr_2026_zrodlo_prawdy.json'),'utf8'));
         const tracks=plan.routes.filter(r=>r.gpx.path);
         if(tracks.length) {
+          // A country overview can quantize a small trail to a flat SVG path.
+          // Exercise the actual control that fits a route before asserting paint.
+          await page.locator(`[data-map-route="${tracks[0].id}"]`).click();
           await page.waitForSelector('[data-gpx-route]');
           for(const route of tracks) {
             const response=await page.evaluate(async file=>{const r=await fetch(file);return {status:r.status,type:r.headers.get('Content-Type')};},route.gpx.path);

@@ -95,12 +95,12 @@ for name,digest in exports['sha256'].items():
     assert hashlib.sha256((ROOT/name).read_bytes()).hexdigest() == digest, name
 for issue in p['open_issues']:
     assert 'resolved_on' in issue and 'resolution' in issue
-assert p['meta']['version'] == '1.4.0'
+assert p['meta']['version'] == json.loads((ROOT/'package.json').read_text(encoding='utf-8'))['version']
 assert p['days'][3]['timeline'][1]['start_local'] == '07:00'
 assert p['days'][3]['timeline'][3]['start_local'] == '09:30'
 for name in ['index.html','cypr2026-handbook.html']:
     rendered = (ROOT/name).read_text(encoding='utf-8')
-    for text in ['1.4.0','Paphos General Hospital','Polis Chrysochous Hospital','Kyperounta Hospital','WPISZ: sektor, klucze','WPISZ','EKUZ','NRC','typ G']:
+    for text in [p['meta']['version'],'Paphos General Hospital','Polis Chrysochous Hospital','Kyperounta Hospital','WPISZ: sektor, klucze','WPISZ','EKUZ','NRC','typ G']:
         assert text in rendered,(name,text)
 print(f'PASS: GPX validation ({len(gpx_results)} routes), export SHA-256 / build hash, precache {precache_bytes:,} B / {len(precache)} URLs (< 25 MB).')
 from build import Plan, render_todo, nearest_issue

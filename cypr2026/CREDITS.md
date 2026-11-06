@@ -157,8 +157,15 @@ Kadrowanie do formatów 4:5 (hero), 3:2 (dni i pasek), 4:3 (miejsca) i 16:9 (tra
 
 ## Ślady GPX
 
-Brak opublikowanych śladów GPX. Nie pozyskano danych z licencją pozwalającą na redystrybucję; nie wyznaczono linii szlaków z pinezek.
+Geometria mapowanych tras: © OpenStreetMap contributors, ODbL-1.0 (https://opendatacommons.org/licenses/odbl/1-0/). Węzły i odcinki źródłowe: gpx/sources/osm-network.json. Brak wysokości pomiarowych; nie obliczamy przewyższeń. Vouni 9,8 km nadal bez potwierdzonego GPX.
 
+- Aphrodite solo: © OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy; https://www.openstreetmap.org/relation/2200289; 2026-11-06; ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/.
+- Artemis: © OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy; https://www.openstreetmap.org/relation/4199105; 2026-11-06; ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/.
+- Aphrodite i Adonis: © OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy; https://www.openstreetmap.org/relation/2200314; 2026-11-06; ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/.
+- Atalanti: © OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy; https://www.openstreetmap.org/relation/4200191; 2026-11-06; ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/.
+- Pouziaris solo: © OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy; https://www.openstreetmap.org/relation/4200244; 2026-11-06; ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/.
+- Smigies long i Pissouromoutti: © OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy; https://www.openstreetmap.org/relation/4203272; 2026-11-06; ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/.
+- Doxa Madari Teisia i powrót: © OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy; https://www.openstreetmap.org/relation/14438609; 2026-11-06; ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/.
 
 ## Leaflet
 

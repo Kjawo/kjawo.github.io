@@ -1,8 +1,8 @@
 # Cypr 2026 — plan podróży
 
-Wersja **1.4.0**, 6 XI 2026. Techniczne poprawki po audycie: offline/PWA, obsługa GPX, bezpieczeństwo, sprawy do potwierdzenia i uzgodnione godziny dnia 4.
+Wersja **1.5.0**, 6 XI 2026. Poprawki map i tras: 50/50 pinezek, 7/8 lokalnych przebiegów pieszych, pełne filtry dni z opcjami i zweryfikowane podglądy rowerowe. Vouni 9,8 km, Timi terenowe 12 km i redystrybucja pełnych GPX rowerowych pozostają niezrealizowane. Szczegóły: `MAPY-TRASY-2026-11-06.md`.
 
-SHA-256 źródłowego planu (zapis LF, jak w Git): `cf523cdd13f233c8427a8107488eab53d54f92af08c49cecb1f229d650683b83`.
+SHA-256 źródłowego planu (zapis LF, jak w Git): `1d9d81599317747a4034bf0881b7de99c023e54d511723ad79f563193812b297`.
 
 Adres główny materiałów: **https://kjawo.github.io/cypr2026/**. Mirror: https://cypr2026.pages.dev/. Konfigurację zapisano w `publication_contract.primary_url` i `mirror_urls` w danych. Wyrównanie opublikowanych wersji wymaga osobnej publikacji; nie zostało wykonane w tym zadaniu. Paczka lokalna ma wspólny canonical, a odnośniki do dziennika i archiwum są absolutne, więc działają również na mirrorze.
 
@@ -49,7 +49,7 @@ python -m http.server 8000
 - `cal/` — osiem ICS: cały wyjazd i siedem dni;
 - `cypr2026-handbook.pdf` — **16 stron**, skrót podręczny;
 - `cypr2026-handbook.html` — generowane wejście do skrótu PDF;
-- `cypr2026-print.pdf` — pełna wersja, **112 stron**;
+- `cypr2026-print.pdf` — pełna wersja, **121 stron**;
 - `CREDITS.md` — źródła, autorzy i licencje 142 fotografii;
 - `dist/` i `cypr2026-pages.zip` — lokalny komplet publiczny do późniejszej publikacji.
 
@@ -61,7 +61,7 @@ Powrót: wyjazd hotel 02:40; cel sektora 03:15–03:25; zwrot umówiony 03:30; c
 
 Po instalacji service workera strona sprawdza komplet plików i zgodność wersji z dokumentem. Dopiero wtedy pokazuje **„Plan zapisany offline”**. Niepełny zapis, błąd instalacji lub stara wersja nie otrzymują tego potwierdzenia. Przycisk umożliwia sprawdzenie i ponowienie zapisu.
 
-Zapis podstawowy obejmuje treść, kontakty, fonty, ICS, podręczny PDF i małe zdjęcia każdej fotografii. Pełny PDF pobiera się osobno przyciskiem „Pobierz pełny PDF offline”. Powiększenie wcześniej nieotwartego zdjęcia wybiera dostępny wariant z cache; przy błędzie dużego pliku korzysta z małego JPEG. Nadmiarowe WebP 800 px pominięto w precache; offline SW zwraca dostępny wariant 480 px w tym samym formacie. Pobranie dużych JPEG-ów jest osobną opcją z postępem i komunikatem zakończenia/przerwania. Rozmiar podstawowy 22,262 MB (545 URL-i) kontroluje `npm run test:data`.
+Zapis podstawowy obejmuje treść, kontakty, fonty, ICS, podręczny PDF, siedem GPX z atrybucją i małe zdjęcia każdej fotografii. Pełny PDF pobiera się osobno przyciskiem „Pobierz pełny PDF offline”. Powiększenie wcześniej nieotwartego zdjęcia wybiera dostępny wariant z cache; przy błędzie dużego pliku korzysta z małego JPEG. Nadmiarowe WebP 800 px pominięto w precache; offline SW zwraca dostępny wariant 480 px w tym samym formacie. Pobranie dużych JPEG-ów jest osobną opcją z postępem i komunikatem zakończenia/przerwania. Rozmiar podstawowy 23,233 MB (555 URL-i) kontroluje `npm run test:data`.
 
 Kafelki OSM, zewnętrzne strony, prognoza i nawigacja nie są pobierane. Mapy zachodniego Cypru i Troodos należy pobrać osobno, np. w Organic Maps. Przeglądarka może usunąć zapis przy braku miejsca.
 
@@ -71,7 +71,13 @@ Checklisty zachowują klucz `cypr2026.checklist.v1`; aktualizacja planu/cache ic
 
 ## Mapa i zdjęcia
 
-Wszystkie cypryjskie punkty bazowej osi dni mają pinezki. Łącznie 31 z 50 miejsc ma współrzędne; pozostałe to głównie alternatywy oraz polskie lotniska, z uczciwie oznaczonym wyszukiwaniem Maps. Nowe punkty mają źródło i kontekst: obiekt, wejście, ulica piesza, restauracja lub początek szlaku. Punkt hotelu nie potwierdza bramy parkingowej; Troodos Square nie zastępuje startu Artemis.
+Wszystkie 50 miejsc ma pinezki, kartę, link Maps oraz metadane źródła, rzeczywistej daty kontroli i znaczenia punktu: obiekt, wejście, parking lub początek szlaku. Sprawdzono również wcześniejsze 31 punktów; skorygowano m.in. terminal PFO, start Vouni oraz parkingi Grobowców i Petra tou Romiou. Drzewo Kochanków, Love Bridge i Kamara tou Koraka są odrębnymi obiektami; wieś Choirokoitia ma osobny punkt od stanowiska UNESCO. Punkt hotelu nie potwierdza bramy parkingowej; Troodos Square nie zastępuje startu Artemis.
+
+Filtry wszystkich siedmiu dni obejmują `timeline[].place_ids`, `optional_stops` i start trasy głównej. Dni mają kolejno 4, 8, 5, 4, 5, 5 i 3 miejsca; każda pozycja ma współrzędne. Opcje oznaczono przerywaną obwódką oraz podpisem na karcie i w dymku. Warstwy tras respektują filtr; przyciski na kartach przybliżają konkretny przebieg. Początkowy widok obejmuje Cypr; osobny przycisk pokazuje również polskie lotniska.
+
+Siedem GPX pochodzi z rzeczywistych mapowanych ścieżek OSM, na ODbL 1.0. Każdy odcinek odpowiada krawędzi źródłowej drogi; nie interpolowano punktów ani nie tworzono prostych łączników. Dystans GPX pokazano obok nominalnego dystansu opisu. Baza pochodna, licencja, odtwarzanie plików i udokumentowane odnogi: `gpx/README.md`, `gpx/sources/osm-network.json`, `_src/route_sources.py`. Pliki i atrybucja należą do zapisu offline. Bez wiarygodnych wysokości nie obliczono podejść. Vouni pozostaje jawnie bez GPX.
+
+Rowery pozostają osobną sekcją bez przypisania do dat. Zweryfikowano podglądy i pełne GPX źródłowe Pafos 2 / Timi 16,6 km i Main 16 (579 i 1550 punktów). Pełnych plików nie dołączono lokalnie ani offline: warunki Visit Cyprus wymagają uprzedniej pisemnej zgody na redystrybucję. Timi terenowe 12 km nadal bez potwierdzonego śladu; nie zastąpiono go wariantem asfaltowym. Wypożyczenie i powrót z rowerem pozostają niepotwierdzone.
 
 Manifest zawiera **142 fotografie i 1479 wskazanych plików wariantów**. Zachowano istniejące autorstwo i licencje; nowe kadry obejrzano przed przypisaniem. Przeniesiono Alykes oraz wieś Choirokoitia do osobnych zestawów. Zastąpiono grafikę PFO fotografią terminala; dodano zatokę Pissouri, rekonstrukcje domów i schody w Choirokoitii oraz drogę przy punkcie obserwacyjnym Vouni. Nowych wiarygodnych zdjęć samej trasy Pouziaris nie znaleziono; zachowano kontekst rejonu startu. Nie dopisano nieznanego GPS stanowiska aparatu.
 
@@ -93,4 +99,4 @@ Historyczne głosy w `photo-selection.json` pozostają zachowane; pole korekt au
 
 Build nadal uczciwie ostrzega o brakujących GPX, sumach podejść i niepotwierdzonych usługach/kosztach. Brak testów na fizycznym iPhonie i importu do Apple/Google Calendar. Otwarte sprawy Petsas, hotelu i transportu WMI/WAW nie zostały rozwiązane zmianą treści. Szczegóły wykonania i rzeczywiste wyniki: `IMPLEMENTACJA-2026-11-06.md`.
 
-Service worker jest generowany z `_src/sw.template.js`; nie należy ręcznie edytować `sw.js`. Overpass nie odpowiedział w preflight 6 XI; wszystkie 8 tras ma jawne `gpx.path: null` z przyczyną. Obsługę polilinii i MIME offline sprawdzono na syntetycznym pliku wyłącznie w pamięci testu, bez publikacji fikcyjnych tras. Bieżący raport techniczny `IMPLEMENTACJA-2026-11-06-TECH.md` zapisano poza publicznym repozytorium.
+Service worker jest generowany z `_src/sw.template.js`; nie należy ręcznie edytować `sw.js`. Overpass nie odpowiedział; pozyskano dane bezpośrednio z API OSM, po identyfikacji relacji przez Waymarked Trails. Siedem GPX przeszło walidację i rzeczywiste testy rysowania, pobierania oraz offline w Chrome przy 390 i 1440 px. `npm run test:maps` zapisuje zrzuty i dowody; `CYPR_MAP_OUTPUT` wskazuje katalog wynikowy. Testy danych zawierają osobną kontrolę kompletności: 50/50 punktów, 7/8 GPX pieszych, 2/3 podglądów rowerowych, 0/3 pełnych lokalnych GPX rowerowych. `python _src/verify_completeness.py --require-all` celowo kończy się kodem 2, dopóki pozostają te braki; zwykły PASS nie oznacza pełnego wykonania. Raport i dowody tej iteracji: `MAPY-TRASY-2026-11-06.md` i katalog audytu obok repozytorium.

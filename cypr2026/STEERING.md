@@ -2,7 +2,13 @@
 
 Ten plik jest **nadrzędny** wobec `PLAN-REVIEW.md`. Agent czyta go przed każdą iteracją.
 
-## Bieżące wykonanie — zaakceptowany audyt 6 XI 2026
+## Aktywne dyrektywy — mapy i trasy 6 XI 2026
+
+Wykonuj zakres map i tras z bieżącego polecenia użytkownika; raport wejściowy jest punktem wyjścia, nie stanem docelowym. Edytuj JSON, kod i generatory; zachowaj dni, godziny, rezerwacje i zdjęcia. Nie publikuj syntetycznych śladów ani niepotwierdzonych połączeń. Stan lokalny 1.5.0: 50/50 punktów i 7/8 GPX pieszych; Vouni 9,8 km oraz Timi terenowe 12 km nadal bez potwierdzonego przebiegu. Pełne GPX rowerowe wymagają zgody na redystrybucję. Sprawdzenie geometrii nie potwierdza logistyki rowerów. GitHub Pages i mirror Cloudflare wymagają osobnej publikacji; bez commita, pushowania i wdrożenia. Wyniki i ograniczenia: `MAPY-TRASY-2026-11-06.md`.
+
+Aktualizacja autoryzacji 6 XI 2026: po przygotowaniu i weryfikacji wersji 1.5.0 użytkownik osobnym poleceniem zlecił commit oraz push z opisem zmian. To polecenie uchyla wcześniejszy zakaz commita i pushowania dla niniejszych poprawek. Osobne wdrożenie mirrora Cloudflare pozostaje poza tym zleceniem. Zapisy „bez commita/pushowania” w raportach opisują stan na zakończenie etapu przygotowawczego.
+
+## Zakończone wykonanie — zaakceptowany audyt 6 XI 2026
 
 Wersja 1.3.0 wdraża poprawki z audytu przekazanego przez użytkownika. Bieżące polecenie obejmuje dane, generatory, szablony i eksporty lokalne. Bez commita, pushowania i wdrażania; sprawy usługodawców pozostają do potwierdzenia. Szczegóły: `IMPLEMENTACJA-2026-11-06.md`.
 

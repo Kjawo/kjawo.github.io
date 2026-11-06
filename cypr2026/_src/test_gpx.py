@@ -6,12 +6,12 @@ from gpx import validate_track
 
 
 class TrackValidation(unittest.TestCase):
-    def check_track(self, points, expected=1.0, loop=True, start=(0, 0), elevations=None):
+    def check_track(self, points, expected=1.0, loop=True, start=(0, 0), elevations=None, trust_elevation=None):
         nodes = ''.join(f'<trkpt lat="{lat}" lon="{lon}">' + (f'<ele>{elevations[i]}</ele>' if elevations else '') + '</trkpt>' for i, (lat, lon) in enumerate(points))
         with tempfile.TemporaryDirectory() as folder:
             path = Path(folder)/'synthetic.gpx'
             path.write_text('<gpx><trk><trkseg>' + nodes + '</trkseg></trk></gpx>',encoding='utf-8')
-            return validate_track(path, expected, start, loop)
+            return validate_track(path, expected, start, loop, trusted_elevation=bool(elevations) if trust_elevation is None else trust_elevation)
 
     def square(self):
         # 4 x approximately 250 m, with 25 m between points.
@@ -51,6 +51,22 @@ class TrackValidation(unittest.TestCase):
     def test_nan_rejected(self):
         with self.assertRaises(ValueError):
             self.check_track([(0,0),(float('nan'),1)])
+
+    def test_elevations_need_trusted_source(self):
+        points=self.square()
+        result=self.check_track(points, elevations=[100+i*6 for i in range(len(points))], trust_elevation=False)
+        self.assertIsNone(result['ascent_m'])
+
+    def test_shortcut_between_valid_source_nodes_is_rejected(self):
+        import json
+        from route_sources import reviewed_points
+        with tempfile.TemporaryDirectory() as folder:
+            root=Path(folder)
+            target=root/'gpx/sources/osm-network.json'
+            target.parent.mkdir(parents=True)
+            target.write_text(json.dumps({'nodes':{'1':[0,0],'2':[0,.001],'3':[.001,.001],'4':[.001,0]},
+                'ways':{'7':[1,2,3,4,1]},'routes':{'TEST':{'way_ids':[7],'nodes':[1,3,2,4,1]}}}),encoding='utf-8')
+            with self.assertRaises(ValueError):reviewed_points('TEST',root)
 
 
 if __name__ == '__main__':

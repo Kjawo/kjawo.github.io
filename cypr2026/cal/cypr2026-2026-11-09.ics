@@ -23,7 +23,7 @@ END:VTIMEZONE
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-day@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;VALUE=DATE:20261109
 DTEND;VALUE=DATE:20261110
 SUMMARY:Dzień 3: Akamas i Aphrodite
@@ -36,7 +36,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-01@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261109T070000
 DTEND;TZID=Asia/Nicosia:20261109T072000
 SUMMARY:Dzień 3 · Śniadanie
@@ -51,15 +51,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-02@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261109T072500
 DTEND;TZID=Asia/Nicosia:20261109T084500
 SUMMARY:Dzień 3 · Dojazd do Baths of Aphrodite
 DESCRIPTION:60–80 min przez Polis i Latchi\; asfalt do legalnego parking
  u Baths. Parking i około 20 min przygotowania liczone osobno. Nie jecha
  ć autem ku Blue Lagoon.\nCzas: założenie planu.\nMapa (punkt): https:/
- /www.google.com/maps/search/?api=1&query=35.056063%2C32.345565\nPlan: htt
- ps://kjawo.github.io/cypr2026/#day-03
+ /www.google.com/maps/search/?api=1&query=35.0560915\,32.3458768\nPlan: ht
+ tps://kjawo.github.io/cypr2026/#day-03
 LOCATION:Baths of Aphrodite początek szlaku
 URL:https://kjawo.github.io/cypr2026/#day-03
 STATUS:TENTATIVE
@@ -67,14 +67,15 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-03@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261109T084500
 DTEND;TZID=Asia/Nicosia:20261109T090500
 SUMMARY:Dzień 3 · Przygotowanie i decyzja
 DESCRIPTION:Tablice\, mapa\, pogoda i stan podłoża. Warunek wcześniejsz
  ego sprawdzenia konkretnej trasy względem map łowieckich.\nCzas: zało
  żenie planu.\nMapa (punkt): https://www.google.com/maps/search/?api=1&qu
- ery=35.056063%2C32.345565\nPlan: https://kjawo.github.io/cypr2026/#day-03
+ ery=35.0560915\,32.3458768\nPlan: https://kjawo.github.io/cypr2026/#day-0
+ 3
 LOCATION:Baths of Aphrodite początek szlaku
 URL:https://kjawo.github.io/cypr2026/#day-03
 STATUS:TENTATIVE
@@ -82,7 +83,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-04@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261109T090500
 DTEND;TZID=Asia/Nicosia:20261109T133000
 SUMMARY:Dzień 3 · Pętla Aphrodite
@@ -92,8 +93,8 @@ DESCRIPTION:Cel około 09:00–13:30\, rezerwa do 14:00 (start zależny od
  adomy dodatek po sprawdzeniu śladu: około 20–30 min na odgałęzienie
   i zdjęcia\, kosztem restauracji\; nie wliczać automatycznie do 7\,5 km
  .\nCzas: założenie planu.\nMapa (punkt): https://www.google.com/maps/se
- arch/?api=1&query=35.056063%2C32.345565\nPlan: https://kjawo.github.io/cy
- pr2026/#day-03
+ arch/?api=1&query=35.0560915\,32.3458768\nPlan: https://kjawo.github.io/c
+ ypr2026/#day-03
 LOCATION:Baths of Aphrodite początek szlaku
 URL:https://kjawo.github.io/cypr2026/#day-03
 STATUS:TENTATIVE
@@ -101,7 +102,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-05@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261109T134500
 DTEND;TZID=Asia/Nicosia:20261109T150000
 SUMMARY:Dzień 3 · Polis i lunch warunkowy
@@ -117,14 +118,14 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-06@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261109T150000
 DTEND;TZID=Asia/Nicosia:20261109T160000
 SUMMARY:Dzień 3 · Przejazd i dojście do Edro
 DESCRIPTION:40–50 min z Polis plus postój i dojście. Wariant zależny 
  od drogi i opóźnień.\nCzas: założenie planu.\nMapa (punkt): https://
- www.google.com/maps/search/?api=1&query=34.873407%2C32.341214\nPlan: http
- s://kjawo.github.io/cypr2026/#day-03
+ www.google.com/maps/search/?api=1&query=34.873407\,32.341214\nPlan: https
+ ://kjawo.github.io/cypr2026/#day-03
 LOCATION:Edro III
 URL:https://kjawo.github.io/cypr2026/#day-03
 STATUS:TENTATIVE
@@ -132,14 +133,14 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-07@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261109T160000
 DTEND;TZID=Asia/Nicosia:20261109T170000
 SUMMARY:Dzień 3 · Edro III
 DESCRIPTION:Zachód około 16:49. Tylko z bezpiecznego suchego miejsca\; b
  ez wchodzenia na wrak i mokre skały.\nCzas: założenie planu.\nMapa (pu
- nkt): https://www.google.com/maps/search/?api=1&query=34.873407%2C32.3412
- 14\nPlan: https://kjawo.github.io/cypr2026/#day-03
+ nkt): https://www.google.com/maps/search/?api=1&query=34.873407\,32.34121
+ 4\nPlan: https://kjawo.github.io/cypr2026/#day-03
 LOCATION:Edro III
 URL:https://kjawo.github.io/cypr2026/#day-03
 STATUS:TENTATIVE
@@ -147,7 +148,7 @@ END:VEVENT
 BEGIN:VEVENT
 UID:cypr2026-2026-11-09-D3-08@kjawo.github.io
 DTSTAMP:20261106T000000Z
-SEQUENCE:1004000
+SEQUENCE:1005000
 DTSTART;TZID=Asia/Nicosia:20261109T170000
 DTEND;TZID=Asia/Nicosia:20261109T180000
 SUMMARY:Dzień 3 · Powrót do hotelu

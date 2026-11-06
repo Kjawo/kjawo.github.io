@@ -2,13 +2,13 @@
 "use strict";
 
 // Updated by cypr2026/_src/build.py on every build.
-const CACHE_VERSION = "cypr-2026-1.4.0-ef12d807a6";
+const CACHE_VERSION = "cypr-2026-1.5.0-fb57d50084";
 const PRECACHE_URLS = [
   "./",
   "./index.html",
-  "./styles.min.css?v=ef12d807a6",
-  "./app.min.js?v=ef12d807a6",
-  "./manifest.json?v=ef12d807a6",
+  "./styles.min.css?v=fb57d50084",
+  "./app.min.js?v=fb57d50084",
+  "./manifest.json?v=fb57d50084",
   "./data/Cypr_2026_zrodlo_prawdy.json",
   "./assets/fonts/inter-400-ext.woff2",
   "./assets/fonts/inter-400.woff2",
@@ -547,6 +547,16 @@ const PRECACHE_URLS = [
   "./cal/cypr2026-2026-11-12.ics",
   "./cal/cypr2026-2026-11-13.ics",
   "./cal/cypr2026-caly-wyjazd.ics",
+  "./gpx/aphrodite-akamas.gpx",
+  "./gpx/artemis.gpx",
+  "./gpx/aphrodite-adonis.gpx",
+  "./gpx/atalanti.gpx",
+  "./gpx/pouziaris.gpx",
+  "./gpx/smigies-long-pissouromoutti.gpx",
+  "./gpx/doxa-madari-teisia-powrot.gpx",
+  "./gpx/README.md",
+  "./gpx/sources/osm-network.json",
+  "./gpx/sources/ODbL-1.0.txt",
   "./cypr2026-handbook.html",
   "./cypr2026-handbook.pdf",
 ];

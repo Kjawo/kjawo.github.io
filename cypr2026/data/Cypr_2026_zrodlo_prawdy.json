@@ -2,7 +2,7 @@
   "meta": {
     "id": "CYPR-2026",
     "title": "Cypr 7 do 13 listopada 2026",
-    "version": "1.4.0",
+    "version": "1.5.0",
     "schema_version": "1.0.0",
     "updated_on": "2026-11-06",
     "language": "pl-PL",
@@ -11,7 +11,7 @@
     "canonical_rule": "JSON jest dokumentem nadrzędnym. DOCX, strona i późniejszy wydruk są widokami tej samej wersji danych. Zmiany wprowadzać do JSON, potem ponownie wygenerować widoki.",
     "plan_status": "Plan bazowy gotowy; procedury Petsas, część usług hotelu i warunki terenowe do potwierdzenia.",
     "time_rule": "Godziny na Cyprze w strefie Asia/Nicosia UTC+02:00; Polska Europe/Warsaw UTC+01:00. Cypr jest w tych datach godzinę do przodu. Loty zapisano w czasie lokalnym każdego lotniska.",
-    "scope": "Plan do realizacji i podstawa treści strony oraz dokumentu podróżnego. Nie zawiera potwierdzeń rezerwacji ani gotowych plików GPX."
+    "scope": "Plan bazowy i źródła widoków podróżnych; 50 punktów mapy oraz 7 mapowanych GPX OSM. Pełny Vouni i Timi terenowy nadal bez potwierdzonego przebiegu."
   },
   "status_legend": [
     {
@@ -953,6 +953,462 @@
       "url": "https://www.mof.gov.cy/mof/customs/customs.nsf/All/05AEEF243C9BFC8BC22572BF002D0A28",
       "scope": "Zastosowanie i czasy przejęte z audytu 6 XI 2026; czasy są szacunkami planu.",
       "verification_status": "przejete_z_audytu",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-HOTEL",
+      "title": "Lokalizacja: Princessa Vera Hotel Apartments",
+      "url": "https://www.openstreetmap.org/way/1047373169",
+      "scope": "obiekt hotelowy — nie brama parkingu. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-PFO",
+      "title": "Lokalizacja: Port lotniczy Pafos PFO",
+      "url": "https://www.openstreetmap.org/way/24499304",
+      "scope": "obiekt — terminal pasażerski PFO; sektor zwrotu Petsas nadal do potwierdzenia. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-WMI",
+      "title": "Lokalizacja: Warszawa Modlin WMI",
+      "url": "https://www.openstreetmap.org/way/170000639",
+      "scope": "obiekt — terminal WMI; nie parking ani konkretne wejście. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-WAW",
+      "title": "Lokalizacja: Warszawa Chopina WAW",
+      "url": "https://www.openstreetmap.org/way/284582022",
+      "scope": "obiekt — Terminal A, sektory A/B; nie parking ani stanowisko obsługi. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-FAROS",
+      "title": "Lokalizacja: Faros Lighthouse Beach",
+      "url": "https://www.openstreetmap.org/way/26172943",
+      "scope": "obiekt — plaża Faros / Lighthouse Beach, nie latarnia. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-PARK",
+      "title": "Lokalizacja: Park Archeologiczny Kato Pafos",
+      "url": "https://www.openstreetmap.org/node/2267766063",
+      "scope": "główne wejście przy porcie — nie środek stanowiska. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-TOMBS",
+      "title": "Lokalizacja: Grobowce Królewskie",
+      "url": "https://www.openstreetmap.org/way/8075089",
+      "scope": "parking przy wejściu do Grobowców Królewskich; nie grobowiec w środku stanowiska. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-HARBOUR",
+      "title": "Lokalizacja: Port i zamek w Pafos",
+      "url": "https://www.openstreetmap.org/way/8052789",
+      "scope": "obiekt — zamek przy porcie, oglądany z zewnątrz. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-SOLOMONI",
+      "title": "Lokalizacja: Agia Solomoni i okolice Fabrica",
+      "url": "https://www.openstreetmap.org/node/4580824096",
+      "scope": "atrakcja — katakumby, nie Fabrica. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-MALL",
+      "title": "Lokalizacja: Kings Avenue Mall",
+      "url": "https://www.openstreetmap.org/way/147476732",
+      "scope": "obiekt — budynek Kings Avenue Mall. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-BATHS",
+      "title": "Lokalizacja: Baths of Aphrodite początek szlaku",
+      "url": "https://www.openstreetmap.org/node/12620092689",
+      "scope": "początek Aphrodite / Adonis przy Baths of Aphrodite; dojście do pętli uwzględnione w GPX Aphrodite. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-ARTEMIS",
+      "title": "Lokalizacja: Artemis początek szlaku",
+      "url": "https://www.openstreetmap.org/node/12693595973",
+      "scope": "początek szlaku — parking przy starcie, wolne miejsce niegwarantowane. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-TROODOS",
+      "title": "Lokalizacja: Troodos Square",
+      "url": "https://www.openstreetmap.org/node/391393057",
+      "scope": "początek szlaku Atalanti przy Troodos Square; nie start Artemis. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-PSILO",
+      "title": "Lokalizacja: Psilo Dendro start Pouziaris",
+      "url": "https://www.openstreetmap.org/node/12249813003",
+      "scope": "początek Pouziaris przy Psilo Dendro. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-PANAGIA",
+      "title": "Lokalizacja: Pano Panagia start Vouni Panagias",
+      "url": "https://www.openstreetmap.org/node/12620786288",
+      "scope": "początek szlaku Vouni przy tablicy w Pano Panagia; potwierdzenie startu nie potwierdza GPX. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-SMIGIES",
+      "title": "Lokalizacja: Smigies Picnic Site",
+      "url": "https://www.openstreetmap.org/node/12620092688",
+      "scope": "początek szlaków przy Smigies Picnic Site. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-DOXA",
+      "title": "Lokalizacja: Doxa soi o Theos początek Madari",
+      "url": "https://www.openstreetmap.org/way/248672523",
+      "scope": "początek szlaku — rejon tablic i wejścia Doxa soi o Theos. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-POLIS",
+      "title": "Lokalizacja: Polis Chrysochous",
+      "url": "https://www.openstreetmap.org/way/27295818",
+      "scope": "piesze centrum — ulica 9th Iouliou, nie parking. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-EDRO",
+      "title": "Lokalizacja: Edro III",
+      "url": "https://www.openstreetmap.org/way/471488134",
+      "scope": "obiekt — brzeg do oglądania wraku Edro III; nie lokalizacja wejścia na wrak. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-PALAIPAFOS",
+      "title": "Lokalizacja: Palaipafos i muzeum w Kouklia",
+      "url": "https://www.openstreetmap.org/way/29372351",
+      "scope": "obiekt — kompleks Palaipafos i muzeum; nie parking. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-OMODOS",
+      "title": "Lokalizacja: Omodos",
+      "url": "https://www.openstreetmap.org/node/13763026441",
+      "scope": "parking przy północnym dojściu do Omodos; centrum zwiedzane pieszo. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-PETRA",
+      "title": "Lokalizacja: Petra tou Romiou parking",
+      "url": "https://www.openstreetmap.org/way/26695408",
+      "scope": "parking Petra tou Romiou po północnej stronie drogi; dojście do plaży przejściem. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-MUSEUM",
+      "title": "Lokalizacja: Muzeum Archeologiczne dystryktu Pafos",
+      "url": "https://www.openstreetmap.org/way/1181368494",
+      "scope": "obiekt — Muzeum Archeologiczne dystryktu Pafos. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-HONDROS",
+      "title": "Lokalizacja: Hondros",
+      "url": "https://www.openstreetmap.org/way/1287051929",
+      "scope": "obiekt restauracji — dojście pieszo, nie parking. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-MOUSTAKALLIS",
+      "title": "Lokalizacja: Moustakallis",
+      "url": "https://www.openstreetmap.org/node/1722295639",
+      "scope": "restauracja — nie parking. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-KATOI",
+      "title": "Lokalizacja: Katoi",
+      "url": "https://www.openstreetmap.org/node/315204859",
+      "scope": "restauracja — nie parking. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-VAROSHA",
+      "title": "Lokalizacja: Varosha (Famagusta)",
+      "url": "https://www.openstreetmap.org/way/1254829844",
+      "scope": "parking przy wejściu do Varoshy; dostęp i dojazd przez Green Line do potwierdzenia. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-FAMAGUSTA",
+      "title": "Lokalizacja: Famagusta — stare miasto",
+      "url": "https://www.openstreetmap.org/way/31746104",
+      "scope": "obiekt — Lala Mustafa Paşa / dawny św. Mikołaj w starym mieście; dojście piesze. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-GRECO",
+      "title": "Lokalizacja: Cape Greco National Forest Park",
+      "url": "https://www.openstreetmap.org/node/12741785061",
+      "scope": "obiekt — centrum informacji parku Cape Greco; nie przylądek w obszarze wojskowym. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-LOVERS-TREE",
+      "title": "Lokalizacja: Drzewo Kochanków (Lovers' Tree), Cape Greco",
+      "url": "https://www.openstreetmap.org/node/2514154031",
+      "scope": "obiekt — konkretny jałowiec Tree of Cape Greco / Tree of Life; nie most. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-LOVE-BRIDGE",
+      "title": "Lokalizacja: Love Bridge (Ayia Napa)",
+      "url": "https://www.openstreetmap.org/node/6605072225",
+      "scope": "obiekt — Monachus Monachus Arch / Love Bridge w Ayia Napa; nie Kamara tou Koraka. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-KAMARA",
+      "title": "Lokalizacja: Kamara tou Koraka (Crow's Arch)",
+      "url": "https://www.openstreetmap.org/node/4821054104",
+      "scope": "obiekt — Kamara tou Koraka w Cape Greco; oglądanie z brzegu, bez wchodzenia na łuk. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-KOURION",
+      "title": "Lokalizacja: Kourion Archaeological Site",
+      "url": "https://www.openstreetmap.org/way/633840566",
+      "scope": "obiekt — stanowisko archeologiczne Kourion; nie plaża ani muzeum we wsi Episkopi. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-KOLOSSI",
+      "title": "Lokalizacja: Kolossi Castle",
+      "url": "https://www.openstreetmap.org/way/630871185",
+      "scope": "obiekt — Kolossi Castle; nie przystanek autobusowy o tej samej nazwie. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-NEOPHYTOS",
+      "title": "Lokalizacja: Agios Neophytos Monastery",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/agios-neophytos-monastery/",
+      "scope": "obiekt — Agios Neophytos w Tala; nie punkt w Kouklia. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-CHRYSORROGIATISSA",
+      "title": "Lokalizacja: Chrysorrogiatissa Monastery",
+      "url": "https://www.visitcyprus.com/discover-cyprus/religion/chrysorrogiatissa-monastery/",
+      "scope": "punkt lub wyszukiwanie miejsca, nie gotowa trasa. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-GEROSKIPOU",
+      "title": "Lokalizacja: Geroskipou (Yeroskipou)",
+      "url": "https://www.openstreetmap.org/way/26547309",
+      "scope": "obiekt — Agia Paraskevi w centrum Geroskipou. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-PISSOURI",
+      "title": "Lokalizacja: Pissouri",
+      "url": "https://www.visitcyprus.com/discover-cyprus/sun-sea/beaches/pissouri-beach-blue-flag/",
+      "scope": "obiekt — Pissouri Bay / plaża; nie plac we wsi na wzgórzu. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-LEFKARA",
+      "title": "Lokalizacja: Pano Lefkara",
+      "url": "https://www.openstreetmap.org/node/268651408",
+      "scope": "obiekt — miejscowość Pano Lefkara; nie Kato Lefkara. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-LARNACA-SALT",
+      "title": "Lokalizacja: Larnaca Salt Lake i Hala Sultan Tekke",
+      "url": "https://www.openstreetmap.org/way/264921716",
+      "scope": "obiekt — Hala Sultan Tekke przy jeziorze, nie środek jeziora. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-CHOIROKOITIA",
+      "title": "Lokalizacja: Choirokoitia (UNESCO)",
+      "url": "https://www.openstreetmap.org/way/83209985",
+      "scope": "wejście — rejon kas stanowiska archeologicznego UNESCO; wieś ma osobną pinezkę. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-CORAL-BAY",
+      "title": "Lokalizacja: Coral Bay",
+      "url": "https://www.openstreetmap.org/way/5916700",
+      "scope": "obiekt — plaża Coral Bay, nie centrum Pegeia. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-CHRYSOPOLITISSA",
+      "title": "Lokalizacja: Chrysopolitissa / Agia Kyriaki",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/early-christian-basilica-st-paul-s-pillar-chrysopolitissa-agia-kyriaki-church/",
+      "scope": "obiekt — bazylika i Agia Kyriaki w Kato Pafos; nie kościół w Polis ani dzielnica Larnaki. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-SEA-CAVES",
+      "title": "Lokalizacja: Sea Caves w Pegeia",
+      "url": "https://www.openstreetmap.org/node/1479393912",
+      "scope": "obiekt — nadmorski punkt widokowy Sea Caves w Pegeia; nie Sea Caves w Ayia Napa. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-LOFOU",
+      "title": "Lokalizacja: Lofou",
+      "url": "https://www.openstreetmap.org/node/292220531",
+      "scope": "obiekt — wieś Lofou; punkt miejscowości, nie parking. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-EZOUSA",
+      "title": "Lokalizacja: Ezousa — Episkopi",
+      "url": "https://www.openstreetmap.org/node/38902143",
+      "scope": "obiekt — Episkopi Pafou w dolinie Ezousa; nie Episkopi koło Limassol. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-KALOPANAGIOTIS",
+      "title": "Lokalizacja: Kalopanagiotis i Agios Ioannis Lampadistis",
+      "url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/agios-ioannis-lampadistis-church/",
+      "scope": "obiekt — Agios Ioannis Lampadistis przy Kalopanagiotis; nie kościół Agios Ioannis Agrou. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-NICOSIA",
+      "title": "Lokalizacja: Nikozja — pieszo przez Ledra Street",
+      "url": "https://www.openstreetmap.org/way/55793256",
+      "scope": "obiekt — pieszy odcinek Ledra po południowej stronie; nie parking ani sam punkt kontroli. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-ALYKES",
+      "title": "Lokalizacja: Alykes Beach, Kato Pafos",
+      "url": "https://www.visitcyprus.com/discover-cyprus/sun-sea/beaches/alykes-beach-blue-flag/",
+      "scope": "obiekt — plaża Alykes według oficjalnego punktu Visit Cyprus; nie GPS stanowiska aparatu. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-MAP-CHOIROKOITIA-VILLAGE",
+      "title": "Lokalizacja: Choirokoitia — wieś i okolice",
+      "url": "https://www.openstreetmap.org/node/395251891",
+      "scope": "obiekt — osobna wieś Choirokoitia, około 950 m od wejścia na stanowisko UNESCO. Kontrola tożsamości i geometrii 6 XI 2026.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-GPX-APHRODITE",
+      "title": "Przebieg: Aphrodite solo",
+      "url": "https://www.openstreetmap.org/relation/2200289",
+      "scope": "Mapowany przebieg OSM: 7.187 km; dystans planu/źródeł opisowych: 7.5 km. Pętla Aphrodite 6,628 km oraz mapowane dojście od węzła trailhead/12620092689 (280 m w obie strony). Porównano z oficjalnym układem trasy: hiking_WEB_ONLY.pdf s. 19. Punkt startowy przy Baths of Aphrodite, Moutti tis Sotiras i powrót wybrzeżem. Dojście po istniejących ścieżkach; bez interpolacji. Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-GPX-ARTEMIS",
+      "title": "Przebieg: Artemis",
+      "url": "https://www.openstreetmap.org/relation/4199105",
+      "scope": "Mapowany przebieg OSM: 7.212 km; dystans planu/źródeł opisowych: 7 km. Ciągła pętla z relacji OSM, start obrócony do najbliższego istniejącego węzła przy udokumentowanym początku. Porównano układ z oficjalną mapą zarządcy (hiking_WEB_ONLY.pdf / Hiking-Map-Nature-Trails.pdf 2026). Bez interpolacji ani łączenia różnych węzłów. Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-GPX-ADONIS-COMBO",
+      "title": "Przebieg: Aphrodite i Adonis",
+      "url": "https://www.openstreetmap.org/relation/2200314",
+      "scope": "Mapowany przebieg OSM: 9.710 km; dystans planu/źródeł opisowych: 10.5–11.6 km. Zewnętrzna pętla Aphrodite + Adonis przez Moutti tis Sotiras i Kefalovrysia. Złączenie na wspólnych węzłach 112609216 i 697105431; bez powtarzania wspólnego odcinka i bez odgałęzienia do Pyrgos. Mapa obu szlaków: hiking_WEB_ONLY.pdf s. 19–20. To kompozyt, nie osobny oficjalny szlak. Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-GPX-ATALANTI",
+      "title": "Przebieg: Atalanti",
+      "url": "https://www.openstreetmap.org/relation/4200191",
+      "scope": "Mapowany przebieg OSM: 13.242 km; dystans planu/źródeł opisowych: 14 km. Ciągła pętla z relacji OSM, start obrócony do najbliższego istniejącego węzła przy udokumentowanym początku. Porównano układ z oficjalną mapą zarządcy (hiking_WEB_ONLY.pdf / Hiking-Map-Nature-Trails.pdf 2026). Bez interpolacji ani łączenia różnych węzłów. Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-GPX-POUZIARIS",
+      "title": "Przebieg: Pouziaris solo",
+      "url": "https://www.openstreetmap.org/relation/4200244",
+      "scope": "Mapowany przebieg OSM: 8.147 km; dystans planu/źródeł opisowych: 9 km. Pętla z dojściem 786 m w obie strony po way/1570057521, nazwanym Pouziaris trail. Odcinek 161,5 m jest oryginalną krawędzią tej samej mapowanej ścieżki, nie łącznikiem. Porównano z mapą zarządcy, hiking_WEB_ONLY.pdf s. 35; zachowano węzły źródła. Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-GPX-SMIGIES",
+      "title": "Przebieg: Smigies long i Pissouromoutti",
+      "url": "https://www.openstreetmap.org/relation/4203272",
+      "scope": "Mapowany przebieg OSM: 9.047 km; dystans planu/źródeł opisowych: 9–10 km. Smigies long (5,841 km) oraz pełna pętla Pissouromoutti z dojściem way/34588777 (28 m) i odnogą na szczyt way/34588780 (269 m) w obie strony. Odnogi łączą się z wewnętrznymi węzłami pętli, nie końcami ways. Łącznik 159 m w obie strony przez picnic site po mapowanych drogach i ścieżkach; potwierdzone wspólne węzły, tablice szlaków 5484461074 i 6174511541. Porównano oficjalne mapy hiking_WEB_ONLY.pdf s. 21–22. Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+      "verification_status": "sprawdzone_2026_11_06",
+      "checked_on": "2026-11-06"
+    },
+    {
+      "id": "SRC-GPX-MADARI",
+      "title": "Przebieg: Doxa Madari Teisia i powrót",
+      "url": "https://www.openstreetmap.org/relation/14438609",
+      "scope": "Mapowany przebieg OSM: 10.647 km; dystans planu/źródeł opisowych: 10.6–11.1 km. Doxa–Madari 3,8 km i powrót po tych samych ścieżkach; pętla Teisia połączona w węźle 2701248303, wejście na punkt obserwacyjny po way/264448258 w obie strony. Źródło oficjalne Hiking-Map-Nature-Trails.pdf 2026, opis sieci Madari i Teisia; porównano układ z mapą. Pominięto krótką odnogę widokową Teisia (83 m). Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+      "verification_status": "sprawdzone_2026_11_06",
       "checked_on": "2026-11-06"
     }
   ],
@@ -2285,18 +2741,23 @@
         "Burza, ulewa, silny wiatr, niebezpiecznie mokre zejście lub aktywne polowanie w pobliżu trasy."
       ],
       "gpx": {
-        "status": "do_przygotowania_i_weryfikacji",
-        "path": null,
-        "source": null,
-        "license": null,
+        "status": "sprawdzony_automatycznie",
+        "path": "gpx/aphrodite-akamas.gpx",
+        "source": "© OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy",
+        "source_url": "https://www.openstreetmap.org/relation/2200289",
+        "license": "ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/",
         "checked_on": "2026-11-06",
-        "length_km": null,
+        "length_km": 7.187,
         "ascent_m": null,
-        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
+        "elevation_source": null,
+        "provenance": "gpx/sources/osm-network.json",
+        "note": "Mapowany przebieg OSM: 7.187 km; dystans planu/źródeł opisowych: 7.5 km. Pętla Aphrodite 6,628 km oraz mapowane dojście od węzła trailhead/12620092689 (280 m w obie strony). Porównano z oficjalnym układem trasy: hiking_WEB_ONLY.pdf s. 19. Punkt startowy przy Baths of Aphrodite, Moutti tis Sotiras i powrót wybrzeżem. Dojście po istniejących ścieżkach; bez interpolacji. Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+        "sha256": "0c71517575c626990e96852f8defc4df1bd4f25ce871fdf6cf9911936d507bd7"
       },
       "source_ids": [
         "SRC-APHRODITE",
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-GPX-APHRODITE"
       ],
       "notes": [
         "Oficjalny czas 3–4 h jest krótszy od planu uwzględniającego fotografię.",
@@ -2337,19 +2798,24 @@
         "Lód bez odpowiedniego wyposażenia, zimowe ograniczenia dróg, burze, porywy utrudniające chód lub niewidoczny bezpieczny przebieg."
       ],
       "gpx": {
-        "status": "do_przygotowania_i_weryfikacji",
-        "path": null,
-        "source": null,
-        "license": null,
+        "status": "sprawdzony_automatycznie",
+        "path": "gpx/artemis.gpx",
+        "source": "© OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy",
+        "source_url": "https://www.openstreetmap.org/relation/4199105",
+        "license": "ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/",
         "checked_on": "2026-11-06",
-        "length_km": null,
+        "length_km": 7.212,
         "ascent_m": null,
-        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
+        "elevation_source": null,
+        "provenance": "gpx/sources/osm-network.json",
+        "note": "Mapowany przebieg OSM: 7.212 km; dystans planu/źródeł opisowych: 7 km. Ciągła pętla z relacji OSM, start obrócony do najbliższego istniejącego węzła przy udokumentowanym początku. Porównano układ z oficjalną mapą zarządcy (hiking_WEB_ONLY.pdf / Hiking-Map-Nature-Trails.pdf 2026). Bez interpolacji ani łączenia różnych węzłów. Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+        "sha256": "0545b3e079262e89a39d07d0ea7a2dca3c7abc7665297786d5ef2871b7a3a46a"
       },
       "source_ids": [
         "SRC-ARTEMIS",
         "SRC-AUDIT",
-        "SRC-ARTEMIS-FLYER"
+        "SRC-ARTEMIS-FLYER",
+        "SRC-GPX-ARTEMIS"
       ],
       "notes": [
         "Oficjalny czas 2,5–3 h; plan wydłużony dla zdjęć.",
@@ -2393,12 +2859,13 @@
       "gpx": {
         "status": "do_przygotowania_i_weryfikacji",
         "path": null,
-        "source": null,
+        "source": "OSM relation 14428682; Monopatia Vouni; katalog Visit Cyprus",
         "license": null,
         "checked_on": "2026-11-06",
         "length_km": null,
         "ascent_m": null,
-        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
+        "note": "NIEZREALIZOWANE: brak zweryfikowanego GPX pełnego wariantu 9,8 km. OSM 14428682 ma nieciągłość i dodatkowe odnogi (suma członków 11,275 km). Monopatia opisuje wariant 9,8 km, lecz udostępnienie do osobistego niekomercyjnego użycia nie potwierdza prawa redystrybucji na stronie. Potrzebna ciągła geometria dokładnie tej pętli i jednoznaczna licencja. Potwierdzona pinezka startu nie zastępuje śladu.",
+        "source_url": "https://www.openstreetmap.org/relation/14428682"
       },
       "source_ids": [
         "SRC-AUDIT",
@@ -2443,17 +2910,22 @@
         "Brak sprawdzonego śladu, start po 08:30, mokre strome zejścia, silny wiatr."
       ],
       "gpx": {
-        "status": "do_przygotowania_i_weryfikacji",
-        "path": null,
-        "source": null,
-        "license": null,
+        "status": "sprawdzony_automatycznie",
+        "path": "gpx/aphrodite-adonis.gpx",
+        "source": "© OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy",
+        "source_url": "https://www.openstreetmap.org/relation/2200314",
+        "license": "ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/",
         "checked_on": "2026-11-06",
-        "length_km": null,
+        "length_km": 9.71,
         "ascent_m": null,
-        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
+        "elevation_source": null,
+        "provenance": "gpx/sources/osm-network.json",
+        "note": "Mapowany przebieg OSM: 9.710 km; dystans planu/źródeł opisowych: 10.5–11.6 km. Zewnętrzna pętla Aphrodite + Adonis przez Moutti tis Sotiras i Kefalovrysia. Złączenie na wspólnych węzłach 112609216 i 697105431; bez powtarzania wspólnego odcinka i bez odgałęzienia do Pyrgos. Mapa obu szlaków: hiking_WEB_ONLY.pdf s. 19–20. To kompozyt, nie osobny oficjalny szlak. Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+        "sha256": "a17e78520ff222ba1c191b5274c71d52c5cbba4a830e1c1e02a504e361506d73"
       },
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-GPX-ADONIS-COMBO"
       ],
       "notes": [
         "Znalezione w audycie +454 i +537 m dotyczą różnych śladów, nie jednego ustalonego przebiegu.",
@@ -2495,17 +2967,22 @@
         "Nie przenosić na 12 XI w ramach ratowania programu."
       ],
       "gpx": {
-        "status": "do_przygotowania_i_weryfikacji",
-        "path": null,
-        "source": null,
-        "license": null,
+        "status": "sprawdzony_automatycznie",
+        "path": "gpx/atalanti.gpx",
+        "source": "© OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy",
+        "source_url": "https://www.openstreetmap.org/relation/4200191",
+        "license": "ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/",
         "checked_on": "2026-11-06",
-        "length_km": null,
+        "length_km": 13.242,
         "ascent_m": null,
-        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
+        "elevation_source": null,
+        "provenance": "gpx/sources/osm-network.json",
+        "note": "Mapowany przebieg OSM: 13.242 km; dystans planu/źródeł opisowych: 14 km. Ciągła pętla z relacji OSM, start obrócony do najbliższego istniejącego węzła przy udokumentowanym początku. Porównano układ z oficjalną mapą zarządcy (hiking_WEB_ONLY.pdf / Hiking-Map-Nature-Trails.pdf 2026). Bez interpolacji ani łączenia różnych węzłów. Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+        "sha256": "62443de0a27ec86aba58c68bf5ec0e43f1dca659d139c900f1951dacc415ce35"
       },
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-GPX-ATALANTI"
       ],
       "notes": [
         "Dokładne +150 m usunięte jako niewiarygodnie precyzyjne; suma podejść wymaga sprawdzenia wybranego śladu.",
@@ -2548,18 +3025,23 @@
         "Mokro, lód, zmęczenie lub brak legalnego parkingu i bezpiecznego dojścia."
       ],
       "gpx": {
-        "status": "do_przygotowania_i_weryfikacji",
-        "path": null,
-        "source": null,
-        "license": null,
+        "status": "sprawdzony_automatycznie",
+        "path": "gpx/pouziaris.gpx",
+        "source": "© OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy",
+        "source_url": "https://www.openstreetmap.org/relation/4200244",
+        "license": "ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/",
         "checked_on": "2026-11-06",
-        "length_km": null,
+        "length_km": 8.147,
         "ascent_m": null,
-        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
+        "elevation_source": null,
+        "provenance": "gpx/sources/osm-network.json",
+        "note": "Mapowany przebieg OSM: 8.147 km; dystans planu/źródeł opisowych: 9 km. Pętla z dojściem 786 m w obie strony po way/1570057521, nazwanym Pouziaris trail. Odcinek 161,5 m jest oryginalną krawędzią tej samej mapowanej ścieżki, nie łącznikiem. Porównano z mapą zarządcy, hiking_WEB_ONLY.pdf s. 35; zachowano węzły źródła. Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+        "sha256": "9894e81f8ad4798444db3d1bebde9c321ba7cd8f7528111527c3f0ce9f2fd433"
       },
       "source_ids": [
         "SRC-AUDIT",
-        "SRC-ROAD"
+        "SRC-ROAD",
+        "SRC-GPX-POUZIARIS"
       ],
       "notes": [
         "+550–650 m jest szacunkiem wysiłku z audytu, nie pomiarem. Różnica 540 m między skrajnymi wysokościami nie jest całkowitym podejściem.",
@@ -2598,17 +3080,22 @@
         "Niejasny dojazd, zakaz, gruntówka nieobjęta zgodą lub ryzyko polowań."
       ],
       "gpx": {
-        "status": "do_przygotowania_i_weryfikacji",
-        "path": null,
-        "source": null,
-        "license": null,
+        "status": "sprawdzony_automatycznie",
+        "path": "gpx/smigies-long-pissouromoutti.gpx",
+        "source": "© OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy",
+        "source_url": "https://www.openstreetmap.org/relation/4203272",
+        "license": "ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/",
         "checked_on": "2026-11-06",
-        "length_km": null,
+        "length_km": 9.047,
         "ascent_m": null,
-        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
+        "elevation_source": null,
+        "provenance": "gpx/sources/osm-network.json",
+        "note": "Mapowany przebieg OSM: 9.047 km; dystans planu/źródeł opisowych: 9–10 km. Smigies long (5,841 km) oraz pełna pętla Pissouromoutti z dojściem way/34588777 (28 m) i odnogą na szczyt way/34588780 (269 m) w obie strony. Odnogi łączą się z wewnętrznymi węzłami pętli, nie końcami ways. Łącznik 159 m w obie strony przez picnic site po mapowanych drogach i ścieżkach; potwierdzone wspólne węzły, tablice szlaków 5484461074 i 6174511541. Porównano oficjalne mapy hiking_WEB_ONLY.pdf s. 21–22. Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+        "sha256": "d9a74f55bd9c4666e0d218701288b0bc61e419c0ca6b43589b4d4150bde88468"
       },
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-GPX-SMIGIES"
       ],
       "notes": [
         "Orientacyjne +314 m w śladzie pomocniczym nie jest ustaloną sumą podejść dla każdego wariantu.",
@@ -2649,18 +3136,23 @@
         "Mgła, mokre skały, silny wiatr lub zmęczenie."
       ],
       "gpx": {
-        "status": "do_przygotowania_i_weryfikacji",
-        "path": null,
-        "source": null,
-        "license": null,
+        "status": "sprawdzony_automatycznie",
+        "path": "gpx/doxa-madari-teisia-powrot.gpx",
+        "source": "© OpenStreetMap contributors; mapowane ścieżki i relacje, kontrola wariantu z mapą zarządcy",
+        "source_url": "https://www.openstreetmap.org/relation/14438609",
+        "license": "ODbL-1.0 — © OpenStreetMap contributors; https://opendatacommons.org/licenses/odbl/1-0/",
         "checked_on": "2026-11-06",
-        "length_km": null,
+        "length_km": 10.647,
         "ascent_m": null,
-        "note": "Brak śladu GPX: Overpass (overpass-api.de i overpass.kumi.systems) nie odpowiedział w limicie czasu 6 XI 2026. Nie pozyskano śladu z licencją pozwalającą na redystrybucję; przebieg wymaga przygotowania i oględzin przed użyciem."
+        "elevation_source": null,
+        "provenance": "gpx/sources/osm-network.json",
+        "note": "Mapowany przebieg OSM: 10.647 km; dystans planu/źródeł opisowych: 10.6–11.1 km. Doxa–Madari 3,8 km i powrót po tych samych ścieżkach; pętla Teisia połączona w węźle 2701248303, wejście na punkt obserwacyjny po way/264448258 w obie strony. Źródło oficjalne Hiking-Map-Nature-Trails.pdf 2026, opis sieci Madari i Teisia; porównano układ z mapą. Pominięto krótką odnogę widokową Teisia (83 m). Ślad nie jest zapisem bieżącego przejścia terenowego ani potwierdzeniem otwarcia. Brak wiarygodnych wysokości — bez obliczonej sumy podejść.",
+        "sha256": "fe64b2e1c3fc524907a6fd3fc1a7626bfade46f9cbb6a86566c752b3996a9423"
       },
       "source_ids": [
         "SRC-AUDIT",
-        "SRC-TRAILS-MAP"
+        "SRC-TRAILS-MAP",
+        "SRC-GPX-MADARI"
       ],
       "notes": [
         "Długość 10,6–11,1 km dotyczy krótszego układu, a nie pełnego Madari z Teisia.",
@@ -3066,11 +3558,20 @@
       "source_ids": [
         "SRC-HOTEL",
         "SRC-HOTEL-CONTACT",
-        "SRC-HOTEL-MAP"
+        "SRC-HOTEL-MAP",
+        "SRC-MAP-HOTEL"
       ],
       "published_hours": null,
       "fee_eur_per_adult": null,
-      "coordinate_source_url": "https://princessaverahotel.com/LOCATION.html"
+      "coordinate_source_url": "https://www.openstreetmap.org/way/1047373169",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/1047373169",
+        "meaning": "obiekt hotelowy — nie brama parkingu",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-PFO",
@@ -3079,19 +3580,34 @@
       "address": null,
       "phone": null,
       "coordinates": {
-        "lat": 34.7179133,
-        "lon": 32.4890948,
+        "lat": 34.7122708,
+        "lon": 32.4886806,
         "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.7179133%2C32.4890948",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.7122708,32.4886806",
+      "map_kind": "obiekt — terminal pasażerski PFO; sektor zwrotu Petsas nadal do potwierdzenia",
       "notes": "Link wskazuje lotnisko, nie sektor zwrotów. Dokładny punkt key drop dopisać po wyborze firmy.",
       "source_ids": [
         "SRC-AUDIT",
-        "SRC-OSM"
+        "SRC-OSM",
+        "SRC-MAP-PFO"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/24499304",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/24499304",
+        "meaning": "obiekt — terminal pasażerski PFO; sektor zwrotu Petsas nadal do potwierdzenia",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego.",
+        "previous_coordinates": {
+          "lat": 34.7179133,
+          "lon": 32.4890948,
+          "status": "zweryfikowane"
+        }
+      }
     },
     {
       "id": "POI-WMI",
@@ -3099,15 +3615,29 @@
       "type": "airport",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Warsaw%20Modlin%20Airport%20WMI",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "coordinates": {
+        "lat": 52.4462125,
+        "lon": 20.6513339,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=52.4462125,20.6513339",
+      "map_kind": "obiekt — terminal WMI; nie parking ani konkretne wejście",
       "notes": "Wylot 7 XI, godziny Europe/Warsaw.",
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-MAP-WMI"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/170000639",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/170000639",
+        "meaning": "obiekt — terminal WMI; nie parking ani konkretne wejście",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-WAW",
@@ -3115,15 +3645,29 @@
       "type": "airport",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Warsaw%20Chopin%20Airport%20WAW",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "coordinates": {
+        "lat": 52.170441,
+        "lon": 20.9719697,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=52.170441,20.9719697",
+      "map_kind": "obiekt — Terminal A, sektory A/B; nie parking ani stanowisko obsługi",
       "notes": "Powrót 13 XI, godziny Europe/Warsaw.",
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-MAP-WAW"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/284582022",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/284582022",
+        "meaning": "obiekt — Terminal A, sektory A/B; nie parking ani stanowisko obsługi",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-FAROS",
@@ -3136,15 +3680,25 @@
         "lon": 32.4067082,
         "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.7644485%2C32.4067082",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.7644485,32.4067082",
+      "map_kind": "obiekt — plaża Faros / Lighthouse Beach, nie latarnia",
       "notes": "Punkt spacerowy blisko hotelu; wstęp i dojazd do plaży nie oznaczają wejścia do stanowiska archeologicznego.",
       "source_ids": [
         "SRC-AUDIT",
-        "SRC-OSM"
+        "SRC-OSM",
+        "SRC-MAP-FAROS"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/26172943",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/26172943",
+        "meaning": "obiekt — plaża Faros / Lighthouse Beach, nie latarnia",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-PARK",
@@ -3162,11 +3716,20 @@
       "notes": "OSM: wejście główne przy porcie; kasa node/10044222587 obok. Bilet do Grobowców osobno. Oficjalna karta Visit Cyprus potwierdza atrakcję, godziny i cenę.",
       "source_ids": [
         "SRC-PARK",
-        "SRC-OSM-POINTS"
+        "SRC-OSM-POINTS",
+        "SRC-MAP-PARK"
       ],
       "published_hours": "Codziennie 08:30–17:00 w listopadzie; kontrola jednorazowych zmian przed wizytą.",
       "fee_eur_per_adult": 4.5,
-      "coordinate_source_url": "https://www.openstreetmap.org/node/2267766063"
+      "coordinate_source_url": "https://www.openstreetmap.org/node/2267766063",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "wejscie",
+        "source_url": "https://www.openstreetmap.org/node/2267766063",
+        "meaning": "główne wejście przy porcie — nie środek stanowiska",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-TOMBS",
@@ -3175,19 +3738,34 @@
       "address": null,
       "phone": null,
       "coordinates": {
-        "lat": 34.775104,
-        "lon": 32.408214,
-        "status": "przejete_z_audytu"
+        "lat": 34.7754863,
+        "lon": 32.4077376,
+        "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.775104%2C32.408214",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.7754863,32.4077376",
+      "map_kind": "parking przy wejściu do Grobowców Królewskich; nie grobowiec w środku stanowiska",
       "notes": "Współrzędne wejścia/parkingu z oryginału; sprawdzić oznakowane wejście. Kamienne schody mogą być śliskie.",
       "source_ids": [
         "SRC-TOMBS",
-        "SRC-ORIGINAL"
+        "SRC-ORIGINAL",
+        "SRC-MAP-TOMBS"
       ],
       "published_hours": "Codziennie 08:30–17:00 w listopadzie; kontrola jednorazowych zmian.",
-      "fee_eur_per_adult": 2.5
+      "fee_eur_per_adult": 2.5,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/8075089",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "parking",
+        "source_url": "https://www.openstreetmap.org/way/8075089",
+        "meaning": "parking przy wejściu do Grobowców Królewskich; nie grobowiec w środku stanowiska",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego.",
+        "previous_coordinates": {
+          "lat": 34.775104,
+          "lon": 32.408214,
+          "status": "przejete_z_audytu"
+        }
+      }
     },
     {
       "id": "POI-HARBOUR",
@@ -3205,11 +3783,20 @@
       "notes": "Środek obrysu zamku OSM; nawigacja piesza do otoczenia obiektu, nie parking. Program bez obowiązkowego wejścia.",
       "source_ids": [
         "SRC-AUDIT",
-        "SRC-OSM-POINTS"
+        "SRC-OSM-POINTS",
+        "SRC-MAP-HARBOUR"
       ],
       "published_hours": null,
       "fee_eur_per_adult": null,
-      "coordinate_source_url": "https://www.openstreetmap.org/way/8052789"
+      "coordinate_source_url": "https://www.openstreetmap.org/way/8052789",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/8052789",
+        "meaning": "obiekt — zamek przy porcie, oglądany z zewnątrz",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-SOLOMONI",
@@ -3227,11 +3814,20 @@
       "notes": "OSM: Agia Solomoni. Krótki opcjonalny postój; dostęp do podziemi ocenić na miejscu. Fabrica jest osobnym obszarem.",
       "source_ids": [
         "SRC-AUDIT",
-        "SRC-OSM-POINTS"
+        "SRC-OSM-POINTS",
+        "SRC-MAP-SOLOMONI"
       ],
       "published_hours": null,
       "fee_eur_per_adult": null,
-      "coordinate_source_url": "https://www.openstreetmap.org/node/4580824096"
+      "coordinate_source_url": "https://www.openstreetmap.org/node/4580824096",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/node/4580824096",
+        "meaning": "atrakcja — katakumby, nie Fabrica",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-MALL",
@@ -3244,15 +3840,25 @@
         "lon": 32.413759,
         "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.7658893%2C32.413759",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.7658893,32.413759",
+      "map_kind": "obiekt — budynek Kings Avenue Mall",
       "notes": "Plan na deszcz i zakupy; konkretne godziny i dostępność sklepów do sprawdzenia.",
       "source_ids": [
         "SRC-AUDIT",
-        "SRC-OSM"
+        "SRC-OSM",
+        "SRC-MAP-MALL"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/147476732",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/147476732",
+        "meaning": "obiekt — budynek Kings Avenue Mall",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-BATHS",
@@ -3261,18 +3867,33 @@
       "address": null,
       "phone": null,
       "coordinates": {
-        "lat": 35.056063,
-        "lon": 32.345565,
+        "lat": 35.0560915,
+        "lon": 32.3458768,
         "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=35.056063%2C32.345565",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=35.0560915,32.3458768",
+      "map_kind": "początek Aphrodite / Adonis przy Baths of Aphrodite; dojście do pętli uwzględnione w GPX Aphrodite",
       "notes": "Oficjalny punkt początku Aphrodite, nie obietnica wolnego stanowiska parkingowego. Dojazd asfaltem przez Latchi.",
       "source_ids": [
-        "SRC-APHRODITE"
+        "SRC-APHRODITE",
+        "SRC-MAP-BATHS"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/12620092689",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "poczatek_szlaku",
+        "source_url": "https://www.openstreetmap.org/node/12620092689",
+        "meaning": "początek Aphrodite / Adonis przy Baths of Aphrodite; dojście do pętli uwzględnione w GPX Aphrodite",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego.",
+        "previous_coordinates": {
+          "lat": 35.056063,
+          "lon": 32.345565,
+          "status": "zweryfikowane"
+        }
+      }
     },
     {
       "id": "POI-ARTEMIS",
@@ -3290,11 +3911,20 @@
       "notes": "Oficjalny GPS początku Artemis, odczyt 6 XI 2026. Dojazd drogą na Chionistrę. Troodos Square dodaje około 2,4 km w jedną stronę i nie jest równoważnym startem.",
       "source_ids": [
         "SRC-ARTEMIS",
-        "SRC-ARTEMIS-FLYER"
+        "SRC-ARTEMIS-FLYER",
+        "SRC-MAP-ARTEMIS"
       ],
       "published_hours": null,
       "fee_eur_per_adult": null,
-      "coordinate_source_url": "https://www.visitcyprus.com/discover-cyprus/nature/nature-trails-2/artemis-circular-lemesos-limassol-district-troodos-forest-nature-trail/"
+      "coordinate_source_url": "https://www.openstreetmap.org/node/12693595973",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "poczatek_szlaku",
+        "source_url": "https://www.openstreetmap.org/node/12693595973",
+        "meaning": "początek szlaku — parking przy starcie, wolne miejsce niegwarantowane",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-TROODOS",
@@ -3305,16 +3935,26 @@
       "coordinates": {
         "lat": 34.924239,
         "lon": 32.880879,
-        "status": "przejete_z_audytu"
+        "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.924239%2C32.880879",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.924239,32.880879",
+      "map_kind": "początek szlaku Atalanti przy Troodos Square; nie start Artemis",
       "notes": "Start Atalanti i ewentualny lunch po Artemis. Nie utożsamiać parkingu w rejonie placu z parkingiem przy starcie Artemis: dojście do startu Artemis ok. 2,4 km w jedną stronę według danych zakresu; wolne i legalne miejsce do parkowania pozostaje do potwierdzenia. Pełna pętla Artemis z tym dojściem jest niewskazana przy planowym starcie około 10:00.",
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-MAP-TROODOS"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/391393057",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "poczatek_szlaku",
+        "source_url": "https://www.openstreetmap.org/node/391393057",
+        "meaning": "początek szlaku Atalanti przy Troodos Square; nie start Artemis",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-PSILO",
@@ -3325,16 +3965,26 @@
       "coordinates": {
         "lat": 34.895957,
         "lon": 32.869154,
-        "status": "przejete_z_audytu"
+        "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.895957%2C32.869154",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.895957,32.869154",
+      "map_kind": "początek Pouziaris przy Psilo Dendro",
       "notes": "Parking restauracji wyłącznie za zgodą; nie traktować jako bezwarunkowo publicznego.",
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-MAP-PSILO"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/12249813003",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "poczatek_szlaku",
+        "source_url": "https://www.openstreetmap.org/node/12249813003",
+        "meaning": "początek Pouziaris przy Psilo Dendro",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-PANAGIA",
@@ -3343,19 +3993,34 @@
       "address": null,
       "phone": null,
       "coordinates": {
-        "lat": 34.91843,
-        "lon": 32.6315,
-        "status": "orientacyjne_do_potwierdzenia"
+        "lat": 34.9183602,
+        "lon": 32.631429,
+        "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.91843%2C32.6315",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.9183602,32.631429",
+      "map_kind": "początek szlaku Vouni przy tablicy w Pano Panagia; potwierdzenie startu nie potwierdza GPX",
       "notes": "Punkt orientacyjny z oryginału, nie zweryfikowany dokładny początek pełnego wariantu. Potwierdzić na mapie i tablicy; auto zostawić we wsi.",
       "source_ids": [
         "SRC-ORIGINAL",
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-MAP-PANAGIA"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/12620786288",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "poczatek_szlaku",
+        "source_url": "https://www.openstreetmap.org/node/12620786288",
+        "meaning": "początek szlaku Vouni przy tablicy w Pano Panagia; potwierdzenie startu nie potwierdza GPX",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego.",
+        "previous_coordinates": {
+          "lat": 34.91843,
+          "lon": 32.6315,
+          "status": "orientacyjne_do_potwierdzenia"
+        }
+      }
     },
     {
       "id": "POI-SMIGIES",
@@ -3364,18 +4029,33 @@
       "address": null,
       "phone": null,
       "coordinates": {
-        "lat": 35.02402,
-        "lon": 32.333115,
-        "status": "przejete_z_audytu"
+        "lat": 35.0240378,
+        "lon": 32.3331152,
+        "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=35.02402%2C32.333115",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=35.0240378,32.3331152",
+      "map_kind": "początek szlaków przy Smigies Picnic Site",
       "notes": "Wspólny teren początku pętli. Status końcowego dojazdu i zgoda wypożyczalni blokują aktywację rezerwy.",
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-MAP-SMIGIES"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/12620092688",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "poczatek_szlaku",
+        "source_url": "https://www.openstreetmap.org/node/12620092688",
+        "meaning": "początek szlaków przy Smigies Picnic Site",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego.",
+        "previous_coordinates": {
+          "lat": 35.02402,
+          "lon": 32.333115,
+          "status": "przejete_z_audytu"
+        }
+      }
     },
     {
       "id": "POI-DOXA",
@@ -3386,16 +4066,26 @@
       "coordinates": {
         "lat": 34.956223,
         "lon": 32.963155,
-        "status": "przejete_z_audytu"
+        "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.956223%2C32.963155",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.956223,32.963155",
+      "map_kind": "początek szlaku — rejon tablic i wejścia Doxa soi o Theos",
       "notes": "Start odcinka do Madari; nie nawigować autem do wieży. Przejęte z audytu s. 10.",
       "source_ids": [
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-MAP-DOXA"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/248672523",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "poczatek_szlaku",
+        "source_url": "https://www.openstreetmap.org/way/248672523",
+        "meaning": "początek szlaku — rejon tablic i wejścia Doxa soi o Theos",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-POLIS",
@@ -3414,11 +4104,20 @@
       "source_ids": [
         "SRC-AUDIT",
         "SRC-OSM-POINTS",
-        "SRC-OSM-POINTS"
+        "SRC-OSM-POINTS",
+        "SRC-MAP-POLIS"
       ],
       "published_hours": null,
       "fee_eur_per_adult": null,
-      "coordinate_source_url": "https://www.openstreetmap.org/way/27295818"
+      "coordinate_source_url": "https://www.openstreetmap.org/way/27295818",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/27295818",
+        "meaning": "piesze centrum — ulica 9th Iouliou, nie parking",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-EDRO",
@@ -3429,17 +4128,28 @@
       "coordinates": {
         "lat": 34.873407,
         "lon": 32.341214,
-        "status": "przejete_z_audytu"
+        "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.873407%2C32.341214",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.873407,32.341214",
+      "map_kind": "obiekt — brzeg do oglądania wraku Edro III; nie lokalizacja wejścia na wrak",
       "notes": "Punkt orientacyjny postoju z oryginału; ocenić legalne miejsce. Bez wchodzenia na wrak i mokre skały.",
       "source_ids": [
         "SRC-ORIGINAL",
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-MAP-EDRO"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/471488134",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/471488134",
+        "meaning": "obiekt — brzeg do oglądania wraku Edro III; nie lokalizacja wejścia na wrak",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego.",
+        "note": "Punkt orientacyjny brzegu obok wraku (około 175 m od środka kadłuba), nie współrzędne samego wraku. Wejście na wrak zabronione w danych OSM."
+      }
     },
     {
       "id": "POI-PALAIPAFOS",
@@ -3450,17 +4160,27 @@
       "coordinates": {
         "lat": 34.70756,
         "lon": 32.57447,
-        "status": "przejete_z_audytu"
+        "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.70756%2C32.57447",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.70756,32.57447",
+      "map_kind": "obiekt — kompleks Palaipafos i muzeum; nie parking",
       "notes": "Jeden bilet obejmuje stanowisko i muzeum. Punkt wejścia/parkingu przejęty z oryginału.",
       "source_ids": [
         "SRC-PALAIPAFOS",
-        "SRC-ORIGINAL"
+        "SRC-ORIGINAL",
+        "SRC-MAP-PALAIPAFOS"
       ],
       "published_hours": "Wtorek–niedziela 08:30–17:00; poniedziałek zamknięte.",
-      "fee_eur_per_adult": 4.5
+      "fee_eur_per_adult": 4.5,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/29372351",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/29372351",
+        "meaning": "obiekt — kompleks Palaipafos i muzeum; nie parking",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-OMODOS",
@@ -3469,19 +4189,34 @@
       "address": null,
       "phone": null,
       "coordinates": {
-        "lat": 34.8502,
-        "lon": 32.8072,
-        "status": "przejete_z_audytu"
+        "lat": 34.8490104,
+        "lon": 32.8067398,
+        "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.8502%2C32.8072",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.8490104,32.8067398",
+      "map_kind": "parking przy północnym dojściu do Omodos; centrum zwiedzane pieszo",
       "notes": "Parking przed centrum; 5–10 min dojścia. Wnętrza mają osobne godziny.",
       "source_ids": [
         "SRC-ORIGINAL",
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-MAP-OMODOS"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/13763026441",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "parking",
+        "source_url": "https://www.openstreetmap.org/node/13763026441",
+        "meaning": "parking przy północnym dojściu do Omodos; centrum zwiedzane pieszo",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego.",
+        "previous_coordinates": {
+          "lat": 34.8502,
+          "lon": 32.8072,
+          "status": "przejete_z_audytu"
+        }
+      }
     },
     {
       "id": "POI-PETRA",
@@ -3490,19 +4225,34 @@
       "address": null,
       "phone": null,
       "coordinates": {
-        "lat": 34.66475,
-        "lon": 32.62819,
-        "status": "przejete_z_audytu"
+        "lat": 34.6659001,
+        "lon": 32.6278144,
+        "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.66475%2C32.62819",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.6659001,32.6278144",
+      "map_kind": "parking Petra tou Romiou po północnej stronie drogi; dojście do plaży przejściem",
       "notes": "Parking po stronie lądu; na plażę tunelem, nie przez B6.",
       "source_ids": [
         "SRC-ORIGINAL",
-        "SRC-AUDIT"
+        "SRC-AUDIT",
+        "SRC-MAP-PETRA"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/26695408",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "parking",
+        "source_url": "https://www.openstreetmap.org/way/26695408",
+        "meaning": "parking Petra tou Romiou po północnej stronie drogi; dojście do plaży przejściem",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego.",
+        "previous_coordinates": {
+          "lat": 34.66475,
+          "lon": 32.62819,
+          "status": "przejete_z_audytu"
+        }
+      }
     },
     {
       "id": "POI-MUSEUM",
@@ -3515,14 +4265,24 @@
         "lon": 32.430317,
         "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.771652%2C32.430317",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.771652,32.430317",
+      "map_kind": "obiekt — Muzeum Archeologiczne dystryktu Pafos",
       "notes": "Plan na deszcz wt.–nd.; nie proponować jako otwartego w poniedziałek.",
       "source_ids": [
-        "SRC-MUSEUM"
+        "SRC-MUSEUM",
+        "SRC-MAP-MUSEUM"
       ],
       "published_hours": "Wtorek–niedziela 09:00–16:30; poniedziałki i święta zamknięte.",
-      "fee_eur_per_adult": 0
+      "fee_eur_per_adult": 0,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/1181368494",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/1181368494",
+        "meaning": "obiekt — Muzeum Archeologiczne dystryktu Pafos",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-HONDROS",
@@ -3540,11 +4300,20 @@
       "notes": "Środek obrysu restauracji OSM; godziny kuchni potwierdzić.",
       "source_ids": [
         "SRC-AUDIT",
-        "SRC-OSM-POINTS"
+        "SRC-OSM-POINTS",
+        "SRC-MAP-HONDROS"
       ],
       "published_hours": "Do potwierdzenia; według audytu 4 XI 2026 ok. 12:00–22:30.",
       "fee_eur_per_adult": null,
-      "coordinate_source_url": "https://www.openstreetmap.org/way/1287051929"
+      "coordinate_source_url": "https://www.openstreetmap.org/way/1287051929",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/1287051929",
+        "meaning": "obiekt restauracji — dojście pieszo, nie parking",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-MOUSTAKALLIS",
@@ -3563,11 +4332,20 @@
       "source_ids": [
         "SRC-AUDIT",
         "SRC-MOUSTAKALLIS",
-        "SRC-OSM-POINTS"
+        "SRC-OSM-POINTS",
+        "SRC-MAP-MOUSTAKALLIS"
       ],
       "published_hours": "Codziennie 10:00–23:00 (strona oficjalna, 4 XI 2026).",
       "fee_eur_per_adult": null,
-      "coordinate_source_url": "https://www.openstreetmap.org/node/1722295639"
+      "coordinate_source_url": "https://www.openstreetmap.org/node/1722295639",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/node/1722295639",
+        "meaning": "restauracja — nie parking",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-KATOI",
@@ -3586,11 +4364,20 @@
       "source_ids": [
         "SRC-AUDIT",
         "SRC-KATOI",
-        "SRC-OSM-POINTS"
+        "SRC-OSM-POINTS",
+        "SRC-MAP-KATOI"
       ],
       "published_hours": "Wtorek–niedziela 12:00–16:00; poniedziałek zamknięte (strona oficjalna, 4 XI 2026; godziny mogą się zmieniać — potwierdzić telefonicznie).",
       "fee_eur_per_adult": null,
-      "coordinate_source_url": "https://www.openstreetmap.org/node/315204859"
+      "coordinate_source_url": "https://www.openstreetmap.org/node/315204859",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/node/315204859",
+        "meaning": "restauracja — nie parking",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-VAROSHA",
@@ -3598,16 +4385,30 @@
       "type": "attraction",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Varosha+Famagusta+entrance+Palm+Beach",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "coordinates": {
+        "lat": 35.1177055,
+        "lon": 33.954207,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=35.1177055,33.954207",
+      "map_kind": "parking przy wejściu do Varoshy; dostęp i dojazd przez Green Line do potwierdzenia",
       "notes": "Dostęp do wyznaczonych ulic, godziny, wstęp, fotografia i parking na 11 XI 2026 do bezpośredniego potwierdzenia; źródło jest wtórnym blogiem, nie urzędowym komunikatem. Nie zakładać, że przejścia Deryneia lub Metehan/Ayios Dometios są otwarte 24/7 ani że polisa będzie dostępna. Nie wchodzić poza wyznaczone trasy. Nie mylić z Famagustą — stare miasto (POI-FAMAGUSTA).",
       "source_ids": [
         "SRC-VAROSHA",
-        "SRC-GREENLINE"
+        "SRC-GREENLINE",
+        "SRC-MAP-VAROSHA"
       ],
       "published_hours": "Do potwierdzenia bezpośrednio przed wizytą; brak wiarygodnego, urzędowego potwierdzenia godzin dla 11 XI 2026.",
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/1254829844",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "parking",
+        "source_url": "https://www.openstreetmap.org/way/1254829844",
+        "meaning": "parking przy wejściu do Varoshy; dostęp i dojazd przez Green Line do potwierdzenia",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-FAMAGUSTA",
@@ -3615,16 +4416,30 @@
       "type": "town",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Famagusta+old+town+Lala+Mustafa+Pasha+Othello+tower",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "coordinates": {
+        "lat": 35.1248947,
+        "lon": 33.9426741,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=35.1248947,33.9426741",
+      "map_kind": "obiekt — Lala Mustafa Paşa / dawny św. Mikołaj w starym mieście; dojście piesze",
       "notes": "Wieże i bramy wenecjańskie, wieża Othello, meczet Lala Mustafa Pasha. Wjazd od południa rozważać przez Deryneia albo Metehan/Ayios Dometios w Nicosi; godziny, warunki przejazdu i ubezpieczenie na konkretny dzień do potwierdzenia urzędowo. Opcjonalnie Salamis (ruiny) — do potwierdzenia godzin.",
       "source_ids": [
         "SRC-VAROSHA",
-        "SRC-GREENLINE"
+        "SRC-GREENLINE",
+        "SRC-MAP-FAMAGUSTA"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/31746104",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/31746104",
+        "meaning": "obiekt — Lala Mustafa Paşa / dawny św. Mikołaj w starym mieście; dojście piesze",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-GRECO",
@@ -3632,15 +4447,29 @@
       "type": "coast",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Cape+Greco+National+Forest+Park+visitor+center",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "coordinates": {
+        "lat": 34.9706695,
+        "lon": 34.0707095,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.9706695,34.0707095",
+      "map_kind": "obiekt — centrum informacji parku Cape Greco; nie przylądek w obszarze wojskowym",
       "notes": "Park narodowy Republiki Cypryjskiej (Natura 2000, 385 ha) — NIE strona turecka. Szlaki klifowe, jaskinie morskie, kościół Agioi Anargyroi. W parku są DWA różne naturalne łuki: Love Bridge (Monachus Monachus Arch) i Kamara tou Koraka (Crow's Arch) — osobne punkty, nie mylić z Drzewem Kochanków (jałowiec). Parking przy centrum odwiedzających lub przy jaskiniach.",
       "source_ids": [
-        "SRC-GRECO"
+        "SRC-GRECO",
+        "SRC-MAP-GRECO"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": 0
+      "fee_eur_per_adult": 0,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/12741785061",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/node/12741785061",
+        "meaning": "obiekt — centrum informacji parku Cape Greco; nie przylądek w obszarze wojskowym",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-LOVERS-TREE",
@@ -3648,15 +4477,31 @@
       "type": "coast",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Lovers+Tree+Cape+Greco+juniper",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "coordinates": {
+        "lat": 34.9727436,
+        "lon": 34.0587166,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.9727436,34.0587166",
+      "map_kind": "obiekt — konkretny jałowiec Tree of Cape Greco / Tree of Life; nie most",
       "notes": "Samotny jałowiec (wiek niepotwierdzony w źródle) na skalistym klifie, południowe zbocze cypla Cape Greco, przy 'Monument of Peace'. Dojście: droga główna parku, szutrowa ścieżka do klifu, ostatnie 100 m pieszo po kamieniach. Parking przydrożny. Trainers (nie klapki); ostrożność przy krawędzi klifu. Natura 2000. Nie mylić z Kamara tou Koraka ani z Love Bridge w Ayia Napa — to osobne punkty; podać osobne pinezki. Lokalizacja parkingu i dojścia do potwierdzenia na miejscu.",
       "source_ids": [
-        "SRC-TREE"
+        "SRC-TREE",
+        "SRC-MAP-LOVERS-TREE"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/2514154031",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/node/2514154031",
+        "meaning": "obiekt — konkretny jałowiec Tree of Cape Greco / Tree of Life; nie most",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego.",
+        "corroboration_url": "https://commons.wikimedia.org/wiki/Category:Tree_of_Cape_Greco,_Cyprus",
+        "note": "OSM i Commons zgodne w granicach 7 m; odrzucono mylenie z obydwoma mostami."
+      }
     },
     {
       "id": "POI-LOVE-BRIDGE",
@@ -3664,16 +4509,30 @@
       "type": "coast",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Love+Bridge+Ayia+Napa+Monachus+Monachus+Arch",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "coordinates": {
+        "lat": 34.9825499,
+        "lon": 34.0164653,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.9825499,34.0164653",
+      "map_kind": "obiekt — Monachus Monachus Arch / Love Bridge w Ayia Napa; nie Kamara tou Koraka",
       "notes": "Naturalny łuk skalny (Monachus Monachus Arch) ok. 6 m długości, w rejonie Ayia Napa / Cape Greco. Jeden z dwóch różnych łuków w parku — drugi to Kamara tou Koraka (Crow's Arch). Nie mylić z Drzewem Kochanków (jałowiec). Najlepsze światło: wschód lub zachód. Parking i dojście do potwierdzenia na miejscu.",
       "source_ids": [
         "SRC-LOVE-BRIDGE",
-        "SRC-GRECO"
+        "SRC-GRECO",
+        "SRC-MAP-LOVE-BRIDGE"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/6605072225",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/node/6605072225",
+        "meaning": "obiekt — Monachus Monachus Arch / Love Bridge w Ayia Napa; nie Kamara tou Koraka",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-KAMARA",
@@ -3681,73 +4540,130 @@
       "type": "coast",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Kamara+tou+Koraka+Crow%27s+Arch+Cape+Greco",
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "coordinates": {
+        "lat": 34.971751,
+        "lon": 34.0752268,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.971751,34.0752268",
+      "map_kind": "obiekt — Kamara tou Koraka w Cape Greco; oglądanie z brzegu, bez wchodzenia na łuk",
       "notes": "Naturalny łuk skalny (Crow's Arch) w Cape Greco National Park — inny niż Love Bridge. NIE wchodzić na górę łuku i NIE pływać pod nim — struktura niepewna. Najlepsze światło: wschód lub zachód. Parking i dojście do potwierdzenia na miejscu.",
       "source_ids": [
         "SRC-LOVE-BRIDGE",
-        "SRC-GRECO"
+        "SRC-GRECO",
+        "SRC-MAP-KAMARA"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/4821054104",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/node/4821054104",
+        "meaning": "obiekt — Kamara tou Koraka w Cape Greco; oglądanie z brzegu, bez wchodzenia na łuk",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-KOURION",
       "name": "Kourion Archaeological Site",
       "type": "attraction",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Kourion+Archaeological+Site+Cyprus",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.6707033,32.8762727",
       "notes": "PO DRODZE / MAŁY OBJAZD (ok. 1 h od Pafos, 19 km na zachód od Limassol). Grecko-rzymskie miasto- królestwo na klifie: teatr, mozaiki House of Eustolios, agora, bazylika. Dlaczego warto: jeden z najbardziej efektownych stanowisk na wyspie, widoki na morze. Parking przy stanowisku. Godziny 08:30–17:00 (16 IX–15 IV). Wstęp 4,50 EUR. Najlepsze światło: późne popołudnie. Sezon: cały rok; sprawdzić zamknięcia konserwacyjne. Ryzyka: ekspozycja, strome schody teatru. Tel. +357 25 934250.",
       "source_ids": [
-        "SRC-KOURION"
+        "SRC-KOURION",
+        "SRC-MAP-KOURION"
       ],
       "published_hours": "Codziennie 08:30–17:00 (16 IX–15 IV); sprawdzić zamknięcia.",
       "fee_eur_per_adult": 4.5,
       "address": "Kourion, 19 km na zachód od Limassol przy drodze na Pafos",
       "phone": "+35725934250",
-      "coordinates": null,
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
+      "coordinates": {
+        "lat": 34.6707033,
+        "lon": 32.8762727,
+        "status": "zweryfikowane"
+      },
+      "map_kind": "obiekt — stanowisko archeologiczne Kourion; nie plaża ani muzeum we wsi Episkopi",
+      "coordinate_source_url": "https://www.openstreetmap.org/way/633840566",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/633840566",
+        "meaning": "obiekt — stanowisko archeologiczne Kourion; nie plaża ani muzeum we wsi Episkopi",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-KOLOSSI",
       "name": "Kolossi Castle",
       "type": "attraction",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Kolossi+Castle+Cyprus",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.665195,32.9343438",
       "notes": "PO DRODZE (obok Kourion, ok. 1 h od Pafos). Zamek joannitów z XIII–XV w., kompaktowy i fotogeniczny. Dlaczego warto: szybki przystanek przy Kourion, historia Krzyżowców. Parking przy zamku. Godziny/wstęp do potwierdzenia. Najlepsze światło: rano lub wieczorem. Ryzyka: schody, mało cienia.",
       "source_ids": [
-        "SRC-KOLOSSI"
+        "SRC-KOLOSSI",
+        "SRC-MAP-KOLOSSI"
       ],
       "published_hours": "Codziennie 08:30–17:00 (16 IX–15 IV).",
       "fee_eur_per_adult": 2.5,
       "address": "Kolossi, 14 km na zachód od Limassol przy drodze na Pafos",
       "phone": "+35725934907",
-      "coordinates": null,
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
+      "coordinates": {
+        "lat": 34.665195,
+        "lon": 32.9343438,
+        "status": "zweryfikowane"
+      },
+      "map_kind": "obiekt — Kolossi Castle; nie przystanek autobusowy o tej samej nazwie",
+      "coordinate_source_url": "https://www.openstreetmap.org/way/630871185",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/630871185",
+        "meaning": "obiekt — Kolossi Castle; nie przystanek autobusowy o tej samej nazwie",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-NEOPHYTOS",
       "name": "Agios Neophytos Monastery",
       "type": "attraction",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Agios+Neophytos+Monastery+Cyprus",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.846749,32.445679",
       "notes": "PO DRODZE / BLISKO HOTELU (9 km na północ od Pafos, ok. 15 min). Klasztor z XII w.; Enkleistra z bizantyjskimi freskami, muzeum. Dlaczego warto: najbliższy duży klasztor, cisza i widok na dolinę. Parking przy klasztorze. Godziny XI–III: 09:00–16:00. Wstęp 2 EUR. Najlepsze światło: rano. Ryzyka: miejsce kultu — skromny strój. Cytowane źródło nie podaje współrzędnych; link Maps wyszukuje nazwę miejsca, nie jest zweryfikowaną pinezką.",
       "source_ids": [
-        "SRC-NEOPHYTOS"
+        "SRC-NEOPHYTOS",
+        "SRC-MAP-NEOPHYTOS"
       ],
       "published_hours": "Listopad–marzec: 09:00–16:00.",
       "fee_eur_per_adult": 2.0,
       "address": "Near Tala village, 9 km na północ od Pafos",
       "phone": "+35726652481",
-      "coordinates": null,
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
+      "coordinates": {
+        "lat": 34.846749,
+        "lon": 32.445679,
+        "status": "zweryfikowane"
+      },
+      "map_kind": "obiekt — Agios Neophytos w Tala; nie punkt w Kouklia",
+      "coordinate_source_url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/agios-neophytos-monastery/",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/agios-neophytos-monastery/",
+        "meaning": "obiekt — Agios Neophytos w Tala; nie punkt w Kouklia",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-CHRYSORROGIATISSA",
       "name": "Chrysorrogiatissa Monastery",
       "type": "attraction",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.910043%2C32.618889",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.910043,32.618889",
       "notes": "MAŁY OBJAZD (ok. 1 h od Pafos, przy drodze do Pano Panagia). Klasztor na zboczu z widokiem na winnice. Dlaczego warto: spokojny przystanek w drodze na Vouni/Pano Panagia. Parking przy klasztorze. Godziny/wstęp do potwierdzenia. Najlepsze światło: rano. Ryzyka: kręta droga górska.",
       "source_ids": [
-        "SRC-CHRYSORROGIATISSA"
+        "SRC-CHRYSORROGIATISSA",
+        "SRC-MAP-CHRYSORROGIATISSA"
       ],
       "published_hours": "Październik–kwiecień: 10:00–12:30 / 13:30–16:00.",
       "fee_eur_per_adult": 0,
@@ -3758,16 +4674,26 @@
         "lon": 32.618889,
         "status": "zweryfikowane"
       },
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
+      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+      "coordinate_source_url": "https://www.visitcyprus.com/discover-cyprus/religion/chrysorrogiatissa-monastery/",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.visitcyprus.com/discover-cyprus/religion/chrysorrogiatissa-monastery/",
+        "meaning": "punkt lub wyszukiwanie miejsca, nie gotowa trasa",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-GEROSKIPOU",
       "name": "Geroskipou (Yeroskipou)",
       "type": "village",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.759486%2C32.452944",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.759486,32.452944",
       "notes": "PO DRODZE (ok. 10 min od Pafos). Wioska z kościołem Agia Paraskevi (pięć kopuł), warsztatami loukoumi i muzeum ludowym. Niedzielne wejście do wnętrza kościoła wymaga wcześniejszego uzgodnienia; bez potwierdzenia planować tylko oglądanie z zewnątrz. Godziny/wstęp warsztatów i muzeum do potwierdzenia. Parking i dostępność lokalna sprawdzić na miejscu.",
       "source_ids": [
-        "SRC-GEROSKIPOU"
+        "SRC-GEROSKIPOU",
+        "SRC-MAP-GEROSKIPOU"
       ],
       "published_hours": "Poniedziałek–sobota 08:30–13:00 / 14:00–16:30; niedzielne wejście można uzgodnić na życzenie (Visit Cyprus, sprawdzono 2026-11-05).",
       "fee_eur_per_adult": 0,
@@ -3778,16 +4704,26 @@
         "lon": 32.452944,
         "status": "zweryfikowane"
       },
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
+      "map_kind": "obiekt — Agia Paraskevi w centrum Geroskipou",
+      "coordinate_source_url": "https://www.openstreetmap.org/way/26547309",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/26547309",
+        "meaning": "obiekt — Agia Paraskevi w centrum Geroskipou",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-PISSOURI",
       "name": "Pissouri",
       "type": "village",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.64974%2C32.72205",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.64974,32.72205",
       "notes": "Wioska na wzgórzu + Pissouri Bay (plaża). Współrzędne dotyczą plaży, nie samej wsi. Białe klify Cape Aspro po bokach; żółwiowe siedliska — nie wchodzić na wydmy.",
       "source_ids": [
-        "SRC-PISSOURI"
+        "SRC-PISSOURI",
+        "SRC-MAP-PISSOURI"
       ],
       "published_hours": "Plaża bezpłatna; parking przy plaży.",
       "fee_eur_per_adult": 0,
@@ -3798,32 +4734,56 @@
         "lon": 32.72205,
         "status": "zweryfikowane"
       },
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
+      "map_kind": "obiekt — Pissouri Bay / plaża; nie plac we wsi na wzgórzu",
+      "coordinate_source_url": "https://www.visitcyprus.com/discover-cyprus/sun-sea/beaches/pissouri-beach-blue-flag/",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.visitcyprus.com/discover-cyprus/sun-sea/beaches/pissouri-beach-blue-flag/",
+        "meaning": "obiekt — Pissouri Bay / plaża; nie plac we wsi na wzgórzu",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-LEFKARA",
       "name": "Pano Lefkara",
       "type": "village",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Pano+Lefkara+village+Cyprus",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.8665517,33.3068524",
       "notes": "MAŁY OBJAZD / OSOBNY DZIEŃ (ok. 1 h 15 min od Pafos, 650 m n.p.m.). Wioska koronek i srebra; Muzeum Haftu i Złotnictwa, wąskie uliczki. Dlaczego warto: najładniejsza wioska rzemieślnicza, dobra na pół dnia w drodze na wschód. Parking przy wejściu. Godziny/wstęp do potwierdzenia. Telefon niepotwierdzony w SRC-LEFKARA — nie podano numeru. Najlepsze światło: rano. Ryzyka: turystycznie, wąskie uliczki.",
       "source_ids": [
-        "SRC-LEFKARA"
+        "SRC-LEFKARA",
+        "SRC-MAP-LEFKARA"
       ],
       "published_hours": "Wioska dostępna cały dzień; muzea i warsztaty — godziny do potwierdzenia.",
       "fee_eur_per_adult": null,
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
+      "coordinates": {
+        "lat": 34.8665517,
+        "lon": 33.3068524,
+        "status": "zweryfikowane"
+      },
+      "map_kind": "obiekt — miejscowość Pano Lefkara; nie Kato Lefkara",
+      "coordinate_source_url": "https://www.openstreetmap.org/node/268651408",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/node/268651408",
+        "meaning": "obiekt — miejscowość Pano Lefkara; nie Kato Lefkara",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-LARNACA-SALT",
       "name": "Larnaca Salt Lake i Hala Sultan Tekke",
       "type": "coast",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.8853%2C33.610074",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.8853,33.610074",
       "notes": "OSOBNY DZIEŃ / PO DRODZE NA WSCHÓD (ok. 1 h 30 min od Pafos). Słone jezioro i meczet Hala Sultan Tekke; zimą (XI–III) możliwe flamingi, zależnie od wody. Dlaczego warto: mocny punkt fotograficzny i religijny w drodze na wschód. Parking przy Tekke. Godziny/wstęp do potwierdzenia. Najlepsze światło: wschód/zachód. Ryzyka: komary, brak kąpieli.",
       "source_ids": [
-        "SRC-LARNACA-SALT"
+        "SRC-LARNACA-SALT",
+        "SRC-MAP-LARNACA-SALT"
       ],
       "published_hours": "Hala Sultan Tekke: codziennie 08:30–17:00 (16 IX–15 IV).",
       "fee_eur_per_adult": 0,
@@ -3834,16 +4794,26 @@
         "lon": 33.610074,
         "status": "zweryfikowane"
       },
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
+      "map_kind": "obiekt — Hala Sultan Tekke przy jeziorze, nie środek jeziora",
+      "coordinate_source_url": "https://www.openstreetmap.org/way/264921716",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/264921716",
+        "meaning": "obiekt — Hala Sultan Tekke przy jeziorze, nie środek jeziora",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-CHOIROKOITIA",
       "name": "Choirokoitia (UNESCO)",
       "type": "attraction",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.796269%2C33.34472",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.796269,33.34472",
       "notes": "PO DRODZE NA WSCHÓD (ok. 1 h 30 min od Pafos). Neolityczna osada (ok. 7000 p.n.e.), rekonstrukcje chat, UNESCO. Dlaczego warto: szybki przystanek archeologiczny w drodze na Larnakę/wschód. Parking przy stanowisku. Godziny/wstęp do potwierdzenia. Najlepsze światło: rano. Ryzyka: ekspozycja, podejście.",
       "source_ids": [
-        "SRC-CHOIROKOITIA"
+        "SRC-CHOIROKOITIA",
+        "SRC-MAP-CHOIROKOITIA"
       ],
       "published_hours": "Codziennie 08:30–17:00 (16 IX–15 IV).",
       "fee_eur_per_adult": 2.5,
@@ -3854,16 +4824,26 @@
         "lon": 33.34472,
         "status": "zweryfikowane"
       },
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
+      "map_kind": "wejście — rejon kas stanowiska archeologicznego UNESCO; wieś ma osobną pinezkę",
+      "coordinate_source_url": "https://www.openstreetmap.org/way/83209985",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "wejscie",
+        "source_url": "https://www.openstreetmap.org/way/83209985",
+        "meaning": "wejście — rejon kas stanowiska archeologicznego UNESCO; wieś ma osobną pinezkę",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-CORAL-BAY",
       "name": "Coral Bay",
       "type": "coast",
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.854982%2C32.368063",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.854982,32.368063",
       "notes": "PO DRODZE / BLISKO HOTELU (ok. 15 min od Pafos). Piaszczysta zatoka z łagodnym wejściem do wody i tawernami. Dlaczego warto: łatwe popołudnie plażowe bez długiego dojazdu; plan B na ciepły dzień. Parking przy plaży. Wstęp na plażę bezpłatny. Godziny/warunki wody do potwierdzenia. Najlepsze światło: popołudnie. Ryzyka: tłoczno w sezonie.",
       "source_ids": [
-        "SRC-CORAL-BAY"
+        "SRC-CORAL-BAY",
+        "SRC-MAP-CORAL-BAY"
       ],
       "published_hours": "Plaża bezpłatna; parking i bus.",
       "fee_eur_per_adult": 0,
@@ -3874,7 +4854,16 @@
         "lon": 32.368063,
         "status": "zweryfikowane"
       },
-      "map_kind": "punkt lub wyszukiwanie miejsca, nie gotowa trasa"
+      "map_kind": "obiekt — plaża Coral Bay, nie centrum Pegeia",
+      "coordinate_source_url": "https://www.openstreetmap.org/way/5916700",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/5916700",
+        "meaning": "obiekt — plaża Coral Bay, nie centrum Pegeia",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-CHRYSOPOLITISSA",
@@ -3882,15 +4871,29 @@
       "type": "attraction",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Chrysopolitissa%20/%20Agia%20Kyriaki%20Cyprus",
-      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "coordinates": {
+        "lat": 34.757805,
+        "lon": 32.414246,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.757805,32.414246",
+      "map_kind": "obiekt — bazylika i Agia Kyriaki w Kato Pafos; nie kościół w Polis ani dzielnica Larnaki",
       "notes": "Dodatek pieszy 8 XI, alternatywnie do Agia Solomoni; wnętrze zależy od nabożeństw.",
       "source_ids": [
-        "SRC-AUDIT-20261106"
+        "SRC-AUDIT-20261106",
+        "SRC-MAP-CHRYSOPOLITISSA"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/early-christian-basilica-st-paul-s-pillar-chrysopolitissa-agia-kyriaki-church/",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/early-christian-basilica-st-paul-s-pillar-chrysopolitissa-agia-kyriaki-church/",
+        "meaning": "obiekt — bazylika i Agia Kyriaki w Kato Pafos; nie kościół w Polis ani dzielnica Larnaki",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-SEA-CAVES",
@@ -3898,15 +4901,29 @@
       "type": "coast",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Sea%20Caves%20w%20Pegeia%20Cyprus",
-      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "coordinates": {
+        "lat": 34.8833074,
+        "lon": 32.3325072,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.8833074,32.3325072",
+      "map_kind": "obiekt — nadmorski punkt widokowy Sea Caves w Pegeia; nie Sea Caves w Ayia Napa",
       "notes": "Zamiennik postoju przy Edro; legalny postój przy dozwolonej drodze, bez gruntowych odnóg i bez podchodzenia do krawędzi.",
       "source_ids": [
-        "SRC-AUDIT-20261106"
+        "SRC-AUDIT-20261106",
+        "SRC-MAP-SEA-CAVES"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/1479393912",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/node/1479393912",
+        "meaning": "obiekt — nadmorski punkt widokowy Sea Caves w Pegeia; nie Sea Caves w Ayia Napa",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-LOFOU",
@@ -3914,15 +4931,29 @@
       "type": "village",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Lofou%20Cyprus",
-      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "coordinates": {
+        "lat": 34.8159027,
+        "lon": 32.8754162,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.8159027,32.8754162",
+      "map_kind": "obiekt — wieś Lofou; punkt miejscowości, nie parking",
       "notes": "Zamiana Omodos, nie kolejna wieś tego samego dnia.",
       "source_ids": [
-        "SRC-AUDIT-20261106"
+        "SRC-AUDIT-20261106",
+        "SRC-MAP-LOFOU"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/292220531",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/node/292220531",
+        "meaning": "obiekt — wieś Lofou; punkt miejscowości, nie parking",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-EZOUSA",
@@ -3930,15 +4961,29 @@
       "type": "trailhead",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Ezousa%20%E2%80%94%20Episkopi%20Cyprus",
-      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "coordinates": {
+        "lat": 34.7956542,
+        "lon": 32.5255332,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.7956542,32.5255332",
+      "map_kind": "obiekt — Episkopi Pafou w dolinie Ezousa; nie Episkopi koło Limassol",
       "notes": "Niższa alternatywa trekkingowa; początek przy centrum informacji po sprawdzeniu dostępu. Dokładny start i parking do potwierdzenia; to wyszukiwanie, nie GPS trasy.",
       "source_ids": [
-        "SRC-AUDIT-20261106"
+        "SRC-AUDIT-20261106",
+        "SRC-MAP-EZOUSA"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/38902143",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/node/38902143",
+        "meaning": "obiekt — Episkopi Pafou w dolinie Ezousa; nie Episkopi koło Limassol",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-KALOPANAGIOTIS",
@@ -3946,15 +4991,29 @@
       "type": "village",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Kalopanagiotis%20i%20Agios%20Ioannis%20Lampadistis%20Cyprus",
-      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "coordinates": {
+        "lat": 34.99232,
+        "lon": 32.830193,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.99232,32.830193",
+      "map_kind": "obiekt — Agios Ioannis Lampadistis przy Kalopanagiotis; nie kościół Agios Ioannis Agrou",
       "notes": "Zamiana dnia górskiego; godziny kościoła potwierdzić, parking we wsi i dojście osobno.",
       "source_ids": [
-        "SRC-AUDIT-20261106"
+        "SRC-AUDIT-20261106",
+        "SRC-MAP-KALOPANAGIOTIS"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/agios-ioannis-lampadistis-church/",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.visitcyprus.com/discover-cyprus/culture/sites-and-monuments/agios-ioannis-lampadistis-church/",
+        "meaning": "obiekt — Agios Ioannis Lampadistis przy Kalopanagiotis; nie kościół Agios Ioannis Agrou",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-NICOSIA",
@@ -3962,15 +5021,29 @@
       "type": "town",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Nikozja%20%E2%80%94%20pieszo%20przez%20Ledra%20Street%20Cyprus",
-      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "coordinates": {
+        "lat": 35.1726467,
+        "lon": 33.3613327,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=35.1726467,33.3613327",
+      "map_kind": "obiekt — pieszy odcinek Ledra po południowej stronie; nie parking ani sam punkt kontroli",
       "notes": "Auto po stronie Republiki Cypryjskiej; dokumenty i zasady przejścia do sprawdzenia.",
       "source_ids": [
-        "SRC-AUDIT-20261106"
+        "SRC-AUDIT-20261106",
+        "SRC-MAP-NICOSIA"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/way/55793256",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/way/55793256",
+        "meaning": "obiekt — pieszy odcinek Ledra po południowej stronie; nie parking ani sam punkt kontroli",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     },
     {
       "id": "POI-ALYKES",
@@ -3979,19 +5052,34 @@
       "address": null,
       "phone": null,
       "coordinates": {
-        "lat": 34.753477,
-        "lon": 32.418951,
-        "status": "przejete_z_audytu"
+        "lat": 34.75443,
+        "lon": 32.41775,
+        "status": "zweryfikowane"
       },
-      "map_url": "https://www.google.com/maps/search/?api=1&query=34.753477,32.418951",
-      "map_kind": "plaża — punkt fotografii, nie parking",
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.75443,32.41775",
+      "map_kind": "obiekt — plaża Alykes według oficjalnego punktu Visit Cyprus; nie GPS stanowiska aparatu",
       "notes": "Geotag Commons przejęty z audytu; Alykes na południe od portu, nie obok Faros.",
       "source_ids": [
-        "SRC-AUDIT-20261106"
+        "SRC-AUDIT-20261106",
+        "SRC-MAP-ALYKES"
       ],
       "published_hours": null,
       "fee_eur_per_adult": null,
-      "coordinate_source_url": "https://commons.wikimedia.org/wiki/File:Alykes_Beach,_Paphos,_Cyprus_01.jpg"
+      "coordinate_source_url": "https://www.visitcyprus.com/discover-cyprus/sun-sea/beaches/alykes-beach-blue-flag/",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.visitcyprus.com/discover-cyprus/sun-sea/beaches/alykes-beach-blue-flag/",
+        "meaning": "obiekt — plaża Alykes według oficjalnego punktu Visit Cyprus; nie GPS stanowiska aparatu",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego.",
+        "previous_coordinates": {
+          "lat": 34.753477,
+          "lon": 32.418951,
+          "status": "przejete_z_audytu"
+        },
+        "note": "Zastąpiono wcześniejszy punkt fotografii oficjalnym punktem plaży; zdjęcia i ich metadane zachowane."
+      }
     },
     {
       "id": "POI-CHOIROKOITIA-VILLAGE",
@@ -3999,15 +5087,29 @@
       "type": "village",
       "address": null,
       "phone": null,
-      "coordinates": null,
-      "map_url": "https://www.google.com/maps/search/?api=1&query=Choirokoitia%20%E2%80%94%20wie%C5%9B%20i%20okolice%20Cyprus",
-      "map_kind": "wyszukiwanie miejsca — dokładny parking/start do potwierdzenia",
+      "coordinates": {
+        "lat": 34.7982318,
+        "lon": 33.3346161,
+        "status": "zweryfikowane"
+      },
+      "map_url": "https://www.google.com/maps/search/?api=1&query=34.7982318,33.3346161",
+      "map_kind": "obiekt — osobna wieś Choirokoitia, około 950 m od wejścia na stanowisko UNESCO",
       "notes": "Komandoria i kościół Panagia tou Kampou nie są neolitycznym stanowiskiem UNESCO.",
       "source_ids": [
-        "SRC-AUDIT-20261106"
+        "SRC-AUDIT-20261106",
+        "SRC-MAP-CHOIROKOITIA-VILLAGE"
       ],
       "published_hours": null,
-      "fee_eur_per_adult": null
+      "fee_eur_per_adult": null,
+      "coordinate_source_url": "https://www.openstreetmap.org/node/395251891",
+      "coordinate_verification": {
+        "checked_on": "2026-11-06",
+        "status": "zweryfikowane",
+        "point_kind": "obiekt",
+        "source_url": "https://www.openstreetmap.org/node/395251891",
+        "meaning": "obiekt — osobna wieś Choirokoitia, około 950 m od wejścia na stanowisko UNESCO",
+        "scope": "Tożsamość i znaczenie punktu na mapie; nie potwierdza otwarcia, dostępności ani miejsca parkingowego."
+      }
     }
   ],
   "transfers": [
@@ -5050,7 +6152,7 @@
   },
   "cycling_options": {
     "title": "Wycieczki rowerowe",
-    "checked_on": "2026-11-05",
+    "checked_on": "2026-11-06",
     "intro": "Niedatowane, opcjonalne tropy z oficjalnego portalu Visit Cyprus — nie są częścią planu dni ani trasą gotową do przejazdu. Sekcja zawiera dwie odrębne propozycje (Pafos 2 oraz Main 16) i terenowy wariant Timi 12 km. Oba opisy Timi dotyczą zbliżonego korytarza Pafos Port–Timi; nie łącz ich parametrów ani nie traktuj wariantu jako niezależnej wycieczki.",
     "duration_assumption": "Wyłącznie orientacyjny czas ruchu policzony jako dystans ÷ założone 12 km/h; bez postojów, ruchu, nawierzchni, przewyższeń wpływających na tempo ani problemów technicznych. To ilustracja, nie tempo ani rekomendacja dla nieznanego poziomu doświadczenia.",
     "options": [
@@ -5080,7 +6182,18 @@
         "photo_context": "Kadr przedstawia zamek przy porcie Pafos, lokalizację startową opisaną przez źródło; nie dokumentuje samej jazdy rowerem.",
         "map": {
           "status": "unavailable",
-          "note": "Oficjalna strona wariantu 12 km nie publikuje mapy ani GPX. Nie rysujemy przebiegu na podstawie samego opisu tekstowego."
+          "note": "Brak potwierdzonego śladu terenowego Timi 12 km. GPX asfaltowego 16,6 km nie jest zamiennikiem; ta propozycja nie jest gotowa do nawigacji."
+        },
+        "gpx_local": {
+          "path": null,
+          "checked_on": "2026-11-06",
+          "redistribution_confirmed": false,
+          "terms_url": "https://www.visitcyprus.com/uncategorised/terms-of-use/",
+          "note": "NIEZREALIZOWANE: brak wiarygodnego GPX dokładnie terenowego wariantu 12 km i potwierdzonych warunków redystrybucji. Wersja francuska starego opisu 12 km odsyła do asfaltowego Pafos_2_GPX.gpx — odrzucono jako inny wariant."
+        },
+        "logistics_status": {
+          "rental_confirmed": false,
+          "return_with_bike_confirmed": false
         }
       },
       {
@@ -5184,6 +6297,35 @@
               32.49013
             ]
           ]
+        },
+        "gpx_local": {
+          "path": null,
+          "checked_on": "2026-11-06",
+          "redistribution_confirmed": false,
+          "terms_url": "https://www.visitcyprus.com/uncategorised/terms-of-use/",
+          "note": "Pełny GPX tylko u źródła, bez lokalnej kopii i bez zapisu GPX offline. Warunki Visit Cyprus (Intellectual Property Rights) wymagają uprzedniej pisemnej zgody na kopiowanie i redystrybucję; nie pozyskano takiej zgody. Istniejący uproszczony podgląd sprawdzono z plikiem źródłowym."
+        },
+        "logistics_status": {
+          "rental_confirmed": false,
+          "return_with_bike_confirmed": false
+        },
+        "geometry_verification": {
+          "checked_on": "2026-11-06",
+          "source_url": "https://www.visitcyprus.com/wp-content/uploads/2024/09/Pafos_2_GPX.gpx",
+          "source_sha256": "276658053f9ef032c43ea3eb09046133ad462bff654318f1a8aeaa3d6c126ef3",
+          "point_count": 579,
+          "length_km": 16.695,
+          "max_step_m": 35.1,
+          "start": [
+            34.75592996,
+            32.40973996
+          ],
+          "finish": [
+            34.70969991,
+            32.49012996
+          ],
+          "preview_points_ordered": true,
+          "note": "Podgląd zachowuje kolejność węzłów źródła po zaokrągleniu; to uproszczenie 50 m. Geometria oddzielona od licencji pełnego pliku, wypożyczenia i powrotu z rowerem."
         }
       },
       {
@@ -5542,6 +6684,35 @@
               32.42541
             ]
           ]
+        },
+        "gpx_local": {
+          "path": null,
+          "checked_on": "2026-11-06",
+          "redistribution_confirmed": false,
+          "terms_url": "https://www.visitcyprus.com/uncategorised/terms-of-use/",
+          "note": "Pełny GPX tylko u źródła, bez lokalnej kopii i bez zapisu GPX offline. Warunki Visit Cyprus (Intellectual Property Rights) wymagają uprzedniej pisemnej zgody na kopiowanie i redystrybucję; nie pozyskano takiej zgody. Istniejący uproszczony podgląd sprawdzono z plikiem źródłowym."
+        },
+        "logistics_status": {
+          "rental_confirmed": false,
+          "return_with_bike_confirmed": false
+        },
+        "geometry_verification": {
+          "checked_on": "2026-11-06",
+          "source_url": "https://www.visitcyprus.com/wp-content/uploads/2024/09/Main_16_GPX.gpx",
+          "source_sha256": "8bad4e7850ae071b4df16ea8f9deebbf8e94372ef741d5cb3079967b0e1112eb",
+          "point_count": 1550,
+          "length_km": 43.914,
+          "max_step_m": 35.7,
+          "start": [
+            34.75707996,
+            32.41199998
+          ],
+          "finish": [
+            35.03393992,
+            32.42540993
+          ],
+          "preview_points_ordered": true,
+          "note": "Podgląd zachowuje kolejność węzłów źródła po zaokrągleniu; to uproszczenie 50 m. Geometria oddzielona od licencji pełnego pliku, wypożyczenia i powrotu z rowerem."
         }
       }
     ],
@@ -6076,12 +7247,18 @@
       "from": "1.3.0",
       "to": "1.4.0 — techniczne poprawki po audycie 6 XI 2026",
       "reason": "Offline/PWA, obsługa i walidacja GPX (brak sieci Overpass, jawne null), kontakty szpitali i assistance, pakowanie, mechanizm zamykania spraw i terminów, wydłużenia warunkowe, wyjazd DAY-04 07:00; nocny zwrot 03:30 potwierdzony przez użytkownika, instrukcja do wpisania. Nazwę poprzedniego hotelu w historii zastąpiono neutralnym określeniem za zgodą użytkownika. Bez publikacji."
+    },
+    {
+      "id": "CHANGE-MAPS-20261106",
+      "from": "31/50 pinezek, 0/8 przebiegów pieszych, filtry bez optional_stops",
+      "to": "50/50 lokalizacji z metadanymi kontroli; 7/8 lokalnych przebiegów GPX OSM; filtry uwzględniają postoje opcjonalne",
+      "reason": "Wykonanie audytu map 6 XI 2026. Vouni i Timi 12 km pozostają niegotowe; pełne GPX rowerowe wymagają zgody na redystrybucję. Bez publikacji."
     }
   ],
   "route_ui": {
     "import_instruction": "iPhone: Pobierz GPX → Udostępnij → Organic Maps. Android: Pobierz GPX → otwórz plik → Organic Maps.",
     "map_offline_note": "Podkład mapy wymaga sieci; trasy i pinezki są z pamięci offline",
-    "gpx_credits": "Brak opublikowanych śladów GPX. Nie pozyskano danych z licencją pozwalającą na redystrybucję; nie wyznaczono linii szlaków z pinezek.",
+    "gpx_credits": "Geometria mapowanych tras: © OpenStreetMap contributors, ODbL-1.0 (https://opendatacommons.org/licenses/odbl/1-0/). Węzły i odcinki źródłowe: gpx/sources/osm-network.json. Brak wysokości pomiarowych; nie obliczamy przewyższeń. Vouni 9,8 km nadal bez potwierdzonego GPX.",
     "unavailable_extension": "brak śladu GPX — nie zalecane"
   },
   "offline": {
