@@ -1,11 +1,11 @@
 {
   "version": "1.5.0",
-  "build_hash": "fb57d50084",
+  "build_hash": "53779d296b",
   "canonical": "https://kjawo.github.io/cypr2026/",
   "sha256": {
-    "index.html": "22d349d18575f5c9ff161d9ebc7c2313ec401abf08ddfe62109b8d51b7eec812",
+    "index.html": "c014c66a1c5e6e82d855ca4f58dd8b0f5e7ec917be0330679480963faa700ac2",
     "cypr2026-handbook.html": "d50b6c4533b37c1bc198bedfe633ac3d4ef45196fbd8673585c803c2a5f417b2",
-    "cypr2026-print.pdf": "4e8ac3fb4eadabef444b42fa6ea9b128f719e34550a6c489c072a83665b01b41",
-    "cypr2026-handbook.pdf": "78009831dc93341b3f8b6d398dbe930bcec49e159687fa18b4ae16d9556b0064"
+    "cypr2026-print.pdf": "f5f58416e69a68b6f5cc8ecf5eaebdd2bc50c1f8c6c0ba0e2b306e9aa668242e",
+    "cypr2026-handbook.pdf": "3edf606843a4ab2fae6c7c33f70709a5db5e94d4b89303b3489f512984e988db"
   }
 }

@@ -6747,6 +6747,7 @@
       {
         "id": "HIST-TIME-01",
         "when": "Od neolitu; źródło nie datuje konkretnych struktur w obecnym parku",
+        "short_when": "Od neolitu",
         "title": "Najstarsze ślady osadnictwa w regionie Pafos",
         "body": "Wpis UNESCO mówi, że region Pafos był zamieszkany od neolitu. To szeroki kontekst dla okolicy, nie twierdzenie, że widoczne wille lub mozaiki powstały w tej epoce.",
         "type": "historia_archeologia",
@@ -6760,6 +6761,7 @@
       {
         "id": "HIST-TIME-02",
         "when": "Od II tysiąclecia p.n.e. do okresu rzymskiego (różne sale i zespoły znalezisk)",
+        "short_when": "II tys. p.n.e. – Rzym",
         "title": "Znaleziska z dawnego Palaipafos",
         "body": "Muzeum w Kouklia pokazuje przedmioty z sanktuarium oraz znaleziska z okolicznych cmentarzysk. Podane przez Departament Starożytności szerokie zakresy nie znaczą, że każdy eksponat powstał w tej samej epoce.",
         "type": "historia_archeologia",
@@ -6773,6 +6775,7 @@
       {
         "id": "HIST-TIME-03",
         "when": "Około XII wieku p.n.e.",
+        "short_when": "ok. XII w. p.n.e.",
         "title": "Sanktuarium w Palaipafos",
         "body": "Wpis UNESCO datuje sanktuarium/świątynię Afrodyty w Palaipafos na XII wiek p.n.e. To historia kultu i miejsca; opowieść o narodzinach bogini należy do mitologii.",
         "type": "historia_archeologia",
@@ -6786,6 +6789,7 @@
       {
         "id": "HIST-TIME-04",
         "when": "Pod koniec IV wieku p.n.e.",
+        "short_when": "IV w. p.n.e.",
         "title": "Nicocles przenosi miasto z Palaipafos",
         "body": "Visit Cyprus podaje, że Nicocles, ostatni król Palaipafos, przeniósł miasto z poprzedniej lokalizacji w pobliże portu pod koniec IV wieku p.n.e.",
         "type": "historia_archeologia",
@@ -6799,6 +6803,7 @@
       {
         "id": "HIST-TIME-05",
         "when": "Okres hellenistyczny i rzymski",
+        "short_when": "Hellenizm i Rzym",
         "title": "Grobowce wykute w skale",
         "body": "Monumentalne grobowce należały do wysokich urzędników i arystokracji, nie do królów. Dokładniejszych dat poszczególnych grobów wskazane źródło nie podaje.",
         "type": "historia_archeologia",
@@ -6812,6 +6817,7 @@
       {
         "id": "HIST-TIME-06",
         "when": "Od II wieku p.n.e. do IV wieku n.e.",
+        "short_when": "II w. p.n.e. – IV w. n.e.",
         "title": "Pafos jako stolica wyspy",
         "body": "Pafos pełniło wtedy funkcję stolicy Cypru. W parku archeologicznym oglądamy pozostałości miasta i mozaiki rzymskich willi; sceny z bogami i herosami są obrazami mitów, nie kroniką zdarzeń.",
         "type": "historia_archeologia",
@@ -6826,6 +6832,7 @@
       {
         "id": "HIST-TIME-07",
         "when": "Około IX wieku n.e.; malowidła z VIII–XV wieku",
+        "short_when": "IX w. n.e.",
         "title": "Agia Paraskevi w Geroskipou",
         "body": "Pięciokopułowa bazylika jest przykładem architektury bizantyjskiej; wewnątrz uwagę zwracają malowidła z kilku stuleci.",
         "type": "historia_archeologia",
@@ -6839,6 +6846,7 @@
       {
         "id": "HIST-TIME-08",
         "when": "Od drugiej połowy XII wieku; freski z XII–XV wieku",
+        "short_when": "XII w. n.e.",
         "title": "Neofit i Enkleistra",
         "body": "Neofit założył klasztor, a wykuta w skale Enkleistra zachowała bizantyjskie freski. Na miejscu patrz na malowidła jako dzieła sakralne, nie ilustracje świeckiej kroniki.",
         "type": "historia_archeologia",
